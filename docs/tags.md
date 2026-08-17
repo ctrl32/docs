@@ -13,7 +13,7 @@ V strome projektu *Application → Tagy*. Každý tag má:
 | Vlastnosť | Načo je |
 |---|---|
 | **meno** | jediné, čím sa naň odkazuješ; v ST je to identifikátor |
-| **typ** | `BOOL`, `I16`, `U16`, `I32`, `U32`, `REAL` (f32), `STRING` |
+| **typ** | `BOOL`, `I16`, `U16`, `I32`, `U32`, `REAL` (f32), `STRING`, `TIME` |
 | **prístup** | `ro` (len čítanie) / `rw` — platí pre WEBview a obsluhu, nie pre logiku |
 | **zdroj** | odkiaľ hodnota prichádza (nižšie) |
 | **gain / offset** | prepočet na fyzikálnu veličinu: `y = x · gain + offset` |
@@ -44,6 +44,33 @@ V strome projektu *Application → Tagy*. Každý tag má:
 !!! note "SDO nikdy v cykle"
     CANopen objekty čítané cez **SDO** sú pomalé a nepatria do cyklu — sú na
     parametrizáciu pri štarte alebo na zásah obsluhy. Do cyklu patrí **PDO**.
+
+## TIME — čas, ktorý zadáva obsluha
+
+Oneskorenia stroja patria **obsluhe**, nie prekompilovaniu. Tag typu `TIME`
+je na to:
+
+```yaml
+- { name: delay, datatype: time, unit: s, decimals: 1, init: 2500 }
+```
+
+- **v tabuľke je vždy v milisekundách** — logika, zbernice aj Modbus vidia
+  obyčajné celé číslo,
+- **na paneli sa zobrazuje a zadáva v jednotke tagu** (`ms`, `s`, `min`,
+  `h`). Pri `unit: s` ukáže widget „2.5 s", obsluha na klávesnici napíše
+  `2.5` a do tagu sa uloží 2500,
+- **`min`/`max` na widgete `input` sú v tej istej jednotke**, takže obsluhu
+  ohraničujú čísla, ktoré vidí,
+- **v ST je to `TIME`**, takže sa dá napísať `t1(PT := delay)` alebo
+  `delay := T#1s500ms` bez akéhokoľvek prevodu.
+
+Presne toto je spôsob, ako dať operátorovi „čas predohrevu" na obrazovku:
+`input` naviazaný na `TIME` tag a ten istý tag ako `PT` časovača.
+
+!!! note "Porovnania času sú bez znamienka"
+    `TIME` beží aj za 2³¹ ms (24,8 dňa) — pri stroji, ktorý sa nevypína, je
+    to bežné. Porovnania preto pracujú bez znamienka a `IF t1.ET > T#500ms`
+    platí aj po mesiaci behu.
 
 ## Deadband — nie je to kozmetika
 

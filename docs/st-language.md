@@ -39,9 +39,20 @@ lamp := t1.Q;
 **Literals**: `TRUE/FALSE`, `123`, `16#FF`, `2#1010`, `1.5`,
 `T#1m30s500ms`, typed `INT#5`. Comments `(* ... *)` and `// to eol`.
 
-**Time**: `NOW()` returns the cycle's monotonic milliseconds. Compare
-with `TIME` values (`IF NOW() - t0 >= T#5s THEN ...`). Never count
-cycles — the cycle period may jitter, milliseconds do not.
+**Time**: `NOW()` returns the cycle's monotonic milliseconds. All four
+comparisons work on `TIME` (`IF t1.ET > T#500ms THEN ...`), and they are
+**unsigned** — a machine that is never switched off passes 2^31 ms
+(24.8 days), where a signed compare would call its uptime negative.
+Never count cycles: the cycle period may jitter, milliseconds do not.
+
+A duration is written `T#…` or `TIME#…` with segments in `d h m s ms`,
+most significant first, and underscores as separators — `T#1s500ms`,
+`TIME#1h_30m`, `T#25h` (the leading segment may overflow its unit).
+
+A `TIME` **tag** is the same value with a face: the panel shows and the
+keypad edits it in the tag's unit (`s`, `ms`, `min`), so an operator can
+set a machine's delay on the screen and the program takes it straight as
+`t1(PT := delay)`. See [Tagy](tags.md).
 
 **Standard functions**: `ABS MIN MAX LIMIT SEL TRUNC`, the
 conversions above, and the string set below.
