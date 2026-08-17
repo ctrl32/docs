@@ -1,0 +1,79 @@
+site_name: ctrl32
+site_description: HMI a PLC pre malé stroje na jednom ESP32 paneli
+site_author: Pavol Krnáč
+site_url: https://www.ctrl32.com/docs/
+copyright: © Pavol Krnáč, Slovakia
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: sk
+  features:
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: svetlá téma
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: tmavá téma
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+
+plugins:
+  - search:
+      lang: [en]
+
+nav:
+  - Čo je ctrl32: index.md
+  - Rýchly štart: quickstart.md
+  - Editor:
+      - Rozloženie a práca v ňom: editor.md
+      - Tagy: tags.md
+      - Obrazovky a widgety: widgets.md
+  - Programovanie:
+      - Rebrík (LD): ladder.md
+      - Bloková schéma (FBD): fbd-composites.md
+      - Štruktúrovaný text (ST): st-language.md
+  - Zbernice a periférie:
+      - Modbus: modbus.md
+      - Raw CAN: rawcan.md
+      - MQTT: mqtt.md
+      - Periférie a služby: peripherals-and-services.md
+      - Pridanie periférie: adding-peripherals.md
+  - Nasadenie:
+      - Nahrávanie do panela: deploy.md
+      - Licencie: licensing.md
+  - Prevádzka:
+      - Online sledovanie: online.md
+      - Výkon a limity: limits.md
+      - Riešenie problémov: troubleshooting.md
