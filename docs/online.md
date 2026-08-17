@@ -110,9 +110,14 @@ they answer while you are online instead of reporting "no reply".
 
 ## Writing values (force)
 
-Not yet — fields are read-only while online. A forced value on an output is
-exactly what people get hurt by, so it will come as its own feature:
-visibly, with a time limit, and never silently.
+The panel can hold a value against the program — for checking wiring or
+exercising an output before its sensor exists. It is a commissioning aid
+and it has its own page, because it is the one thing here that changes a
+machine rather than showing it: [Forcing values](force.md).
+
+The short version: a force is held by the panel until released, closing
+the editor does not release it, a power cycle does, and the status bar
+says `FORCED n` on every page while anything is held.
 
 ## Buffer (scope)
 

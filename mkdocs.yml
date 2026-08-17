@@ -76,5 +76,6 @@ nav:
   - Operation:
       - Online monitoring: online.md
       - Scope: scope.md
+      - Forcing values: force.md
       - Performance and limits: limits.md
       - Troubleshooting: troubleshooting.md
