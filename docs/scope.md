@@ -50,6 +50,23 @@ be free when it is off.
    then *recording after it*, then *complete* — at which point the rows
    are pulled automatically and drawn.
 
+The signal list, the trigger and the pre-trigger setting are **remembered
+between sessions**. They are stored by name, so they are re-resolved
+against whatever program is loaded now; a signal that no longer exists is
+dropped and the page says so. They live in the editor's preferences, not
+in the project — which signals you happen to be looking at is not a
+property of the machine.
+
+!!! tip "A fault that happens once an hour"
+    Tick **repeat** and the scope arms itself again after every capture.
+    The re-arm waits until the rows have been read, so a capture is never
+    overwritten before it has been seen. The counter under the checkbox
+    says how many captures this session has produced.
+
+    The panel also keeps its recording across an editor restart or a
+    pulled cable: on reconnecting, the editor asks whether one is
+    running and picks it up instead of showing "off" over a live trace.
+
 ## Reading the picture
 
 - **One lane per signal**, stacked like a logic analyser. Eight curves on
@@ -67,11 +84,29 @@ be free when it is off.
   relative to the trigger.
 - **Wheel zooms, drag pans.**
 
+### Measuring between two points
+
+Hovering reads one instant; the question an electrician actually asks is
+*how long from this edge to that one*.
+
+- **Left click** plants cursor **A**, **right click** plants **B**. No
+  modifier keys — a person holding a probe in the other hand has one hand
+  for the mouse.
+- The span between them is shaded, and the corner reads
+  `A -120 ms   B +80 ms   d 200 ms (5.00 Hz)`. The frequency is the same
+  measurement asked the other way round, which is what you want when the
+  two cursors sit on consecutive pulses.
+- While A is planted, the hover tooltip also gives the time from A and,
+  for numbers, the **difference in value** — a ramp's slope without doing
+  arithmetic on paper.
+- *Clear A/B* removes them; a new capture clears them by itself, because
+  a cursor belongs to the recording it was placed in.
+
 ## Getting it out
 
-*Export CSV* writes one row per sample: the time in milliseconds first,
-then one column per signal, and a `T` in the last column on the trigger
-row. That is the file you send a customer, or open in a spreadsheet next
+*Export CSV* writes one row per sample: the time in milliseconds first
+(**relative to the trigger**, exactly as the picture reads), then one
+column per signal, and a `T` in the last column on the trigger row. That is the file you send a customer, or open in a spreadsheet next
 to a measurement from something else.
 
 ## When it will not arm
