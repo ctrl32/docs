@@ -1,75 +1,92 @@
-# Rýchly štart
+# Quick start
 
-Cieľ tejto kapitoly: **od nainštalovaného editora po program bežiaci v paneli.**
-Trvá to pár minút a nepotrebuješ na to nič okrem panela, USB kábla a PC.
+The goal of this chapter: **from an installed editor to a program running in
+the panel.** It takes a few minutes and needs nothing but the panel, a USB
+cable and a PC.
 
-## 1. Inštalácia
+## 1. Installation
 
-Spusti inštalátor `ctrl32-setup-<verzia>.exe`. Nainštaluje sa:
+Run the installer `ctrl32-setup-<version>.exe`. It installs:
 
-| Súbor | Načo je |
+| File | What it is for |
 |---|---|
-| `visu_editor.exe` | samotný editor |
-| `visu_stc.exe` | prekladač ST — editor ho volá pri každom builde |
-| `packbuild\` | staviteľ balíka (obsahuje aj schému a katalóg dosiek) |
-| `ctrl32.dat` | katalóg dosiek a čipov |
-| `examples\` | vzorové projekty na otvorenie |
+| `visu_editor.exe` | the editor itself |
+| `visu_stc.exe` | the ST compiler — the editor calls it on every build |
+| `packbuild\` | the pack builder (it carries the schema and the board catalog) |
+| `ctrl32.dat` | the catalog of boards and chips |
+| `examples\` | sample projects to open |
 
-!!! note "Prečo sú tam tri programy a nie jeden"
-    Prekladač a staviteľ balíka sú tie isté nástroje, ktoré používame pri
-    vývoji — takže balík, ktorý ti postaví editor, je **bajt na bajt** ten
-    istý ako z príkazového riadka. Formát má jediného autora a nemá sa ako
-    rozísť.
+!!! note "Why three programs and not one"
+    The compiler and the pack builder are the same tools we use in
+    development — so the pack the editor builds for you is **byte for byte**
+    the one the command line builds. The format has a single author and no
+    way to drift.
 
-## 2. Otvor vzorový projekt
+    The three belong together: each carries the schema version it was built
+    for, and the editor refuses a pack builder that does not match rather
+    than quietly building the wrong thing.
 
-*File → Open* a vyber niečo z `examples\`. Dobrý začiatok:
+## 2. Open a sample project
 
-- `ladder_sealin.yaml` — klasické samodržné zapojenie s TON, počítadlom a
-  latch-om; uvidíš rebrík aj s komentármi pod premennými,
-- `tubex_panel.yaml` — reálny panel s Ethernetom, Modbus slave a NeoPixel LED,
-- `machine_blocks.yaml` — motory, ventily, PID a hysterézy.
+*File → Open* and pick something from `examples\`. Good places to start:
 
-## 3. Vyber dosku
+- `ladder_sealin.yaml` — the classic seal-in circuit with a TON, a counter
+  and a latch; the rungs come with the comments under the variables,
+- `tubex_panel.yaml` — a real panel with Ethernet, a Modbus slave and
+  NeoPixel LEDs,
+- `machine_blocks.yaml` — motors, valves, PID and hysteresis,
+- `time_setpoint.yaml` — a TIME setpoint the operator types on the screen,
+  driving a timer's PT.
 
-V strome projektu klikni na uzol dosky. Doska určuje piny, pamäť aj to, aký
-runtime sa do nej flashuje — projekt sa bez nej nedá nasadiť.
+## 3. Pick the board
 
-## 4. Nahraj runtime (prvýkrát)
+Click the board node in the project tree. The board decides the pins, the
+memory and which runtime is flashed into it — a project cannot be deployed
+without one.
 
-Ak je panel nový alebo má starý firmvér, na stránke dosky je *Flash runtime*.
-Zapíše sa cez USB (esptool), trvá to necháva desiatky sekúnd.
+## 4. Flash the runtime (the first time)
 
-!!! warning "Starý runtime = nepodarí sa nahrať program"
-    Formát balíka sa vyvíja. Ak je runtime starší než balík, panel ho odmietne
-    a v editore uvidíš chybu. Riešenie je vždy to isté: **preflashovať runtime**.
+If the panel is new or carries old firmware, the board page has *Flash
+runtime*. It is written over USB (esptool) and takes tens of seconds.
 
-## 5. Nahraj program
+!!! warning "An old runtime means the program will not load"
+    The pack format evolves. If the runtime is older than the pack, the panel
+    refuses it and the editor shows an error. The fix is always the same:
+    **flash the runtime**.
 
-V hornej lište vyber COM port a klikni modrú ikonu ⭳ (*Download to panel*).
-Editor projekt zostaví a nahrá. Čo sa deje pod tým:
+## 5. Download the program
 
-1. projekt sa zostaví do binárneho balíka,
-2. balík ide do **neaktívneho slotu** v paneli,
-3. panel overí CRC, formát aj cieľovú dosku,
-4. **až potom** prepne aktívny slot a reštartuje sa.
+Pick the COM port in the toolbar and click the blue ⭳ icon (*Download to
+panel*). The editor builds the project and uploads it. What happens
+underneath:
 
-Preto sa panel nahrávaním nedá odrovnať: keď je čokoľvek zle, starý balík
-zostáva a beží ďalej.
+1. the project is built into a binary pack,
+2. the pack goes into the **inactive slot** in the panel,
+3. the panel verifies the CRC, the format and the target board,
+4. **only then** does it switch the active slot and restart.
 
-## 6. Pozri sa, čo stroj robí
+That is why downloading cannot brick the panel: when anything is wrong, the
+old pack stays and keeps running.
 
-Vedľa portu je ikona zástrčky — *ONLINE*. Po zapnutí ukazuje editor **živé
-hodnoty priamo z panela**: v priečkach rebríka, na pinoch blokov, v zozname
-tagov aj v náhľade obrazovky.
+!!! note "No port is preselected"
+    The port selector starts empty, and both transfer dialogs ask for it at
+    the moment bytes are about to move. A port nobody chose reads as
+    "configured", and the first sign that it was not would be a download
+    going nowhere.
 
-Podmienka je jediná: **editor a panel musia mať rovnaký program**. Ak nemajú,
-editor to povie a rovno ponúkne nahratie — viac v kapitole
-[Online sledovanie](online.md).
+## 6. Watch what the machine is doing
 
-## Čo ďalej
+Next to the port there is a plug icon — *ONLINE*. Switched on, the editor
+shows **live values straight from the panel**: in the ladder rungs, on block
+pins, in the tag list and in the screen preview.
 
-- [Editor](editor.md) — ako je usporiadaný a čo kde je
-- [Tagy](tags.md) — premenné, typy, deadband a odkiaľ hodnoty prichádzajú
-- [Rebrík](ladder.md) — kreslenie priečok
-- [Nahrávanie do panela](deploy.md) — dvojslot, runtime, čo sa kedy overuje
+There is one condition: **the editor and the panel must run the same
+program**. If they do not, the editor says so and offers to download it —
+more in [Online monitoring](online.md).
+
+## What next
+
+- [Editor](editor.md) — how it is laid out and what is where
+- [Tags](tags.md) — variables, types, deadband and where values come from
+- [Ladder](ladder.md) — drawing rungs
+- [Download to the panel](deploy.md) — dual slot, runtime, what is verified when

@@ -1,109 +1,134 @@
-# Online sledovanie
+# Online monitoring
 
-Editor pripojený k bežiacemu panelu ukazuje **živé hodnoty na miestach, kam sa
-aj tak pozeráš**: pri kontaktoch v priečke, na pinoch blokov, v zozname
-premenných aj v náhľade obrazovky. Je to ten istý pohľad ako testovací režim,
-len hodnoty nepočíta simulácia, ale **stroj**.
+An editor connected to a running panel shows **live values in the places you
+are looking at anyway**: at the contacts in a rung, on block pins, in the
+variable list and in the screen preview. It is the same view as test mode,
+except the values are not computed by a simulation — they come from the
+**machine**.
 
-## Zapnutie
+## Switching it on
 
-V hornej lište vyber COM port a klikni ikonu zástrčky. Farba hovorí stav:
+Pick the COM port in the toolbar and click the plug icon. The colour is the
+state:
 
-| Farba | Význam |
+| Colour | Meaning |
 |---|---|
-| **zelená** | panel odpovedá a beží ten istý program |
-| **oranžová** | hľadá sa port (odpojený kábel, panel sa reštartuje) |
-| **červená** | panel odpovedá, ale beží **iný program** |
+| **green** | the panel answers and runs the same program |
+| **amber** | looking for the port (cable unplugged, panel restarting) |
+| **red** | the panel answers but runs a **different program** |
 
-V bublinke nad ikonou sú tri čísla, ktoré stoja za pozretie: koľko panel stojí
-sledovanie (v µs), ako staré je posledné čítanie a počítadlo vzoriek.
+The tooltip over the icon carries three numbers worth a look: what the
+monitoring costs the panel (in µs), how old the last reading is, and the
+sample counter.
 
-!!! tip "Zamrznuté počítadlo vzoriek nie je porucha spojenia"
-    Ak panel odpovedá, ale `seq` sa nehýbe, **stojí PLC cyklus**. To je
-    diagnóza, nie timeout — a ušetrí hodinu hľadania na nesprávnom mieste.
+!!! tip "A frozen sample counter is not a broken connection"
+    If the panel answers but `seq` does not move, **the PLC cycle has
+    stopped**. That is a diagnosis, not a timeout — and it saves an hour of
+    looking in the wrong place.
 
-## Rovnaký program, inak nič
+## The same program, or nothing
 
-Hodnoty chodia z panela **podľa indexov**, nie podľa mien. Keby editor mal
-novší projekt než panel, ukazoval by reálne čísla pri nesprávnych menách —
-živo vyzerajúca lož, ktorá je horšia než prázdne políčko.
+Values travel from the panel **by index**, not by name. If the editor held a
+newer project than the panel, it would show real numbers under the wrong
+names — a lie that looks alive, which is worse than an empty field.
 
-Preto si obe strany pri pripojení porovnajú dve čísla:
+So both sides compare two numbers when connecting:
 
-- **odtlačok tabuľky tagov** — mená a typy všetkých tagov v poradí indexov,
-- **CRC balíka** — presná identita programu (zmenená priečka nechá tagy tak,
-  ale offsety lokálnych premenných sa posunú).
+- **the tag table fingerprint** — the names and types of all tags in index
+  order,
+- **the pack CRC** — the exact identity of the program (a changed rung
+  leaves the tags alone but moves the offsets of local variables).
 
-Keď nesedia, editor napíše *„Panel má iný program – nahrávam tento"* a otvorí
-nahrávanie. Sledovanie sa medzitým odparkuje (upload potrebuje ten istý port) a
-po reštarte sa samo pripojí.
+When they do not match, the editor says *"The panel runs a different program
+— downloading this one"* and opens the download. Monitoring parks itself
+meanwhile (the upload needs the same port) and reconnects after the restart.
 
-Odtlačok si vieš pozrieť aj z príkazového riadka:
+You can also read the fingerprint from the command line:
 
 ```powershell
-visu_editor.exe projekt.yaml --tag-hash
+visu_editor.exe project.yaml --tag-hash
 # TAGHASH 43943135  (215 tags)
 ```
 
-Na mieste tým odlíšiš „panel má iný program" od „je zlý kábel" bez hádania.
+On site that separates "the panel runs a different program" from "the cable
+is bad" without guessing.
 
-## Čo sa dá sledovať
+## What can be watched
 
-| Druh | Odkiaľ | Poznámka |
+| Kind | Where from | Note |
 |---|---|---|
-| **tagy** | tabuľka tagov panela | funguje vždy |
-| **drôty medzi blokmi** | inštančná pamäť VM | mená sa odvodia z preloženého programu |
-| **členy blokov** (`t1.ET`, `c1.CV`) | inštančná pamäť VM | to isté |
-| **stav panela** | cyklus, overruny, heap | aj cena samotného sledovania |
+| **tags** | the panel's tag table | always works |
+| **wires between blocks** | the VM's instance memory | names come from the compiled program |
+| **block members** (`t1.ET`, `c1.CV`) | the VM's instance memory | the same |
+| **panel state** | cycle, overruns, heap | including what the monitoring itself costs |
 
-Drôty a členy blokov nie sú tagy — od prechodu na bytecode sú to slová
-inštančnej pamäte (a práve preto je cyklus 5× rýchlejší). Editor si ich mená
-zistí tak, že projekt zostaví a preložený program **porovná bajt po bajte** s
-tým, čo je v balíku. Keď sedia, offsety sú preukázateľne tie z panela; keď
-nie, ukáže len tagy a povie to.
+Wires and block members are not tags — since the move to bytecode they are
+words of instance memory (which is exactly why the cycle got 5× faster). The
+editor learns their names by building the project and comparing the compiled
+program **byte for byte** with what is in the pack. When they match, the
+offsets are provably the panel's; when they do not, it shows tags only and
+says so.
 
-V priečke to znamená konkrétne veci: pri počítadle **koľko napočítalo**
-(`CV`), pri časovači **ako dlho už beží** (`ET`, časy pod sekundu v ms,
-nad ňou v sekundách) a s akým `PT` či `PV` blok **naozaj** pracuje — nie
-s akým je nakreslený. Keď je parameter vedený z tagu, tento rozdiel je
-presne to, čo hľadáš.
+In a rung that means concrete things: for a counter **how much it has
+counted** (`CV`), for a timer **how long it has been running** (`ET`, in ms
+below a second and in seconds above it), and which `PT` or `PV` the block is
+**really** working with — not the one drawn on it. When a parameter is fed
+from a tag, that difference is exactly what you are looking for.
 
-## Koľko to stojí cyklus
+## What it costs the cycle
 
-Panel vzorkuje len to, na čo sa práve pozeráš, a len desaťkrát za sekundu —
-rýchlejšie oko aj tak neprečíta. Namerané na klasickom ESP32 (10 ms cyklus,
-strojový program):
+The panel samples only what you are looking at, and only ten times a second
+— a faster eye would not read it anyway. Measured on a classic ESP32 (10 ms
+cycle, machine program):
 
-| stav | logika | celé telo úlohy |
+| state | logic | whole task body |
 |---|---|---|
-| nikto nesleduje | 299 µs | 287 µs |
-| 8 tagov | 299 µs | 288 µs |
-| 64 tagov (maximum) | 299 µs | ~289 µs |
+| nobody watching | 299 µs | 287 µs |
+| 8 tags | 299 µs | 288 µs |
+| 64 tags (the maximum) | 299 µs | ~289 µs |
 
-Jedna sledovaná hodnota stojí **~0,34 µs na vzorku**, takže 64 hodnôt desaťkrát
-za sekundu je **2,2 µs na cyklus** — 0,02 % z desaťmilisekundovej periódy. Keď
-nie je nikto online, zoznam je prázdny a nevykoná sa ani to.
+One watched value costs **~0.34 µs per sample**, so 64 values ten times a
+second is **2.2 µs per cycle** — 0.02 % of a ten-millisecond period. With
+nobody online the list is empty and even that is not executed.
 
-## Zápis hodnôt (force)
+## Panel statistics stay live
 
-Zatiaľ **nie je** — políčka sú počas online len na čítanie. Vynútená hodnota na
-výstupe je presne to, čím sa ľudia zrania, takže to príde ako samostatná vec:
-viditeľne, s časovým limitom a nikdy ticho.
+Cycle time, overruns, heap and the bus states keep updating while you are
+online. The monitoring worker owns the serial port, so it asks the panel for
+them itself every ~2 s and everything that used to open the port for that —
+the status bar, the device page, the CAN and Modbus dots — reads from there.
+A reading older than 6 s is not shown at all: a frozen cycle time that keeps
+being displayed is worse than an empty field.
 
-## Buffer (osciloskop)
+## The serial console keeps working
 
-Živý pohľad desaťkrát za sekundu ukáže ustálený stav a **krátke udalosti
-minie** — impulz dlhý jeden cyklus sa doň jednoducho netrafí. Na to je buffer:
-až 8 hodnôt vzorkovaných **každý cyklus** do kruhového zásobníka v paneli, so
-spúšťou (nábežná/dobežná hrana, úroveň).
+The terminal tab reads **through** the monitoring session: every line the
+panel prints that is not a protocol answer lands in a buffer the terminal
+drains, and typing works too (the worker does the writing). The diagnostic
+pages — CAN dump, modem status, the diagnostic buffer — go the same way, so
+they answer while you are online instead of reporting "no reply".
 
-Kruh beží stále, kým je nahrávanie spustené, a spúšť rozhoduje len o tom, **kedy
-skončiť** — preto máš v zázname aj históriu spred udalosti.
+## Writing values (force)
 
-!!! success "Vypnuté nahrávanie nestojí nič"
-    Nie „takmer nič" — cyklus vykoná jediné porovnanie a do vzorkovania vôbec
-    nevojde. Počas nahrávania stojí 8 hodnôt každý cyklus ~5 µs, teda 0,05 %
-    periódy.
+Not yet — fields are read-only while online. A forced value on an output is
+exactly what people get hurt by, so it will come as its own feature:
+visibly, with a time limit, and never silently.
 
-Zobrazenie záznamu v editore ešte nie je hotové; zatiaľ sa buffer ovláda cez
-servisný protokol panela.
+## Buffer (scope)
+
+A live view ten times a second shows a steady state and **misses short
+events** — a pulse one cycle long simply falls between samples. That is what
+the buffer is for: up to 8 values sampled **every cycle** into a ring buffer
+in the panel, with a trigger (rising/falling edge, level).
+
+The ring runs continuously while recording, and the trigger only decides
+**when to stop** — which is why the record also holds the history from
+before the event.
+
+!!! success "Recording switched off costs nothing"
+    Not "almost nothing" — the cycle performs a single comparison and does
+    not enter sampling at all. While recording, 8 values every cycle cost
+    ~5 µs, or 0.05 % of the period.
+
+Displaying the record in the editor is not finished yet; for now the buffer
+is driven through the panel's service protocol.

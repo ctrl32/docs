@@ -1,86 +1,89 @@
 # ctrl32
 
-**HMI a PLC pre malé stroje na jednom ESP32 paneli.** Nakreslíš obrazovky,
-nadefinuješ tagy, napíšeš logiku v rebríku, blokovej schéme alebo v ST — a
-nahráš to do panela. Tá istá vizualizácia beží aj v prehliadači.
+**HMI and PLC for small machines on a single ESP32 panel.** You draw the
+screens, define the tags, write the logic in ladder, in a function block
+diagram or in ST — and download it to the panel. The same visualization also
+runs in a browser.
 
-Ekvivalent CoDeSys + WebVisu, len na hardvéri, ktorý stojí rádovo menej.
+The equivalent of CoDeSys + WebVisu, on hardware that costs an order of
+magnitude less.
 
-## Z čoho sa to skladá
+## What it is made of
 
-| Časť | Čo robí |
+| Part | What it does |
 |---|---|
-| **Panel (firmware)** | beží na ESP32, kreslí vizualizáciu na dotykový displej, číta Modbus, riadi logiku |
-| **ctrl32 Editor** | nainštalovaná aplikácia na PC — kreslíš v nej obrazovky, definuješ tagy, píšeš program a nahrávaš ho do panela |
-| **WEBview** | tá istá vizualizácia v prehliadači, servírovaná priamo z panela |
+| **Panel (firmware)** | runs on the ESP32, draws the visualization on a touch display, reads Modbus, executes the logic |
+| **ctrl32 Editor** | an installed desktop application — you draw screens, define tags, write the program and download it to the panel |
+| **WEBview** | the same visualization in a browser, served straight from the panel |
 
-## Základný princíp: vizualizácia je DÁTA, nie kód
+## The core principle: the visualization is DATA, not code
 
-Obrazovky sa **neprekladajú do firmvéru**. Editor ich zabalí do binárneho
-balíka a panel ho číta priamo z flash pamäte. Zmena obrazovky preto znamená
-nahratie súboru, **nie preflashovanie panela** — a keď sa niečo pokazí, starý
-balík zostáva v druhom slote a panel beží ďalej.
+Screens are **not compiled into the firmware**. The editor packs them into a
+binary pack and the panel reads it directly from flash. Changing a screen
+therefore means uploading a file, **not reflashing the panel** — and when
+something goes wrong, the old pack stays in the other slot and the panel
+keeps running.
 
-## Čo panel naozaj zvládne
+## What the panel really handles
 
-Čísla sú namerané na najpomalšej doske, ktorú predávame (klasický ESP32,
-240 MHz), pri bežiacom Ethernete a CAN zbernici:
+The numbers are measured on the slowest board we ship (a classic ESP32 at
+240 MHz), with Ethernet and the CAN bus running alongside:
 
 | | |
 |---|---|
-| 400 blokov v rebríku | **0,52 ms** z 10 ms cyklu (5 %) |
-| celý strojový program (190 riadkov ST, 215 tagov) | **0,30 ms** (3 %) |
-| 10 000 inštrukcií ST | 1,42 ms (14 %) |
+| 400 ladder blocks | **0.52 ms** out of a 10 ms cycle (5 %) |
+| a whole machine program (190 ST lines, 215 tags) | **0.30 ms** (3 %) |
+| 10 000 ST instructions | 1.42 ms (14 %) |
 
-Pre porovnanie: Siemens LOGO! sa zastaví pri 400 blokoch. My ich zvládneme
-s cyklom, ktorý je z 95 % nečinný. Podrobnosti a metodika v kapitole
-[Výkon a limity](limits.md).
+For comparison: a Siemens LOGO! stops at 400 blocks. We run them with a
+cycle that is 95 % idle. Details and method in
+[Performance and limits](limits.md).
 
-## Čo to NIE JE
+## What it is NOT
 
-!!! danger "Bezpečnosť sa cez panel nerieši"
-    Zariadenie **nie je určené na bezpečnostné funkcie**. Núdzové zastavenie,
-    dvere a svetelné závory musia byť **tvrdo drôtované** — nie vedené cez
-    logiku panela. Zastavenie pohonu cez CANopen nie je bezpečnostná funkcia;
-    na to má menič svorky STO.
+!!! danger "Safety is not handled through the panel"
+    The device is **not intended for safety functions**. Emergency stop,
+    doors and light curtains must be **hard-wired** — never routed through
+    the panel's logic. Stopping a drive over CANopen is not a safety
+    function; that is what the drive's STO terminals are for.
 
-Ani to nie je systém reálneho času. Cyklus 10–20 ms drží spoľahlivo, ale
-jitter zo sieťového zásobníka existuje a nikdy ho nesľubujeme preč.
+Nor is it a real-time system. It holds a 10–20 ms cycle reliably, but jitter
+from the network stack exists and we never promise it away.
 
-## Kde začať
+## Where to start
 
 <div class="grid cards" markdown>
 
--   **Prvýkrát v ruke**
+-   **First time in your hands**
 
     ---
 
-    Od inštalácie po prvý program v paneli za pár minút.
+    From installation to your first program in the panel, in minutes.
 
-    [Rýchly štart](quickstart.md)
+    [Quick start](quickstart.md)
 
--   **Ako sa v tom pracuje**
+-   **How you work in it**
 
     ---
 
-    Rozloženie editora, strom projektu, obrazovky, tagy, POU.
+    Editor layout, project tree, screens, tags, POUs.
 
     [Editor](editor.md)
 
--   **Keď stroj beží inak, než čakáš**
+-   **When the machine behaves differently than you expect**
 
     ---
 
-    Živé hodnoty priamo v priečkach rebríka, priamo z bežiaceho stroja.
+    Live values right in the ladder rungs, straight from the running machine.
 
-    [Online sledovanie](online.md)
+    [Online monitoring](online.md)
 
--   **Keď niečo nejde**
+-   **When something does not work**
 
     ---
 
-    Skutočné hlášky, ktoré ti systém vypíše, a čo za nimi je.
+    The actual messages the system prints, and what is behind them.
 
-    [Riešenie problémov](troubleshooting.md)
+    [Troubleshooting](troubleshooting.md)
 
 </div>

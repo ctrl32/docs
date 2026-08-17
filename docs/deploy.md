@@ -1,84 +1,100 @@
-# Nahrávanie do panela
+# Download to the panel
 
-Nahratie je **jedno tlačidlo v editore** (modrá ikona ⭳, alebo `F5`). Nie je na
-to samostatná aplikácia, nepotrebuješ Python ani PlatformIO a nemusíš vedieť,
-čo sa deje pod tým. Táto kapitola je o tom, čo sa deje pod tým — lebo pri
-uvádzaní stroja do prevádzky sa to raz zíde.
+Downloading is **one button in the editor** (the blue ⭳ icon, or `F5`).
+There is no separate application, you need neither Python nor PlatformIO,
+and you do not have to know what happens underneath. This chapter is about
+what happens underneath — because during commissioning it comes in useful
+exactly once.
 
-## Dve rôzne veci: runtime a program
+## Two different things: the runtime and the program
 
-| | Runtime | Program (balík) |
+| | Runtime | Program (pack) |
 |---|---|---|
-| čo to je | firmvér panela | tvoje obrazovky, tagy a logika |
-| kedy sa nahráva | pri novej doske alebo pri novej verzii ctrl32 | pri každej zmene projektu |
-| ako | *Flash runtime* na stránke dosky (USB, esptool) | tlačidlo ⭳ / `F5` |
-| trvá | desiatky sekúnd | sekundy |
+| what it is | the panel's firmware | your screens, tags and logic |
+| when it is written | on a new board or a new ctrl32 version | on every project change |
+| how | *Flash runtime* on the board page (USB, esptool) | the ⭳ button / `F5` |
+| takes | tens of seconds | seconds |
 
-**Zmena obrazovky neznamená preflashovanie panela.** Vizualizácia je dáta, nie
-kód — panel ich číta priamo z flash pamäte.
+**Changing a screen does not mean reflashing the panel.** The visualization
+is data, not code — the panel reads it straight from flash.
 
-## Čo sa stane po stlačení ⭳
+## What happens when you press ⭳
 
-1. Editor projekt **zostaví do binárneho balíka**. Ak build zlyhá, ďalej sa
-   nejde a otvorí sa okno s celým výpisom.
-2. Balík ide cez sériový port po blokoch (2 kB, každý potvrdený).
-3. Zapisuje sa do **neaktívneho slotu** — panel má dva (`visu_a`, `visu_b`) a
-   práve beží z jedného z nich.
-4. Panel **overí celý balík**: CRC, formát, verziu schémy a cieľovú dosku.
-5. **Až potom** prepne aktívny slot a reštartuje sa.
+1. The editor **builds the project into a binary pack**. If the build fails,
+   nothing else happens and a window opens with the whole output.
+2. The pack goes over the serial port in chunks (2 kB, each acknowledged).
+3. It is written into the **inactive slot** — the panel has two (`visu_a`,
+   `visu_b`) and is currently running from one of them.
+4. The panel **verifies the whole pack**: CRC, format, schema version and
+   target board.
+5. **Only then** does it switch the active slot and restart.
 
-!!! success "Nahrávaním sa panel nedá odrovnať"
-    Keď je čokoľvek zle — pretrhnutý kábel, zlý balík, nesprávna doska —
-    prepnutie sa jednoducho nevykoná. Starý balík zostáva v druhom slote
-    a panel beží ďalej. To nie je náhoda, je to zmysel dvoch slotov.
+!!! success "A download cannot brick the panel"
+    When anything is wrong — a broken cable, a bad pack, the wrong board —
+    the switch simply does not happen. The old pack stays in the other slot
+    and the panel keeps running. That is not luck; it is the point of having
+    two slots.
 
-## Prečo panel balík odmietne
+## Pick the port here
 
-| Hláška | Príčina |
+The port selector in both transfer dialogs starts **empty** and the action
+stays disabled until you choose one. Nothing is preselected on purpose: a
+port nobody picked reads as a setting, and the first sign that it was not
+would be bytes going to a device that is not there.
+
+## Why the panel refuses a pack
+
+| Message | Cause |
 |---|---|
-| `ERR: size/slot` | balík je väčší než partícia (alebo sa nedá otvoriť slot) |
-| `ERR: crc` | prenos sa pokazil — skús znovu, skontroluj kábel |
-| neplatný cieľ | projekt je pre **inú dosku**, než ktorá je pripojená |
-| stará verzia formátu | runtime je starší než balík → **preflashovať runtime** |
+| `ERR: size/slot` | the pack is larger than the partition (or the slot cannot be opened) |
+| `ERR: crc` | the transfer was corrupted — try again, check the cable |
+| invalid target | the project is for a **different board** than the one connected |
+| old format version | the runtime is older than the pack → **flash the runtime** |
 
-Kontrola cieľovej dosky je zámerne tvrdá. Balík pre panel s iným displejom a
-inými pinmi by sa načítal a bežal — a stroj by robil niečo iné, než čakáš.
+The target-board check is deliberately strict. A pack for a panel with a
+different display and different pins would load and run — and the machine
+would do something other than what you expect.
 
-## Prenos: vždy sériový port
+## Transport: always the serial port
 
-Nahrávanie ide **cez USB / sériovú linku**, nie cez WiFi ani Ethernet. Je to
-vedomé rozhodnutie: pri uvádzaní stroja do prevádzky je kábel jediná vec, ktorá
-funguje vždy, a nahrávanie programu do stroja cez sieť je vec, ktorú treba
-najprv poriadne zabezpečiť. Sieťové nahrávanie príde neskôr.
+Downloading goes **over USB / the serial line**, not over WiFi or Ethernet.
+That is a deliberate decision: during commissioning a cable is the one thing
+that always works, and putting a program into a machine over a network is
+something to secure properly first. Network download comes later.
 
-Ten istý port sa používa aj na [online sledovanie](online.md) — sledovanie sa
-preto počas nahrávania samo odparkuje a po reštarte panela sa samo pripojí.
+The same port is used for [online monitoring](online.md) — monitoring
+therefore parks itself for the duration of a download and reconnects by
+itself after the panel restarts.
 
-!!! warning "Nahrávaj do stojaceho stroja"
-    Zápis do flash pamäte zastavuje prístup do cache **pre obe jadrá**, takže
-    počas neho logika nebeží, aj keď má najvyššiu prioritu. Panel preto
-    nahrávanie povoľuje len v STOP — je to ten istý dôvod, pre ktorý má S7
-    prepínač RUN/STOP.
+!!! warning "Download into a machine that is standing still"
+    Writing to flash stalls cache access **for both cores**, so the logic
+    does not run while it happens, even at the highest priority. The panel
+    therefore allows a download only in STOP — the same reason an S7 has a
+    RUN/STOP switch.
 
 ## Runtime
 
-Firmvér sa zapisuje z katalógu hotových binárok pre danú dosku (`runtimes/`),
-**nie prekladom na tvojom PC**. Nepotrebuješ nainštalovaný toolchain a dostaneš
-presne tú binárku, ktorú sme testovali.
+The firmware is written from a catalog of prebuilt binaries for the board
+(`runtimes/`), **not compiled on your PC**. You need no toolchain installed
+and you get exactly the binary we tested.
 
-Beží na vlastnom vlákne, takže editor medzitým normálne kreslí, a slotov s
-balíkmi sa nedotýka — po preflashovaní runtimu zostáva tvoj program v paneli.
+It runs on its own thread, so the editor keeps drawing meanwhile, and it
+does not touch the pack slots — your program stays in the panel after a
+runtime flash.
 
-## Čo sa nahráva spolu s programom
+## What is downloaded together with the program
 
-Balík obsahuje všetko, čo panel potrebuje, v jednom súbore:
+The pack contains everything the panel needs, in one file:
 
-- hlavičku (magic, verzia schémy, cieľová doska, CRC32),
-- tabuľku reťazcov, tagov, alarmov a štýlov,
-- assety (písma, ikony, obrázky),
-- obrazovky,
-- **bytecode programu** a zdroj ST (kvôli overeniu totožnosti pri online).
+- the header (magic, schema version, target board, CRC32),
+- the tables of strings, tags, alarms and styles,
+- assets (fonts, icons, images),
+- screens,
+- the **program bytecode** and the ST source (used to prove identity when
+  going online).
 
-Panel z neho nič neparsuje — namapuje si ho z flash a číta priamo. Načítanie
-obrazovky trvá menej než milisekundu.
+The panel parses nothing out of it — it maps it from flash and reads it
+directly. Loading a screen takes less than a millisecond.
+
+## Licence
 

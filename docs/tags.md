@@ -1,125 +1,133 @@
-# Tagy
+# Tags
 
-**Tag je premenná.** Je to zároveň jediné miesto, kde v celom systéme býva
-hodnota — widget si hodnotu nedrží, drží si len index tagu. Preto obrazovka,
-logika, WEBview aj Modbus vidia to isté číslo a nemá sa ako rozísť.
+**A tag is a variable.** It is also the only place in the whole system where
+a value lives — a widget holds no value, only a tag index. That is why the
+screen, the logic, WEBview and Modbus all see the same number, with no way
+to drift apart.
 
-Tabuľka tagov je zároveň **procesný obraz** PLC (ekvivalent I/Q/M na S7).
+The tag table is at the same time the PLC's **process image** (the
+equivalent of I/Q/M on an S7).
 
-## Založenie tagu
+## Creating a tag
 
-V strome projektu *Application → Tagy*. Každý tag má:
+In the project tree: *Application → Tags*. Every tag has:
 
-| Vlastnosť | Načo je |
+| Property | What it is for |
 |---|---|
-| **meno** | jediné, čím sa naň odkazuješ; v ST je to identifikátor |
-| **typ** | `BOOL`, `I16`, `U16`, `I32`, `U32`, `REAL` (f32), `STRING`, `TIME` |
-| **prístup** | `ro` (len čítanie) / `rw` — platí pre WEBview a obsluhu, nie pre logiku |
-| **zdroj** | odkiaľ hodnota prichádza (nižšie) |
-| **gain / offset** | prepočet na fyzikálnu veličinu: `y = x · gain + offset` |
-| **jednotka, desatinné miesta** | ako sa zobrazuje |
-| **deadband** | odkedy sa zmena považuje za zmenu |
+| **name** | the only thing you refer to it by; in ST it is an identifier |
+| **type** | `BOOL`, `I16`, `U16`, `I32`, `U32`, `REAL` (f32), `STRING`, `TIME` |
+| **access** | `ro` (read only) / `rw` — for WEBview and the operator, not for the logic |
+| **source** | where the value comes from (below) |
+| **gain / offset** | conversion to a physical quantity: `y = x · gain + offset` |
+| **unit, decimals** | how it is displayed |
+| **deadband** | from what change on it counts as a change |
 
-!!! warning "Meno tagu nesmie byť kľúčové slovo ST"
-    Mená ako `NOT`, `AND`, `VAR`, `REAL`, `TIME` alebo `END_IF` sa v
-    generovanom programe stanú niečím iným, ako čakáš. Editor to odmietne pri
-    builde a povie, o ktorý tag ide.
+!!! warning "A tag name must not be an ST keyword"
+    Names like `NOT`, `AND`, `VAR`, `REAL`, `TIME` or `END_IF` become
+    something else in the generated program. The editor refuses them at
+    build time and names the tag.
 
-## Odkiaľ hodnota prichádza
+## Where the value comes from
 
-| Zdroj | Význam |
+| Source | Meaning |
 |---|---|
-| **internal** | len v pamäti panela; s `persist` prežije reštart |
-| **modbus** | z PLC, meniča alebo merača — jednotka, funkčný kód, adresa |
-| **canopen** | objekt zo slovníka uzla (index/subindex), cez PDO alebo SDO |
-| **gpio** | lokálny vstup/výstup panela, voliteľne invertovaný |
-| **periph** | pin čipu na lokálnej zbernici (expandér, teplomer, LED) |
+| **internal** | panel memory only; with `persist` it survives a restart |
+| **modbus** | from a PLC, a drive or a meter — unit, function code, address |
+| **canopen** | an object from a node's dictionary (index/subindex), over PDO or SDO |
+| **gpio** | a local panel input/output, optionally inverted |
+| **periph** | a chip pin on a local bus (expander, thermometer, LED) |
 
-!!! danger "Poradie slov pri Modbus `f32`"
-    Hodnota `REAL` sa cez Modbus prenáša v dvoch 16-bitových registroch a
-    **poradie slov sa líši výrobca od výrobcu**. Je to najčastejší zdroj
-    nezmyselných hodnôt. Máš na to prepínač `word_order`; keď vidíš namiesto
-    23,5 °C hodnotu 3,4·10³⁸, začni tu.
+!!! danger "Word order for Modbus `f32`"
+    A `REAL` travels over Modbus in two 16-bit registers, and **the word
+    order differs from vendor to vendor**. It is the most common source of
+    nonsense values. There is a `word_order` switch for it; when 23.5 °C
+    reads as 3.4·10³⁸, start here.
 
-!!! note "SDO nikdy v cykle"
-    CANopen objekty čítané cez **SDO** sú pomalé a nepatria do cyklu — sú na
-    parametrizáciu pri štarte alebo na zásah obsluhy. Do cyklu patrí **PDO**.
+!!! note "SDO never in the cycle"
+    CANopen objects read over **SDO** are slow and do not belong in the
+    cycle — they are for parameterization at startup or an operator's
+    action. What belongs in the cycle is **PDO**.
 
-## TIME — čas, ktorý zadáva obsluha
+## TIME — a time the operator sets
 
-Oneskorenia stroja patria **obsluhe**, nie prekompilovaniu. Tag typu `TIME`
-je na to:
+A machine's delays belong to the **operator**, not to a rebuild. That is
+what a `TIME` tag is for:
 
 ```yaml
 - { name: delay, datatype: time, unit: s, decimals: 1, init: 2500 }
 ```
 
-- **v tabuľke je vždy v milisekundách** — logika, zbernice aj Modbus vidia
-  obyčajné celé číslo,
-- **na paneli sa zobrazuje a zadáva v jednotke tagu** (`ms`, `s`, `min`,
-  `h`). Pri `unit: s` ukáže widget „2.5 s", obsluha na klávesnici napíše
-  `2.5` a do tagu sa uloží 2500,
-- **`min`/`max` na widgete `input` sú v tej istej jednotke**, takže obsluhu
-  ohraničujú čísla, ktoré vidí,
-- **v ST je to `TIME`**, takže sa dá napísať `t1(PT := delay)` alebo
-  `delay := T#1s500ms` bez akéhokoľvek prevodu.
+- **the table always holds milliseconds** — the logic, the buses and Modbus
+  see an ordinary integer,
+- **the panel shows and edits it in the tag's unit** (`ms`, `s`, `min`,
+  `h`). With `unit: s` the widget reads "2.5 s", the operator types `2.5` on
+  the keypad and 2500 is stored,
+- **`min`/`max` on the `input` widget are in the same unit**, so the
+  operator is bounded by the numbers they can see,
+- **in ST it is a `TIME`**, so `t1(PT := delay)` and `delay := T#1s500ms`
+  need no conversion at all.
 
-Presne toto je spôsob, ako dať operátorovi „čas predohrevu" na obrazovku:
-`input` naviazaný na `TIME` tag a ten istý tag ako `PT` časovača.
+This is exactly how you put a "preheat time" on the operator's screen: an
+`input` bound to a `TIME` tag, and the same tag as the timer's `PT`.
 
-!!! note "Porovnania času sú bez znamienka"
-    `TIME` beží aj za 2³¹ ms (24,8 dňa) — pri stroji, ktorý sa nevypína, je
-    to bežné. Porovnania preto pracujú bez znamienka a `IF t1.ET > T#500ms`
-    platí aj po mesiaci behu.
+!!! note "Time comparisons are unsigned"
+    A `TIME` runs past 2³¹ ms (24.8 days), which is ordinary on a machine
+    that is never switched off. Comparisons are therefore unsigned, and
+    `IF t1.ET > T#500ms` still holds after a month of running.
 
-## Deadband — nie je to kozmetika
+## Deadband is not cosmetics
 
-Analógový vstup šumí vždy. Bez pásma necitlivosti panel prekresľuje displej pri
-každom zákmite posledného bitu a rovnaký zákmit posiela cez WebSocket každému
-pripojenému prehliadaču.
+An analog input always has noise. Without a deadband the panel repaints the
+display on every flicker of the last bit, and sends that same flicker over
+the WebSocket to every connected browser.
 
-Nastav deadband **väčší než šum a menší než to, čo ťa zaujíma**: pri tlaku
-snímanom s rozlíšením 0,01 bar je 0,05 bar rozumné.
+Set the deadband **larger than the noise and smaller than what you care
+about**: for a pressure sampled at 0.01 bar resolution, 0.05 bar is
+sensible.
 
-## Retencia (persist)
+## Retention (persist)
 
-`internal` tag s `persist` prežije vypnutie. Platí pre to jedno tvrdé pravidlo:
+An `internal` tag with `persist` survives a power-down. One hard rule
+applies:
 
-!!! danger "Nezapisuj retentívne dáta pri každej zmene"
-    Flash aj EEPROM majú konečný počet zápisov. Tag, ktorý sa mení každý
-    cyklus a zapisuje sa pri každej zmene, zničí pamäť za mesiace. Retentívne
-    má byť to, čo si potrebuješ pamätať cez vypnutie — počítadlo kusov,
-    nastavená teplota, aktuálny krok — nie okamžitá hodnota merania.
+!!! danger "Do not write retentive data on every change"
+    Flash and EEPROM both have a finite number of writes. A tag that changes
+    every cycle and is written on every change destroys the memory within
+    months. Retentive is for what you need to remember across a power-down —
+    a piece counter, a temperature setpoint, the current step — not for the
+    instantaneous value of a measurement.
 
-## Prečo je čítanie tagu to najdrahšie v cykle
+## Why reading a tag is the most expensive thing in the cycle
 
-Tabuľka tagov je od 16. 8. 2026 **bez zámku**: hodnota je jedno zarovnané
-32-bitové slovo, typ sa po registrácii nikdy nemení, takže čitateľ vždy dostane
-buď starú, alebo novú hodnotu — nikdy polovicu z každej. Garantuje to hardvér a
-mutex netreba.
+Since 2026-08-16 the tag table is **lock-free**: a value is one naturally
+aligned 32-bit word and a tag's type never changes after registration, so a
+reader always gets either the old value or the new one — never half of each.
+The hardware guarantees it and no mutex is needed.
 
-Predtým sa za každý prístup platilo zámkom (~1,5 µs na dvojicu take/give), čo
-bolo 20–100× viac než samotný prístup do pamäte. Strojový program preto zrýchlil
-z 1,32 ms na **0,30 ms**. Podrobnosti v [Výkon a limity](limits.md).
+Before that, every access paid for a lock (~1.5 µs per take/give pair),
+which was 20–100× the memory access it guarded. The machine program went
+from 1.32 ms to **0.30 ms**. Details in
+[Performance and limits](limits.md).
 
-Praktický dôsledok pre teba: **medzivýsledky drž v lokálnych premenných POU, nie
-v tagoch.** Tag je rozhranie — na obrazovku, do Modbusu, do sledovania. Nie
-odkladací priestor.
+The practical consequence for you: **keep intermediate results in POU local
+variables, not in tags.** A tag is an interface — to the screen, to Modbus,
+to monitoring. Not scratch space.
 
-!!! warning "Typ širší než 32 bitov sa do tabuľky nezmestí"
-    `LREAL`, `LINT` ani reťazec uložený priamo v hodnote nie sú podporované
-    práve preto, že by rozbili bezzámkové čítanie. Reťazce sú indexy do
-    tabuľky reťazcov.
+!!! warning "A type wider than 32 bits does not fit the table"
+    `LREAL`, `LINT` and a string stored inside the value are unsupported
+    precisely because they would break the lock-free read. Strings are
+    indices into the string table.
 
-## Snímka, nie okamih
+## A snapshot, not an instant
 
-Renderer aj online sledovanie čítajú **snímku**: každý tag je čerstvý sám o
-sebe, ale nie je to konzistentný okamih naprieč všetkými tagmi. Nikdy to tak
-nebolo — zapisovateľ ich aktualizuje tag po tagu. Pre zobrazovanie je to
-správne; keď potrebuješ dve hodnoty zaručene z toho istého cyklu, spočítaj si
-ich v logike a zapíš výsledok.
+The renderer and online monitoring both read a **snapshot**: every tag in it
+is fresh in itself, but it is not a consistent instant across all tags. It
+never was — a writer updates them tag by tag. For display that is right;
+when you need two values guaranteed to be from the same cycle, compute them
+in the logic and write the result.
 
 ## Limit
 
-**512 tagov.** V praxi je to to prvé, čo sa minie — skôr než bloky, skôr než
-bytecode. Editor projekt s prekročeným limitom odmietne pri builde.
+**512 tags.** In practice this is the first thing to run out — before
+blocks, before bytecode. The editor refuses a project over the limit at
+build time.

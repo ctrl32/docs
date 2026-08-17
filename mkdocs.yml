@@ -1,5 +1,5 @@
 site_name: ctrl32
-site_description: HMI a PLC pre malé stroje na jednom ESP32 paneli
+site_description: HMI and PLC for small machines on a single ESP32 panel
 site_author: Pavol Krnáč
 site_url: https://www.ctrl32.com/docs/
 copyright: © Pavol Krnáč, Slovakia
@@ -10,7 +10,7 @@ use_directory_urls: true
 
 theme:
   name: material
-  language: sk
+  language: en
   features:
     - navigation.sections
     - navigation.top
@@ -24,14 +24,14 @@ theme:
       accent: teal
       toggle:
         icon: material/brightness-7
-        name: svetlá téma
+        name: light theme
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: teal
       accent: teal
       toggle:
         icon: material/brightness-4
-        name: tmavá téma
+        name: dark theme
 
 markdown_extensions:
   - admonition
@@ -54,26 +54,26 @@ plugins:
       lang: [en]
 
 nav:
-  - Čo je ctrl32: index.md
-  - Rýchly štart: quickstart.md
+  - What ctrl32 is: index.md
+  - Quick start: quickstart.md
   - Editor:
-      - Rozloženie a práca v ňom: editor.md
-      - Tagy: tags.md
-      - Obrazovky a widgety: widgets.md
-  - Programovanie:
-      - Rebrík (LD): ladder.md
-      - Bloková schéma (FBD): fbd-composites.md
-      - Štruktúrovaný text (ST): st-language.md
-  - Zbernice a periférie:
+      - Layout and how to work in it: editor.md
+      - Tags: tags.md
+      - Screens and widgets: widgets.md
+  - Programming:
+      - Ladder (LD): ladder.md
+      - Function block diagram (FBD): fbd-composites.md
+      - Structured Text (ST): st-language.md
+  - Buses and peripherals:
       - Modbus: modbus.md
       - Raw CAN: rawcan.md
       - MQTT: mqtt.md
-      - Periférie a služby: peripherals-and-services.md
-      - Pridanie periférie: adding-peripherals.md
-  - Nasadenie:
-      - Nahrávanie do panela: deploy.md
-      - Licencie: licensing.md
-  - Prevádzka:
-      - Online sledovanie: online.md
-      - Výkon a limity: limits.md
-      - Riešenie problémov: troubleshooting.md
+      - Peripherals and services: peripherals-and-services.md
+      - Adding a peripheral: adding-peripherals.md
+  - Deployment:
+      - Download to the panel: deploy.md
+      - Licensing: licensing.md
+  - Operation:
+      - Online monitoring: online.md
+      - Performance and limits: limits.md
+      - Troubleshooting: troubleshooting.md

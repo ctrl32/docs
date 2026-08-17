@@ -1,97 +1,100 @@
-# Výkon a limity
+# Performance and limits
 
-Všetky čísla na tejto stránke sú **namerané**, nie odhadnuté, a to na
-**najpomalšej doske, ktorú predávame** — klasický ESP32 na 240 MHz, s bežiacim
-Ethernetom, WEBview a CAN masterom vedľa. Rýchlejšia doska (S3, P4) má viac
-rezervy, nie menej.
+Every number on this page is **measured**, not estimated, and measured on
+the **slowest board we ship** — a classic ESP32 at 240 MHz with Ethernet,
+WEBview and a CAN master running alongside. A faster board (S3, P4) has more
+headroom, not less.
 
-## Deklarované limity
+## Declared limits
 
-Editor projekt, ktorý ich prekročí, **odmietne pri tebe na stole** — nie ako
-zasekávajúci sa panel na stroji. Sú to zároveň čísla do katalógového listu.
+The editor refuses a project that exceeds them **at your desk** — not as a
+stuttering panel on a machine. They are also the numbers for the datasheet.
 
-| Limit | Hodnota |
+| Limit | Value |
 |---|---|
-| Tagy | 512 |
-| Alarmy | 128 |
-| Obrazovky | 32 |
-| Widgety na obrazovku | 64 |
-| Bloky LD/FBD | 512 |
+| Tags | 512 |
+| Alarms | 128 |
+| Screens | 32 |
+| Widgets per screen | 64 |
+| LD/FBD blocks | 512 |
 | Program (bytecode) | 32 kB |
-| Inštančné dáta | 8 kB |
-| Trendy | 4 |
-| WEBview klienti | 2 |
-| Osi (pohony) | 4 |
-| PLC úlohy | 2 (rýchla + pomalá) |
+| Instance data | 8 kB |
+| Trends | 4 |
+| WEBview clients | 2 |
+| Axes (drives) | 4 |
+| PLC tasks | 2 (fast + slow) |
 
-## Koľko blokov sa naozaj zmestí
+## How many blocks really fit
 
-Program je N blokov AND nad 150 tagmi — každý blok číta dva tagy a jeden
-zapisuje, čo je najhorší reálny pomer:
+The program is N AND blocks over 150 tags — every block reads two tags and
+writes one, which is the worst realistic ratio:
 
-| Blokov | Priemerný cyklus | Z 10 ms periódy |
+| Blocks | Average cycle | Of a 10 ms period |
 |---|---|---|
-| 64 | 110 µs | 1,1 % |
-| 100 | 153 µs | 1,5 % |
-| 200 | 274 µs | 2,7 % |
-| **400** | **515 µs** | **5,2 %** |
+| 64 | 110 µs | 1.1 % |
+| 100 | 153 µs | 1.5 % |
+| 200 | 274 µs | 2.7 % |
+| **400** | **515 µs** | **5.2 %** |
 
-**Siemens LOGO! sa zastaví pri 400 blokoch.** My ich zvládneme na najslabšej
-doske s cyklom, ktorý je z 95 % nečinný. Deklarovaný limit 512 nie je hranica
-výkonu, ale rozpočtu bytecode: jednoduchý blok stojí ~10 B, takže 512 blokov
-zaberie 16 % z 32 kB.
+**A Siemens LOGO! stops at 400 blocks.** We run them on the weakest board we
+ship, with a cycle that is 95 % idle. The declared limit of 512 is not a
+performance boundary but a bytecode budget: a simple block costs ~10 B, so
+512 blocks take 16 % of the 32 kB.
 
-Prakticky sa skôr minie **tabuľka tagov** (512) než bloky.
+In practice the **tag table** (512) runs out sooner than the blocks do.
 
-## Reálny program, nie syntetický test
+## A real program, not a synthetic test
 
-| Program | Riadkov ST | Tagov | Cyklus |
+| Program | ST lines | Tags | Cycle |
 |---|---|---|---|
-| polovica stroja | 100 | 110 | 168 µs |
-| **celý stroj** | 190 | 215 | **304 µs** |
+| half a machine | 100 | 110 | 168 µs |
+| **a whole machine** | 190 | 215 | **304 µs** |
 
-„Celý stroj" znamená: 40 analógových vstupov škálovaných a alarmovaných, 30
-motorov s blokovaním, 40-krokovú sekvenciu a polohovaciu rampu. **3 % z 10 ms
-cyklu**, nula prekročení.
+"A whole machine" means: 40 analog inputs scaled and alarmed, 30 motors with
+interlocks, a 40-step sequence and a positioning ramp. **3 % of a 10 ms
+cycle**, zero overruns.
 
-Realistický riadok ST stojí ~1,6 µs, blok v rebríku ~1,3 µs.
+A realistic ST line costs ~1.6 µs, a ladder block ~1.3 µs.
 
-## Čo cyklus naozaj stojí
+## What the cycle actually spends its time on
 
-Zaujímavá časť: **nie je to aritmetika, ale prístup k tagom.** Syntetická
-slučka nad lokálnymi premennými beží 0,145 µs na inštrukciu; ten istý kód
-dotýkajúci sa tagov je násobne pomalší.
+The interesting part: **it is not the arithmetic, it is tag access.** A
+synthetic loop over local variables runs at 0.145 µs per instruction; the
+same code touching tags is several times slower.
 
-Preto sa 16. 8. 2026 zrušil zámok v tabuľke tagov — každá hodnota je jedno
-zarovnané 32-bitové slovo, takže hardvér už sám garantuje to, za čo sa platilo
-mutexom. Výsledok na tých istých packoch a tej istej doske:
+That is why the lock in the tag table was removed on 2026-08-16 — every
+value is one naturally aligned 32-bit word, so the hardware already
+guaranteed what the mutex was being paid for. The result, same packs, same
+board:
 
-| | pred | po |
+| | before | after |
 |---|---|---|
-| 400 blokov | 2 660 µs | **515 µs** |
-| celý stroj | 1 319 µs | **304 µs** |
-| 10 000 inštrukcií (lokálne premenné) | 1 410 µs | 1 420 µs |
+| 400 blocks | 2 660 µs | **515 µs** |
+| a whole machine | 1 319 µs | **304 µs** |
+| 10 000 instructions (local variables) | 1 410 µs | 1 420 µs |
 
-Posledný riadok je kontrolná vzorka: kód, ktorý sa tagov nedotýka, sa nepohol
-ani o mikrosekundu. Všetko, čo sa pohlo, sa pohlo kvôli tagom.
+The last row is the control sample: code that does not touch tags did not
+move by a microsecond. Everything that moved, moved because of tags.
 
-## Pravidlo degradácie
+## The degradation rule
 
-Keď dôjde výkon, poradie je pevné a je zapísané priamo v kóde:
+When performance runs out, the order is fixed and written into the code
+itself:
 
-**logika > komunikácia > grafika**
+**logic > communication > graphics**
 
-Pri preťažení sa zahadzujú snímky obrazu. **Cyklus sa nikdy nepredlžuje.**
-Displej môže sekať, riadenie stroja nie.
+Under overload, frames are dropped. **The cycle is never extended.** The
+display may stutter; machine control may not.
 
-## Diagnostika, ktorú vidíš
+## The diagnostics you can see
 
-Panel meria min/priemer/max cyklu a počítadlo prekročení a hlási ich editoru.
-Keď niekto napíše ťažkú logiku a obraz začne sekať, uvidí prečo — a v hláseniach
-je aj to, koľko stojí samotné sledovanie.
+The panel measures min/average/max cycle time and an overrun counter and
+reports them to the editor. When someone writes heavy logic and the picture
+starts to stutter, they will see why — and the reports include what the
+monitoring itself costs.
 
 ---
 
-Merania sú zopakovateľné a čísla nie sú z papiera — číta ich sám panel
-(min/priemer/max cyklu). Metodiku a testovacie projekty poskytneme na
-vyžiadanie.
+The measurements are repeatable and the numbers are not from paper — the
+panel reads them itself (min/average/max cycle). The method and the test
+projects are available on request.

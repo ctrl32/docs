@@ -1,107 +1,130 @@
-# Riešenie problémov
+# Troubleshooting
 
-Zoznam skutočných hlášok, ktoré ti systém vypíše, a čo za nimi naozaj je. Ak
-build zlyhá, editor otvorí okno s **celým** výpisom — text sa dá označiť myšou
-aj skopírovať tlačidlom, a to isté je v súbore `build\last_build_error.txt`.
+A list of the actual messages the system prints and what is really behind
+them. When a build fails, the editor opens a window with the **whole**
+output — the text can be selected with the mouse and copied with a button,
+and the same text is in `build\last_build_error.txt`.
 
-## Nahrávanie programu
+## Downloading a program
 
-### „the ST compiler (visu_stc) was not found"
+### "the ST compiler (visu_stc) was not found"
 
-Chýba prekladač ST. Od verzie, kde sa rebrík a FBD prekladajú do bytecode, ho
-potrebuje **každý** projekt s logikou.
+The ST compiler is missing. Since ladder and FBD compile to bytecode,
+**every** project with logic needs it.
 
-- **Nainštalovaný editor:** `visu_stc.exe` musí zostať vedľa `visu_editor.exe`.
-  Ak si presúval súbory, vráť ho späť alebo preinštaluj.
-- **Klon repozitára:** buď použi binárku z `dist\`, alebo si prekladač zostav:
-  `cmake --build build --target visu_stc`.
+- **Installed editor:** `visu_stc.exe` must stay next to `visu_editor.exe`.
+  If you moved files, put it back or reinstall.
+- **Repository clone:** either use the binary from `dist\`, or build the
+  compiler: `cmake --build build --target visu_stc`.
 
-### „tag 'NOT' has the name of an ST keyword"
+### "the ST compiler … is schema v16, this builder is v17"
 
-Tag sa v generovanom programe stáva **identifikátorom**, takže meno ako `NOT`,
-`VAR`, `REAL` alebo `TIME` v ňom znamená niečo iné. Premenuj tag — hláška
-povie, o ktorý ide.
+The three installed binaries do not come from one build — an update
+replaced some and not others. The editor, the pack builder and `visu_stc`
+carry the schema version they were built for and check each other, because
+a mismatch used to surface as nonsense further down ("TON has no member
+'ET'"). **Reinstall ctrl32** so all three come from the same release.
 
-### „EQ 'b30': its parameters have no ST form yet"
+The same message about the *pack builder* means `packbuild\` next to the
+editor is older than the editor itself.
 
-Blok, ktorý editor vie nakresliť, ale generátor ho zatiaľ nevie preložiť.
-Hláška vždy pomenuje **typ aj meno** bloku. Nahlás to na `bugs@ctrl32.com` —
-býva to malá oprava.
+### "tag 'NOT' has the name of an ST keyword"
 
-### „logic cannot compile to bytecode: … did not compile"
+A tag becomes an **identifier** in the generated program, so a name like
+`NOT`, `VAR`, `REAL` or `TIME` means something else there. Rename the tag —
+the message says which one.
 
-Vygenerovaný program sa nepreložil — to je **naša chyba, nie tvojho projektu**.
-Editor pri tom vypíše celý vygenerovaný zdroj aj s číslami riadkov; pošli ten
-výpis.
+### "EQ 'b30': its parameters have no ST form yet"
 
-### „project has N blocks, the limit is 512"
+A block the editor can draw but the generator cannot yet translate. The
+message always names both the **type and the name** of the block. Report it
+to `bugs@ctrl32.com` — it is usually a small fix.
 
-Skutočný limit. Pozri [Výkon a limity](limits.md); väčšinou sa skôr minie
-tabuľka tagov.
+### "logic cannot compile to bytecode: … did not compile"
 
-## Panel
+The generated program failed to compile — that is **our fault, not your
+project's**. The editor prints the whole generated source with line numbers;
+send that output.
 
-### Panel odmietol balík („invalid pack")
+### "project has N blocks, the limit is 512"
 
-Balík neprešiel kontrolou — najčastejšie **nesedí cieľová doska** (projekt je
-pre iný panel), alebo je runtime starší než formát balíka.
+A real limit. See [Performance and limits](limits.md); usually the tag table
+runs out first.
 
-Dôležité: **starý balík zostáva a beží ďalej**. Nahrávaním sa panel nedá
-odrovnať. Riešenie: skontroluj dosku v projekte, prípadne preflashuj runtime.
+## The panel
 
-### „!! N FB RECORDS – this pack predates the one-engine build"
+### The panel refused the pack ("invalid pack")
 
-V paneli je balík z veľmi starého editora. Jeho **logika nebeží** — panel to
-napíše na konzolu aj do diagnostického zásobníka. Zostav projekt znovu
-aktuálnym editorom a nahraj ho.
+The pack failed verification — most often **the target board does not
+match** (the project is for another panel), or the runtime is older than the
+pack format.
 
-### Panel odpovedá, ale `seq` sa nehýbe
+Important: **the old pack stays and keeps running**. A download cannot
+disable the panel. The fix: check the board in the project, or flash the
+runtime.
 
-Spojenie je v poriadku, **stojí PLC cyklus**. Pozri diagnostický zásobník
-(*Debug → diagnostika*) — býva tam dôvod (chyba VM, prekročenie cyklu).
+### "!! N FB RECORDS – this pack predates the one-engine build"
 
-## Online sledovanie
+The panel holds a pack from a very old editor. Its **logic does not run** —
+the panel says so on the console and in the diagnostic buffer. Rebuild the
+project with the current editor and download it again.
 
-### Ikona zástrčky je červená
+### The panel answers but `seq` does not move
 
-Panel beží **iný program** než máš v editore. Hodnoty sa zámerne nezobrazia —
-chodia podľa indexov a pri inom programe by ukazovali reálne čísla pri
-nesprávnych menách. Editor rovno ponúkne nahratie.
+The connection is fine; **the PLC cycle has stopped**. Look at the
+diagnostic buffer (*Debug → diagnostics*) — the reason is usually there (a
+VM fault, a cycle overrun).
 
-### Ikona je oranžová a nič sa nedeje
+## Online monitoring
 
-Port sa nedá otvoriť: drží ho iný program (terminál, iný editor), panel sa
-práve reštartuje, alebo je odpojený kábel. Skúša sa to raz za sekundu, takže
-po zapojení kábla to nabehne samo.
+### The plug icon is red
 
-### Vidím tagy, ale nie hodnoty na drôtoch medzi blokmi
+The panel runs a **different program** than the editor. Values are
+deliberately not shown — they travel by index, and under a different program
+they would appear as real numbers under the wrong names. The editor offers
+to download straight away.
 
-Symboly sa nepodarilo overiť — editor ich použije len vtedy, keď preložený
-program **bajt na bajt** sedí s tým v paneli. Stav napíše do stavového riadka;
-najčastejšia príčina je, že panel má iný build.
+### The icon is amber and nothing happens
 
-### ONLINE a Deploy sú zamknuté
+The port cannot be opened: another program is holding it (a terminal,
+another editor), the panel is restarting, or the cable is unplugged. It
+retries once a second, so plugging the cable back in is enough.
 
-## Editor
+### The port list is empty, or nothing is selected
 
-### V novom projekte sa nedá pridať priečka
+No port is preselected on purpose. Pick one in the toolbar or in the
+transfer dialog — the download and flash buttons stay disabled until you do.
 
-Toto bola chyba a je **opravená**: tlačidlo *+ Rung* si teraz BOOL tag vytvorí
-samo a napíše, ktorý. Ak to stále nejde, máš starú binárku.
+### I see tags but no values on the wires between blocks
 
-### Komentár pri premennej zmizol
+The symbols could not be verified — the editor uses them only when the
+compiled program matches the one in the panel **byte for byte**. It writes
+the state into the status bar; the usual cause is that the panel holds a
+different build.
 
-Tiež opravené. Komentár sa píše na koniec riadka za `//` a číta sa späť; ak sa
-riadok nechá bez komentára, komentár sa zmaže — text je pre svoj zoznam celá
-pravda.
+### ONLINE and Deploy are locked
 
-### Otvorený projekt má prázdny rebrík
+## The editor
 
-Opravená chyba importu (projekt sa načítaval cez balík bez blokových záznamov).
-Aktualizuj editor.
+### A new project will not take a rung
+
+This was a bug and it is **fixed**: the *+ Rung* button now creates a BOOL
+tag itself and says which one. If it still does not work, you have an old
+binary.
+
+### A comment next to a variable disappeared
+
+Also fixed. The comment is written at the end of the line after `//` and
+read back; leaving the line without one deletes the comment — the text is
+the whole truth for its list.
+
+### An opened project has an empty ladder
+
+A fixed import bug (the project was being loaded through a pack without
+block records). Update the editor.
 
 ---
 
-Ak sa problém nedá zaradiť sem, pošli **celý výpis chyby** (tlačidlo *Skopírovať
-hlášku*) na `bugs@ctrl32.com` — ikona chrobáka je vpravo v hornom menu a otvorí
-mail rovno.
+If a problem does not fit here, send the **whole error output** (the *Copy
+message* button) to `bugs@ctrl32.com` — the bug icon at the top right of the
+menu opens the mail directly.
