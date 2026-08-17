@@ -62,6 +62,12 @@ zistí tak, že projekt zostaví a preložený program **porovná bajt po bajte*
 tým, čo je v balíku. Keď sedia, offsety sú preukázateľne tie z panela; keď
 nie, ukáže len tagy a povie to.
 
+V priečke to znamená konkrétne veci: pri počítadle **koľko napočítalo**
+(`CV`), pri časovači **ako dlho už beží** (`ET`, časy pod sekundu v ms,
+nad ňou v sekundách) a s akým `PT` či `PV` blok **naozaj** pracuje — nie
+s akým je nakreslený. Keď je parameter vedený z tagu, tento rozdiel je
+presne to, čo hľadáš.
+
 ## Koľko to stojí cyklus
 
 Panel vzorkuje len to, na čo sa práve pozeráš, a len desaťkrát za sekundu —

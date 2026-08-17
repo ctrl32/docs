@@ -18,6 +18,11 @@ ladder program is uploading data, never firmware.
 | `-(S)-` / `-(R)-` | set / reset latch |
 | block in the rung | TON, TOF, TP, CTU, CTD — the rung drives IN, Q carries on |
 
+Blocks show their second output at the right stub: a counter its **CV**
+(how many it has counted), a timer its **ET** (how long it has been
+running). Bind it to a tag, or just read it — during
+[online monitoring](online.md) the value comes straight from the machine.
+
 Series contacts AND together; a parallel branch ORs. The classic
 start/stop seal-in is exactly:
 

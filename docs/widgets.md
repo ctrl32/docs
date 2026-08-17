@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **15**
+Schema version: **16**
 
 ## Common properties (widget_base)
 
@@ -198,6 +198,7 @@ On-delay timer — Q switches on once IN has been held continuously for PT ms.
 |---|---|---|
 | `IN` | input | bool |
 | `Q` | output | bool |
+| `ET` | output | f32 |
 | `PT` (ms) | parameter | f32, default `1000` |
 
 ## `TOF`
@@ -208,6 +209,7 @@ Off-delay timer — Q stays on for another PT ms after IN drops.
 |---|---|---|
 | `IN` | input | bool |
 | `Q` | output | bool |
+| `ET` | output | f32 |
 | `PT` (ms) | parameter | f32, default `1000` |
 
 ## `TP`
@@ -218,6 +220,7 @@ Pulse — a rising edge of IN fires Q for exactly PT ms (non-retriggerable).
 |---|---|---|
 | `IN` | input | bool |
 | `Q` | output | bool |
+| `ET` | output | f32 |
 | `PT` (ms) | parameter | f32, default `1000` |
 
 ## `CTU`
