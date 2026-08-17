@@ -18,7 +18,7 @@ Open it from *Online → Scope*.
 | Signals | 8 |
 | Samples | 256 rows — 2.56 s at a 10 ms cycle |
 | Sampling | every cycle, in the panel, never on the PC |
-| Cost while recording | ~5 µs per cycle (0.05 % of a 10 ms period) |
+| Cost while recording | **6 µs per cycle** measured on a classic ESP32 at 240 MHz — 0.06 % of a 10 ms period |
 | Cost while disarmed | one comparison — the sampler is not entered at all |
 
 The buffer is fixed at 8 × 256 on purpose. A buffer whose size depends on
@@ -46,6 +46,11 @@ be free when it is off.
    the ring is kept from **before** the trigger. This is the point of the
    whole feature: what happened in the 300 ms before the fault is the part
    nobody can arm for by hand.
+
+    The number is exact and it is a promise: with 25 % of a 256-row ring
+    the trigger row is row 64, with 64 rows of history behind it — not 63,
+    and never zero because the event happened early. The panel holds the
+    trigger off until that history exists.
 4. **Arm.** The panel records; the editor shows *waiting for the trigger*,
    then *recording after it*, then *complete* — at which point the rows
    are pulled automatically and drawn.
@@ -115,8 +120,14 @@ to a measurement from something else.
 |---|---|
 | *not online — the scope records IN the panel* | there is no connection; this is not a PC-side recorder |
 | *the panel runs a different program* | the same rule as everywhere: values travel by index, and under a different program they would be values under the wrong names |
-| the Arm button is grey | no signals picked yet |
 
 If a recording comes back empty, the trigger never fired — check the
 source and the level, or use *now* to see what the signals are doing at
 all.
+
+!!! note "An edge means a transition"
+    Arming a **rising edge** on a signal that is *already* above the level
+    does not fire immediately: the trace waits for the signal to go below
+    and come back. Otherwise every arming would trigger on its own first
+    sample and hand back a recording with no history — which is what it
+    used to do before this was measured on a bench.
