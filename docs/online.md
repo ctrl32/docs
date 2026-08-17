@@ -117,18 +117,13 @@ visibly, with a time limit, and never silently.
 ## Buffer (scope)
 
 A live view ten times a second shows a steady state and **misses short
-events** — a pulse one cycle long simply falls between samples. That is what
-the buffer is for: up to 8 values sampled **every cycle** into a ring buffer
-in the panel, with a trigger (rising/falling edge, level).
+events** — a pulse one cycle long simply falls between samples. That is
+what the scope is for: up to 8 values sampled **every cycle** into a ring
+buffer in the panel, with a trigger and the history from before it.
 
-The ring runs continuously while recording, and the trigger only decides
-**when to stop** — which is why the record also holds the history from
-before the event.
+It has its own page: [Scope](scope.md).
 
 !!! success "Recording switched off costs nothing"
     Not "almost nothing" — the cycle performs a single comparison and does
     not enter sampling at all. While recording, 8 values every cycle cost
     ~5 µs, or 0.05 % of the period.
-
-Displaying the record in the editor is not finished yet; for now the buffer
-is driven through the panel's service protocol.

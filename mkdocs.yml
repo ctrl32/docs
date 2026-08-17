@@ -75,5 +75,6 @@ nav:
       - Licensing: licensing.md
   - Operation:
       - Online monitoring: online.md
+      - Scope: scope.md
       - Performance and limits: limits.md
       - Troubleshooting: troubleshooting.md

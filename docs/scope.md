@@ -1,0 +1,87 @@
+# Scope
+
+[Online monitoring](online.md) samples ten times a second. That is right
+for a human reading a value and useless for anything short: a pulse one
+cycle long falls between two samples by construction, and the fault you
+are chasing is usually exactly that.
+
+The scope is the answer. The **panel** records up to 8 values **every
+cycle** into a ring buffer and stops on a trigger; the editor arms it and
+draws what came back.
+
+Open it from *Online → Scope*.
+
+## What it records
+
+| | |
+|---|---|
+| Signals | 8 |
+| Samples | 256 rows — 2.56 s at a 10 ms cycle |
+| Sampling | every cycle, in the panel, never on the PC |
+| Cost while recording | ~5 µs per cycle (0.05 % of a 10 ms period) |
+| Cost while disarmed | one comparison — the sampler is not entered at all |
+
+The buffer is fixed at 8 × 256 on purpose. A buffer whose size depends on
+the project is a buffer whose cost nobody can predict, and this one has to
+be free when it is off.
+
+## Using it
+
+1. **Pick the signals.** The list offers tags and, when the editor and the
+   panel run the same program, the wires between blocks and block members
+   (`t1.ET`, `c1.CV`) as well. Up to eight; the counter above the list
+   says how many are left.
+2. **Set the trigger.**
+
+    | Mode | Fires when |
+    |---|---|
+    | now | immediately — fill the buffer once and stop |
+    | rising edge | the source crosses the level upwards |
+    | falling edge | … downwards |
+    | level | the source is at or above the level |
+
+    A BOOL source needs no level and is not asked for one.
+
+3. **Choose how much history to keep.** The *pre* slider says how much of
+   the ring is kept from **before** the trigger. This is the point of the
+   whole feature: what happened in the 300 ms before the fault is the part
+   nobody can arm for by hand.
+4. **Arm.** The panel records; the editor shows *waiting for the trigger*,
+   then *recording after it*, then *complete* — at which point the rows
+   are pulled automatically and drawn.
+
+## Reading the picture
+
+- **One lane per signal**, stacked like a logic analyser. Eight curves on
+  one axis is a picture nobody can read.
+- **Time is measured from the trigger.** Zero is where it fired,
+  everything to the left of it is the history you asked to keep.
+- The milliseconds come from the **panel's own cycle period**, not from a
+  number typed here — a trace labelled with the wrong period is a
+  measurement that lies quietly.
+- A BOOL is drawn as a square wave with a filled body. A number gets its
+  own auto-scaled lane, with the range printed under its name; a fixed
+  scale would hide exactly the small movement you opened the scope for.
+- **Move the mouse over the plot** and every lane prints its value at that
+  instant, next to its name. The tooltip adds the row and the time
+  relative to the trigger.
+- **Wheel zooms, drag pans.**
+
+## Getting it out
+
+*Export CSV* writes one row per sample: the time in milliseconds first,
+then one column per signal, and a `T` in the last column on the trigger
+row. That is the file you send a customer, or open in a spreadsheet next
+to a measurement from something else.
+
+## When it will not arm
+
+| The page says | What it means |
+|---|---|
+| *not online — the scope records IN the panel* | there is no connection; this is not a PC-side recorder |
+| *the panel runs a different program* | the same rule as everywhere: values travel by index, and under a different program they would be values under the wrong names |
+| the Arm button is grey | no signals picked yet |
+
+If a recording comes back empty, the trigger never fired — check the
+source and the level, or use *now* to see what the signals are doing at
+all.
