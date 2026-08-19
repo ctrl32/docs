@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **17**
+Schema version: **19**
 
 ## Common properties (widget_base)
 
