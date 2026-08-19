@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **19**
+Schema version: **20**
 
 ## Common properties (widget_base)
 
@@ -124,6 +124,8 @@ Schema version: **19**
 | `start_angle` | i16 | `135` |
 | `sweep` | i16 | `270` |
 | `cache_background` | bool | `True` |
+| `thickness` | i16 | `0` |
+| `needle` | bool | `True` |
 
 ## `image`
 
@@ -185,6 +187,14 @@ Schema version: **19**
 | `show_time` | bool | `True` |
 | `show_ack_button` | bool | `True` |
 | `sort` | AlarmTableSort | `newest_first` |
+| `font` | font_ref |  |
+
+## `trace`
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | tag_ref |  |
+| `color` | color |  |
 
 # Function blocks (logic)
 
