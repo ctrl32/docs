@@ -18,11 +18,23 @@ exactly once.
 **Changing a screen does not mean reflashing the panel.** The visualization
 is data, not code — the panel reads it straight from flash.
 
+!!! note "Network upload and security"
+    The network target uses the same web server the browser interface
+    runs on — whoever can reach the panel over Ethernet or WiFi could
+    replace the program. The WEBview settings page has **Allow program
+    upload over the network**; switched off, the panel never registers
+    the upload endpoint and only USB uploads work. The panel belongs
+    on its own machine network in every case.
+
 ## What happens when you press :ti-download:
 
 1. The editor **builds the project into a binary pack**. If the build fails,
    nothing else happens and a window opens with the whole output.
-2. The pack goes over the serial port in chunks (2 kB, each acknowledged).
+2. The pack travels to the panel — the dialog offers **two targets**:
+   the USB cable (serial, 2 kB chunks, each acknowledged), or the
+   **network address** of the panel (an IP or `name.local`, prefilled
+   from the project's mDNS name). Both roads carry the same pack with
+   the same guarantees.
 3. It is written into the **inactive slot** — the panel has two (`visu_a`,
    `visu_b`) and is currently running from one of them.
 4. The panel **verifies the whole pack**: CRC, format, schema version and

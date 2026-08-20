@@ -9,6 +9,28 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.012
+
+**Download over the network, straight from the editor.** The download
+dialog now offers two targets: the USB cable, or the panel's network
+address (IP or `name.local`, prefilled from the project). The same
+pack, the same guarantees — inactive slot, full validation, the old
+program stays on any error — just without walking to the machine.
+
+- **Headless boards accept network uploads too.** Boards without a
+  display (inoCORE32-TM1.x and friends) take a pack over Ethernet or
+  WiFi the same way the display panels do. Flash the runtime from
+  this release once over USB; from then on the network works.
+- **And the security switch that belongs with it:** the WEBview
+  settings page has *Allow program upload over the network*. Switched
+  off, the panel never even registers the upload endpoint — for a
+  deployed machine on a shared network. USB always works. The panel
+  belongs on its own machine network either way; the browser
+  interface rides the same server, so treat network access to the
+  panel as operator access.
+- A landscape project on a portrait glass (the 10.1" panel) no longer
+  trips the board check — the panel rotates, and now the check knows.
+
 ## 1.00.011
 
 - Live rows in the block editor got more air — on blocks with two
