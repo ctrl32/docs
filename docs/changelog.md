@@ -9,6 +9,20 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.005
+
+**Comments are written straight on the canvas.** Every ladder rung has
+a comment line above it — click it and type, multiple lines welcome;
+click away and it stays. Network comments in the block diagram work
+the same way. No dialog anywhere.
+
+- A network in the block diagram can be **selected** like a rung in
+  ladder — click its empty area and it highlights with the same quiet
+  grey background.
+- The rung comment no longer touches the blocks below it, and while
+  connected a conducting block's frame is drawn as thick as the
+  conducting wires — the active path reads at a glance.
+
 ## 1.00.004
 
 **A rung does not need a coil.** A ladder rung can now end without an
