@@ -9,6 +9,14 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.018
+
+- The bold icon actually reaches the editor now — a stale build cache
+  kept the first, timid draft inside the program while the installer
+  already wore the new one. If Windows still shows the old icon after
+  updating, that is Explorer's icon cache; it refreshes on its own
+  (or after a sign-out).
+
 ## 1.00.017
 
 - The icon got bold: the dots sit one pixel apart and the "32" fills
