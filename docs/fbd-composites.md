@@ -7,14 +7,22 @@ fixed block library (TON, PID, … — see `widgets.md`) there are:
 ## Composite block (an FB built from blocks)
 
 A composite is a POU with an **interface** (input/output ports) and its
-own internal FBD network. In a diagram it is used like an ordinary
-block; **a double-click opens it** and shows how it is put together. At
-compile time it is flattened into primitives — the panel executes a flat
-list, with no recursion and no extra interpreter.
+own internal network — drawn in FBD **or in ladder**, whichever reads
+better. In a diagram it is used like an ordinary block; **a
+double-click opens it** and shows how it is put together. At compile
+time it is flattened into primitives — the panel executes a flat list,
+with no recursion and no extra interpreter.
 
-- Creating one: right-click on *Application* → **Add Composite FB**;
-  the ports are edited with the **Ports…** button in the diagram (max
-  4 inputs, 2 outputs). Changing the interface bumps the block version.
+- Creating one: right-click on *Application* → **Add Composite FB**.
+  Above the canvas sits the **variables pane** in the PLCopen shape:
+  `VAR_INPUT` and `VAR_OUTPUT` rows are the block's ports (name and
+  BOOL/REAL type edited right in the table, ports added with one
+  button; max 4 inputs, 2 outputs), and the `VAR` section lists the
+  local connection variables the diagram creates. Changing the
+  interface bumps the block version, so existing instances migrate
+  cleanly.
+- In the ladder view the ports behave as ordinary variables — a
+  contact on an input port, the coil on an output port.
 - Supplied blocks (for example `DRIVE_i550` from `libraries/`) are
   **read-only** — you can look inside, but not change it. **Save as
   own** creates an editable copy in the project.

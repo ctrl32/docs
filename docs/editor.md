@@ -13,6 +13,7 @@ included. What you see is what gets downloaded.
 | **Toolbar** | under the menu | new, save, undo/redo, TEST, ONLINE, download |
 | **Project tree** | left | the board and everything running on it |
 | **Documents** | centre | every tree node has a **page**, opened as a tab |
+| **Toolbox** | right | what the visible editor takes: widgets for a screen, blocks for LD/FBD — grouped as Boolean, Math, Timers, Counters, General, Motion, CAN and GSM/GPS (groups start collapsed) |
 | **Status bar** | bottom | the result of the last build, the connection state |
 
 The **bug icon at the top right** opens mail to `bugs@ctrl32.com` —

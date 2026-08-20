@@ -8,7 +8,7 @@ except the values are not computed by a simulation — they come from the
 
 ## Switching it on
 
-Pick the COM port in the toolbar and click the plug icon. The colour is the
+Pick the COM port in the toolbar and click the :ti-plug: icon. The colour is the
 state:
 
 | Colour | Meaning |
@@ -71,9 +71,16 @@ says so.
 
 In a rung that means concrete things: for a counter **how much it has
 counted** (`CV`), for a timer **how long it has been running** (`ET`, in ms
-below a second and in seconds above it), and which `PT` or `PV` the block is
-**really** working with — not the one drawn on it. When a parameter is fed
-from a tag, that difference is exactly what you are looking for.
+below a second and in seconds above it), for a blinker **how long until it
+flips** (`REM`), and which `PT` or `PV` the block is **really** working
+with — not the one drawn on it. When a parameter is fed from a tag, that
+difference is exactly what you are looking for.
+
+Both graphical editors draw every live value **above its variable** — at
+the input and parameter stubs on the left of a block, at the outputs on
+the right — so the numbers never sit on the connection lines. Online the
+editors are read-only: the one thing that still switches is the LD/FBD
+view. Editing resumes the moment you go offline.
 
 ## What it costs the cycle
 

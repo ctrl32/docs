@@ -9,6 +9,24 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.008
+
+**The blinker counts down for you.** BLINK blocks have a new `REM`
+output pin: the time left in the current phase, live on the right
+stub in online and simulation — next to the timers' `ET` and the
+counters' `CV`, every block with an inner value now shows it. Loading
+projects that use `REM` needs the runtime from this release; existing
+projects and runtimes keep working unchanged.
+
+- Variable declarations can be edited during a running simulation —
+  applying re-binds the program on the fly. (Connected to a real
+  panel they stay read-only, as everything does.)
+- Ladder breathes less air: tighter comment lane, tighter spacing
+  between rungs, and rungs with blocks no longer reserve an empty
+  row below them.
+- Toolbox tiles of the motion, CAN and communication blocks got
+  short marks that fit the tile — no more clipped names.
+
 ## 1.00.007
 
 **One program, one owner.** A program edited in ladder is a read-only

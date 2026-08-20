@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **21**
+Schema version: **22**
 
 ## Common properties (widget_base)
 
@@ -352,12 +352,13 @@ First-order filter — OUT approaches IN with time constant T ms.
 
 ## `BLINK`
 
-Blinker — while RUN, Q alternates T_ON ms on / T_OFF ms off.
+Blinker — while RUN, Q alternates T_ON ms on / T_OFF ms off. REM = time left in the current phase.
 
 | Pin | Direction | Type |
 |---|---|---|
 | `RUN` | input | bool |
 | `Q` | output | bool |
+| `REM` | output | f32 |
 | `T_ON` (ms) | parameter | f32, default `500` |
 | `T_OFF` (ms) | parameter | f32, default `500` |
 
