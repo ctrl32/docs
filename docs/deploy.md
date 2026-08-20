@@ -67,29 +67,38 @@ The target-board check is deliberately strict. A pack for a panel with a
 different display and different pins would load and run — and the machine
 would do something other than what you expect.
 
-## Transport: always the serial port
+## Transport: the cable, or the machine network
 
-Downloading goes **over USB / the serial line**, not over WiFi or Ethernet.
-That is a deliberate decision: during commissioning a cable is the one thing
-that always works, and putting a program into a machine over a network is
-something to secure properly first. Network download comes later.
+During commissioning the USB cable is the road that always works — and it
+is the only road for [online monitoring](online.md), which therefore parks
+itself for the duration of a download and reconnects by itself after the
+panel restarts.
 
-The same port is used for [online monitoring](online.md) — monitoring
-therefore parks itself for the duration of a download and reconnects by
-itself after the panel restarts.
+The **network target** carries the same pack with the same slot-and-verify
+guarantees, over the panel's own web server. Mind the security switch
+described above: a panel that accepts a program over the network belongs
+on its own machine network, never on one strangers can reach.
 
 !!! warning "Download into a machine that is standing still"
     Writing to flash stalls cache access **for both cores**, so the logic
     does not run while it happens, even at the highest priority. The panel
     therefore allows a download only in STOP — the same reason big PLCs
-have a
-    RUN/STOP switch.
+    have a RUN/STOP switch.
 
 ## Runtime
 
 The firmware is written from a catalog of prebuilt binaries for the board
 (`runtimes/`), **not compiled on your PC**. You need no toolchain installed
 and you get exactly the binary we tested.
+
+![The Flash runtime dialog — the runtime's build date, the chip it expects, and the port to write it over](img/deploy-runtime.webp)
+
+The editor flashes it itself — no esptool, no Python. The flash is **read
+back and verified** before the dialog says done, and the chip that answers
+on the port is compared with the one the runtime was built for: a wrong
+COM port is refused, not written. When the packaged runtime is older than
+the editor, the dialog prints its build date in **orange** — flash the
+runtime before you chase ghosts.
 
 It runs on its own thread, so the editor keeps drawing meanwhile, and it
 does not touch the pack slots — your program stays in the panel after a

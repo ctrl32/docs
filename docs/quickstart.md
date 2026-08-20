@@ -11,20 +11,15 @@ Run the installer `ctrl32-setup-<version>.exe`. It installs:
 | File | What it is for |
 |---|---|
 | `visu_editor.exe` | the editor itself |
-| `visu_stc.exe` | the ST compiler — the editor calls it on every build |
-| `packbuild\` | the pack builder (it carries the schema and the board catalog) |
 | `ctrl32.dat` | the catalog of boards and chips |
+| `runtimes\` | prebuilt firmware for every supported board |
 | `examples\` | sample projects to open |
 
-!!! note "Why three programs and not one"
-    The compiler and the pack builder are the same tools we use in
-    development — so the pack the editor builds for you is **byte for byte**
-    the one the command line builds. The format has a single author and no
-    way to drift.
-
-    The three belong together: each carries the schema version it was built
-    for, and the editor refuses a pack builder that does not match rather
-    than quietly building the wrong thing.
+!!! note "Why there is only one program"
+    The ST compiler, the pack builder and the flasher are **compiled into
+    the editor** — there is no helper process to be missing, moved or a
+    version behind. The pack format has a single author, so the pack the
+    editor builds is byte for byte the one our own release tools build.
 
 ## 2. Open a sample project
 
@@ -38,6 +33,8 @@ Run the installer `ctrl32-setup-<version>.exe`. It installs:
 - `time_setpoint.yaml` — a TIME setpoint the operator types on the screen,
   driving a timer's PT.
 
+![The seal-in example open in the ladder editor](img/quickstart-sealin.webp)
+
 ## 3. Pick the board
 
 Click the board node in the project tree. The board decides the pins, the
@@ -47,7 +44,11 @@ without one.
 ## 4. Flash the runtime (the first time)
 
 If the panel is new or carries old firmware, the board page has *Flash
-runtime*. It is written over USB (esptool) and takes tens of seconds.
+runtime*. The editor writes it over USB itself, reads the flash back to
+verify it, and refuses a chip that does not match the board — a wrong
+COM port cannot be written. It takes tens of seconds.
+
+![The Flash runtime dialog](img/deploy-runtime.webp)
 
 !!! warning "An old runtime means the program will not load"
     The pack format evolves. If the runtime is older than the pack, the panel

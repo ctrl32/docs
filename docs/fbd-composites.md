@@ -4,6 +4,8 @@ Machine control in ctrl32 is assembled from blocks in an FBD diagram —
 the logic is **data in the pack**, not code in the firmware. Besides the
 fixed block library (TON, PID, … — see `widgets.md`) there are:
 
+![An i550 drive in FBD: the DRIVE_i550 block and its ramps, bound to axis 1](img/fbd-i550.webp)
+
 ## Composite block (an FB built from blocks)
 
 A composite is a POU with an **interface** (input/output ports) and its

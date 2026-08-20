@@ -5,6 +5,8 @@ simple: it draws exactly the pixels you will see on the panel — the same
 renderer as in the firmware is built into it, fonts, roundings and colours
 included. What you see is what gets downloaded.
 
+![A thermostat screen on the canvas, the widget toolbox on the right](img/editor-canvas.webp)
+
 ## Layout
 
 | Part | Where | What is in it |
@@ -18,6 +20,8 @@ included. What you see is what gets downloaded.
 
 The **bug icon at the top right** opens mail to `bugs@ctrl32.com` —
 reporting a fault should be one click from wherever you hit it.
+
+![The screen above, its ladder below — one project, two views of the same tags](img/editor-layout.webp)
 
 ## The tree follows the hardware, not the protocols
 

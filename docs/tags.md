@@ -8,6 +8,8 @@ to drift apart.
 The tag table is at the same time the PLC's **process image** (the
 classic I/Q/M process image).
 
+![The variable list of the thermostat example — types, units, deadbands and access in one declaration block](img/tags-variables.webp)
+
 ## Creating a tag
 
 In the project tree: *Application → Tags*. Every tag has:

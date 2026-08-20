@@ -6,6 +6,8 @@ compiled program and the panel runs it in the PLC cycle —
 **uploading a new program never reflashes the firmware**, exactly like
 uploading new screens.
 
+![A machine program in ST: MOTOR, VALVE, PID and a hysteresis comparator](img/st-editor.webp)
+
 The FBD blocks and the ST program run in the same task, in this order:
 FBD first, then ST. A tag the FBD wrote in this cycle is already
 visible to the ST body (and the other way round next cycle) — the same

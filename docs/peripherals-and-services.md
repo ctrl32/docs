@@ -68,9 +68,10 @@ time.
 
 Setting the time:
 
-- **Service cable**: `python tools/settime.py COM5 --apply`
-  (sets it from the PC; without `--apply` it only prints the time), or
-  the serial command `VUT!2026-08-09 14:32:05` directly.
+- **Service cable**: the serial command `VUT!2026-08-09 14:32:05`,
+  typed into any terminal on the panel's COM port.
+- **NTP**: a panel with network access and NTP configured in the
+  project sets itself, and keeps itself set.
 - **WEBview**: the "Set panel time" button in the status bar — it takes
   the time from the phone/PC. The button only appears on panels that
   support setting the time.

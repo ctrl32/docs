@@ -7,28 +7,6 @@ and the same text is in `build\last_build_error.txt`.
 
 ## Downloading a program
 
-### "the ST compiler (visu_stc) was not found"
-
-The ST compiler is missing. Since ladder and FBD compile through the
-same compiler,
-**every** project with logic needs it.
-
-- **Installed editor:** `visu_stc.exe` must stay next to `visu_editor.exe`.
-  If you moved files, put it back or reinstall.
-- **Repository clone:** either use the binary from `dist\`, or build the
-  compiler: `cmake --build build --target visu_stc`.
-
-### "the ST compiler … is schema v16, this builder is v17"
-
-The three installed binaries do not come from one build — an update
-replaced some and not others. The editor, the pack builder and `visu_stc`
-carry the schema version they were built for and check each other, because
-a mismatch used to surface as nonsense further down ("TON has no member
-'ET'"). **Reinstall ctrl32** so all three come from the same release.
-
-The same message about the *pack builder* means `packbuild\` next to the
-editor is older than the editor itself.
-
 ### "tag 'NOT' has the name of an ST keyword"
 
 A tag becomes an **identifier** in the generated program, so a name like

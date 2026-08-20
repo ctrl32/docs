@@ -7,6 +7,8 @@ parallel, the coil at the right. Underneath there is no separate
 the FBD editor produces and the panel already executes. Uploading a
 ladder program is uploading data, never firmware.
 
+![A thermostat in ladder: BLINK heartbeat, a simulated temperature branch, hysteresis and the heating relay](img/ladder-thermostat.webp)
+
 ## Elements
 
 | Symbol | Meaning |
