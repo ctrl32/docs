@@ -1,15 +1,15 @@
 # Structured Text on ctrl32
 
 The panel executes logic written in IEC 61131-3 Structured Text. The
-editor compiles the source into compact bytecode at your desk; the
-pack carries the bytecode and the panel runs it in the PLC cycle —
+editor compiles the source at your desk; the pack carries the
+compiled program and the panel runs it in the PLC cycle —
 **uploading a new program never reflashes the firmware**, exactly like
 uploading new screens.
 
 The FBD blocks and the ST program run in the same task, in this order:
 FBD first, then ST. A tag the FBD wrote in this cycle is already
 visible to the ST body (and the other way round next cycle) — the same
-"written this cycle reads live" rule S7 programmers expect.
+"written this cycle reads live" rule PLC programmers expect.
 
 ## The subset
 
@@ -78,7 +78,8 @@ END_FUNCTION_BLOCK
 
 Instances are allocated at compile time — the editor knows the RAM
 consumption before the upload and rejects a program over the limits
-(32 kB bytecode, 8 kB instance data) at your desk, not on the machine.
+(32 kB compiled program, 8 kB instance data) at your desk, not on the
+machine.
 
 ## What the compiler refuses (on purpose)
 
@@ -175,7 +176,7 @@ plainly).
 ## Notes the norm-lawyers will want
 
 - `REPEAT body UNTIL condition END_REPEAT` — no semicolon after the
-  condition (the norm's syntax; CoDeSys tolerates one, we hint it)
+  condition (the norm's syntax; a stray semicolon gets a hint)
 - comments do not nest in this version
 - `AND`/`OR` evaluate both sides (no short-circuit) — keep side
   effects out of conditions

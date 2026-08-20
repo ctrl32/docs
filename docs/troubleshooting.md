@@ -9,7 +9,8 @@ and the same text is in `build\last_build_error.txt`.
 
 ### "the ST compiler (visu_stc) was not found"
 
-The ST compiler is missing. Since ladder and FBD compile to bytecode,
+The ST compiler is missing. Since ladder and FBD compile through the
+same compiler,
 **every** project with logic needs it.
 
 - **Installed editor:** `visu_stc.exe` must stay next to `visu_editor.exe`.
@@ -40,7 +41,7 @@ A block the editor can draw but the generator cannot yet translate. The
 message always names both the **type and the name** of the block. Report it
 to `bugs@ctrl32.com` — it is usually a small fix.
 
-### "logic cannot compile to bytecode: … did not compile"
+### "the logic cannot be compiled for the panel: … did not compile"
 
 The generated program failed to compile — that is **our fault, not your
 project's**. The editor prints the whole generated source with line numbers;

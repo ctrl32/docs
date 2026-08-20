@@ -6,7 +6,7 @@ screen, the logic, WEBview and Modbus all see the same number, with no way
 to drift apart.
 
 The tag table is at the same time the PLC's **process image** (the
-equivalent of I/Q/M on an S7).
+classic I/Q/M process image).
 
 ## Creating a tag
 
@@ -129,5 +129,5 @@ in the logic and write the result.
 ## Limit
 
 **512 tags.** In practice this is the first thing to run out — before
-blocks, before bytecode. The editor refuses a project over the limit at
+blocks, before compilation. The editor refuses a project over the limit at
 build time.

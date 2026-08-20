@@ -39,7 +39,7 @@ project
 
 One wire can carry several protocols, and the same protocol can run on two
 wires (Modbus on RS485 **and** on Ethernet). Sorting by protocol could not
-express that; this way matches both the hardware and CoDeSys.
+express that; this way matches the hardware.
 
 !!! note "Settings live on pages, not in the right-click menu"
     A context menu holds **actions** — add, delete, rename. Never settings.
@@ -72,7 +72,7 @@ The ▶ button switches the editor into running: the PLC cycle runs on the PC,
 screens react, blocks compute, tags change. It can be paused and stepped
 cycle by cycle (*Debug → Step*).
 
-What runs is **the same bytecode and the same block library** as in the
+What runs is **the same compiled program and the same block library** as in the
 panel — the VM is compiled for the PC as well. So logic can be debugged at
 your desk and reach the machine finished.
 

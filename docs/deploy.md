@@ -69,7 +69,8 @@ itself after the panel restarts.
 !!! warning "Download into a machine that is standing still"
     Writing to flash stalls cache access **for both cores**, so the logic
     does not run while it happens, even at the highest priority. The panel
-    therefore allows a download only in STOP — the same reason an S7 has a
+    therefore allows a download only in STOP — the same reason big PLCs
+have a
     RUN/STOP switch.
 
 ## Runtime
@@ -90,7 +91,7 @@ The pack contains everything the panel needs, in one file:
 - the tables of strings, tags, alarms and styles,
 - assets (fonts, icons, images),
 - screens,
-- the **program bytecode** and the ST source (used to prove identity when
+- the **compiled program** and the ST source (used to prove identity when
   going online).
 
 The panel parses nothing out of it — it maps it from flash and reads it

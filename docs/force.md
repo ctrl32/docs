@@ -32,7 +32,7 @@ Closing the editor deliberately does **not** release a force: a
 technician who forces a valve open, walks around the machine and comes
 back expects to find it open. A power cycle does clear it, because a
 panel that came back from a power failure still holding somebody's value
-would be a trap — and unlike an S7, this panel has no dedicated lamp to
+would be a trap — and the panel has no dedicated lamp to
 warn about it.
 
 !!! warning "A forced tag that is retentive keeps its last value"

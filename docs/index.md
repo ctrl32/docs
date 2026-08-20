@@ -5,8 +5,9 @@ screens, define the tags, write the logic in ladder, in a function block
 diagram or in ST — and download it to the panel. The same visualization also
 runs in a browser.
 
-The equivalent of CoDeSys + WebVisu, on hardware that costs an order of
-magnitude less.
+A complete engineering tool with a live browser visualization, on
+hardware that costs an order of magnitude less than the established
+PLC systems.
 
 ## What it is made of
 
@@ -35,8 +36,7 @@ The numbers are measured on the slowest board we ship (a classic ESP32 at
 | a whole machine program (190 ST lines, 215 tags) | **0.30 ms** (3 %) |
 | 10 000 ST instructions | 1.42 ms (14 %) |
 
-For comparison: a Siemens LOGO! stops at 400 blocks. We run them with a
-cycle that is 95 % idle. Details and method in
+And 400 blocks still leave the cycle 95 % idle. Details and method in
 [Performance and limits](limits.md).
 
 ## What it is NOT

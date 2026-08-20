@@ -62,7 +62,7 @@ is bad" without guessing.
 | **block members** (`t1.ET`, `c1.CV`) | the VM's instance memory | the same |
 | **panel state** | cycle, overruns, heap | including what the monitoring itself costs |
 
-Wires and block members are not tags — since the move to bytecode they are
+Wires and block members are not tags — in the compiled program they are
 words of instance memory (which is exactly why the cycle got 5× faster). The
 editor learns their names by building the project and comparing the compiled
 program **byte for byte** with what is in the pack. When they match, the

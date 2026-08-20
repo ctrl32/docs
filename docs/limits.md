@@ -17,7 +17,7 @@ stuttering panel on a machine. They are also the numbers for the datasheet.
 | Screens | 32 |
 | Widgets per screen | 64 |
 | LD/FBD blocks | 512 |
-| Program (bytecode) | 32 kB |
+| Compiled program | 32 kB |
 | Instance data | 8 kB |
 | Trends | 4 |
 | WEBview clients | 2 |
@@ -36,10 +36,10 @@ writes one, which is the worst realistic ratio:
 | 200 | 274 µs | 2.7 % |
 | **400** | **515 µs** | **5.2 %** |
 
-**A Siemens LOGO! stops at 400 blocks.** We run them on the weakest board we
-ship, with a cycle that is 95 % idle. The declared limit of 512 is not a
-performance boundary but a bytecode budget: a simple block costs ~10 B, so
-512 blocks take 16 % of the 32 kB.
+400 blocks run on the weakest board we ship with a cycle that is 95 %
+idle. The declared limit of 512 is not a performance boundary but a
+program-size budget: a simple block costs ~10 B of the compiled
+program, so 512 blocks take 16 % of the 32 kB.
 
 In practice the **tag table** (512) runs out sooner than the blocks do.
 

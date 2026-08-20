@@ -8,7 +8,7 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
 
 - **Rung comments** in the ladder editor, and the FBD canvas visually
   divided into numbered networks with comments — the layout every
-  CoDeSys and S7 programmer expects.
+  PLC programmer expects.
 - **Live values in the FBD view while online** — the wires and pins of
   the block diagram showing what the machine is really doing, the same
   way the ladder page already shows power flow.

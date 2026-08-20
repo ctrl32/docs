@@ -8,9 +8,8 @@ opens in a newer one. Versions are dated: `year.month.day.build`.
 
 **Everything fits in ladder now.** Function blocks with state — timers,
 counters, ramps, filters, hysteresis — sit in a rung as EN boxes with
-IEC 61131-3 semantics: the block simply does not execute while the rung
-is off, its state freezes and its outputs hold. This is the same EN/ENO
-behaviour you know from CoDeSys or an S7.
+the standard IEC 61131-3 EN/ENO behaviour: the block simply does not
+execute while the rung is off, its state freezes and its outputs hold.
 
 - **LD ↔ FBD switching** — right-click a program in the tree and open
   it in the other editor. Ladder always opens as FBD; FBD opens as
