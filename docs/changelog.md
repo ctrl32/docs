@@ -9,6 +9,15 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.010
+
+**Important fix — download your project again.** The editor's
+download stamped packs with an outdated format label, and from
+1.00.008 on a panel with the new runtime could reject or fault the
+program because of it — online monitoring then showed nothing.
+Install this build and download the project once (F5); nothing else
+is needed. Runtimes flashed from 1.00.008/9 are fine as they are.
+
 ## 1.00.009
 
 **A clean start.** A new project begins truly empty — no pre-made
