@@ -9,6 +9,28 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.015
+
+- **The bare-arc gauge works in the editor too.** A gauge with the
+  needle switched off and a custom arc thickness drew correctly on
+  the panel but grew a needle back in the editor's canvas — the
+  editor now carries both properties end to end: drawing, project
+  files, download, and the inspector (a Thickness field and a Needle
+  switch under the gauge angles).
+- **Navigation buttons dropped the arrow.** The chevron took 14 px
+  from every nav button's text; the text now gets the whole button —
+  on the panel, in the browser and in the editor alike.
+- **The EVB thermostat example got its dial.** The main screen is the
+  familiar thermostat-card look: two nested arcs (room temperature in
+  blue, setpoint in orange), whole-degree numbers in the center, a
+  +/- setpoint spinner — and the numeric design stays one nav button
+  away. The program opens cleanly in the ladder editor, spinner
+  included (a rising-edge contact, the ladder-native shape).
+- **Every installer now passes the full test gate first.** The engine
+  comparison across all example programs, the block and language test
+  suites and the editor self-tests run before the installer is built
+  — a red test means no installer exists to ship.
+
 ## 1.00.014
 
 - **Olimex ESP32-EVB drives a display.** The MOD-LCD2.8RTP module
