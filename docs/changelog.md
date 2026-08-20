@@ -9,6 +9,14 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.016
+
+- **ctrl32 has a face.** The dotted "32" in the project's own
+  typeface and the brand blue is now the icon of the installer, of
+  the editor itself, of its window and taskbar entry and of the Start
+  menu shortcuts. Every icon size is drawn dot by dot — the logo
+  stays crisp from 16 px up.
+
 ## 1.00.015
 
 - **The bare-arc gauge works in the editor too.** A gauge with the
