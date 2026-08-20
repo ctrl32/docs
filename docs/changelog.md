@@ -11,13 +11,28 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.014
 
-- **Olimex ESP32-EVB can drive a display.** The MOD-LCD2.8RTP module
+- **Olimex ESP32-EVB drives a display.** The MOD-LCD2.8RTP module
   (2.8" 320×240 with resistive touch) plugs into the board's UEXT
   connector and the same board id covers both uses: a project with
   HMI screens lights the glass, a project without them keeps the
-  board headless with WEBview, exactly as before. First hardware
-  verification of the touch calibration is in progress — treat the
-  display option as fresh.
+  board headless with WEBview, exactly as before. Picture and touch
+  are verified on real hardware, touch calibration included, and the
+  board comes with its own example project sized for the small glass:
+  a wall **thermostat** — the board's two relays driven by a ladder
+  hysteresis controller with auto/manual, a simulated temperature
+  until a sensor is wired, and a portrait web banner prepared for a
+  Home Assistant dashboard.
+- **One honest limit that comes with it:** this board runs the
+  display *or* the WEBview, not both — the classic ESP32 with a
+  display project has no memory left for the network stack. The
+  panel says so plainly at startup and keeps logic, glass and USB
+  download running; the headless use keeps its WEBview as always.
+  (The groundwork for a display-plus-ethernet mode is in place and
+  planned for a future release.)
+- The USB download listener now starts earlier and reports loudly if
+  it ever cannot start — on a tightly loaded panel it could
+  previously die silently, leaving no way to download over the
+  cable.
 - Display panels start a little lighter on internal memory — two
   large fixed buffers moved out of the static segment (no behavior
   change; it is what made the EVB combination fit).
