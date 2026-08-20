@@ -9,6 +9,12 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.017
+
+- The icon got bold: the dots sit one pixel apart and the "32" fills
+  the full width of every size — it now holds its own next to any
+  other program's icon.
+
 ## 1.00.016
 
 - **ctrl32 has a face.** The dotted "32" in the project's own
