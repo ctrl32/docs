@@ -9,6 +9,22 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.007
+
+**One program, one owner.** A program edited in ladder is a read-only
+view in the block editor (and the other way round after taking it
+over with one click) — so an edit in one view can never be silently
+overwritten by a save from the other. Previously a comment written in
+LD could wipe blocks that had just been drawn in FBD; that cannot
+happen any more, and the two views finally stay in step.
+
+- **Comments are shared.** Rung comments and network comments are the
+  same text — write it in either editor, switch, and it is there.
+- **Arrange respects networks.** With network dividers present the
+  Arrange button lays blocks out inside their own network — dataflow
+  columns per band, band heights to fit — instead of scattering the
+  whole canvas.
+
 ## 1.00.006
 
 **Function blocks get a proper interface pane.** Above the canvas of
