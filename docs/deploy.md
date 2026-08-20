@@ -1,6 +1,6 @@
 # Download to the panel
 
-Downloading is **one button in the editor** (the blue ⭳ icon, or `F5`).
+Downloading is **one button in the editor** (the blue :ti-download: icon, or `F5`).
 There is no separate application, you need neither Python nor PlatformIO,
 and you do not have to know what happens underneath. This chapter is about
 what happens underneath — because during commissioning it comes in useful
@@ -12,13 +12,13 @@ exactly once.
 |---|---|---|
 | what it is | the panel's firmware | your screens, tags and logic |
 | when it is written | on a new board or a new ctrl32 version | on every project change |
-| how | *Flash runtime* on the board page (USB, esptool) | the ⭳ button / `F5` |
+| how | *Flash runtime* on the board page (over USB) | the :ti-download: button / `F5` |
 | takes | tens of seconds | seconds |
 
 **Changing a screen does not mean reflashing the panel.** The visualization
 is data, not code — the panel reads it straight from flash.
 
-## What happens when you press ⭳
+## What happens when you press :ti-download:
 
 1. The editor **builds the project into a binary pack**. If the build fails,
    nothing else happens and a window opens with the whole output.

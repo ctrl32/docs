@@ -56,7 +56,7 @@ runtime*. It is written over USB (esptool) and takes tens of seconds.
 
 ## 5. Download the program
 
-Pick the COM port in the toolbar and click the blue ⭳ icon (*Download to
+Pick the COM port in the toolbar and click the blue :ti-download: icon (*Download to
 panel*). The editor builds the project and uploads it. What happens
 underneath:
 

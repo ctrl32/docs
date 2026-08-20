@@ -54,13 +54,14 @@ page says so. A customer has to see what the panel can have, not guess it.
 
 | Icon | What it does |
 |---|---|
-| ⊞ | new project |
-| 💾 | save project |
-| ↶ ↷ | undo / redo (both unlimited; the count is in the Edit menu) |
-| ▶ / ■ | **TEST** — simulation inside the editor, without a panel |
-| ⏸ ⏭ | pause and single-cycle step (during a test) |
-| 🔌 | **ONLINE** — connect to a real panel |
-| **⭳** | **download to the panel** (F5) — the only coloured icon in the bar |
+| :ti-file-plus: | new project |
+| :ti-folder-open: | open project |
+| :ti-device-floppy: | save project |
+| :ti-arrow-back-up: :ti-arrow-forward-up: | undo / redo (both unlimited; the count is in the Edit menu) |
+| :ti-player-play: / :ti-player-stop: | **TEST** — simulation inside the editor, without a panel |
+| :ti-player-pause: :ti-player-track-next: | pause and single-cycle step (during a test) |
+| :ti-plug: | **ONLINE** — connect to a real panel (:ti-plug-connected: while connected) |
+| :ti-download: | **download to the panel** (F5) — the only coloured icon in the bar |
 
 There is deliberately only one blue icon. Downloading into a machine is an
 action that must not be confused with any other; everything else is a flat
@@ -68,7 +69,7 @@ icon like in any ordinary application.
 
 ## TEST — simulation without a panel
 
-The ▶ button switches the editor into running: the PLC cycle runs on the PC,
+The :ti-player-play: button switches the editor into running: the PLC cycle runs on the PC,
 screens react, blocks compute, tags change. It can be paused and stepped
 cycle by cycle (*Debug → Step*).
 

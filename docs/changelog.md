@@ -9,6 +9,31 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.004
+
+**A rung does not need a coil.** A ladder rung can now end without an
+output coil — the run wire simply ends in a small arrow, the standard
+notation. A new rung starts that way: just the arrow, and you build
+from there. Blocks placed on a bare rail get a TRUE contact drawn in
+front of them, and contacts before a block act as its EN condition —
+no helper variable needed. Everything still converts cleanly between
+LD and FBD, both directions.
+
+- **Clean networks in FBD.** A connection never crosses a network
+  divider any more: across networks the signal travels by its
+  variable name, shown at both pins — for a direct block-to-block
+  link that name is `instance.PIN`. Generated FBD layouts also got
+  proper spacing: band heights follow the tallest block and columns
+  leave room for the operand labels.
+- Live values in ladder now sit above the pin variables of blocks
+  placed inside a rung too — inputs, parameters and the second
+  output alike, matching the boxes.
+- Thinner connection and block lines in the editors — the drawing is
+  lighter; symbols keep their weight, and the live power flow is
+  still thick and green.
+- Selecting a rung highlights it with a quiet grey background
+  instead of a bright frame over the rung comment.
+
 ## 1.00.003
 
 **The block diagram mirrors the ladder.** A program edited in LD shows
