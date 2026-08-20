@@ -79,3 +79,6 @@ nav:
       - Forcing values: force.md
       - Performance and limits: limits.md
       - Troubleshooting: troubleshooting.md
+  - News:
+      - What's new: changelog.md
+      - Roadmap: roadmap.md
