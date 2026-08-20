@@ -9,6 +9,48 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.003
+
+**The block diagram mirrors the ladder.** A program edited in LD shows
+its FBD view organized in numbered networks — one horizontal band per
+rung, in rung order, with the rung comments on the network dividers.
+Every ladder save refreshes the layout, so the two views never drift
+apart. A diagram with no dividers yet is network 1 and says so.
+
+- Online mode is now read-only without exceptions: the context menus
+  and edit popups of both editors stay closed while the connection is
+  live. The one thing that still switches online is the LD/FBD/ST view.
+
+## 1.00.002
+
+- Live values in LD and FBD are drawn **above each pin variable** —
+  inputs, parameters and outputs alike — where they cannot collide
+  with names or connection wires; live rows stretch to make room.
+- The view switch (LD ↔ FBD) moved to the front of the toolbar and
+  stays available during online monitoring.
+- The status bar shows the version number instead of the build date.
+
+## 1.00.001
+
+First numbered release (see the numbering note above).
+
+- Online values placed clear of labels and wires.
+- A ladder element cut in one rung pastes into any other rung.
+
+## 2026.08.20.4
+
+- **Online monitoring is read-only.** While the editor is connected to
+  a running panel, the program cannot be modified — no adding, moving
+  or deleting; edits resume the moment you go offline.
+- Right-click **cut / copy / paste** for blocks, contacts and boxes in
+  both LD and FBD; **insert rung above / below**; rung comments in LD
+  and network dividers with comments in FBD.
+- Newly inserted blocks and contacts come with `...` placeholder pins —
+  nothing is silently bound to a variable you did not pick.
+- The toolbox is split into MATH and BOOLEAN sections.
+- Live values are shown directly in the FBD editor during simulation
+  and online monitoring.
+
 ## 2026.08.20.3
 
 **Everything fits in ladder now.** Function blocks with state — timers,
