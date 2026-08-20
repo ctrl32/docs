@@ -9,6 +9,19 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.014
+
+- **Olimex ESP32-EVB can drive a display.** The MOD-LCD2.8RTP module
+  (2.8" 320×240 with resistive touch) plugs into the board's UEXT
+  connector and the same board id covers both uses: a project with
+  HMI screens lights the glass, a project without them keeps the
+  board headless with WEBview, exactly as before. First hardware
+  verification of the touch calibration is in progress — treat the
+  display option as fresh.
+- Display panels start a little lighter on internal memory — two
+  large fixed buffers moved out of the static segment (no behavior
+  change; it is what made the EVB combination fit).
+
 ## 1.00.013
 
 - Fixed a red "conflicting ID" warning (and the ambiguous click
