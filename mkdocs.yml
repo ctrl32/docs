@@ -57,28 +57,34 @@ nav:
   - What ctrl32 is: index.md
   - Quick start: quickstart.md
   - Editor:
+      - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
       - Tags: tags.md
       - Screens and widgets: widgets.md
   - Programming:
+      - Programming: programming.md
       - Ladder (LD): ladder.md
       - Function block diagram (FBD): fbd-composites.md
       - Structured Text (ST): st-language.md
   - Buses and peripherals:
+      - Buses and peripherals: buses.md
       - Modbus: modbus.md
       - Raw CAN: rawcan.md
       - MQTT: mqtt.md
       - Peripherals and services: peripherals-and-services.md
       - Adding a peripheral: adding-peripherals.md
   - Deployment:
+      - Deployment: deployment.md
       - Download to the panel: deploy.md
       - Licensing: licensing.md
   - Operation:
+      - Operation: operation.md
       - Online monitoring: online.md
       - Scope: scope.md
       - Forcing values: force.md
       - Performance and limits: limits.md
       - Troubleshooting: troubleshooting.md
   - News:
+      - News: news.md
       - What's new: changelog.md
       - Roadmap: roadmap.md
