@@ -9,6 +9,24 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.009
+
+**A clean start.** A new project begins truly empty — no pre-made
+program in the tree; you add LD, FBD or ST yourself. And a program
+opened in ladder always has its first rung waiting: the bare arrow,
+ready for the first contact.
+
+- The diagnostics page no longer shows memory bars or heap numbers —
+  cycle times, overruns and project consumption stay.
+- The standing "online — switch to offline" note is gone from the
+  editor toolbars; the grayed controls say it.
+- Ladder drawing polish: a parallel branch connects to the run wire
+  to the pixel (no tick above, no stub poking left of the branch) and
+  block frames have sharp, fully joined corners.
+- A saved project reloads its internal connection variables exactly
+  as it saved them — a reopened ladder program keeps its rung shape
+  instead of decomposing into helper-variable rungs.
+
 ## 1.00.008
 
 **The blinker counts down for you.** BLINK blocks have a new `REM`
