@@ -9,6 +9,29 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.006
+
+**Function blocks get a proper interface pane.** Above the canvas of
+every LD and FBD tab sits a variables table in the PLCopen shape:
+`VAR_INPUT` and `VAR_OUTPUT` rows of a function block (name and type
+edited right there, ports added with one button) and a `VAR` section
+listing the local connection variables the diagrams create. Building
+your own block is now the standard flow: add a POU of the *function
+block* kind, define its inputs and outputs in the pane, draw the
+inside — in FBD **or in ladder** — and place it as a block in any
+program. Interface changes bump the block's version automatically so
+existing instances migrate cleanly.
+
+- **Toolbox sorted.** Blocks are grouped the same way everywhere —
+  Boolean, Math, Timers, **Counters**, General, **Motion**, **CAN**
+  and **GSM/GPS** — in the Toolbox of both editors and in every
+  add-block menu. Motion and CAN blocks were missing from the block
+  palette entirely; now every group is one click away. Groups start
+  collapsed each time the editor opens.
+- In FBD the operand names sit **below** the wire line (values stay
+  above it) — a connection passing a pin row no longer runs through
+  the text.
+
 ## 1.00.005
 
 **Comments are written straight on the canvas.** Every ladder rung has
