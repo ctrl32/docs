@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **24**
+Schema version: **25**
 
 ## Common properties (widget_base)
 
@@ -194,6 +194,12 @@ Schema version: **24**
 | Property | Type | Default |
 |---|---|---|
 | `tag` | tag_ref |  |
+| `color` | color |  |
+
+## `logo`
+
+| Property | Type | Default |
+|---|---|---|
 | `color` | color |  |
 
 # Function blocks (logic)
