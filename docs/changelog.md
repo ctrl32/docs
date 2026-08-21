@@ -9,6 +9,23 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.019
+
+- **Every board's firmware is current.** Nine runtimes had lagged
+  behind since mid-August (the Olimex PoE family, the generic
+  presets, inoCORE32-TM1.0); all nineteen in the catalog are now
+  built from the same day's firmware, at the full 240 MHz.
+- **The project-vs-board check works in the installed editor.** The
+  full validation — display and resolution, buses, pins, peripheral
+  limits, pack size against the flash slot — runs inside every build,
+  with the same wording everywhere. Until now the installed editor
+  silently skipped parts of it that only worked in our development
+  tree.
+- The documentation gained screenshots of the editor on every major
+  page, and its web navigation is grouped into sections.
+- Sample projects speak English throughout, including the tag names
+  in the seal-in classic.
+
 ## 1.00.018
 
 - The bold icon actually reaches the editor now — a stale build cache
