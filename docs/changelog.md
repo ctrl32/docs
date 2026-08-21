@@ -9,6 +9,26 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.020
+
+- **Bits, everywhere.** Every bit of an integer tag is addressable on
+  its own: `IF status.5 THEN` and `mask.0 := ready;` in ST, contacts
+  and coils on `tag.bit` in ladder and FBD, the widgets as before —
+  one meaning across all of them. The index is checked against the
+  tag's width at build time, in the CoDeSys spelling your fingers
+  already know.
+- **A bit write never loses a neighbour.** Writing one bit from the
+  logic while a browser switch flips another and a Modbus master
+  rewrites the word is safe — every bit write is atomic. This also
+  fixes a real race: a browser switch used to write the whole word
+  back from a stale snapshot and could wipe bits the PLC or a Modbus
+  master had just changed.
+- **Bitwise toolbox.** On integers, `AND`/`OR`/`XOR`/`NOT` are
+  bitwise and `SHL`/`SHR` shift — as operators and as functions.
+  Building LED masks no longer needs arithmetic gymnastics.
+- Program packs are format 48; the panel needs this release's
+  runtime (the editor tells you, in orange, when it does not have it).
+
 ## 1.00.019
 
 - **Every board's firmware is current.** Nine runtimes had lagged

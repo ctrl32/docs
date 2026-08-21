@@ -29,6 +29,29 @@ In the project tree: *Application → Tags*. Every tag has:
     something else in the generated program. The editor refuses them at
     build time and names the tag.
 
+## Bits of a word
+
+Every bit of an integer tag is addressable on its own — the CoDeSys
+way, everywhere the tag itself goes:
+
+- **ST**: `IF status.5 THEN`, `mask.0 := ready;`
+- **Ladder / FBD**: a contact, a coil or a block's bool pin can bind
+  `tag` + bit — the picker offers the bit field the same way the
+  switch widget does
+- **Screens**: the switch and led widgets carry `bit:` as before
+
+The index must fit the tag's declared width: bits 0–15 on a 16-bit
+tag, 0–31 on a 32-bit one; a wrong index, a `REAL`, a `TIME` or a
+bool (a bool *is* a bit) are refused at build time with the tag
+named. The index is a constant, like an axis.
+
+!!! success "A bit write never loses a neighbour"
+    Writing `mask.0` from the logic while a browser switch flips
+    `mask.7` and a Modbus master rewrites the whole word is safe —
+    each bit write changes exactly its own bit, atomically. This is
+    why the TP900-style LED masks and a panel-side lamp test can
+    share one register without wiping each other.
+
 ## Where the value comes from
 
 | Source | Meaning |

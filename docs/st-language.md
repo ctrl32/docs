@@ -41,6 +41,19 @@ lamp := t1.Q;
 **Literals**: `TRUE/FALSE`, `123`, `16#FF`, `2#1010`, `1.5`,
 `T#1m30s500ms`, typed `INT#5`. Comments `(* ... *)` and `// to eol`.
 
+**Bits**: a constant bit of an integer tag or local is addressable
+directly — `IF status.5 THEN`, `mask.0 := ready;`. Read as a `BOOL`,
+written atomically (a concurrent writer of another bit or of the
+whole word never loses its update). The index must fit the declared
+width (0–15 on a 16-bit tag, 0–31 on 32-bit); `REAL`, `TIME` and
+bools have no bits and are refused at build time.
+
+**Bitwise**: on integers, `AND`/`OR`/`XOR`/`NOT` are bitwise (on
+`BOOL`s they stay logic, and mixing the two is refused); `SHL(x, n)`
+and `SHR(x, n)` shift logically — a count of 32 or more yields 0.
+The same six exist as functions: `r := OR(SHL(1, 2), SHL(1, 5));`
+lights bits 2 and 5.
+
 **Time**: `NOW()` returns the cycle's monotonic milliseconds. All four
 comparisons work on `TIME` (`IF t1.ET > T#500ms THEN ...`), and they are
 **unsigned** — a machine that is never switched off passes 2^31 ms
