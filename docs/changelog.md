@@ -9,7 +9,7 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
-## 1.00.021
+## 1.00.022
 
 - **Every network board answers Modbus TCP.** Headless runtimes (the
   Olimex PoE family, the generic presets and friends) now run the
