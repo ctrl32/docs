@@ -9,6 +9,23 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.021
+
+- **Every network board answers Modbus TCP.** Headless runtimes (the
+  Olimex PoE family, the generic presets and friends) now run the
+  same Modbus TCP slave the display panels always had — a SCADA can
+  read and write the tag map on port 502 without a screen attached.
+  A pack asking for RTU on a board with no RS485 wired says so on
+  the console instead of listening on nothing.
+- **The P4 showcase demonstrates bit access live.** A new *Bit
+  access* screen (reached from Control): the logic blinks one bit,
+  the lamp test drives another, and six switches — on the glass and
+  in the browser at once — own the middle of the same word. Proven
+  under fire: hundreds of browser toggles against the running logic
+  with not one lost write.
+- The bench tooling is a single program now; the sample-project
+  headers name it instead of retired scripts.
+
 ## 1.00.020
 
 - **Bits, everywhere.** Every bit of an integer tag is addressable on
