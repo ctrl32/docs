@@ -9,6 +9,31 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.026
+
+- **The first STM32 panel.** The runtime now runs on STM32F7-class
+  hardware (bring-up board: the ST 32F746G-DISCOVERY — 480×272 touch
+  glass, ethernet, 8 MB RAM, 16 MB flash). The same project, the same
+  pack, the same editor: pick the board and upload. The PLC dispatch
+  loop executes from the chip's zero-wait instruction RAM and the
+  display is pushed by the 2D DMA engine, so the logic cycle and the
+  glass never fight for time.
+- **Everything over ethernet.** A network panel now serves the full
+  WEBview from its own address, accepts program uploads over the wire
+  (`Download → Sieť` in the editor, no cable swap), and — new — the
+  editor's **online mode works over ethernet too**: type the panel's
+  IP where you would pick a COM port and watch live values, the
+  console, the scope and forcing exactly as over USB. One protocol,
+  two wires.
+- **The panel knows the time.** With ethernet up it sets its clock
+  from the internet automatically (NTP), and the browser can set it
+  by hand on a closed network. Alarm and diagnostic timestamps mean
+  something now.
+- **Retentive values without extra chips.** On the STM32 the tags
+  marked *persist* survive restarts and program uploads in the
+  processor's own battery-domain memory — no EEPROM wiring, no wear,
+  and with a backup battery fitted they survive power loss outright.
+
 ## 1.00.023
 
 ## 1.00.022
