@@ -6,37 +6,52 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
 
 ## In progress
 
-- **Rung comments** in the ladder editor, and the FBD canvas visually
-  divided into numbered networks with comments — the layout every
-  PLC programmer expects.
-- **Live values in the FBD view while online** — the wires and pins of
-  the block diagram showing what the machine is really doing, the same
-  way the ladder page already shows power flow.
-- The new widget properties (trend curves, gauge thickness and needle,
-  alarm-table text size) editable directly in the inspector.
+- **STM32 targets.** The runtime is no longer tied to Espressif: the
+  same VM, tags, Modbus, CANopen, rasteriser and pack format run on an
+  STM32F7, and the editor writes the board over SWD. The F7 is running;
+  the rest of the family follows, and nothing below 64 kB of RAM will be
+  supported.
+- **Motion on a real drive.** The blocks exist — `MC_POWER`,
+  `MC_MOVEABS`, `MC_HOME` and the rest, with `CO_CIA402` underneath them
+  and EDS import to generate the tags. What remains is commissioning
+  against a physical Lenze i550: measuring the bus delay, the creep
+  phase, and the numbers only a bench can give you. See [Motion
+  blocks](blocks-motion.md).
+- **Documentation.** A written reference for the block library and the
+  peripheral catalogue, replacing generated tables nobody could read end
+  to end.
 
 ## Planned
 
-- **Motion**: CANopen drive control with a ready-made Lenze i550
-  profile — `DRIVE_402` wraps the CiA 402 state machine, `POS_AXIS`
-  and `HOME` follow PLCopen naming, ramp positioning with delay
-  compensation. EDS import already works; the drive blocks are the
-  missing piece.
-- **Editor over the network**: online monitoring and diagnostics over
-  Ethernet/WiFi, not only over the USB cable (pack upload over the
-  network already works today).
 - **Production security**: secure boot and flash encryption switched on
-  for production panels, so a deployed machine cannot be cloned or
+  for production boards, so a deployed unit cannot be cloned or
   reflashed by a third party.
 - **Retentive data on FRAM** as a turnkey service — microsecond writes,
-  practically unlimited endurance, nothing for the project to
-  configure.
+  practically unlimited endurance, nothing for the project to configure.
 - **Custom block libraries**: distributing your own FB/FC packages in
   compiled form with versioning and dependency checks — share the
   know-how, keep the source.
-- **Editor localization** — the user interface in more languages.
+- **Editor localisation** — the user interface in more languages.
 
 ## Under consideration
 
 - Trend history persisted to storage and browsable from the WEBview.
 - More display controllers besides the SSD1963 and MIPI-DSI panels.
+
+## Recently finished
+
+Moved here out of *In progress*; details in
+[What's new](changelog.md).
+
+- **Rung comments** in the ladder editor, and the FBD canvas divided
+  into numbered networks with comments.
+- **Live values in the FBD view while online** — wires and pins showing
+  what the panel is really doing, as the ladder view already did.
+- **States and motion on any widget**: three-state colours driven by a
+  variable or by one bit of an integer, and a widget that travels a path
+  as a value sweeps its range.
+- **Vector icons** — sharp at any size, in the panel, the editor and the
+  browser alike.
+- **Online control from the editor canvas**: a button on a screen now
+  reaches the running panel, not just the editor's own copy of the
+  values.
