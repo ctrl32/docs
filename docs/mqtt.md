@@ -1,6 +1,10 @@
 # MQTT telemetry in ctrl32
 
-> **Home Assistant?** Skip straight to [Home Assistant mode](#home-assistant-mode-one-topic-per-tag)
+> **Home Assistant?** There is a page for that: [Home Assistant](home-assistant.md)
+> takes you from nothing to working entities. What follows here is the
+> mechanics underneath — start with that page unless you want them.
+>
+> The section on this page: [Home Assistant mode](#home-assistant-mode-one-topic-per-tag)
 > — in that mode the panel acts as a process data server (an OPC equivalent).
 
 The panel can push tag values to an **MQTT broker** — typically into

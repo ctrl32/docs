@@ -98,6 +98,8 @@ nav:
       - Modbus: modbus.md
       - Raw CAN: rawcan.md
       - MQTT: mqtt.md
+      - Home Assistant: home-assistant.md
+      - CANopen: canopen.md
       - Adding a peripheral: adding-peripherals.md
   - Peripherals and services:
       - Peripherals and services: peripherals-and-services.md
