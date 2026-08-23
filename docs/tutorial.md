@@ -168,5 +168,6 @@ Small as it is, that project used the whole shape of the tool:
 | see it on a phone | [WEBview](webview.md) |
 | find out why something is not behaving | [Online monitoring](online.md) |
 
-Or open an [example project](examples.md) and read how a complete one is
-put together.
+Or read one of the [tutorial projects](tutorials.md) — eleven small
+ones, each about a single idea — and then an [example
+project](examples.md) to see how a complete one is put together.
