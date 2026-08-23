@@ -2,7 +2,7 @@
 
 Every ctrl32 board serves its own visualisation to a browser. Type the
 board's address into a phone, a tablet or a laptop and the equipment is
-there — the same tags, the same values, live.
+there — the same variables, the same values, live.
 
 Nothing is installed on the phone. No app, no account, no cloud. The page
 comes from the board, over your own network.
@@ -12,7 +12,7 @@ comes from the board, over your own network.
 ## What it is, and what it is not
 
 **It is** a second view of the same project. You draw it in the same
-editor, from the same tags, and it uploads in the same file as
+editor, from the same variables, and it uploads in the same file as
 everything else.
 
 **It is not** a picture of the board's screen being streamed. The
@@ -64,12 +64,12 @@ built so that watching it costs almost nothing:
   other screens are not sent at all.
 
 !!! warning "Deadband is what makes this work"
-    An analog tag without a deadband reports every flicker of its last
+    An analog variable without a deadband reports every flicker of its last
     digit. That floods the WebSocket, wakes the browser hundreds of times
     a second and drains a phone battery to no purpose — a temperature
     reported to a hundredth of a degree tells nobody anything.
 
-    Set a deadband on every analog tag. See [Tags](tags.md).
+    Set a deadband on every analog variable. See [Variables](variables.md).
 
 ---
 
@@ -79,7 +79,7 @@ A button on a WEBview screen does not write into a variable directly. It
 sends a **command**, and the board decides whether to accept it.
 
 That distinction matters when the visitor is a phone on the works WiFi:
-the board stays in charge of its own tags, and a page open in somebody's
+the board stays in charge of its own variables, and a page open in somebody's
 pocket cannot write whatever it likes into the equipment.
 
 ---

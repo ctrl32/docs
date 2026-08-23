@@ -76,10 +76,10 @@ cross-compensation work below.
 | `SEN5X` | I2C | I2C environmental node (Sensirion SEN54/55) — channels: 0–3 = PM1.0/2.5/4.0/10 [µg/m³], 4 = humidity [%RH], 5 = temperature [°C], 6 = VOC index, 7 = NOx index (SEN55; 0 elsewhere). Fixed address 0x69. |
 | `SFA30` | I2C | I2C formaldehyde sensor (Sensirion) — channels: 0 = HCHO [ppb], 1 = humidity [%RH], 2 = temperature [°C]. Continuous measurement, CRC checked. Fixed address 0x5D. |
 | `SGP30` | I2C | I2C VOC air quality sensor — channels: 0 = eCO2 [ppm], 1 = TVOC [ppb]. Fixed address 0x58; 1 Hz measurement, CRC checked. The first ~15 s after power-up report the fixed 400/0 warm-up values; baseline persistence is not stored. |
-| `SGP4X` | I2C | I2C VOC sensor (SGP40/41) — channel 0 = RAW resistance counts (the Sensirion VOC-index algorithm is not in the firmware; trends via tag gain/offset). Fixed address 0x59. |
+| `SGP4X` | I2C | I2C VOC sensor (SGP40/41) — channel 0 = RAW resistance counts (the Sensirion VOC-index algorithm is not in the firmware; trends via variable gain/offset). Fixed address 0x59. |
 | `SPS30` | I2C | I2C particulate matter sensor (Sensirion) — channels: 0 = PM1.0, 1 = PM2.5, 2 = PM4.0, 3 = PM10 [µg/m³]. Fixed address 0x69; integer output format, CRC checked. VERIFY ON THE BENCH. |
 
 Every entry above is in the editor: pick the chip, give it
-an address or a chip-select pin, and its channels become tags.
+an address or a chip-select pin, and its channels become variables.
 See [Adding a peripheral](adding-peripherals.md) for the
 click-through.

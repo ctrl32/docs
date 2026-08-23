@@ -1,6 +1,6 @@
 # Adding peripherals to a board
 
-What those peripherals do at run time — mapping pins onto tags,
+What those peripherals do at run time — mapping pins onto variables,
 converter ranges — is described in
 [Board peripherals and system services](peripherals-and-services.md).
 

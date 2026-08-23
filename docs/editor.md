@@ -21,7 +21,7 @@ included. What you see is what gets downloaded.
 The **bug icon at the top right** opens mail to `bugs@ctrl32.com` —
 reporting a fault should be one click from wherever you hit it.
 
-![The screen above, its ladder below — one project, two views of the same tags](img/editor-layout.webp)
+![The screen above, its ladder below — one project, two views of the same variables](img/editor-layout.webp)
 
 ## The tree follows the hardware, not the protocols
 
@@ -75,7 +75,7 @@ icon like in any ordinary application.
 ## TEST — simulation without a board
 
 The :ti-player-play: button switches the editor into running: the PLC cycle runs on the PC,
-screens react, blocks compute, tags change. It can be paused and stepped
+screens react, blocks compute, variables change. It can be paused and stepped
 cycle by cycle (*Debug → Step*).
 
 What runs is **the same compiled program and the same block library** as in the

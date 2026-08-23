@@ -27,7 +27,7 @@ be free when it is off.
 
 ## Using it
 
-1. **Pick the signals.** The list offers tags and, when the editor and the
+1. **Pick the signals.** The list offers variables and, when the editor and the
    board run the same program, the wires between blocks and block members
    (`t1.ET`, `c1.CV`) as well. Up to eight; the counter above the list
    says how many are left.

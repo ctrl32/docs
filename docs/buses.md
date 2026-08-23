@@ -4,11 +4,11 @@ The board speaks Modbus on RS485 and Ethernet, CANopen to drives, raw CAN
 frames, MQTT for telemetry — and drives local chips over I2C, SPI and
 1-Wire.
 
-**Every bus ends in the same place: the tag table.** A value that arrived
+**Every bus ends in the same place: the variable table.** A value that arrived
 over Modbus looks exactly like one measured on a local pin, and the logic
 does not care which it was. That is the whole design — you wire the
-outside world into tags once, and everything afterwards (screens, logic,
-trends, WEBview, alarms) works with tags.
+outside world into variables once, and everything afterwards (screens, logic,
+trends, WEBview, alarms) works with variables.
 
 ---
 
@@ -63,7 +63,7 @@ needs: it runs its own equipment and reports upward.
 !!! note "Modbus TCP has a connection limit"
     Each connection costs 6–8 kB of RAM, so the number of simultaneous
     clients is capped and enforced. A SCADA that opens one connection per
-    tag will hit it; one that opens a connection and reads blocks will
+    variable will hit it; one that opens a connection and reads blocks will
     not.
 
 ---
@@ -147,7 +147,7 @@ in advance; see [Performance and limits](limits.md).
 | | |
 |:---|:---|
 | [Modbus](modbus.md) | RTU and TCP, master and slave, the device catalogue |
-| [Raw CAN](rawcan.md) | mapping CAN frames straight onto tags |
+| [Raw CAN](rawcan.md) | mapping CAN frames straight onto variables |
 | [MQTT](mqtt.md) | telemetry into ThingsBoard, OpenRemote or Home Assistant |
 | [CANopen blocks](blocks-can.md) | talking to a drive directly |
 | [Motion blocks](blocks-motion.md) | driving an axis |

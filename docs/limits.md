@@ -12,7 +12,7 @@ stuttering board in a real setup. They are also the numbers for the datasheet.
 
 | Limit | Value |
 |:---|:---:|
-| Tags | 512 |
+| Variables | 512 |
 | Alarms | 128 |
 | Screens | 32 |
 | Widgets per screen | 64 |
@@ -26,7 +26,7 @@ stuttering board in a real setup. They are also the numbers for the datasheet.
 
 ## How many blocks really fit
 
-The program is N AND blocks over 150 tags — every block reads two tags and
+The program is N AND blocks over 150 variables — every block reads two variables and
 writes one, which is the worst realistic ratio:
 
 | Blocks | Average cycle | Of a 10 ms period |
@@ -41,11 +41,11 @@ idle. The declared limit of 512 is not a performance boundary but a
 program-size budget: a simple block costs ~10 B of the compiled
 program, so 512 blocks take 16 % of the 32 kB.
 
-In practice the **tag table** (512) runs out sooner than the blocks do.
+In practice the **variable table** (512) runs out sooner than the blocks do.
 
 ## A real program, not a synthetic test
 
-| Program | ST lines | Tags | Cycle |
+| Program | ST lines | Variables | Cycle |
 |:---|:---:|:---:|:---:|
 | half a setup | 100 | 110 | 168 µs |
 | **a whole equipment** | 190 | 215 | **304 µs** |
@@ -58,11 +58,11 @@ A realistic ST line costs ~1.6 µs, a ladder block ~1.3 µs.
 
 ## What the cycle actually spends its time on
 
-The interesting part: **it is not the arithmetic, it is tag access.** A
+The interesting part: **it is not the arithmetic, it is variable access.** A
 synthetic loop over local variables runs at 0.145 µs per instruction; the
-same code touching tags is several times slower.
+same code touching variables is several times slower.
 
-That is why the lock in the tag table was removed on 2026-08-16 — every
+That is why the lock in the variable table was removed on 2026-08-16 — every
 value is one naturally aligned 32-bit word, so the hardware already
 guaranteed what the mutex was being paid for. The result, same packs, same
 board:
@@ -73,8 +73,8 @@ board:
 | a whole equipment | 1 319 µs | **304 µs** |
 | 10 000 instructions (local variables) | 1 410 µs | 1 420 µs |
 
-The last row is the control sample: code that does not touch tags did not
-move by a microsecond. Everything that moved, moved because of tags.
+The last row is the control sample: code that does not touch variables did not
+move by a microsecond. Everything that moved, moved because of variables.
 
 ## The degradation rule
 

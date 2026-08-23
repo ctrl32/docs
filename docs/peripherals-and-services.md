@@ -31,12 +31,12 @@ tags:
 - The channels are measured in turn, each one is refreshed within
   4 PLC cycles at the latest (40 ms with a 10 ms cycle).
 - A disconnected or unfitted chip: one event in the diagnostics, the
-  tags hold their last value, the board keeps running; once it is
+  variables hold their last value, the board keeps running; once it is
   connected the chip comes back to life on its own.
 
 ## Retention — values that survive a power-down
 
-Tags in the RVAR (retain) list are stored automatically according to
+Variables in the RVAR (retain) list are stored automatically according to
 what the board has fitted — **nothing is configured**:
 
 | The board has | Behaviour |
@@ -86,4 +86,4 @@ States (`VUT!` prints `source=` and `state=`):
 
 The time is **local** — the board does not deal with time zones or
 daylight saving; at the changeover set the time the same way you would
-in a real setup with a Simatic.
+in a real setup.

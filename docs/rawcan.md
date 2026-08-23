@@ -27,7 +27,7 @@ five things — exactly the ones you find in the vendor's DBC file:
 | `bits` | width 1..32 |
 | `byte_order` | `little` (Intel) or `big` (Motorola) |
 | `signed` | two's complement |
-| `gain` / `offset` | `tag = raw_value × gain + offset` |
+| `gain` / `offset` | `variable = raw_value × gain + offset` |
 
 Thanks to that a DBC maps one to one and **DBC import can be added
 without changing the pack format**.
@@ -62,9 +62,9 @@ raw_can:
       - { tag: charge_current, start_bit: 0, bits: 16, byte_order: little }
 ```
 
-`dir: rx` = the board receives the frame and unpacks it into tags.
-`dir: tx` = the board builds the frame from tags and transmits it.
-`period_ms: 0` means **transmit on change** — the tag deadband has
+`dir: rx` = the board receives the frame and unpacks it into variables.
+`dir: tx` = the board builds the frame from variables and transmits it.
+`period_ms: 0` means **transmit on change** — the variable deadband has
 already filtered the noise, so only a real change is sent.
 
 In the editor this is the tree → **CAN → Raw CAN**. The same fields,
@@ -86,7 +86,7 @@ The editor rejects a project over the limit at compile time.
 | **Swapping `little` and `big`** | the values look "almost right" — the same class of fault as the word order on Modbus `f32`. Verify against a known value (voltage, temperature), not one that happens to be fluctuating. |
 | An ID overlapping the CANopen range | the two protocols get in each other's way on one bus. Packbuild **rejects** such a project; the editor shows it in red right on the page. |
 | Forgotten `signed` | a negative current reads as 65 A instead of −1 A |
-| A truncated frame (shorter `dlc` than the signal needs) | the runtime **skips it** and the tag holds its last value — a truncated frame is common while a device is powering up and must not write nonsense |
+| A truncated frame (shorter `dlc` than the signal needs) | the runtime **skips it** and the variable holds its last value — a truncated frame is common while a device is powering up and must not write nonsense |
 | `period_ms` too short | at 500 kbit/s an 8-byte frame takes ~130 µs; 10 frames every 10 ms is ~13 % of the bus. Transmit as often as you need to, not as often as you can. |
 
 ## How it works inside

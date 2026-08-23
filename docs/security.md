@@ -24,7 +24,7 @@ to assemble it from five others.
 |:---|:---|
 | **TLS / HTTPS** | none. Traffic is plain HTTP and plain WebSocket. |
 | **A login** | none. Whoever reaches the board can see its screens. |
-| **Access control on tags** | none per user — the project decides what is writable, not who is asking. |
+| **Access control on variables** | none per user — the project decides what is writable, not who is asking. |
 | **Modbus authentication** | none. Modbus has no such concept, on any device. |
 
 None of that is an oversight. TLS on an ESP32-S3 with a couple of viewers

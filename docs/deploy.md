@@ -10,7 +10,7 @@ exactly once.
 
 | | Runtime | Program (pack) |
 |:---|:---|:---:|
-| what it is | the board's firmware | your screens, tags and logic |
+| what it is | the board's firmware | your screens, variables and logic |
 | when it is written | on a new board or a new ctrl32 version | on every project change |
 | how | *Flash runtime* on the board page (over USB) | the :ti-download: button / `F5` |
 | takes | tens of seconds | seconds |
@@ -109,7 +109,7 @@ runtime flash.
 The pack contains everything the board needs, in one file:
 
 - the header (magic, schema version, target board, CRC32),
-- the tables of strings, tags, alarms and styles,
+- the tables of strings, variables, alarms and styles,
 - assets (fonts, icons, images),
 - screens,
 - the **compiled program** and the ST source (used to prove identity when

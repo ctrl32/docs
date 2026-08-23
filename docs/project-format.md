@@ -16,7 +16,7 @@ exactly what changed: this setpoint, that rung, this screen. Ask anybody
 who has tried to answer "what changed since Tuesday?" in a binary
 engineering tool what that is worth.
 
-**You can put it in git.** Branches for a variant, tags for what was
+**You can put it in git.** Branches for a variant, variables for what was
 delivered, a history of who changed what and when. A project from two
 years ago is a checkout away.
 
@@ -42,7 +42,7 @@ The sections, in the order they usually appear:
 | `project` | name, target board, resolution, orientation |
 | `themes` | colour sets the styles resolve against |
 | `states` | reusable three-state colour sets |
-| `tags` | every variable: type, unit, scaling, deadband, source |
+| `variables` | every variable: type, unit, scaling, deadband, source |
 | `pous` | program units — ladder, FBD or ST |
 | `logic` | the blocks and how they are wired |
 | `alarms` | condition, limit, hysteresis, delay, priority, text |
@@ -96,7 +96,7 @@ logic and layout.
 ## Compiled, not interpreted
 
 The board does **not** read this file. The editor compiles it into a
-binary pack — string table, tag table, screens, bytecode — and the board
+binary pack — string table, variable table, screens, bytecode — and the board
 maps that straight out of flash.
 
 The reasons are practical: parsing YAML on a microcontroller would cost
@@ -139,7 +139,7 @@ A few things make the diffs better:
 completely when anything does. `*.visu` belongs in `.gitignore`.
 
 **Keep one thing per line where you can.** The flow style above (`- { …
-}`) is compact and readable, and it means a changed tag is one changed
+}`) is compact and readable, and it means a changed variable is one changed
 line rather than a moved block.
 
 **Let the editor write it.** Round-tripping through the editor produces

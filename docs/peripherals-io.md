@@ -87,9 +87,9 @@ silent, which matters in a room with people in it.
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `CAP1188` | I2C | I2C capacitive touch controller — 8 touch pads as INPUTS (bool tags). Address 0x28–0x2D. Touch buttons behind the front glass; the interrupt latch is cleared by the driver. |
-| `MPR121` | I2C | I2C capacitive touch controller — 12 pads as INPUTS (bool tags), default thresholds 12/6. Address 0x5A–0x5D. VERIFY ON THE BENCH. |
-| `TTP229` | I2C | I2C capacitive keypad (TTP229-BSF) — 16 keys as INPUTS (bool tags). Fixed address 0x57. VERIFY ON THE BENCH (the 16-key I2C mode needs the TP2 strap). |
+| `CAP1188` | I2C | I2C capacitive touch controller — 8 touch pads as INPUTS (bool variables). Address 0x28–0x2D. Touch buttons behind the front glass; the interrupt latch is cleared by the driver. |
+| `MPR121` | I2C | I2C capacitive touch controller — 12 pads as INPUTS (bool variables), default thresholds 12/6. Address 0x5A–0x5D. VERIFY ON THE BENCH. |
+| `TTP229` | I2C | I2C capacitive keypad (TTP229-BSF) — 16 keys as INPUTS (bool variables). Fixed address 0x57. VERIFY ON THE BENCH (the 16-key I2C mode needs the TP2 strap). |
 
 ### Motor drivers
 
@@ -102,9 +102,9 @@ silent, which matters in a room with people in it.
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `EMC2101` | I2C | I2C fan controller — channels: 0 = PWM duty OUTPUT (tag 0–100 %), 1 = fan RPM input, 2 = external diode temperature [°C], 3 = internal temperature [°C]. Fixed address 0x4C. Enclosure cooling with real feedback. VERIFY ON THE BENCH. |
+| `EMC2101` | I2C | I2C fan controller — channels: 0 = PWM duty OUTPUT (variable 0–100 %), 1 = fan RPM input, 2 = external diode temperature [°C], 3 = internal temperature [°C]. Fixed address 0x4C. Enclosure cooling with real feedback. VERIFY ON THE BENCH. |
 
 Every entry above is in the editor: pick the chip, give it
-an address or a chip-select pin, and its channels become tags.
+an address or a chip-select pin, and its channels become variables.
 See [Adding a peripheral](adding-peripherals.md) for the
 click-through.

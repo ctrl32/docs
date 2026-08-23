@@ -7,10 +7,10 @@ and the same text is in `build\last_build_error.txt`.
 
 ## Downloading a program
 
-### "tag 'NOT' has the name of an ST keyword"
+### "variable 'NOT' has the name of an ST keyword"
 
-A tag becomes an **identifier** in the generated program, so a name like
-`NOT`, `VAR`, `REAL` or `TIME` means something else there. Rename the tag —
+A variable becomes an **identifier** in the generated program, so a name like
+`NOT`, `VAR`, `REAL` or `TIME` means something else there. Rename the variable —
 the message says which one.
 
 ### "EQ 'b30': its parameters have no ST form yet"
@@ -27,7 +27,7 @@ send that output.
 
 ### "project has N blocks, the limit is 512"
 
-A real limit. See [Performance and limits](limits.md); usually the tag table
+A real limit. See [Performance and limits](limits.md); usually the variable table
 runs out first.
 
 ## The board
@@ -74,7 +74,7 @@ retries once a second, so plugging the cable back in is enough.
 No port is preselected on purpose. Pick one in the toolbar or in the
 transfer dialog — the download and flash buttons stay disabled until you do.
 
-### I see tags but no values on the wires between blocks
+### I see variables but no values on the wires between blocks
 
 The symbols could not be verified — the editor uses them only when the
 compiled program matches the one in the board **byte for byte**. It writes
@@ -88,7 +88,7 @@ different build.
 ### A new project will not take a rung
 
 This was a bug and it is **fixed**: the *+ Rung* button now creates a BOOL
-tag itself and says which one. If it still does not work, you have an old
+variable itself and says which one. If it still does not work, you have an old
 binary.
 
 ### A comment next to a variable disappeared

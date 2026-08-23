@@ -9,7 +9,7 @@ uploading new screens.
 ![A control program in ST: MOTOR, VALVE, PID and a hysteresis comparator](img/st-editor.webp)
 
 The FBD blocks and the ST program run in the same task, in this order:
-FBD first, then ST. A tag the FBD wrote in this cycle is already
+FBD first, then ST. A variable the FBD wrote in this cycle is already
 visible to the ST body (and the other way round next cycle) — the same
 "written this cycle reads live" rule PLC programmers expect.
 
@@ -21,7 +21,7 @@ its own name).
 
 **Sections**: `VAR`, `VAR_INPUT`, `VAR_OUTPUT`, `VAR_TEMP` … `END_VAR`.
 A name that is not declared in the POU resolves against the project's
-tag lists (VAR/RVAR) — tags behave as globals, case-insensitively.
+variable lists (VAR/RVAR) — variables behave as globals, case-insensitively.
 
 **Types**: `BOOL`, `INT`/`DINT` (32-bit), `REAL` (float), `TIME`
 (milliseconds), `STRING(N)` (bounded text, 1..250 bytes, default 32).
@@ -41,11 +41,11 @@ lamp := t1.Q;
 **Literals**: `TRUE/FALSE`, `123`, `16#FF`, `2#1010`, `1.5`,
 `T#1m30s500ms`, typed `INT#5`. Comments `(* ... *)` and `// to eol`.
 
-**Bits**: a constant bit of an integer tag or local is addressable
+**Bits**: a constant bit of an integer variable or local is addressable
 directly — `IF status.5 THEN`, `mask.0 := ready;`. Read as a `BOOL`,
 written atomically (a concurrent writer of another bit or of the
 whole word never loses its update). The index must fit the declared
-width (0–15 on a 16-bit tag, 0–31 on 32-bit); `REAL`, `TIME` and
+width (0–15 on a 16-bit variable, 0–31 on 32-bit); `REAL`, `TIME` and
 bools have no bits and are refused at build time.
 
 **Bitwise**: on integers, `AND`/`OR`/`XOR`/`NOT` are bitwise (on
@@ -64,10 +64,10 @@ A duration is written `T#…` or `TIME#…` with segments in `d h m s ms`,
 most significant first, and underscores as separators — `T#1s500ms`,
 `TIME#1h_30m`, `T#25h` (the leading segment may overflow its unit).
 
-A `TIME` **tag** is the same value with a face: the board shows and the
-keypad edits it in the tag's unit (`s`, `ms`, `min`), so an operator can
+A `TIME` **variable** is the same value with a face: the board shows and the
+keypad edits it in the variable's unit (`s`, `ms`, `min`), so an operator can
 set the equipment's delay on the screen and the program takes it straight as
-`t1(PT := delay)`. See [Tagy](tags.md).
+`t1(PT := delay)`. See [Tagy](variables.md).
 
 **Standard functions**: `ABS MIN MAX LIMIT SEL TRUNC`, the
 conversions above, and the string set below.

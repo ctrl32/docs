@@ -121,4 +121,4 @@ gauge bound to one repaints continuously and never sits still.
 
 Set a deadband on the variable, not on the widget. Everything reading it
 gets quieter at once — the board, the trend, the browser. See
-[Tags](tags.md).
+[Variables](variables.md).

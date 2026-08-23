@@ -4,7 +4,7 @@ The screen on the front of the box. What you see when you walk up to
 something you built and want to know what it is doing.
 
 HMIview is drawn in the same editor as everything else, from the same
-tags, and travels in the same file. This page is how it works and how to
+variables, and travels in the same file. This page is how it works and how to
 draw one that helps; [Screens and widgets](widgets.md) is the reference
 for every widget and its properties.
 
@@ -82,7 +82,7 @@ holding a torch. Colour does more work than text.
 
 Use [states](widgets.md) rather than drawing one widget per condition: a
 lamp with a true, false and alarm colour is one widget that says three
-things, driven by a tag or by one bit of an integer.
+things, driven by a variable or by one bit of an integer.
 
 **A convention worth keeping:** green means running as intended, grey
 means off and correct, red means it needs a person, amber means it will
@@ -107,8 +107,8 @@ immediate — and why an analog value **without a deadband** is expensive:
 it marks itself dirty on every flicker of its last digit and repaints
 forever.
 
-Set a deadband on every analog tag. It is the single most effective thing
-you can do for a screen's responsiveness. See [Tags](tags.md).
+Set a deadband on every analog variable. It is the single most effective thing
+you can do for a screen's responsiveness. See [Variables](variables.md).
 
 !!! note "Flat colours are nearly free; gradients are not"
     Filled areas, text and lines cost almost nothing. Gradients, shadows
@@ -121,7 +121,7 @@ you can do for a screen's responsiveness. See [Tags](tags.md).
 ## Graphics never delay the equipment
 
 The rule is **logic before communication before graphics**. The renderer
-takes a snapshot of the tag table and works from that; it never holds
+takes a snapshot of the variable table and works from that; it never holds
 anything the PLC cycle needs.
 
 Under load, frames are dropped. The cycle is never extended. A screen may
@@ -147,6 +147,6 @@ a display can be watched from a phone, from the same project.
 | | |
 |:---|:---|
 | [Screens and widgets](widgets.md) | every widget, every property |
-| [Tags](tags.md) | what the screens are drawing, and deadband |
+| [Variables](variables.md) | what the screens are drawing, and deadband |
 | [WEBview](webview.md) | the same project in a browser |
-| [Performance and limits](limits.md) | how many screens, widgets and tags fit |
+| [Performance and limits](limits.md) | how many screens, widgets and variables fit |

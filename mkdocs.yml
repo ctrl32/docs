@@ -64,7 +64,7 @@ nav:
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
-      - Tags: tags.md
+      - Variables: variables.md
   - Visualisation:
       - Visualisation: visualisation.md
       - HMIview — the panel screen: hmiview.md

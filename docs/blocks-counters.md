@@ -32,7 +32,7 @@ box_changed ──R──┤ CTU PV=24 ├── Q ──> box_full
 Q comes on at the 24th part and stays on until somebody changes the box.
 
 !!! tip "CV is the number the operator wants to see"
-    Bind it to a tag and show it. "24 of 24" tells an operator more than
+    Bind it to a variable and show it. "24 of 24" tells an operator more than
     a lamp does, and it costs one widget.
 
 ---
@@ -84,10 +84,10 @@ stuck.
 
 A counter's CV lives in RAM and starts at zero after a power cycle. If a
 count has to survive being switched off — parts made this shift, total
-operating hours — write CV to a **retentive tag**, and load it back on
+operating hours — write CV to a **retentive variable**, and load it back on
 startup.
 
-See [Tags](tags.md) for which storage survives what: retentive memory is
+See [Variables](variables.md) for which storage survives what: retentive memory is
 limited on purpose, and writing it every cycle wears it out.
 
 ## Wider counts
@@ -96,4 +96,4 @@ CV is a number, so it counts far past what a 16-bit counter manages. What
 it will not do is count forever with single-unit precision — beyond a few
 million, the smallest step it can represent grows. For a lifetime part
 counter, count *batches* rather than parts, or keep the total in an
-integer tag and increment it yourself.
+integer variable and increment it yourself.

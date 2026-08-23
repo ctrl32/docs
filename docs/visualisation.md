@@ -1,6 +1,6 @@
 # Visualisation
 
-A ctrl32 project draws its screens twice over, from one set of tags: on
+A ctrl32 project draws its screens twice over, from one set of variables: on
 the board's own display, and in a browser. Both are drawn in the same
 editor, both travel in the same file, and neither is a picture of the
 other.
@@ -48,12 +48,12 @@ without drawing anything twice.
 
 ## One rule above the rest
 
-**Set a deadband on every analog tag.**
+**Set a deadband on every analog variable.**
 
 Without it, a measurement reports every flicker of its last digit. The
 board repaints, the WebSocket floods, a phone's battery drains — and
 nobody learns anything from a temperature quoted to a hundredth of a
 degree.
 
-It costs one field in the tag table and it is the single most effective
-thing you can do for how a setup feels to use. See [Tags](tags.md).
+It costs one field in the variable table and it is the single most effective
+thing you can do for how a setup feels to use. See [Variables](variables.md).

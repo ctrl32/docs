@@ -29,7 +29,7 @@ moves. Releases before that carried dates (`year.month.day.build`).
   from the internet automatically (NTP), and the browser can set it
   by hand on a closed network. Alarm and diagnostic timestamps mean
   something now.
-- **Retentive values without extra chips.** On the STM32 the tags
+- **Retentive values without extra chips.** On the STM32 the variables
   marked *persist* survive restarts and program uploads in the
   processor's own battery-domain memory — no EEPROM wiring, no wear,
   and with a backup battery fitted they survive power loss outright.
@@ -48,7 +48,7 @@ moves. Releases before that carried dates (`year.month.day.build`).
 - **Every network board answers Modbus TCP.** Headless runtimes (the
   Olimex PoE family, the generic presets and friends) now run the
   same Modbus TCP slave the display boards always had — a SCADA can
-  read and write the tag map on port 502 without a screen attached.
+  read and write the variable map on port 502 without a screen attached.
   A pack asking for RTU on a board with no RS485 wired says so on
   the console instead of listening on nothing.
 - **The P4 showcase demonstrates bit access live.** A new *Bit
@@ -62,11 +62,11 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.020
 
-- **Bits, everywhere.** Every bit of an integer tag is addressable on
+- **Bits, everywhere.** Every bit of an integer variable is addressable on
   its own: `IF status.5 THEN` and `mask.0 := ready;` in ST, contacts
-  and coils on `tag.bit` in ladder and FBD, the widgets as before —
+  and coils on `variable.bit` in ladder and FBD, the widgets as before —
   one meaning across all of them. The index is checked against the
-  tag's width at build time, in the CoDeSys spelling your fingers
+  variable's width at build time, in the spelling your fingers
   already know.
 - **A bit write never loses a neighbour.** Writing one bit from the
   logic while a browser switch flips another and a Modbus master
@@ -94,7 +94,7 @@ moves. Releases before that carried dates (`year.month.day.build`).
   tree.
 - The documentation gained screenshots of the editor on every major
   page, and its web navigation is grouped into sections.
-- Sample projects speak English throughout, including the tag names
+- Sample projects speak English throughout, including the variable names
   in the seal-in classic.
 
 ## 1.00.018

@@ -78,7 +78,7 @@ For a floor **and** a ceiling in one block, use
 | `OUT` | output, number | the destination |
 
 It looks like it does nothing, and in a diagram it nearly does — its job
-is to get a value from one tag into another. Where it earns its keep is
+is to get a value from one variable into another. Where it earns its keep is
 **in a ladder rung**, as the plain result box: while the rung conducts,
 the value is committed; while it does not, the destination holds.
 
@@ -99,7 +99,7 @@ Values are floating point, which means:
 - **Fractions are fine.** 0.1 °C, 2.5 mm, no scaling tricks needed.
 - **Big integers lose precision.** Past about 16 million, consecutive
   whole numbers stop being distinguishable. A part counter that must be
-  exact into the millions belongs in an integer tag.
+  exact into the millions belongs in an integer variable.
 - **Equality is unreliable.** `1.0 - 0.9 - 0.1` is not exactly 0. Never
   test two calculated values with `=`; use
   [EQ with a tolerance](blocks-compare.md#eq-equal-within-a-tolerance),
@@ -107,10 +107,10 @@ Values are floating point, which means:
 
 ## Order matters
 
-Blocks execute in program order and pass values through tags, so a chain
+Blocks execute in program order and pass values through variables, so a chain
 of calculations has to be *written* in the order it flows. A block
-reading a tag that a later block writes gets last cycle's value.
+reading a variable that a later block writes gets last cycle's value.
 
 For a long calculation this is where [Structured Text](st-language.md)
 becomes the better tool: expressions evaluate in the order you write
-them, on one line, with no intermediate tags at all.
+them, on one line, with no intermediate variables at all.

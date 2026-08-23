@@ -13,10 +13,10 @@ ladder program is uploading data, never firmware.
 
 | Symbol | Meaning |
 |:---|:---|
-| `-[ ]-` | NO contact — conducts while the tag is TRUE |
-| `-[/]-` | NC contact — conducts while the tag is FALSE |
+| `-[ ]-` | NO contact — conducts while the variable is TRUE |
+| `-[/]-` | NC contact — conducts while the variable is FALSE |
 | `-[P]-` / `-[N]-` | rising / falling edge (one cycle) |
-| `-( )-` | coil — the rung result lands in the tag |
+| `-( )-` | coil — the rung result lands in the variable |
 | `-(S)-` / `-(R)-` | set / reset latch |
 | block in the rung | TON, TOF, TP, CTU, CTD — the rung drives IN, Q carries on |
 | **box on the rung** | **any block from the library** with EN/ENO: while the rung conducts it executes, while it does not its state freezes and the outputs hold |
@@ -29,7 +29,7 @@ Timers, Counters, General, Motion, CAN, GSM/GPS.
 
 Blocks show their inner value at the right stub: a counter its **CV**,
 a timer its **ET** (elapsed), a blinker its **REM** (time left in the
-current phase). Bind it to a tag, or just read it — in simulation and
+current phase). Bind it to a variable, or just read it — in simulation and
 during [online monitoring](online.md) every stub variable carries its
 live value on the line above it.
 
@@ -55,7 +55,7 @@ it from either end:
 ## Working with rungs
 
 - **+ Rung** adds a rung; **click a contact, box or the coil** to
-  change its tag (with a filter), its kind, insert contacts
+  change its variable (with a filter), its kind, insert contacts
   before/after, add a parallel branch or another box. Right-click
   offers cut/copy/paste for elements, boxes and whole rungs, and
   insert rung above/below. Everything is undoable.
@@ -65,18 +65,18 @@ it from either end:
   view.
 - Selecting a rung highlights it with a quiet grey background; the
   palette then targets that rung.
-- A `(S)` and `(R)` pair on the same tag becomes ONE flip-flop; the
+- A `(S)` and `(R)` pair on the same variable becomes ONE flip-flop; the
   pair's order decides the priority (set-first = set wins).
-- **Two plain coils on one tag are refused at the desk** — the last
+- **Two plain coils on one variable are refused at the desk** — the last
   writer would silently win on the board. Use a branch or S/R.
 - Every contact and coil shows its variable name and, underneath,
-  the tag's **description as a `//comment`** (edited right in the
+  the variable's **description as a `//comment`** (edited right in the
   element popup; the *comments* checkbox hides them when the rungs
   should pack tighter). Descriptions travel with the project.
 - In **test mode** the rungs show the live power flow: conducting
   wires, symbols and block frames turn green — the frame as thick as
   the wires, so the active path reads at a glance. Clicking a contact
-  toggles its tag (simulation only; connected to a board everything
+  toggles its variable (simulation only; connected to a board everything
   is read-only).
 
 ## Ladder and FBD — one owner, two views

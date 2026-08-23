@@ -58,7 +58,7 @@ Start there unless something says otherwise.
 | `BMP388` | I2C | I2C barometer (also the BMP390 — chip id 0x50/0x60) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Datasheet float compensation from the NVM coefficients. Address 0x76–0x77. |
 | `DHT12` | I2C | I2C temperature + humidity sensor (the wired DHT11 heir) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Fixed address 0x5C; 5-byte register read with a sum checksum. |
 | `ENS210` | I2C | I2C temperature + humidity sensor (ScioSense) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Continuous run, valid bits checked. Fixed address 0x43. |
-| `FS3000` | I2C | I2C air velocity sensor — channel 0 = raw 12-bit counts (the m/s curve is nonlinear and ordering-specific; approximate via tag gain/offset). Fixed address 0x28. VERIFY ON THE BENCH. |
+| `FS3000` | I2C | I2C air velocity sensor — channel 0 = raw 12-bit counts (the m/s curve is nonlinear and ordering-specific; approximate via variable gain/offset). Fixed address 0x28. VERIFY ON THE BENCH. |
 | `GDK101` | I2C | I2C gamma radiation sensor — channel 0 = dose rate [µSv/h] (10-minute average). Address 0x18–0x1B. VERIFY ON THE BENCH. |
 | `HDC1080` | I2C | I2C temperature + humidity sensor (TI) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Fixed address 0x40; both values in one sequential acquisition. |
 | `HDC2010` | I2C | I2C temperature + humidity sensor (TI) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Triggered measurement, little-endian data. Address 0x40–0x41. |
@@ -76,6 +76,6 @@ Start there unless something says otherwise.
 | `EZO` | I2C | Atlas Scientific EZO probe circuit (pH/EC/DO/ORP/RTD...) — channel 0 = the probe value as the circuit reports it. ASCII R command with a ~900 ms conversion; one value a second. The I2C address is set per probe (default 0x61–0x67 by type). |
 
 Every entry above is in the editor: pick the chip, give it
-an address or a chip-select pin, and its channels become tags.
+an address or a chip-select pin, and its channels become variables.
 See [Adding a peripheral](adding-peripherals.md) for the
 click-through.

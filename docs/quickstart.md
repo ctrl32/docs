@@ -79,7 +79,7 @@ old pack stays and keeps running.
 
 Next to the port there is a plug icon — *ONLINE*. Switched on, the editor
 shows **live values straight from the board**: in the ladder rungs, on block
-pins, in the tag list and in the screen preview.
+pins, in the variable list and in the screen preview.
 
 There is one condition: **the editor and the board must run the same
 program**. If they do not, the editor says so and offers to download it —
@@ -88,6 +88,6 @@ more in [Online monitoring](online.md).
 ## What next
 
 - [Editor](editor.md) — how it is laid out and what is where
-- [Tags](tags.md) — variables, types, deadband and where values come from
+- [Variables](variables.md) — variables, types, deadband and where values come from
 - [Ladder](ladder.md) — drawing rungs
 - [Download to the board](deploy.md) — dual slot, runtime, what is verified when

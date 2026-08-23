@@ -30,7 +30,7 @@ no amount of careful programming changes that.
 
 ## What it is for
 
-**Learning.** Ladder, function block diagrams, ST, tags, a real scan
+**Learning.** Ladder, function block diagrams, ST, variables, a real scan
 cycle, Modbus, CANopen — the same concepts a professional system uses,
 on hardware that costs less than a textbook. A course, a school
 laboratory, an apprenticeship, or teaching yourself in the evening.

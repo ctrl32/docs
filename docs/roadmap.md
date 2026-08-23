@@ -7,13 +7,13 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
 ## In progress
 
 - **STM32 targets.** The runtime is no longer tied to Espressif: the
-  same VM, tags, Modbus, CANopen, rasteriser and pack format run on an
+  same VM, variables, Modbus, CANopen, rasteriser and pack format run on an
   STM32F7, and the editor writes the board over SWD. The F7 is running;
   the rest of the family follows, and nothing below 64 kB of RAM will be
   supported.
 - **Motion on a real drive.** The blocks exist — `MC_POWER`,
   `MC_MOVEABS`, `MC_HOME` and the rest, with `CO_CIA402` underneath them
-  and EDS import to generate the tags. What remains is commissioning
+  and EDS import to generate the variables. What remains is commissioning
   against a physical Lenze i550: measuring the bus delay, the creep
   phase, and the numbers only a bench can give you. See [Motion
   blocks](blocks-motion.md).

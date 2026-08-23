@@ -68,9 +68,9 @@ Use plain comparisons for decisions inside the logic, where chattering
 costs nothing.
 
 !!! tip "Deadband is the other half"
-    An analog tag with a deadband stops reporting changes smaller than
+    An analog variable with a deadband stops reporting changes smaller than
     the deadband, which quiets everything reading it — screens, trends,
-    WEBview. Set it on the tag, not in the logic. See [Tags](tags.md).
+    WEBview. Set it on the variable, not in the logic. See [Variables](variables.md).
 
 ---
 

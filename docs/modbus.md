@@ -1,7 +1,7 @@
 # Modbus in ctrl32
 
 The board is a Modbus **master** — it cyclically reads (and writes) the
-registers of the connected devices into the tag table. Two transports
+registers of the connected devices into the variable table. Two transports
 are supported, both at the same time:
 
 | Transport | Physical layer | When |
@@ -12,20 +12,20 @@ are supported, both at the same time:
 Slave mode (the board as a Modbus server for a supervisory system) is a
 planned extension — it is not part of the product yet.
 
-## A tag with a Modbus source
+## A variable with a Modbus source
 
-Every Modbus tag has: `unit` (device address), `fc` (coil / discrete /
+Every Modbus variable has: `unit` (device address), `fc` (coil / discrete /
 holding / input), `address` (0-based, **not** the 3xxxx/4xxxx notation),
 `word_order` (big/little — the word order of 32-bit values) and
 optionally `transport: tcp` + `ip` + `port`.
 
-- Without `transport` (or with `transport: rtu`) the tag goes over
+- Without `transport` (or with `transport: rtu`) the variable goes over
   RS485 — the behaviour of older projects does not change.
-- `f32`/`u32` tags are read from **two** registers. The word order
+- `f32`/`u32` variables are read from **two** registers. The word order
   differs from vendor to vendor and is the most common source of
   nonsensical values — when importing from the catalog it is set
   correctly for you.
-- Scaling: `value = raw × gain + offset`. Analog tags need a
+- Scaling: `value = raw × gain + offset`. Analog variables need a
   **deadband** — without one a noisy value repaints the screen for
   nothing.
 
@@ -42,16 +42,16 @@ tags:
 | Limit | Value | Why |
 |:---|:---:|:---|
 | Distinct TCP targets (IP:port) per project | **4** | ~6–8 kB of RAM per connection on the ESP32-S3 |
-| Tags in total | 512 | product limit |
+| Variables in total | 512 | product limit |
 
-- Tags on the **same IP:port share a single connection** — 20 tags from
+- Variables on the **same IP:port share a single connection** — 20 variables from
   one energy meter is still just 1 target. Different `unit` values on
   the same IP (an RTU↔TCP gateway with several devices behind it) also
   count as 1 target.
 - The editor enforces the limit both on import and at compile time — a
   project over the limit is rejected on your desk, not as a stuttering
   board on the equipment.
-- **Target outage:** tags hold their last value, one event goes into the
+- **Target outage:** variables hold their last value, one event goes into the
   diagnostic buffer when the target drops out and one when it returns.
   The board reconnects automatically (1 s backoff); polling of the other
   targets keeps running.
@@ -67,8 +67,8 @@ curated by inovaea and is signed like all the other catalogs.
 
 **Using it in the editor:** the *Modbus RTU master* or *Modbus TCP
 master* page → *Add Modbus device…* → pick from the catalog → tick the
-registers → choose the transport (RS485 / TCP + IP) → *Import tags*.
-The tags get a prefix derived from the model (`sdm630_voltage`), the
+registers → choose the transport (RS485 / TCP + IP) → *Import variables*.
+The variables get a prefix derived from the model (`sdm630_voltage`), the
 right data type, word order and scaling.
 
 First entries: **Eastron SDM120** (single-phase meter) and **SDM630**
@@ -130,13 +130,13 @@ the protocol address and the number from the manual.
 Automatically, in list order: `bool` → coils (0x) from 0, everything
 else → holding registers (4x) from 0, where `i32`/`u32`/`f32` take up
 **two registers**. The address goes into the pack **explicitly**, so
-reordering tags in the editor does not shift the map. The order in the
+reordering variables in the editor does not shift the map. The order in the
 list can be changed with the arrow — it is part of the configuration,
 not cosmetics.
 
 ### A write is a command
 
-A tag without `writable` ticked answers a write with **exception
+A variable without `writable` ticked answers a write with **exception
 0x02**; it never passes silently. The same rule as with WebSocket and
 MQTT: the board decides about a write, not whoever asks for it.
 
@@ -162,7 +162,7 @@ Further deliberate decisions:
 
 Diagnostics: `VUI!` prints `mbslv=<requests>,<exceptions>`. A growing
 exception count means the SCADA is reading outside the map or trying to
-write to a tag without permission.
+write to a variable without permission.
 
 ## Typical pitfalls
 

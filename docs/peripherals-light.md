@@ -60,7 +60,7 @@ For a shaft *angle*, see the magnetic angle sensors under
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `APDS9306` | I2C | I2C ambient light sensor — channel 0 = RAW 18-bit ALS counts at gain 3 / 100 ms; scale to lux with the tag gain (the counts-per-lux responsivity is variant-dependent — VERIFY ON THE BENCH). Address 0x52. |
+| `APDS9306` | I2C | I2C ambient light sensor — channel 0 = RAW 18-bit ALS counts at gain 3 / 100 ms; scale to lux with the variable gain (the counts-per-lux responsivity is variant-dependent — VERIFY ON THE BENCH). Address 0x52. |
 | `APDS9960` | I2C | I2C light + proximity sensor — channels: 0 = clear-channel ALS counts (raw), 1 = proximity counts 0–255. The gesture engine is not used. Address 0x39. |
 | `BH1750` | I2C | I2C ambient light sensor — channel 0 = illuminance [lx]. Valid addresses are ONLY 0x23 (ADDR to GND) and 0x5C (ADDR to VCC) — the checked range is wider, in-between addresses do not exist. Continuous high-resolution mode (1 lx, 120 ms). |
 | `LTR303` | I2C | I2C ambient light sensor (LTR-303/LTR-329; also the ALS half of the LTR-553) — channel 0 = illuminance [lx] (Lite-On appendix ratio formula, gain x1 / 100 ms). Address 0x29. |
@@ -86,6 +86,6 @@ For a shaft *angle*, see the magnetic angle sensors under
 | `MLX90393` | I2C | I2C 3-axis magnetometer — channels: 0-2 = field X/Y/Z [µT] (POR gain: 0.150 µT/LSB xy, 0.242 z), 3 = die temperature [°C]. Command protocol — SM and RM split across cycles. Address 0x0C–0x0F. VERIFY ON THE BENCH. |
 
 Every entry above is in the editor: pick the chip, give it
-an address or a chip-select pin, and its channels become tags.
+an address or a chip-select pin, and its channels become variables.
 See [Adding a peripheral](adding-peripherals.md) for the
 click-through.

@@ -28,7 +28,7 @@ Three blocks — see [Service blocks](blocks-services.md):
 - **`SMS_SEND`** sends a message from the project's table
 - **`GSM_INFO`** reports whether the modem is registered and how strong
   the signal is
-- the modules with GPS also feed position and time into tags
+- the modules with GPS also feed position and time into variables
 
 Message texts and phone numbers live in the **project**, not the logic —
 so changing a number when somebody changes job is an edit and an upload,
@@ -74,6 +74,6 @@ not a program change.
 | `SIM808` | serial | SIMCom SIM808 cellular module: 2G GSM/GPRS + GNSS in one module (AT+CGNSPWR/CGNSINF — the SIM7000 dialect), AT over UART, separate GPS antenna connector. Used by the gsm: service, not a pin chip. Same 2 A supply bursts and 2G phase-out caution as the SIM800L. |
 
 Every entry above is in the editor: pick the chip, give it
-an address or a chip-select pin, and its channels become tags.
+an address or a chip-select pin, and its channels become variables.
 See [Adding a peripheral](adding-peripherals.md) for the
 click-through.

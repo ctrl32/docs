@@ -113,8 +113,8 @@ fault_latched ─────────────────┤ AND ├─�
     works, instead of discovering the problem months later when the first
     real alarm fails to arrive.
 
-!!! note "There is also a status tag"
-    A modem status tag carries the same information to *screens*. This
+!!! note "There is also a status variable"
+    A modem status variable carries the same information to *screens*. This
     block is the version for *logic* — interlocks and retry gating. Use
     whichever fits where you are working.
 

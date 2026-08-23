@@ -61,7 +61,7 @@ manual, enabled / disabled, day / night.
 integer variable with different bit numbers and you get a row of options
 in one variable — one word to send over a fieldbus, one value to store,
 one thing for the logic to read. Bits are written atomically, so the
-switches never overwrite one another. See [Tags](tags.md).
+switches never overwrite one another. See [Variables](variables.md).
 
 ---
 

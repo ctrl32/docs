@@ -34,10 +34,10 @@ names — a lie that looks alive, which is worse than an empty field.
 
 So both sides compare two numbers when connecting:
 
-- **the tag table fingerprint** — the names and types of all tags in index
+- **the variable table fingerprint** — the names and types of all variables in index
   order,
 - **the pack CRC** — the exact identity of the program (a changed rung
-  leaves the tags alone but moves the offsets of local variables).
+  leaves the variables alone but moves the offsets of local variables).
 
 When they do not match, the editor says *"The board runs a different program
 — downloading this one"* and opens the download. Monitoring parks itself
@@ -57,23 +57,23 @@ is bad" without guessing.
 
 | Kind | Where from | Note |
 |:---|:---|:---|
-| **tags** | the board's tag table | always works |
+| **variables** | the board's variable table | always works |
 | **wires between blocks** | the VM's instance memory | names come from the compiled program |
 | **block members** (`t1.ET`, `c1.CV`) | the VM's instance memory | the same |
 | **board state** | cycle, overruns, heap | including what the monitoring itself costs |
 
-Wires and block members are not tags — in the compiled program they are
+Wires and block members are not variables — in the compiled program they are
 words of instance memory (which is exactly why the cycle got 5× faster). The
 editor learns their names by building the project and comparing the compiled
 program **byte for byte** with what is in the pack. When they match, the
-offsets are provably the board's; when they do not, it shows tags only and
+offsets are provably the board's; when they do not, it shows variables only and
 says so.
 
 In a rung that means concrete things: for a counter **how much it has
 counted** (`CV`), for a timer **how long it has been running** (`ET`, in ms
 below a second and in seconds above it), for a blinker **how long until it
 flips** (`REM`), and which `PT` or `PV` the block is **really** working
-with — not the one drawn on it. When a parameter is fed from a tag, that
+with — not the one drawn on it. When a parameter is fed from a variable, that
 difference is exactly what you are looking for.
 
 Both graphical editors draw every live value **above its variable** — at
@@ -91,8 +91,8 @@ cycle, control program):
 | state | logic | whole task body |
 |:---|:---:|:---:|
 | nobody watching | 299 µs | 287 µs |
-| 8 tags | 299 µs | 288 µs |
-| 64 tags (the maximum) | 299 µs | ~289 µs |
+| 8 variables | 299 µs | 288 µs |
+| 64 variables (the maximum) | 299 µs | ~289 µs |
 
 One watched value costs **~0.34 µs per sample**, so 64 values ten times a
 second is **2.2 µs per cycle** — 0.02 % of a ten-millisecond period. With

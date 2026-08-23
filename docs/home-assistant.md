@@ -37,7 +37,7 @@ In the project's MQTT settings:
 | Port | 1883 |
 | User / password | if the broker asks for them |
 | Base topic | something that names this board — `ctrl32/boilerroom` |
-| Publish mode | **one topic per tag** |
+| Publish mode | **one topic per variable** |
 | Discovery | **on** |
 
 The base topic is worth thinking about for ten seconds: it is how you
@@ -150,7 +150,7 @@ at is a **view of** something that runs on its own, not the thing itself.
 
 ## Beyond Home Assistant
 
-The same one-topic-per-tag mode works with anything that speaks MQTT —
+The same one-topic-per-variable mode works with anything that speaks MQTT —
 Node-RED, ThingsBoard, OpenRemote, Grafana through a bridge, or your own
 script. Discovery is a Home Assistant convention; the topics underneath
 are plain and documented on the [MQTT](mqtt.md) page.

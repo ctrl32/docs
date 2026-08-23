@@ -35,7 +35,7 @@ The alarm fires when the door has been open two seconds, not when
 somebody walks through.
 
 !!! tip "ET is worth showing"
-    Bind `ET` to a tag and put a bar on the screen. An operator waiting
+    Bind `ET` to a variable and put a bar on the screen. An operator waiting
     for a delay with no feedback assumes the equipment is broken; the same
     operator watching a bar fill waits patiently.
 

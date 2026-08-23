@@ -134,8 +134,8 @@ clearer choice.
 
 Boolean logic often needs one bit out of a word — a status word from a
 drive, a mask from a fieldbus device. You do not need a block for that:
-write `status.3` on a pin and it reads bit 3 of the integer tag
+write `status.3` on a pin and it reads bit 3 of the integer variable
 `status`. The same spelling works as an output.
 
 Bits are written **atomically**, so the logic writing bit 0 and a screen
-writing bit 1 never lose each other's work. See [Tags](tags.md).
+writing bit 1 never lose each other's work. See [Variables](variables.md).

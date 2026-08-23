@@ -83,4 +83,4 @@ the last digit — and a value that will not sit still is harder to read
 than one that updates twice a second.
 
 Deadband is a property of the variable, so setting it quiets the screen,
-the browser and the trend at once. See [Tags](tags.md).
+the browser and the trend at once. See [Variables](variables.md).

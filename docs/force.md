@@ -10,8 +10,8 @@ Open it from *Online → Force*.
 
 ## What it does
 
-A forced tag is held by the **board**, not by the editor. The value is
-written into the tag on both sides of the program: before the logic runs,
+A forced variable is held by the **board**, not by the editor. The value is
+written into the variable on both sides of the program: before the logic runs,
 so the logic reads it, and after, so an output the logic just wrote is
 overridden. That is the standard scan model — anything else would make
 forcing an input work and forcing an output quietly not.
@@ -35,9 +35,9 @@ board that came back from a power failure still holding somebody's value
 would be a trap — and the board has no dedicated lamp to
 warn about it.
 
-!!! warning "A forced tag that is retentive keeps its last value"
-    Forcing is gone after a restart, but if the tag itself is retentive,
-    the **value** it was left at survives — that is the tag's property,
+!!! warning "A forced variable that is retentive keeps its last value"
+    Forcing is gone after a restart, but if the variable itself is retentive,
+    the **value** it was left at survives — that is the variable's property,
     not the force's. The program owns it again from the first cycle.
 
 ## Nothing is silent
@@ -53,9 +53,9 @@ warn about it.
 
 ## Using it
 
-1. Pick the tag from the list (the filter takes a substring).
+1. Pick the variable from the list (the filter takes a substring).
 2. Set the value. A BOOL gets a checkbox; a number gets a field; a TIME
-   tag is forced in milliseconds.
+   variable is forced in milliseconds.
 3. Leave the hold at `0` to keep it until you release it, or enter
    seconds for a timeout the board enforces itself.
 4. *Force this value*.
@@ -67,7 +67,7 @@ all* — which is never disabled while anything is held.
 
 | | |
 |:---|:---:|
-| Forced tags at once | 8 |
+| Forced variables at once | 8 |
 | Longest timeout | 1 hour |
 
 Eight is deliberate. Somebody who needs to force nine things at once is

@@ -58,11 +58,11 @@ is the reason to pick it.
 ## STM32 is coming, F7 first
 
 The runtime is not tied to Espressif. The first STM32 target — the
-**STM32F746 Discovery** — runs the same VM, the same tags, the same
+**STM32F746 Discovery** — runs the same VM, the same variables, the same
 Modbus and CANopen, the same rasteriser and the same pack format.
 
 What that means for you: a project is not locked to a chip family. The
-screens, the logic and the tags are data, and the same data runs on the
+screens, the logic and the variables are data, and the same data runs on the
 silicon that suits the installation.
 
 More of the family follows. Nothing below 64 kB of RAM will be

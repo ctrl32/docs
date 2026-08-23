@@ -78,7 +78,7 @@ the diagram):
 Inside: `MC_POWER` + `MC_MOVEVELOCITY` + `MC_READACTVEL`. STOP = dropping
 Enable → the drive coasts down along its own decel ramp and disables
 itself. Read the diagnostics (current, torque, DC link, frequency …)
-with **CANopen data tags** and `gain` scaling (for example ‰ → A); no
+with **CANopen data variables** and `gain` scaling (for example ‰ → A); no
 blocks are needed for that.
 
 Verified i550 objects: the actual output frequency is **0x2DDD**

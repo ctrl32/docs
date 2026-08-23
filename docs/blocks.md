@@ -36,8 +36,8 @@ An input you leave unconnected is **0** (or FALSE). A parameter you leave
 alone keeps its default, which is listed with every block.
 
 The practical difference is where you type them: inputs get wired to
-tags, parameters are typed into the block's own fields. If a value should
-be adjustable from a screen, it belongs on a tag wired to an input — not
+variables, parameters are typed into the block's own fields. If a value should
+be adjustable from a screen, it belongs on a variable wired to an input — not
 in a parameter.
 
 ## An instance remembers, a formula does not
@@ -73,9 +73,9 @@ ramps use seconds for the same reason.
 ## Order of execution
 
 Blocks run in the order they appear in the program, top to bottom. Data
-flows between them through tags: block A writes a tag, block B reads it.
+flows between them through variables: block A writes a variable, block B reads it.
 
-That order is yours to get right. A block reading a tag that a *later*
+That order is yours to get right. A block reading a variable that a *later*
 block writes sees the value from the **previous cycle** — one cycle old.
 Usually that is harmless; in a fast chain of calculations it is not, and
 the fix is to put them in the order the data flows.

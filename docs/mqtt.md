@@ -4,10 +4,10 @@
 > takes you from nothing to working entities. What follows here is the
 > mechanics underneath — start with that page unless you want them.
 >
-> The section on this page: [Home Assistant mode](#home-assistant-mode-one-topic-per-tag)
+> The section on this page: [Home Assistant mode](#home-assistant-mode-one-topic-per-variable)
 > — in that mode the board acts as a process data server (an OPC equivalent).
 
-The board can push tag values to an **MQTT broker** — typically into
+The board can push variable values to an **MQTT broker** — typically into
 ThingsBoard or OpenRemote, where the customer builds charts, dashboards
 and notifications. The board is a data source (gateway role), not a
 historian: it sends the current state, the server keeps the history.
@@ -18,9 +18,9 @@ historian: it sends the current state, the server keeps the history.
    *MQTT settings…*).
 2. Tick *Publish telemetry to broker* and fill in the broker address
    and credentials.
-3. In the tag list, tick the tags that should be sent.
+3. In the variable list, tick the variables that should be sent.
 4. *Apply* → *Download to board*. The configuration is part of the pack —
-   changing the broker or the tag list **does not require new firmware**.
+   changing the broker or the variable list **does not require new firmware**.
 
 MQTT settings are part of the **FULL** level (same as CAN and Modbus).
 
@@ -46,9 +46,9 @@ message goes out on the base topic:
 - If nothing changed, **nothing is sent** — no pointless traffic.
 - After connecting (including after an outage) the complete state is
   sent once, so the dashboard has everything.
-- Decimal places follow the tag settings; `bool` goes out as
+- Decimal places follow the variable settings; `bool` goes out as
   `true`/`false`.
-- The tag deadband filters noise — without it a noisy analog input
+- The variable deadband filters noise — without it a noisy analog input
   would send messages forever.
 
 ## Commands from the dashboard (setTag)
@@ -61,7 +61,7 @@ and accepts:
 ```
 
 A write is a **command, not direct memory access** — the board executes
-it only if the tag is among the published ones and has **rw** access.
+it only if the variable is among the published ones and has **rw** access.
 Otherwise it answers with an error and writes nothing. The reply goes to
 the topic `.../rpc/response/<id>`.
 
@@ -75,7 +75,7 @@ the topic `.../rpc/response/<id>`.
   the **separate equipment network**, not on the internet. The board does
   not belong on a public network.
 - The token and password are stored in the project pack in plain text.
-- Published tag limit: **64**. The editor will not allow more.
+- Published variable limit: **64**. The editor will not allow more.
 - One broker per board.
 
 | Situation | Behaviour |
@@ -98,10 +98,10 @@ the topic `.../rpc/response/<id>`.
 For OpenRemote or any other broker only the topic and the credentials
 change — the message format is the same.
 
-## Home Assistant mode (one topic per tag)
+## Home Assistant mode (one topic per variable)
 
 The MQTT settings let you switch the publish mode to **one topic per
-tag**. The board then behaves as a process data server — the equivalent
+variable**. The board then behaves as a process data server — the equivalent
 of an OPC server:
 
 | What | Topic | Note |
@@ -117,33 +117,33 @@ writing to `ctrl32/boilerroom/setpoint/set`.
 ### Why retained and last will
 
 - **Retained**: after a restart, Home Assistant immediately receives the
-  last value of every tag from the broker. Without it the entities would
+  last value of every variable from the broker. Without it the entities would
   stay empty until a value on the equipment happened to change.
 - **Last will (LWT)**: when the board drops out (network or power
   failure), the broker itself publishes `offline` and the entities in HA
   grey out. Without it HA would keep showing the last known value as if
   it were current — which is worse than no value at all.
 
-### Enabling writes — per tag
+### Enabling writes — per variable
 
-Every published tag has its own **write** checkbox. It can only be
-ticked for a tag that is `rw` in the project. Without it the board
+Every published variable has its own **write** checkbox. It can only be
+ticked for a variable that is `rw` in the project. Without it the board
 **ignores** a write from the broker, even if somebody sends one. So the
 project decides what the supervisory system may touch — not the
 other way round.
 
 ### The fastest route: MQTT Discovery
 
-In one-topic-per-tag mode the **MQTT Discovery** option is enabled. On
+In one-topic-per-variable mode the **MQTT Discovery** option is enabled. On
 connect the board sends the broker a configuration for every entity and
 Home Assistant creates them **by itself** — you write no YAML. All you
 need is the MQTT integration set up in HA.
 
 The entities are grouped under a single device, so you see the board in
 HA as a whole with all its values underneath. The entity type follows
-the tag:
+the variable:
 
-| Tag | Entity in HA |
+| Variable | Entity in HA |
 |:---|:---:|
 | numeric, read-only | sensor with a unit |
 | boolean, read-only | binary sensor |
@@ -160,12 +160,12 @@ If you would rather keep the configuration under your own control
 (version control, manual edits), turn Discovery off and use the export:
 
 The *Export YAML for Home Assistant* button produces a file with one
-entity per tag:
+entity per variable:
 
-- numeric read-only tag → `sensor` (with a unit)
-- boolean read-only tag → `binary_sensor`
-- numeric writable tag → `number`
-- boolean writable tag → `switch`
+- numeric read-only variable → `sensor` (with a unit)
+- boolean read-only variable → `binary_sensor`
+- numeric writable variable → `number`
+- boolean writable variable → `switch`
 
 Paste the file into `configuration.yaml` (or pull it in with
 `!include`) and restart HA. The ranges on `number` are deliberately
@@ -185,7 +185,7 @@ enabled in the project.
 
 ### Ghosts after a project change
 
-Retained messages stay on the broker even after a tag is renamed. Clear
+Retained messages stay on the broker even after a variable is renamed. Clear
 the old topic with an empty retained message:
 
 ```
@@ -196,7 +196,7 @@ mosquitto_pub -h <broker> -t ctrl32/boilerroom/old_tag -r -n
 
 | Pitfall | Fix |
 |:---|:---|
-| Nothing shows up in the dashboard | check the token (in ThingsBoard it goes into *username*, not the password) and whether the tag is ticked |
-| Values arrive rarely | that is by design — only changes are sent; check the tag deadband |
-| A command from the dashboard does nothing | the tag must be published **and** have rw access |
+| Nothing shows up in the dashboard | check the token (in ThingsBoard it goes into *username*, not the password) and whether the variable is ticked |
+| Values arrive rarely | that is by design — only changes are sent; check the variable deadband |
+| A command from the dashboard does nothing | the variable must be published **and** have rw access |
 | Broker behind NAT or on the internet | not supported without TLS — the broker belongs on the equipment network |

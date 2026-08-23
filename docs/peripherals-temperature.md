@@ -61,11 +61,11 @@ extra wiring comes with them.
 | `KMETERISO` | I2C | I2C isolated K-thermocouple module (M5Stack KMeterISO) — channel 0 = temperature [°C]. Fixed address 0x66. VERIFY ON THE BENCH. |
 | `MAX31855` | SPI | SPI K-thermocouple converter — channels: 0 = thermocouple [°C] (0.25 °C steps), 1 = cold junction [°C]. Fault bits (open/short) drop the sample and log a diag entry. addr = CS pin. |
 | `MAX31856` | SPI | SPI precision thermocouple converter (K type configured) — channels: 0 = thermocouple [°C] (19-bit, 0.0078 °C), 1 = cold junction [°C]. Fault register checked. addr = CS pin. |
-| `MAX31865` | SPI | SPI RTD converter (PT100/PT1000) — °C straight into the tag. addr = CS pin. PeriphRec.config: bit0 = 3-wire, bit2 = 60 Hz filter (default 50 Hz), bit3 = PT1000, bits 4+ = Rref in tens of ohms (0 = 430 Ω for PT100 / 4300 Ω for PT1000 — common boards). Calibration via tag gain/offset; sensor fault = diag entry and the tag keeps its last value. |
+| `MAX31865` | SPI | SPI RTD converter (PT100/PT1000) — °C straight into the variable. addr = CS pin. PeriphRec.config: bit0 = 3-wire, bit2 = 60 Hz filter (default 50 Hz), bit3 = PT1000, bits 4+ = Rref in tens of ohms (0 = 430 Ω for PT100 / 4300 Ω for PT1000 — common boards). Calibration via variable gain/offset; sensor fault = diag entry and the variable keeps its last value. |
 | `MAX6675` | SPI | SPI K-thermocouple converter — channel 0 = temperature [°C], 0.25 °C steps, open-thermocouple detection. addr = CS pin. |
 | `MCP9600` | I2C | I2C thermocouple converter (K type by default) — channel 0 = hot-junction temperature [°C], 0.0625 °C steps. Address 0x60–0x67. |
 
 Every entry above is in the editor: pick the chip, give it
-an address or a chip-select pin, and its channels become tags.
+an address or a chip-select pin, and its channels become variables.
 See [Adding a peripheral](adding-peripherals.md) for the
 click-through.
