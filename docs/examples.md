@@ -8,8 +8,14 @@ They are not toys cut down for a manual. Both are real projects that get
 extended as features arrive — which is also why they are worth
 re-opening after an update.
 
-Find them in **ProgramData\ctrl32\examples**, or open them from the
-editor's welcome screen.
+Find them in **ProgramData\ctrl32**, or open them from the editor's
+welcome screen. They are sorted into three folders:
+
+| Folder | Holds |
+|:---|:---|
+| `examples\` | the board projects and feature demos — what this page is about |
+| `tutorials\` | small, single-idea projects that teach one thing each |
+| `examples\tests\` | regression fixtures. Real projects, but written to exercise the compiler rather than to be read |
 
 ---
 
