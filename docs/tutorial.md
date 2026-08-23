@@ -5,7 +5,7 @@ rung of ladder, a screen, and a download. No hardware needed until the
 last step — everything before it runs in simulation on your PC.
 
 If you would rather start by *looking* at something finished, open one of
-the [example projects](examples.md) instead. This page is for building
+the [examples](examples.md) instead. This page is for building
 one yourself, which teaches more.
 
 **What we are building:** a light that switches on when a button is

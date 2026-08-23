@@ -91,6 +91,6 @@ pieces most projects are made of.
 | | |
 |:---|:---|
 | [Your first project](tutorial.md) | build one from an empty file |
-| [Example projects](examples.md) | the two complete board projects |
+| [Examples](examples.md) | the two complete board projects |
 | [Function blocks](blocks.md) | everything the library offers |
 | [Ladder](ladder.md) · [FBD](fbd-composites.md) · [ST](st-language.md) | the languages themselves |

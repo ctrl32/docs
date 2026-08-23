@@ -63,7 +63,10 @@ nav:
   - Your first project: tutorial.md
   - Supported hardware: hardware.md
   - Tutorial projects: tutorials.md
-  - Example projects: examples.md
+  - Examples:
+      - Examples: examples.md
+      - Thermostat (Olimex EVB): example-thermostat.md
+      - Showcase (STM32F746): example-showcase.md
   - Licensing: licensing.md
   - Network and security: security.md
   - The project file: project-format.md
