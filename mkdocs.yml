@@ -56,10 +56,15 @@ plugins:
 nav:
   - What ctrl32 is: index.md
   - Quick start: quickstart.md
+  - Supported hardware: hardware.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
       - Tags: tags.md
+  - Visualisation:
+      - Visualisation: visualisation.md
+      - HMIview — the panel screen: hmiview.md
+      - WEBview — in a browser: webview.md
       - Screens and widgets: widgets.md
   - Programming:
       - Programming: programming.md
