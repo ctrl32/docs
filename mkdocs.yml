@@ -67,7 +67,13 @@ nav:
       - Visualisation: visualisation.md
       - HMIview — the panel screen: hmiview.md
       - WEBview — in a browser: webview.md
-      - Screens and widgets: widgets.md
+      - Containers: widgets-containers.md
+      - Text and values: widgets-text.md
+      - Controls: widgets-controls.md
+      - Indicators: widgets-indicators.md
+      - Images and icons: widgets-graphics.md
+      - Trends and alarms: widgets-data.md
+      - Property reference: widgets.md
   - Programming:
       - Programming: programming.md
       - Ladder (LD): ladder.md
