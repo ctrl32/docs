@@ -55,8 +55,10 @@ plugins:
 
 nav:
   - What ctrl32 is: index.md
+  - Intended use: intended-use.md
   - Quick start: quickstart.md
   - Supported hardware: hardware.md
+  - Licensing: licensing.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
@@ -103,7 +105,6 @@ nav:
   - Deployment:
       - Deployment: deployment.md
       - Download to the panel: deploy.md
-      - Licensing: licensing.md
       - Third-party licences: third-party.md
   - Operation:
       - Operation: operation.md

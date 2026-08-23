@@ -94,7 +94,7 @@ sensor, a guard being released, a signal that was there and is not.
 
 The only difference between the two is what happens when set and reset
 arrive **together** — and that is exactly the case you have to think
-about, because on a real machine it happens.
+about, because sooner or later both arrive at once.
 
 **Choose by asking which one is the safe answer:**
 
@@ -111,7 +111,7 @@ operator_ack   ──R──┤ SR ├── Q1 ──> fault_latched
 !!! danger "A latch is not a safety function"
     Reset priority is not a substitute for a hard-wired stop circuit.
     Emergency stop, guards and light curtains are wired, not programmed —
-    see [Scope and limits](scope.md).
+    see [Intended use](intended-use.md).
 
 ---
 

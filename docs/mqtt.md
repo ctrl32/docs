@@ -125,7 +125,7 @@ writing to `ctrl32/boilerroom/setpoint/set`.
 Every published tag has its own **write** checkbox. It can only be
 ticked for a tag that is `rw` in the project. Without it the panel
 **ignores** a write from the broker, even if somebody sends one. So the
-machine builder decides what the supervisory system may touch — not the
+project decides what the supervisory system may touch — not the
 other way round.
 
 ### The fastest route: MQTT Discovery

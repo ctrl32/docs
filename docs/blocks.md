@@ -17,7 +17,7 @@ them.
 | [Maths](blocks-math.md) | ADD, SUB, MUL, DIV, MIN, MAX, ABS, MOVE | arithmetic |
 | [Comparison](blocks-compare.md) | GT, GE, LT, LE, EQ, SEL | decisions on numbers |
 | [Signal handling](blocks-signal.md) | SCALE, LIMIT, HYST, RAMP, PT1 | turning a raw value into a usable one |
-| [Machine blocks](blocks-machine.md) | MOTOR, VALVE, PID | the things every machine builder writes over and over |
+| [Equipment blocks](blocks-machine.md) | MOTOR, VALVE, PID | starters, valves and a controller, ready made |
 | [Motion](blocks-motion.md) | MC_POWER, MC_MOVEVELOCITY, MC_MOVEABS, … | driving an axis |
 | [CANopen](blocks-can.md) | CO_CIA402, CO_SDOWRITE, CO_SDOREAD, CO_RAMPTIME | talking to a drive directly |
 | [Services](blocks-services.md) | IR_SEND, SMS_SEND, GSM_INFO | infrared, SMS, modem state |

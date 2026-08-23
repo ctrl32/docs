@@ -1,7 +1,7 @@
 # Motion blocks
 
 Nine blocks for driving an axis, named after **PLCopen Motion** — the
-naming machine builders already know from other systems, so `MC_POWER`
+naming used across the automation world, so `MC_POWER`
 and `MC_MOVEABS` mean here what they mean elsewhere.
 
 Every one of them takes an **AXIS** number at the call. Which axis is
@@ -160,7 +160,7 @@ Stopping over CANopen is **not** a safety function. Neither is
   on a deviation between commanded and actual speed. All three occur on
   real machines.
 
-See [Scope and limits](scope.md).
+See [Intended use](intended-use.md).
 
 ---
 

@@ -1,11 +1,11 @@
-# Machine blocks
+# Equipment blocks
 
-Three blocks that every machine builder ends up writing, and that ctrl32
-ships so you do not have to: a motor starter, a valve, and a PID
-controller.
+Three blocks that anyone controlling equipment ends up needing, and that
+ctrl32 ships so you do not have to write them: a motor starter, a valve,
+and a PID controller.
 
 They are bigger than the rest of the library because they contain the
-parts people usually forget — feedback supervision, latched faults, an
+parts that are easy to forget — feedback supervision, latched faults, an
 acknowledge that only works when it is safe, and an integrator that does
 not wind up.
 
@@ -40,9 +40,9 @@ aux_contact ──FB─┤ MOTOR      ├── FAULT ──> motor_fault
 
 **Why the feedback matters.** Without it, a blown fuse, a tripped
 overload or a contactor that welded open looks exactly like a running
-motor: the command is on and the program is content. With it, the machine
-knows within three seconds that what it asked for did not happen — which
-is the difference between a stopped line and a batch of scrap.
+motor: the command is on and the program is content. With it, the program
+knows within three seconds that what it asked for did not happen —
+instead of carrying on as though it had.
 
 !!! tip "Wire the feedback to the thing you want to be sure of"
     An auxiliary contact on the contactor proves the coil pulled in. A
@@ -52,8 +52,7 @@ is the difference between a stopped line and a batch of scrap.
 
 !!! warning "STOP is not an emergency stop"
     STOP is a command in software. Emergency stop is a wired circuit that
-    removes power without asking the program. See [Scope and
-    limits](scope.md).
+    removes power without asking the program. See [Intended use](intended-use.md).
 
 ---
 
@@ -85,11 +84,12 @@ time — jammed, no air, a broken limit switch, or a travel time that is
 simply longer than T_FB on a cold morning. All four are worth knowing
 about.
 
-!!! tip "Set T_FB from the machine, not the catalogue"
-    Watch the real travel time in the [Scope](scope.md), then give it
+!!! tip "Set T_FB from the real thing, not the catalogue"
+    Watch the actual travel time in the [Scope](scope.md), then give it
     generous headroom — perhaps double. A T_FB set too tight produces
-    nuisance faults on cold mornings and teaches operators to acknowledge
-    without looking, which is worse than no fault at all.
+    nuisance faults on a cold morning, and nuisance faults teach whoever
+    is using it to acknowledge without looking, which is worse than no
+    fault at all.
 
 ---
 

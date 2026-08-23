@@ -1,7 +1,7 @@
 # HMIview — the panel's own screen
 
-The screen in the machine's door. What the operator sees at three in the
-morning when something has stopped and there is nobody to ask.
+The screen on the front of the box. What you see when you walk up to
+something you built and want to know what it is doing.
 
 HMIview is drawn in the same editor as everything else, from the same
 tags, and travels in the same file. This page is how it works and how to

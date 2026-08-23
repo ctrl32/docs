@@ -81,7 +81,7 @@ The gap between ON and OFF is the hysteresis, and it is why this block
 exists: a plain comparison at a single threshold chatters when the
 measurement sits near it, and everything downstream chatters with it.
 
-**What it is for:** anything where a number switches a physical thing.
+**What it is for:** anything where a number switches something physical.
 Thermostats above all.
 
 ```

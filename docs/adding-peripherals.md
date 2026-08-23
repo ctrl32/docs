@@ -35,14 +35,3 @@ outline:
 > the panel reads it at startup. The pin assignment never changes while
 > running — a deliberate decision that protects you from a badly
 > uploaded project switching a pin that has something else on it.
-
-<details>
-<summary>How this clip was made</summary>
-
-What gets recorded is the editor itself, not the screen: the input is
-injected directly into ImGui before the frame is drawn. That makes it
-deterministic — the same script always yields the same recording, so
-the clip is not just a video but also a regression test of the
-procedure.
-
-</details>
