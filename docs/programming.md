@@ -12,3 +12,17 @@ data, never firmware.
   networks of blocks, plus composite blocks you build yourself
 - [Structured Text (ST)](st-language.md) — the textual language
   underneath, with the full block library callable from it
+
+Whichever you draw in, the work is done by **function blocks** — 53 of
+them, from a timer to a PID controller to a positioning axis. They are
+documented group by group:
+
+| | |
+|---|---|
+| [Function blocks](blocks.md) | what they have in common: pins, instances, execution order, EN/ENO |
+| [Timers](blocks-timers.md) · [Counters](blocks-counters.md) | delays, pulses, blinking, counting |
+| [Boolean](blocks-boolean.md) · [Maths](blocks-math.md) · [Comparison](blocks-compare.md) | logic, edges, latches, arithmetic, decisions |
+| [Signal handling](blocks-signal.md) | scaling, clamping, hysteresis, ramps, filtering |
+| [Machine blocks](blocks-machine.md) | MOTOR, VALVE and PID — with the parts people forget |
+| [Motion](blocks-motion.md) · [CANopen](blocks-can.md) | driving an axis, and talking to a drive directly |
+| [Services](blocks-services.md) | infrared, SMS, modem state |

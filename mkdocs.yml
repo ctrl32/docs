@@ -66,6 +66,18 @@ nav:
       - Ladder (LD): ladder.md
       - Function block diagram (FBD): fbd-composites.md
       - Structured Text (ST): st-language.md
+  - Function blocks:
+      - Function blocks: blocks.md
+      - Timers: blocks-timers.md
+      - Counters: blocks-counters.md
+      - Boolean: blocks-boolean.md
+      - Maths: blocks-math.md
+      - Comparison: blocks-compare.md
+      - Signal handling: blocks-signal.md
+      - Machine blocks: blocks-machine.md
+      - Motion: blocks-motion.md
+      - CANopen: blocks-can.md
+      - Services: blocks-services.md
   - Buses and peripherals:
       - Buses and peripherals: buses.md
       - Modbus: modbus.md
