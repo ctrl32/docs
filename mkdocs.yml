@@ -88,8 +88,18 @@ nav:
       - Modbus: modbus.md
       - Raw CAN: rawcan.md
       - MQTT: mqtt.md
-      - Peripherals and services: peripherals-and-services.md
       - Adding a peripheral: adding-peripherals.md
+  - Peripherals and services:
+      - Peripherals and services: peripherals-and-services.md
+      - Temperature: peripherals-temperature.md
+      - Environment: peripherals-environment.md
+      - Air quality: peripherals-air.md
+      - Light, distance, motion: peripherals-light.md
+      - Pressure and position: peripherals-pressure.md
+      - Analog in and out: peripherals-analog.md
+      - I/O expanders and drivers: peripherals-io.md
+      - Power and energy: peripherals-power.md
+      - Cellular modems: peripherals-connectivity.md
   - Deployment:
       - Deployment: deployment.md
       - Download to the panel: deploy.md
