@@ -20,6 +20,20 @@ fraction of the established engineering systems.
     [Intended use](intended-use.md) — it takes two minutes and it is the
     most important page here.
 
+!!! note "It has bugs, like everything else"
+    ctrl32 is software written by people, so it has bugs — and we would
+    be lying if we said otherwise. What we can promise is that they get
+    fixed: things are tested on real boards, on the bench, before a
+    release goes out, and what turns up afterwards gets sorted rather
+    than argued about.
+
+    Features arrive the same way — steadily, and usually because
+    somebody asked. If you find something broken or missing, say so.
+    Half the good ideas in here came from exactly that, and the other
+    half came from breaking something first and writing down why.
+
+    [What's new](changelog.md) is the honest record of both.
+
 ## What it is made of
 
 | Part | What it does |

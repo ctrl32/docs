@@ -1,0 +1,36 @@
+/* ctrl32 documentation — presentation details the markdown should not
+   have to carry.
+
+   WHY: screenshots left-aligned against a wide text column look like
+   they fell off the paragraph above them. Centring is a property of how
+   the page is presented, not of what the page says, so it lives here
+   rather than as HTML wrapped around every image. */
+
+/* Screenshots and diagrams sit centred, with room to breathe. */
+.md-typeset img {
+    display: block;
+    margin: 1.2em auto;
+    max-width: 100%;
+}
+
+/* An image on its own line usually has a caption paragraph after it —
+   keep the two visually together and centre the caption with it. */
+.md-typeset img + em,
+.md-typeset p > img:only-child {
+    display: block;
+    text-align: center;
+}
+
+/* Board screenshots are small (240x320, 480x272). Blown up to the
+   column width they turn into blurred pixels, so they are shown at
+   their natural size unless the column is narrower than that. */
+.md-typeset img[src*="example-"] {
+    image-rendering: pixelated;
+}
+
+/* Tables: the alignment comes from the markdown (tools/docs_tablealign),
+   this only stops a long description column from being cramped. */
+.md-typeset table:not([class]) {
+    display: table;
+    width: 100%;
+}

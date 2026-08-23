@@ -91,8 +91,14 @@ temp ──[HYST ON=22 OFF=20]── Q ──> heating
 Heating comes on at 22 and off at 20 — a two-degree swing that stops the
 relay clacking every few seconds.
 
-**ON below OFF inverts it**, which is how you get a cooling thermostat:
-`ON=20 OFF=22` switches on when the temperature *falls* to 20.
+**ON must be greater than or equal to OFF**, and the editor refuses a
+block where it is not — a rising threshold below the falling one is
+almost always a swapped pair of numbers rather than an intention.
+
+For the opposite sense — switch on when a value *falls* — put a
+[NOT](blocks-boolean.md) after it. `HYST ON=22 OFF=20` followed by NOT
+gives you cooling that starts at 20 and stops at 22, with the same
+two-degree gap doing the same job.
 
 !!! success "How wide should the gap be?"
     Wide enough that normal noise cannot cross it, and no wider — the

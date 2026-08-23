@@ -99,6 +99,66 @@ into one word, and none of them can undo another.
 
 ---
 
+## The editor, working
+
+The same tool, in the views you will spend your time in.
+
+### Ladder
+
+![The ladder editor: five rungs of the thermostat, blocks in the rungs, the Toolbox on the right](img/editor-ladder.png)
+
+The thermostat's program. Blocks sit **in** the rungs with EN/ENO —
+BLINK, SEL, RAMP, PT1, HYST — so the whole control chain is one picture
+rather than a diagram somewhere else. Comments run above each rung.
+
+### Ladder, online
+
+![The same rungs with live values from a running board: green power flow, 233 cycles counted, values on every pin](img/editor-online.png)
+
+The same program, connected to a running board. **Green is current
+flowing**, and every pin carries its live value: the simulated
+temperature at 30.7, the filter's output at 36.8, the counter at 233.
+
+This is the view worth knowing about before you need it. When something
+behaves differently than you expected, you watch the rung rather than
+guess — and the answer is usually visible in a second.
+
+### Function block diagram
+
+![The FBD editor: SCALE, HYST, NOT, LT and TON wired through named variables](img/editor-fbd.png)
+
+A tank controller as a diagram: a 4-20 mA input scaled to a percentage,
+hysteresis deciding when it is full, a low-level detector with a
+three-second delay so a wave does not trip it.
+
+Blocks run top to bottom and pass values through variables — which is why
+the order on screen **is** the data flow.
+
+### Structured Text
+
+![The ST editor with syntax highlighting and "compiles clean" in the status bar](img/editor-st.png)
+
+For anything a diagram makes clumsy: loops, state machines, a long
+calculation. It compiles as you type — the status line says so — and the
+same block library is callable from it.
+
+### CANopen
+
+![The board page with the CANopen master, its nodes and their objects](img/editor-canopen.png)
+
+Nodes on the bus, their objects, and the variables generated from them.
+An EDS file from the manufacturer becomes correctly typed, correctly
+addressed variables — see [CANopen](canopen.md).
+
+### A different board
+
+![The same editor with a stepHMI32.4 project open](img/editor-stephmi.png)
+
+A stepHMI32.4 project. Same editor, same languages, same widgets — the
+board is a choice in the project, not a different tool.
+
+---
+
 ## Which one to start from
 
 | You have | Open |
