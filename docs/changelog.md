@@ -452,7 +452,7 @@ execute while the rung is off, its state freezes and its outputs hold.
   the transport controls show only when the simulation is on.
 - **Five sizes of quality text** (13/15/18/20/22/24/28/36 px plus the
   numeric and seven-segment faces), TTF import for custom fonts, and
-  full Slovak diacritics everywhere.
+  full Central European diacritics everywhere.
 - **I2C toolbox**: a bus scanner in the editor, an address dropdown
   fed by the chip catalog, and automatic chip identification where the
   silicon supports it.
