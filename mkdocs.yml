@@ -58,6 +58,7 @@ nav:
   - Intended use: intended-use.md
   - Quick start: quickstart.md
   - Supported hardware: hardware.md
+  - Example projects: examples.md
   - Licensing: licensing.md
   - Network and security: security.md
   - The project file: project-format.md

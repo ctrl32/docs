@@ -9,6 +9,32 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.027
+
+- **States and motion on any widget.** A widget can now carry three
+  states — true, false and alarm — with a colour for each, driven by a
+  variable or by **one bit of an integer**. Four lamps on four bits of a
+  status word, no logic between them. And any widget can **travel a
+  path** as a value sweeps its range: along a line, or with X and Y
+  driven by two values independently. Drawn in the editor, identical on
+  the board and in the browser.
+- **Vector icons.** Icons are outlines rather than baked bitmaps, so
+  they are sharp at any size — a 16-pixel status glyph and a
+  screen-filling symbol come from the same entry. A full-screen icon
+  used to cost a couple of hundred kilobytes; it now costs tens of
+  bytes, and the browser draws them too, which it never could before.
+- **Buttons work in online mode.** Pressing a control on the editor's
+  canvas while connected now reaches the running board, instead of
+  writing into the editor's own copy of the values. Screens switched
+  before; everything else looked dead.
+- **STM32 boards are written by the editor.** No external tools: the
+  editor speaks to the ST-LINK probe directly and writes the board over
+  SWD, verifying every byte it wrote before resetting.
+- **Colours written as `#RRGGBB` work.** The web spelling everybody
+  reaches for used to yield black, silently. Both spellings parse now —
+  worth re-checking any colour in an older project that never looked
+  right.
+
 ## 1.00.026
 
 - **The first STM32 board.** The runtime now runs on STM32F7-class
@@ -20,7 +46,7 @@ moves. Releases before that carried dates (`year.month.day.build`).
   glass never fight for time.
 - **Everything over ethernet.** A network board now serves the full
   WEBview from its own address, accepts program uploads over the wire
-  (`Download → Sieť` in the editor, no cable swap), and — new — the
+  (*Download → Network* in the editor, no cable swap), and — new — the
   editor's **online mode works over ethernet too**: type the board's
   IP where you would pick a COM port and watch live values, the
   console, the scope and forcing exactly as over USB. One protocol,
