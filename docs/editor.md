@@ -102,7 +102,8 @@ runs.
 
 ## Licence
 
-- **talking to a real board** — download and online alike — is paid.
+- what is paid is everything that **leaves the editor**: saving a project
+  file, and talking to a real board — download and online alike.
 
 ## Updates
 
