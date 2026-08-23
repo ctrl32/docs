@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **25**
+Schema version: **27**
 
 ## Common properties (widget_base)
 
@@ -20,6 +20,8 @@ Schema version: **25**
 | `visible_if` | tag_ref |  |
 | `enabled_if` | tag_ref |  |
 | `children` | list |  |
+| `state` | map |  |
+| `move` | map |  |
 | `animations` | list |  |
 
 ## `panel`
@@ -90,6 +92,7 @@ Schema version: **25**
 
 | Property | Type | Default |
 |---|---|---|
+| `shape` | LedShape | `round` |
 | `tag` | tag_ref |  |
 | `color_on` | color |  |
 | `color_off` | color |  |
