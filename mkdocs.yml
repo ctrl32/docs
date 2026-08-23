@@ -59,6 +59,8 @@ nav:
   - Quick start: quickstart.md
   - Supported hardware: hardware.md
   - Licensing: licensing.md
+  - Network and security: security.md
+  - The project file: project-format.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
