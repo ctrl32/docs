@@ -77,6 +77,7 @@ nav:
       - Deployment: deployment.md
       - Download to the panel: deploy.md
       - Licensing: licensing.md
+      - Third-party licences: third-party.md
   - Operation:
       - Operation: operation.md
       - Online monitoring: online.md
