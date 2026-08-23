@@ -5,7 +5,7 @@ clamping, switching cleanly, limiting how fast something changes, and
 smoothing noise.
 
 These are the blocks that turn "the sensor says 6234" into something a
-machine can act on.
+equipment can act on.
 
 ---
 
@@ -14,7 +14,7 @@ machine can act on.
 **Maps IN from one range onto another.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, number | the raw value |
 | `IN_MIN`, `IN_MAX` | parameters (0, 100) | the range IN arrives in |
 | `OUT_MIN`, `OUT_MAX` | parameters (0, 100) | the range you want |
@@ -45,7 +45,7 @@ Two things worth knowing:
 **Holds IN inside MN…MX.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, number | the value |
 | `MN`, `MX` | parameters (0, 100) | the allowed range |
 | `OUT` | output, number | IN, clamped |
@@ -71,7 +71,7 @@ setpoint_from_hmi ──[LIMIT MN=20 MX=80]── OUT ──> setpoint
 **Q switches on at IN ≥ ON, and off again only at IN ≤ OFF.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, number | the measurement |
 | `ON` | parameter (100) | switch-on level |
 | `OFF` | parameter (90) | switch-off level |
@@ -96,7 +96,7 @@ relay clacking every few seconds.
 
 !!! success "How wide should the gap be?"
     Wide enough that normal noise cannot cross it, and no wider — the
-    swing is felt by whatever the machine does. For temperature, a
+    swing is felt by whatever the equipment does. For temperature, a
     degree or two. For a pressure switch, a few percent. If you are
     unsure, watch the raw value in the [Scope](scope.md) for a minute
     and make the gap bigger than the wobble you see.
@@ -108,14 +108,14 @@ relay clacking every few seconds.
 **OUT follows IN, but changes at most RATE units per second.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, number | the target |
 | `RATE` | parameter, units/s (10) | the fastest OUT may change |
 | `OUT` | output, number | the rate-limited value |
 
 **What it is for:** stopping a step change from becoming a mechanical
 shock. An operator typing a new speed, a recipe changing a setpoint, a
-mode switch — all of them can move a number instantly, and the machine
+mode switch — all of them can move a number instantly, and the equipment
 cannot follow instantly.
 
 ```
@@ -138,7 +138,7 @@ get there.
 **OUT approaches IN with time constant T.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, number | the noisy value |
 | `T` | parameter, ms (1000) | time constant |
 | `OUT` | output, number | the smoothed value |

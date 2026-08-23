@@ -12,7 +12,7 @@ outline:
   - at: "0:00"
     text: A project open on the inoCORE32-TM board — the tree shows only
           the interfaces the board really has, and the green dot next to
-          CAN is the live status read from the panel.
+          CAN is the live status read from the board.
   - at: "0:02"
     text: The board node opens its page — the module card
           (ESP32-PICO-V3-02, Ethernet IP101GRI, 8 free pins) and the pin
@@ -32,6 +32,6 @@ outline:
 
 > **Pins are not configured at run time.** A peripheral added in the
 > editor is **compile-time** configuration: it goes into the pack and
-> the panel reads it at startup. The pin assignment never changes while
+> the board reads it at startup. The pin assignment never changes while
 > running — a deliberate decision that protects you from a badly
 > uploaded project switching a pin that has something else on it.

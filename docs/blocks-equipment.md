@@ -14,7 +14,7 @@ not wind up.
 ## MOTOR — start/stop with feedback
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `START` | input, bool | start command |
 | `STOP` | input, bool | stop command — **overrides START** |
 | `FB` | input, bool | feedback: the motor is actually running |
@@ -59,7 +59,7 @@ instead of carrying on as though it had.
 ## VALVE — open/close with end-position check
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `OPEN` | input, bool | open command |
 | `CLOSE` | input, bool | close command — **has priority** |
 | `FB` | input, bool | end-position feedback |
@@ -96,7 +96,7 @@ about.
 ## PID — controller
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `SP` | input, number | setpoint |
 | `PV` | input, number | process value (the measurement) |
 | `MAN` | input, number | manual output value |
@@ -117,7 +117,7 @@ mistakes than consistency would.
 
 **Anti-windup.** When the output is pinned at its limit, the integrator
 stops accumulating. Without this, a controller that spends ten minutes
-asking for more than the machine can deliver builds up an enormous
+asking for more than the equipment can deliver builds up an enormous
 integral, and then overshoots wildly when the process finally responds.
 `LIM` tells you it is happening.
 
@@ -138,7 +138,7 @@ smoothly.
    and reduce it until the remaining offset disappears without the loop
    getting sloppy.
 3. **Leave TD at 0** unless you have a slow process with real transport
-   delay. Derivative amplifies noise, and on most machines it costs more
+   delay. Derivative amplifies noise, and on most projects it costs more
    than it gives.
 
 !!! tip "Watch it, do not guess"

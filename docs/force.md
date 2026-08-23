@@ -1,16 +1,16 @@
 # Forcing values
 
-Everything else in the editor **shows** a machine. This one **changes**
+Everything else in the editor **shows** a setup. This one **changes**
 it: a valve opens because somebody typed a number on a laptop. Forcing is
 a commissioning aid — for checking wiring, exercising an output before the
 sensor exists, or proving an interlock — and it is not a way to run a
-machine.
+equipment.
 
 Open it from *Online → Force*.
 
 ## What it does
 
-A forced tag is held by the **panel**, not by the editor. The value is
+A forced tag is held by the **board**, not by the editor. The value is
 written into the tag on both sides of the program: before the logic runs,
 so the logic reads it, and after, so an output the logic just wrote is
 overridden. That is the standard scan model — anything else would make
@@ -22,17 +22,17 @@ the rules below matter.
 ## How long it lasts
 
 | | |
-|---|---|
+|:---|:---:|
 | Released when you release it | yes |
 | Released when the editor closes or the cable is pulled | **no** |
 | Released by a power cycle | **yes** — the table is RAM |
 | Optional timeout | yes, in seconds; `0` means hold until released |
 
 Closing the editor deliberately does **not** release a force: a
-technician who forces a valve open, walks around the machine and comes
+technician who forces a valve open, walks around the equipment and comes
 back expects to find it open. A power cycle does clear it, because a
-panel that came back from a power failure still holding somebody's value
-would be a trap — and the panel has no dedicated lamp to
+board that came back from a power failure still holding somebody's value
+would be a trap — and the board has no dedicated lamp to
 warn about it.
 
 !!! warning "A forced tag that is retentive keeps its last value"
@@ -42,14 +42,14 @@ warn about it.
 
 ## Nothing is silent
 
-- Every set, release and expiry goes into the panel's **diagnostic
-  buffer**, so the machine's own log carries what was held and for how
+- Every set, release and expiry goes into the board's **diagnostic
+  buffer**, so its own log carries what was held and for how
   long.
 - The editor's **status bar** shows `FORCED n` in a colour that belongs
   to nothing else, on every page, and clicking it opens this window.
-- The list in the window is what the **panel** reports, never what this
+- The list in the window is what the **board** reports, never what this
   editor asked for. The two differ the moment a force expires or somebody
-  else releases one, and the machine is the party telling the truth.
+  else releases one, and the equipment is the party telling the truth.
 
 ## Using it
 
@@ -57,7 +57,7 @@ warn about it.
 2. Set the value. A BOOL gets a checkbox; a number gets a field; a TIME
    tag is forced in milliseconds.
 3. Leave the hold at `0` to keep it until you release it, or enter
-   seconds for a timeout the panel enforces itself.
+   seconds for a timeout the board enforces itself.
 4. *Force this value*.
 
 Release one with the button next to it, or all of them with *Release
@@ -66,16 +66,16 @@ all* — which is never disabled while anything is held.
 ## Limits and refusals
 
 | | |
-|---|---|
+|:---|:---:|
 | Forced tags at once | 8 |
 | Longest timeout | 1 hour |
 
 Eight is deliberate. Somebody who needs to force nine things at once is
 not commissioning any more, they are rewriting the program — and that
-belongs in the editor, not in a live machine.
+belongs in the editor, not in a live equipment.
 
 !!! danger "This is not a safety function"
     Forcing bypasses your program's logic, including its interlocks. It
     does not bypass hard-wired safety — emergency stop, doors and light
     curtains are wired, not programmed — and nothing here changes the
-    rule that [safety is never routed through the panel](index.md).
+    rule that [safety is never routed through the board](index.md).

@@ -1,7 +1,7 @@
 # Timers
 
 Four blocks: a delay on, a delay off, a fixed pulse, and a blinker.
-Between them they cover almost everything a machine needs from time.
+Between them they cover almost everything a setup needs from time.
 
 All of them measure **real milliseconds**, not cycles, and all of them
 report progress on a second output so you can show it on a screen.
@@ -13,7 +13,7 @@ report progress on a second output so you can show it on a screen.
 **Q switches on once IN has been held continuously for PT ms.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `IN` | input, bool | the condition being timed |
 | `PT` | parameter, ms (1000) | how long it must hold |
 | `Q` | output, bool | TRUE once IN has held for PT |
@@ -36,7 +36,7 @@ somebody walks through.
 
 !!! tip "ET is worth showing"
     Bind `ET` to a tag and put a bar on the screen. An operator waiting
-    for a delay with no feedback assumes the machine is broken; the same
+    for a delay with no feedback assumes the equipment is broken; the same
     operator watching a bar fill waits patiently.
 
 ---
@@ -46,7 +46,7 @@ somebody walks through.
 **Q stays on for another PT ms after IN drops.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `IN` | input, bool | the condition |
 | `PT` | parameter, ms (1000) | how long Q holds after IN drops |
 | `Q` | output, bool | TRUE while IN is TRUE, and PT ms longer |
@@ -72,7 +72,7 @@ logic, no timer you have to reset.
 **A rising edge of IN fires Q for exactly PT ms.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, bool | trigger (rising edge) |
 | `PT` | parameter, ms (1000) | pulse length |
 | `Q` | output, bool | TRUE for PT ms after the trigger |
@@ -106,7 +106,7 @@ it.
 **While RUN is TRUE, Q alternates T_ON ms on and T_OFF ms off.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `RUN` | input, bool | while TRUE, the block blinks |
 | `T_ON` | parameter, ms (500) | how long Q stays on |
 | `T_OFF` | parameter, ms (500) | how long Q stays off |
@@ -127,7 +127,7 @@ running       ──[BLINK T_ON=100 T_OFF=1900]── Q ──> heartbeat_led
 ```
 
 !!! tip "A heartbeat is the cheapest diagnostic you will ever build"
-    One BLINK on a spare output, and anyone standing at the machine can
+    One BLINK on a spare output, and anyone standing at the hardware can
     see whether the program is running — before opening a laptop.
 
 `REM` counts *down* through the current phase. It is there when you need
@@ -138,7 +138,7 @@ to synchronise something with the blink rather than just watch it.
 ## Choosing between them
 
 | You want | Block |
-|---|---|
+|:---|:---:|
 | ignore a signal until it has held | **TON** |
 | keep something running after the reason stopped | **TOF** |
 | a fixed dose, regardless of how long the trigger lasts | **TP** |

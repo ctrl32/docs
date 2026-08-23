@@ -1,4 +1,4 @@
-# HMIview — the panel's own screen
+# HMIview — the board's own screen
 
 The screen on the front of the box. What you see when you walk up to
 something you built and want to know what it is doing.
@@ -15,7 +15,7 @@ for every widget and its properties.
 A project has up to **32 screens** and up to **64 widgets on each**. One
 is shown at a time; the operator moves between them with `nav` widgets.
 
-That is generous for a machine and deliberately not unlimited. A machine
+That is generous for a project and deliberately not unlimited. A setup
 that needs forty screens usually needs three good ones instead — an
 operator who has to remember where something lives will not find it in a
 hurry.
@@ -23,8 +23,8 @@ hurry.
 **A useful default shape:**
 
 | Screen | Holds |
-|---|---|
-| Home | the state of the machine in one glance, and the two controls that matter |
+|:---|:---|
+| Home | the state of the equipment in one glance, and the two controls that matter |
 | Manual | every actuator, individually, for commissioning and fault-finding |
 | Settings | setpoints, times, recipe values |
 | Alarms | what is wrong and what was wrong |
@@ -34,18 +34,18 @@ hurry.
 
 ## Drawing is exact
 
-The editor canvas is not an approximation. It runs **the panel's own
+The editor canvas is not an approximation. It runs **the board's own
 rasteriser** — the same code, the same fonts, the same rounding, the same
 colours — so what you place is what appears on the glass.
 
 This is worth more than it sounds. Text that fits by two pixels in the
-editor fits by two pixels on the panel; a font that renders your
+editor fits by two pixels on the board; a font that renders your
 language's diacritics correctly on screen renders them correctly on the
-machine.
+equipment.
 
 !!! tip "Test at the real size"
-    A screen designed on a 27" monitor and shown on a 4.3" panel is
-    always smaller than you expected. Keep the canvas at the panel's real
+    A screen designed on a 27" monitor and shown on a 4.3" board is
+    always smaller than you expected. Keep the canvas at the board's real
     resolution while you work, and stand back from the monitor
     occasionally.
 
@@ -57,17 +57,17 @@ A finger is about **10 mm** across and arrives with a person attached to
 it.
 
 - **Resistive touch** (the cheaper glass) wants a firm press and is
-  accurate. It works with gloves and wet hands, which on many machines
+  accurate. It works with gloves and wet hands, which on many projects
   decides the matter.
 - **Capacitive touch** is light and precise, and does not work through
   most gloves.
 
-Make targets **big**. A button 40 px tall on a 480×272 panel is
+Make targets **big**. A button 40 px tall on a 480×272 board is
 comfortable; 30 px is possible on capacitive glass and unkind on
 resistive. Space them so that a press slightly off-centre still hits the
 right one.
 
-!!! warning "Confirm anything that moves a machine"
+!!! warning "Confirm anything that moves a setup"
     Capacitive touch near a frequency drive can register presses that
     nobody made. A `confirm` on a command that starts a motor is not
     decoration — it is the difference between electrical noise and an
@@ -97,7 +97,7 @@ learns the colours once and reads every screen afterwards.
 
 ## What redraws, and why it matters
 
-The panel does not repaint the screen continuously. A widget whose value
+The board does not repaint the screen continuously. A widget whose value
 changed marks its own rectangle, the rectangles are merged into bands and
 only those are sent to the display.
 
@@ -118,26 +118,26 @@ you can do for a screen's responsiveness. See [Tags](tags.md).
 
 ---
 
-## Graphics never delay the machine
+## Graphics never delay the equipment
 
 The rule is **logic before communication before graphics**. The renderer
 takes a snapshot of the tag table and works from that; it never holds
 anything the PLC cycle needs.
 
 Under load, frames are dropped. The cycle is never extended. A screen may
-stutter while a machine is doing something demanding — control never
+stutter while a setup is doing something demanding — control never
 waits for a picture.
 
 ---
 
-## The panel with no screen
+## The board with no screen
 
 Plenty of installations have no display at all. The logic runs, the
 fieldbuses run, and the visualisation lives in a browser — see
 [WEBview](webview.md).
 
 If you draw no WEBview screens, the browser is served the HMI ones. So a
-headless controller can still have a full visualisation, and a panel with
+headless controller can still have a full visualisation, and a board with
 a display can be watched from a phone, from the same project.
 
 ---
@@ -145,7 +145,7 @@ a display can be watched from a phone, from the same project.
 ## Where to go next
 
 | | |
-|---|---|
+|:---|:---|
 | [Screens and widgets](widgets.md) | every widget, every property |
 | [Tags](tags.md) | what the screens are drawing, and deadband |
 | [WEBview](webview.md) | the same project in a browser |

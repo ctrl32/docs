@@ -1,9 +1,9 @@
 # Raw CAN (without CANopen)
 
-The panel can speak two ways on the CAN bus:
+The board can speak two ways on the CAN bus:
 
 | | CANopen | **Raw CAN** |
-|---|---|---|
+|:---|:---|:---|
 | Devices | frequency drives, I/O modules per CiA 301/402 | batteries and BMS, solar inverters, chargers, wallboxes |
 | Configuration | EDS file, node-ID, SDO, PDO mapping | frame ID and byte layout |
 | Who uses it | industry | home automation and energy |
@@ -12,7 +12,7 @@ Most devices in home automation **do not speak CANopen and never
 will** — they send their own frames with a fixed byte layout. That is
 why raw CAN is a separate part, not an add-on to CANopen.
 
-Both paths run on **the same bus at the same time**. The panel can
+Both paths run on **the same bus at the same time**. The board can
 control a drive over CANopen and read a battery with raw frames
 simultaneously.
 
@@ -22,7 +22,7 @@ A frame has an ID and up to 8 bytes. A signal inside it is defined by
 five things — exactly the ones you find in the vendor's DBC file:
 
 | Field | Meaning |
-|---|---|
+|:---|:---|
 | `start_bit` | 0..63; with `little` it is the LSB of the signal, with `big` its MSB |
 | `bits` | width 1..32 |
 | `byte_order` | `little` (Intel) or `big` (Motorola) |
@@ -36,7 +36,7 @@ without changing the pack format**.
 
 ```yaml
 raw_can:
-  # BMS -> panel
+  # BMS -> board
   - id: 0x355
     dir: rx
     dlc: 8
@@ -53,7 +53,7 @@ raw_can:
     signals:
       - { tag: cell_temp, start_bit: 7, bits: 16, byte_order: big, signed: true, gain: 0.1, offset: -40.0 }
 
-  # panel -> BMS, every 100 ms
+  # board -> BMS, every 100 ms
   - id: 0x305
     dir: tx
     dlc: 2
@@ -62,8 +62,8 @@ raw_can:
       - { tag: charge_current, start_bit: 0, bits: 16, byte_order: little }
 ```
 
-`dir: rx` = the panel receives the frame and unpacks it into tags.
-`dir: tx` = the panel builds the frame from tags and transmits it.
+`dir: rx` = the board receives the frame and unpacks it into tags.
+`dir: tx` = the board builds the frame from tags and transmits it.
 `period_ms: 0` means **transmit on change** — the tag deadband has
 already filtered the noise, so only a real change is sent.
 
@@ -73,7 +73,7 @@ one table per frame.
 ## Product limits
 
 | Limit | Value |
-|---|---|
+|:---|:---:|
 | Frames | 32 |
 | Signals in total | 128 |
 
@@ -82,7 +82,7 @@ The editor rejects a project over the limit at compile time.
 ## Pitfalls
 
 | Pitfall | Consequence |
-|---|---|
+|:---|:---|
 | **Swapping `little` and `big`** | the values look "almost right" — the same class of fault as the word order on Modbus `f32`. Verify against a known value (voltage, temperature), not one that happens to be fluctuating. |
 | An ID overlapping the CANopen range | the two protocols get in each other's way on one bus. Packbuild **rejects** such a project; the editor shows it in red right on the page. |
 | Forgotten `signed` | a negative current reads as 65 A instead of −1 A |

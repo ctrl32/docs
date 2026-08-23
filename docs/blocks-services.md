@@ -1,18 +1,18 @@
 # Service blocks
 
-Three blocks that let the program reach a service the panel provides:
+Three blocks that let the program reach a service the board provides:
 infrared, SMS, and the modem's own state.
 
-They share a shape. The panel does the slow work — a modem takes seconds
+They share a shape. The board does the slow work — a modem takes seconds
 to send an SMS — while the block reports progress on its outputs and the
-cycle carries on. Nothing here ever blocks the machine.
+cycle carries on. Nothing here ever blocks the equipment.
 
 ---
 
 ## IR_SEND — send an infrared code
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `Execute` | input, bool | send on the rising edge |
 | `KEY` | parameter (0) | index into the project's IR key table |
 | `Done` | output, bool | the code went out |
@@ -43,7 +43,7 @@ temp_too_high ──[R_TRIG]── Execute ──[IR_SEND KEY=2]── Done ─�
 ## SMS_SEND — send a message
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `Execute` | input, bool | send on the rising edge |
 | `MSG` | parameter (0) | which message, 0–7 as numbered on the modem page |
 | `NUM` | parameter (0) | recipient: **0 = everyone configured**, 1–4 = one number |
@@ -58,7 +58,7 @@ change. The block picks message MSG and sends it to recipient NUM.
 number, or the service is busy. All three are retried simply by giving
 Execute another rising edge.
 
-**What it is for:** telling somebody who is not standing at the machine.
+**What it is for:** telling somebody who is not standing at the hardware.
 A cold store that lost cooling at three in the morning, a pump station
 that tripped, a batch that finished.
 
@@ -71,7 +71,7 @@ from waking anybody up.
 
 !!! warning "An SMS is a notification, never a control path"
     Messages get delayed, dropped and duplicated by networks you do not
-    control. Nothing on the machine may depend on one arriving.
+    control. Nothing on the equipment may depend on one arriving.
 
 !!! tip "Rate-limit yourself"
     A fault that chatters can send hundreds of messages and a bill to
@@ -83,7 +83,7 @@ from waking anybody up.
 ## GSM_INFO — modem state
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `Enable` | input, bool | read the modem state |
 | `Ready` | output, bool | registered on the network — SMS is possible |
 | `Signal` | output, number | last signal reading, 0–31 |
@@ -95,7 +95,7 @@ trigger.
 `Signal` is the raw +CSQ reading, refreshed about every 30 seconds:
 
 | Value | Meaning |
-|---|---|
+|:---|:---:|
 | 0 | no signal — **or not measured yet** |
 | 1–9 | marginal, expect failures |
 | 10–14 | usable |
@@ -109,7 +109,7 @@ fault_latched ─────────────────┤ AND ├─�
 ```
 
 !!! tip "Show the signal on a screen during installation"
-    The person mounting the panel can then find a spot where the antenna
+    The person mounting the board can then find a spot where the antenna
     works, instead of discovering the problem months later when the first
     real alarm fails to arrive.
 
@@ -129,4 +129,4 @@ services](peripherals-and-services.md).
 
 That separation is deliberate: a phone number changes when somebody
 changes job, and that should be an edit in a form, not a change to the
-machine's logic.
+equipment's logic.

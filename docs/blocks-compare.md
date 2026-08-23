@@ -8,7 +8,7 @@ decision.
 ## The comparisons
 
 | Block | Q is TRUE when |
-|---|---|
+|:---|:---:|
 | **GT** | IN1 > IN2 |
 | **GE** | IN1 ≥ IN2 |
 | **LT** | IN1 < IN2 |
@@ -23,7 +23,7 @@ input is 0, so `GT` with only IN1 wired asks "is it positive?".
 ## EQ — equal within a tolerance
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN1`, `IN2` | inputs, number | the two values |
 | `EPS` | parameter, number (0) | how close counts as equal |
 | `Q` | output, bool | TRUE when \|IN1 − IN2\| ≤ EPS |
@@ -51,8 +51,8 @@ setpoint ──IN2─┤ EQ EPS=0.5 ├── Q ──> at_temperature
 
 ## Comparisons chatter at the threshold
 
-This is the single most common problem with a comparison on a real
-machine, and it is not a bug in the block.
+This is the single most common problem with a comparison on real
+hardware, and it is not a bug in the block.
 
 A measurement sitting near the limit — noise, vibration, a sensor's last
 digit — crosses back and forth many times a second. The output follows,
@@ -79,7 +79,7 @@ costs nothing.
 **OUT = IN1 when G is TRUE, IN0 when it is FALSE.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `G` | input, bool | which one to pass |
 | `IN0` | input, number | passed when G is FALSE |
 | `IN1` | input, number | passed when G is TRUE |

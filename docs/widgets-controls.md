@@ -6,7 +6,7 @@ input and a navigation button.
 Everything here writes into a variable. The logic reads that variable and
 decides what to do — a button does not start a motor, it sets a bit, and
 the program starts the motor. That indirection is what lets the same
-screen work on the panel and in a browser, and what lets the logic refuse
+screen work on the board and in a browser, and what lets the logic refuse
 a command that arrives at the wrong moment.
 
 ---
@@ -14,7 +14,7 @@ a command that arrives at the wrong moment.
 ## `button`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `text` | text | | the label |
 | `tag` | variable | | what it writes |
 | `mode` | `momentary` / `toggle` / `set` / `reset` | | how it writes |
@@ -35,7 +35,7 @@ a command that arrives at the wrong moment.
 
 !!! tip "Use confirm on anything that moves"
     `confirm` is not decoration. Capacitive touch near a frequency drive
-    can register presses nobody made, and a sleeve can lean on a panel.
+    can register presses nobody made, and a sleeve can lean on the glass.
     A dialogue on a command that starts something is the difference
     between electrical noise and an axle turning.
 
@@ -47,7 +47,7 @@ a command that arrives at the wrong moment.
 ## `switch`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---|
 | `tag` | variable | | what it writes |
 | `label_on` | text | ON | text in the on position |
 | `label_off` | text | OFF | text in the off position |
@@ -68,7 +68,7 @@ switches never overwrite one another. See [Tags](tags.md).
 ## `slider`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `tag` | variable | | what it writes |
 | `min`, `max` | number | 0, 100 | the range |
 | `step` | number | 1 | the increment |
@@ -77,7 +77,7 @@ For a value where the *approximate* setting matters and the exact number
 does not: brightness, speed, a proportion.
 
 !!! warning "A slider is a poor way to type a number"
-    On a 4.3" panel with a gloved finger, a slider spanning 0–100 sets
+    On a 4.3" screen with a gloved finger, a slider spanning 0–100 sets
     values to about five units. Where the number matters — a
     temperature setpoint, a length — use an [`input`](#input) and let the
     person type it.
@@ -87,7 +87,7 @@ does not: brightness, speed, a proportion.
 
 `step` also determines how much traffic the slider makes. A step of 0.1
 on a range of 0–100 writes a thousand distinct values as a finger
-crosses, and every one of them is a change the panel redraws and the
+crosses, and every one of them is a change the board redraws and the
 browser hears about.
 
 ---
@@ -95,15 +95,15 @@ browser hears about.
 ## `input`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `tag` | variable | | what it writes |
 | `keypad` | `numeric` / `integer` / `alphanumeric` / `password` | | which keypad opens |
 | `min`, `max` | number | | accepted range |
 | `title` | text | | shown above the keypad |
 | `font` | font | | how the value is drawn |
 
-Touching it opens a keypad on the panel — the panel's own, not the
-operating system's, because a panel has no operating system to ask.
+Touching it opens a keypad on the board — the board's own, not the
+operating system's, because a board has no operating system to ask.
 
 **Set `min` and `max`.** They are the only thing standing between a
 mistyped digit and a setpoint of 9000. The keypad refuses a value outside
@@ -118,7 +118,7 @@ the top is unambiguous, one with just a number is a guess.
 ## `nav`
 
 | Property | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `text` | text | the label |
 | `target` | screen | which screen to show |
 | `icon` | icon | a glyph beside the text |
@@ -140,6 +140,6 @@ A control never acts directly on an output. It writes a variable; the
 logic decides.
 
 That sounds like an extra step and it is the reason the same screen works
-in a browser, the reason a command can be refused while the machine is in
+in a browser, the reason a command can be refused while the equipment is in
 the wrong state, and the reason you can test every screen in simulation
 without anything being wired up at all.

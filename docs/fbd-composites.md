@@ -1,6 +1,6 @@
 # FBD: composite blocks, axes and drive control
 
-Machine control in ctrl32 is assembled from blocks in an FBD diagram —
+Equipment control in ctrl32 is assembled from blocks in an FBD diagram —
 the logic is **data in the pack**, not code in the firmware. Besides the
 fixed block library (TON, PID, … — see `widgets.md`) there are:
 
@@ -12,7 +12,7 @@ A composite is a POU with an **interface** (input/output ports) and its
 own internal network — drawn in FBD **or in ladder**, whichever reads
 better. In a diagram it is used like an ordinary block; **a
 double-click opens it** and shows how it is put together. At compile
-time it is flattened into primitives — the panel executes a flat list,
+time it is flattened into primitives — the board executes a flat list,
 with no recursion and no extra interpreter.
 
 - Creating one: right-click on *Application* → **Add Composite FB**.
@@ -32,7 +32,7 @@ with no recursion and no extra interpreter.
   interface port and `~wire` an internal wire (every use of a composite
   gets its own wires — instances do not share state).
 - Limits: nesting depth 8, recursion forbidden, at most 64 blocks AFTER
-  flattening — all of it enforced by the compiler, not the panel.
+  flattening — all of it enforced by the compiler, not the board.
 
 ## Axis (AXIS) and drives
 
@@ -42,7 +42,7 @@ CiA402, SPI → POWERSTEP01 or TMC5160 — the node decides the backend)
 and carries the backend and its parameters:
 
 | Backend | Bus | Status |
-|---|---|---|
+|:---|:---:|:---|
 | CiA402 (Lenze i550) | CANopen | tested on the bench |
 | POWERSTEP01 | SPI | interface ready, driver ships with the hardware |
 | TMC5160 / TMC5130 | SPI | driver written from the datasheet, mock-tested — verify on the bench |
@@ -57,7 +57,7 @@ the diagram):
 - `MC_RESET`, `MC_READACTVEL`, `MC_READSTATUS`
 - positioning `MC_MOVEABS/MOVEREL/HOME/READACTPOS` (for the SPI
   stepper backends POWERSTEP01 / TMC5160)
-- `CO_CIA402` — the core of the state machine (a building block for
+- `CO_CIA402` — the core of the state equipment (a building block for
   composites)
 - `CO_SDOWRITE` — writes a parameter **at startup** (it is translated
   into commissioning; an SDO is never executed inside the cycle)

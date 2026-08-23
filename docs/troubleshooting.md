@@ -19,7 +19,7 @@ A block the editor can draw but the generator cannot yet translate. The
 message always names both the **type and the name** of the block. Report it
 to `bugs@ctrl32.com` — it is usually a small fix.
 
-### "the logic cannot be compiled for the panel: … did not compile"
+### "the logic cannot be compiled for the board: … did not compile"
 
 The generated program failed to compile — that is **our fault, not your
 project's**. The editor prints the whole generated source with line numbers;
@@ -30,25 +30,25 @@ send that output.
 A real limit. See [Performance and limits](limits.md); usually the tag table
 runs out first.
 
-## The panel
+## The board
 
-### The panel refused the pack ("invalid pack")
+### The board refused the pack ("invalid pack")
 
 The pack failed verification — most often **the target board does not
-match** (the project is for another panel), or the runtime is older than the
+match** (the project is for another board), or the runtime is older than the
 pack format.
 
 Important: **the old pack stays and keeps running**. A download cannot
-disable the panel. The fix: check the board in the project, or flash the
+disable the board. The fix: check the board in the project, or flash the
 runtime.
 
 ### "!! N FB RECORDS – this pack predates the one-engine build"
 
-The panel holds a pack from a very old editor. Its **logic does not run** —
-the panel says so on the console and in the diagnostic buffer. Rebuild the
+The board holds a pack from a very old editor. Its **logic does not run** —
+the board says so on the console and in the diagnostic buffer. Rebuild the
 project with the current editor and download it again.
 
-### The panel answers but `seq` does not move
+### The board answers but `seq` does not move
 
 The connection is fine; **the PLC cycle has stopped**. Look at the
 diagnostic buffer (*Debug → diagnostics*) — the reason is usually there (a
@@ -58,7 +58,7 @@ VM fault, a cycle overrun).
 
 ### The plug icon is red
 
-The panel runs a **different program** than the editor. Values are
+The board runs a **different program** than the editor. Values are
 deliberately not shown — they travel by index, and under a different program
 they would appear as real numbers under the wrong names. The editor offers
 to download straight away.
@@ -66,7 +66,7 @@ to download straight away.
 ### The icon is amber and nothing happens
 
 The port cannot be opened: another program is holding it (a terminal,
-another editor), the panel is restarting, or the cable is unplugged. It
+another editor), the board is restarting, or the cable is unplugged. It
 retries once a second, so plugging the cable back in is enough.
 
 ### The port list is empty, or nothing is selected
@@ -77,8 +77,8 @@ transfer dialog — the download and flash buttons stay disabled until you do.
 ### I see tags but no values on the wires between blocks
 
 The symbols could not be verified — the editor uses them only when the
-compiled program matches the one in the panel **byte for byte**. It writes
-the state into the status bar; the usual cause is that the panel holds a
+compiled program matches the one in the board **byte for byte**. It writes
+the state into the status bar; the usual cause is that the board holds a
 different build.
 
 ### ONLINE and Deploy are locked

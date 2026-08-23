@@ -9,20 +9,20 @@ Like the motion blocks, each one is bound to an **axis** at the call:
 
 ---
 
-## CO_CIA402 — the drive state machine
+## CO_CIA402 — the drive state equipment
 
 | Pin | Type | Meaning |
-|---|---|---|
-| `Enable` | input, bool | run the state machine |
+|:---|:---:|:---|
+| `Enable` | input, bool | run the state equipment |
 | `Ready` | output, bool | the drive is in *operation enabled* |
 | `Fault` | output, bool | the drive is in fault |
 
-The CiA 402 state machine on its own. This is what
+The CiA 402 state equipment on its own. This is what
 [MC_POWER](blocks-motion.md#mc_power) uses underneath, exposed for when
 you want to build something the MC_ blocks do not cover.
 
 A CiA 402 drive is not controlled by writing a speed. There is a state
-machine, driven through controlword `0x6040` and observed through
+equipment, driven through controlword `0x6040` and observed through
 statusword `0x6041`, and it must be walked through in order —
 *switch on disabled* → *ready to switch on* → *switched on* →
 *operation enabled*. `Ready` is TRUE only at the end of that walk.
@@ -32,7 +32,7 @@ statusword `0x6041`, and it must be walked through in order —
 ## CO_SDOWRITE — write a parameter
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, number | the value |
 | `INDEX`, `SUB` | parameters | which object |
 | `VALUE`, `SIZE` | parameters | value and byte width |
@@ -54,20 +54,20 @@ reference source.
 ## CO_SDOREAD — read a parameter
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `INDEX`, `SUB` | parameters | which object |
 | `OUT` | output, number | the value read |
 
 Startup only, for the same reason. Use it to read a nameplate value, a
 motor rating, a firmware revision — something you want in the program but
-that does not change while the machine runs.
+that does not change while it runs.
 
 ---
 
 ## CO_RAMPTIME — ramp times, safely
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `ACC` | input, **seconds** | acceleration time, 0 → target rpm |
 | `DEC` | input, **seconds** | deceleration time |
 | `REF` | input, number | reference speed the times relate to |
@@ -78,7 +78,7 @@ about when:
 - **only when the axis is at standstill**, and
 - **only when the values actually changed**.
 
-So the cycle never touches SDO while the machine is moving. This is the
+So the cycle never touches SDO while the equipment is moving. This is the
 block that lets ACC and DEC be adjustable from a [WEBview](webview.md)
 screen without the adjustment being able to disturb a running axis.
 

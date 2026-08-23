@@ -2,7 +2,7 @@
 
 CANopen is what separates ctrl32 from everything else in its price
 range. A drive on a CAN bus is not a device you poll — it is a device
-with a state machine, a scheduled exchange of process data, and a
+with a state equipment, a scheduled exchange of process data, and a
 heartbeat that tells you the moment it stops listening.
 
 ctrl32 is the **manager**: NMT master, SDO client, SYNC producer and
@@ -75,7 +75,7 @@ being knowable.
 At 500 kbit/s an 8-byte PDO takes about **130 µs**.
 
 | Setup | Bus time | Share of a 10 ms cycle |
-|---|---|---|
+|:---|:---:|:---:|
 | 4 drives, 2 PDOs each | ~1 ms | 10 % |
 | 8 drives, 2 PDOs each | ~2 ms | 20 % |
 
@@ -91,7 +91,7 @@ Every node reports periodically that it is alive. The manager watches,
 and a node that misses its window is **failed**, not merely late.
 
 **The reaction belongs in your program, and it should be a quick stop.**
-Carrying on with the last values received is how a machine keeps moving
+Carrying on with the last values received is how a setup keeps moving
 after the thing controlling it has gone — and it is the failure mode that
 looks fine right up until it does not.
 
@@ -118,8 +118,8 @@ worth almost everything. A genuinely unreadable file fails and changes
 nothing.
 
 !!! note "EDS is read only in the editor"
-    The panel never sees an EDS. The pack carries the resulting
-    variables, already resolved — so nothing is parsed on the machine and
+    The board never sees an EDS. The pack carries the resulting
+    variables, already resolved — so nothing is parsed on the equipment and
     nothing depends on a file being present.
 
 ---
@@ -127,7 +127,7 @@ nothing.
 ## Drives: the trap that costs a day
 
 The reference target is the **Lenze i550**, and it ships with **Lenze's
-own state machine active**, not CiA 402.
+own state equipment active**, not CiA 402.
 
 Write a correct controlword into a drive in that state and nothing
 happens. No error, no complaint — the drive simply does not react, and
@@ -159,7 +159,7 @@ See [Intended use](intended-use.md).
 ## Where to go next
 
 | | |
-|---|---|
+|:---|:---|
 | [CANopen blocks](blocks-can.md) | `CO_CIA402`, `CO_SDOWRITE`, `CO_SDOREAD`, `CO_RAMPTIME` |
 | [Motion blocks](blocks-motion.md) | the PLCopen layer above them |
 | [Raw CAN](rawcan.md) | a device with its own frame format, no CANopen involved |

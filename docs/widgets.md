@@ -7,7 +7,7 @@ Schema version: **27**
 ## Common properties (widget_base)
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `id` | str |  |
 | `x` | i16 |  |
 | `y` | i16 |  |
@@ -27,32 +27,32 @@ Schema version: **27**
 ## `panel`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `radius` | i16 | `0` |
 
 ## `list`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `item_height` | i16 |  |
 | `inertia` | bool | `True` |
 
 ## `tabs`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `active` | i16 | `0` |
 
 ## `popup`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `radius` | i16 | `8` |
 
 ## `label`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `text` | str |  |
 | `font` | font_ref |  |
 | `align` | LabelAlign | `left` |
@@ -60,7 +60,7 @@ Schema version: **27**
 ## `value`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | tag_ref |  |
 | `font` | font_ref |  |
 | `show_unit` | bool | `True` |
@@ -70,7 +70,7 @@ Schema version: **27**
 ## `button`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `text` | str |  |
 | `tag` | tag_ref |  |
 | `mode` | ButtonMode |  |
@@ -82,7 +82,7 @@ Schema version: **27**
 ## `switch`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | tag_ref |  |
 | `label_on` | str | `ON` |
 | `label_off` | str | `OFF` |
@@ -91,7 +91,7 @@ Schema version: **27**
 ## `led`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `shape` | LedShape | `round` |
 | `tag` | tag_ref |  |
 | `color_on` | color |  |
@@ -102,7 +102,7 @@ Schema version: **27**
 ## `slider`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | tag_ref |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -111,7 +111,7 @@ Schema version: **27**
 ## `bar`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | tag_ref |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -120,7 +120,7 @@ Schema version: **27**
 ## `gauge`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | tag_ref |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -133,14 +133,14 @@ Schema version: **27**
 ## `image`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `src` | image_ref |  |
 | `tint` | color |  |
 
 ## `nav`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `text` | str |  |
 | `target` | str |  |
 | `icon` | image_ref |  |
@@ -148,7 +148,7 @@ Schema version: **27**
 ## `icon`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `src` | icon_ref |  |
 | `color` | color |  |
 | `tag` | tag_ref |  |
@@ -158,7 +158,7 @@ Schema version: **27**
 ## `input`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | tag_ref |  |
 | `keypad` | InputKeypad |  |
 | `min` | f32 |  |
@@ -169,7 +169,7 @@ Schema version: **27**
 ## `trend`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `series` | list |  |
 | `timespan_s` | i32 | `300` |
 | `sample_ms` | i32 | `1000` |
@@ -183,7 +183,7 @@ Schema version: **27**
 ## `alarm_table`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `filter` | AlarmTableFilter |  |
 | `min_priority` | AlarmPriority |  |
 | `rows` | i16 | `8` |
@@ -195,14 +195,14 @@ Schema version: **27**
 ## `trace`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | tag_ref |  |
 | `color` | color |  |
 
 ## `logo`
 
 | Property | Type | Default |
-|---|---|---|
+|:---|:---:|:---:|
 | `color` | color |  |
 
 ---

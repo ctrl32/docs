@@ -1,7 +1,7 @@
 # Editor
 
 ctrl32 Editor is an **installed application**, not a web page. The reason is
-simple: it draws exactly the pixels you will see on the panel — the same
+simple: it draws exactly the pixels you will see on the board — the same
 renderer as in the firmware is built into it, fonts, roundings and colours
 included. What you see is what gets downloaded.
 
@@ -10,7 +10,7 @@ included. What you see is what gets downloaded.
 ## Layout
 
 | Part | Where | What is in it |
-|---|---|---|
+|:---|:---:|:---|
 | **Menu** | top | File, Edit, View, Project, Build, Online, Debug, Tools, Window, Help |
 | **Toolbar** | under the menu | new, save, undo/redo, TEST, ONLINE, download |
 | **Project tree** | left | the board and everything running on it |
@@ -34,7 +34,7 @@ project
       CANopen master     + devices
     RS485                the line: baud, parity, stop bits
       Modbus RTU master  + devices
-      Modbus RTU slave   the panel as a slave
+      Modbus RTU slave   the board as a slave
     Ethernet             DHCP/static IP, mDNS
       Modbus TCP         master and slave
       MQTT               telemetry / Home Assistant
@@ -53,37 +53,37 @@ express that; this way matches the hardware.
     objects).
 
 Nodes for features that are not finished yet are in the tree as well — their
-page says so. A customer has to see what the panel can have, not guess it.
+page says so. A customer has to see what the board can have, not guess it.
 
 ## Toolbar
 
 | Icon | What it does |
-|---|---|
+|:---|:---|
 | :ti-file-plus: | new project |
 | :ti-folder-open: | open project |
 | :ti-device-floppy: | save project |
 | :ti-arrow-back-up: :ti-arrow-forward-up: | undo / redo (both unlimited; the count is in the Edit menu) |
-| :ti-player-play: / :ti-player-stop: | **TEST** — simulation inside the editor, without a panel |
+| :ti-player-play: / :ti-player-stop: | **TEST** — simulation inside the editor, without a board |
 | :ti-player-pause: :ti-player-track-next: | pause and single-cycle step (during a test) |
-| :ti-plug: | **ONLINE** — connect to a real panel (:ti-plug-connected: while connected) |
-| :ti-download: | **download to the panel** (F5) — the only coloured icon in the bar |
+| :ti-plug: | **ONLINE** — connect to a real board (:ti-plug-connected: while connected) |
+| :ti-download: | **download to the board** (F5) — the only coloured icon in the bar |
 
-There is deliberately only one blue icon. Downloading into a machine is an
+There is deliberately only one blue icon. Downloading into a setup is an
 action that must not be confused with any other; everything else is a flat
 icon like in any ordinary application.
 
-## TEST — simulation without a panel
+## TEST — simulation without a board
 
 The :ti-player-play: button switches the editor into running: the PLC cycle runs on the PC,
 screens react, blocks compute, tags change. It can be paused and stepped
 cycle by cycle (*Debug → Step*).
 
 What runs is **the same compiled program and the same block library** as in the
-panel — the VM is compiled for the PC as well. So logic can be debugged at
-your desk and reach the machine finished.
+board — the VM is compiled for the PC as well. So logic can be debugged at
+your desk and reach the equipment finished.
 
 The difference from [online monitoring](online.md): TEST computes the
-values, ONLINE **reads them from the machine**.
+values, ONLINE **reads them from the equipment**.
 
 ## Build (F7) and download (F5)
 
@@ -102,11 +102,11 @@ runs.
 
 ## Licence
 
-- **talking to a real panel** — download and online alike — is paid.
+- **talking to a real board** — download and online alike — is paid.
 
 ## Updates
 
 *Help → Check for updates* looks at our web and tells you whether a newer
 version exists. Downloading is manual — the editor never updates itself
 behind your back, because the editor version is tied to what is running in
-customers' panels.
+customers' boards.

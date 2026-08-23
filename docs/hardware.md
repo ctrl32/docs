@@ -1,5 +1,9 @@
 # Supported hardware
 
+ctrl32 is software. It runs on hardware you buy elsewhere — from a bare
+module you solder onto your own board, through a development kit with an
+ethernet socket, to a finished board with a touch screen.
+
 The catalogue in the editor holds **95 entries**. You never have to know
 that number: you pick your board from a list, and everything that follows
 — pin assignments, which buses exist, how much memory there is, what the
@@ -10,7 +14,7 @@ runtime is flashed with — comes from that choice.
 ## The three kinds of entry
 
 | Kind | How many | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | **Modules** | 66 | a bare ESP32 module: you design the board around it |
 | **Development boards** | 13 | a ready board with connectors, for prototyping and small installations |
 | **Panels** | 11 | a finished device with a display, ready to mount in a door |
@@ -26,9 +30,9 @@ from one when you are learning, then change what you need.
 ## Which processor
 
 | Processor | Entries | Where it fits |
-|---|---|---|
+|:---|:---:|:---|
 | **ESP32** | 45 | the workhorse: two cores, ethernet MAC, CAN, plenty of I/O |
-| **ESP32-S3** | 33 | more RAM and a faster bus — the reference platform for panels with a display |
+| **ESP32-S3** | 33 | more RAM and a faster bus — the reference platform for boards with a display |
 | **ESP32-PICO-V3** | 8 | the same ESP32 in a much smaller package |
 | **ESP32-P4** | 1 | the fastest, with a native display interface (MIPI DSI) |
 | **STM32F7** | 1 | the first of the STM32 family — see below |
@@ -39,7 +43,7 @@ the platform. If you are choosing and have no other constraint, choose an
 S3.
 
 The **classic ESP32** has one thing the S3 does not: an **ethernet MAC**.
-For a panel that must sit on a wired network without an extra chip, this
+For a board that must sit on a wired network without an extra chip, this
 is the reason to pick it.
 
 !!! tip "Memory suffixes are worth reading"
@@ -47,7 +51,7 @@ is the reason to pick it.
     no PSRAM. More flash means room for screens and fonts; PSRAM means
     room for trends, alarm history and images. The editor tells you when
     a project outgrows the board you picked — at your desk, not on the
-    machine.
+    equipment.
 
 ---
 
@@ -72,22 +76,22 @@ supported — under that, the runtime has nowhere to live.
 logic, talk to fieldbuses and serve the WEBview to a phone or a laptop,
 without a display of their own.
 
-Headless is a perfectly good way to build a machine. A panel in the door
+Headless is a perfectly good way to build a setup. A board in the door
 costs money and a hole in the enclosure; a WEBview on the operator's
 phone costs neither. Many installations want both, and the same project
 serves both without being written twice.
 
 ---
 
-## The finished panels
+## The finished boards
 
 These are complete devices — enclosure, display, touch, terminals:
 
 | Family | Sizes |
-|---|---|
+|:---|:---|
 | **inoCORE32** | compact controllers, with and without a display |
-| **inoHMI32 / 43 / 53** | panels around 3.2", 4.3" and 5" |
-| **stepHMI32** | panels in several sizes, 480×272 class |
+| **inoHMI32 / 43 / 53** | boards around 3.2", 4.3" and 5" |
+| **stepHMI32** | boards in several sizes, 480×272 class |
 | **Waveshare P4-NANO** | 10.1" on the ESP32-P4 |
 
 ---
@@ -95,7 +99,7 @@ These are complete devices — enclosure, display, touch, terminals:
 ## Every board has an identity
 
 The practical consequence: a pack built for one board is **refused** by
-another. Upload the wrong file to the wrong panel and it tells you so
+another. Upload the wrong file to the wrong board and it tells you so
 instead of running something that was never meant for it.
 
 ---
@@ -103,8 +107,8 @@ instead of running something that was never meant for it.
 ## Choosing, briefly
 
 | You need | Look at |
-|---|---|
-| a display in the door | a **panel** — the size decides the rest |
+|:---|:---|
+| a display in the door | a **board** — the size decides the rest |
 | wired ethernet, no display | a classic **ESP32** development board with a LAN port |
 | your own board around a module | a **module** — the pinout is yours to design |
 | to try ctrl32 out this afternoon | a **preset** — DevKit plus a working configuration |

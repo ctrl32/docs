@@ -12,7 +12,7 @@ somebody searches.
 ## `panel`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `radius` | number | 0 | corner rounding |
 
 A rectangle with children inside it. Children are positioned **relative
@@ -37,7 +37,7 @@ careful spacing.
 ## `list`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `item_height` | number | | height of one row |
 | `inertia` | yes/no | yes | flick scrolling |
 
@@ -54,7 +54,7 @@ less natural and turning it off can feel more controlled.
 ## `tabs`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `active` | number | 0 | which page is shown |
 
 Several pages in one place, one visible at a time. The children are the
@@ -77,7 +77,7 @@ would say "look at the *other* tab", use tabs.
 ## `popup`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `radius` | number | 8 | corner rounding |
 
 A modal box over the screen. While it is visible, **touch does not reach

@@ -1,12 +1,12 @@
 # Structured Text on ctrl32
 
-The panel executes logic written in IEC 61131-3 Structured Text. The
+The board executes logic written in IEC 61131-3 Structured Text. The
 editor compiles the source at your desk; the pack carries the
-compiled program and the panel runs it in the PLC cycle —
+compiled program and the board runs it in the PLC cycle —
 **uploading a new program never reflashes the firmware**, exactly like
 uploading new screens.
 
-![A machine program in ST: MOTOR, VALVE, PID and a hysteresis comparator](img/st-editor.webp)
+![A control program in ST: MOTOR, VALVE, PID and a hysteresis comparator](img/st-editor.webp)
 
 The FBD blocks and the ST program run in the same task, in this order:
 FBD first, then ST. A tag the FBD wrote in this cycle is already
@@ -56,7 +56,7 @@ lights bits 2 and 5.
 
 **Time**: `NOW()` returns the cycle's monotonic milliseconds. All four
 comparisons work on `TIME` (`IF t1.ET > T#500ms THEN ...`), and they are
-**unsigned** — a machine that is never switched off passes 2^31 ms
+**unsigned** — a setup that is never switched off passes 2^31 ms
 (24.8 days), where a signed compare would call its uptime negative.
 Never count cycles: the cycle period may jitter, milliseconds do not.
 
@@ -64,9 +64,9 @@ A duration is written `T#…` or `TIME#…` with segments in `d h m s ms`,
 most significant first, and underscores as separators — `T#1s500ms`,
 `TIME#1h_30m`, `T#25h` (the leading segment may overflow its unit).
 
-A `TIME` **tag** is the same value with a face: the panel shows and the
+A `TIME` **tag** is the same value with a face: the board shows and the
 keypad edits it in the tag's unit (`s`, `ms`, `min`), so an operator can
-set a machine's delay on the screen and the program takes it straight as
+set the equipment's delay on the screen and the program takes it straight as
 `t1(PT := delay)`. See [Tagy](tags.md).
 
 **Standard functions**: `ABS MIN MAX LIMIT SEL TRUNC`, the
@@ -94,7 +94,7 @@ END_FUNCTION_BLOCK
 Instances are allocated at compile time — the editor knows the RAM
 consumption before the upload and rejects a program over the limits
 (32 kB compiled program, 8 kB instance data) at your desk, not on the
-machine.
+equipment.
 
 ## What the compiler refuses (on purpose)
 
@@ -108,7 +108,7 @@ machine.
 ## Runtime safety
 
 A broken program (division by zero, an endless loop) FAULTS: it stops
-with a diagnostic entry and the panel keeps running — HMI, WEBview,
+with a diagnostic entry and the board keeps running — HMI, WEBview,
 communication and the other logic are untouched. The fault stays until
 a new pack or a restart.
 
@@ -182,7 +182,7 @@ still leaving (one line in flight — the cycle never blocks on the
 UART). Overlong lines and queue overflows are dropped and counted,
 never truncated into plausible-looking garbage.
 
-One budget note: the panel has three UART controllers — console,
+One budget note: the board has three UART controllers — console,
 RS485 and the modem/GPS already claim them all. The line port runs
 where one is free; a project combining RS485, a modem AND a line
 port does not fit on the S3 generation (the diagnostics say so

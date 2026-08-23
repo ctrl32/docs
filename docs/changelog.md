@@ -11,21 +11,21 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.026
 
-- **The first STM32 panel.** The runtime now runs on STM32F7-class
+- **The first STM32 board.** The runtime now runs on STM32F7-class
   hardware (bring-up board: the ST 32F746G-DISCOVERY — 480×272 touch
   glass, ethernet, 8 MB RAM, 16 MB flash). The same project, the same
   pack, the same editor: pick the board and upload. The PLC dispatch
   loop executes from the chip's zero-wait instruction RAM and the
   display is pushed by the 2D DMA engine, so the logic cycle and the
   glass never fight for time.
-- **Everything over ethernet.** A network panel now serves the full
+- **Everything over ethernet.** A network board now serves the full
   WEBview from its own address, accepts program uploads over the wire
   (`Download → Sieť` in the editor, no cable swap), and — new — the
-  editor's **online mode works over ethernet too**: type the panel's
+  editor's **online mode works over ethernet too**: type the board's
   IP where you would pick a COM port and watch live values, the
   console, the scope and forcing exactly as over USB. One protocol,
   two wires.
-- **The panel knows the time.** With ethernet up it sets its clock
+- **The board knows the time.** With ethernet up it sets its clock
   from the internet automatically (NTP), and the browser can set it
   by hand on a closed network. Alarm and diagnostic timestamps mean
   something now.
@@ -36,11 +36,18 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.023
 
+- **A classic board with a display gets the network.** Boards without
+  PSRAM that light a screen used to skip the network stage entirely —
+  the memory simply was not there. The firmware stopped paying for a
+  demo it never shows, and the freed memory carries an ethernet-only
+  WEBview: one viewer, straight from the board. The Olimex EVB wall
+  thermostat now serves its Home Assistant banner from the glass.
+
 ## 1.00.022
 
 - **Every network board answers Modbus TCP.** Headless runtimes (the
   Olimex PoE family, the generic presets and friends) now run the
-  same Modbus TCP slave the display panels always had — a SCADA can
+  same Modbus TCP slave the display boards always had — a SCADA can
   read and write the tag map on port 502 without a screen attached.
   A pack asking for RTU on a board with no RS485 wired says so on
   the console instead of listening on nothing.
@@ -70,7 +77,7 @@ moves. Releases before that carried dates (`year.month.day.build`).
 - **Bitwise toolbox.** On integers, `AND`/`OR`/`XOR`/`NOT` are
   bitwise and `SHL`/`SHR` shift — as operators and as functions.
   Building LED masks no longer needs arithmetic gymnastics.
-- Program packs are format 48; the panel needs this release's
+- Program packs are format 48; the board needs this release's
   runtime (the editor tells you, in orange, when it does not have it).
 
 ## 1.00.019
@@ -116,13 +123,13 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 - **The bare-arc gauge works in the editor too.** A gauge with the
   needle switched off and a custom arc thickness drew correctly on
-  the panel but grew a needle back in the editor's canvas — the
+  the board but grew a needle back in the editor's canvas — the
   editor now carries both properties end to end: drawing, project
   files, download, and the inspector (a Thickness field and a Needle
   switch under the gauge angles).
 - **Navigation buttons dropped the arrow.** The chevron took 14 px
   from every nav button's text; the text now gets the whole button —
-  on the panel, in the browser and in the editor alike.
+  on the board, in the browser and in the editor alike.
 - **The EVB thermostat example got its dial.** The main screen is the
   familiar thermostat-card look: two nested arcs (room temperature in
   blue, setpoint in orange), whole-degree numbers in the center, a
@@ -150,15 +157,15 @@ moves. Releases before that carried dates (`year.month.day.build`).
 - **One honest limit that comes with it:** this board runs the
   display *or* the WEBview, not both — the classic ESP32 with a
   display project has no memory left for the network stack. The
-  panel says so plainly at startup and keeps logic, glass and USB
+  board says so plainly at startup and keeps logic, glass and USB
   download running; the headless use keeps its WEBview as always.
   (The groundwork for a display-plus-ethernet mode is in place and
   planned for a future release.)
 - The USB download listener now starts earlier and reports loudly if
-  it ever cannot start — on a tightly loaded panel it could
+  it ever cannot start — on a tightly loaded board it could
   previously die silently, leaving no way to download over the
   cable.
-- Display panels start a little lighter on internal memory — two
+- Display boards start a little lighter on internal memory — two
   large fixed buffers moved out of the static segment (no behavior
   change; it is what made the EVB combination fit).
 
@@ -172,24 +179,24 @@ moves. Releases before that carried dates (`year.month.day.build`).
 ## 1.00.012
 
 **Download over the network, straight from the editor.** The download
-dialog now offers two targets: the USB cable, or the panel's network
+dialog now offers two targets: the USB cable, or the board's network
 address (IP or `name.local`, prefilled from the project). The same
 pack, the same guarantees — inactive slot, full validation, the old
-program stays on any error — just without walking to the machine.
+program stays on any error — just without walking to the equipment.
 
 - **Headless boards accept network uploads too.** Boards without a
   display (inoCORE32-TM1.x and friends) take a pack over Ethernet or
-  WiFi the same way the display panels do. Flash the runtime from
+  WiFi the same way the display boards do. Flash the runtime from
   this release once over USB; from then on the network works.
 - **And the security switch that belongs with it:** the WEBview
   settings page has *Allow program upload over the network*. Switched
-  off, the panel never even registers the upload endpoint — for a
-  deployed machine on a shared network. USB always works. The panel
-  belongs on its own machine network either way; the browser
+  off, the board never even registers the upload endpoint — for a
+  deployed equipment on a shared network. USB always works. The board
+  belongs on its own equipment network either way; the browser
   interface rides the same server, so treat network access to the
-  panel as operator access.
-- A landscape project on a portrait glass (the 10.1" panel) no longer
-  trips the board check — the panel rotates, and now the check knows.
+  board as operator access.
+- A landscape project on a portrait glass (the 10.1" board) no longer
+  trips the board check — the board rotates, and now the check knows.
 
 ## 1.00.011
 
@@ -202,7 +209,7 @@ program stays on any error — just without walking to the machine.
 
 **Important fix — download your project again.** The editor's
 download stamped packs with an outdated format label, and from
-1.00.008 on a panel with the new runtime could reject or fault the
+1.00.008 on a board with the new runtime could reject or fault the
 program because of it — online monitoring then showed nothing.
 Install this build and download the project once (F5); nothing else
 is needed. Runtimes flashed from 1.00.008/9 are fine as they are.
@@ -236,7 +243,7 @@ projects and runtimes keep working unchanged.
 
 - Variable declarations can be edited during a running simulation —
   applying re-binds the program on the fly. (Connected to a real
-  panel they stay read-only, as everything does.)
+  board they stay read-only, as everything does.)
 - Ladder breathes less air: tighter comment lane, tighter spacing
   between rungs, and rungs with blocks no longer reserve an empty
   row below them.
@@ -352,7 +359,7 @@ First numbered release (see the numbering note above).
 ## 2026.08.20.4
 
 - **Online monitoring is read-only.** While the editor is connected to
-  a running panel, the program cannot be modified — no adding, moving
+  a running board, the program cannot be modified — no adding, moving
   or deleting; edits resume the moment you go offline.
 - Right-click **cut / copy / paste** for blocks, contacts and boxes in
   both LD and FBD; **insert rung above / below**; rung comments in LD
@@ -375,7 +382,7 @@ execute while the rung is off, its state freezes and its outputs hold.
   ladder whenever the network fits rung form, and if it does not, the
   status bar names the exact block that is in the way.
 - **Trends with up to 4 curves** in one chart, each with its own color
-  — on the panel and in the browser alike.
+  — on the board and in the browser alike.
 - **Gauge**: arc thickness is adjustable and the needle can be switched
   off for a clean modern look.
 - **Alarm table**: row text size is selectable; the row height and the
@@ -389,7 +396,7 @@ execute while the rung is off, its state freezes and its outputs hold.
   ramp times and friends included.
 - The online activity bar in the status line sweeps at the real
   polling rate of the link: one sweep is one read cycle, a stalled
-  panel leaves the bar standing full.
+  board leaves the bar standing full.
 
 ## 2026.08.20.2
 
@@ -402,12 +409,12 @@ execute while the rung is off, its state freezes and its outputs hold.
   MIPI-DSI touch panel (1280×800) is a supported target with a
   precompiled runtime in the installer: display, touch, Ethernet and
   WiFi work out of the box.
-- **Upload over the network.** The panel accepts a visualization pack
+- **Upload over the network.** The board accepts a visualization pack
   over Ethernet or WiFi (`POST /upload`), with exactly the same
   safety as over USB: the pack lands in the inactive slot, is fully
-  validated, and only then does the panel switch — an upload can never
-  brick a panel.
-- On the P4 the panel serves the WEBview over Ethernet and its own
+  validated, and only then does the board switch — an upload can never
+  brick a board.
+- On the P4 the board serves the WEBview over Ethernet and its own
   WiFi access point at the same time; packs on the P4 may be up to
   4 MB (room for photo-heavy screens), with an 8 MB decoded-image
   cache in PSRAM.
@@ -428,11 +435,11 @@ execute while the rung is off, its state freezes and its outputs hold.
 
 ## 2026.08.18
 
-- S3 panels run their PSRAM at the full 80 MHz — measurably smoother
+- S3 boards run their PSRAM at the full 80 MHz — measurably smoother
   screens on photo-heavy projects.
 - The editor flashes runtimes itself (no external tooling), and the
   installer ships a precompiled runtime for every supported board —
-  the *Upload runtime* button works on a fresh machine with nothing
+  the *Upload runtime* button works on a fresh equipment with nothing
   else installed.
 - Fixes for installed-editor paths (Program Files is read-only) and
   for user profiles with diacritics in the name.

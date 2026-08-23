@@ -15,7 +15,7 @@ classic I/Q/M process image).
 In the project tree: *Application → Tags*. Every tag has:
 
 | Property | What it is for |
-|---|---|
+|:---|:---|
 | **name** | the only thing you refer to it by; in ST it is an identifier |
 | **type** | `BOOL`, `I16`, `U16`, `I32`, `U32`, `REAL` (f32), `STRING`, `TIME` |
 | **access** | `ro` (read only) / `rw` — for WEBview and the operator, not for the logic |
@@ -49,17 +49,17 @@ named. The index is a constant, like an axis.
     Writing `mask.0` from the logic while a browser switch flips
     `mask.7` and a Modbus master rewrites the whole word is safe —
     each bit write changes exactly its own bit, atomically. This is
-    why the TP900-style LED masks and a panel-side lamp test can
+    why the TP900-style LED masks and a board-side lamp test can
     share one register without wiping each other.
 
 ## Where the value comes from
 
 | Source | Meaning |
-|---|---|
-| **internal** | panel memory only; with `persist` it survives a restart |
+|:---|:---|
+| **internal** | board memory only; with `persist` it survives a restart |
 | **modbus** | from a PLC, a drive or a meter — unit, function code, address |
 | **canopen** | an object from a node's dictionary (index/subindex), over PDO or SDO |
-| **gpio** | a local panel input/output, optionally inverted |
+| **gpio** | a local board input/output, optionally inverted |
 | **periph** | a chip pin on a local bus (expander, thermometer, LED) |
 
 !!! danger "Word order for Modbus `f32`"
@@ -75,7 +75,7 @@ named. The index is a constant, like an axis.
 
 ## TIME — a time the operator sets
 
-A machine's delays belong to the **operator**, not to a rebuild. That is
+A setup's delays belong to the **operator**, not to a rebuild. That is
 what a `TIME` tag is for:
 
 ```yaml
@@ -84,7 +84,7 @@ what a `TIME` tag is for:
 
 - **the table always holds milliseconds** — the logic, the buses and Modbus
   see an ordinary integer,
-- **the panel shows and edits it in the tag's unit** (`ms`, `s`, `min`,
+- **the board shows and edits it in the tag's unit** (`ms`, `s`, `min`,
   `h`). With `unit: s` the widget reads "2.5 s", the operator types `2.5` on
   the keypad and 2500 is stored,
 - **`min`/`max` on the `input` widget are in the same unit**, so the
@@ -96,13 +96,13 @@ This is exactly how you put a "preheat time" on the operator's screen: an
 `input` bound to a `TIME` tag, and the same tag as the timer's `PT`.
 
 !!! note "Time comparisons are unsigned"
-    A `TIME` runs past 2³¹ ms (24.8 days), which is ordinary on a machine
+    A `TIME` runs past 2³¹ ms (24.8 days), which is ordinary in a real setup
     that is never switched off. Comparisons are therefore unsigned, and
     `IF t1.ET > T#500ms` still holds after a month of running.
 
 ## Deadband is not cosmetics
 
-An analog input always has noise. Without a deadband the panel repaints the
+An analog input always has noise. Without a deadband the board repaints the
 display on every flicker of the last bit, and sends that same flicker over
 the WebSocket to every connected browser.
 
@@ -130,7 +130,7 @@ reader always gets either the old value or the new one — never half of each.
 The hardware guarantees it and no mutex is needed.
 
 Before that, every access paid for a lock (~1.5 µs per take/give pair),
-which was 20–100× the memory access it guarded. The machine program went
+which was 20–100× the memory access it guarded. The control program went
 from 1.32 ms to **0.30 ms**. Details in
 [Performance and limits](limits.md).
 

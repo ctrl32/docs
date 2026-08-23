@@ -10,7 +10,7 @@ states — a signal that stays TRUE counts once, not once per cycle.
 **A rising edge of CU increments; R resets; Q is TRUE once CV has reached PV.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `CU` | input, bool | count up on the rising edge |
 | `R` | input, bool | reset — while TRUE, CV is 0 |
 | `PV` | parameter, number (10) | the preset the counter is aiming at |
@@ -42,7 +42,7 @@ Q comes on at the 24th part and stays on until somebody changes the box.
 **A rising edge of CD decrements; LD loads CV = PV; Q is TRUE at zero.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `CD` | input, bool | count down on the rising edge |
 | `LD` | input, bool | load — sets CV to PV |
 | `PV` | parameter, number (10) | the value LD loads |
@@ -71,7 +71,7 @@ stationary part counts one part, not thousands.
 
 It also means the signal has to **drop** before it can count again. A
 sensor that never clears never counts a second time, and that is not the
-counter's fault — it is worth checking on the machine when a count seems
+counter's fault — it is worth checking on the hardware when a count seems
 stuck.
 
 !!! warning "A bouncing input counts every bounce"

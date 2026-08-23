@@ -1,4 +1,9 @@
 # Deployment
 
-- [Download to the panel](deploy.md) — USB and network transfer, the
+Getting the finished project into the equipment — and keeping the board
+safe while it happens. The program goes into an inactive slot, is
+verified, and only then activated: a failed download leaves the old
+program running, so a download cannot brick a board.
+
+- [Download to the board](deploy.md) — USB and network transfer, the
   dual-slot dance, what is verified and when the runtime must be flashed

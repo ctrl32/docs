@@ -12,7 +12,7 @@ second, by somebody who is not looking carefully".
 ## `led`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---|
 | `shape` | `round` / `rect` | round | how it is drawn |
 | `tag` | variable | | what it follows |
 | `color_on` | colour | | when the value is true |
@@ -44,7 +44,7 @@ steady for "still present".
 ## `bar`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `tag` | variable | | the value |
 | `min`, `max` | number | 0, 100 | the range it spans |
 | `orientation` | `vertical` / `horizontal` | | which way it fills |
@@ -70,7 +70,7 @@ expectation with them.
 ## `gauge`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `tag` | variable | | the value |
 | `min`, `max` | number | 0, 100 | the range |
 | `start_angle` | number | 135 | where the scale begins, degrees |
@@ -80,7 +80,7 @@ expectation with them.
 | `cache_background` | yes/no | yes | precompute the dial |
 
 The dial. Slower to read than a bar and better at one thing: a person who
-knows the machine recognises the *position* of the needle without reading
+knows the equipment recognises the *position* of the needle without reading
 the number at all.
 
 **Leave `cache_background` on.** The dial — the ring, the ticks, the
@@ -101,7 +101,7 @@ left, round the top, bottom right. Changing them gives you a half dial
 ## Choosing between them
 
 | The question is | Use |
-|---|---|
+|:---|:---:|
 | is it on? | **led** |
 | how full, how far, how much of the way | **bar** |
 | what is the value, roughly, at a glance | **gauge** |
@@ -120,5 +120,5 @@ without a deadband changes on every flicker of its last digit, so a
 gauge bound to one repaints continuously and never sits still.
 
 Set a deadband on the variable, not on the widget. Everything reading it
-gets quieter at once — the panel, the trend, the browser. See
+gets quieter at once — the board, the trend, the browser. See
 [Tags](tags.md).

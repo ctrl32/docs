@@ -12,7 +12,7 @@ rungs where the logic reads better as a box than as a knot of contacts.
 ## The gates
 
 | Block | Inputs | Output | Q is TRUE when |
-|---|---|---|---|
+|:---|:---:|:---:|:---|
 | **AND** | IN1, IN2 | Q | both inputs are TRUE |
 | **OR** | IN1, IN2 | Q | at least one input is TRUE |
 | **XOR** | IN1, IN2 | Q | exactly one input is TRUE |
@@ -38,7 +38,7 @@ sensor_shut ──IN2─┤ XOR ├── Q ──> position_implausible
 **Q is TRUE for exactly one cycle after CLK rises.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `CLK` | input, bool | the signal being watched |
 | `Q` | output, bool | one cycle of TRUE per rising edge |
 
@@ -57,7 +57,7 @@ start_button ──[R_TRIG]── Q ──> begin_cycle
 **Q is TRUE for exactly one cycle after CLK drops.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `CLK` | input, bool | the signal being watched |
 | `Q` | output, bool | one cycle of TRUE per falling edge |
 
@@ -77,7 +77,7 @@ sensor, a guard being released, a signal that was there and is not.
 **Remembers. If both inputs are TRUE, SET wins.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `S1` | input, bool | set |
 | `R` | input, bool | reset |
 | `Q1` | output, bool | the remembered state |
@@ -87,7 +87,7 @@ sensor, a guard being released, a signal that was there and is not.
 **Remembers. If both inputs are TRUE, RESET wins.**
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `S` | input, bool | set |
 | `R1` | input, bool | reset |
 | `Q1` | output, bool | the remembered state |

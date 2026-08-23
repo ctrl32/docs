@@ -1,9 +1,9 @@
 # ctrl32
 
 **A development and learning environment for automation, on an ESP32
-panel.** You draw the screens, define the variables, write the logic in
+board.** You draw the screens, define the variables, write the logic in
 ladder, in a function block diagram or in ST — and download it to the
-panel. The same visualisation also runs in a browser.
+board. The same visualisation also runs in a browser.
 
 Everything a PLC course, a prototype or a private project needs: real
 ladder, a real cycle, real Modbus and CANopen — on hardware that costs a
@@ -23,20 +23,20 @@ fraction of the established engineering systems.
 ## What it is made of
 
 | Part | What it does |
-|---|---|
-| **Panel (firmware)** | runs on the ESP32, draws the visualisation on a touch display, reads Modbus, executes the logic |
+|:---|:---|
+| **Board (firmware)** | runs on the ESP32, draws the visualisation on a touch display, reads Modbus, executes the logic |
 | **ctrl32 Editor** | an installed desktop application — you draw screens, define variables, write the program and download it |
-| **WEBview** | the same visualisation in a browser, served straight from the panel |
+| **WEBview** | the same visualisation in a browser, served straight from the board |
 
 ## The core principle: the visualisation is DATA, not code
 
 Screens are **not compiled into the firmware**. The editor packs them
-into a binary pack and the panel reads it directly from flash. Changing a
-screen therefore means uploading a file, **not reflashing the panel** —
+into a binary pack and the board reads it directly from flash. Changing a
+screen therefore means uploading a file, **not reflashing the board** —
 and when something goes wrong, the old pack stays in the other slot and
-the panel keeps running.
+the board keeps running.
 
-That is also why the editor shows exactly what the panel will: both draw
+That is also why the editor shows exactly what the board will: both draw
 the same data with the same code.
 
 ## What it really handles
@@ -45,7 +45,7 @@ Measured on the slowest board we support (a classic ESP32 at 240 MHz),
 with ethernet and CAN running alongside:
 
 | | |
-|---|---|
+|:---|:---:|
 | 400 ladder blocks | **0.52 ms** out of a 10 ms cycle (5 %) |
 | a complete program (190 ST lines, 215 variables) | **0.30 ms** (3 %) |
 | 10 000 ST instructions | 1.42 ms (14 %) |
@@ -55,7 +55,7 @@ with ethernet and CAN running alongside:
 
 ## What it is not
 
-!!! danger "Never route safety through the panel"
+!!! danger "Never route safety through the board"
     Emergency stop, guards, light curtains and limit switches are
     **hard-wired**, always. Not through this software, not through any
     software you write in it. Stopping a drive over CANopen is not a
@@ -74,7 +74,7 @@ And it is not a certified product. See [Intended use](intended-use.md).
 
     ---
 
-    From installation to your first program in the panel, in minutes.
+    From installation to your first program in the board, in minutes.
 
     [Quick start](quickstart.md)
 

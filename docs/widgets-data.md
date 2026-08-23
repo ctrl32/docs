@@ -12,7 +12,7 @@ to the office for a laptop.
 ## `trend`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---|
 | `series` | list | | the traces (see below) |
 | `timespan_s` | number | 300 | how much time is shown, seconds |
 | `sample_ms` | number | 1000 | how often a point is taken |
@@ -23,7 +23,7 @@ to the office for a laptop.
 | `scroll_mode` | yes/no | yes | scroll, rather than wrap around |
 
 A chart of how values have behaved. Up to **four traces**, sampled in the
-panel — so the history exists whether or not anybody is watching.
+board — so the history exists whether or not anybody is watching.
 
 **`timespan_s` and `sample_ms` together decide what you can see.** Five
 minutes at one second per point is 300 points, which is about the width
@@ -40,7 +40,7 @@ Fix the axis for anything somebody will judge by eye.
     A trend samples periodically. A pulse one cycle long falls between
     two samples by construction — and the fault you are chasing is
     usually exactly that. The [Scope](scope.md) records **every cycle**
-    in the panel and stops on a trigger. Trend for behaviour over
+    in the board and stops on a trigger. Trend for behaviour over
     minutes, scope for what happened in one.
 
 ---
@@ -48,7 +48,7 @@ Fix the axis for anything somebody will judge by eye.
 ## `trace`
 
 | Property | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `tag` | variable | what this line follows |
 | `color` | colour | how it is drawn |
 
@@ -56,7 +56,7 @@ One line in a trend. Traces are children of the trend widget — you do not
 place them on the screen yourself.
 
 **Give traces colours that survive being printed and photographed.**
-Somebody will screenshot the panel and send it to you, and two similar
+Somebody will screenshot the board and send it to you, and two similar
 blues become one blue in the process.
 
 ---
@@ -64,7 +64,7 @@ blues become one blue in the process.
 ## `alarm_table`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `filter` | `active` / `unacked` / `history` / `all` | | which alarms to show |
 | `min_priority` | `info` / `warning` / `fault` / `critical` | | the lowest priority shown |
 | `rows` | number | 8 | how many fit |
@@ -92,7 +92,7 @@ bottom while a stream of information messages fills the view.
 
 !!! tip "Timestamps are only as good as the clock"
     An alarm history with no time is a list of things that happened in an
-    unknown order. Make sure the panel's clock is set — from the network,
+    unknown order. Make sure the board's clock is set — from the network,
     from an RTC, or from the browser — **before** commissioning, not
     after. Otherwise the first day's history is stamped in 1970.
 
@@ -100,10 +100,10 @@ bottom while a stream of information messages fills the view.
 
 ## Where the history lives
 
-Both widgets read data the **panel** collects, in the panel, all the
+Both widgets read data the **board** collects, in the board, all the
 time. Nothing depends on a browser being open or an editor being
 connected.
 
-That is what makes them worth putting on a screen: the machine
+That is what makes them worth putting on a screen: the equipment
 remembers, so the person who arrives afterwards can find out what
 happened without having been there.

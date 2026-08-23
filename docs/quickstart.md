@@ -1,7 +1,7 @@
 # Quick start
 
 The goal of this chapter: **from an installed editor to a program running in
-the panel.** It takes a few minutes and needs nothing but the panel, a USB
+the board.** It takes a few minutes and needs nothing but the board, a USB
 cable and a PC.
 
 ## 1. Installation
@@ -9,7 +9,7 @@ cable and a PC.
 Run the installer `ctrl32-setup-<version>.exe`. It installs:
 
 | File | What it is for |
-|---|---|
+|:---|:---|
 | `visu_editor.exe` | the editor itself |
 | `ctrl32.dat` | the catalog of boards and chips |
 | `runtimes\` | prebuilt firmware for every supported board |
@@ -27,7 +27,7 @@ Run the installer `ctrl32-setup-<version>.exe`. It installs:
 
 - `ladder_sealin.yaml` — the classic seal-in circuit with a TON, a counter
   and a latch; the rungs come with the comments under the variables,
-- `tubex_panel.yaml` — a real panel with Ethernet, a Modbus slave and
+- `tubex_panel.yaml` — a real board with Ethernet, a Modbus slave and
   NeoPixel LEDs,
 - `machine_blocks.yaml` — motors, valves, PID and hysteresis,
 - `time_setpoint.yaml` — a TIME setpoint the operator types on the screen,
@@ -43,7 +43,7 @@ without one.
 
 ## 4. Flash the runtime (the first time)
 
-If the panel is new or carries old firmware, the board page has *Flash
+If the board is new or carries old firmware, the board page has *Flash
 runtime*. The editor writes it over USB itself, reads the flash back to
 verify it, and refuses a chip that does not match the board — a wrong
 COM port cannot be written. It takes tens of seconds.
@@ -51,22 +51,22 @@ COM port cannot be written. It takes tens of seconds.
 ![The Flash runtime dialog](img/deploy-runtime.webp)
 
 !!! warning "An old runtime means the program will not load"
-    The pack format evolves. If the runtime is older than the pack, the panel
+    The pack format evolves. If the runtime is older than the pack, the board
     refuses it and the editor shows an error. The fix is always the same:
     **flash the runtime**.
 
 ## 5. Download the program
 
 Pick the COM port in the toolbar and click the blue :ti-download: icon (*Download to
-panel*). The editor builds the project and uploads it. What happens
+board*). The editor builds the project and uploads it. What happens
 underneath:
 
 1. the project is built into a binary pack,
-2. the pack goes into the **inactive slot** in the panel,
-3. the panel verifies the CRC, the format and the target board,
+2. the pack goes into the **inactive slot** in the board,
+3. the board verifies the CRC, the format and the target board,
 4. **only then** does it switch the active slot and restart.
 
-That is why downloading cannot brick the panel: when anything is wrong, the
+That is why downloading cannot brick the board: when anything is wrong, the
 old pack stays and keeps running.
 
 !!! note "No port is preselected"
@@ -75,13 +75,13 @@ old pack stays and keeps running.
     "configured", and the first sign that it was not would be a download
     going nowhere.
 
-## 6. Watch what the machine is doing
+## 6. Watch what it is doing
 
 Next to the port there is a plug icon — *ONLINE*. Switched on, the editor
-shows **live values straight from the panel**: in the ladder rungs, on block
+shows **live values straight from the board**: in the ladder rungs, on block
 pins, in the tag list and in the screen preview.
 
-There is one condition: **the editor and the panel must run the same
+There is one condition: **the editor and the board must run the same
 program**. If they do not, the editor says so and offers to download it —
 more in [Online monitoring](online.md).
 
@@ -90,4 +90,4 @@ more in [Online monitoring](online.md).
 - [Editor](editor.md) — how it is laid out and what is where
 - [Tags](tags.md) — variables, types, deadband and where values come from
 - [Ladder](ladder.md) — drawing rungs
-- [Download to the panel](deploy.md) — dual slot, runtime, what is verified when
+- [Download to the board](deploy.md) — dual slot, runtime, what is verified when

@@ -16,19 +16,19 @@ is a moving axle.
 ### MC_POWER
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `Enable` | input, bool | axis on/off |
 | `Status` | output, bool | axis ready and operational |
 | `Error` | output, bool | axis in fault |
 
 Nothing else moves until `Status` is TRUE. On a CANopen drive this runs
-the CiA 402 state machine — several steps of controlword and statusword
+the CiA 402 state equipment — several steps of controlword and statusword
 that the block handles for you.
 
 ### MC_RESET
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `Execute` | input, bool | acknowledge the axis fault |
 | `Done` | output, bool | the reset completed |
 | `Error` | output, bool | the reset failed |
@@ -44,7 +44,7 @@ happening.
 ### MC_MOVEVELOCITY — constant speed
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `Execute` | input, bool | start on the rising edge |
 | `Velocity` | input, number | target speed |
 | `Direction` | parameter (0) | 0 = forward, 1 = reverse |
@@ -57,7 +57,7 @@ pump, a fan — anything that runs at a speed rather than to a position.
 ### MC_MOVEABS — go to a position
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `Execute` | input, bool | start on the rising edge |
 | `Position` | input, number | where to go |
 | `Velocity` | input, number | how fast to travel |
@@ -77,7 +77,7 @@ repeated moves — which is fine for indexing and wrong for positioning.
 ### MC_HOME — reference run
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `Execute` | input, bool | start the homing run |
 | `Done` | output, bool | the axis knows where it is |
 | `Busy` | output, bool | homing in progress |
@@ -87,7 +87,7 @@ Until this has completed, absolute positions mean nothing.
 ### MC_STOP — controlled stop
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `Execute` | input, bool | stop |
 | `Decel` | parameter, **seconds** (5) | deceleration ramp |
 | `Done` | output, bool | stopped |
@@ -100,7 +100,7 @@ A stop along a defined ramp. Not an emergency stop — see below.
 ## Reading the axis
 
 | Block | Inputs | Outputs |
-|---|---|---|
+|:---|:---:|:---:|
 | **MC_READACTPOS** | Enable | Position, Valid |
 | **MC_READACTVEL** | Enable | Velocity, Valid |
 | **MC_READSTATUS** | Enable | Running, Error |
@@ -115,7 +115,7 @@ understands**. Gate anything that uses the position on `Valid`.
 ## A frequency drive is not a servo
 
 The reference target is the **Lenze i550** over CANopen: a frequency
-drive with no position loop of its own. The panel generates the profile
+drive with no position loop of its own. The board generates the profile
 and sends a speed setpoint every cycle.
 
 That has consequences worth knowing before promising anything:
@@ -158,7 +158,7 @@ Stopping over CANopen is **not** a safety function. Neither is
   into.
 - Define what happens on loss of the encoder, on a motion timeout, and
   on a deviation between commanded and actual speed. All three occur on
-  real machines.
+  real projects.
 
 See [Intended use](intended-use.md).
 
@@ -166,7 +166,7 @@ See [Intended use](intended-use.md).
 
 ## Setting the drive up
 
-The i550 ships with **Lenze's own state machine active**, not CiA 402.
+The i550 ships with **Lenze's own state equipment active**, not CiA 402.
 Write a correct controlword into a drive in that state and nothing
 happens — and the search for the bug goes into your code, where it is
 not.

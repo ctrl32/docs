@@ -65,7 +65,7 @@ records every cycle.
 injure somebody, this is the wrong tool and the honest answer is a
 certified controller from a manufacturer who accepts that liability.
 
-**Not where a failure costs somebody else money.** A machine that
+**Not where a failure costs somebody else money.** A setup that
 somebody else depends on, a process that ruins a batch, equipment that
 belongs to a customer. Not because ctrl32 is unreliable, but because when
 something does go wrong, "it ran on an uncertified hobby controller" is a
@@ -74,7 +74,7 @@ sentence nobody wants to say to an insurer.
 **Not in an installation subject to inspection.** Anything an authority
 will look at wants documentation ctrl32 does not carry.
 
-**Not on the open internet.** There is no TLS. A panel belongs on its own
+**Not on the open internet.** There is no TLS. A board belongs on its own
 network — see the network notes in [WEBview](webview.md).
 
 ---

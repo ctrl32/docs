@@ -5,7 +5,7 @@ for a human reading a value and useless for anything short: a pulse one
 cycle long falls between two samples by construction, and the fault you
 are chasing is usually exactly that.
 
-The scope is the answer. The **panel** records up to 8 values **every
+The scope is the answer. The **board** records up to 8 values **every
 cycle** into a ring buffer and stops on a trigger; the editor arms it and
 draws what came back.
 
@@ -14,10 +14,10 @@ Open it from *Online → Scope*.
 ## What it records
 
 | | |
-|---|---|
+|:---|:---|
 | Signals | 8 |
 | Samples | 256 rows — 2.56 s at a 10 ms cycle |
-| Sampling | every cycle, in the panel, never on the PC |
+| Sampling | every cycle, in the board, never on the PC |
 | Cost while recording | **6 µs per cycle** measured on a classic ESP32 at 240 MHz — 0.06 % of a 10 ms period |
 | Cost while disarmed | one comparison — the sampler is not entered at all |
 
@@ -28,13 +28,13 @@ be free when it is off.
 ## Using it
 
 1. **Pick the signals.** The list offers tags and, when the editor and the
-   panel run the same program, the wires between blocks and block members
+   board run the same program, the wires between blocks and block members
    (`t1.ET`, `c1.CV`) as well. Up to eight; the counter above the list
    says how many are left.
 2. **Set the trigger.**
 
     | Mode | Fires when |
-    |---|---|
+|:---|:---|
     | now | immediately — fill the buffer once and stop |
     | rising edge | the source crosses the level upwards |
     | falling edge | … downwards |
@@ -49,9 +49,9 @@ be free when it is off.
 
     The number is exact and it is a promise: with 25 % of a 256-row ring
     the trigger row is row 64, with 64 rows of history behind it — not 63,
-    and never zero because the event happened early. The panel holds the
+    and never zero because the event happened early. The board holds the
     trigger off until that history exists.
-4. **Arm.** The panel records; the editor shows *waiting for the trigger*,
+4. **Arm.** The board records; the editor shows *waiting for the trigger*,
    then *recording after it*, then *complete* — at which point the rows
    are pulled automatically and drawn.
 
@@ -60,7 +60,7 @@ between sessions**. They are stored by name, so they are re-resolved
 against whatever program is loaded now; a signal that no longer exists is
 dropped and the page says so. They live in the editor's preferences, not
 in the project — which signals you happen to be looking at is not a
-property of the machine.
+property of the equipment.
 
 !!! tip "A fault that happens once an hour"
     Tick **repeat** and the scope arms itself again after every capture.
@@ -68,7 +68,7 @@ property of the machine.
     overwritten before it has been seen. The counter under the checkbox
     says how many captures this session has produced.
 
-    The panel also keeps its recording across an editor restart or a
+    The board also keeps its recording across an editor restart or a
     pulled cable: on reconnecting, the editor asks whether one is
     running and picks it up instead of showing "off" over a live trace.
 
@@ -78,7 +78,7 @@ property of the machine.
   one axis is a picture nobody can read.
 - **Time is measured from the trigger.** Zero is where it fired,
   everything to the left of it is the history you asked to keep.
-- The milliseconds come from the **panel's own cycle period**, not from a
+- The milliseconds come from the **board's own cycle period**, not from a
   number typed here — a trace labelled with the wrong period is a
   measurement that lies quietly.
 - A BOOL is drawn as a square wave with a filled body. A number gets its
@@ -117,9 +117,9 @@ to a measurement from something else.
 ## When it will not arm
 
 | The page says | What it means |
-|---|---|
-| *not online — the scope records IN the panel* | there is no connection; this is not a PC-side recorder |
-| *the panel runs a different program* | the same rule as everywhere: values travel by index, and under a different program they would be values under the wrong names |
+|:---|:---|
+| *not online — the scope records IN the board* | there is no connection; this is not a PC-side recorder |
+| *the board runs a different program* | the same rule as everywhere: values travel by index, and under a different program they would be values under the wrong names |
 
 If a recording comes back empty, the trigger never fired — check the
 source and the level, or use *now* to see what the signals are doing at

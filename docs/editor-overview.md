@@ -2,8 +2,8 @@
 
 Everything in ctrl32 is done from one installed application: you draw the
 screens, declare the tags, write the logic and download the result into
-the panel. The editor renders with the same code as the firmware, so the
-screen you design is — pixel for pixel — the screen the panel shows.
+the board. The editor renders with the same code as the firmware, so the
+screen you design is — pixel for pixel — the screen the board shows.
 
 - [Layout and how to work in it](editor.md) — the windows, the toolbar,
   TEST simulation and going ONLINE

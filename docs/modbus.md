@@ -1,15 +1,15 @@
 # Modbus in ctrl32
 
-The panel is a Modbus **master** — it cyclically reads (and writes) the
+The board is a Modbus **master** — it cyclically reads (and writes) the
 registers of the connected devices into the tag table. Two transports
 are supported, both at the same time:
 
 | Transport | Physical layer | When |
-|---|---|---|
+|:---|:---:|:---|
 | **RTU** | RS485 terminals of the board | I/O modules, drives, sensors on a cable |
 | **TCP** | Ethernet or WiFi | energy meters with a LAN module, RTU↔TCP gateways, cabinet devices with LAN |
 
-Slave mode (the panel as a Modbus server for a supervisory system) is a
+Slave mode (the board as a Modbus server for a supervisory system) is a
 planned extension — it is not part of the product yet.
 
 ## A tag with a Modbus source
@@ -40,7 +40,7 @@ tags:
 ## Limits and behaviour
 
 | Limit | Value | Why |
-|---|---|---|
+|:---|:---:|:---|
 | Distinct TCP targets (IP:port) per project | **4** | ~6–8 kB of RAM per connection on the ESP32-S3 |
 | Tags in total | 512 | product limit |
 
@@ -50,10 +50,10 @@ tags:
   count as 1 target.
 - The editor enforces the limit both on import and at compile time — a
   project over the limit is rejected on your desk, not as a stuttering
-  panel on the machine.
+  board on the equipment.
 - **Target outage:** tags hold their last value, one event goes into the
   diagnostic buffer when the target drops out and one when it returns.
-  The panel reconnects automatically (1 s backoff); polling of the other
+  The board reconnects automatically (1 s backoff); polling of the other
   targets keeps running.
 - The poller runs outside the PLC cycle — a slow or unreachable Modbus
   device **never extends the logic cycle**.
@@ -92,7 +92,7 @@ path to it, so the entry appears on disk right away, not only when the
 project is saved.
 
 | Rule | Why |
-|---|---|
+|:---|:---|
 | file name `<vendor>_<model>.yaml`, lower-case ASCII | the catalog is versioned in git and must be readable on every OS |
 | `uid: 0x0000` for customer entries | the numbered space belongs to the curator, otherwise uids would clash |
 | one register per line | the parser reads line by line; a flow map wrapped onto two lines loses everything after the first line |
@@ -101,18 +101,18 @@ project is saved.
 The manual route remains: copy `devices/modbus/_template.yaml` and fill
 in the register map from the device manual.
 
-## Modbus slave — the panel answers
+## Modbus slave — the board answers
 
-The panel is not only a master. It can also be a **slave**: a
+The board is not only a master. It can also be a **slave**: a
 supervisory SCADA, PLC or Home Assistant reads its state and sends
-setpoints. The panel still runs **fully without them** — SCADA is a
+setpoints. The board still runs **fully without them** — SCADA is a
 window to the outside, not a condition for operation.
 
 ```yaml
 modbus_slave:
   rtu: false        # answer on the RS485 line
   tcp: true         # answer over TCP
-  unit: 9           # unit ID of the panel
+  unit: 9           # unit ID of the board
   port: 502
   word_order: big   # word order of 32-bit values
   tags:
@@ -138,14 +138,14 @@ not cosmetics.
 
 A tag without `writable` ticked answers a write with **exception
 0x02**; it never passes silently. The same rule as with WebSocket and
-MQTT: the panel decides about a write, not whoever asks for it.
+MQTT: the board decides about a write, not whoever asks for it.
 
 Further deliberate decisions:
 
 - `FC6` (write single register) on a 32-bit value is **rejected** — a
   half-written value is worse than a refusal.
 - `FC16` first validates the **whole** range and only then writes — a
-  half-executed write would leave the machine in an undefined state.
+  half-executed write would leave the equipment in an undefined state.
 - Reading a range that lies even partly outside the map returns an
   exception. Zeros would send the integrator looking for the fault at
   their end.
@@ -155,7 +155,7 @@ Further deliberate decisions:
 ### Pitfalls
 
 | Pitfall | Fix |
-|---|---|
+|:---|:---|
 | Master and slave on the same RS485 line | a line has one master — packbuild **rejects this at compile time** and the editor shows it in red right on the page |
 | Wrong word order | `word_order` must match what the SCADA expects — the same trap as on the master side |
 | Several SCADA clients at once | the TCP slave serves **one connection**; each further one would cost ~6–8 kB of RAM, which the S3 does not have to spare |
@@ -167,8 +167,8 @@ write to a tag without permission.
 ## Typical pitfalls
 
 | Pitfall | Fix |
-|---|---|
+|:---|:---|
 | Nonsensical f32 values | swap `word_order` (big ↔ little) |
 | Address off by one | the vendor documentation counts from 1 or uses the 3xxxx notation — in ctrl32 the address is always the 0-based protocol address |
 | Device does not answer over RTU | check the baud rate/parity, the A/B wires and the termination |
-| TCP target behind NAT or in another segment | the panel and the device belong on the same (separate) machine network |
+| TCP target behind NAT or in another segment | the board and the device belong on the same (separate) equipment network |

@@ -25,7 +25,7 @@ for NDIR.
 ## Choosing
 
 | You need | Reach for |
-|---|---|
+|:---|:---:|
 | CO₂ you can defend | `SCD41`, `SCD30` |
 | a cheap "the air is stale" signal | `ENS160`, `SGP4X`, `CCS811` |
 | particulates (PM2.5, PM10) | `PMSA003I`, `SPS30`, `SEN5X`, `HM3301` |
@@ -63,7 +63,7 @@ cross-compensation work below.
 ### Air quality
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `AGS10` | I2C | I2C TVOC sensor (ASAIR) — channel 0 = TVOC [ppb]. The chip refreshes every ~1.5 s and the driver polls every 2 s; CRC checked. Fixed address 0x1A. VERIFY ON THE BENCH. |
 | `CCS811` | I2C | I2C air quality sensor — channels: 0 = eCO2 [ppm], 1 = TVOC [ppb]; drive mode 1 s. Needs ~20 min burn-in after power-up before the values mean anything. Address 0x5A–0x5B. |
 | `ENS160` | I2C | I2C air quality sensor (ScioSense) — channels: 0 = eCO2 [ppm], 1 = TVOC [ppb], 2 = AQI index 1–5. Standard operating mode; the first minutes after power-up are warm-up. Address 0x52–0x53. |

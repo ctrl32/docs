@@ -4,7 +4,7 @@ The ladder editor draws the logic the way an electrician reads a
 schematic: rungs between two power rails, contacts in series and in
 parallel, the coil at the right. Underneath there is no separate
 "ladder runtime" — every rung compiles into the same function blocks
-the FBD editor produces and the panel already executes. Uploading a
+the FBD editor produces and the board already executes. Uploading a
 ladder program is uploading data, never firmware.
 
 ![A thermostat in ladder: BLINK heartbeat, a simulated temperature branch, hysteresis and the heating relay](img/ladder-thermostat.webp)
@@ -12,7 +12,7 @@ ladder program is uploading data, never firmware.
 ## Elements
 
 | Symbol | Meaning |
-|---|---|
+|:---|:---|
 | `-[ ]-` | NO contact — conducts while the tag is TRUE |
 | `-[/]-` | NC contact — conducts while the tag is FALSE |
 | `-[P]-` / `-[N]-` | rising / falling edge (one cycle) |
@@ -68,7 +68,7 @@ it from either end:
 - A `(S)` and `(R)` pair on the same tag becomes ONE flip-flop; the
   pair's order decides the priority (set-first = set wins).
 - **Two plain coils on one tag are refused at the desk** — the last
-  writer would silently win on the panel. Use a branch or S/R.
+  writer would silently win on the board. Use a branch or S/R.
 - Every contact and coil shows its variable name and, underneath,
   the tag's **description as a `//comment`** (edited right in the
   element popup; the *comments* checkbox hides them when the rungs
@@ -76,7 +76,7 @@ it from either end:
 - In **test mode** the rungs show the live power flow: conducting
   wires, symbols and block frames turn green — the frame as thick as
   the wires, so the active path reads at a glance. Clicking a contact
-  toggles its tag (simulation only; connected to a panel everything
+  toggles its tag (simulation only; connected to a board everything
   is read-only).
 
 ## Ladder and FBD — one owner, two views
@@ -97,5 +97,5 @@ inputs, the coil on an output (see
 
 32 rungs per program, 8 parallel branches per fork, one coil column.
 The block budget is shared with the whole program — 512 blocks per
-project (see [limits](limits.md)); the Resources panel shows the
+project (see [limits](limits.md)); the Resources board shows the
 consumption as you build.

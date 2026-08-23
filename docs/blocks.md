@@ -3,21 +3,21 @@
 A function block is a piece of logic somebody already wrote and tested,
 so you do not have to. A timer, a counter, a motor starter with feedback
 supervision — you drop it into a rung or a diagram, wire its pins, and it
-behaves the same on every panel ctrl32 runs on.
+behaves the same on every board ctrl32 runs on.
 
 ctrl32 ships **53 of them**. This page is what they have in common; the
 pages that follow are the reference, grouped the way the Toolbox groups
 them.
 
 | Group | Blocks | What they are for |
-|---|---|---|
+|:---|:---|:---|
 | [Timers](blocks-timers.md) | TON, TOF, TP, BLINK | delays, pulses, flashing |
 | [Counters](blocks-counters.md) | CTU, CTD | counting events |
 | [Boolean](blocks-boolean.md) | AND, OR, XOR, NOT, R_TRIG, F_TRIG, SR, RS | logic, edges, latches |
 | [Maths](blocks-math.md) | ADD, SUB, MUL, DIV, MIN, MAX, ABS, MOVE | arithmetic |
 | [Comparison](blocks-compare.md) | GT, GE, LT, LE, EQ, SEL | decisions on numbers |
 | [Signal handling](blocks-signal.md) | SCALE, LIMIT, HYST, RAMP, PT1 | turning a raw value into a usable one |
-| [Equipment blocks](blocks-machine.md) | MOTOR, VALVE, PID | starters, valves and a controller, ready made |
+| [Equipment blocks](blocks-equipment.md) | MOTOR, VALVE, PID | starters, valves and a controller, ready made |
 | [Motion](blocks-motion.md) | MC_POWER, MC_MOVEVELOCITY, MC_MOVEABS, … | driving an axis |
 | [CANopen](blocks-can.md) | CO_CIA402, CO_SDOWRITE, CO_SDOREAD, CO_RAMPTIME | talking to a drive directly |
 | [Services](blocks-services.md) | IR_SEND, SMS_SEND, GSM_INFO | infrared, SMS, modem state |
@@ -27,8 +27,8 @@ them.
 Every block has three kinds of pin, and the difference matters:
 
 | | What it is | When it is read |
-|---|---|---|
-| **Inputs** | values that change while the machine runs — a sensor, another block's output | every cycle |
+|:---|:---|:---|
+| **Inputs** | values that change while it runs — a sensor, another block's output | every cycle |
 | **Parameters** | settings that belong to *this* instance — a delay, a limit | every cycle, but you normally set them once |
 | **Outputs** | what the block produces | written every cycle |
 
@@ -52,8 +52,8 @@ without one do not.
 
 !!! success "The editor knows the RAM cost before you upload"
     Instances are allocated when the project is compiled, not while the
-    machine runs — so the editor can tell you a program does not fit
-    *at your desk*, instead of the panel finding out on the machine.
+    equipment runs — so the editor can tell you a program does not fit
+    *at your desk*, instead of the board finding out on the equipment.
 
 ## Times are always milliseconds
 
@@ -101,7 +101,7 @@ explicitly.
 
 ## What a block will never do
 
-- **Crash the panel.** `DIV` by zero gives 0. An out-of-range index does
+- **Crash the board.** `DIV` by zero gives 0. An out-of-range index does
   nothing. A block from a newer editor that this firmware does not know
   is skipped with an entry in the diagnostic buffer.
 - **Allocate memory while running.** Everything is reserved at compile

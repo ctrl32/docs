@@ -11,7 +11,7 @@ remembering before reaching for a gauge.
 ## `label`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `text` | text | | what it says |
 | `font` | font | | which face and size |
 | `align` | `left` / `center` / `right` | left | within its rectangle |
@@ -28,7 +28,7 @@ time.
     A font baked without the right character range drops accents
     silently — the text renders, just without the marks, and it is the
     kind of thing nobody notices in the editor and everybody notices on
-    the panel. Put one label with your worst-case word on a test screen
+    the board. Put one label with your worst-case word on a test screen
     and look at it on the glass.
 
 ---
@@ -36,7 +36,7 @@ time.
 ## `value`
 
 | Property | Type | Default | Meaning |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | `tag` | variable | | what it shows |
 | `font` | font | | which face and size |
 | `show_unit` | yes/no | yes | append the variable's unit |
@@ -66,7 +66,7 @@ hard one. Together they give a warning stage and an action stage.
 ## Where the decimals come from
 
 Both widgets draw what the variable says. A variable with two decimals
-and unit `bar` shows `4.25 bar` on the panel, in the browser and in a
+and unit `bar` shows `4.25 bar` on the board, in the browser and in a
 trend legend — no per-widget formatting, no disagreement between two
 screens showing the same thing.
 

@@ -89,7 +89,7 @@ nav:
       - Maths: blocks-math.md
       - Comparison: blocks-compare.md
       - Signal handling: blocks-signal.md
-      - Machine blocks: blocks-machine.md
+      - Machine blocks: blocks-equipment.md
       - Motion: blocks-motion.md
       - CANopen: blocks-can.md
       - Services: blocks-services.md

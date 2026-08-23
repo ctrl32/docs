@@ -20,15 +20,15 @@ engineering tool what that is worth.
 delivered, a history of who changed what and when. A project from two
 years ago is a checkout away.
 
-**You can review it.** A change to a machine's logic is a change worth
+**You can review it.** A change to the equipment's logic is a change worth
 reading before it is uploaded, and a text diff is something a second
 person can actually read.
 
-**You can generate it.** Twenty near-identical variants of one machine
+**You can generate it.** Twenty near-identical variants of one equipment
 are a script, not twenty afternoons of clicking.
 
 **It outlives the tool.** Even with no ctrl32 installed, the file still
-says what the machine does. Nothing about your work is locked inside a
+says what it does. Nothing about your work is locked inside a
 format only one program understands.
 
 ---
@@ -38,7 +38,7 @@ format only one program understands.
 The sections, in the order they usually appear:
 
 | Section | Holds |
-|---|---|
+|:---|:---|
 | `project` | name, target board, resolution, orientation |
 | `themes` | colour sets the styles resolve against |
 | `states` | reusable three-state colour sets |
@@ -47,7 +47,7 @@ The sections, in the order they usually appear:
 | `logic` | the blocks and how they are wired |
 | `alarms` | condition, limit, hysteresis, delay, priority, text |
 | `icons` | which glyphs the project uses |
-| `screens` | the panel's own screens and their widgets |
+| `screens` | the board's own screens and their widgets |
 | `web_screens` | the browser's screens |
 | `assets` | fonts and images |
 
@@ -95,12 +95,12 @@ logic and layout.
 
 ## Compiled, not interpreted
 
-The panel does **not** read this file. The editor compiles it into a
-binary pack — string table, tag table, screens, bytecode — and the panel
+The board does **not** read this file. The editor compiles it into a
+binary pack — string table, tag table, screens, bytecode — and the board
 maps that straight out of flash.
 
 The reasons are practical: parsing YAML on a microcontroller would cost
-memory the machine needs, and a screen has to be on the glass in under a
+memory the setup needs, and a screen has to be on the glass in under a
 millisecond. So the readable form is what you keep, and the compiled form
 is what runs.
 
@@ -123,11 +123,11 @@ made two years ago has to open today:
 - **New features are new keys**, with defaults chosen so that a file
   written before they existed still means what it meant.
 
-The panel is stricter than the editor on purpose: a pack from a **newer**
+The board is stricter than the editor on purpose: a pack from a **newer**
 editor than the firmware is refused outright, rather than loaded with the
 parts the firmware does not understand quietly missing. A screen without
 the behaviour its author intended is worse than a screen that will not
-load. See [Download to the panel](deploy.md).
+load. See [Download to the board](deploy.md).
 
 ---
 

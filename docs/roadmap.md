@@ -36,7 +36,7 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
 ## Under consideration
 
 - Trend history persisted to storage and browsable from the WEBview.
-- More display controllers besides the SSD1963 and MIPI-DSI panels.
+- More display controllers besides the SSD1963 and MIPI-DSI boards.
 
 ## Recently finished
 
@@ -46,12 +46,12 @@ Moved here out of *In progress*; details in
 - **Rung comments** in the ladder editor, and the FBD canvas divided
   into numbered networks with comments.
 - **Live values in the FBD view while online** — wires and pins showing
-  what the panel is really doing, as the ladder view already did.
+  what the board is really doing, as the ladder view already did.
 - **States and motion on any widget**: three-state colours driven by a
   variable or by one bit of an integer, and a widget that travels a path
   as a value sweeps its range.
-- **Vector icons** — sharp at any size, in the panel, the editor and the
+- **Vector icons** — sharp at any size, in the board, the editor and the
   browser alike.
 - **Online control from the editor canvas**: a button on a screen now
-  reaches the running panel, not just the editor's own copy of the
+  reaches the running board, not just the editor's own copy of the
   values.

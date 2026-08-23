@@ -22,7 +22,7 @@ exposure, or whether a UV lamp is actually lit.
 ### Choosing an ambient light sensor
 
 | | |
-|---|---|
+|:---|:---:|
 | the standard choice | `BH1750` — cheap, simple, well behaved |
 | very wide range (dark room to full sun) | `TSL2591`, `VEML7700` |
 | accuracy matched to the human eye | `OPT3001` |
@@ -47,7 +47,7 @@ the echo. Good from a few centimetres to about a metre.
 
 ## Magnetic field
 
-`MLX90393` measures a magnetic field in three axes. On a machine that
+`MLX90393` measures a magnetic field in three axes. On a setup that
 usually means proximity without contact — a magnet on a moving part, and
 a sensor that never wears out because nothing touches it.
 
@@ -59,7 +59,7 @@ For a shaft *angle*, see the magnetic angle sensors under
 ### Light sensors
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `APDS9306` | I2C | I2C ambient light sensor — channel 0 = RAW 18-bit ALS counts at gain 3 / 100 ms; scale to lux with the tag gain (the counts-per-lux responsivity is variant-dependent — VERIFY ON THE BENCH). Address 0x52. |
 | `APDS9960` | I2C | I2C light + proximity sensor — channels: 0 = clear-channel ALS counts (raw), 1 = proximity counts 0–255. The gesture engine is not used. Address 0x39. |
 | `BH1750` | I2C | I2C ambient light sensor — channel 0 = illuminance [lx]. Valid addresses are ONLY 0x23 (ADDR to GND) and 0x5C (ADDR to VCC) — the checked range is wider, in-between addresses do not exist. Continuous high-resolution mode (1 lx, 120 ms). |
@@ -76,13 +76,13 @@ For a shaft *angle*, see the magnetic angle sensors under
 ### Distance sensors
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `TOF10120` | I2C | I2C laser distance sensor — channel 0 = distance [mm] (filtered register). Fixed address 0x52. VERIFY ON THE BENCH. |
 
 ### IMU / motion
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `MLX90393` | I2C | I2C 3-axis magnetometer — channels: 0-2 = field X/Y/Z [µT] (POR gain: 0.150 µT/LSB xy, 0.242 z), 3 = die temperature [°C]. Command protocol — SM and RM split across cycles. Address 0x0C–0x0F. VERIFY ON THE BENCH. |
 
 Every entry above is in the editor: pick the chip, give it

@@ -11,12 +11,12 @@ measures air pressure: weather, altitude, or the drop across a filter.
 Fine enough to see a few metres of altitude change.
 
 **Process** — `HONEYWELLABP`, `HONEYWELLABP2`, `XGZP68XX`, `SDP3X` —
-measures a fluid or a gas in a pipe or a duct, in the units a machine
+measures a fluid or a gas in a pipe or a duct, in the units a setup
 cares about. `SDP3X` measures *differential* pressure, which is what a
 filter monitor or an air-flow measurement actually needs.
 
 | You are measuring | Reach for |
-|---|---|
+|:---|:---:|
 | weather, altitude | `BMP280`, `MS5611`, `MPL3115A2` |
 | pressure and humidity together | `MS8607` |
 | a pipe or a tank | `HONEYWELLABP`, `XGZP68XX` |
@@ -35,7 +35,7 @@ No contact, no wear, full-turn resolution. A good answer for a rotating
 axis that does not need to count revolutions.
 
 **Compass** — `HMC5883L`, `QMC5883L` — measures the earth's field, and
-therefore heading. On a machine, more often used to detect a large steel
+therefore heading. On a setup, more often used to detect a large steel
 object moving nearby.
 
 **Inertial** — `MPU6050`, `BMI160`, `LSM6DS` — accelerometer and
@@ -44,7 +44,7 @@ gyroscope together: tilt, and vibration.
 !!! tip "Vibration is easier than orientation"
     Getting a stable angle out of an inertial sensor needs filtering and
     care. Noticing that vibration has doubled since last month needs
-    almost none — and on a machine, that is usually the question worth
+    almost none — and in a real setup, that is usually the question worth
     asking. A bearing announces itself weeks before it fails.
 
 !!! warning "A magnetic angle sensor cares where the magnet is"
@@ -60,7 +60,7 @@ gyroscope together: tilt, and vibration.
 ### Pressure sensors
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `BMP085` | I2C | I2C barometer (BMP085/BMP180, integer datasheet compensation) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Fixed address 0x77. |
 | `BMP581` | I2C | I2C pressure + temperature sensor (Bosch, direct-reading — no compensation math) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Address 0x46–0x47. VERIFY ON THE BENCH. |
 | `HONEYWELLABP` | I2C | I2C board-mount pressure sensor (Honeywell ABP series) — channels: 0 = raw bridge counts (10–90 % of 2^14; the range is ordering-specific, engineering units via tag gain/offset), 1 = temperature [°C] (11-bit). The address is ordering-specific too — the check accepts 0x08–0x78. |
@@ -75,7 +75,7 @@ gyroscope together: tilt, and vibration.
 ### Position sensors
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `AS5600` | I2C | I2C magnetic angle sensor (12-bit) — channels: 0 = raw angle counts 0–4095 (degrees via tag gain 360/4096), 1 = magnet detected (1/0). Fixed address 0x36 — a poor man's absolute encoder for slow axes and dampers. |
 | `BMI160` | I2C | I2C accelerometer + gyroscope (Bosch) — channels: 0–2 = acceleration X/Y/Z [g], 3–5 = angular rate X/Y/Z [°/s], 6 = die temperature [°C]. Ranges ±2 g / ±2000 °/s. Address 0x68–0x69. |
 | `HMC5883L` | I2C | I2C magnetometer (Honeywell classic) — channels: 0–2 = field X/Y/Z [gauss]. Fixed address 0x1E; continuous mode, ±1.3 G range. |

@@ -8,7 +8,7 @@ value is in knowing what happens at the edges.
 ## The arithmetic
 
 | Block | Inputs | Output | Result |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | **ADD** | IN1…IN4 | OUT | IN1 + IN2 + IN3 + IN4 |
 | **SUB** | IN1, IN2 | OUT | IN1 − IN2 |
 | **MUL** | IN1, IN2 | OUT | IN1 × IN2 |
@@ -28,12 +28,12 @@ thought on MUL (result 0) and DIV (see below).
 ## Division by zero gives zero
 
 `DIV` with IN2 = 0 produces **0**. It does not fault, does not produce
-infinity, and does not stop the machine.
+infinity, and does not stop the equipment.
 
-This is a deliberate choice: a divisor that is briefly zero is normal on a
-real machine — a flow that has not started, a length not yet measured, a
-sensor still warming up. A controller that halts the cycle over it would
-be useless.
+This is a deliberate choice: a divisor that is briefly zero is perfectly
+normal — a flow that has not started, a length not yet measured, a sensor
+still warming up. A controller that halted the cycle over it would be
+useless.
 
 !!! warning "Zero is a plausible-looking wrong answer"
     The danger is not the crash that does not happen, it is the 0 that
@@ -73,7 +73,7 @@ For a floor **and** a ceiling in one block, use
 **OUT = IN.** The IEC assignment, as a block.
 
 | Pin | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `IN` | input, number | the source |
 | `OUT` | output, number | the destination |
 
@@ -88,7 +88,7 @@ recipe_ready ──[ MOVE IN=recipe_temp ]── OUT ──> setpoint
 
 The setpoint takes the recipe value the moment the recipe is ready, and
 keeps it afterwards. That "commit a value when a condition is met" is
-one of the most common things a machine program does.
+one of the most common things a control program does.
 
 ---
 

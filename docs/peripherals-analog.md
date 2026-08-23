@@ -7,7 +7,7 @@ live in.
 ## Inputs
 
 | You need | Reach for |
-|---|---|
+|:---|:---:|
 | the workhorse: 16-bit, four channels | `ADS1115` |
 | the same, faster and coarser | `ADS1015` (12-bit) |
 | eight channels | `ADC128S102`, `MCP3008` |
@@ -16,7 +16,7 @@ live in.
 | a wide input range | `ADS1118` |
 
 `ADS1115` is the default for good reasons: 16 bits is enough for almost
-anything, four channels covers a small machine, and its programmable gain
+anything, four channels covers a small equipment, and its programmable gain
 amplifier handles small signals without extra parts.
 
 ### Reading 4–20 mA
@@ -50,7 +50,7 @@ signal. With an RC filter it approximates an analog voltage; without one
 it drives LEDs, heaters and servos directly.
 
 | You need | Reach for |
-|---|---|
+|:---|:---:|
 | 0–10 V for a drive | `GP8403` |
 | a clean low-voltage analog signal | `MCP4725`, `MCP4728` |
 | many channels of dimming or heating | `PCA9685` |
@@ -72,7 +72,7 @@ it drives LEDs, heaters and servos directly.
 ### Analog inputs
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `ADC128S102` | SPI | SPI 12-bit ADC, 8 single-ended channels (TI) — raw counts per channel; two frames per conversion (address, then data). addr = CS pin. |
 | `ADS1015` | I2C | I2C 12-bit ADC, 4 single-ended channels (AIN0–3 = pin 0–3, INPUTS only), address 0x48–0x4B — the faster 12-bit sibling of the ADS1115 (same registers, conversion in 12-bit steps of 16: raw keeps the ADS1115 scale). Optional key range = full scale in volts, stored as PGA code+1 like the ADS1115. |
 | `ADS1115` | I2C | I2C 16-bit ADC, 4 single-ended channels (AIN0–3 = pin 0–3, INPUTS only), address 0x48–0x4B. Optional key range = full scale in volts (6.144/4.096/2.048/1.024/0.512/0.256, default 4.096) — stored in PeriphRec.config as PGA code+1 (0 = default). The raw tag value is the i16 conversion register; engineering units come from the tag gain/offset. |
@@ -86,7 +86,7 @@ it drives LEDs, heaters and servos directly.
 ### Analog outputs
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `DAC7678` | I2C | I2C 12-bit DAC, 8 channels (OUTPUTS) — raw = (tag - offset) / gain clamped to 0..4095, written on change per channel. Address 0x48–0x4B. |
 | `GP8403` | I2C | I2C 2-channel 0–10 V DAC (DFRobot GP8403) — channels 0/1 are OUTPUTS: raw = (tag - offset) / gain, 12-bit over the range. Optional key range = 5 or 10 (V full scale, default 10) — stored in PeriphRec.config as 1 = 5 V. Address 0x58–0x5F. Verify on the bench — written from the DFRobot library, not a datasheet. |
 | `MCP4461` | I2C | I2C quad digital potentiometer — channels 0–3 = volatile wipers, raw 0..256 (OUTPUTS). Address 0x2C–0x2F. |
@@ -97,7 +97,7 @@ it drives LEDs, heaters and servos directly.
 ### PWM outputs
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `PCA9685` | I2C | I2C 16-channel 12-bit PWM — every pin is an OUTPUT, the tag value is duty in % (0–100, like the on-chip PWM service). Optional key freq_hz = PWM frequency 24–1526 Hz (default 200) — stored directly in PeriphRec.config. Address 0x40–0x7F (0x70 is the all-call address — avoid it with other chips). |
 | `TLC59208F` | I2C | I2C 8-channel 8-bit LED PWM — every channel is an OUTPUT, the tag value is duty in % (0–100). Address 0x20–0x27 (configurable wider; the check covers the common range). |
 

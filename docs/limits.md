@@ -8,10 +8,10 @@ headroom, not less.
 ## Declared limits
 
 The editor refuses a project that exceeds them **at your desk** — not as a
-stuttering panel on a machine. They are also the numbers for the datasheet.
+stuttering board in a real setup. They are also the numbers for the datasheet.
 
 | Limit | Value |
-|---|---|
+|:---|:---:|
 | Tags | 512 |
 | Alarms | 128 |
 | Screens | 32 |
@@ -30,7 +30,7 @@ The program is N AND blocks over 150 tags — every block reads two tags and
 writes one, which is the worst realistic ratio:
 
 | Blocks | Average cycle | Of a 10 ms period |
-|---|---|---|
+|:---|:---:|:---:|
 | 64 | 110 µs | 1.1 % |
 | 100 | 153 µs | 1.5 % |
 | 200 | 274 µs | 2.7 % |
@@ -46,11 +46,11 @@ In practice the **tag table** (512) runs out sooner than the blocks do.
 ## A real program, not a synthetic test
 
 | Program | ST lines | Tags | Cycle |
-|---|---|---|---|
-| half a machine | 100 | 110 | 168 µs |
-| **a whole machine** | 190 | 215 | **304 µs** |
+|:---|:---:|:---:|:---:|
+| half a setup | 100 | 110 | 168 µs |
+| **a whole equipment** | 190 | 215 | **304 µs** |
 
-"A whole machine" means: 40 analog inputs scaled and alarmed, 30 motors with
+"A whole equipment" means: 40 analog inputs scaled and alarmed, 30 motors with
 interlocks, a 40-step sequence and a positioning ramp. **3 % of a 10 ms
 cycle**, zero overruns.
 
@@ -68,9 +68,9 @@ guaranteed what the mutex was being paid for. The result, same packs, same
 board:
 
 | | before | after |
-|---|---|---|
+|:---|:---:|:---:|
 | 400 blocks | 2 660 µs | **515 µs** |
-| a whole machine | 1 319 µs | **304 µs** |
+| a whole equipment | 1 319 µs | **304 µs** |
 | 10 000 instructions (local variables) | 1 410 µs | 1 420 µs |
 
 The last row is the control sample: code that does not touch tags did not
@@ -84,11 +84,11 @@ itself:
 **logic > communication > graphics**
 
 Under overload, frames are dropped. **The cycle is never extended.** The
-display may stutter; machine control may not.
+display may stutter; equipment control may not.
 
 ## The diagnostics you can see
 
-The panel measures min/average/max cycle time and an overrun counter and
+The board measures min/average/max cycle time and an overrun counter and
 reports them to the editor. When someone writes heavy logic and the picture
 starts to stutter, they will see why — and the reports include what the
 monitoring itself costs.
@@ -96,5 +96,5 @@ monitoring itself costs.
 ---
 
 The measurements are repeatable and the numbers are not from paper — the
-panel reads them itself (min/average/max cycle). The method and the test
+board reads them itself (min/average/max cycle). The method and the test
 projects are available on request.

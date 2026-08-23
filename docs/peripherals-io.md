@@ -10,7 +10,7 @@ turns two I2C wires into sixteen digital pins, and a second expander at
 another address turns them into thirty-two.
 
 | | |
-|---|---|
+|:---|:---:|
 | the standard 16-bit expanders | `TCA9555`, `PCF8575`, `MCP23017` |
 | 8-bit, cheaper | `PCF8574`, `PCF8574A`, `PCA9554`, `MCP23008` |
 | SPI instead of I2C | `MCP23S17`, `MCP23S08` |
@@ -25,20 +25,20 @@ another address turns them into thirty-two.
 
 !!! tip "Interrupt pins save polling"
     Most expanders pull an interrupt line when an input changes. Wire it,
-    and the panel reads the expander when something happened rather than
+    and the board reads the expander when something happened rather than
     constantly — which matters when the same bus also carries sensors.
 
 ## Capacitive touch controllers
 
 `CAP1188`, `MPR121`, `TTP229` — these are **touch buttons**, not touch
-screens. They sense a finger near a copper pad behind a panel, so you can
+screens. They sense a finger near a copper pad behind a board, so you can
 build a keypad with no moving parts and no holes in the enclosure. `MPR121`
 gives twelve channels, `CAP1188` eight, `TTP229` sixteen.
 
 Ideal where the front has to be sealed and wipeable. Poor where operators
 wear thick gloves.
 
-!!! note "A panel's own touch screen is not here"
+!!! note "A board's own touch screen is not here"
     The glass on an HMI panel comes with its controller, and the board
     catalogue already knows which one is fitted. See
     [HMIview](hmiview.md) for what that means for your screens.
@@ -68,7 +68,7 @@ silent, which matters in a room with people in it.
 ### I/O expanders
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `MCP23008` | I2C | I2C expander 8 DIO — the 8-bit brother of the MCP23017, address 0x20–0x27. Inputs get the internal pull-up; the latch is written before the direction switches. |
 | `MCP23017` | I2C | I2C expander 8+8 DIO — 16 pins, address 0x20–0x27. Inputs get the internal 100 k pull-up (GPPU); outputs write the latch before the direction switches. |
 | `MCP23S08` | SPI | SPI expander 8 DIO (the MCP23008 over SPI, hardware address pins grounded). Inputs get the pull-up; latch before direction. addr = CS pin. |
@@ -86,7 +86,7 @@ silent, which matters in a room with people in it.
 ### Touch controllers
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `CAP1188` | I2C | I2C capacitive touch controller — 8 touch pads as INPUTS (bool tags). Address 0x28–0x2D. Touch buttons behind the front glass; the interrupt latch is cleared by the driver. |
 | `MPR121` | I2C | I2C capacitive touch controller — 12 pads as INPUTS (bool tags), default thresholds 12/6. Address 0x5A–0x5D. VERIFY ON THE BENCH. |
 | `TTP229` | I2C | I2C capacitive keypad (TTP229-BSF) — 16 keys as INPUTS (bool tags). Fixed address 0x57. VERIFY ON THE BENCH (the 16-key I2C mode needs the TP2 strap). |
@@ -94,14 +94,14 @@ silent, which matters in a room with people in it.
 ### Motor drivers
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `POWERSTEP01` | SPI | SPI stepper system-in-package (ramps, current, position). Used as a motion AXIS backend (AxisRec backend 1), not as a pin chip. |
 | `TMC5160` | SPI | SPI stepper motion controller + driver (Trinamic): internal ramp generator, stallGuard, 256-µstep. Used as a motion AXIS backend (AxisRec backend 2), not as a pin chip; the same driver runs the TMC5130 (IOIN version tells them apart). Motor current defaults are conservative — tune GLOBALSCALER/ IRUN on the bench (sense-resistor dependent). |
 
 ### Fan controllers
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `EMC2101` | I2C | I2C fan controller — channels: 0 = PWM duty OUTPUT (tag 0–100 %), 1 = fan RPM input, 2 = external diode temperature [°C], 3 = internal temperature [°C]. Fixed address 0x4C. Enclosure cooling with real feedback. VERIFY ON THE BENCH. |
 
 Every entry above is in the editor: pick the chip, give it

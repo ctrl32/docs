@@ -10,7 +10,7 @@ cost less than apart.
 ## Choosing
 
 | You need | Reach for |
-|---|---|
+|:---|:---:|
 | temperature and humidity, indoors | `SHT31`, `SHT40`, `SHTC3`, `AHT20`, `HDC1080` |
 | temperature, humidity **and** pressure | `BME280` — the classic three-in-one |
 | the same plus air quality | `BME680` |
@@ -49,7 +49,7 @@ Start there unless something says otherwise.
 ### Environmental sensors
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `AHT20` | I2C | I2C temperature + humidity sensor (Aosong) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Fixed address 0x38; 80 ms conversion, CRC checked. |
 | `AM2320` | I2C | I2C temperature + humidity sensor (Aosong, the wired DHT successor) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Fixed address 0x5C; wake + read command, CRC16 checked; the first transaction after sleep is a wake-up NAK by design. |
 | `BME280` | I2C | I2C environmental sensor — channels: 0 = temperature [°C], 1 = humidity [%RH], 2 = pressure [hPa]. Bosch datasheet compensation (calibration constants are read from the chip at startup). Normal mode, one sample every 250 ms. |
@@ -72,7 +72,7 @@ Start there unless something says otherwise.
 ### Water quality
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `EZO` | I2C | Atlas Scientific EZO probe circuit (pH/EC/DO/ORP/RTD...) — channel 0 = the probe value as the circuit reports it. ASCII R command with a ~900 ms conversion; one value a second. The I2C address is set per probe (default 0x61–0x67 by type). |
 
 Every entry above is in the editor: pick the chip, give it

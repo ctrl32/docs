@@ -1,11 +1,11 @@
 # WEBview
 
-Every ctrl32 panel serves its own visualisation to a browser. Type the
-panel's address into a phone, a tablet or a laptop and the machine is
+Every ctrl32 board serves its own visualisation to a browser. Type the
+board's address into a phone, a tablet or a laptop and the equipment is
 there — the same tags, the same values, live.
 
 Nothing is installed on the phone. No app, no account, no cloud. The page
-comes from the panel, over your own network.
+comes from the board, over your own network.
 
 ---
 
@@ -15,9 +15,9 @@ comes from the panel, over your own network.
 editor, from the same tags, and it uploads in the same file as
 everything else.
 
-**It is not** a picture of the panel's screen being streamed. The
-browser draws the widgets itself, from the same data the panel draws
-from. That is why it works on a machine with a weak network and no
+**It is not** a picture of the board's screen being streamed. The
+browser draws the widgets itself, from the same data the board draws
+from. That is why it works in a real setup with a weak network and no
 graphics power to spare: what crosses the wire is a handful of numbers,
 not an image.
 
@@ -29,32 +29,32 @@ mobile data it loads in a blink.
 
 ## Two screens, or one
 
-A project can carry **HMIview screens** (for the panel's own display) and
+A project can carry **HMIview screens** (for the board's own display) and
 **WEBview screens** (for the browser), and they are drawn separately for
-a simple reason: a 4.3" panel in landscape and a phone held upright are
+a simple reason: a 4.3" board in landscape and a phone held upright are
 not the same canvas.
 
 | | HMIview | WEBview |
-|---|---|---|
-| drawn for | the panel's display | a phone, tablet or laptop |
+|:---|:---|:---|
+| drawn for | the board's display | a phone, tablet or laptop |
 | typical shape | landscape, fixed size | portrait, whatever the visitor has |
-| who sees it | whoever stands at the machine | whoever has the address |
+| who sees it | whoever stands at the equipment | whoever has the address |
 
 A project with **no** WEBview screens serves the HMI screens instead — so
 a headless controller with no display still has a full visualisation, and
 you get one for free without drawing anything twice.
 
 !!! tip "Design the phone view for one job"
-    The panel screen is where somebody sets up the machine. The phone is
+    The panel screen is where somebody sets up the equipment. The phone is
     where somebody checks it from the other end of the hall. A big
     number, the state, and the two buttons that matter beats a faithful
-    copy of the panel every time.
+    copy of the board every time.
 
 ---
 
 ## How it stays cheap
 
-The panel is a small computer with a machine to run. The WEBview is
+The board is a small computer with a setup to run. The WEBview is
 built so that watching it costs almost nothing:
 
 - **The configuration is fetched once**, pre-compressed, when the page
@@ -76,60 +76,60 @@ built so that watching it costs almost nothing:
 ## Writing from the browser
 
 A button on a WEBview screen does not write into a variable directly. It
-sends a **command**, and the panel decides whether to accept it.
+sends a **command**, and the board decides whether to accept it.
 
 That distinction matters when the visitor is a phone on the works WiFi:
-the panel stays in charge of its own tags, and a page open in somebody's
-pocket cannot write whatever it likes into the machine.
+the board stays in charge of its own tags, and a page open in somebody's
+pocket cannot write whatever it likes into the equipment.
 
 ---
 
 ## How many people can watch
 
 | Board | Viewers |
-|---|---|
+|:---|:---:|
 | ESP32-S3 | 2–3 comfortably |
 | STM32F7 | 1 |
 
 A viewer beyond the limit is refused; the page retries and gets in when
 somebody else closes theirs.
 
-These numbers are small on purpose. Each viewer costs RAM the machine
+These numbers are small on purpose. Each viewer costs RAM the equipment
 needs for its own work, and ctrl32's rule is **logic before
 communication before graphics**: under load, a frame is dropped, never a
 cycle.
 
-!!! danger "Do not put a panel on the internet"
-    There is no TLS. On the S3 it would eat the RAM the machine needs,
+!!! danger "Do not put a board on the internet"
+    There is no TLS. On the S3 it would eat the RAM the setup needs,
     and a certificate on an industrial device nobody maintains is worse
     than none.
 
-    A panel belongs on the machine's own network. If somebody needs to
+    A board belongs on its own network. If somebody needs to
     see it from outside, that is a VPN's job — not a port forward.
 
 ---
 
 ## Getting to it
 
-Once the panel is on the network, open its address in a browser. The boot
+Once the board is on the network, open its address in a browser. The boot
 log prints both the IP address and an `.local` name, so you rarely have
 to remember the number.
 
-A panel with WiFi can also make **its own access point** — no
-infrastructure at all, the phone connects to the panel directly. That is
-often the fastest way to commission a machine standing in a hall where
+A board with WiFi can also make **its own access point** — no
+infrastructure at all, the phone connects to the board directly. That is
+often the fastest way to commission a setup standing in a hall where
 the network does not reach yet.
 
 ---
 
 ## Uploading over the network
 
-The same connection carries new screens. Once a panel is reachable, the
-editor uploads to it directly — no cable, no walk to the machine.
+The same connection carries new screens. Once a board is reachable, the
+editor uploads to it directly — no cable, no walk to the equipment.
 
 The upload goes into the **inactive slot**, the checksum is verified, and
-only then does the panel switch over. If anything goes wrong, the old
-version keeps running. See [Download to the panel](deploy.md).
+only then does the board switch over. If anything goes wrong, the old
+version keeps running. See [Download to the board](deploy.md).
 
 A project can switch that off (`network: { upload: false }`) for an
 installation where nobody should be able to change the screens from a
@@ -140,8 +140,8 @@ laptop on the same network.
 ## What the browser does not do
 
 The WEBview draws screens and exchanges values. It does not run your
-logic — that runs on the panel, in the PLC cycle, whether anybody is
+logic — that runs on the board, in the PLC cycle, whether anybody is
 watching or not.
 
-Close the browser and the machine carries on exactly as before. That is
+Close the browser and it carries on exactly as before. That is
 the whole point: the visualisation is a window, never a dependency.

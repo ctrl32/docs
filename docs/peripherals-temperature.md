@@ -8,7 +8,7 @@ fridge.
 ## Choosing
 
 | You are measuring | Reach for |
-|---|---|
+|:---|:---|
 | room, cabinet, comfort range | an **I2C sensor** — `TMP102`, `LM75B`, `MCP9808` |
 | something that must be accurate | `TMP117` (±0.1 °C) or `MCP9808` (±0.25 °C) |
 | a furnace, a flue, a mould | a **thermocouple** — `MAX31855`, `MAX31856`, `MCP9600` |
@@ -44,7 +44,7 @@ extra wiring comes with them.
 ### Temperature sensors
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `LM75B` | I2C | I2C temperature sensor (industry classic) — channel 0 = temperature [°C], 11-bit 0.125 °C resolution, address 0x48–0x4F. Collides with TMP102 addresses — packbuild watches the bus. |
 | `MCP9808` | I2C | I2C precision temperature sensor ±0.25 °C — channel 0 = temperature [°C], 0.0625 °C resolution, address 0x18–0x1F. |
 | `MLX90614` | I2C | I2C infrared thermometer (SMBus) — channels: 0 = object temperature [°C] (non-contact), 1 = ambient [°C]. Fixed address 0x5A. Bearings, contacts, moving parts. |
@@ -57,7 +57,7 @@ extra wiring comes with them.
 ### Thermocouple / RTD
 
 | Chip | Bus | What it is |
-|---|---|---|
+|:---|:---:|:---|
 | `KMETERISO` | I2C | I2C isolated K-thermocouple module (M5Stack KMeterISO) — channel 0 = temperature [°C]. Fixed address 0x66. VERIFY ON THE BENCH. |
 | `MAX31855` | SPI | SPI K-thermocouple converter — channels: 0 = thermocouple [°C] (0.25 °C steps), 1 = cold junction [°C]. Fault bits (open/short) drop the sample and log a diag entry. addr = CS pin. |
 | `MAX31856` | SPI | SPI precision thermocouple converter (K type configured) — channels: 0 = thermocouple [°C] (19-bit, 0.0078 °C), 1 = cold junction [°C]. Fault register checked. addr = CS pin. |

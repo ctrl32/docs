@@ -6,22 +6,22 @@ nothing else.
 
 !!! success "What this means for you"
     Nothing here obliges you to publish your project, your logic or your
-    screens. You may sell machines with a ctrl32 panel on them, keep your
+    screens. You may sell projects with a ctrl32 board on them, keep your
     know-how to yourself, and you owe no fees to anyone on this page. The
     only obligation is ours: to keep the notices, which is what this page
     does.
 
-## In the panel
+## In the board
 
-Everything that runs on the machine.
+Everything that runs on the equipment.
 
 | Component | Licence | What it does |
-|---|---|---|
-| ESP-IDF | Apache 2.0 | the operating system on ESP32 panels |
+|:---|:---:|:---|
+| ESP-IDF | Apache 2.0 | the operating system on ESP32 boards |
 | FreeRTOS | MIT | task scheduling — the PLC cycle runs as one of them |
 | LovyanGFX | BSD 2-clause | the rasteriser that draws the screens |
 | lwIP | BSD 3-clause | the network stack (ethernet, WEBview, Modbus TCP) |
-| STM32Cube HAL | BSD 3-clause | the hardware layer on STM32 panels |
+| STM32Cube HAL | BSD 3-clause | the hardware layer on STM32 boards |
 | cJSON | MIT | reads the small pieces of JSON the WEBview exchanges |
 
 !!! note "The CANopen master is ours"
@@ -31,17 +31,17 @@ Everything that runs on the machine.
 
 ## In the editor
 
-Everything that runs on your PC. None of it reaches the machine.
+Everything that runs on your PC. None of it reaches the equipment.
 
 | Component | Licence | What it does |
-|---|---|---|
+|:---|:---:|:---|
 | Dear ImGui | MIT | the editor's user interface |
 | SDL2 | zlib | window, input and the canvas the screens are drawn into |
-| esp-serial-flasher | Apache 2.0 | writes the runtime to ESP32 panels |
+| esp-serial-flasher | Apache 2.0 | writes the runtime to ESP32 boards |
 | tree-sitter | MIT | parses Structured Text while you type |
 | tree-sitter-iec61131-3-st | MIT | the IEC 61131-3 grammar for the above |
 | yaml-cpp | MIT | reads and writes project files |
-| stb_truetype | public domain | turns fonts into what the panel displays |
+| stb_truetype | public domain | turns fonts into what the board displays |
 | zlib | zlib | compresses the WEBview files |
 | TweetNaCl | public domain | verifies licence signatures offline |
 
@@ -54,8 +54,8 @@ it stays under 20 kB compressed.
 ## Fonts
 
 | Font | Licence | Used for |
-|---|---|---|
-| Noto Sans | SIL OFL 1.1 | the editor interface and panel text |
+|:---|:---:|:---|
+| Noto Sans | SIL OFL 1.1 | the editor interface and board text |
 | DejaVu Sans Mono | permissive (Bitstream Vera / DejaVu) | code and declarations |
 | Tabler Icons | MIT | the icon set available to your screens |
 
@@ -65,15 +65,15 @@ All three may be redistributed with a commercial product.
     Graphics libraries often bundle fonts under mixed licences. ctrl32 ships
     only the three above, deliberately. If you add a font of your own to a
     project, its licence is yours to check — the editor bakes it into the
-    pack and it travels to the panel with everything else.
+    pack and it travels to the board with everything else.
 
 ## What is deliberately not here
 
 The obvious way to write firmware from a desktop application is to bundle
 **esptool**, which is GPL-2.0. Shipping it would place obligations on the
 whole product — the very thing this page exists to rule out. ctrl32 uses
-Espressif's **esp-serial-flasher** (Apache 2.0) for ESP32 panels and its
-own ST-LINK client for STM32 panels, so no GPL component is distributed
+Espressif's **esp-serial-flasher** (Apache 2.0) for ESP32 boards and its
+own ST-LINK client for STM32 boards, so no GPL component is distributed
 with the editor or the runtime.
 
 ## Full licence texts
@@ -83,6 +83,13 @@ The complete texts are installed with the editor:
 ```
 C:\Program Files\ctrl32\licenses\third-party-licenses.txt
 ```
+
+One file, every component, each notice reproduced verbatim, with a summary
+table at the top saying which licence each part is under and whether it runs
+in the board or in the editor. The file is generated from the build, and the
+release refuses to produce an installer when any component's text is missing
+— a licence file with a gap in it is worse than none, because it looks
+complete.
 
 !!! note "This page is not legal advice"
     It describes what ctrl32 contains and under what terms those parts were

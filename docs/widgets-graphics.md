@@ -7,7 +7,7 @@ Three widgets that draw pictures: an image, an icon and the ctrl32 mark.
 ## `icon`
 
 | Property | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---|
 | `src` | icon | which glyph |
 | `color` | colour | how it is drawn |
 | `tag` | variable | switches between the two states below |
@@ -27,7 +27,7 @@ colour when it runs, a valve that shows open and shut, a lock that
 locks — one widget, no hidden twin, nothing to keep in step.
 
 !!! tip "Icons are drawn identically everywhere"
-    The panel, the editor canvas and the browser all fill the same
+    The board, the editor canvas and the browser all fill the same
     outlines, so what you place is what appears — including in a
     screenshot somebody sends you from the field.
 
@@ -36,7 +36,7 @@ locks — one widget, no hidden twin, nothing to keep in step.
 ## `image`
 
 | Property | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `src` | image | which picture |
 | `tint` | colour | recolour it |
 
@@ -45,7 +45,7 @@ the thing being controlled.
 
 **An image is a picture, and pictures are large.** It is baked into the
 project file at the size it is shown, so a full-screen photograph is a
-serious part of the upload and of the panel's flash. Check what it costs
+serious part of the upload and of the board's flash. Check what it costs
 before deciding a screen needs one.
 
 Use images for what only a picture can say — a diagram with the sensors
@@ -62,7 +62,7 @@ marked on it, a photograph of the part being handled. For symbols, an
 ## `logo`
 
 | Property | Type | Meaning |
-|---|---|---|
+|:---|:---:|:---:|
 | `color` | colour | how it is drawn |
 
 The ctrl32 mark, drawn as vectors — sharp at any size, one colour.
