@@ -7,3 +7,5 @@ program running, so a download cannot brick a board.
 
 - [Download to the board](deploy.md) — USB and network transfer, the
   dual-slot dance, what is verified and when the runtime must be flashed
+- [Network and security](security.md) — where a board belongs on a
+  network, and what to switch off before leaving one running

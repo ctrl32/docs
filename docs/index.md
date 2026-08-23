@@ -87,13 +87,14 @@ And it is not a certified product. See [Intended use](intended-use.md).
 
     [Intended use](intended-use.md)
 
--   **How you work in it**
+-   **Build one yourself**
 
     ---
 
-    Editor layout, project tree, screens, variables, POUs.
+    An empty file to something running, in half an hour. No hardware
+    needed until the last step.
 
-    [Editor](editor.md)
+    [Your first project](tutorial.md)
 
 -   **When something does not work**
 
