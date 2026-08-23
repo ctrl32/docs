@@ -79,7 +79,7 @@ about when:
 - **only when the values actually changed**.
 
 So the cycle never touches SDO while the machine is moving. This is the
-block that lets ACC and DEC be adjustable from a [WEBview](webview.md)
+block that lets ACC and DEC be adjustable from a WEBview
 screen without the adjustment being able to disturb a running axis.
 
 ---
