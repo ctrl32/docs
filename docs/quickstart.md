@@ -23,15 +23,19 @@ Run the installer `ctrl32-setup-<version>.exe`. It installs:
 
 ## 2. Open a sample project
 
-*File → Open* and pick something from `examples\`. Good places to start:
+*File → Open* and pick something. There are two folders, and the
+difference is size: `tutorials\` holds one idea per project, `examples\`
+holds whole working projects. Good places to start:
 
-- `ladder_sealin.yaml` — the classic seal-in circuit with a TON, a counter
-  and a latch; the rungs come with the comments under the variables,
-- `tubex_panel.yaml` — a real board with Ethernet, a Modbus slave and
-  NeoPixel LEDs,
-- `machine_blocks.yaml` — motors, valves, PID and hysteresis,
-- `time_setpoint.yaml` — a TIME setpoint the operator types on the screen,
-  driving a timer's PT.
+- `tutorials\ladder_sealin.yaml` — the classic seal-in circuit: a start
+  button that latches through the contact it energised,
+- `tutorials\time_setpoint.yaml` — a TIME setpoint the operator types on
+  the screen, driving a timer's PT,
+- `examples\tm8_6_proofer.yaml` — a three-zone proofing cabinet: PT100
+  probes, SSR heaters, hysteresis instead of on/off chatter, and the
+  whole operator interface in WEBview,
+- `examples\tubex_panel.yaml` — a real board with Ethernet, a Modbus
+  slave and NeoPixel LEDs.
 
 ![The seal-in example open in the ladder editor](img/quickstart-sealin.webp)
 

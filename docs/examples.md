@@ -73,7 +73,7 @@ flow.
 
 ![The ST editor with syntax highlighting and "compiles clean" in the status bar](img/editor-st.png)
 
-For anything a diagram makes clumsy: loops, state machines, a long
+For anything a diagram makes clumsy: loops, step sequences, a long
 calculation. It compiles as you type, and the same block library is
 callable from it.
 
