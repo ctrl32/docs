@@ -44,6 +44,11 @@ A project with **no** WEBview screens serves the HMI screens instead — so
 a headless controller with no display still has a full visualisation, and
 you get one for free without drawing anything twice.
 
+The choice is explicit in the editor: the WEBview page asks what the
+browser shows — *the display screens* or *its own web screens* — and
+picking its own creates the first web screen and opens it on the canvas.
+Switching back asks before deleting anything you drew.
+
 !!! tip "Design the phone view for one job"
     The panel screen is where somebody sets up the equipment. The phone is
     where somebody checks it from the other end of the hall. A big
@@ -134,6 +139,20 @@ version keeps running. See [Download to the board](deploy.md).
 A project can switch that off (`network: { upload: false }`) for an
 installation where nobody should be able to change the screens from a
 laptop on the same network.
+
+---
+
+## Turning it off entirely
+
+A board that reports to a SCADA over Modbus TCP or MQTT may not need a
+browser page at all. The WEBview page in the editor has a switch for
+that: with **WEBview off** the board never starts its HTTP/WS server —
+no pages, no captive portal, no network upload — and the memory the
+server would take stays free for the program.
+
+Everything else is untouched: the network still comes up, Modbus TCP,
+MQTT and time sync keep running, and uploading over USB always works.
+Turn the switch back on and upload, and the pages are back.
 
 ---
 
