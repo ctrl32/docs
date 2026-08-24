@@ -68,6 +68,30 @@ The alarm state wins over true/false, and it has two sources:
 
 ---
 
+## Showing and hiding: `visible_if`
+
+Sometimes recolouring is not enough — a control should not be on the
+screen at all. Any widget may carry `visible_if:` with a boolean
+variable: while the variable is false the widget does not draw
+**and does not take touch**, which is the point — an invisible
+switch that still switches would be worse than a visible one.
+
+```yaml
+- { type: switch, rect: [20, 142, 64, 28], tag: cmd_a, style: sw,
+    visible_if: mode_man }
+- { type: label, rect: [20, 146, 80, 20], text: "AUTO",
+    style: auto, visible_if: nman_p }
+```
+
+That pair is the canonical use: in manual mode the switch exists, in
+automatic a badge stands in its place — and nobody flips a heater
+that is not there. The browser evaluates the same records, so the
+phone shows and hides exactly with the glass. `visible_if` and
+`state:` cannot share one widget; the [Hot tank](three-zone-thermostat.md)
+shows the pattern at full scale.
+
+---
+
 ## Motion: a widget that travels
 
 `move:` makes a widget walk a straight path as a value sweeps a range:
