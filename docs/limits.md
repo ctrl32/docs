@@ -20,7 +20,7 @@ stuttering board in a real setup. They are also the numbers for the datasheet.
 | Compiled program | 32 kB |
 | Instance data | 8 kB |
 | Trend curves (per chart) | 4 |
-| Trend curves (whole project) | 8 |
+| Trend curves (whole project) | 8 (classic ESP32: 4) |
 | WEBview clients (ESP32; STM32F7: 1) | 2 |
 | Axes (drives) | 4 |
 | PLC tasks | 2 (fast + slow) |
