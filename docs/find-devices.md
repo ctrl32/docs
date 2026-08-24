@@ -9,6 +9,16 @@ Open it with the :ti-eyeglass: button next to the port picker, or
 *Online → Find devices…*. Every open starts a **fresh sweep** — a
 board unplugged since the last look is not still sitting in the list.
 
+![The scanner over a full bench: five boards on COM ports and four answering from the network, each with its program name and version](img/find-devices-scan.png)
+
+That is a real bench mid-scan: nine rows from seven boards — the
+networked ones answer twice, once per way of reaching them. Every
+question the dialog exists to answer is on it somewhere: *which
+port is the Discovery board?* (COM10), *which of the identical
+inoCORE boards runs the Modbus slave?* (the **Program** column),
+*which boards still run last week's firmware?* (the orange
+versions), *what address did the WiFi board get?* (192.168.0.233).
+
 ---
 
 ## What a sweep does

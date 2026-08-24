@@ -3,6 +3,12 @@
 Eleven small projects, each about **one idea**. Open one, read it whole
 in a minute, and you know the thing it teaches.
 
+When the single ideas are familiar, there is one **worked project**
+that puts them together across two real boards:
+[Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
+measuring temperatures, an ethernet master displaying and commanding
+them, and the same interlock written in all three languages.
+
 They are deliberately not impressive. A project that demonstrates six
 features at once teaches none of them, because you cannot tell which
 part is doing what.

@@ -1,5 +1,12 @@
 # Modbus in ctrl32
 
+!!! tip "New to Modbus itself?"
+    Registers, function codes, why `40001` and address 0 are the same
+    thing — the protocol has its own page:
+    [What Modbus is](modbus-basics.md). This page is the
+    configuration reference, and a complete two-board worked example
+    is [Two boards over Modbus](tutorial-modbus-pair.md).
+
 The board is a Modbus **master** — it cyclically reads (and writes) the
 registers of the connected devices into the variable table. Two transports
 are supported, both at the same time:

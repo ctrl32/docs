@@ -62,7 +62,9 @@ nav:
   - Quick start: quickstart.md
   - Your first project: tutorial.md
   - Supported hardware: hardware.md
-  - Tutorial projects: tutorials.md
+  - Tutorial projects:
+      - Tutorial projects: tutorials.md
+      - Two boards over Modbus: tutorial-modbus-pair.md
   - Examples:
       - Examples: examples.md
       - Thermostat (Olimex EVB): example-thermostat.md
@@ -105,6 +107,7 @@ nav:
       - Services: blocks-services.md
   - Buses and peripherals:
       - Buses and peripherals: buses.md
+      - What Modbus is: modbus-basics.md
       - Modbus: modbus.md
       - Raw CAN: rawcan.md
       - MQTT: mqtt.md
