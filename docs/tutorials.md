@@ -15,6 +15,12 @@ together across two real boards:
   production, router-less WiFi, per-zone thermostats, AUTO/MANUAL, a
   code-protected settings page, link protection, an MQTT uplink to a
   SCADA and a full technical manual with measured load figures.
+- [Thermostat fed by Home Assistant](tutorial-ha-thermostat.md) — the
+  EVB and its glass heat by a Zigbee sensor read through HA, with a
+  ladder watchdog deciding how much to trust the network.
+- [Lights from the glass](tutorial-ha-lights.md) — the F7 Discovery
+  switches and dims real Zigbee lights through HA, with the ACTUAL
+  states reported back to the lamps beside the switches.
 
 They are deliberately not impressive. A project that demonstrates six
 features at once teaches none of them, because you cannot tell which
