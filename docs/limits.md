@@ -10,20 +10,25 @@ headroom, not less.
 The editor refuses a project that exceeds them **at your desk** — not as a
 stuttering board in a real setup. They are also the numbers for the datasheet.
 
-| Limit | Value |
-|:---|:---:|
-| Variables | 512 |
-| Alarms | 128 |
-| Screens | 32 |
-| Widgets per screen | 64 |
-| LD/FBD blocks | 512 |
-| Compiled program | 32 kB |
-| Instance data | 8 kB |
-| Trend curves (per chart) | 4 |
-| Trend curves (whole project) | 8 (classic ESP32: 4) |
-| WEBview clients (ESP32; STM32F7: 1) | 2 |
-| Axes (drives) | 4 |
-| PLC tasks | 2 (fast + slow) |
+Every board is one of **two types**: with a display, or headless. A
+board with glass spends its RAM on rendering; a headless board spends
+the same RAM on a bigger program. You pick the type by picking the
+board — nothing to configure.
+
+| Limit | With display | Headless |
+|:---|:---:|:---:|
+| Variables | 512 | 512 |
+| Alarms | 128 | 128 |
+| Screens | 32 | 32 (WEBview) |
+| Widgets per screen | 64 | 64 |
+| LD/FBD blocks | 512 | **1024** |
+| Compiled program | 32 kB | **64 kB** |
+| Instance data | 8 kB | **24 kB** |
+| Trend curves (per chart) | 4 | 4 |
+| Trend curves (whole project) | 8 (classic ESP32: 4) | 8 (classic ESP32: 4) |
+| WEBview clients (ESP32; STM32F7: 1) | 2 | 2 |
+| Axes (drives) | 4 | 4 |
+| PLC tasks | 2 (fast + slow) | 2 (fast + slow) |
 
 ## How many blocks really fit
 
@@ -38,7 +43,8 @@ writes one, which is the worst realistic ratio:
 | **400** | **515 µs** | **5.2 %** |
 
 400 blocks run on the weakest board we ship with a cycle that is 95 %
-idle. The declared limit of 512 is not a performance boundary but a
+idle; 600 blocks measure 641 µs on a headless classic board — the
+1024-block headless limit extrapolates to ~1.1 ms, 11 % of the cycle. The declared limit of 512 is not a performance boundary but a
 program-size budget: a simple block costs ~10 B of the compiled
 program, so 512 blocks take 16 % of the 32 kB.
 
