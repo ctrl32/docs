@@ -10,10 +10,11 @@ together across two real boards:
   measuring temperatures, an ethernet master displaying and
   commanding them, and the same interlock written in all three
   languages.
-- [Three-zone thermostat](three-zone-thermostat.md) — the complete
-  system that grows out of it: router-less WiFi, per-zone
-  thermostats, AUTO/MANUAL, a code-protected settings page, link
-  protection and a full technical manual of every screen and state.
+- [Hot tank](three-zone-thermostat.md) — the complete system that
+  grows out of it: a three-zone heated bath from cosmetics
+  production, router-less WiFi, per-zone thermostats, AUTO/MANUAL, a
+  code-protected settings page, link protection, an MQTT uplink to a
+  SCADA and a full technical manual with measured load figures.
 
 They are deliberately not impressive. A project that demonstrates six
 features at once teaches none of them, because you cannot tell which

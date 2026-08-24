@@ -1,19 +1,28 @@
-# Three-zone thermostat
+# Hot tank
 
-A complete, working temperature-control system on two boards: an
-inoCORE32-TM8.6 measuring three PT100 probes and switching three SSR
-heater outputs, and a stepHMI32.4 touch panel operating it. The two
-find each other over their own WiFi — no router, no infrastructure —
-and everything an operator or an integrator needs to know about the
-result is on this page: every screen, every state, every mode, every
-setting and every protection.
+A complete, working control system for a **hot tank in cosmetics
+production** — a three-zone heated bath of the kind that keeps
+creams, emulsions and oils at their working temperature. One board
+sits at the tank: it measures three PT100 probes, one per heating
+zone, and switches three SSR heater outputs. A touch panel operates
+it, a phone mirrors it, and an MQTT uplink reports the whole tank to
+a SCADA anywhere in the world. The two boards find each other over
+their own WiFi — no router, no plant infrastructure required — and
+everything an operator or an integrator needs to know is on this
+page: every screen, every state, every mode, every setting, every
+protection and the measured cost of all of it.
 
 The projects are installed with the editor in `examples\wifi_pair`:
 
-| | Board | Role | Project file |
-|:---|:---|:---|:---|
-| **At the process** | inoCORE32-TM8.6 | measures, regulates, owns the heaters, raises the WiFi | `tm8_6_wifi_zones.yaml` |
-| **At the operator** | stepHMI32.4 | displays, commands, holds the settings pages | `stephmi_wifi_panel.yaml` |
+| | inoCORE32-TM8.6 — at the tank | stepHMI32.4 — at the operator |
+|:---|:---|:---|
+| Role | measures, regulates, owns the heaters, raises the WiFi, reports to SCADA | displays, commands, holds the settings pages |
+| Processor | ESP32-PICO-V3-02, 2× 240 MHz | ESP32-S3, 2× 240 MHz |
+| Memory | 8 MB flash, 2 MB PSRAM | 16 MB flash, 8 MB PSRAM |
+| Display | none — WEBview to a phone | 4,3" 480×272, SSD1963, capacitive touch |
+| Process I/O | 3× MAX31865 (PT100), 3× SSR 240 V/16 A | — |
+| Buses | WiFi (AP + uplink), CAN, RS485, SPI | WiFi, CAN, RS485 |
+| Project file | `tm8_6_wifi_zones.yaml` | `stephmi_wifi_panel.yaml` |
 
 !!! note "The design rule underneath everything"
     The zone board **owns its outputs**. The panel asks — a setpoint,
@@ -32,6 +41,12 @@ always **192.168.4.1**, which is why the process board hosts: the
 address the panel polls can never go stale. Over that link runs
 Modbus TCP — the panel reads the temperatures and states ten times a
 second and writes settings and commands the moment they change.
+
+The zone board's radio wears two hats at once (`mode: apsta`): the
+same chip that hosts the pair's private network also joins the plant
+WiFi as a station. That uplink carries the [MQTT reporting](#scada-over-mqtt)
+— and nothing else depends on it: unplug the plant network and the
+tank, the panel and every protection keep running exactly as before.
 
 Two heartbeats ride along:
 
@@ -322,6 +337,59 @@ it within a second.
 
 ---
 
+## SCADA over MQTT
+
+The tank reports itself to the outside world over MQTT — the uplink
+half of the zone board's radio carries it. Twenty variables publish
+under `ctrl32/hottank/` as plain per-variable topics, at most once a
+second and **only when a value changed**:
+
+| Topics | Content |
+|:---|:---|
+| `temp_a/b/c` | the three zone temperatures |
+| `sp_a/b/c` | the setpoints (writable) |
+| `mode_man`, `cmd_a/b/c` | the mode and the manual commands (writable) |
+| `heat_a/b/c` | the REAL heater states |
+| `trip_hi_*`, `trip_lo_*` | the alarm trips |
+| `link_ok` | the panel link |
+| `status` | `online`, and a broker-kept last will when the board drops |
+
+A SCADA writes by publishing to `<topic>/set` — for example `20` to
+`ctrl32/hottank/sp_a/set`. The same rule as everywhere else in this
+system: **the write flag in the project is the permission**, a
+command on anything not marked writable is refused, and the board
+republishes the accepted value so the SCADA sees what actually
+happened, not what it asked for.
+
+!!! warning "The bench ran a public broker on purpose"
+    This page's measurements were taken against a public internet
+    broker, precisely to see the behaviour with a SCADA "half a
+    world away". A production site keeps the broker on its own
+    network — the MQTT credentials travel in plain text and the
+    board does not belong on the open internet.
+    See [MQTT telemetry](mqtt.md).
+
+### The measured cost
+
+Every number below is the board's own diagnostic line (`cycle` =
+the 10 ms control cycle: current / min / max in µs), captured on the
+running tank:
+
+| State | Cycle (µs) | Overruns | Heap low mark |
+|:---|:---:|:---:|:---:|
+| pair only — no uplink, no MQTT | 93 / 77 / 164 | 0 | 2 120 kB |
+| + WiFi uplink + MQTT connected, quiet | 109 / 77 / 449 | 0 | 2 102 kB |
+| + SCADA load: 4 writes/s + full echo, 60 s (240 commands, 341 messages) | 108 / 77 / 449 | 0 | 2 102 kB |
+
+Reading it: the uplink and the broker connection cost ~16 µs of an
+average cycle (0.16 % of the period) and ~18 kB of memory, once. The
+SCADA hammering the tank with commands cost **nothing measurable**
+— the communication runs beside the control, never inside it, and
+the cycle never overran. The panel's numbers did not move at all
+(38 / 19 / 60 µs throughout). This is the degradation rule
+(*logic > communication > graphics*) holding under a deliberate
+stress, measured rather than promised.
+
 ## Power loss and restarts
 
 | What | Survives a zone-board power cut? |
@@ -416,6 +484,7 @@ panel again.
 | | |
 |:---|:---|
 | [Two boards over Modbus](tutorial-modbus-pair.md) | the same pair's simpler ancestor, over the plant network |
+| [MQTT telemetry](mqtt.md) | the mechanics behind the SCADA chapter |
 | [What Modbus is](modbus-basics.md) | the protocol behind the register map |
 | [States and motion](states-motion.md) | the mechanism behind the banner and the mode-dependent switches |
 | [Finding your boards](find-devices.md) | locating both halves from the editor |
