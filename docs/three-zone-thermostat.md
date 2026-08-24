@@ -201,11 +201,16 @@ sanely again.
 
 ### The access code
 
-![The access-code page: the code field and the page bar, with no way in](img/thermostat-login.png)
+![The access-code page: the code field on the left, the phone connection details on the right](img/thermostat-login.png)
 
-The Setup button leads here, never straight to the settings. The
-operator types the access code — the keypad opens on touch — and
-**only the right code makes the way in appear**:
+The Setup button leads here, never straight to the settings — and
+the page doubles as the **connection notice**: the *Phone access*
+card spells out the pair's WiFi name and password and both
+addresses, because the person standing at the panel is exactly the
+one who wants to join with a phone.
+
+The operator types the access code — the keypad opens on touch —
+and **only the right code makes the way in appear**:
 
 ![The access-code page after the right code: the Open settings button has appeared](img/thermostat-login-open.png)
 
@@ -245,14 +250,17 @@ is not worn out by a spinning knob).
 ## The phone view
 
 Both boards serve a WEBview over the pair's own network. Join the
-WiFi `ctrl32-zones` with a phone and open:
+WiFi **`ctrl32-zones`** (password as delivered: **`zones2026`** —
+both are printed on the panel's access-code page, and both change in
+the project files) and open:
 
 - **192.168.4.1** — the zone board: the three temperatures, the real
   output states and the alarm table, with a Link lamp blinking with
   the *panel's* heartbeat. This view works even when the panel is
   down — which is precisely when it is most useful.
-- the panel's address (the device scanner shows it, see
-  [Finding your boards](find-devices.md)) — the panel's **full
+- **192.168.4.2** — the panel (as the network's first client it
+  takes the first lease; the access-code page prints it, and the
+  [device scanner](find-devices.md) confirms it): the panel's **full
   visualization, laid out for a phone**. This is not a summary of
   the glass; it is the same five pages, described below.
 
