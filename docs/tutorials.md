@@ -3,11 +3,17 @@
 Eleven small projects, each about **one idea**. Open one, read it whole
 in a minute, and you know the thing it teaches.
 
-When the single ideas are familiar, there is one **worked project**
-that puts them together across two real boards:
-[Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
-measuring temperatures, an ethernet master displaying and commanding
-them, and the same interlock written in all three languages.
+When the single ideas are familiar, two **worked projects** put them
+together across two real boards:
+
+- [Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
+  measuring temperatures, an ethernet master displaying and
+  commanding them, and the same interlock written in all three
+  languages.
+- [Three-zone thermostat](three-zone-thermostat.md) — the complete
+  system that grows out of it: router-less WiFi, per-zone
+  thermostats, AUTO/MANUAL, a code-protected settings page, link
+  protection and a full technical manual of every screen and state.
 
 They are deliberately not impressive. A project that demonstrates six
 features at once teaches none of them, because you cannot tell which

@@ -261,5 +261,6 @@ the master's switch flips.
 |:---|:---|
 | [What Modbus is](modbus-basics.md) | the protocol behind this page |
 | [Modbus](modbus.md) | the full configuration reference — catalog, limits, RTU |
+| [Three-zone thermostat](three-zone-thermostat.md) | where this pair grows into a complete regulated system |
 | [Finding your boards](find-devices.md) | the scanner used in step 2 |
 | [States and motion](states-motion.md) | making those zone cards move |

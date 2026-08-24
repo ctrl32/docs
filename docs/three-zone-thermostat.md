@@ -1,0 +1,360 @@
+# Three-zone thermostat
+
+A complete, working temperature-control system on two boards: an
+inoCORE32-TM8.6 measuring three PT100 probes and switching three SSR
+heater outputs, and a stepHMI32.4 touch panel operating it. The two
+find each other over their own WiFi — no router, no infrastructure —
+and everything an operator or an integrator needs to know about the
+result is on this page: every screen, every state, every mode, every
+setting and every protection.
+
+The projects are installed with the editor in `examples\wifi_pair`:
+
+| | Board | Role | Project file |
+|:---|:---|:---|:---|
+| **At the process** | inoCORE32-TM8.6 | measures, regulates, owns the heaters, raises the WiFi | `tm8_6_wifi_zones.yaml` |
+| **At the operator** | stepHMI32.4 | displays, commands, holds the settings pages | `stephmi_wifi_panel.yaml` |
+
+!!! note "The design rule underneath everything"
+    The zone board **owns its outputs**. The panel asks — a setpoint,
+    a manual command, a mode — and the zone board decides, with its
+    own interlocks, its own thermostat and its own link watchdog. If
+    the panel disappears, the process side fails to a safe state on
+    its own. Every behaviour described below follows from this split.
+
+---
+
+## How the two boards talk
+
+The zone board raises its own access point (`ctrl32-zones`), and the
+panel joins it as a station. The AP side of an ESP32 network is
+always **192.168.4.1**, which is why the process board hosts: the
+address the panel polls can never go stale. Over that link runs
+Modbus TCP — the panel reads the temperatures and states ten times a
+second and writes settings and commands the moment they change.
+
+Two heartbeats ride along:
+
+- the zone board blinks `beat` twice a second — the panel's **Link
+  lamp** shows it directly. A blinking lamp *is* the proof that data
+  is flowing; a frozen lamp says it is not. No extra logic is
+  involved, staleness shows itself.
+- the panel blinks `panel_beat` back. On the zone board every edge
+  of that blink retriggers a 3-second watchdog — **three seconds of
+  silence and every heater drops**, whatever the last command said.
+  Commands, mode and settings survive the outage, so normal
+  operation resumes by itself when the panel returns.
+
+---
+
+## The five thermostat variables
+
+One zone's thermostat is five whole-degree variables. Everything
+except the setpoint is an **offset from it** — change the setpoint
+and the whole ladder of lines moves with it:
+
+| Variable | Meaning | Default |
+|:---|:---|:---:|
+| **Setpoint** | the temperature the zone should hold | 20 °C |
+| **Band +** | heat switches OFF at *setpoint + Band+* | 5 |
+| **Band −** | heat switches ON at *setpoint − Band−* | 5 |
+| **Alarm +** | high alarm at *setpoint + Alarm+* | 20 |
+| **Alarm −** | low alarm at *setpoint − Alarm−* | 10 |
+
+With the defaults and a setpoint of 20 °C, the ladder for a zone
+reads:
+
+| Line | Where | What happens there |
+|:---:|:---:|:---|
+| 40 °C | setpoint + 20 | **high alarm** — the control has failed upward |
+| 25 °C | setpoint + 5 | heat OFF — top of the control band |
+| **20 °C** | setpoint | the set temperature |
+| 15 °C | setpoint − 5 | heat ON — bottom of the control band |
+| 10 °C | setpoint − 10 | **low alarm** — the control has failed downward |
+
+The temperature therefore cycles between 15 and 25 °C in normal
+automatic operation, and the alarm lines sit deliberately **outside**
+that band: an alarm never fires because the control is cycling, only
+because it has genuinely lost the zone.
+
+All fifteen variables (five per zone) are set on the panel's
+protected Settings page; the setpoint alone is also editable right on
+the Home page, because it is the everyday knob. The zone board
+**persists all of them** — a power cut changes nothing.
+
+---
+
+## Operating modes
+
+The system has one global mode, switched on the protected Settings
+page and remembered across power cuts.
+
+### AUTO
+
+Each zone runs an independent on/off thermostat across its band:
+the heater switches ON when the temperature falls under
+*setpoint − Band−* and OFF when it rises over *setpoint + Band+*.
+One comparator with hysteresis per zone is the whole controller —
+there is nothing to tune, the band *is* the behaviour. The Home
+cards show **AUTO** where the manual switches would be.
+
+### MANUAL
+
+The operator drives the heaters directly: toggle switches appear on
+the Home cards and each one commands its zone's output. This mode
+exists for commissioning and service, and that is exactly why the
+switches are **invisible in AUTO** — nobody can flip a heater in
+passing, because the control that would do it is not on the glass at
+all. Entering manual requires the access code (the mode switch lives
+behind it).
+
+### What no mode can override
+
+Three gates sit between *any* request and a physical heater, in both
+modes:
+
+1. **The probe interlock** — a zone whose sensor reads like a broken
+   PT100 (below 2 °C, the signature of a loose or shorted probe)
+   refuses to heat, whatever asks.
+2. **The link watchdog** — if the panel stops blinking for 3
+   seconds, every heater drops. Manual commands included: a manual
+   heater with a dead display is nobody's definition of supervised.
+3. **The alarm engine** never switches anything — it reports. The
+   heaters are governed only by the gates above.
+
+---
+
+## The screens
+
+Four pages, reached by the bar at the bottom — the same four buttons
+everywhere, in a fixed order: **Home, Trend, Alarms, Setup**. The
+Setup button always leads through the access-code page.
+
+The right-hand end of the title row on every page is reserved for
+the **connection banner**: invisible while the link lives, and a red
+strip with a yellow **!** and *TM8.6 not connected* the moment the
+watchdog declares it dead.
+
+### Home
+
+![The Home page in AUTO: three zone cards with the large current temperature, the small editable setpoint, the AUTO badge and the output lamp; zone B is heating](img/thermostat-home.png)
+
+One card per zone:
+
+| Element | Meaning |
+|:---|:---|
+| large number | the **current** temperature, one decimal |
+| **Set** field | the setpoint — touch it and a keypad opens; the new value is on the zone board within a poll cycle and persists there |
+| **AUTO** badge / switch | in AUTO the badge; in MANUAL the command switch (below) |
+| **Output** lamp | the REAL state of the SSR output, read back from the zone board — not the wish, the fact |
+| **Link** lamp (title row) | blinks with the zone board's heartbeat; frozen = link down |
+
+In MANUAL the badge gives way to the command switch:
+
+![The Home page in MANUAL: the toggle switches replace the AUTO badges; zone B is commanded on and its output lamp confirms it](img/thermostat-home-manual.png)
+
+The switch *requests*; the Output lamp *reports*. When they disagree
+— switch on, lamp dark — one of the gates said no, and the Alarms
+page says which.
+
+When the link dies, the banner takes the title row and the values
+freeze at their last known state:
+
+![The Home page with the link down: the red banner with the yellow exclamation mark, the Link lamp frozen, every output off](img/thermostat-home-linkdown.png)
+
+At that same moment the zone board has already dropped its heaters —
+the banner and the protection are two views of the same watchdog.
+
+### Trend
+
+![The Trend page: one mini chart per zone, each plotting the current temperature and the setpoint over eight hours](img/thermostat-trend.png)
+
+Three charts, one per zone, each with **two curves: the current
+temperature and the setpoint**, so a setpoint change is visible in
+the history exactly when it happened. The window is **8 hours, one
+sample per minute** (480 samples per curve). The rings live in the
+panel's RAM: a panel restart starts the history afresh.
+
+### Alarms
+
+![The Alarms page: the alarm table with an active high-limit alarm on zone A](img/thermostat-alarms.png)
+
+The complete alarm list of the system:
+
+| Alarm text | Priority | Cause | Delay |
+|:---|:---:|:---|:---:|
+| *Zone X: over alarm limit* | warning | temperature above *setpoint + Alarm+* | 2 s |
+| *Zone X: under alarm limit* | warning | temperature below *setpoint − Alarm−* | 2 s |
+| *Zone X: sensor fault* | fault | the probe reads below 2 °C — loose, shorted or broken PT100 | 3 s |
+| *Display link lost — heating off* | fault | (on the zone board) the panel stopped blinking; heaters dropped | 1 s |
+| *Link to zones lost — heating is off* | fault | (on the panel) the zone board stopped blinking | 1 s |
+
+The zone board evaluates its zone alarms and the panel mirrors them,
+so the history and the acknowledgement live where the operator is —
+and the zone board's own WEBview shows its half to a phone even with
+the panel gone.
+
+The delays filter waves: a splash of cold air across a probe should
+not page anybody. A limit alarm clears itself when the temperature
+returns inside its line; a sensor fault clears when the probe reads
+sanely again.
+
+### The access code
+
+![The access-code page: the code field and the page bar, with no way in](img/thermostat-login.png)
+
+The Setup button leads here, never straight to the settings. The
+operator types the access code — the keypad opens on touch — and
+**only the right code makes the way in appear**:
+
+![The access-code page after the right code: the Open settings button has appeared](img/thermostat-login-open.png)
+
+- The code is **fixed in the program** (as delivered: `1234`). It is
+  compiled into the panel's logic; changing it means editing one
+  value in the project and downloading — it is not a setting, on
+  purpose, so it cannot be changed from the glass.
+- **Five minutes after unlocking** the program clears the entry and
+  the way in disappears again. Walking away from an unlocked panel
+  is therefore a five-minute exposure, not a permanent one.
+- A wrong entry simply does nothing — there is nothing to guess
+  against except the keypad itself.
+
+### Settings
+
+![The Settings page: the five thermostat variables as a grid of three zone columns, and the mode switch below](img/thermostat-settings.png)
+
+The protected page. All fifteen thermostat variables as a grid —
+rows are the variables, columns the zones — plus the mode:
+
+| Row | Range | Effect |
+|:---|:---:|:---|
+| **Setpoint** | 0–90 | the zone's set temperature (also editable on Home) |
+| **Band +** | 1–30 | heat OFF line, degrees above the setpoint |
+| **Band -** | 1–30 | heat ON line, degrees below the setpoint |
+| **Alarm +** | 1–40 | high alarm line, degrees above the setpoint |
+| **Alarm -** | 1–40 | low alarm line, degrees below the setpoint |
+| **Manual mode** | on/off | ON shows the command switches on Home and hands the heaters to the operator |
+
+Every field validates its range at the keypad — a value outside it
+is not accepted. Every change lands on the zone board within a poll
+cycle and is persisted there immediately (throttled, so the storage
+is not worn out by a spinning knob).
+
+---
+
+## The phone view
+
+Both boards serve a WEBview over the pair's own network. Join the
+WiFi `ctrl32-zones` with a phone and open:
+
+- **192.168.4.1** — the zone board: the three temperatures, the real
+  output states, the alarm table, and a Link lamp blinking with the
+  *panel's* heartbeat. This view works even when the panel is down —
+  which is precisely when it is most useful.
+- the panel's address (the device scanner shows it, see
+  [Finding your boards](find-devices.md)) — the panel's own view:
+  zones with setpoint entry and manual switches (in manual mode),
+  plus the trend charts.
+
+The pair's network is its own island. Nothing here reaches the
+internet, and per the product's [network stance](security.md) it
+should stay that way.
+
+---
+
+## Power loss and restarts
+
+| What | Survives a zone-board power cut? |
+|:---|:---:|
+| Setpoints, bands, alarm offsets | **yes** — persisted on the zone board |
+| AUTO/MANUAL mode | **yes** — persisted (a power cut must not hand a manual cabinet back to the automatics) |
+| Manual commands (`cmd_*`) | no — a restart begins with every command off |
+| Alarm history on the panel | no — the history lives in panel RAM |
+| Trend history | no — the rings live in panel RAM |
+
+A panel restart alone changes nothing at the process: the zone board
+drops its heaters for the few seconds the heartbeat is missing and
+resumes when the panel is back. The panel never pushes a value at
+the zone board on boot — it reads first, so the zone board's
+persisted state is the truth after any restart, on either side.
+
+---
+
+## The register map
+
+For an integrator who wants to sit beside the panel — a SCADA, a
+logger — the zone board answers Modbus TCP on `192.168.4.1:502`,
+unit 1, word order big. The full map (0-based protocol addresses,
+manual numbers in brackets — see [What Modbus is](modbus-basics.md)):
+
+| Address | Variable | Access |
+|:---|:---|:---:|
+| holding 0–1 (40001) | temp_a, f32 | read |
+| holding 2–3 (40003) | temp_b, f32 | read |
+| holding 4–5 (40005) | temp_c, f32 | read |
+| holding 6/7/8 (40007…) | sp_a/b/c | read/write |
+| holding 9/10/11 | band_hi_a/b/c | read/write |
+| holding 12/13/14 | band_lo_a/b/c | read/write |
+| holding 15/16/17 | alarm_hi_a/b/c | read/write |
+| holding 18/19/20 | alarm_lo_a/b/c | read/write |
+| coil 0/1/2 | cmd_a/b/c — manual commands | read/write |
+| coil 3/4/5 | heat_a/b/c — the REAL outputs | read |
+| coil 6 | beat — the zone board's heartbeat | read |
+| coil 7 | panel_beat — the panel writes its blink here | read/write |
+| coil 8/9/10 | trip_hi_a/b/c — over the alarm line | read |
+| coil 11/12/13 | trip_lo_a/b/c — under the alarm line | read |
+| coil 14 | link_ok — the panel is alive | read |
+| coil 15 | mode_man — 1 = manual | read/write |
+
+Writes to anything not marked writable are refused with a Modbus
+exception. The settings registers are whole degrees in one register
+each; the temperatures are f32 across two registers, big word first.
+
+---
+
+## Commissioning
+
+1. **Zone board first, over USB** — the first download carries the
+   AP configuration. After the restart the `ctrl32-zones` network is
+   on the air.
+2. **Panel second** — download its project; it joins the network and
+   the temperatures appear within seconds. Both halves can also be
+   found and addressed later with the
+   [device scanner](find-devices.md).
+3. **Check the ladder** — with everything at defaults each zone
+   holds 15–25 °C. Set the real setpoints from Home, the bands and
+   alarm offsets from Settings (code `1234`).
+4. **Prove the protections** — pull a probe: its zone drops out and
+   *sensor fault* appears. Power the panel off: the heaters drop
+   within 3 seconds and return with the panel. Neither test can hurt
+   anything, and both are worth seeing once before trusting the
+   cabinet to them.
+
+To change the access code, edit the one comparison in
+`stephmi_wifi_panel.yaml` (the block named `gate`) and download the
+panel again.
+
+---
+
+## Troubleshooting
+
+| Symptom | Look at |
+|:---|:---|
+| Red banner, values frozen | the pair's WiFi: is the zone board powered? Within range? The zone board side has already secured the heaters |
+| A switch is on but the Output lamp is dark | one of the gates said no — the Alarms page names it (sensor fault, or the link) |
+| Temperatures read plainly wrong on all zones | the probe wiring and the reference-resistor setting belong together — see the project file's peripheral section |
+| A zone cycles wider than expected | the band offsets on Settings — the cycle *is* setpoint − Band− to setpoint + Band+ |
+| Limit alarms fire during normal cycling | the alarm offsets are inside the band — Alarm+ must be greater than Band+, Alarm− greater than Band− |
+| The Set field will not take a value | it is outside the field's range — the keypad refuses rather than clamps |
+| Setup opens but the way in vanished | the five-minute auto-lock — enter the code again |
+
+---
+
+## Where next
+
+| | |
+|:---|:---|
+| [Two boards over Modbus](tutorial-modbus-pair.md) | the same pair's simpler ancestor, over the plant network |
+| [What Modbus is](modbus-basics.md) | the protocol behind the register map |
+| [States and motion](states-motion.md) | the mechanism behind the banner and the mode-dependent switches |
+| [Finding your boards](find-devices.md) | locating both halves from the editor |

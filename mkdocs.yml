@@ -65,6 +65,7 @@ nav:
   - Tutorial projects:
       - Tutorial projects: tutorials.md
       - Two boards over Modbus: tutorial-modbus-pair.md
+      - Three-zone thermostat: three-zone-thermostat.md
   - Examples:
       - Examples: examples.md
       - Thermostat (Olimex EVB): example-thermostat.md
