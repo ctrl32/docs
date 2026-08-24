@@ -147,7 +147,7 @@ One card per zone:
 | **Set** field | the setpoint — touch it and a keypad opens; the new value is on the zone board within a poll cycle and persists there |
 | **AUTO** badge / switch | in AUTO the badge; in MANUAL the command switch (below) |
 | **Output** lamp | the REAL state of the SSR output, read back from the zone board — not the wish, the fact |
-| **Link** lamp (title row) | blinks with the zone board's heartbeat; frozen = link down |
+| link dot (top right, after the banner strip) | blinks with the zone board's heartbeat; frozen = link down |
 
 In MANUAL the badge gives way to the command switch:
 
@@ -205,9 +205,9 @@ sanely again.
 
 The Setup button leads here, never straight to the settings — and
 the page doubles as the **connection notice**: the *Phone access*
-card spells out the pair's WiFi name and password and both
-addresses, because the person standing at the panel is exactly the
-one who wants to join with a phone.
+card spells out the pair's WiFi name and password, both `.local`
+names and both raw addresses, because the person standing at the
+panel is exactly the one who wants to join with a phone.
 
 The operator types the access code — the keypad opens on touch —
 and **only the right code makes the way in appear**:
@@ -254,15 +254,20 @@ WiFi **`ctrl32-zones`** (password as delivered: **`zones2026`** —
 both are printed on the panel's access-code page, and both change in
 the project files) and open:
 
-- **192.168.4.1** — the zone board: the three temperatures, the real
-  output states and the alarm table, with a Link lamp blinking with
-  the *panel's* heartbeat. This view works even when the panel is
-  down — which is precisely when it is most useful.
-- **192.168.4.2** — the panel (as the network's first client it
-  takes the first lease; the access-code page prints it, and the
-  [device scanner](find-devices.md) confirms it): the panel's **full
+- **http://zones.local** (= 192.168.4.1) — the zone board: the three
+  temperatures, the real output states and the alarm table, with a
+  Link lamp blinking with the *panel's* heartbeat. This view works
+  even when the panel is down — which is precisely when it is most
+  useful.
+- **http://farmol.local** (= 192.168.4.2 — as the network's first
+  client the panel takes the first lease): the panel's **full
   visualization, laid out for a phone**. This is not a summary of
   the glass; it is the same five pages, described below.
+
+Both boards announce their names over mDNS, so the `.local`
+addresses work with no IP known; the raw addresses stay as the
+fallback for a phone whose browser does not resolve them. All four
+are printed on the panel's access-code page.
 
 The pair's network is its own island. Nothing here reaches the
 internet, and per the product's [network stance](security.md) it
@@ -396,6 +401,7 @@ panel again.
 | Symptom | Look at |
 |:---|:---|
 | Red banner, values frozen | the pair's WiFi: is the zone board powered? Within range? The zone board side has already secured the heaters |
+| A `.local` address does not open | not every phone resolves mDNS — use the raw address from the access-code page |
 | A switch is on but the Output lamp is dark | one of the gates said no — the Alarms page names it (sensor fault, or the link) |
 | Temperatures read plainly wrong on all zones | the probe wiring and the reference-resistor setting belong together — see the project file's peripheral section |
 | A zone cycles wider than expected | the band offsets on Settings — the cycle *is* setpoint − Band− to setpoint + Band+ |
