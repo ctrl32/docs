@@ -2,65 +2,65 @@
 
 # Widgets
 
-Schema version: **27**
+Schema version: **27** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `id` | str |  |
 | `x` | i16 |  |
 | `y` | i16 |  |
 | `w` | i16 |  |
 | `h` | i16 |  |
-| `anchor_x` | WidgetAnchorX | `start` |
-| `anchor_y` | WidgetAnchorX | `start` |
+| `anchor_x` | one of `start` / `end` / `center` / `stretch` | `start` |
+| `anchor_y` | one of `start` / `end` / `center` / `stretch` | `start` |
 | `margin` | i16 | `0` |
 | `style` | style_ref |  |
 | `visible_if` | tag_ref |  |
 | `enabled_if` | tag_ref |  |
 | `children` | list |  |
-| `state` | map |  |
-| `move` | map |  |
-| `animations` | list |  |
+| `state` | map — see [States and motion](states-motion.md) |  |
+| `move` | map — see [States and motion](states-motion.md) |  |
+| `animations` | list — event-bound animations |  |
 
 ## `panel`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `radius` | i16 | `0` |
 
 ## `list`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `item_height` | i16 |  |
 | `inertia` | bool | `True` |
 
 ## `tabs`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `active` | i16 | `0` |
 
 ## `popup`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `radius` | i16 | `8` |
 
 ## `label`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `text` | str |  |
 | `font` | font_ref |  |
-| `align` | LabelAlign | `left` |
+| `align` | one of `left` / `center` / `right` | `left` |
 
 ## `value`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | tag_ref |  |
 | `font` | font_ref |  |
 | `show_unit` | bool | `True` |
@@ -70,10 +70,10 @@ Schema version: **27**
 ## `button`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `text` | str |  |
 | `tag` | tag_ref |  |
-| `mode` | ButtonMode |  |
+| `mode` | one of `momentary` / `toggle` / `set` / `reset` |  |
 | `value` | f32 | `1.0` |
 | `icon` | image_ref |  |
 | `confirm` | bool | `False` |
@@ -82,7 +82,7 @@ Schema version: **27**
 ## `switch`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | tag_ref |  |
 | `label_on` | str | `ON` |
 | `label_off` | str | `OFF` |
@@ -91,8 +91,8 @@ Schema version: **27**
 ## `led`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
-| `shape` | LedShape | `round` |
+|---|---|---|
+| `shape` | one of `round` / `rect` | `round` |
 | `tag` | tag_ref |  |
 | `color_on` | color |  |
 | `color_off` | color |  |
@@ -102,7 +102,7 @@ Schema version: **27**
 ## `slider`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | tag_ref |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -111,16 +111,16 @@ Schema version: **27**
 ## `bar`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | tag_ref |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
-| `orientation` | BarOrientation |  |
+| `orientation` | one of `vertical` / `horizontal` |  |
 
 ## `gauge`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | tag_ref |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -133,14 +133,14 @@ Schema version: **27**
 ## `image`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `src` | image_ref |  |
 | `tint` | color |  |
 
 ## `nav`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `text` | str |  |
 | `target` | str |  |
 | `icon` | image_ref |  |
@@ -148,7 +148,7 @@ Schema version: **27**
 ## `icon`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `src` | icon_ref |  |
 | `color` | color |  |
 | `tag` | tag_ref |  |
@@ -158,9 +158,9 @@ Schema version: **27**
 ## `input`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | tag_ref |  |
-| `keypad` | InputKeypad |  |
+| `keypad` | one of `numeric` / `integer` / `alphanumeric` / `password` |  |
 | `min` | f32 |  |
 | `max` | f32 |  |
 | `title` | str |  |
@@ -169,7 +169,7 @@ Schema version: **27**
 ## `trend`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `series` | list |  |
 | `timespan_s` | i32 | `300` |
 | `sample_ms` | i32 | `1000` |
@@ -183,26 +183,30 @@ Schema version: **27**
 ## `alarm_table`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
-| `filter` | AlarmTableFilter |  |
-| `min_priority` | AlarmPriority |  |
+|---|---|---|
+| `filter` | one of `active` / `unacked` / `history` / `all` |  |
+| `min_priority` | one of `info` / `warning` / `fault` / `critical` |  |
 | `rows` | i16 | `8` |
 | `show_time` | bool | `True` |
 | `show_ack_button` | bool | `True` |
-| `sort` | AlarmTableSort | `newest_first` |
+| `sort` | one of `newest_first` / `priority` | `newest_first` |
 | `font` | font_ref |  |
 
 ## `trace`
 
+A live oscilloscope-style curve of one variable, drawn as values arrive — the on-screen counterpart of the editor's Scope. For the recorded, multi-curve history see `trend`.
+
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | tag_ref |  |
 | `color` | color |  |
 
 ## `logo`
 
+The ctrl32 mark, drawn as a crisp vector at whatever size the rect gives it. Colourable; empty means the brand blue.
+
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `color` | color |  |
 
 ---

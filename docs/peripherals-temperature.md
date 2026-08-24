@@ -45,7 +45,7 @@ extra wiring comes with them.
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `LM75B` | I2C | I2C temperature sensor (industry classic) — channel 0 = temperature [°C], 11-bit 0.125 °C resolution, address 0x48–0x4F. Collides with TMP102 addresses — packbuild watches the bus. |
+| `LM75B` | I2C | I2C temperature sensor (industry classic) — channel 0 = temperature [°C], 11-bit 0.125 °C resolution, address 0x48–0x4F. Collides with TMP102 addresses — the build watches the bus. |
 | `MCP9808` | I2C | I2C precision temperature sensor ±0.25 °C — channel 0 = temperature [°C], 0.0625 °C resolution, address 0x18–0x1F. |
 | `MLX90614` | I2C | I2C infrared thermometer (SMBus) — channels: 0 = object temperature [°C] (non-contact), 1 = ambient [°C]. Fixed address 0x5A. Bearings, contacts, moving parts. |
 | `STS3X` | I2C | I2C temperature sensor (the SHT3x without the humidity cell) — channel 0 = temperature [°C]. Single shot with CRC. Address 0x4A–0x4B. |

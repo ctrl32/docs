@@ -5,8 +5,8 @@ something you built and want to know what it is doing.
 
 HMIview is drawn in the same editor as everything else, from the same
 variables, and travels in the same file. This page is how it works and how to
-draw one that helps; [Screens and widgets](widgets.md) is the reference
-for every widget and its properties.
+draw one that helps; the [Property reference](widgets.md) lists every
+widget and its properties.
 
 ---
 
@@ -15,10 +15,10 @@ for every widget and its properties.
 A project has up to **32 screens** and up to **64 widgets on each**. One
 is shown at a time; the operator moves between them with `nav` widgets.
 
-That is generous for a project and deliberately not unlimited. A setup
-that needs forty screens usually needs three good ones instead — an
-operator who has to remember where something lives will not find it in a
-hurry.
+That is generous for a project and deliberately not unlimited. An
+installation that needs forty screens usually needs three good ones
+instead — an operator who has to remember where something lives will
+not find it in a hurry.
 
 **A useful default shape:**
 
@@ -67,7 +67,7 @@ comfortable; 30 px is possible on capacitive glass and unkind on
 resistive. Space them so that a press slightly off-centre still hits the
 right one.
 
-!!! warning "Confirm anything that moves a setup"
+!!! warning "Confirm anything that moves something real"
     Capacitive touch near a frequency drive can register presses that
     nobody made. A `confirm` on a command that starts a motor is not
     decoration — it is the difference between electrical noise and an
@@ -80,9 +80,10 @@ right one.
 The screen is read by somebody who is tired, in a hurry, and possibly
 holding a torch. Colour does more work than text.
 
-Use [states](widgets.md) rather than drawing one widget per condition: a
-lamp with a true, false and alarm colour is one widget that says three
-things, driven by a variable or by one bit of an integer.
+Use [states](states-motion.md) rather than drawing one widget per
+condition: a lamp with a true, false and alarm colour is one widget
+that says three things, driven by a variable or by one bit of an
+integer.
 
 **A convention worth keeping:** green means running as intended, grey
 means off and correct, red means it needs a person, amber means it will
@@ -118,14 +119,14 @@ you can do for a screen's responsiveness. See [Variables](variables.md).
 
 ---
 
-## Graphics never delay the equipment
+## Graphics never delay control
 
 The rule is **logic before communication before graphics**. The renderer
 takes a snapshot of the variable table and works from that; it never holds
 anything the PLC cycle needs.
 
 Under load, frames are dropped. The cycle is never extended. A screen may
-stutter while a setup is doing something demanding — control never
+stutter while the program is doing something demanding — control never
 waits for a picture.
 
 ---
@@ -146,7 +147,8 @@ a display can be watched from a phone, from the same project.
 
 | | |
 |:---|:---|
-| [Screens and widgets](widgets.md) | every widget, every property |
+| [Property reference](widgets.md) | every widget, every property |
+| [States and motion](states-motion.md) | colour from a state, movement from a value |
 | [Variables](variables.md) | what the screens are drawing, and deadband |
 | [WEBview](webview.md) | the same project in a browser |
 | [Performance and limits](limits.md) | how many screens, widgets and variables fit |

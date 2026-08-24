@@ -121,8 +121,9 @@ and tested this way, before any hardware is involved at all.
 When you do have hardware:
 
 1. **Connect it** — USB cable, or the network if the board is on one.
-2. **Flash the runtime once** — *Upload runtime*. This is the firmware,
-   and it only has to happen the first time or after an update.
+2. **Flash the runtime once** — *Flash runtime* on the board page. This
+   is the firmware, and it only has to happen the first time or after
+   an update.
 
 See [Download to the board](deploy.md).
 

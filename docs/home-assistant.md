@@ -33,7 +33,7 @@ In the project's MQTT settings:
 
 | Field | What to put |
 |:---|:---|
-| Broker address | the IP of the equipment running Mosquitto |
+| Broker address | the IP of the computer running Mosquitto |
 | Port | 1883 |
 | User / password | if the broker asks for them |
 | Base topic | something that names this board — `ctrl32/boilerroom` |
@@ -43,6 +43,17 @@ In the project's MQTT settings:
 The base topic is worth thinking about for ten seconds: it is how you
 will recognise this board among others, and changing it later means the
 entities in HA are recreated under new names.
+
+*One topic per variable* is one of two publish modes: the other, *one
+JSON object*, packs every value into a single message the way
+ThingsBoard-style platforms expect. Home Assistant needs the
+per-variable mode — discovery and retained values are built on it.
+
+!!! warning "MQTT is not encrypted"
+    The connection to the broker, the password included, travels in
+    plain text. That is fine on the separate network the board belongs
+    on anyway — and worth remembering before putting a board on a
+    shared home network. See [Network and security](security.md).
 
 ### 3. Choose which variables go out
 
@@ -102,8 +113,8 @@ configuration exactly as the board sent them.
 ## Two things that make it behave properly
 
 **Values are retained.** The broker keeps the last one, so HA gets a
-value the moment it subscribes rather than waiting for the equipment to
-change something. After an HA restart the dashboard is populated
+value the moment it subscribes rather than waiting for the board to
+publish a change. After an HA restart the dashboard is populated
 immediately.
 
 **There is a last will.** If the board drops off — power, network,
@@ -127,7 +138,7 @@ when you want to customise entities beyond what the board knows about —
 icons, device classes, areas.
 
 The ranges on `number` entities in the export are deliberately wide;
-narrow them in HA to what the equipment actually accepts.
+narrow them in HA to what the program actually accepts.
 
 ---
 
@@ -141,7 +152,7 @@ That is worth knowing before building a dashboard: what you are looking
 at is a **view of** something that runs on its own, not the thing itself.
 
 !!! warning "Do not build control that needs the broker"
-    A switch in HA is convenient. A setup that only starts when
+    A switch in HA is convenient. An installation that only starts when
     somebody's home server is up is not. Anything that must work should
     work from the board — HA is how you watch it and how you nudge it,
     not how it runs.

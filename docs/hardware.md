@@ -32,8 +32,8 @@ from one when you are learning, then change what you need.
 | Processor | Entries | Where it fits |
 |:---|:---:|:---|
 | **ESP32** | 45 | the workhorse: two cores, ethernet MAC, CAN, plenty of I/O |
-| **ESP32-S3** | 33 | more RAM and a faster bus — the reference platform for boards with a display |
-| **ESP32-PICO-V3** | 8 | the same ESP32 in a much smaller package |
+| **ESP32-S3** | 39 | more RAM and a faster bus — the reference platform for boards with a display |
+| **ESP32-PICO-V3** | 9 | the same ESP32 in a much smaller package |
 | **ESP32-P4** | 1 | the fastest, with a native display interface (MIPI DSI) |
 | **STM32F7** | 1 | the first of the STM32 family — see below |
 

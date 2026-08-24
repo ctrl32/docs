@@ -19,8 +19,8 @@ stuttering board in a real setup. They are also the numbers for the datasheet.
 | LD/FBD blocks | 512 |
 | Compiled program | 32 kB |
 | Instance data | 8 kB |
-| Trends | 4 |
-| WEBview clients | 2 |
+| Trend curves (per chart) | 4 |
+| WEBview clients (ESP32; STM32F7: 1) | 2 |
 | Axes (drives) | 4 |
 | PLC tasks | 2 (fast + slow) |
 
@@ -47,10 +47,10 @@ In practice the **variable table** (512) runs out sooner than the blocks do.
 
 | Program | ST lines | Variables | Cycle |
 |:---|:---:|:---:|:---:|
-| half a setup | 100 | 110 | 168 µs |
-| **a whole equipment** | 190 | 215 | **304 µs** |
+| half an installation | 100 | 110 | 168 µs |
+| **a full installation** | 190 | 215 | **304 µs** |
 
-"A whole equipment" means: 40 analog inputs scaled and alarmed, 30 motors with
+"A full installation" means: 40 analog inputs scaled and alarmed, 30 motors with
 interlocks, a 40-step sequence and a positioning ramp. **3 % of a 10 ms
 cycle**, zero overruns.
 
@@ -70,7 +70,7 @@ board:
 | | before | after |
 |:---|:---:|:---:|
 | 400 blocks | 2 660 µs | **515 µs** |
-| a whole equipment | 1 319 µs | **304 µs** |
+| a full installation | 1 319 µs | **304 µs** |
 | 10 000 instructions (local variables) | 1 410 µs | 1 420 µs |
 
 The last row is the control sample: code that does not touch variables did not
@@ -84,7 +84,7 @@ itself:
 **logic > communication > graphics**
 
 Under overload, frames are dropped. **The cycle is never extended.** The
-display may stutter; equipment control may not.
+display may stutter; control may not.
 
 ## The diagnostics you can see
 

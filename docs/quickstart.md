@@ -73,6 +73,11 @@ underneath:
 That is why downloading cannot brick the board: when anything is wrong, the
 old pack stays and keeps running.
 
+The switch in step 4 restarts the program — the board takes the new
+project standing still, never mid-run. The whole story of what a flash
+write means for a running board is in
+[Download to the board](deploy.md).
+
 !!! note "No port is preselected"
     The port selector starts empty, and both transfer dialogs ask for it at
     the moment bytes are about to move. A port nobody chose reads as

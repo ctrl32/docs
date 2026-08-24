@@ -88,7 +88,7 @@ pocket cannot write whatever it likes into the equipment.
 
 | Board | Viewers |
 |:---|:---:|
-| ESP32-S3 | 2–3 comfortably |
+| ESP32 | 2 (the declared limit) |
 | STM32F7 | 1 |
 
 A viewer beyond the limit is refused; the page retries and gets in when

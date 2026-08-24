@@ -9,6 +9,37 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.028
+
+- **Find devices.** The :ti-eyeglass: button next to the port picker
+  sweeps every COM port and the local network and lists what answered:
+  which board, **which program it runs**, its firmware version and its
+  address. *Use* on a row points the editor at that board — and opens
+  the matching project when it is in your recent list. See
+  [Finding your boards](find-devices.md).
+- **Boards introduce themselves by program name.** The project's name
+  travels with the download, so ten identical boards stop being
+  identical — each one says which job it holds, in the scanner and to
+  anything else that asks.
+- **One version, everywhere.** The editor and every runtime it installs
+  now carry the same version number, and the dialogs check it: the
+  runtime flasher refuses a stale file, the download dialog says when
+  the board should be updated first. "Half of it left old" can no
+  longer happen quietly.
+- **States and motion now behave on the glass.** A widget driven only
+  by a state or a path never redrew on the board's display — the
+  marker sat still while the browser moved. Both renderers now agree,
+  in both directions: state lamps light in the browser too.
+- **Live ladder on STM32.** Online mode on an STM32 board now shows the
+  power flow and the values inside a rung — the wires between blocks
+  were frozen on this family; they animate exactly as on ESP32 now.
+- **A CAN fault no longer restarts the board.** A bus nobody answers —
+  a broken transceiver, a shorted pair — used to reboot the whole
+  board in a loop. It now recovers on its own and keeps the program
+  running; communication is never worth the logic.
+- Network program upload is offered only on boards with the memory to
+  take it; the smallest ones say so plainly and keep the USB path.
+
 ## 1.00.027
 
 - **States and motion on any widget.** A widget can now carry three

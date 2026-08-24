@@ -22,7 +22,7 @@ is a moving axle.
 | `Error` | output, bool | axis in fault |
 
 Nothing else moves until `Status` is TRUE. On a CANopen drive this runs
-the CiA 402 state equipment — several steps of controlword and statusword
+the CiA 402 state machine — several steps of controlword and statusword
 that the block handles for you.
 
 ### MC_RESET
@@ -61,7 +61,7 @@ pump, a fan — anything that runs at a speed rather than to a position.
 | `Execute` | input, bool | start on the rising edge |
 | `Position` | input, number | where to go |
 | `Velocity` | input, number | how fast to travel |
-| `Accel`, `Decel` | parameters (100, 100) | ramps |
+| `Accel`, `Decel` | parameters, **seconds** to reach `Velocity` (100, 100) | ramps |
 | `Done` | output, bool | arrived |
 | `Busy` | output, bool | on the way |
 
@@ -132,6 +132,10 @@ optimisation, it is what makes the accuracy possible.
 **Realistic repeatability is ±0.5 to 2 mm**, depending on the mechanics.
 It is not a servo and it should not be sold as one.
 
+The delay and repeatability figures are what this class of hardware
+gives; commissioning against the reference drive is still running, and
+the numbers will be confirmed — or tightened — from those measurements.
+
 !!! danger "Set the drive's own ramps to minimum"
     The most common commissioning problem on this hardware: the drive has
     acceleration ramps configured *and* the program ramps the setpoint.
@@ -166,14 +170,10 @@ See [Intended use](intended-use.md).
 
 ## Setting the drive up
 
-The i550 ships with **Lenze's own state equipment active**, not CiA 402.
-Write a correct controlword into a drive in that state and nothing
-happens — and the search for the bug goes into your code, where it is
-not.
-
-The startup block switches the mode over SDO so you never meet the
-problem. Node ID, baud rate and termination are DIP switches on the
-drive itself.
+The i550 ships with **Lenze's own state machine active**, not CiA 402 —
+the full story, and the DIP switches worth writing on the drawing, is
+in [CANopen — drives](canopen.md). The startup block switches the mode
+over SDO so a project built from the i550 profile never meets it.
 
 See [CANopen blocks](blocks-can.md) for what talks to a drive directly,
 and [Buses](buses.md) for the wiring.

@@ -9,15 +9,15 @@ Like the motion blocks, each one is bound to an **axis** at the call:
 
 ---
 
-## CO_CIA402 — the drive state equipment
+## CO_CIA402 — the drive state machine
 
 | Pin | Type | Meaning |
 |:---|:---:|:---|
-| `Enable` | input, bool | run the state equipment |
+| `Enable` | input, bool | run the state machine |
 | `Ready` | output, bool | the drive is in *operation enabled* |
 | `Fault` | output, bool | the drive is in fault |
 
-The CiA 402 state equipment on its own. This is what
+The CiA 402 state machine on its own. This is what
 [MC_POWER](blocks-motion.md#mc_power) uses underneath, exposed for when
 you want to build something the MC_ blocks do not cover.
 

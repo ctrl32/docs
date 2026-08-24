@@ -20,12 +20,12 @@ engineering tool what that is worth.
 delivered, a history of who changed what and when. A project from two
 years ago is a checkout away.
 
-**You can review it.** A change to the equipment's logic is a change worth
+**You can review it.** A change to the logic is a change worth
 reading before it is uploaded, and a text diff is something a second
 person can actually read.
 
-**You can generate it.** Twenty near-identical variants of one equipment
-are a script, not twenty afternoons of clicking.
+**You can generate it.** Twenty near-identical variants of one
+installation are a script, not twenty afternoons of clicking.
 
 **It outlives the tool.** Even with no ctrl32 installed, the file still
 says what it does. Nothing about your work is locked inside a
@@ -42,7 +42,7 @@ The sections, in the order they usually appear:
 | `project` | name, target board, resolution, orientation |
 | `themes` | colour sets the styles resolve against |
 | `states` | reusable three-state colour sets |
-| `variables` | every variable: type, unit, scaling, deadband, source |
+| `tags` | every variable: type, unit, scaling, deadband, source |
 | `pous` | program units — ladder, FBD or ST |
 | `logic` | the blocks and how they are wired |
 | `alarms` | condition, limit, hysteresis, delay, priority, text |
@@ -53,6 +53,12 @@ The sections, in the order they usually appear:
 
 Peripherals, buses and services appear under their own keys as the
 project uses them.
+
+One naming note: what the editor calls a *variable* is written in the
+file under the key `tag` (and the section `tags:`) — the historical
+name of a variable reference, kept because the meaning of an existing
+key never changes. Widgets point at variables the same way:
+`tag: temp`.
 
 Everything is optional except `project`. A file with a `project` section
 and nothing else is a valid, empty project.
@@ -96,11 +102,12 @@ logic and layout.
 ## Compiled, not interpreted
 
 The board does **not** read this file. The editor compiles it into a
-binary pack — string table, variable table, screens, bytecode — and the board
-maps that straight out of flash.
+binary pack (a `.visu` file) — string table, variable table, screens
+and the compiled program — and the board maps that straight out of
+flash.
 
 The reasons are practical: parsing YAML on a microcontroller would cost
-memory the setup needs, and a screen has to be on the glass in under a
+memory the board needs, and a screen has to be on the glass in under a
 millisecond. So the readable form is what you keep, and the compiled form
 is what runs.
 
@@ -122,6 +129,11 @@ made two years ago has to open today:
   not silently strip what the older one could not see.
 - **New features are new keys**, with defaults chosen so that a file
   written before they existed still means what it meant.
+
+Two version numbers exist and they are different things: the **schema
+version** counts the vocabulary of this YAML file, the **pack format**
+counts the layout of the compiled `.visu`. Both only ever grow, and
+error messages name whichever one they mean.
 
 The board is stricter than the editor on purpose: a pack from a **newer**
 editor than the firmware is refused outright, rather than loaded with the

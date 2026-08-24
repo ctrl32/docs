@@ -50,7 +50,9 @@ project with the current editor and download it again.
 
 ### The board answers but `seq` does not move
 
-The connection is fine; **the PLC cycle has stopped**. Look at the
+`seq` is the sample counter in the ONLINE tooltip — one tick per batch
+of values the board sends. The connection is fine; **the PLC cycle has
+stopped**. Look at the
 diagnostic buffer (*Debug → diagnostics*) — the reason is usually there (a
 VM fault, a cycle overrun).
 

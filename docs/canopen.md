@@ -1,8 +1,7 @@
 # CANopen
 
-CANopen is what separates ctrl32 from everything else in its price
-range. A drive on a CAN bus is not a device you poll — it is a device
-with a state equipment, a scheduled exchange of process data, and a
+A drive on a CAN bus is not a device you poll — it is a device
+with a state machine, a scheduled exchange of process data, and a
 heartbeat that tells you the moment it stops listening.
 
 ctrl32 is the **manager**: NMT master, SDO client, SYNC producer and
@@ -127,7 +126,7 @@ nothing.
 ## Drives: the trap that costs a day
 
 The reference target is the **Lenze i550**, and it ships with **Lenze's
-own state equipment active**, not CiA 402.
+own state machine active**, not CiA 402.
 
 Write a correct controlword into a drive in that state and nothing
 happens. No error, no complaint — the drive simply does not react, and
@@ -146,13 +145,10 @@ they are wrong.
 ## Safety
 
 **Stopping over CANopen is not a safety function.** Neither is a
-quick-stop command, nor anything else on this page.
-
-The i550 has **STO terminals** and that is where an emergency stop is
-wired. Limit switches belong hard-wired into the drive or onto inputs.
-Software limits are a supplement to those, never a replacement.
-
-See [Intended use](intended-use.md).
+quick-stop command, nor anything else on this page. What is — STO
+terminals, hard-wired limit switches, and the reactions worth defining
+— is in [Motion blocks — safety](blocks-motion.md) and
+[Intended use](intended-use.md).
 
 ---
 

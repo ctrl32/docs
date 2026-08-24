@@ -9,8 +9,9 @@ are supported, both at the same time:
 | **RTU** | RS485 terminals of the board | I/O modules, drives, sensors on a cable |
 | **TCP** | Ethernet or WiFi | energy meters with a LAN module, RTU↔TCP gateways, cabinet devices with LAN |
 
-Slave mode (the board as a Modbus server for a supervisory system) is a
-planned extension — it is not part of the product yet.
+Both directions are covered: the board reads devices as a **master**,
+and the *Modbus slave* section further down this page shows it
+answering a supervisory system as a server.
 
 ## A variable with a Modbus source
 
@@ -156,13 +157,15 @@ Further deliberate decisions:
 
 | Pitfall | Fix |
 |:---|:---|
-| Master and slave on the same RS485 line | a line has one master — packbuild **rejects this at compile time** and the editor shows it in red right on the page |
+| Master and slave on the same RS485 line | a line has one master — the build **rejects this at your desk** and the editor shows it in red right on the page |
 | Wrong word order | `word_order` must match what the SCADA expects — the same trap as on the master side |
 | Several SCADA clients at once | the TCP slave serves **one connection**; each further one would cost ~6–8 kB of RAM, which the S3 does not have to spare |
 
-Diagnostics: `VUI!` prints `mbslv=<requests>,<exceptions>`. A growing
-exception count means the SCADA is reading outside the map or trying to
-write to a variable without permission.
+Diagnostics: the board's status line (the editor's device page, or the
+serial command `VUI!` in the terminal) includes
+`mbslv=<requests>,<exceptions>`. A growing exception count means the
+SCADA is reading outside the map or trying to write to a variable
+without permission.
 
 ## Typical pitfalls
 

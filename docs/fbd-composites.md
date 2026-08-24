@@ -57,7 +57,7 @@ the diagram):
 - `MC_RESET`, `MC_READACTVEL`, `MC_READSTATUS`
 - positioning `MC_MOVEABS/MOVEREL/HOME/READACTPOS` (for the SPI
   stepper backends POWERSTEP01 / TMC5160)
-- `CO_CIA402` — the core of the state equipment (a building block for
+- `CO_CIA402` — the core of the state machine (a building block for
   composites)
 - `CO_SDOWRITE` — writes a parameter **at startup** (it is translated
   into commissioning; an SDO is never executed inside the cycle)

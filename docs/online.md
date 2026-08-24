@@ -18,8 +18,9 @@ state:
 | **red** | the board answers but runs a **different program** |
 
 The tooltip over the icon carries three numbers worth a look: what the
-monitoring costs the board (in µs), how old the last reading is, and the
-sample counter.
+monitoring costs the board (in µs), how old the last reading is, and
+the sample counter — shown as `seq`, one tick per batch of values the
+board sends.
 
 !!! tip "A frozen sample counter is not a broken connection"
     If the board answers but `seq` does not move, **the PLC cycle has

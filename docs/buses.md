@@ -128,8 +128,8 @@ in advance; see [Performance and limits](limits.md).
     intermittently in a cabinet next to a drive. Terminate both **ends**
     of the line, once each — not every device on it.
 
-!!! warning "A drive in the wrong state equipment"
-    The Lenze i550 ships with its own state equipment active, not CiA 402.
+!!! warning "A drive in the wrong state machine"
+    The Lenze i550 ships with its own state machine active, not CiA 402.
     You write a correct controlword, the drive does nothing, and you go
     looking for the bug in your own code. The startup block switches the
     mode over SDO, so you never meet this — but if you are talking to a

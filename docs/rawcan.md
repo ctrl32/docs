@@ -107,7 +107,8 @@ with cycle jitter the timing would drift.
 
 ## Diagnostics
 
-The serial command `VUI!` prints `rawcan=<received>,<sent>`. If the
+The board's status line (the editor's device page, or the serial
+command `VUI!` in the terminal) includes `rawcan=<received>,<sent>`. If the
 received counter does not grow, the device is silent or the bus rate
 does not match; if it grows and the values are nonsense, `byte_order`
 or `start_bit` is wrong.
