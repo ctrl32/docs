@@ -248,17 +248,64 @@ Both boards serve a WEBview over the pair's own network. Join the
 WiFi `ctrl32-zones` with a phone and open:
 
 - **192.168.4.1** — the zone board: the three temperatures, the real
-  output states, the alarm table, and a Link lamp blinking with the
-  *panel's* heartbeat. This view works even when the panel is down —
-  which is precisely when it is most useful.
+  output states and the alarm table, with a Link lamp blinking with
+  the *panel's* heartbeat. This view works even when the panel is
+  down — which is precisely when it is most useful.
 - the panel's address (the device scanner shows it, see
-  [Finding your boards](find-devices.md)) — the panel's own view:
-  zones with setpoint entry and manual switches (in manual mode),
-  plus the trend charts.
+  [Finding your boards](find-devices.md)) — the panel's **full
+  visualization, laid out for a phone**. This is not a summary of
+  the glass; it is the same five pages, described below.
 
 The pair's network is its own island. Nothing here reaches the
 internet, and per the product's [network stance](security.md) it
 should stay that way.
+
+### The mobile pages
+
+The panel's phone view carries the identical page set, states and
+protections as the glass — the browser evaluates the same records,
+so a switch hidden in AUTO on the glass is hidden on the phone too,
+and the red banner appears in both places in the same moment. The
+page bar is a two-by-two grid of thumb-sized buttons; the banner has
+its own reserved strip under the title.
+
+**Home** — the three zones stacked, each with the large current
+temperature, the editable setpoint and the real output state. In
+AUTO the cards carry the badge; in MANUAL the command switches
+appear, exactly as on the glass:
+
+![The mobile Home page in AUTO: stacked zone cards with the current temperature, the setpoint field, the AUTO badge and the output lamp](img/thermostat-web-home.png)
+
+![The mobile Home page in MANUAL: the command switches replace the AUTO badges; zone B is commanded on](img/thermostat-web-home-manual.png)
+
+**Trend** — the same three eight-hour charts, current and set
+temperature per zone:
+
+![The mobile Trend page: three stacked charts, one per zone](img/thermostat-web-trend.png)
+
+**Alarms** — the alarm table, sized for a phone:
+
+![The mobile Alarms page with an active high-limit alarm on zone A](img/thermostat-web-alarms.png)
+
+**Setup** — the same access code guards the same settings. The way
+in appears only on the right code, and the five-minute auto-lock
+applies to the phone exactly as to the glass (it is the panel's
+logic that locks, not the page):
+
+![The mobile access-code page: the code field, no way in](img/thermostat-web-login.png)
+
+![The mobile access-code page after the right code: the Open settings button has appeared](img/thermostat-web-login-open.png)
+
+**Settings** — all fifteen thermostat variables and the mode, one
+zone card under another:
+
+![The mobile Settings page: the five variables per zone stacked, and the Manual mode switch](img/thermostat-web-settings.png)
+
+Writes from the phone follow the same rule as everything else: the
+page *requests*, the boards decide. A setpoint typed on a phone
+lands on the zone board through the panel and persists there — and
+if two people edit at once, the last write wins and both pages show
+it within a second.
 
 ---
 
