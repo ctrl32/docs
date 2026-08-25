@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **31** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **32** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
