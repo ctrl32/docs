@@ -25,6 +25,21 @@ same board with the peripherals already filled in. `S3 SSD1963 setup` is
 an S3 DevKit with the display wired the way the driver expects. Start
 from one when you are learning, then change what you need.
 
+**A module is a target too.** Pick a bare module from the catalog and the
+project is *your own hardware around that part*: every bus pin is
+assigned on the bus pages, and the module's electrical rules check each
+one as you type — flash pins, input-only pins, a pin claimed twice. See
+[Buses](buses.md).
+
+### Your own board as a file — `.hdw32`
+
+A board you designed can travel as one file: a `.hdw32` is a small
+package holding the board's description over a catalog module, plus a
+photo carrying the same name. *Import board…* in the board picker
+validates it at the door — an illegal pin assignment is refused with the
+reason, before anything is installed — and the board then appears in
+your catalog marked *(imported)*, usable like any other.
+
 ---
 
 ## Which processor

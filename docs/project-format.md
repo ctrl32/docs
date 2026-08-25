@@ -166,3 +166,18 @@ Fonts and images are separate files in an `assets/` folder next to the
 project, referenced by name. They are binary and they do not diff — but
 they change rarely, and keeping them out of the YAML keeps the part you
 read and review textual.
+
+---
+
+## One file to hand over — `.prj32`
+
+A project you *share* wants to be one file, not "the yaml and that
+folder of images". Save as **`.prj32`** and you get exactly that: a
+package holding the same YAML plus its assets, with its own icon —
+double-click opens the editor.
+
+Nothing about the format changes inside: it is the identical YAML,
+versioned and migrated the same way, and the editor opens bare `.yaml`
+forever. Use plain YAML for repository work — diffs, reviews, git — and
+`.prj32` when a project travels as a thing: to a colleague, to a
+customer, into an archive.
