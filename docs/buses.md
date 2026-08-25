@@ -114,6 +114,38 @@ in advance; see [Performance and limits](limits.md).
 
 ---
 
+## The bus pins are part of the project
+
+On ESP32 boards, CAN, RS485, I²C and SPI are not soldered to fixed
+positions — the project says where they live, and the assignment
+travels with the program. Each bus page carries its pin fields;
+`-1` keeps the board's own default.
+
+- **A board that routes the bus itself** — a fitted CAN transceiver, a
+  wired RS485 driver — shows its positions read-only. They are part of
+  the hardware; the project cannot move them.
+- **A preset's suggested positions** are only claimed while the project
+  uses that bus. Drop CAN from the project and its pins return to the
+  free pool — a digital input can take them.
+- **A module target** — your own hardware around a bare WROOM — starts
+  with everything free. Every assignment is checked against the
+  module's electrical rules as you type: flash pins, input-only pins,
+  strapping pins, one pin claimed twice. The same check runs again at
+  build, so an illegal assignment never reaches the hardware.
+
+**RS485 comes in three wirings**, chosen on the RS485 page:
+
+| Wiring | Pins | When |
+|:---|:---|:---|
+| DE + RE separate | tx, rx, de, re | full control transceivers (MAX485 with both pins routed) |
+| DE+RE tied | tx, rx, de | the common two-wire module with DE and RE bridged |
+| auto-direction | tx, rx | converters that switch direction themselves |
+
+On STM32 the positions are fixed by the silicon's pin matrix — the
+fields do not apply there, and the editor says so.
+
+---
+
 ## The traps that cost days
 
 !!! warning "Float word order on Modbus"
