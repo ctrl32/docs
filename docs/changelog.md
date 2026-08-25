@@ -9,6 +9,53 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.029
+
+!!! warning "Update the boards first"
+    This release changes the program pack format: **flash the new
+    runtime onto a board before sending it a program built by this
+    editor.** The board refuses a newer pack loudly and keeps running
+    the old one — nothing breaks, it just tells you to update.
+
+- **Home Assistant.** A board can now publish its variables over MQTT
+  and appear in Home Assistant on its own — switches, numbers and
+  sensors, discovered automatically, no YAML on the Home Assistant
+  side. Two step-by-step tutorials ship with the editor: a thermostat
+  that reads its temperature from a Zigbee sensor, and a light panel
+  that switches and dims real bulbs. See
+  [Home Assistant](home-assistant.md).
+- **Buses on the pins you choose.** CAN, RS485, I²C and SPI pins are
+  part of the project now — set them in the editor and they travel
+  with the program; leave them alone and the board's own defaults
+  apply. RS485 works in three wiring shapes: separate DE and RE, the
+  two tied together, or an auto-direction converter with just TX/RX.
+- **Headless boards take bigger programs.** A board without a display
+  spends no memory on drawing, so it holds twice the program: 64 kB of
+  compiled logic, 24 kB of block instances, 1024 ladder blocks. The
+  editor knows which type it is building for and checks the right
+  limits at the desk. See [Limits](limits.md).
+- **Analog inputs.** A variable can read the board's own ADC —
+  calibrated millivolts, with gain and offset for a battery divider or
+  a potentiometer. For real measurement duty an external ADS1115-class
+  converter is still the answer, and the editor says so.
+- **WEBview is a choice.** A project can mirror the display screens to
+  the browser, draw an independent set for it — or switch WEBview off
+  entirely and give its memory to the program. The smallest boards
+  gain the most: the thermostat tutorial runs on a board where the
+  browser server and MQTT would not fit together.
+- **A vanished Modbus device no longer freezes the display.** On STM32,
+  a slave that stopped answering could hold the screen and the console
+  hostage for tens of seconds while the program ran on underneath.
+  Communication now waits in its own lane; the glass never rides along.
+- **Remembered values check their type.** A retained variable is
+  restored only when its stored type matches — a new project reusing a
+  name from an old one starts from its own initial value instead of
+  inheriting foreign bits, and the diagnostic buffer says when that
+  happened.
+- WiFi joining is more patient: a board whose access point comes up
+  late — a paired board restarting, a router rebooting — retries and
+  falls back instead of giving up.
+
 ## 1.00.028
 
 - **Find devices.** The :ti-eyeglass: button next to the port picker
