@@ -68,6 +68,33 @@ is the reason to pick it.
     a project outgrows the board you picked — at your desk, not on the
     equipment.
 
+## What each family can do
+
+The families run the same runtime — same variables, same logic, same
+pack — but the silicon differs, and a few capabilities follow the
+silicon. This is the table to check before choosing:
+
+| Capability | ESP32 | ESP32-PICO-V3 | ESP32-S3 | ESP32-P4 | STM32F7 |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Display | SPI panels | SPI panels | parallel bus, up to 7" | MIPI DSI, 10.1" | on-chip LTDC |
+| WiFi | yes | yes | yes | via C6 companion | — |
+| Ethernet | on-chip MAC | on-chip MAC | W5500 over SPI | on-chip | on-chip |
+| CAN / CANopen | yes | yes | yes | yes | yes |
+| RS485 / Modbus RTU | yes | yes | yes | yes | yes |
+| Modbus TCP | yes | yes | yes | yes | yes |
+| MQTT telemetry | yes | yes | yes | yes | yes |
+| MQTT over TLS | — | — | **yes** | **yes** | — |
+| PSRAM variants | quad (WROVER) | 2 MB | up to 8 MB octal | 32 MB | SDRAM |
+| Trend curves in a project | 4 | 4 | 8 | 8 | 8 |
+| WEBview clients | 2 | 2 | 2 | 2 | 1 |
+| Headless (bigger program limits) | yes | yes | yes | yes | yes |
+
+Two rows deserve a sentence. *MQTT over TLS* needs RAM the classic
+ESP32 does not have — the editor refuses the option for such a board
+at your desk (see [MQTT](mqtt.md)). And *trend curves*: the classic
+core's RAM carries four curve buffers; the S3, P4 and F7 carry the
+full eight.
+
 ---
 
 ## STM32 is coming, F7 first

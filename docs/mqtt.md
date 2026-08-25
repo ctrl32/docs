@@ -27,7 +27,8 @@ MQTT settings are part of the **FULL** level (same as CAN and Modbus).
 | Field | Meaning |
 |:---|:---|
 | broker | IP address or hostname (e.g. `192.168.0.10`) |
-| port | 1883 (plain MQTT, no encryption) |
+| port | 1883 plain, typically 8883 with TLS |
+| TLS | encrypted connection to the broker — S3, P4 (see below) |
 | username / token | in ThingsBoard this is the **device access token** |
 | password | for a generic broker; ThingsBoard does not need it |
 | topic | base topic; default `v1/devices/me/telemetry` |
@@ -70,13 +71,56 @@ the topic `.../rpc/response/<id>`.
 
 ## Security and limits
 
-- **No TLS.** Encryption is not enabled on the ESP32-S3 (it does not
-  fit into RAM alongside control and graphics). The broker must live on
-  the **separate equipment network**, not on the internet. The board does
-  not belong on a public network.
+- **TLS is available on ESP32-S3 and ESP32-P4** — see the section
+  below. The classic ESP32 has no RAM for it and the editor refuses
+  the option for such a board at your desk. Without TLS the broker
+  must live on the **separate equipment network**, not on the
+  internet.
+- The WEBview pages themselves are always served without TLS — that
+  rule is unchanged, whatever the broker connection does.
 - The token and password are stored in the project pack in plain text.
 - Published variable limit: **64**. The editor will not allow more.
 - One broker per board.
+
+## Encrypted connection (TLS)
+
+Tick *TLS* and the board talks `mqtts` to the broker — the server
+certificate is verified against a built-in bundle of public
+certificate authorities (Let's Encrypt included), so a broker with an
+ordinary public certificate works with no extra configuration.
+
+Two things follow from how certificates work:
+
+- **The board needs real time.** Certificate validity is checked
+  against the clock, so a TLS project should keep NTP on (*Clock* →
+  *NTP*). Until the first time sync lands, the connection simply
+  retries — nothing breaks, it connects a few seconds later.
+- **S3 and P4 only.** The classic ESP32 does not have the memory for
+  a TLS session next to control and rendering; the editor tells you
+  at your desk, not the board at the site.
+
+## Changing the network on the board itself
+
+A board with a display can be re-pointed **without the editor**: a
+navigation button with the reserved target `sys_settings` (place it
+on a protected screen) opens the system *Network settings* page —
+WiFi network and password, broker address, port, TLS, credentials —
+with an on-screen keyboard. *Save + restart* stores the values on the
+board and reboots; the board then joins the new network and broker
+while the project itself stays untouched. *Pack defaults* returns to
+what the project says.
+
+What is published — the variable list and the topics — always comes
+from the project. The board decides *where* it runs, never *what* it
+says.
+
+## Watching the traffic on the board
+
+A navigation button with the reserved target `sys_terminal` opens a
+console straight on the display: every published message, everything
+received, and the connection events, each with a timestamp. When a
+dashboard shows nothing, this screen answers the first question — is
+anything actually leaving the board? — without a laptop.
 
 | Situation | Behaviour |
 |:---|:---|
