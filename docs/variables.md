@@ -117,6 +117,24 @@ is a constant.
 | **canopen** | an object from a node's dictionary (index/subindex), over PDO or SDO |
 | **gpio** | a local board input or output, optionally inverted |
 | **periph** | a chip pin on a local bus (expander, thermometer, LED) |
+| **adc** | the internal ADC1 — calibrated millivolts, × gain + offset |
+
+```yaml
+- { name: vbat, datatype: f32, unit: mV, decimals: 0, deadband: 5,
+    source: { adc: { pin: 34 } } }
+```
+
+The variable receives **millivolts** roughly ten times a second; a battery
+divider is one `gain` away from volts. Only **ADC1** pins work (classic
+ESP32: GPIO 32–39, ESP32-S3: GPIO 1–10) — ADC2 shares silicon with WiFi
+and loses, so an ADC2 pin is refused at build time, not discovered on the
+bench.
+
+!!! note "Battery duty, not measurement"
+    The internal ADC is fine for a battery level, a potentiometer or a
+    light sensor. For anything called **measurement**, use an
+    ADS1115-class peripheral on the I²C bus — see
+    [Adding peripherals](adding-peripherals.md).
 
 !!! danger "Word order for Modbus `REAL`"
     A `REAL` travels over Modbus in two 16-bit registers, and **the word
