@@ -85,10 +85,20 @@ outputs.
 
 The connection can be **encrypted**: beside the open endpoint the
 box offers Basic256Sha256 (and Aes128/Aes256) sign-and-encrypt
-endpoints, using a certificate it issues itself at first start —
-trust it once in your client, the way a network printer's is
-trusted. A variable can also be kept **off the server** entirely:
-untick *OPC UA server* on the variable and it simply is not there —
+endpoints. The certificate is chosen on the OPC UA page, in **Box
+certificate** — three modes, applied to the running box with one
+button:
+
+- **Self-signed** (the default): the box issues its own ten-year
+  certificate at first start — trust it once in your client, the
+  way a network printer's is trusted.
+- **Own certificate**: pick a PEM or DER certificate and key from
+  your company's PKI; the box checks that both parse before it
+  replaces anything.
+- **No encryption**: only the open endpoint remains.
+
+A variable can also be kept **off the server** entirely: untick
+*OPC UA server* on the variable and it simply is not there —
 internals stay internal without touching access rights.
 
 ## …and read from another server
