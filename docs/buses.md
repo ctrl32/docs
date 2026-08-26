@@ -118,8 +118,12 @@ in advance; see [Performance and limits](limits.md).
 
 On ESP32 boards, CAN, RS485, I²C and SPI are not soldered to fixed
 positions — the project says where they live, and the assignment
-travels with the program. Each bus page carries its pin fields;
-`-1` keeps the board's own default.
+travels with the program. The **Bus pins** section of the board page
+is the one place they are set: each position is a dropdown of the
+**allowed pins** — pins the chip cannot give you are not offered at
+all — and an empty entry keeps the board's own default.
+
+![Bus pins on the board page: routed positions read-only, free ones picked from allowed pins](img/board-buspins.webp){: .sb-center}
 
 - **A board that routes the bus itself** — a fitted CAN transceiver, a
   wired RS485 driver — shows its positions read-only. They are part of

@@ -62,6 +62,7 @@ nav:
   - Quick start: quickstart.md
   - Your first project: tutorial.md
   - Supported hardware: hardware.md
+  - Linux boxes: linux-boxes.md
   - Tutorial projects:
       - Tutorial projects: tutorials.md
       - Two boards over Modbus: tutorial-modbus-pair.md

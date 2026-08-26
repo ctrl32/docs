@@ -10,25 +10,31 @@ headroom, not less.
 The editor refuses a project that exceeds them **at your desk** — not as a
 stuttering board in a real setup. They are also the numbers for the datasheet.
 
-Every board is one of **two types**: with a display, or headless. A
-board with glass spends its RAM on rendering; a headless board spends
-the same RAM on a bigger program. You pick the type by picking the
-board — nothing to configure.
+Every target is one of **three types**: with a display, headless, or
+a [Linux box](linux-boxes.md). A board with glass spends its RAM on
+rendering; a headless board spends the same RAM on a bigger program;
+a Linux box has gigabytes and carries ten times everything. You pick
+the type by picking the target — nothing to configure.
 
-| Limit | With display | Headless |
-|:---|:---:|:---:|
-| Variables | 512 | 512 |
-| Alarms | 128 | 128 |
-| Screens | 32 | 32 (WEBview) |
-| Widgets per screen | 64 | 64 |
-| LD/FBD blocks | 512 | **1024** |
-| Compiled program | 32 kB | **64 kB** |
-| Instance data | 8 kB | **24 kB** |
-| Trend curves (per chart) | 4 | 4 |
-| Trend curves (whole project) | 8 (classic ESP32: 4) | 8 (classic ESP32: 4) |
-| WEBview clients (ESP32; STM32F7: 1) | 2 | 2 |
-| Axes (drives) | 4 | 4 |
-| PLC tasks | 2 (fast + slow) | 2 (fast + slow) |
+| Limit | With display | Headless | Linux |
+|:---|:---:|:---:|:---:|
+| Variables | 512 | 512 | **5 120** |
+| Alarms | 128 | 128 | **1 280** |
+| Screens | 32 | 32 (WEBview) | **320** |
+| Widgets per screen | 64 | 64 | **256** |
+| LD/FBD blocks | 512 | **1024** | **5 120** |
+| Compiled program | 32 kB | **64 kB** | **320 kB** |
+| Instance data | 8 kB | **24 kB** | **240 kB** |
+| Trend curves (per chart) | 4 | 4 | 4 |
+| Trend curves (whole project) | 8 (classic ESP32: 4) | 8 (classic ESP32: 4) | 8 |
+| WEBview clients (ESP32; STM32F7: 1) | 2 | 2 | more |
+| Axes (drives) | 4 | 4 | — |
+| PLC tasks | 2 (fast + slow) | 2 (fast + slow) | 2 (fast + slow) |
+
+The Linux numbers are not paper: a generated proof project — 600
+variables, 40 screens of ~96 widgets each — runs on the reTerminal
+with the logic cycling at 10 ms and every variable served over
+OPC UA.
 
 ## How many blocks really fit
 

@@ -12,8 +12,9 @@ widget and its properties.
 
 ## Screens, not pages
 
-A project has up to **32 screens** and up to **64 widgets on each**. One
-is shown at a time; the operator moves between them with `nav` widgets.
+A project has up to **32 screens** and up to **64 widgets on each**
+(a [Linux box](linux-boxes.md) carries 320 and 256). One is shown at
+a time; the operator moves between them with `nav` widgets.
 
 That is generous for a project and deliberately not unlimited. An
 installation that needs forty screens usually needs three good ones
@@ -29,6 +30,24 @@ not find it in a hurry.
 | Settings | setpoints, times, recipe values |
 | Alarms | what is wrong and what was wrong |
 | Trend | how a value has behaved |
+
+---
+
+## The resolution
+
+Clicking **HMIview** in the device tree opens its settings page. On a
+board with glass there is nothing to decide — the screen's pixels are
+the board's pixels, and the page says so. On a target that scales
+(a [Linux box](linux-boxes.md)), the page offers the common
+resolutions and a custom size: author at whatever suits the design,
+and the box fits it to its glass with the shape kept.
+
+The same page sets the **orientation** — a glass mounted on its side
+authors portrait screens, and the board transposes as it draws — and
+the **WEBview canvas**, the size the browser screens are drawn for,
+usually a phone in portrait.
+
+![The HMIview settings page: resolution, orientation, WEBview canvas](img/hmiview-settings.webp){: .sb-center}
 
 ---
 

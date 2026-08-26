@@ -14,8 +14,9 @@ historian: it sends the current state, the server keeps the history.
 
 ## How to switch it on
 
-1. In the device tree, double-click the **MQTT** node (or right-click →
-   *MQTT settings…*).
+1. In the device tree, click the **MQTT** node — the whole
+   configuration lives on the page that opens, nothing hides behind a
+   dialog.
 2. Tick *Publish telemetry to broker* and fill in the broker address
    and credentials.
 3. In the variable list, tick the variables that should be sent.
@@ -34,6 +35,8 @@ MQTT settings are part of the **FULL** level (same as CAN and Modbus).
 | topic | base topic; default `v1/devices/me/telemetry` |
 | interval | how often a message may be sent at most (default 5 s, min 1 s) |
 | setTag commands | allows writes from the dashboard (see below) |
+
+![The MQTT page: broker, TLS, mode and the variable list in one place](img/mqtt-card.webp){: .sb-center}
 
 ## What the board sends
 

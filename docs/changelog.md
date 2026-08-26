@@ -9,6 +9,40 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.031
+
+!!! warning "Update the boards first"
+    The program pack format moved again: **flash the new runtime onto
+    a board before sending it a program built by this editor.** The
+    board refuses a newer pack loudly and keeps running the old one.
+
+- **Linux boxes.** The runtime now also runs as a Linux program on
+  catalogue boxes — Seeed reTerminal (5", Raspberry Pi CM4) and the
+  ST STM32MP157C-DK2. Same project file, same editor; the box boots
+  into the visualisation, takes downloads over the network, goes
+  online like any board, and serves **every variable over OPC UA**.
+  Limits are roughly **ten times** the microcontroller numbers. See
+  [Linux boxes](linux-boxes.md).
+- **MQTT over TLS.** The broker connection can be encrypted on S3,
+  P4 and STM32 boards — the editor refuses the combination the
+  hardware cannot carry, at your desk. See [MQTT](mqtt.md).
+- **Set up WiFi and MQTT on the glass.** Two reserved screens —
+  `sys_settings` and `sys_terminal` — let an operator repoint a
+  board to a different network or broker, and watch the MQTT
+  traffic live, without the editor. See [MQTT](mqtt.md).
+- **Bus pins on the board page.** CAN, RS485, I²C and SPI positions
+  are assigned on the board page from a list of **allowed pins** —
+  pins the chip cannot give you are simply not offered, and boards
+  that route a bus themselves show it fixed.
+- **The MQTT page.** The whole MQTT configuration sits on its page
+  now — no dialog in between.
+- **HMIview settings.** Clicking HMIview in the tree opens its
+  settings — the resolution (free on targets that scale, fixed
+  where the glass decides) and the WEBview canvas size.
+- **The scanner sees more.** Linux boxes appear in the device
+  scanner next to the boards; a box reachable over two networks
+  shows as one row, not two.
+
 ## 1.00.029
 
 !!! warning "Update the boards first"
