@@ -94,6 +94,14 @@ A device that is not in the catalog does not have to be written by hand:
    map*. The row below the table adds registers (name, address, class,
    data type, unit); the `x` on a row deletes a register.
 3. *Save to catalog* writes the map back into the `.yaml`.
+4. **Create/update variables** makes the variables: one for every
+   register that has none (named `prefix_register`), and bindings
+   refreshed from the map for the ones that exist — safe to press
+   again any time the map changes. The `+` on a row creates just that
+   one; typing a name into the *Variable* column names it your way,
+   and a renamed variable keeps its name on later updates.
+
+![The register map: the variable column, the prefix and the create button](img/modbus-registers.webp){: .sb-center}
 
 The file is the single source of truth — the project only keeps the
 path to it, so the entry appears on disk right away, not only when the
