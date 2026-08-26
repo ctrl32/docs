@@ -36,6 +36,11 @@ resolution** onto its screen, rotation and aspect kept. The same
 project can run on the reTerminal's 1280 × 720 and the DK2's 4" glass
 without redrawing a single screen.
 
+A **USB mouse** needs no configuration either: plug one in — even
+into a running box — and a cursor appears; a click presses exactly
+like a finger. Unplug it and the cursor is gone. Touch and mouse
+work side by side.
+
 ---
 
 ## The box's network, from the editor
