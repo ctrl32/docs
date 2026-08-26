@@ -26,3 +26,6 @@ documented group by group:
 | [Equipment blocks](blocks-equipment.md) | MOTOR, VALVE and PID — with the parts people forget |
 | [Motion](blocks-motion.md) · [CANopen](blocks-can.md) | driving an axis, and talking to a drive directly |
 | [Services](blocks-services.md) | infrared, SMS, modem state |
+
+![A ladder program in the editor - the thermostat example](img/ladder-thermostat.webp){: .sb-center}
+

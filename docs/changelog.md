@@ -16,6 +16,11 @@ moves. Releases before that carried dates (`year.month.day.build`).
     a board before sending it a program built by this editor.** The
     board refuses a newer pack loudly and keeps running the old one.
 
+- **A box reads another box over OPC UA.** A Linux target can name
+  an OPC UA server and source variables from its nodes
+  (`source: opcua`) — browse the server on the OPC UA page, import,
+  and the box polls the values in at runtime. See
+  [Linux boxes](linux-boxes.md).
 - **Linux boxes.** The runtime now also runs as a Linux program on
   catalogue boxes — Seeed reTerminal (5", Raspberry Pi CM4) and the
   ST STM32MP157C-DK2. Same project file, same editor; the box boots

@@ -22,6 +22,8 @@ them.
 | [CANopen](blocks-can.md) | CO_CIA402, CO_SDOWRITE, CO_SDOREAD, CO_RAMPTIME | talking to a drive directly |
 | [Services](blocks-services.md) | IR_SEND, SMS_SEND, GSM_INFO | infrared, SMS, modem state |
 
+![Function blocks wired in the FBD editor](img/fbd-i550.webp){: .sb-center}
+
 ## Anatomy of a block
 
 Every block has three kinds of pin, and the difference matters:

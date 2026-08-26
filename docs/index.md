@@ -34,6 +34,8 @@ fraction of the established engineering systems.
 
     [What's new](changelog.md) is the honest record of both.
 
+![The editor: the canvas IS the panel - same rasteriser, same pixels](img/editor-canvas.webp){: .sb-center}
+
 ## What it is made of
 
 | Part | What it does |

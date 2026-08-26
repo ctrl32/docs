@@ -68,6 +68,20 @@ from outside is a **command**, and only variables marked `rw` accept
 one. Everything else answers "not writable" — the logic owns its
 outputs.
 
+## …and read from another server
+
+The box can also be the client. On the **OPC UA page** (in the
+device tree under Ethernet) the editor browses any OPC UA server —
+another ctrl32 box, a PLC, a SCADA — and imports the picked
+variables into VAR. Each one carries its node, and at runtime the
+box polls the server into them; the editor never speaks OPC once
+the design leaves the desk.
+
+![The OPC UA page: the box's server on top, browse-and-import below](img/opcua-page.webp){: .sb-center}
+
+One server per project, named once. A box that loses the server
+keeps running on the last values — logic first, network second.
+
 ---
 
 ## What a Linux box does not do (yet)

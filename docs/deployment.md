@@ -9,3 +9,6 @@ program running, so a download cannot brick a board.
   dual-slot dance, what is verified and when the runtime must be flashed
 - [Network and security](security.md) — where a board belongs on a
   network, and what to switch off before leaving one running
+
+![Flashing a runtime from the editor](img/deploy-runtime.webp){: .sb-center}
+

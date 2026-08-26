@@ -9,6 +9,8 @@ underneath are on the [MQTT](mqtt.md) page.
 
 ---
 
+![The MQTT page - per-variable topics for Home Assistant](img/mqtt-card.webp){: .sb-center}
+
 ## What you need
 
 1. **Home Assistant** with the **MQTT integration** set up.

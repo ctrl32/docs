@@ -14,3 +14,6 @@ screen you design is — pixel for pixel — the screen the board shows.
 
 **New to it?** [Your first project](tutorial.md) builds one from an empty
 file in half an hour, with no hardware needed until the last step.
+
+![The main layout: devices left, documents center, toolbox and elements right, properties below](img/editor-layout.webp){: .sb-center}
+
