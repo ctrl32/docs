@@ -11,7 +11,7 @@ runtime is flashed with — comes from that choice.
 
 ---
 
-![The board page: bus pins, routed positions read-only](img/board-buspins.webp){: .sb-center}
+![The board picker: the catalog with the card of each entry](img/board-catalog.webp){: .sb-center}
 
 ## The three kinds of entry
 
