@@ -79,8 +79,27 @@ registers → choose the transport (RS485 / TCP + IP) → *Import variables*.
 The variables get a prefix derived from the model (`sdm630_voltage`), the
 right data type, word order and scaling.
 
-First entries: **Eastron SDM120** (single-phase meter) and **SDM630**
-(three-phase meter).
+In the catalogue today, all with register maps taken from the
+official vendor documents:
+
+| Vendor | Meter | Connection |
+|:---|:---|:---|
+| Eastron | SDM120, SDM630 | 1-ph 45 A / 3-ph 100 A direct |
+| WAGO | 879-3000 (4PU/4PS), 879-3040 (2PU CT) | 3-ph 65 A direct / 1A-5A CT, MID |
+| inepro | PRO1-Mod, PRO2-Mod | 1-ph 45 A / 100 A direct, MID |
+| Schrack | MGX20400 | 3-ph 100 A direct, MID |
+| IME | Conto D4-Pd MID (CE4DMID31) | 3-ph 63 A direct, MID |
+| F&F | LE-03MQ CT | 3-ph via CT, MID |
+| Lumel | NMID33 | 3-ph 100 A direct, MID |
+| Selec | EM4M-3P-C-100A | 3-ph 100 A direct |
+| Tense | TPM-04SH-DL | 3-ph analyzer via CT |
+| YTL | 5299 (DTS353F) | 3-ph 80 A direct, MID |
+
+Each entry's header comments carry the traps the datasheet buries:
+which meters report power in **kW** instead of W, whose word order is
+unverified, which family has two incompatible register-map
+generations. Verify the first physical unit before an installation
+depends on it.
 
 ### Your own device
 
