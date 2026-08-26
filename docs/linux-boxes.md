@@ -38,6 +38,16 @@ without redrawing a single screen.
 
 ---
 
+## The box's network, from the editor
+
+On the board page, a Linux target's **Box network** section talks to
+the *running* box: join a WiFi network, switch the ethernet between
+DHCP and a static address. The box applies it through its own
+network manager and its answer shows right there — including a
+refusal, when the box has no manager to apply with.
+
+---
+
 ## Getting a program onto the box
 
 The runtime is installed on the box **once**; after that everything
