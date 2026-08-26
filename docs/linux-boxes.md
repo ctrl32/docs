@@ -83,6 +83,14 @@ from outside is a **command**, and only variables marked `rw` accept
 one. Everything else answers "not writable" — the logic owns its
 outputs.
 
+The connection can be **encrypted**: beside the open endpoint the
+box offers Basic256Sha256 (and Aes128/Aes256) sign-and-encrypt
+endpoints, using a certificate it issues itself at first start —
+trust it once in your client, the way a network printer's is
+trusted. A variable can also be kept **off the server** entirely:
+untick *OPC UA server* on the variable and it simply is not there —
+internals stay internal without touching access rights.
+
 ## …and read from another server
 
 The box can also be the client. On the **OPC UA page** (in the
