@@ -105,6 +105,11 @@ with indices, sub-indices, types and names.
 ctrl32 reads it. *Tools → Device library* installs an EDS into the
 project's device repository; from there you pick objects and the editor
 **generates the variables**, correctly typed and correctly addressed.
+*Add CAN device* shows the repository with the card of each file —
+click a device and its parameters are read out on the spot: objects,
+how many are writable, the PDO channels, the first free node-ID.
+
+![Add CAN device: the file's parameters on the card](img/canopen-add.webp){: .sb-center}
 
 That is the difference between an afternoon with a manual and five
 minutes with a file. Object `0x6041` sub `0` becomes a variable called
