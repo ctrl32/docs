@@ -11,7 +11,7 @@ HA automations bind those to the real lights.
 | Board | STM32F746-DISCO (480×272 touch, ethernet) |
 | Light 1 | a dimmable Zigbee bulb — switch + brightness slider |
 | Light 2 | a wall relay light — on/off |
-| Project file | `ha_lights_f7.yaml` |
+| Project file | `ha_lights_f7.prj32` |
 
 The project is installed with the editor in `tutorials\`. The broker
 route is the same as every HA connection —

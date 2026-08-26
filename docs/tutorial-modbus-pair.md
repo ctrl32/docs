@@ -8,8 +8,8 @@ Between them, nothing but Modbus TCP.
 
 | | Board | Transport | Role | Project file |
 |:---|:---|:---|:---|:---|
-| **At the process** | inoCORE32-TM8.6 | WiFi | Modbus **slave** — measures, owns the outputs | `tm8_6_modbus_slave.yaml` |
-| **At the operator** | STM32F746-DISCO | Ethernet | Modbus **master** — displays, commands | `f7_modbus_master.yaml` |
+| **At the process** | inoCORE32-TM8.6 | WiFi | Modbus **slave** — measures, owns the outputs | `tm8_6_modbus_slave.prj32` |
+| **At the operator** | STM32F746-DISCO | Ethernet | Modbus **master** — displays, commands | `f7_modbus_master.prj32` |
 
 Both files are installed with the editor in `examples\modbus_pair` —
 open them side by side while reading. Everything below is the real
@@ -114,8 +114,8 @@ alarms with a 3-second delay report a failed probe to both screens.
 ### The three languages
 
 The same program, written three ways — the three files
-`slave_logic_ld.yaml`, `slave_logic_st.yaml` and
-`slave_logic_fbd.yaml` sit next to the pair in
+`slave_logic_ld.prj32`, `slave_logic_st.prj32` and
+`slave_logic_fbd.prj32` sit next to the pair in
 `examples\modbus_pair` with identical variables, one language each.
 They compile to the same behaviour; pick whichever reads best to
 you. In ST the whole interlock is six lines:
@@ -215,7 +215,7 @@ the same screen serves phones from the master too.
 
 1. **The slave first, over USB.** The first download carries the
    WiFi credentials, so it has to travel over the cable:
-   compile `tm8_6_modbus_slave.yaml` and download. After the
+   compile `tm8_6_modbus_slave.prj32` and download. After the
    restart the board joins the network.
 2. **Find it.** Open the device scanner (the :ti-eyeglass: button).
    The board answers twice — on its COM port and, a few seconds
@@ -228,7 +228,7 @@ the same screen serves phones from the master too.
 
 3. **Fix the address.** Reserve that IP on the router, and make sure
    the master's `ip:` fields say it.
-4. **The master.** Compile `f7_modbus_master.yaml`, download over
+4. **The master.** Compile `f7_modbus_master.prj32`, download over
    ethernet or USB. From its restart on, the temperatures appear on
    the glass within a second or two.
 5. **Prove the interlock.** Flip a Command switch — the Output LED

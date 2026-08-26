@@ -27,14 +27,14 @@ Run the installer `ctrl32-setup-<version>.exe`. It installs:
 difference is size: `tutorials\` holds one idea per project, `examples\`
 holds whole working projects. Good places to start:
 
-- `tutorials\ladder_sealin.yaml` — the classic seal-in circuit: a start
+- `tutorials\ladder_sealin.prj32` — the classic seal-in circuit: a start
   button that latches through the contact it energised,
-- `tutorials\time_setpoint.yaml` — a TIME setpoint the operator types on
+- `tutorials\time_setpoint.prj32` — a TIME setpoint the operator types on
   the screen, driving a timer's PT,
-- `examples\tm8_6_proofer.yaml` — a three-zone proofing cabinet: PT100
+- `examples\tm8_6_proofer.prj32` — a three-zone proofing cabinet: PT100
   probes, SSR heaters, hysteresis instead of on/off chatter, and the
   whole operator interface in WEBview,
-- `examples\tubex_panel.yaml` — a real board with Ethernet, a Modbus
+- `examples\tubex_panel.prj32` — a real board with Ethernet, a Modbus
   slave and NeoPixel LEDs.
 
 ![The seal-in example open in the ladder editor](img/quickstart-sealin.webp){: .sb-center}

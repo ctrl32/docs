@@ -5,7 +5,7 @@ board has. There is no temperature sensor on it: a simulated measurement
 sweeps the range, so the heating relay audibly clicks around the setpoint
 the moment you download it.
 
-**Project:** `examples\olimex_evb_example.yaml`
+**Project:** `examples\olimex_evb_example.prj32`
 **Board:** Olimex ESP32-EVB with a MOD-LCD2.8RTP, 240×320 portrait
 **Needs:** nothing wired up — it runs in simulation as it is
 

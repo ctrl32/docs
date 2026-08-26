@@ -12,7 +12,7 @@ watchdog decides how much to trust them.
 | Board | Olimex ESP32-EVB + MOD-LCD2.8RTP (240×320, portrait) |
 | Heating | the board's relay 1 (REL1) |
 | Temperature | a Zigbee sensor, through Home Assistant and MQTT |
-| Project file | `ha_thermostat_evb.yaml` |
+| Project file | `ha_thermostat_evb.prj32` |
 
 The project is installed with the editor in `tutorials\` — open it
 while reading. The general route of connecting a board to HA (broker,

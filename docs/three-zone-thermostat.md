@@ -22,7 +22,7 @@ The projects are installed with the editor in `examples\wifi_pair`:
 | Display | none — WEBview to a phone | 4,3" 480×272, SSD1963, capacitive touch |
 | Process I/O | 3× MAX31865 (PT100), 3× SSR 240 V/16 A | — |
 | Buses | WiFi (AP + uplink), CAN, RS485, SPI | WiFi, CAN, RS485 |
-| Project file | `tm8_6_wifi_zones.yaml` | `stephmi_wifi_panel.yaml` |
+| Project file | `tm8_6_wifi_zones.prj32` | `stephmi_wifi_panel.prj32` |
 
 !!! note "The design rule underneath everything"
     The zone board **owns its outputs**. The panel asks — a setpoint,
@@ -459,7 +459,7 @@ each; the temperatures are f32 across two registers, big word first.
    cabinet to them.
 
 To change the access code, edit the one comparison in
-`stephmi_wifi_panel.yaml` (the block named `gate`) and download the
+`stephmi_wifi_panel.prj32` (the block named `gate`) and download the
 panel again.
 
 ---

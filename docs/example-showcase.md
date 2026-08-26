@@ -3,7 +3,7 @@
 The same runtime on entirely different silicon: an STM32F7 with a 4.3"
 landscape screen, ethernet and capacitive touch.
 
-**Project:** `examples\f746_disco_example.yaml`
+**Project:** `examples\f746_disco_example.prj32`
 **Board:** ST 32F746G-DISCOVERY, 480×272 landscape
 **Needs:** nothing wired up — it runs in simulation as it is
 
