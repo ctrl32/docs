@@ -22,13 +22,13 @@ rather than copied from the board.
 
 ## The screens
 
-![The thermostat screen: a gauge, the setpoint, and the buttons](img/example-evb-0.png)
+![The thermostat screen: a gauge, the setpoint, and the buttons](img/example-evb-0.png){: .sb-center}
 
 **Home.** The gauge is the measurement, the buttons below adjust the
 setpoint, and the switch turns automatic mode on and off. One screen
 that answers "what is it doing" and "make it do something else".
 
-![Manual control: both relays, individually](img/example-evb-2.png)
+![Manual control: both relays, individually](img/example-evb-2.png){: .sb-center}
 
 **Manual.** Every actuator on its own. This is what you want during
 commissioning, and what you want when something has stopped and you need
@@ -38,13 +38,13 @@ Note that manual heating only acts while automatic mode is **off** — the
 interlock is in the logic, not in the screen, so it holds however the
 value is written.
 
-![The trend screen, moments after starting: the chart still filling, the two values below it](img/example-evb-3.png)
+![The trend screen, moments after starting: the chart still filling, the two values below it](img/example-evb-3.png){: .sb-center}
 
 **Trend.** Two traces recorded in the board, so the history exists
 whether or not anybody is watching. The current values sit under the
 chart, where they can be read without interpreting the lines.
 
-![The states screen: lamps from a variable, a panel background, a marker on a scale](img/example-evb-5.png)
+![The states screen: lamps from a variable, a panel background, a marker on a scale](img/example-evb-5.png){: .sb-center}
 
 **States and motion.** Two lamps on one variable — one taking its
 colours from a named set, one with its own — a panel whose *background*
@@ -54,7 +54,7 @@ is the state, and a marker that travels the scale as the setpoint moves.
 
 ## The logic
 
-![The ladder editor: five rungs of the thermostat, blocks in the rungs](img/editor-ladder.png)
+![The ladder editor: five rungs of the thermostat, blocks in the rungs](img/editor-ladder.png){: .sb-center}
 
 Five rungs, and the shape is worth reading:
 

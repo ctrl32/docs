@@ -37,7 +37,7 @@ holds whole working projects. Good places to start:
 - `examples\tubex_panel.yaml` — a real board with Ethernet, a Modbus
   slave and NeoPixel LEDs.
 
-![The seal-in example open in the ladder editor](img/quickstart-sealin.webp)
+![The seal-in example open in the ladder editor](img/quickstart-sealin.webp){: .sb-center}
 
 ## 3. Pick the board
 
@@ -52,7 +52,7 @@ runtime*. The editor writes it over USB itself, reads the flash back to
 verify it, and refuses a chip that does not match the board — a wrong
 COM port cannot be written. It takes tens of seconds.
 
-![The Flash runtime dialog](img/deploy-runtime.webp)
+![The Flash runtime dialog](img/deploy-runtime.webp){: .sb-center}
 
 !!! warning "An old runtime means the program will not load"
     The pack format evolves. If the runtime is older than the pack, the board

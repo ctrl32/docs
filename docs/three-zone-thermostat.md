@@ -152,7 +152,7 @@ watchdog declares it dead.
 
 ### Home
 
-![The Home page in AUTO: three zone cards with the large current temperature, the small editable setpoint, the AUTO badge and the output lamp; zone B is heating](img/thermostat-home.png)
+![The Home page in AUTO: three zone cards with the large current temperature, the small editable setpoint, the AUTO badge and the output lamp; zone B is heating](img/thermostat-home.png){: .sb-center}
 
 One card per zone:
 
@@ -166,7 +166,7 @@ One card per zone:
 
 In MANUAL the badge gives way to the command switch:
 
-![The Home page in MANUAL: the toggle switches replace the AUTO badges; zone B is commanded on and its output lamp confirms it](img/thermostat-home-manual.png)
+![The Home page in MANUAL: the toggle switches replace the AUTO badges; zone B is commanded on and its output lamp confirms it](img/thermostat-home-manual.png){: .sb-center}
 
 The switch *requests*; the Output lamp *reports*. When they disagree
 — switch on, lamp dark — one of the gates said no, and the Alarms
@@ -175,14 +175,14 @@ page says which.
 When the link dies, the banner takes the title row and the values
 freeze at their last known state:
 
-![The Home page with the link down: the red banner with the yellow exclamation mark, the Link lamp frozen, every output off](img/thermostat-home-linkdown.png)
+![The Home page with the link down: the red banner with the yellow exclamation mark, the Link lamp frozen, every output off](img/thermostat-home-linkdown.png){: .sb-center}
 
 At that same moment the zone board has already dropped its heaters —
 the banner and the protection are two views of the same watchdog.
 
 ### Trend
 
-![The Trend page: one mini chart per zone, each plotting the current temperature and the setpoint over eight hours](img/thermostat-trend.png)
+![The Trend page: one mini chart per zone, each plotting the current temperature and the setpoint over eight hours](img/thermostat-trend.png){: .sb-center}
 
 Three charts, one per zone, each with **two curves: the current
 temperature and the setpoint**, so a setpoint change is visible in
@@ -192,7 +192,7 @@ panel's RAM: a panel restart starts the history afresh.
 
 ### Alarms
 
-![The Alarms page: the alarm table with an active high-limit alarm on zone A](img/thermostat-alarms.png)
+![The Alarms page: the alarm table with an active high-limit alarm on zone A](img/thermostat-alarms.png){: .sb-center}
 
 The complete alarm list of the system:
 
@@ -216,7 +216,7 @@ sanely again.
 
 ### The access code
 
-![The access-code page: the code field on the left, the phone connection details on the right](img/thermostat-login.png)
+![The access-code page: the code field on the left, the phone connection details on the right](img/thermostat-login.png){: .sb-center}
 
 The Setup button leads here, never straight to the settings — and
 the page doubles as the **connection notice**: the *Phone access*
@@ -227,7 +227,7 @@ panel is exactly the one who wants to join with a phone.
 The operator types the access code — the keypad opens on touch —
 and **only the right code makes the way in appear**:
 
-![The access-code page after the right code: the Open settings button has appeared](img/thermostat-login-open.png)
+![The access-code page after the right code: the Open settings button has appeared](img/thermostat-login-open.png){: .sb-center}
 
 - The code is **fixed in the program** (as delivered: `1234`). It is
   compiled into the panel's logic; changing it means editing one
@@ -241,7 +241,7 @@ and **only the right code makes the way in appear**:
 
 ### Settings
 
-![The Settings page: the five thermostat variables as a grid of three zone columns, and the mode switch below](img/thermostat-settings.png)
+![The Settings page: the five thermostat variables as a grid of three zone columns, and the mode switch below](img/thermostat-settings.png){: .sb-center}
 
 The protected page. All fifteen thermostat variables as a grid —
 rows are the variables, columns the zones — plus the mode:
@@ -302,32 +302,32 @@ temperature, the editable setpoint and the real output state. In
 AUTO the cards carry the badge; in MANUAL the command switches
 appear, exactly as on the glass:
 
-![The mobile Home page in AUTO: stacked zone cards with the current temperature, the setpoint field, the AUTO badge and the output lamp](img/thermostat-web-home.png)
+![The mobile Home page in AUTO: stacked zone cards with the current temperature, the setpoint field, the AUTO badge and the output lamp](img/thermostat-web-home.png){: .sb-center}
 
-![The mobile Home page in MANUAL: the command switches replace the AUTO badges; zone B is commanded on](img/thermostat-web-home-manual.png)
+![The mobile Home page in MANUAL: the command switches replace the AUTO badges; zone B is commanded on](img/thermostat-web-home-manual.png){: .sb-center}
 
 **Trend** — the same three eight-hour charts, current and set
 temperature per zone:
 
-![The mobile Trend page: three stacked charts, one per zone](img/thermostat-web-trend.png)
+![The mobile Trend page: three stacked charts, one per zone](img/thermostat-web-trend.png){: .sb-center}
 
 **Alarms** — the alarm table, sized for a phone:
 
-![The mobile Alarms page with an active high-limit alarm on zone A](img/thermostat-web-alarms.png)
+![The mobile Alarms page with an active high-limit alarm on zone A](img/thermostat-web-alarms.png){: .sb-center}
 
 **Setup** — the same access code guards the same settings. The way
 in appears only on the right code, and the five-minute auto-lock
 applies to the phone exactly as to the glass (it is the panel's
 logic that locks, not the page):
 
-![The mobile access-code page: the code field, no way in](img/thermostat-web-login.png)
+![The mobile access-code page: the code field, no way in](img/thermostat-web-login.png){: .sb-center}
 
-![The mobile access-code page after the right code: the Open settings button has appeared](img/thermostat-web-login-open.png)
+![The mobile access-code page after the right code: the Open settings button has appeared](img/thermostat-web-login-open.png){: .sb-center}
 
 **Settings** — all fifteen thermostat variables and the mode, one
 zone card under another:
 
-![The mobile Settings page: the five variables per zone stacked, and the Manual mode switch](img/thermostat-web-settings.png)
+![The mobile Settings page: the five variables per zone stacked, and the Manual mode switch](img/thermostat-web-settings.png){: .sb-center}
 
 Writes from the phone follow the same rule as everything else: the
 page *requests*, the boards decide. A setpoint typed on a phone

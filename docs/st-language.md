@@ -6,7 +6,7 @@ compiled program and the board runs it in the PLC cycle —
 **uploading a new program never reflashes the firmware**, exactly like
 uploading new screens.
 
-![A control program in ST: MOTOR, VALVE, PID and a hysteresis comparator](img/st-editor.webp)
+![A control program in ST: MOTOR, VALVE, PID and a hysteresis comparator](img/st-editor.webp){: .sb-center}
 
 The FBD blocks and the ST program run in the same task, in this order:
 FBD first, then ST. A variable the FBD wrote in this cycle is already

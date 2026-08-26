@@ -5,7 +5,7 @@ simple: it draws exactly the pixels you will see on the board — the same
 renderer as in the firmware is built into it, fonts, roundings and colours
 included. What you see is what gets downloaded.
 
-![A thermostat screen on the canvas, the widget toolbox on the right](img/editor-canvas.webp)
+![A thermostat screen on the canvas, the widget toolbox on the right](img/editor-canvas.webp){: .sb-center}
 
 ## Layout
 
@@ -21,7 +21,7 @@ included. What you see is what gets downloaded.
 The **bug icon at the top right** opens mail to `bugs@ctrl32.com` —
 reporting a fault should be one click from wherever you hit it.
 
-![The screen above, its ladder below — one project, two views of the same variables](img/editor-layout.webp)
+![The screen above, its ladder below — one project, two views of the same variables](img/editor-layout.webp){: .sb-center}
 
 ## The tree follows the hardware, not the protocols
 

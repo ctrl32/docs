@@ -97,7 +97,7 @@ The editor's *Modbus TCP slave* page shows this map exactly as the
 integrator on the other side will read it, in both address
 notations:
 
-![The slave map page: temperatures in holding 0-5, commands in coils 0-2 writable, real outputs in coils 3-5 read-only](img/modbus-slave-map.png)
+![The slave map page: temperatures in holding 0-5, commands in coils 0-2 writable, real outputs in coils 3-5 read-only](img/modbus-slave-map.png){: .sb-center}
 
 ### The program
 
@@ -105,7 +105,7 @@ One interlock per zone: the output follows the command **only while
 the probe reads sane**. A loose or broken PT100 reads far below
 zero, so *above 2 °C* separates a working probe from a fault:
 
-![The slave program in ladder: per zone, a GT compare writes ok_x, then two series contacts - the command and the interlock - drive the heat coil](img/modbus-pair-lad.png)
+![The slave program in ladder: per zone, a GT compare writes ok_x, then two series contacts - the command and the interlock - drive the heat coil](img/modbus-pair-lad.png){: .sb-center}
 
 Six rungs, two per zone — the compare writing `ok_x`, then the
 classic series pair `cmd_x AND ok_x` into the `heat_x` coil. Three
@@ -120,12 +120,12 @@ The same program, written three ways — the three files
 They compile to the same behaviour; pick whichever reads best to
 you. In ST the whole interlock is six lines:
 
-![The same interlock in Structured Text: ok_a := temp_a > 2.0; heat_a := cmd_a AND ok_a; - twice more for B and C](img/modbus-pair-st.png)
+![The same interlock in Structured Text: ok_a := temp_a > 2.0; heat_a := cmd_a AND ok_a; - twice more for B and C](img/modbus-pair-st.png){: .sb-center}
 
 And as a function block diagram, the dataflow view — the GT feeding
 the AND through the `ok_x` variable:
 
-![The same interlock in FBD: GT into AND per zone, wired through the ok variables](img/modbus-pair-fbd.png)
+![The same interlock in FBD: GT into AND per zone, wired through the ok variables](img/modbus-pair-fbd.png){: .sb-center}
 
 There is no better-or-worse here: ladder shows an electrician the
 interlock at a glance, ST says it in the fewest characters, FBD
@@ -201,7 +201,7 @@ writes.
 One HMI screen, three identical cards — temperature, a *Command*
 switch, an *Output* LED:
 
-![The master's screen in the editor: three zone cards, each with the temperature, a command switch and an output LED](img/modbus-pair-screen.png)
+![The master's screen in the editor: three zone cards, each with the temperature, a command switch and an output LED](img/modbus-pair-screen.png){: .sb-center}
 
 The switch binds to `cmd_x`, the LED to `heat_x`. That pairing puts
 the interlock on display: flip the switch with a healthy probe and
@@ -221,7 +221,7 @@ the same screen serves phones from the master too.
    The board answers twice — on its COM port and, a few seconds
    later, from its WiFi address:
 
-    ![The scanner during the pair bring-up: the TM8.6 answering from 192.168.0.233 with its program name, the F7 from 192.168.0.225](img/find-devices-scan.png)
+    ![The scanner during the pair bring-up: the TM8.6 answering from 192.168.0.233 with its program name, the F7 from 192.168.0.225](img/find-devices-scan.png){: .sb-center}
 
     The *Program* column is the point: `tm8_6_modbus_slave` at
     `192.168.0.233` — the address the master's variables must name.

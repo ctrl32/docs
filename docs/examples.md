@@ -43,7 +43,7 @@ the projects above.
 
 ### Ladder
 
-![The ladder editor: five rungs of the thermostat, blocks in the rungs, the Toolbox on the right](img/editor-ladder.png)
+![The ladder editor: five rungs of the thermostat, blocks in the rungs, the Toolbox on the right](img/editor-ladder.png){: .sb-center}
 
 Blocks sit **in** the rungs with EN/ENO — BLINK, SEL, RAMP, PT1, HYST —
 so the whole control chain is one picture rather than a diagram
@@ -51,7 +51,7 @@ somewhere else. Comments run above each rung.
 
 ### Ladder, online
 
-![The same rungs with live values from a running board: green power flow, 233 cycles counted, values on every pin](img/editor-online.png)
+![The same rungs with live values from a running board: green power flow, 233 cycles counted, values on every pin](img/editor-online.png){: .sb-center}
 
 The same program, connected to a running board. **Green is current
 flowing**, and every pin carries its live value.
@@ -62,7 +62,7 @@ guess.
 
 ### Function block diagram
 
-![The FBD editor: SCALE, HYST, NOT, LT and TON wired through named variables](img/editor-fbd.png)
+![The FBD editor: SCALE, HYST, NOT, LT and TON wired through named variables](img/editor-fbd.png){: .sb-center}
 
 A tank controller as a diagram — from
 [tutorials](tutorials.md). Blocks run top to bottom and pass values
@@ -71,7 +71,7 @@ flow.
 
 ### Structured Text
 
-![The ST editor with syntax highlighting and "compiles clean" in the status bar](img/editor-st.png)
+![The ST editor with syntax highlighting and "compiles clean" in the status bar](img/editor-st.png){: .sb-center}
 
 For anything a diagram makes clumsy: loops, step sequences, a long
 calculation. It compiles as you type, and the same block library is
@@ -79,7 +79,7 @@ callable from it.
 
 ### CANopen
 
-![The board page with the CANopen master, its nodes and their objects](img/editor-canopen.png)
+![The board page with the CANopen master, its nodes and their objects](img/editor-canopen.png){: .sb-center}
 
 Nodes on the bus, their objects, and the variables generated from them.
 An EDS file from the manufacturer becomes correctly typed, correctly
@@ -87,7 +87,7 @@ addressed variables — see [CANopen](canopen.md).
 
 ### A different board
 
-![The same editor with a stepHMI32.4 project open](img/editor-stephmi.png)
+![The same editor with a stepHMI32.4 project open](img/editor-stephmi.png){: .sb-center}
 
 Same editor, same languages, same widgets. The board is a choice in the
 project, not a different tool.

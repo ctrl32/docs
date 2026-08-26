@@ -133,7 +133,7 @@ from 0, like the protocol.
     pages print both spellings side by side so the integrator on the
     other end can check against their manual either way:
 
-![The Modbus slave map in the editor: every row shows the protocol address and the manual number — 4x 0-1 (40001), 0x 3 (4)](img/modbus-slave-map.png)
+![The Modbus slave map in the editor: every row shows the protocol address and the manual number — 4x 0-1 (40001), 0x 3 (4)](img/modbus-slave-map.png){: .sb-center}
 
 The symptom of getting this wrong is precise: **everything is off by
 exactly one register**, or the device answers exception 02 at the

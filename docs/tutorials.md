@@ -69,7 +69,7 @@ in ladder, because that is where each is clearest.
 |:---|:---|
 | **fbd_intro** | a complete tank controller in seven blocks: 4–20 mA scaled to a percentage, hysteresis deciding "full", and a low-level detector delayed so a wave does not trip it |
 
-![The FBD editor with fbd_intro open: SCALE, HYST, NOT, LT and TON wired through named variables](img/editor-fbd.png)
+![The FBD editor with fbd_intro open: SCALE, HYST, NOT, LT and TON wired through named variables](img/editor-fbd.png){: .sb-center}
 
 ---
 

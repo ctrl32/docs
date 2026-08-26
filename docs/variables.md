@@ -8,7 +8,7 @@ drift apart — there is nothing to drift.
 
 The variable table is at the same time the PLC's **process image**.
 
-![The variable list of the thermostat example — types, units, deadbands and access in one declaration block](img/tags-variables.webp)
+![The variable list of the thermostat example — types, units, deadbands and access in one declaration block](img/tags-variables.webp){: .sb-center}
 
 ---
 

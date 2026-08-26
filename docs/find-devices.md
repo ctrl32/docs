@@ -9,7 +9,7 @@ Open it with the :ti-eyeglass: button next to the port picker, or
 *Online → Find devices…*. Every open starts a **fresh sweep** — a
 board unplugged since the last look is not still sitting in the list.
 
-![The scanner over a full bench: five boards on COM ports and four answering from the network, each with its program name and version](img/find-devices-scan.png)
+![The scanner over a full bench: five boards on COM ports and four answering from the network, each with its program name and version](img/find-devices-scan.png){: .sb-center}
 
 That is a real bench mid-scan: nine rows from seven boards — the
 networked ones answer twice, once per way of reaching them. Every

@@ -91,7 +91,7 @@ The firmware is written from a catalog of prebuilt binaries for the board
 (`runtimes/`), **not compiled on your PC**. You need no toolchain installed
 and you get exactly the binary we tested.
 
-![The Flash runtime dialog — the runtime's build date, the chip it expects, and the port to write it over](img/deploy-runtime.webp)
+![The Flash runtime dialog — the runtime's build date, the chip it expects, and the port to write it over](img/deploy-runtime.webp){: .sb-center}
 
 The editor flashes it itself — no esptool, no Python. The flash is **read
 back and verified** before the dialog says done, and the chip that answers

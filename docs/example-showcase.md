@@ -23,14 +23,14 @@ clock is set, and bit access is atomic while three writers use one word.
 
 ## The screens
 
-![The main screen: temperature, switches, icons and the brand mark](img/example-f7-0.png)
+![The main screen: temperature, switches, icons and the brand mark](img/example-f7-0.png){: .sb-center}
 
 **Main.** A value in a large font — the fastest thing on any screen to
 read — with vector icons and switches bound to variables. The bar under
 the temperature is the same value again, because a number tells you what
 and a bar tells you where in the range.
 
-![The info screen: a line of accented text, a counter, the brand mark and a bit switch](img/example-f7-1.png)
+![The info screen: a line of accented text, a counter, the brand mark and a bit switch](img/example-f7-1.png){: .sb-center}
 
 **Info.** The line of accented text is deliberate: *Príliš žltučký kôň
 úpel ďábelské ódy* is the proof that the font carries the characters
@@ -40,7 +40,7 @@ than on a finished board in front of somebody.
 Below it, bit access — a switch writing **one bit** of a word the logic
 is hammering at the same time, and neither losing the other's work.
 
-![The states screen: four lamps on four bits of one word](img/example-f7-2.png)
+![The states screen: four lamps on four bits of one word](img/example-f7-2.png){: .sb-center}
 
 **States.** The picture worth understanding: **four lamps on four bits
 of one 16-bit variable**, with no logic between them.
@@ -56,7 +56,7 @@ variable, four widgets, no code.
 
 ## Online, on the real board
 
-![The same rungs with live values from a running board: green power flow, 233 cycles counted](img/editor-online.png)
+![The same rungs with live values from a running board: green power flow, 233 cycles counted](img/editor-online.png){: .sb-center}
 
 The program with the board running: **green is current flowing**, and
 every pin carries its live value — the simulated temperature at 30.7,
