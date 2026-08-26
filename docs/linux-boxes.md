@@ -39,7 +39,9 @@ without redrawing a single screen.
 A **USB mouse** needs no configuration either: plug one in — even
 into a running box — and a cursor appears; a click presses exactly
 like a finger. Unplug it and the cursor is gone. Touch and mouse
-work side by side.
+work side by side. The **on-screen keypad scales with the glass**
+too: on a 1280 × 720 box the keys are finger-sized, on a small
+panel it stays exactly as it always was.
 
 ---
 

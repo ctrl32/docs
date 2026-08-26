@@ -169,15 +169,15 @@ read and review textual.
 
 ---
 
-## One file to hand over — `.prj32`
+## One file — `.prj32`
 
-A project you *share* wants to be one file, not "the yaml and that
-folder of images". Save as **`.prj32`** and you get exactly that: a
-package holding the same YAML plus its assets, with its own icon —
-double-click opens the editor.
+A project is **one file**: a `.prj32` package holding the versioned
+YAML plus its assets, with its own icon — double-click opens the
+editor, and it travels whole: to a colleague, to a customer, into an
+archive. The editor opens and saves **`.prj32` only**; every example
+and tutorial ships in the same form.
 
-Nothing about the format changes inside: it is the identical YAML,
-versioned and migrated the same way, and the editor opens bare `.yaml`
-forever. Use plain YAML for repository work — diffs, reviews, git — and
-`.prj32` when a project travels as a thing: to a colleague, to a
-customer, into an archive.
+Nothing about the format changes inside the package: it is the same
+YAML described on this page, versioned and migrated the same way. The
+build tooling still reads a bare `.yaml` directly — that path exists
+for repository work and automation, not for the editor.

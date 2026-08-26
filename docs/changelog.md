@@ -9,6 +9,30 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.032
+
+- **Projects are `.prj32` files.** The editor opens and saves the
+  package form only, and every example and tutorial ships as one —
+  the Welcome page, the Examples menu and the recent list all speak
+  it. See [Project format](project-format.md).
+- **OPC UA with certificates.** A Linux box offers Basic256Sha256
+  (and AES) sign-and-encrypt endpoints; the certificate is managed
+  from the OPC UA page — self-signed, your own PEM/DER pair, or
+  encryption off. A variable can also be kept **off the server**
+  with one checkbox. See [Linux boxes](linux-boxes.md).
+- **A USB mouse on a Linux box just works** — plug it in, a cursor
+  appears, a click presses like a finger. The on-screen keypad now
+  scales with the glass.
+- **The Modbus device card creates its variables.** One button makes
+  a variable for every register (and keeps them in step with the map
+  when it changes); a `+` on a row creates just that one. See
+  [Modbus](modbus.md).
+- **Limits follow the target everywhere.** A Linux project shows and
+  uses the ten-fold numbers in every editor check, not only at build
+  time. See [Limits](limits.md).
+- Boards that physically carry SPI, I²C or a serial line now say so
+  in the catalogue — the device tree offers what the hardware has.
+
 ## 1.00.031
 
 !!! warning "Update the boards first"
