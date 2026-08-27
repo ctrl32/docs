@@ -47,6 +47,27 @@ row saying *older firmware* is a board whose runtime predates the
 identity report — flash the runtime and it will introduce itself
 properly.
 
+## When a board does not appear
+
+A board missing from the list is nearly always one of three things:
+
+- **The notebook is not in the board's network.** A board with a
+  static address answers only inside its own subnet — a production
+  network usually has no DHCP, so the notebook needs a static
+  address from the same range before anything can answer it.
+- **The board's runtime predates the scanner.** Older firmware does
+  not answer the network probe at all — it is running fine, it just
+  cannot introduce itself. Connect over USB and update the runtime;
+  from then on it appears like every other board.
+- **The USB port shows no COM port.** The board's USB bridge needs
+  its Windows driver, and a notebook that has never met the chip —
+  offline, in a production hall — cannot fetch it. Carry the driver,
+  or check Device Manager for an unknown device. A charging-only USB
+  cable has the same symptom: power, no port.
+
+The serial probe is the road that always works: it needs no network,
+no address and no scanner support on the board — just the COM port.
+
 ---
 
 ## Linux boxes in the list
