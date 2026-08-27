@@ -74,6 +74,7 @@ nav:
   - Examples:
       - Examples: examples.md
       - Thermostat (Olimex EVB): example-thermostat.md
+      - Drive control (Lenze i550): example-i550.md
       - Showcase (STM32F746): example-showcase.md
   - Licensing: licensing.md
   - Network and security: security.md

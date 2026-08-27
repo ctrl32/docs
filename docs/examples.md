@@ -16,6 +16,7 @@ after an update.
 | Project | Board | What it is |
 |:---|:---|:---|
 | [Thermostat](example-thermostat.md) | Olimex ESP32-EVB, 240×320 | a wall thermostat: hysteresis, two relays, manual mode, trend, alarms and a phone page |
+| [Drive control](example-i550.md) | Olimex ESP32-EVB, 240×320 | a Lenze i550 over CANopen: the DRIVE_i550 block, diagnostics straight from the drive's objects, START/STOP from the glass and from a phone |
 | [Showcase](example-showcase.md) | STM32F746 Discovery, 480×272 | the same runtime on other silicon: status word lamps, bit access, ethernet, online |
 
 More will be added here. Each gets its own page, with what it shows,
