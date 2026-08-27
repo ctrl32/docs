@@ -63,10 +63,18 @@ page says so. A customer has to see what the board can have, not guess it.
 | :ti-folder-open: | open project |
 | :ti-device-floppy: | save project |
 | :ti-arrow-back-up: :ti-arrow-forward-up: | undo / redo (both unlimited; the count is in the Edit menu) |
-| :ti-player-play: / :ti-player-stop: | **TEST** — simulation inside the editor, without a board |
-| :ti-player-pause: :ti-player-track-next: | pause and single-cycle step (during a test) |
+| :ti-terminal-2: | the board's serial terminal |
+| :ti-wave-square: | the scope (trace) |
+| :ti-eyeglass: | [find devices](find-devices.md) |
+| *port picker* | which COM port or address the editor talks to |
 | :ti-plug: | **ONLINE** — connect to a real board (:ti-plug-connected: while connected) |
 | :ti-download: | **download to the board** (F5) — the only coloured icon in the bar |
+
+While a simulation runs (*Online → Simulation*), a transport joins
+the bar: :ti-player-stop: stop, :ti-player-pause: pause,
+:ti-player-track-next: one PLC cycle. The complete reference of
+menus, keys and mouse gestures is
+[Controls and shortcuts](editor-controls.md).
 
 There is deliberately only one blue icon. Downloading into a setup is an
 action that must not be confused with any other; everything else is a flat
@@ -74,7 +82,7 @@ icon like in any ordinary application.
 
 ## TEST — simulation without a board
 
-The :ti-player-play: button switches the editor into running: the PLC cycle runs on the PC,
+*Online → Simulation* switches the editor into running: the PLC cycle runs on the PC,
 screens react, blocks compute, variables change. It can be paused and stepped
 cycle by cycle (*Debug → Step*).
 

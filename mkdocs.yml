@@ -81,6 +81,7 @@ nav:
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
+      - Controls and shortcuts: editor-controls.md
       - Variables: variables.md
   - Visualisation:
       - Visualisation: visualisation.md
