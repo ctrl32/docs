@@ -52,6 +52,10 @@ runtime*. The editor writes it over USB itself, reads the flash back to
 verify it, and refuses a chip that does not match the board — a wrong
 COM port cannot be written. It takes tens of seconds.
 
+The very first board on a fresh PC has two extra questions — which
+USB driver, which cable — answered in
+[A board from zero](first-run.md).
+
 ![The Flash runtime dialog](img/deploy-runtime.webp){: .sb-center}
 
 !!! warning "An old runtime means the program will not load"

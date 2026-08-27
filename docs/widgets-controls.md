@@ -16,6 +16,7 @@ a command that arrives at the wrong moment.
 | Property | Type | Default | Meaning |
 |:---|:---:|:---:|:---:|
 | `text` | text | | the label |
+| `text_on` | text | | the label while the variable is TRUE |
 | `tag` | variable | | what it writes |
 | `mode` | `momentary` / `toggle` / `set` / `reset` | | how it writes |
 | `value` | number | 1 | the value written |
@@ -28,7 +29,10 @@ a command that arrives at the wrong moment.
 - **`momentary`** — TRUE while held, FALSE when released. A jog button, a
   horn, anything that should stop when the finger leaves.
 - **`toggle`** — each press flips the value. A light, a mode, an
-  enable.
+  enable. Give it a **`text_on`** (*text when ON* in the inspector)
+  and the caption follows the state: the button says START while the
+  drive is off and STOP while it runs, filled with the style's
+  accent colour. One widget, honest both ways.
 - **`set`** / **`reset`** — a press writes the value and leaves it. Two
   buttons, one to start and one to stop, is often clearer than one that
   toggles: the person can see which state they are asking for.

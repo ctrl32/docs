@@ -32,6 +32,25 @@ runs out first.
 
 ## The board
 
+### No COM port appears when the board is plugged in
+
+Exactly two causes, and both live on the PC, not the board: the USB
+bridge's **driver is missing** (Device Manager shows an unknown
+device — a hall notebook without internet cannot fetch it), or the
+cable is a **charging cable** that carries power and no data. The
+driver table and the habit of carrying both are in
+[A board from zero](first-run.md).
+
+### Flash runtime is red: "does not match the editor"
+
+One version for everything: the editor writes only a runtime that
+carries **its own version number**, and the dialog shows the
+**folder** the offered runtime came from. A runtime older than the
+editor in that folder is almost always a leftover from an earlier
+installation shadowing the fresh files — reinstall with the current
+installer (it removes the leftover locations itself) and the dialog
+offers the right build.
+
 ### The board refused the pack ("invalid pack")
 
 The pack failed verification — most often **the target board does not
@@ -64,6 +83,16 @@ The board runs a **different program** than the editor. Values are
 deliberately not shown — they travel by index, and under a different program
 they would appear as real numbers under the wrong names. The editor offers
 to download straight away.
+
+### It keeps asking to send the program
+
+Two different situations wear this face. A board that is **still
+starting** answers the "same program?" question a few seconds late —
+the editor keeps asking, so waiting out the restart is enough. But
+when the question comes back **after an upload the board accepted**,
+believe it: the project open in the editor is not the one that was
+sent — a second copy of the project is the usual culprit. *Download
+from the panel* fetches what the board really runs and settles it.
 
 ### The icon is amber and nothing happens
 

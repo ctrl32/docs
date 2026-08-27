@@ -46,10 +46,25 @@ When they do not match, the editor says *"The board runs a different program
 — downloading this one"* and opens the download. Monitoring parks itself
 meanwhile (the upload needs the same port) and reconnects after the restart.
 
+Two roads from that question, both legitimate:
+
+- **Send your program** — the usual one; the board restarts into it
+  and online opens.
+- **Look first** — when you want to see what the board is running
+  *before* changing anything, use **Download from the panel**
+  instead: the editor then holds exactly what the board holds, and
+  online works read-only with nothing written to the equipment.
+
+A board that is still **starting up** answers the question a few
+seconds late — the editor keeps asking until it does, so a freshly
+restarted board comes online by itself. If the question comes back
+*again after* an upload the board accepted, believe it: you are
+probably holding a different project than the one you sent.
+
 You can also read the fingerprint from the command line:
 
 ```powershell
-visu_editor.exe project.yaml --tag-hash
+ctrl32_editor.exe project.prj32 --tag-hash
 # TAGHASH 43943135  (215 tags)
 ```
 

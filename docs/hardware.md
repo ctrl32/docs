@@ -99,11 +99,14 @@ full eight.
 
 ---
 
-## STM32 is coming, F7 first
+## STM32, F7 first
 
-The runtime is not tied to Espressif. The first STM32 target — the
-**STM32F746 Discovery** — runs the same VM, the same variables, the same
-Modbus and CANopen, the same rasteriser and the same pack format.
+The runtime is not tied to Espressif. The first STM32 target ships:
+the **STM32F746 Discovery** is in the catalogue, its runtime flashes
+[straight from the editor](first-run.md) over the on-board ST-LINK,
+and the [showcase example](example-showcase.md) runs on it — the
+same VM, the same variables, the same Modbus and CANopen, the same
+rasteriser and the same pack format.
 
 What that means for you: a project is not locked to a chip family. The
 screens, the logic and the variables are data, and the same data runs on the

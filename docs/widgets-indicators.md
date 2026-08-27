@@ -77,6 +77,7 @@ expectation with them.
 | `sweep` | number | 270 | how far it goes round |
 | `thickness` | number | 0 | ring thickness; 0 = automatic |
 | `needle` | yes/no | yes | draw a needle |
+| `show_value` | yes/no | yes | the number in the centre |
 | `cache_background` | yes/no | yes | precompute the dial |
 
 The dial. Slower to read than a bar and better at one thing: a person who
@@ -91,6 +92,11 @@ update, and on a busy screen that is felt.
 **`needle` off gives you a ring** instead: a filled arc with the value in
 the middle. Cleaner, more modern, and easier to read at small sizes. The
 needle is better when somebody watches for the value to move.
+
+**The centre number is optional** (*Center number* in the inspector).
+On small glass it often crowds the dial — switch it off and let the
+position speak, or place a separate `value` widget where the number
+reads best. The dial in the i550 example does exactly that.
 
 The default 135° start with a 270° sweep is the familiar shape — bottom
 left, round the top, bottom right. Changing them gives you a half dial
