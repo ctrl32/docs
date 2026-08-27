@@ -11,10 +11,11 @@ The editor refuses a project that exceeds them **at your desk** — not as a
 stuttering board in a real setup. They are also the numbers for the datasheet.
 
 Every target is one of **three types**: with a display, headless, or
-a [Linux box](linux-boxes.md). A board with glass spends its RAM on
-rendering; a headless board spends the same RAM on a bigger program;
-a Linux box has gigabytes and carries ten times everything. You pick
-the type by picking the target — nothing to configure.
+the [Linux runtime](linux-runtime.md). A board with glass spends its
+RAM on rendering; a headless board spends the same RAM on a bigger
+program; a Linux device has gigabytes and carries ten times
+everything. You pick the type by picking the target — nothing to
+configure.
 
 | Limit | With display | Headless | Linux |
 |:---|:---:|:---:|:---:|

@@ -6,7 +6,7 @@ variable list and in the screen preview. It is the same view as test mode,
 except the values are not computed by a simulation — they come from the
 **equipment**.
 
-![Online with a Linux box over the network - live values, same wire as a COM port](img/online-linux.webp){: .sb-center}
+![Online with a Linux runtime over the network - live values, same wire as a COM port](img/online-linux.webp){: .sb-center}
 
 ## Switching it on
 

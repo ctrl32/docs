@@ -1,6 +1,6 @@
 # HMIview — the board's own screen
 
-The screen on the front of the box. What you see when you walk up to
+The screen on the front of the device. What you see when you walk up to
 something you built and want to know what it is doing.
 
 HMIview is drawn in the same editor as everything else, from the same
@@ -13,7 +13,7 @@ widget and its properties.
 ## Screens, not pages
 
 A project has up to **32 screens** and up to **64 widgets on each**
-(a [Linux box](linux-boxes.md) carries 320 and 256). One is shown at
+(the [Linux runtime](linux-runtime.md) carries 320 and 256). One is shown at
 a time; the operator moves between them with `nav` widgets.
 
 That is generous for a project and deliberately not unlimited. An
@@ -38,9 +38,9 @@ not find it in a hurry.
 Clicking **HMIview** in the device tree opens its settings page. On a
 board with glass there is nothing to decide — the screen's pixels are
 the board's pixels, and the page says so. On a target that scales
-(a [Linux box](linux-boxes.md)), the page offers the common
+(the [Linux runtime](linux-runtime.md)), the page offers the common
 resolutions and a custom size: author at whatever suits the design,
-and the box fits it to its glass with the shape kept.
+and the runtime fits it to its glass with the shape kept.
 
 The same page sets the **orientation** — a glass mounted on its side
 authors portrait screens, and the board transposes as it draws — and

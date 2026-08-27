@@ -70,19 +70,19 @@ no address and no scanner support on the board — just the COM port.
 
 ---
 
-## Linux boxes in the list
+## Linux runtimes in the list
 
-A [Linux box](linux-boxes.md) answers the same sweep and reads the
+A [Linux runtime](linux-runtime.md) answers the same sweep and reads the
 same way — name from the catalogue, program, version, address. Two
 details differ:
 
 - its address carries a port (`192.168.0.223:8080`) — a Linux program
-  shares the box with other software and cannot simply own the
+  shares the device with other software and cannot simply own the
   browser port the way firmware does;
-- a box with **two network connections shows once**, not twice: it
-  reports which physical box it is, and the scanner folds the second
-  address away. Ten identical boxes stay ten rows; one box on
-  ethernet *and* WiFi stays one row.
+- a device with **two network connections shows once**, not twice: it
+  reports which physical device it is, and the scanner folds the
+  second address away. Ten identical devices stay ten rows; one
+  device on ethernet *and* WiFi stays one row.
 
 ---
 
@@ -118,6 +118,6 @@ everything that follows from it.
 
 The button only appears where it works: a serial row always, a network
 row only for boards whose firmware takes editor connections over the
-network — STM32 boards and Linux boxes do. A row without *Use* is
+network — STM32 boards and Linux runtimes do. A row without *Use* is
 still information — the board is there, it answers, and its WEBview
 is a browser away.

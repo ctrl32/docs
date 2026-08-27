@@ -27,12 +27,12 @@ moves. Releases before that carried dates (`year.month.day.build`).
   package form only, and every example and tutorial ships as one —
   the Welcome page, the Examples menu and the recent list all speak
   it. See [Project format](project-format.md).
-- **OPC UA with certificates.** A Linux box offers Basic256Sha256
+- **OPC UA with certificates.** The Linux runtime offers Basic256Sha256
   (and AES) sign-and-encrypt endpoints; the certificate is managed
   from the OPC UA page — self-signed, your own PEM/DER pair, or
   encryption off. A variable can also be kept **off the server**
-  with one checkbox. See [Linux boxes](linux-boxes.md).
-- **A USB mouse on a Linux box just works** — plug it in, a cursor
+  with one checkbox. See [The Linux runtime](linux-runtime.md).
+- **A USB mouse on a Linux device just works** — plug it in, a cursor
   appears, a click presses like a finger. The on-screen keypad now
   scales with the glass.
 - **The Modbus device card creates its variables.** One button makes
@@ -52,18 +52,18 @@ moves. Releases before that carried dates (`year.month.day.build`).
     a board before sending it a program built by this editor.** The
     board refuses a newer pack loudly and keeps running the old one.
 
-- **A box reads another box over OPC UA.** A Linux target can name
+- **One runtime reads another over OPC UA.** A Linux target can name
   an OPC UA server and source variables from its nodes
   (`source: opcua`) — browse the server on the OPC UA page, import,
-  and the box polls the values in at runtime. See
-  [Linux boxes](linux-boxes.md).
-- **Linux boxes.** The runtime now also runs as a Linux program on
-  catalogue boxes — Seeed reTerminal (5", Raspberry Pi CM4) and the
-  ST STM32MP157C-DK2. Same project file, same editor; the box boots
-  into the visualisation, takes downloads over the network, goes
-  online like any board, and serves **every variable over OPC UA**.
-  Limits are roughly **ten times** the microcontroller numbers. See
-  [Linux boxes](linux-boxes.md).
+  and the values are polled in at runtime. See
+  [The Linux runtime](linux-runtime.md).
+- **The Linux runtime.** ctrl32 now also runs as a Linux program on
+  catalogue devices — Seeed reTerminal (5", Raspberry Pi CM4) and
+  the ST STM32MP157C-DK2. Same project file, same editor; the device
+  boots into the visualisation, takes downloads over the network,
+  goes online like any board, and serves **every variable over OPC
+  UA**. Limits are roughly **ten times** the microcontroller
+  numbers. See [The Linux runtime](linux-runtime.md).
 - **MQTT over TLS.** The broker connection can be encrypted on S3,
   P4 and STM32 boards — the editor refuses the combination the
   hardware cannot carry, at your desk. See [MQTT](mqtt.md).
@@ -80,8 +80,8 @@ moves. Releases before that carried dates (`year.month.day.build`).
 - **HMIview settings.** Clicking HMIview in the tree opens its
   settings — the resolution (free on targets that scale, fixed
   where the glass decides) and the WEBview canvas size.
-- **The scanner sees more.** Linux boxes appear in the device
-  scanner next to the boards; a box reachable over two networks
+- **The scanner sees more.** Linux runtimes appear in the device
+  scanner next to the boards; a device reachable over two networks
   shows as one row, not two.
 
 ## 1.00.029

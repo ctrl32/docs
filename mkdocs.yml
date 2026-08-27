@@ -62,7 +62,9 @@ nav:
   - Quick start: quickstart.md
   - Your first project: tutorial.md
   - Supported hardware: hardware.md
-  - Linux boxes: linux-boxes.md
+  - The Linux runtime:
+      - The Linux runtime: linux-runtime.md
+      - Setting up a device: linux-setup.md
   - Tutorial projects:
       - Tutorial projects: tutorials.md
       - Two boards over Modbus: tutorial-modbus-pair.md
@@ -131,6 +133,7 @@ nav:
       - Cellular modems: peripherals-connectivity.md
   - Deployment:
       - Deployment: deployment.md
+      - A board from zero: first-run.md
       - Finding your boards: find-devices.md
       - Download to the panel: deploy.md
       - Third-party licences: third-party.md
