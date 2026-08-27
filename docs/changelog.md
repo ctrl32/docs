@@ -11,6 +11,18 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.032
 
+- **A boot splash.** The panel puts a picture on the glass right
+  after power-on — your own image or the ctrl32 mark — and holds it
+  until the runtime is up and the configured minimum has passed, so
+  the display no longer flickers dark while WiFi or the broker
+  connect. Pick the image and the time on the HMIview page
+  (0 s turns it off).
+- **A button can change its caption when ON.** A latching button
+  says START while off and STOP while lit — set *text when ON* in
+  the inspector; the ON colour is the style's accent, as before.
+- **The gauge's centre number is optional.** On small glass it often
+  crowds the dial — one checkbox (*Center number*) hides it, and a
+  separate value widget can take its place.
 - **Projects are `.prj32` files.** The editor opens and saves the
   package form only, and every example and tutorial ships as one —
   the Welcome page, the Examples menu and the recent list all speak

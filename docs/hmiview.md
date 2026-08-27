@@ -49,6 +49,17 @@ usually a phone in portrait.
 
 ![The HMIview settings page: resolution, orientation, WEBview canvas](img/hmiview-settings.webp){: .sb-center}
 
+## The boot splash
+
+A board that connects to WiFi or a broker takes a few seconds to come
+up, and without help the glass spends them dark. The **Boot splash**
+section on the same page fills that gap: the panel puts a picture on
+the screen the moment the display is alive — one of the project's
+images, or the ctrl32 mark if none is picked — and holds it until the
+runtime is up **and** the configured minimum time has passed. The
+default is two seconds; `0` turns the splash off and the first screen
+appears as soon as it can.
+
 ---
 
 ## Drawing is exact

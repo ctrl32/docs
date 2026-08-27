@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **34** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **35** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -72,6 +72,7 @@ Schema version: **34** — the vocabulary of the project file. The compiled pack
 | Property | Type | Default |
 |---|---|---|
 | `text` | str |  |
+| `text_on` | str | `` |
 | `tag` | tag_ref |  |
 | `mode` | one of `momentary` / `toggle` / `set` / `reset` |  |
 | `value` | f32 | `1.0` |
@@ -129,6 +130,7 @@ Schema version: **34** — the vocabulary of the project file. The compiled pack
 | `cache_background` | bool | `True` |
 | `thickness` | i16 | `0` |
 | `needle` | bool | `True` |
+| `show_value` | bool | `True` |
 
 ## `image`
 
