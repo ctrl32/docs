@@ -145,6 +145,11 @@ These are complete devices — enclosure, display, touch, terminals:
 
 ## Every board has an identity
 
+Each entry carries a unique hardware code, and a new board revision gets
+a **new** code — never a reused one. That code travels through the
+system: the board catalogue, the runtime and the pack's `verify_target`
+field all carry it.
+
 The practical consequence: a pack built for one board is **refused** by
 another. Upload the wrong file to the wrong board and it tells you so
 instead of running something that was never meant for it.
