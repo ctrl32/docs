@@ -23,8 +23,6 @@ historian: it sends the current state, the server keeps the history.
 4. *Apply* → *Download to board*. The configuration is part of the pack —
    changing the broker or the variable list **does not require new firmware**.
 
-MQTT settings are part of the **FULL** level (same as CAN and Modbus).
-
 | Field | Meaning |
 |:---|:---|
 | broker | IP address or hostname (e.g. `192.168.0.10`) |

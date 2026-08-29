@@ -121,6 +121,7 @@ nav:
       - MQTT: mqtt.md
       - Home Assistant: home-assistant.md
       - CANopen: canopen.md
+      - "+7 (S7 PLC)": plus7.md
       - Adding a peripheral: adding-peripherals.md
   - Peripherals and services:
       - Peripherals and services: peripherals-and-services.md
