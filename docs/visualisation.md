@@ -11,6 +11,8 @@ other.
 | [WEBview — in a browser](webview.md) | the same project on a phone or laptop, served by the board itself |
 | [Screens and widgets](widgets.md) | the reference: every widget and every property |
 
+![A screen on the editor canvas — what you draw is the pixels the panel shows](img/editor-canvas.webp){: .sb-center}
+
 ---
 
 ## The screens are data

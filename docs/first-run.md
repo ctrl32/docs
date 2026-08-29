@@ -50,6 +50,8 @@ cable before doubting the board.
    shows the runtime's build and the chip it expects, and refuses a
    port where a different chip answers. About a minute; the board
    restarts.
+
+    ![The Flash runtime dialog: the precompiled firmware for this board](img/deploy-runtime.webp){: .sb-center}
 3. Download the program (:ti-download: / `F5`) over the same port.
 
 From then on the board is a citizen: the [scanner](find-devices.md)

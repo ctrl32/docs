@@ -68,7 +68,9 @@ webview:
 ### 4. MQTT
 
 Broker = the host running Mosquitto (the HA add-on), one topic per
-variable, discovery on:
+variable, discovery on — all of it on the [MQTT page](mqtt.md):
+
+![The MQTT page: broker, mode and the variable list](img/mqtt-card.webp){: .sb-center}
 
 ```yaml
 mqtt:
