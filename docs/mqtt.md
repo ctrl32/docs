@@ -5,7 +5,8 @@
 > mechanics underneath — start with that page unless you want them.
 >
 > The section on this page: [Home Assistant mode](#home-assistant-mode-one-topic-per-variable)
-> — in that mode the board acts as a process data server (an OPC equivalent).
+> — in that mode the board acts as a process data server (an
+> [OPC UA](opcua.md) equivalent).
 
 The board can push variable values to an **MQTT broker** — typically into
 ThingsBoard or OpenRemote, where the customer builds charts, dashboards
@@ -27,7 +28,7 @@ historian: it sends the current state, the server keeps the history.
 |:---|:---|
 | broker | IP address or hostname (e.g. `192.168.0.10`) |
 | port | 1883 plain, typically 8883 with TLS |
-| TLS | encrypted connection to the broker — S3, P4 (see below) |
+| TLS | encrypted connection to the broker — S3, P4 and STM32 (see below) |
 | username / token | in ThingsBoard this is the **device access token** |
 | password | for a generic broker; ThingsBoard does not need it |
 | topic | base topic; default `v1/devices/me/telemetry` |
@@ -72,8 +73,8 @@ the topic `.../rpc/response/<id>`.
 
 ## Security and limits
 
-- **TLS is available on ESP32-S3 and ESP32-P4** — see the section
-  below. The classic ESP32 has no RAM for it and the editor refuses
+- **TLS is available on ESP32-S3, ESP32-P4 and STM32 boards** — see
+  the section below. The classic ESP32 has no RAM for it and the editor refuses
   the option for such a board at your desk. Without TLS the broker
   must live on the **separate equipment network**, not on the
   internet.
@@ -96,9 +97,9 @@ Two things follow from how certificates work:
   against the clock, so a TLS project should keep NTP on (*Clock* →
   *NTP*). Until the first time sync lands, the connection simply
   retries — nothing breaks, it connects a few seconds later.
-- **S3 and P4 only.** The classic ESP32 does not have the memory for
-  a TLS session next to control and rendering; the editor tells you
-  at your desk, not the board at the site.
+- **S3, P4 and STM32 only.** The classic ESP32 does not have the
+  memory for a TLS session next to control and rendering; the editor
+  tells you at your desk, not the board at the site.
 
 ## Changing the network on the board itself
 
@@ -146,13 +147,13 @@ change — the message format is the same.
 ## Home Assistant mode (one topic per variable)
 
 The MQTT settings let you switch the publish mode to **one topic per
-variable**. The board then behaves as a process data server — the equivalent
-of an OPC server:
+variable**. The board then behaves as a process data server — the equivalent of
+an [OPC UA server](opcua.md):
 
 | What | Topic | Note |
 |:---|:---:|:---|
-| tag value | `<base>/<tag>` | **retained** — a new client gets the state immediately |
-| write to a tag | `<base>/<tag>/set` | only tags with writing enabled |
+| variable value | `<base>/<variable>` | **retained** — a new client gets the state immediately |
+| write to a variable | `<base>/<variable>/set` | only variables with writing enabled |
 | availability | `<base>/status` | `online` / `offline` (last will) |
 
 For example, with the base topic `ctrl32/boilerroom` the temperature

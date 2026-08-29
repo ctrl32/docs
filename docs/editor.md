@@ -30,7 +30,7 @@ project
   board
     Application          programs, variables, visualizations, axes
     CAN                  the bus itself: bitrate, termination
-      Raw CAN            frame-to-tag mapping
+      Raw CAN            frame-to-variable mapping
       CANopen master     + devices
     RS485                the line: baud, parity, stop bits
       Modbus RTU master  + devices

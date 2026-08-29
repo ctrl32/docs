@@ -184,4 +184,4 @@ The wall light gets the same pair without the brightness line.
 | no device in HA | boot log `mqtt:` lines; broker, credentials, discovery on |
 | switch flips but the bulb ignores it | the command automation's entity id; try the bulb from HA directly |
 | bulb changes, the lamp does not | the feedback automation; the lamp watches `fb1_on`, never the command |
-| everything lags seconds | the broker machine's load; MQTT itself is milliseconds |
+| everything lags seconds | the broker host's load; MQTT itself is milliseconds |

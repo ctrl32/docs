@@ -1,5 +1,7 @@
 # Adding peripherals to a board
 
+![The device catalog: pick the chip, the bus rules decide where it may sit](img/board-catalog.webp){: .sb-center}
+
 What those peripherals do at run time — mapping pins onto variables,
 converter ranges — is described in
 [Board peripherals and system services](peripherals-and-services.md).

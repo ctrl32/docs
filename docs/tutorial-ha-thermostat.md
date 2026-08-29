@@ -67,7 +67,7 @@ webview:
 
 ### 4. MQTT
 
-Broker = the machine running Mosquitto (the HA add-on), one topic per
+Broker = the host running Mosquitto (the HA add-on), one topic per
 variable, discovery on:
 
 ```yaml

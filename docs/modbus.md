@@ -194,6 +194,7 @@ Further deliberate decisions:
 | Master and slave on the same RS485 line | a line has one master — the build **rejects this at your desk** and the editor shows it in red right on the page |
 | Wrong word order | `word_order` must match what the SCADA expects — the same trap as on the master side |
 | Several SCADA clients at once | the TCP slave serves **one connection**; each further one would cost ~6–8 kB of RAM, which the S3 does not have to spare |
+| A client vanishes without closing (power cut, WiFi drop) | nothing to do — an idle connection is dropped after 60 s, so the slot frees itself and the next client gets served |
 
 Diagnostics: the board's status line (the editor's device page, or the
 serial command `VUI!` in the terminal) includes

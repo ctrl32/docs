@@ -17,8 +17,8 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 | `anchor_y` | one of `start` / `end` / `center` / `stretch` | `start` |
 | `margin` | i16 | `0` |
 | `style` | style_ref |  |
-| `visible_if` | tag_ref |  |
-| `enabled_if` | tag_ref |  |
+| `visible_if` | variable |  |
+| `enabled_if` | variable |  |
 | `children` | list |  |
 | `state` | map — see [States and motion](states-motion.md) |  |
 | `move` | map — see [States and motion](states-motion.md) |  |
@@ -61,7 +61,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 
 | Property | Type | Default |
 |---|---|---|
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `font` | font_ref |  |
 | `show_unit` | bool | `True` |
 | `warn_above` | f32 |  |
@@ -73,7 +73,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 |---|---|---|
 | `text` | str |  |
 | `text_on` | str | `` |
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `mode` | one of `momentary` / `toggle` / `set` / `reset` |  |
 | `value` | f32 | `1.0` |
 | `icon` | image_ref |  |
@@ -84,7 +84,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 
 | Property | Type | Default |
 |---|---|---|
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `label_on` | str | `ON` |
 | `label_off` | str | `OFF` |
 | `bit` | i16 | `-1` |
@@ -94,7 +94,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 | Property | Type | Default |
 |---|---|---|
 | `shape` | one of `round` / `rect` | `round` |
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `color_on` | color |  |
 | `color_off` | color |  |
 | `blink_hz` | f32 | `0.0` |
@@ -104,7 +104,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 
 | Property | Type | Default |
 |---|---|---|
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
 | `step` | f32 | `1.0` |
@@ -113,7 +113,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 
 | Property | Type | Default |
 |---|---|---|
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
 | `orientation` | one of `vertical` / `horizontal` |  |
@@ -122,7 +122,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 
 | Property | Type | Default |
 |---|---|---|
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
 | `start_angle` | i16 | `135` |
@@ -153,7 +153,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 |---|---|---|
 | `src` | icon_ref |  |
 | `color` | color |  |
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `src_active` | icon_ref |  |
 | `color_active` | color |  |
 
@@ -161,7 +161,7 @@ Schema version: **36** — the vocabulary of the project file. The compiled pack
 
 | Property | Type | Default |
 |---|---|---|
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `keypad` | one of `numeric` / `integer` / `alphanumeric` / `password` |  |
 | `min` | f32 |  |
 | `max` | f32 |  |
@@ -200,7 +200,7 @@ A live oscilloscope-style curve of one variable, drawn as values arrive — the 
 
 | Property | Type | Default |
 |---|---|---|
-| `tag` | tag_ref |  |
+| `tag` | variable |  |
 | `color` | color |  |
 
 ## `logo`

@@ -2,7 +2,8 @@
 
 **A development and learning environment for automation, on an ESP32
 board.** You draw the screens, define the variables, write the logic in
-ladder, in a function block diagram or in ST — and download it to the
+[ladder](ladder.md), in a function block diagram or in
+[ST](st-language.md) — and download it to the
 board. The same visualisation also runs in a browser.
 
 Everything a PLC course, a prototype or a private project needs: real

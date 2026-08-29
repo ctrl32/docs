@@ -35,7 +35,7 @@ configure.
 The Linux numbers are not paper: a generated proof project — 600
 variables, 40 screens of ~96 widgets each — runs on the reTerminal
 with the logic cycling at 10 ms and every variable served over
-OPC UA.
+[OPC UA](opcua.md).
 
 ## How many blocks really fit
 

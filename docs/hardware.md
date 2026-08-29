@@ -40,7 +40,11 @@ package holding the board's description over a catalog module, plus a
 photo carrying the same name. *Import board…* in the board picker
 validates it at the door — an illegal pin assignment is refused with the
 reason, before anything is installed — and the board then appears in
-your catalog marked *(imported)*, usable like any other.
+your catalog marked *(imported)*, usable like any other — the same
+way an EDS file brings a CANopen device in. The installer registers
+the extension, so double-clicking a `.hdw32` opens the import too.
+The project's own package format is described on
+[Project format](project-format.md).
 
 ---
 
@@ -85,7 +89,7 @@ silicon. This is the table to check before choosing:
 | RS485 / Modbus RTU | yes | yes | yes | yes | yes |
 | Modbus TCP | yes | yes | yes | yes | yes |
 | MQTT telemetry | yes | yes | yes | yes | yes |
-| MQTT over TLS | — | — | **yes** | **yes** | — |
+| MQTT over TLS | — | — | **yes** | **yes** | **yes** |
 | PSRAM variants | quad (WROVER) | 2 MB | up to 8 MB octal | 32 MB | SDRAM |
 | Trend curves in a project | 4 | 4 | 8 | 8 | 8 |
 | WEBview clients | 2 | 2 | 2 | 2 | 1 |

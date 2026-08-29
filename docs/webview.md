@@ -29,8 +29,9 @@ mobile data it loads in a blink.
 
 ## Two screens, or one
 
-A project can carry **HMIview screens** (for the board's own display) and
-**WEBview screens** (for the browser), and they are drawn separately for
+A project can carry **[HMIview](hmiview.md) screens** (for the board's
+own display) and **WEBview screens** (for the browser), and they are
+drawn separately for
 a simple reason: a 4.3" board in landscape and a phone held upright are
 not the same canvas.
 
@@ -47,6 +48,8 @@ you get one for free without drawing anything twice.
 The choice is explicit in the editor: the WEBview page asks what the
 browser shows — *the display screens* or *its own web screens* — and
 picking its own creates the first web screen and opens it on the canvas.
+
+![The WEBview page: server on/off, what the browser shows, captive portal and network upload](img/webview-page.webp){: .sb-center}
 Switching back asks before deleting anything you drew.
 
 !!! tip "Design the phone view for one job"

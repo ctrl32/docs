@@ -9,6 +9,37 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.034
+
+- **+7 — the panel talks to a Siemens S7 PLC.** A ctrl32 panel can
+  replace the operator panel on an existing S7 installation: it reads
+  and writes data blocks and flag bits over ethernet, the PLC program
+  stays untouched, no GSD files and no TIA project needed. S7-300/400
+  work as delivered; an S7-1200/1500 needs PUT/GET enabled and
+  non-optimized DBs. Runs on P4, STM32 F7 and Linux devices. The
+  whole story: [+7 (S7 PLC)](plus7.md).
+- **The device tree shows the +7 link state live** — connected /
+  connecting / link down, with request and error counters, on the
+  node and on the +7 page.
+
+## 1.00.033
+
+- **A device that answers Modbus TCP now frees a dead connection on
+  its own.** A client that vanished without closing (power cut, WiFi
+  drop) used to hold the slave's single slot until a restart; an idle
+  connection is now dropped after 60 s and the next client gets
+  served.
+- **Going online no longer asks for a download it does not need.**
+  The installed editor compared its own build of the project against
+  the panel without the board's facts and kept demanding a new
+  program; the comparison now builds with the full board card, and a
+  permanent test guards it.
+- **Buttons wired through the touch controller's I2C pins work
+  again** on boards where the display and the buttons share the bus.
+- **The Devices scanner ages its information honestly** — a board's
+  address and firmware line fade out when they stop being fresh
+  instead of pretending to be live.
+
 ## 1.00.032
 
 - **A boot splash.** The panel puts a picture on the glass right
@@ -587,7 +618,7 @@ execute while the rung is off, its state freezes and its outputs hold.
 - **ESP32-P4 support.** The Waveshare P4-NANO with the 10.1"
   MIPI-DSI touch panel (1280×800) is a supported target with a
   precompiled runtime in the installer: display, touch, Ethernet and
-  WiFi work out of the box.
+  WiFi work with no setup.
 - **Upload over the network.** The board accepts a visualization pack
   over Ethernet or WiFi (`POST /upload`), with exactly the same
   safety as over USB: the pack lands in the inactive slot, is fully

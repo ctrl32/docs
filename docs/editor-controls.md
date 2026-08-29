@@ -5,6 +5,8 @@ shortcuts exist for the handful of actions you repeat all day. This
 page is the complete reference — menus, keys, and what the mouse
 does on each kind of canvas.
 
+![The editor: device tree left, canvas centre, Toolbox and inspector right, Resources below the tree](img/editor-layout.webp){: .sb-center}
+
 ## Keyboard
 
 | Keys | Action |
@@ -83,7 +85,8 @@ strong outline and the resize grip.
 
 ## The mouse in ladder and FBD
 
-Both program editors work the same way: **right-click is the whole
+Both program editors — [Ladder](ladder.md) and
+[FBD](fbd-composites.md) — work the same way: **right-click is the whole
 menu**. On a rung or the empty diagram it offers what can be added
 there — contacts, coils, function blocks, branches; on an element
 it offers cut, copy, paste and delete. `Delete` removes the

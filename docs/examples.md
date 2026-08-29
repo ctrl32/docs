@@ -46,7 +46,8 @@ the projects above.
 
 ![The ladder editor: five rungs of the thermostat, blocks in the rungs, the Toolbox on the right](img/editor-ladder.png){: .sb-center}
 
-Blocks sit **in** the rungs with EN/ENO — BLINK, SEL, RAMP, PT1, HYST —
+Blocks sit **in** the rungs with EN/ENO — BLINK, SEL, RAMP, PT1, HYST
+— the editor is described on [Ladder](ladder.md) —
 so the whole control chain is one picture rather than a diagram
 somewhere else. Comments run above each rung.
 
@@ -75,7 +76,8 @@ flow.
 ![The ST editor with syntax highlighting and "compiles clean" in the status bar](img/editor-st.png){: .sb-center}
 
 For anything a diagram makes clumsy: loops, step sequences, a long
-calculation. It compiles as you type, and the same block library is
+calculation — the language reference is [Structured Text](st-language.md).
+It compiles as you type, and the same block library is
 callable from it.
 
 ### CANopen

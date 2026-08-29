@@ -67,7 +67,7 @@ most significant first, and underscores as separators — `T#1s500ms`,
 A `TIME` **variable** is the same value with a face: the board shows and the
 keypad edits it in the variable's unit (`s`, `ms`, `min`), so an operator can
 set the equipment's delay on the screen and the program takes it straight as
-`t1(PT := delay)`. See [Tagy](variables.md).
+`t1(PT := delay)`. See [Variables](variables.md).
 
 **Standard functions**: `ABS MIN MAX LIMIT SEL TRUNC`, the
 conversions above, and the string set below.

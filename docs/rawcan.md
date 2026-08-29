@@ -70,6 +70,8 @@ already filtered the noise, so only a real change is sent.
 In the editor this is the tree → **CAN → Raw CAN**. The same fields,
 one table per frame.
 
+![The Raw CAN page: one table per frame — ID, direction, and the signal rows mapping bits to variables](img/rawcan-page.webp){: .sb-center}
+
 ## Product limits
 
 | Limit | Value |

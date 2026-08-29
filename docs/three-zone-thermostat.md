@@ -64,9 +64,10 @@ Two heartbeats ride along:
 
 ## The five thermostat variables
 
-One zone's thermostat is five whole-degree variables. Everything
-except the setpoint is an **offset from it** — change the setpoint
-and the whole ladder of lines moves with it:
+One zone's thermostat is five whole-degree variables (the logic is
+[ladder](ladder.md)). Everything except the setpoint is an **offset
+from it** — change the setpoint and the whole ladder of lines moves
+with it:
 
 | Variable | Meaning | Default |
 |:---|:---|:---:|

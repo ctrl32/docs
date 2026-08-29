@@ -15,7 +15,7 @@ it never acts as an S7 server.
 
 | PLC | What to set up |
 |:---|:---|
-| S7-300, S7-400 | nothing — it answers out of the box |
+| S7-300, S7-400 | nothing — it answers as delivered |
 | S7-1200, S7-1500 | **PUT/GET** must be enabled (CPU Properties → Protection & Security) and the addressed data blocks must be **non-optimized** (DB attributes) |
 | compatible CPUs (VIPA and similar) | same as the S7 family they mirror |
 
@@ -53,6 +53,8 @@ from MQTT TLS.
    list **does not require new firmware**.
 
 One PLC connection per project; up to **64** +7 variables.
+
+![The +7 page: connection, the 1200/1500 guidance and the variable list in one place](img/plus7-page.webp){: .sb-center}
 
 ## Variables
 

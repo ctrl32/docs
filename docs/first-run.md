@@ -82,7 +82,8 @@ program untouched.
 A Linux device is an operating-system install, not a firmware flash,
 so it has [its own page](linux-setup.md): the card image, the display
 driver, the service, the settings file — from blank card to the
-scanner finding the device.
+scanner finding the device. What the runtime then does — screens,
+OPC UA, going online — is on [The Linux runtime](linux-runtime.md).
 
 ---
 

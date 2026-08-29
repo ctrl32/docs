@@ -57,8 +57,8 @@ one to a real input is one field, later.
 
 ## 3. One rung
 
-Open **PLC_PRG**. It starts as a ladder program — if it does not, right
-click it and choose *Edit as LD*.
+Open **PLC_PRG**. It starts as a [ladder](ladder.md) program — if it
+does not, right click it and choose *Edit as LD*.
 
 Build this rung:
 
@@ -124,6 +124,8 @@ When you do have hardware:
 2. **Flash the runtime once** — *Flash runtime* on the board page. This
    is the firmware, and it only has to happen the first time or after
    an update.
+
+    ![The Flash runtime dialog: the board's precompiled firmware, one button](img/deploy-runtime.webp){: .sb-center}
 
 See [Download to the board](deploy.md).
 

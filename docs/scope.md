@@ -11,6 +11,8 @@ draws what came back.
 
 Open it from *Online → Scope*.
 
+![The Scope: five recorded signals, the trigger marker, and the arming controls below](img/scope-window.webp){: .sb-center}
+
 ## What it records
 
 | | |

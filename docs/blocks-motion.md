@@ -5,7 +5,8 @@ naming used across the automation world, so `MC_POWER`
 and `MC_MOVEABS` mean here what they mean elsewhere.
 
 Every one of them takes an **AXIS** number at the call. Which axis is
-never guessed: in Structured Text you write `pwr(AXIS := 0, Enable :=
+never guessed: in [Structured Text](st-language.md) you write
+`pwr(AXIS := 0, Enable :=
 go);` and the compiler refuses a motion block without it. A guessed axis
 is a moving axle.
 

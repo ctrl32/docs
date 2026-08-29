@@ -158,7 +158,7 @@ into a thirty-second question.
 
 ## The master — F7
 
-### Variables: a Modbus source per tag
+### Variables: a Modbus source per variable
 
 The master has **no program at all** — it is pure HMI. Every
 variable points at the slave:

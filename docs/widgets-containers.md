@@ -80,7 +80,7 @@ would say "look at the *other* tab", use tabs.
 |:---|:---:|:---:|:---:|
 | `radius` | number | 8 | corner rounding |
 
-A modal box over the screen. While it is visible, **touch does not reach
+A modal window over the screen. While it is visible, **touch does not reach
 what is underneath** — which is the whole point: a question that can be
 ignored by pressing something else is not a question.
 

@@ -26,8 +26,6 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
 - **Production security**: secure boot and flash encryption switched on
   for production boards, so a deployed unit cannot be cloned or
   reflashed by a third party.
-- **Retentive data on FRAM** as a turnkey service — microsecond writes,
-  practically unlimited endurance, nothing for the project to configure.
 - **Custom block libraries**: distributing your own FB/FC packages in
   compiled form with versioning and dependency checks — share the
   know-how, keep the source.
@@ -40,9 +38,17 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
 
 ## Recently finished
 
-Moved here out of *In progress*; details in
+Moved here out of *In progress* and *Planned*; details in
 [What's new](changelog.md).
 
+- **+7 — the S7 PLC client**: a panel replaces the operator panel on
+  an existing Siemens installation over ethernet, the PLC untouched.
+  See [+7 (S7 PLC)](plus7.md).
+- **The Linux runtime** shipped: Seeed reTerminal and the
+  STM32MP157C-DK2 are catalogue devices, with OPC UA on top. See
+  [The Linux runtime](linux-runtime.md).
+- **Retentive data on FRAM** as a turnkey service — stored
+  automatically by what the board has fitted, nothing configured.
 - **Rung comments** in the ladder editor, and the FBD canvas divided
   into numbered networks with comments.
 - **Live values in the FBD view while online** — wires and pins showing

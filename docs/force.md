@@ -3,7 +3,7 @@
 Everything else in the editor **shows** a setup. This one **changes**
 it: a valve opens because somebody typed a number on a laptop. Forcing is
 a commissioning aid — for checking wiring, exercising an output before the
-sensor exists, or proving an interlock — and it is not a way to run a
+sensor exists, or proving an interlock — and it is not a way to run
 equipment.
 
 Open it from *Online → Force*.

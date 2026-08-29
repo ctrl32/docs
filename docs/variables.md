@@ -118,6 +118,8 @@ is a constant.
 | **gpio** | a local board input or output, optionally inverted |
 | **periph** | a chip pin on a local bus (expander, thermometer, LED) |
 | **adc** | the internal ADC1 — calibrated millivolts, × gain + offset |
+| **opcua** | a node polled from an OPC UA server — see [The Linux runtime](linux-runtime.md) |
+| **s7** | a DB value or flag bit read from a Siemens S7 PLC — see [+7 (S7 PLC)](plus7.md) |
 
 ```yaml
 - { name: vbat, datatype: f32, unit: mV, decimals: 0, deadband: 5,
@@ -227,6 +229,7 @@ the same cycle, compute them in the logic and write the result.
 
 ## Limit
 
-**512 variables.** In practice this is the first thing to run out —
-before blocks, before compilation. The editor refuses a project over the
-limit at build time, at your desk.
+**512 variables** (a Linux device: 5 120 — the full table by board
+type is in [Performance and limits](limits.md)). In practice this is
+the first thing to run out — before blocks, before compilation. The
+editor refuses a project over the limit at build time, at your desk.
