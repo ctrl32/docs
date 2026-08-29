@@ -8,6 +8,8 @@ remembering before reaching for a gauge.
 
 ---
 
+![Labels above, the value widget with unit and decimals below](img/gallery-value.webp){: .sb-center}
+
 ## `label`
 
 | Property | Type | Default | Meaning |

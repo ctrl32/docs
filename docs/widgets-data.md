@@ -9,6 +9,8 @@ to the office for a laptop.
 
 ---
 
+![A trend after a minute of simulation: the temperature triangle fills the 60-second window](img/gallery-trend.webp){: .sb-center}
+
 ## `trend`
 
 | Property | Type | Default | Meaning |
@@ -62,6 +64,8 @@ blues become one blue in the process.
 ---
 
 ## `alarm_table`
+
+![The alarm table with one active alarm, the bell in the corner lit](img/gallery-alarms.webp){: .sb-center}
 
 | Property | Type | Default | Meaning |
 |:---|:---:|:---:|:---:|

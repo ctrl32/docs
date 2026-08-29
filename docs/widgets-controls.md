@@ -11,6 +11,8 @@ a command that arrives at the wrong moment.
 
 ---
 
+![The controls family: toggle and momentary buttons, a switch, a slider and an input, live in simulation](img/gallery-controls.webp){: .sb-center}
+
 ## `button`
 
 | Property | Type | Default | Meaning |

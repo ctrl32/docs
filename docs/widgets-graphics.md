@@ -4,6 +4,8 @@ Three widgets that draw pictures: an image, an icon and the ctrl32 mark.
 
 ---
 
+![The graphics family: an image, three tinted icons, corner radii and the font sizes](img/gallery-graphics.webp){: .sb-center}
+
 ## `icon`
 
 | Property | Type | Meaning |

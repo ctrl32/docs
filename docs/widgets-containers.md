@@ -9,6 +9,8 @@ somebody searches.
 
 ---
 
+![Two panels as cards grouping the values on a dark screen](img/gallery-cards.webp){: .sb-center}
+
 ## `panel`
 
 | Property | Type | Default | Meaning |

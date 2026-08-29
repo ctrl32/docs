@@ -9,6 +9,8 @@ second, by somebody who is not looking carefully".
 
 ---
 
+![The indicators: an LED top right, a bar under the value, a gauge with its needle on the flow](img/gallery-indicators.webp){: .sb-center}
+
 ## `led`
 
 | Property | Type | Default | Meaning |
