@@ -59,7 +59,12 @@ One PLC connection per project; up to **64** +7 variables.
 ## Variables
 
 A +7 variable is a normal project variable whose source is the PLC.
-Each one names the area, the byte offset and the type:
+One thing to know up front: **variable names never travel over the
+wire** — S7 communication carries addresses and bytes, the names live
+in the TIA project. You name the panel's variables yourself (usually
+the same names) and point each one at its address, exactly as the
+original panel did. Each entry names the area, the byte offset and
+the type:
 
 | In the PLC | In the +7 table |
 |:---|:---|
