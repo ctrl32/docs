@@ -32,6 +32,21 @@ runs out first.
 
 ## The board
 
+### The browser says SSL_ERROR_RX_RECORD_TOO_LONG (or "unsupported protocol")
+
+The browser silently upgraded the address to **https** — Firefox in
+HTTPS-Only mode does it to every bare address, Chrome shows
+`ERR_SSL_PROTOCOL_ERROR` for the same reason. The panel's pages are
+served **deliberately without TLS** (see
+[Network and security](security.md)): an encrypted server would eat
+the RAM the visualization needs, and the pages belong on the
+equipment's own network, not on the internet.
+
+Type the address with the scheme spelled out — `http://192.168.0.31`
+— or add an HTTPS-Only exception for the panel's address in the
+browser. Nothing is wrong on the device; the plain page is one
+`http://` away.
+
 ### No COM port appears when the board is plugged in
 
 Exactly two causes, and both live on the PC, not the board: the USB

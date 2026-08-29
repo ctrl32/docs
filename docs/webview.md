@@ -2,7 +2,11 @@
 
 Every ctrl32 board serves its own visualisation to a browser. Type the
 board's address into a phone, a tablet or a laptop and the equipment is
-there — the same variables, the same values, live.
+there — the same variables, the same values, live. Type it **with the
+scheme**: `http://192.168.0.31` — a modern browser quietly upgrades a
+bare address to https, and the panel's pages are deliberately plain
+(the error that upgrade produces is in
+[Troubleshooting](troubleshooting.md)).
 
 Nothing is installed on the phone. No app, no account, no cloud. The page
 comes from the board, over your own network.
