@@ -59,3 +59,8 @@ degree.
 
 It costs one field in the variable table and it is the single most effective
 thing you can do for how a setup feels to use. See [Variables](variables.md).
+
+---
+
+The short overview — what you draw, where it runs and why there is no
+code — lives at [ctrl32.com/hmi](https://ctrl32.com/hmi/).
