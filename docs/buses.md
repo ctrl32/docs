@@ -22,7 +22,7 @@ trends, WEBview, alarms) works with variables.
 | **Raw CAN** | a device with its own frame format | as above |
 | **MQTT** | telemetry to a dashboard or a home system | over the network |
 | **[+7](plus7.md)** (ethernet) | reading and writing a Siemens S7 PLC — the panel replaces the old HMI | wherever the network goes |
-| **[NVL](nvl.md)** (WiFi, ethernet, CAN) | ctrl32 devices sharing variables with each other — one owner, many subscribers | the network, or ~40 m of CAN |
+| **[net32](net32.md)** (WiFi, ethernet, CAN) | ctrl32 devices sharing variables with each other — one owner, many subscribers | the network, or ~40 m of CAN |
 | **I2C** | expanders, RTC, sensors on the board | centimetres |
 | **SPI** | displays, memory, fast converters | centimetres |
 | **1-Wire** | temperature sensors, cheap and many | tens of metres |

@@ -120,7 +120,7 @@ is a constant.
 | **adc** | the internal ADC1 — calibrated millivolts, × gain + offset |
 | **opcua** | a node polled from an OPC UA server — see [The Linux runtime](linux-runtime.md) |
 | **s7** | a DB value or flag bit read from a Siemens S7 PLC — see [+7 (S7 PLC)](plus7.md) |
-| **nvl** | a variable owned by another ctrl32 device — see [NVL](nvl.md) |
+| **nvl** | a variable owned by another ctrl32 device — see [net32](net32.md) |
 
 ```yaml
 - { name: vbat, datatype: f32, unit: mV, decimals: 0, deadband: 5,

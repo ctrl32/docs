@@ -1,6 +1,6 @@
-# NVL — sharing variables between devices
+# net32 — sharing variables between devices
 
-**NVL (network variables)** connects ctrl32 devices to each other.
+**net32** (network variables) connects ctrl32 devices to each other.
 One device measures a temperature; another shows it on its screen and
 writes the setpoint back. No PLC in the middle, no register maps, no
 polling tables — you name the variables and the devices keep them in
@@ -26,9 +26,14 @@ the local copy never pretends, it only ever shows the owner's state.
 
 ## The link is honest
 
-Networks drop out. NVL is built so a dropout is *visible* and never
+Networks drop out. net32 is built so a dropout is *visible* and never
 *dangerous*:
 
+- Every subscription carries freshness. When the owner falls silent
+  past the stale timeout, the last good value stays readable but the
+  peer's **health variable** drops to 0 — a `bool` you bind on the
+  net32 page and use in logic and on screens (dark lamps, a red
+  banner, heaters off).
 - Writes toward a silent peer are refused on the spot, never queued —
   a command from ten minutes ago must not fire when the link heals.
 - Each device fingerprints its published list. A device hearing a
@@ -55,12 +60,12 @@ from what they hear, so one fixed address per pair is enough.
 ## Setting it up
 
 1. Right-click the **Ethernet** or **WiFi** interface in the device
-   tree and pick **Add NVL (network variables)…**
+   tree and pick **Add net32 (network variables)…**
 2. Give the device its **node number** (1–254, unique) and a
    **system** number — devices only hear their own system, so two
    installations next to each other stay separate.
 3. Tick **published** on the variables this device owns and shares.
-5. *Download to board.* NVL is part of the pack — adding a variable
+5. *Download to board.* net32 is part of the pack — adding a variable
    or a peer never needs new firmware.
 
 Limits: 64 published and 64 subscribed variables per device, 32 peer
@@ -77,7 +82,7 @@ when the project builds, with the reason spelled out.
   *bad* instead of guessing.
 - Shared variables are 32-bit values (bool, integers, real). Strings
   stay local.
-- NVL shares variables between **ctrl32 devices**. To talk to a
+- net32 shares variables between **ctrl32 devices**. To talk to a
   foreign PLC use [Modbus](modbus.md) or [+7](plus7.md); to feed a
   SCADA or a home dashboard use MQTT or the OPC UA server.
 - Stopping equipment over the network is **not a safety function**.

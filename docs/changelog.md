@@ -11,12 +11,12 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.035 (upcoming)
 
-- **NVL — ctrl32 devices share variables with each other.** One
+- **net32 — ctrl32 devices share variables with each other.** One
   device owns a variable, others subscribe to it by node and name;
   writes travel to the owner as commands. Works over WiFi, ethernet
   and CAN; a silent peer marks its variables stale, drops its health
   flag and never fires queued writes — local logic keeps running.
-  The whole story: [NVL](nvl.md).
+  The whole story: [net32](net32.md).
 - **4 MB display boards get a slightly larger firmware area.** The
   update itself repartitions the flash — after this runtime update,
   upload the program to the board again (one extra step, one time).
