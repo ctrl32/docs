@@ -46,6 +46,12 @@ One wire can carry several protocols, and the same protocol can run on two
 wires (Modbus on RS485 **and** on Ethernet). Sorting by protocol could not
 express that; this way matches the hardware.
 
+In a **net32 system project** one more level sits above the board: the
+system, with one row per device. A click switches the whole editor to
+that device; clicking the system name opens the net32 canvas where the
+devices' shared variables are wired together. See
+[the system project](net32.md#the-system-project).
+
 !!! note "Settings live on pages, not in the right-click menu"
     A context menu holds **actions** — add, delete, rename. Never settings.
     The bus speed is on the bus page, where a person looks for it. A popup
