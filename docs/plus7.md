@@ -110,3 +110,8 @@ matching ctrl32 variable types. A BOOL always addresses one bit
 - The poll period is shared by all +7 variables; reads are grouped
   into as few requests as the PLC's answer size allows, so 64
   variables typically cost a handful of requests per period.
+
+---
+
+The short overview — what connects, what you need and where it does not
+belong — lives at [ctrl32.com/siemens-s7](https://ctrl32.com/siemens-s7/).
