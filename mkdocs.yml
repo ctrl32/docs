@@ -122,7 +122,7 @@ nav:
       - Home Assistant: home-assistant.md
       - CANopen: canopen.md
       - "+7 (S7 PLC)": plus7.md
-      - net32 (network variables): net32.md
+      - net32: net32.md
       - OPC UA: opcua.md
       - Adding a peripheral: adding-peripherals.md
   - Peripherals and services:

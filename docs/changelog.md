@@ -11,7 +11,8 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.035 (upcoming)
 
-- **net32 — ctrl32 devices share variables with each other.** One
+- **net32 — our device network.** ctrl32 devices now work as one
+  system — the backbone for home automation. One
   device owns a variable, others subscribe to it by node and name;
   writes travel to the owner as commands. Works over WiFi, ethernet
   and CAN; a silent peer marks its variables stale, drops its health

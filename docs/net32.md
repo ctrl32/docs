@@ -1,15 +1,19 @@
-# net32 — sharing variables between devices
+# net32 — the ctrl32 device network
 
-**net32** (network variables) connects ctrl32 devices to each other.
-One device measures a temperature; another shows it on its screen and
-writes the setpoint back. No PLC in the middle, no register maps, no
-polling tables — you name the variables and the devices keep them in
-step over WiFi, ethernet or CAN.
+**net32 is our network**: panels, headless nodes and Linux devices
+working as **one system** — the backbone ctrl32 builds home
+automation and small plants on. One device measures a temperature;
+another shows it on its screen and writes the setpoint back. No PLC
+in the middle, no register maps, no polling tables, no cloud — the
+devices keep each other in step over WiFi, ethernet or CAN, and
+**every device runs its own logic**, so the house keeps working when
+the network does not.
 
-The design follows one rule: **every shared variable has exactly one
-owner.** The owner measures or computes the value; every other device
-subscribes to it. Writes go the other way as *commands* to the owner —
-the local copy never pretends, it only ever shows the owner's state.
+Inside net32, sharing follows one rule: **every shared variable has
+exactly one owner.** The owner measures or computes the value; every
+other device subscribes to it. Writes go the other way as *commands*
+to the owner — the local copy never pretends, it only ever shows the
+owner's state.
 
 ## What it feels like
 
@@ -60,11 +64,16 @@ from what they hear, so one fixed address per pair is enough.
 ## Setting it up
 
 1. Right-click the **Ethernet** or **WiFi** interface in the device
-   tree and pick **Add net32 (network variables)…**
+   tree and pick **Add net32…**
 2. Give the device its **node number** (1–254, unique) and a
    **system** number — devices only hear their own system, so two
    installations next to each other stay separate.
 3. Tick **published** on the variables this device owns and shares.
+4. For each remote device, add its node under **Remote lists** and
+   paste its published list (`name:type`, one per line, in the
+   owner's order). **Create/update subscriptions** then makes the
+   local variables in one press, and **Create health variable** adds
+   the peer's `bool`.
 5. *Download to board.* net32 is part of the pack — adding a variable
    or a peer never needs new firmware.
 
@@ -82,7 +91,7 @@ when the project builds, with the reason spelled out.
   *bad* instead of guessing.
 - Shared variables are 32-bit values (bool, integers, real). Strings
   stay local.
-- net32 shares variables between **ctrl32 devices**. To talk to a
+- net32 connects **ctrl32 devices** to each other. To talk to a
   foreign PLC use [Modbus](modbus.md) or [+7](plus7.md); to feed a
   SCADA or a home dashboard use MQTT or the OPC UA server.
 - Stopping equipment over the network is **not a safety function**.
