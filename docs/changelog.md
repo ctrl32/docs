@@ -21,6 +21,11 @@ moves. Releases before that carried dates (`year.month.day.build`).
 - **The device tree shows the +7 link state live** — connected /
   connecting / link down, with request and error counters, on the
   node and on the +7 page.
+- **Programs saved by editor 1.00.032 load correctly again.** A
+  1.00.033 board could refuse such a program as "corrupted" after a
+  runtime update — nothing was corrupted, the reader mis-measured
+  the older file's header. Rebuilding the program was never needed;
+  updating the runtime to 1.00.034 is the fix.
 
 ## 1.00.033
 
