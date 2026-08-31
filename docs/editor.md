@@ -114,6 +114,31 @@ enough for anyone to help you with.
 *View → Language* and *View → Dark theme*. The choice is remembered between
 runs.
 
+## AI assistant connection (MCP server)
+
+An AI assistant on your computer — an AI assistant, or any client that
+speaks MCP — can join your **running editor session**: it sees the
+project you have open, reads variables, screens and program sources,
+runs the build and reads the same error messages you do, and can make
+edits that appear live in the editor, each one undoable with Ctrl+Z.
+
+*Tools → MCP server → Start*, then **Copy connect command** and paste
+it into a terminal — that registers the session in the assistant. The
+dialog shows a request counter so you can see it working.
+
+The security posture in plain words:
+
+- **Off by default.** Nothing listens until you press Start.
+- **This computer only.** The connection cannot be opened to the
+  network — there is deliberately no such option.
+- **A fresh secret each start.** Every request must carry the session
+  token; *New token* cuts off every connected client at once.
+- **Writing to a running board needs your consent**: the *Allow live
+  writes* box in the dialog, off by default. Forcing is not available
+  to the assistant at all.
+
+## Licence
+
 ## Licence
 
 - what is paid is everything that **leaves the editor**: saving a project

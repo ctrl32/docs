@@ -18,6 +18,13 @@ moves. Releases before that carried dates (`year.month.day.build`).
   and CAN; a silent peer marks its variables stale, drops its health
   flag and never fires queued writes — local logic keeps running.
   The whole story: [net32](net32.md).
+- **An AI assistant can join your editor session.** Tools → MCP
+  server connects an AI assistant (or any MCP client) to the project you
+  have open: it reads variables, screens and programs, builds, and
+  makes edits you can undo with Ctrl+Z — on this computer only, off
+  by default, behind a per-session token, with live-board writes
+  behind an extra consent switch. See
+  [the editor page](editor.md#ai-assistant-connection-mcp-server).
 - **4 MB display boards get a slightly larger firmware area.** The
   update itself repartitions the flash — after this runtime update,
   upload the program to the board again (one extra step, one time).
