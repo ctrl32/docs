@@ -99,3 +99,8 @@ inputs, the coil on an output (see
 The block budget is shared with the whole program — 512 blocks per
 project (see [limits](limits.md)); the Resources board shows the
 consumption as you build.
+
+---
+
+The short overview — real rungs, the simulator and where the values come
+from — lives at [ctrl32.com/ladder](https://ctrl32.com/ladder/).
