@@ -71,6 +71,8 @@ single `.prj32` file. Each device keeps its own screens, logic,
 variables and buses exactly as before; you switch between them with
 a click in the tree, and one **Save** stores the whole system.
 
+![The system level in the device tree — one row per device, the active one selected](img/net32-tree.webp){: .sb-center}
+
 ![net32 system canvas](img/net32-system.webp)
 
 In a system project the remote lists of every device are **written
@@ -82,6 +84,8 @@ the desk. There is nothing to paste and nothing to keep in step.
 **Deploy all** builds every device's pack and uploads each one over
 its own connection — network devices by their address, USB devices
 by their port — with a named result row per device.
+
+![Deploy all — one result row per device](img/net32-deploy.webp){: .sb-center}
 
 While the canvas is open the editor also **listens** to the system's
 own traffic: lines turn green when both ends are alive and speaking
