@@ -67,11 +67,26 @@ The natural way to build a net32 system is **one project holding
 every device**. Right-click the project name in the device tree and
 pick **Add device (make a net32 system)** — the open project becomes
 the first device and the installation grows from there, all in a
-single `.prj32` file. Each device keeps its own screens, logic,
-variables and buses exactly as before; you switch between them with
-a click in the tree, and one **Save** stores the whole system.
+single `.prj32` file. Every device shows as **its own full project
+tree** — screens, logic, variables, buses — so the whole
+installation is visible at once; the active device is the one you
+edit, and a click anywhere in another device's tree switches to it.
+One **Save** stores the whole system.
 
-![The system level in the device tree — one row per device, the active one selected](img/net32-tree.webp){: .sb-center}
+![Every device is its own project tree — the active one is live](img/net32-tree.webp){: .sb-center}
+
+Clicking the system name at the top of the tree opens the **net32
+canvas**: one card per device, its published variables as pins on
+the right, its subscriptions arriving on the left. **Drag a line
+from a published pin onto another card and the subscription exists**
+— the local variable on the subscriber is created for you, named and
+typed to match. Everything shared between two devices rides **one
+wire** with the count on it; clicking the wire opens its variable
+list, where single subscriptions are removed and the peer's health
+variable is added. A checkbox on the card publishes a variable, and
+while the canvas is open the wire shows the live truth — green when
+both ends are alive and speaking the expected layout, red when one
+falls silent.
 
 ![net32 system canvas](img/net32-system.webp)
 
