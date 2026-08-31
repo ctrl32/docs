@@ -1,5 +1,9 @@
 # OPC UA
 
+OPC UA is how ctrl32 talks to SCADA and to other runtimes. It lives on
+**Linux devices** — in every version, the free one included — and works
+in both directions:
+
 ## The device as a server
 
 A Linux runtime serves the project's variables over OPC UA on port
