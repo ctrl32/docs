@@ -32,6 +32,8 @@ just as good.
 
 ## PDO and SDO — the two conversations
 
+![The i550 node's page: TPDO and RPDO slots with their mappings and sync types, the SDO startup parameters one tab over](img/canopen-node.webp){: .sb-center}
+
 **PDO — process data.** Small, fast, cyclic. The controlword, the
 setpoint, the actual position, the status. No addressing overhead, no
 acknowledgement: a frame goes out and whoever cares receives it.
