@@ -126,6 +126,8 @@ edits that appear live in the editor, each one undoable with Ctrl+Z.
 it into a terminal — that registers the session in the assistant. The
 dialog shows a request counter so you can see it working.
 
+![The MCP server dialog: the local address, the session token, and the live-writes consent box — off by default](img/mcp-dialog.webp){: .sb-center}
+
 The security posture in plain words:
 
 - **Off by default.** Nothing listens until you press Start.
