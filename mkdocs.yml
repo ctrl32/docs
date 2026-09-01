@@ -59,12 +59,13 @@ plugins:
 nav:
   - What ctrl32 is: index.md
   - Intended use: intended-use.md
-  - Quick start: quickstart.md
-  - Your first project: tutorial.md
   - Supported hardware: hardware.md
   - The Linux runtime:
       - The Linux runtime: linux-runtime.md
       - Setting up a device: linux-setup.md
+  - Licensing: licensing.md
+  - Quick start: quickstart.md
+  - Your first project: tutorial.md
   - Tutorial projects:
       - Tutorial projects: tutorials.md
       - Two boards over Modbus: tutorial-modbus-pair.md
@@ -76,14 +77,12 @@ nav:
       - Thermostat (Olimex EVB): example-thermostat.md
       - Drive control (Lenze i550): example-i550.md
       - Showcase (STM32F746): example-showcase.md
-  - Licensing: licensing.md
-  - Network and security: security.md
-  - The project file: project-format.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
       - Controls and shortcuts: editor-controls.md
       - Variables: variables.md
+      - The AI assistant (MCP): mcp.md
   - Visualisation:
       - Visualisation: visualisation.md
       - HMIview — the panel screen: hmiview.md
@@ -136,6 +135,7 @@ nav:
       - I/O expanders and drivers: peripherals-io.md
       - Power and energy: peripherals-power.md
       - Cellular modems: peripherals-connectivity.md
+  - The project file: project-format.md
   - Deployment:
       - Deployment: deployment.md
       - A board from zero: first-run.md
@@ -149,6 +149,7 @@ nav:
       - Forcing values: force.md
       - Performance and limits: limits.md
       - Troubleshooting: troubleshooting.md
+  - Network and security: security.md
   - News:
       - News: news.md
       - What's new: changelog.md

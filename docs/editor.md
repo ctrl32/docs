@@ -118,26 +118,10 @@ runs.
 
 An AI assistant on your computer — an AI assistant, or any client that
 speaks MCP — can join your **running editor session**: it sees the
-project you have open, reads variables, screens and program sources,
-runs the build and reads the same error messages you do, and can make
-edits that appear live in the editor, each one undoable with Ctrl+Z.
-
-*Tools → MCP server → Start*, then **Copy connect command** and paste
-it into a terminal — that registers the session in the assistant. The
-dialog shows a request counter so you can see it working.
-
-![The MCP server dialog: the local address, the session token, and the live-writes consent box — off by default](img/mcp-dialog.webp){: .sb-center}
-
-The security posture in plain words:
-
-- **Off by default.** Nothing listens until you press Start.
-- **This computer only.** The connection cannot be opened to the
-  network — there is deliberately no such option.
-- **A fresh secret each start.** Every request must carry the session
-  token; *New token* cuts off every connected client at once.
-- **Writing to a running board needs your consent**: the *Allow live
-  writes* box in the dialog, off by default. Forcing is not available
-  to the assistant at all.
+project you have open, runs the build, reads the connected board, and
+can make edits that appear live in the editor, each one undoable with
+Ctrl+Z. It starts from *Tools → MCP server*, it is off by default,
+and it never leaves this computer.
 
 ## Licence
 
