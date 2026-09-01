@@ -114,5 +114,5 @@ project, not a different tool.
 | | |
 |:---|:---|
 | [Your first project](tutorial.md) | build one from an empty file |
-| [Tutorial projects](tutorials.md) | eleven small ones, a single idea each |
+| [Tutorial projects](tutorials.md) | ten small ones, a single idea each |
 | [Supported hardware](hardware.md) | what the runtime runs on |

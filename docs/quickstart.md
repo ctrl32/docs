@@ -10,7 +10,7 @@ Run the installer `ctrl32-setup-<version>.exe`. It installs:
 
 | File | What it is for |
 |:---|:---|
-| `visu_editor.exe` | the editor itself |
+| `ctrl32_editor.exe` | the editor itself |
 | `ctrl32.dat` | the catalog of boards and chips |
 | `runtimes\` | prebuilt firmware for every supported board |
 | `examples\` | sample projects to open |

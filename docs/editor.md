@@ -141,10 +141,11 @@ The security posture in plain words:
 
 ## Licence
 
-## Licence
-
-- what is paid is everything that **leaves the editor**: saving a project
-  file, and talking to a real board — download and online alike.
+- **Linux-only projects are free outright** — saving, download and
+  online included,
+- what is paid is **ESP32 and STM32** work leaving the editor: saving
+  such a project, and talking to such a board — download and online
+  alike.
 
 ## Updates
 

@@ -1,7 +1,7 @@
 # Performance and limits
 
 Every number on this page is **measured**, not estimated, and measured on
-the **slowest board we ship** — a classic ESP32 at 240 MHz with Ethernet,
+the **slowest board we support** — a classic ESP32 at 240 MHz with Ethernet,
 WEBview and a CAN master running alongside. A faster board (S3, P4) has more
 headroom, not less.
 
@@ -49,7 +49,7 @@ writes one, which is the worst realistic ratio:
 | 200 | 274 µs | 2.7 % |
 | **400** | **515 µs** | **5.2 %** |
 
-400 blocks run on the weakest board we ship with a cycle that is 95 %
+400 blocks run on the weakest board we support with a cycle that is 95 %
 idle; 600 blocks measure 641 µs on a headless classic board — the
 1024-block headless limit extrapolates to ~1.1 ms, 11 % of the cycle. The declared limit of 512 is not a performance boundary but a
 program-size budget: a simple block costs ~10 B of the compiled

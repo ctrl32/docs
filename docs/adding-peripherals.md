@@ -1,5 +1,9 @@
 # Adding peripherals to a board
 
+A fifteen-second procedure: open the board, right-click to add a chip to
+a bus, and it is in the project. The demonstration runs on the **inoCORE32-TM**
+board and adds a TCA9555 expander and an ADS1115 converter to I2C.
+
 ![The device catalog: pick the chip, the bus rules decide where it may sit](img/board-catalog.webp){: .sb-center}
 
 What those peripherals do at run time — mapping pins onto variables,

@@ -1,10 +1,10 @@
 # ctrl32
 
-**A development and learning environment for automation, on an ESP32
-board.** You draw the screens, define the variables, write the logic in
-[ladder](ladder.md), in a function block diagram or in
-[ST](st-language.md) — and download it to the
-board. The same visualisation also runs in a browser.
+**A development and learning environment for automation — on ESP32
+and STM32 boards and on Linux devices.** You draw the screens, define
+the variables, write the logic in [ladder](ladder.md), in a function
+block diagram or in [ST](st-language.md) — and download it to the
+device. The same visualisation also runs in a browser.
 
 Everything a PLC course, a prototype or a private project needs: real
 ladder, a real cycle, real Modbus and CANopen — on hardware that costs a
@@ -41,9 +41,10 @@ fraction of the established engineering systems.
 
 | Part | What it does |
 |:---|:---|
-| **Board (firmware)** | runs on the ESP32, draws the visualisation on a touch display, reads Modbus, executes the logic |
+| **Runtime (firmware)** | runs on ESP32 and STM32 boards, draws [HMIview](hmiview.md) on a touch display, reads Modbus and CAN, executes the logic |
 | **ctrl32 Editor** | an installed desktop application — you draw screens, define variables, write the program and download it |
-| **WEBview** | the same visualisation in a browser, served straight from the board |
+| **WEBview** | the same visualisation in a browser, served straight from the device |
+| **net32** | many ctrl32 devices sharing variables as one system — one project, one Deploy |
 
 ## The core principle: the visualisation is DATA, not code
 

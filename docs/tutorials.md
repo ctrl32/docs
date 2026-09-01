@@ -1,6 +1,6 @@
 # Tutorial projects
 
-Eleven small projects, each about **one idea**. Open one, read it whole
+Ten small projects, each about **one idea**. Open one, read it whole
 in a minute, and you know the thing it teaches.
 
 When the single ideas are familiar, two **worked projects** put them
@@ -110,6 +110,6 @@ pieces most projects are made of.
 | | |
 |:---|:---|
 | [Your first project](tutorial.md) | build one from an empty file |
-| [Examples](examples.md) | the two complete board projects |
+| [Examples](examples.md) | the complete board projects |
 | [Function blocks](blocks.md) | everything the library offers |
 | [Ladder](ladder.md) · [FBD](fbd-composites.md) · [ST](st-language.md) | the languages themselves |
