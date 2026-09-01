@@ -142,10 +142,14 @@ After the first boot (console on the ST-LINK's virtual COM port,
 115200; or SSH once the device has an address):
 
 2. Unpack the runtime bundle to `/opt/ctrl32/`.
-3. Install the service exactly as on the reTerminal — unit to
-   `/etc/systemd/system/`, paths adjusted, and
-   `/etc/default/ctrl32run` with `CTRL32_HWID=0x20000002` and port
-   `8080`.
+3. Copy the service unit **from the bundle** to
+   `/etc/systemd/system/` and write `/etc/default/ctrl32run` with
+   `CTRL32_PACK=/opt/ctrl32/current.visu`,
+   `CTRL32_HWID=0x20000002` and port `8080`. Unlike on the
+   reTerminal, **do not edit the unit's `ExecStart`**: it starts the
+   runtime through the loader shipped in the bundle's `libs/` —
+   OpenSTLinux's own C library is older than the one the runtime is
+   built against, and a plain `ExecStart` fails on exactly that.
 4. `systemctl daemon-reload && systemctl enable --now ctrl32run`.
 
 The checks are the same: the service running, the browser on
