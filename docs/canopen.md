@@ -7,6 +7,8 @@ heartbeat that tells you the moment it stops listening.
 ctrl32 is the **manager**: NMT master, SDO client, SYNC producer and
 heartbeat monitor. The devices on the bus are its nodes.
 
+![The system canvas: the CAN bus hangs off the drive's card, the i550 node on it — click a node and its variables with their object addresses list below](img/canopen-canvas.webp){: .sb-center}
+
 ---
 
 ## Why not just use Modbus
