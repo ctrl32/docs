@@ -10,6 +10,19 @@ Two devices are in the catalogue, and they differ only in how the
 operating system gets onto them. The ctrl32 part — the runtime, the
 service, the settings file — is identical on both.
 
+!!! note "Where the runtime comes from"
+    The Linux runtime **installs with the editor** — there is
+    nothing separate to download. After installing the editor, look
+    in `%ProgramData%\ctrl32\linux\`:
+
+    - `ctrl32-runtime-reterminal-<version>.tar.gz` — prebuilt for
+      the reTerminal (`ctrl32run` + its service file),
+    - `ctrl32-runtime-dk2-<version>.tar.gz` — prebuilt for the DK2
+      (plus the library set it runs against),
+    - `ctrl32-runtime-src-<version>.tar.gz` — the **source
+      archive**: any Linux device with a C++ toolchain builds its
+      own runtime from it (see the end of this page).
+
 ---
 
 ## Seeed reTerminal (Raspberry Pi CM4)
@@ -72,8 +85,10 @@ Log out and back in so they take effect.
 
 ### 4. The ctrl32 runtime
 
-Unpack the runtime bundle into the user's home (the examples use
-`/home/ctrl32/ctrl32/`), then install the service:
+Copy `ctrl32-runtime-reterminal-<version>.tar.gz` from
+`%ProgramData%\ctrl32\linux\` on the editor PC to the device (`scp`
+does it in one line) and unpack it into the user's home (the
+examples use `/home/ctrl32/ctrl32/`), then install the service:
 
 ```
 sudo cp ctrl32run.service /etc/systemd/system/
@@ -141,7 +156,17 @@ a subfolder.
 After the first boot (console on the ST-LINK's virtual COM port,
 115200; or SSH once the device has an address):
 
-2. Unpack the runtime bundle to `/opt/ctrl32/`.
+1. **Disable the demo desktop** — it owns the glass otherwise:
+   `systemctl disable --now weston.service` (the exact unit name can
+   differ between OpenSTLinux releases; `systemctl list-units | grep
+   -i weston` finds it). With weston gone, the **boot splash**
+   (`psplash`) has nothing to quit it and keeps holding the display
+   — the shipped service unit kills it before every start
+   (`ExecStartPre=-/usr/bin/pkill psplash`); keep that line when you
+   adjust paths, or the glass stays on the splash forever.
+2. Copy `ctrl32-runtime-dk2-<version>.tar.gz` from
+   `%ProgramData%\ctrl32\linux\` on the editor PC and unpack it to
+   `/opt/ctrl32/`.
 3. Copy the service unit **from the bundle** to
    `/etc/systemd/system/` and write `/etc/default/ctrl32run` with
    `CTRL32_PACK=/opt/ctrl32/current.visu`,
@@ -167,6 +192,29 @@ The checks are the same: the service running, the browser on
 
 On a plant network with a firewall between the editor and the
 device, these three are what has to pass.
+
+---
+
+## Any other Linux device: building from source
+
+The two prebuilts cover the catalogue devices. For anything else —
+another Pi, an industrial PC, a gateway — the **source archive**
+builds the same runtime natively on the device itself, which also
+means it links against the device's own system libraries and no
+compatibility questions arise:
+
+```
+tar xzf ctrl32-runtime-src-<version>.tar.gz
+sudo apt install build-essential cmake ninja-build libdrm-dev libssl-dev
+cmake -G Ninja -B build runtime-linux
+ninja -C build ctrl32run
+```
+
+(The first `cmake` downloads the OPC UA library, so the device needs
+network access once.) The result is `build/ctrl32run`; from there the
+service installation is exactly step 4 above. A device without a
+display runs the same runtime headless — WEBview, OPC UA and the
+editor connection all work the same.
 
 ---
 
