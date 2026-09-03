@@ -6,9 +6,10 @@ nothing assumed. At the end the device boots straight into your
 visualisation, serves its WEBview and OPC UA, and appears in the
 editor's [scanner](find-devices.md) like any other board.
 
-Two devices are in the catalogue, and they differ only in how the
+Three devices are in the catalogue — the reTerminal, the DK2 and
+**any 64-bit Raspberry Pi** — and they differ only in how the
 operating system gets onto them. The ctrl32 part — the runtime, the
-service, the settings file — is identical on both.
+service, the settings file — is identical on all of them.
 
 !!! note "Where the runtime comes from"
     The Linux runtime **installs with the editor** — there is
@@ -19,6 +20,10 @@ service, the settings file — is identical on both.
       the reTerminal (`ctrl32run` + its service file),
     - `ctrl32-runtime-dk2-<version>.tar.gz` — prebuilt for the DK2
       (plus the library set it runs against),
+    - `ctrl32-runtime-raspi-<version>.tar.gz` — prebuilt for **any
+      64-bit Raspberry Pi** (Pi 4, Pi 5, CM4, CM5, Zero 2 W): the
+      runtime, its service file and `ctrl32run.default.example`, the
+      settings file with every bus variable explained,
     - `ctrl32-runtime-src-<version>.tar.gz` — the **source
       archive**: any Linux device with a C++ toolchain builds its
       own runtime from it (see the end of this page).
@@ -113,8 +118,10 @@ CTRL32_HWID=0x20000001
 |:---|:---|
 | `CTRL32_PACK` | the program file the runtime runs — the editor's upload replaces it atomically |
 | `CTRL32_PORT` | the WEBview / upload port; `8080` is the Linux standard the scanner expects |
-| `CTRL32_HWID` | the device's identity — `0x20000001` = reTerminal, `0x20000002` = STM32MP157C-DK2. The scanner names the device by it, and an upload for different hardware is refused by name |
-| `CTRL32_RS485` | optional: a USB-RS485 adapter for Modbus RTU, e.g. `/dev/ttyUSB0` |
+| `CTRL32_HWID` | the device's identity — `0x20000001` = reTerminal, `0x20000002` = STM32MP157C-DK2, `0x20000003` = any Raspberry Pi. The scanner names the device by it, and an upload for different hardware is refused by name |
+| `CTRL32_RS485` | optional: the Modbus RTU line — a USB-RS485 adapter (`/dev/ttyUSB0`, direction handled by the adapter) or the SoC UART of an RS485 HAT (`/dev/ttyAMA0`) |
+| `CTRL32_RS485_RTS` | `1` with a HAT on the SoC UART: the kernel drives the direction pin (DE) from RTS. Leave it out for a USB adapter |
+| `CTRL32_CAN` | optional: the CAN interface for CANopen, raw CAN and net32 over CAN — `can0` of a CAN HAT (MCP2515 / MCP251xFD overlay) or a USB adapter (`gs_usb`, `slcan`). The bitrate is set on the interface in the service unit, see below |
 
 Enable and start:
 
@@ -126,6 +133,20 @@ sudo systemctl enable --now ctrl32run
 The device now shows the ctrl32 mark, and without a program it waits
 for one. `CTRL32_PACK` may point at a file that does not exist yet —
 the first upload from the editor creates it.
+
+#### CAN on a Linux device
+
+The runtime uses the interface as the operating system configured
+it; the **bitrate** is set in the service unit, where the line is
+already prepared (remove the `#`, match the project's bitrate):
+
+```
+ExecStartPre=+/sbin/ip link set can0 up type can bitrate 500000 restart-ms 100
+```
+
+`restart-ms` lets the kernel recover from a bus-off. If the interface
+is down when the runtime starts, its log prints exactly this line
+with the project's bitrate filled in.
 
 ### 5. Check it
 
@@ -139,6 +160,34 @@ From here on, everything is [the normal flow](linux-runtime.md):
 download a program, go online, read it over OPC UA.
 
 ---
+
+## Any Raspberry Pi
+
+Every 64-bit Raspberry Pi — Pi 4, Pi 5, CM4 or CM5 on any carrier,
+Zero 2 W — runs the same runtime as the reTerminal. In the editor
+the device is **Raspberry Pi** (`0x20000003`); a monitor on HDMI
+shows the visualisation, a device without one serves WEBview.
+
+1. Write **Raspberry Pi OS Lite (64-bit)** to the card with the
+   Raspberry Pi Imager; set the user, enable SSH and the network in
+   its settings. Boot, log in.
+2. Unpack `ctrl32-runtime-raspi-<version>.tar.gz` from
+   `%ProgramData%\ctrl32\linux\` into `/home/<user>/ctrl32/`.
+3. Copy `ctrl32run.service` to `/etc/systemd/system/` and set
+   `User=` and the `ExecStart=` path as on the reTerminal; copy
+   `ctrl32run.default.example` to `/etc/default/ctrl32run` and edit
+   it — `CTRL32_HWID=0x20000003`, and the bus lines your hardware
+   has: `CTRL32_RS485` for an RS485 adapter or HAT, `CTRL32_CAN` for
+   a CAN HAT or USB adapter (its bitrate line in the unit). No
+   monitor: `CTRL32_HEADLESS=1`.
+4. `sudo systemctl daemon-reload && sudo systemctl enable --now ctrl32run`
+   — then step 5 above.
+
+A CAN HAT needs its device-tree overlay in `/boot/firmware/config.txt`
+(the HAT's vendor page says which, e.g.
+`dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25`); a USB CAN
+adapter appears as `can0` by itself. Check with `ip link` — the
+interface must exist before the runtime can open it.
 
 ## ST STM32MP157C-DK2
 
