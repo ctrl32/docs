@@ -277,3 +277,5 @@ editor connection all work the same.
   and survive the swap.
 - **The kernel** (reTerminal): safe — the display driver is in DKMS
   and rebuilds itself for the new kernel.
+
+> **Raspberry Pi and a monitor.** The `raspberry_pi` board declares its display as *optional*: a fresh project starts with a WEBview screen, and HMI screens are added from the tree (right-click *Screens* → *Add screen*) when a monitor hangs on the HDMI. The runtime draws the glass only when a DRM output is connected; without one it serves WEBview and runs on.
