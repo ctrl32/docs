@@ -42,8 +42,10 @@ the board's pixels, and the page says so. On a target that scales
 resolutions and a custom size: author at whatever suits the design,
 and the runtime fits it to its glass with the shape kept.
 
-The same page sets the **orientation** — a glass mounted on its side
-authors portrait screens, and the board transposes as it draws — and
+The same page sets the **orientation** — how the picture sits on the
+glass as it is mounted: as mounted, or rotated 90°, 180° or 270°.
+Choosing 90° or 270° swaps the resolution, and the board draws the
+picture that way (rotated 180° exists for SPI glasses only) — and
 the **WEBview canvas**, the size the browser screens are drawn for,
 usually a phone in portrait.
 

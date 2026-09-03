@@ -39,7 +39,7 @@ The sections, in the order they usually appear:
 
 | Section | Holds |
 |:---|:---|
-| `project` | name, target board, resolution, orientation |
+| `project` | name, target board, resolution, orientation — how the picture sits on the glass as it is mounted: `as_mounted`, `rot90`, `rot180`, `rot270` (the older `landscape` / `portrait` / `portrait_flipped` still read) |
 | `themes` | colour sets the styles resolve against |
 | `states` | reusable three-state colour sets |
 | `tags` | every variable: type, unit, scaling, deadband, source |
@@ -71,8 +71,7 @@ and nothing else is a valid, empty project.
 project:
   name: thermostat
   target: olimex_esp32_evb
-  resolution: [240, 320]
-  orientation: portrait
+  resolution: [240, 320]   # the 2.8" module as mounted
 
 tags:
   - { name: temp,    datatype: f32, unit: "°C", decimals: 1,
