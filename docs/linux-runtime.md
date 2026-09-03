@@ -134,7 +134,10 @@ version 1.00.040 every Linux device also has **CAN** and **RS485**:
   a Raspberry Pi, the DK2's FDCAN with a transceiver, or a USB-CAN
   adapter. The bitrate is set on the interface in the service unit.
 - **RS485** (Modbus RTU master or slave) over a USB-RS485 adapter or
-  a HAT on the device's own UART.
+  a HAT on the device's own UART — up to **four lines**, each with its
+  own baud rate and parity, like the four CAN buses.
+- **Motion**: up to **eight axes** on a Linux device (the boards keep
+  four).
 
 The adapter is a **device name** in the runtime's settings file
 (`CTRL32_CAN`, `CTRL32_RS485` — see [Setting up a Linux
