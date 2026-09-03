@@ -172,17 +172,27 @@ shows the visualisation, a device without one serves WEBview.
 1. Write **Raspberry Pi OS Lite (64-bit)** to the card with the
    Raspberry Pi Imager; set the user, enable SSH and the network in
    its settings. Boot, log in.
-2. Unpack `ctrl32-runtime-raspi-<version>.tar.gz` from
-   `%ProgramData%\ctrl32\linux\` into `/home/<user>/ctrl32/`.
-3. Copy `ctrl32run.service` to `/etc/systemd/system/` and set
-   `User=` and the `ExecStart=` path as on the reTerminal; copy
-   `ctrl32run.default.example` to `/etc/default/ctrl32run` and edit
-   it — `CTRL32_HWID=0x20000003`, and the bus lines your hardware
-   has: `CTRL32_RS485` for an RS485 adapter or HAT, `CTRL32_CAN` for
-   a CAN HAT or USB adapter (its bitrate line in the unit). No
-   monitor: `CTRL32_HEADLESS=1`.
-4. `sudo systemctl daemon-reload && sudo systemctl enable --now ctrl32run`
-   — then step 5 above.
+2. From the PC, copy the bundle over and run its installer — three
+   commands in PowerShell (Windows 10/11 ship `scp` and `ssh`; they
+   ask for the Pi user's password you set in the Imager):
+
+   ```
+   scp "$env:ProgramData\ctrl32\linux\ctrl32-runtime-raspi-<version>.tar.gz" pi@raspberrypi.local:~
+   ssh pi@raspberrypi.local "mkdir -p rt && tar xzf ctrl32-runtime-raspi-*.tar.gz -C rt && sudo sh rt/install.sh"
+   ```
+
+   `install.sh` creates the `ctrl32` user, installs the runtime and
+   the systemd unit, writes `/etc/default/ctrl32run` and starts the
+   service; it prints the `/devinfo` address at the end.
+3. The bus lines your hardware has go into `/etc/default/ctrl32run`:
+   `CTRL32_RS485` for an RS485 adapter or HAT, `CTRL32_CAN` for a
+   CAN HAT or USB adapter (its bitrate line in the unit),
+   `CTRL32_ECAT` for a dedicated EtherCAT NIC. No monitor: nothing
+   to set, the runtime serves WEBview when no display is connected.
+   After an edit: `sudo systemctl restart ctrl32run`.
+4. From here on SSH is not needed: the editor's scanner finds the
+   device, **Deploy** sends the project over the network, ONLINE
+   works — step 5 above.
 
 A CAN HAT needs its device-tree overlay in `/boot/firmware/config.txt`
 (the HAT's vendor page says which, e.g.
