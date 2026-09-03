@@ -121,7 +121,7 @@ CTRL32_HWID=0x20000001
 | `CTRL32_HWID` | the device's identity — `0x20000001` = reTerminal, `0x20000002` = STM32MP157C-DK2, `0x20000003` = any Raspberry Pi. The scanner names the device by it, and an upload for different hardware is refused by name |
 | `CTRL32_RS485` | optional: the Modbus RTU line — a USB-RS485 adapter (`/dev/ttyUSB0`, direction handled by the adapter) or the SoC UART of an RS485 HAT (`/dev/ttyAMA0`) |
 | `CTRL32_RS485_RTS` | `1` with a HAT on the SoC UART: the kernel drives the direction pin (DE) from RTS. Leave it out for a USB adapter |
-| `CTRL32_CAN` | optional: the CAN interface for CANopen, raw CAN and net32 over CAN — `can0` of a CAN HAT (MCP2515 / MCP251xFD overlay) or a USB adapter (`gs_usb`, `slcan`). The bitrate is set on the interface in the service unit, see below |
+| `CTRL32_CAN` | optional: the CAN interface for CANopen, raw CAN and net32 over CAN — `can0` of a CAN HAT (MCP2515 / MCP251xFD overlay) or a USB adapter (`gs_usb`, `slcan`). The bitrate is set on the interface in the service unit, see below. **More buses**: `CTRL32_CAN=can0,can1` — the project declares its extra buses (right-click the CAN node in the editor → *Add CAN bus*) and every CAN device, axis and variable says which bus it is on; the same node-ID may then live on two buses |
 
 Enable and start:
 
