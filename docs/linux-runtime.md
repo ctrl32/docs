@@ -123,14 +123,31 @@ keeps running on the last values — logic first, network second.
 
 ---
 
+## Buses on a Linux device
+
+Ethernet is the first bus — Modbus TCP (master and slave-side
+polling), WEBview, OPC UA, the editor's online wire — and since
+version 1.00.040 every Linux device also has **CAN** and **RS485**:
+
+- **CAN** (CANopen master or slave, raw CAN, net32 over CAN) over
+  the interface the operating system knows as `can0` — a CAN HAT on
+  a Raspberry Pi, the DK2's FDCAN with a transceiver, or a USB-CAN
+  adapter. The bitrate is set on the interface in the service unit.
+- **RS485** (Modbus RTU master or slave) over a USB-RS485 adapter or
+  a HAT on the device's own UART.
+
+The adapter is a **device name** in the runtime's settings file
+(`CTRL32_CAN`, `CTRL32_RS485` — see [Setting up a Linux
+device](linux-setup.md)), never a pin: the editor's board card says
+so, and a project's CAN or RTU configuration is carried to the
+device unchanged.
+
 ## What the Linux runtime does not do (yet)
 
-It speaks over **ethernet**: Modbus TCP (master and slave-side
-polling), WEBview, OPC UA, the editor's online wire. CAN, RS485 and
-the local buses are not offered on a Linux target — the editor hides
-them and the build refuses them, so a project cannot carry
-configuration the device would silently ignore. They will arrive
-with their drivers.
+**Local chips** — I2C and SPI peripherals of the part library — are
+not offered on a Linux target; the editor hides those buses and the
+build refuses them, so a project cannot carry configuration the
+device would silently ignore. They will arrive with their drivers.
 
 And the standing rule of the whole product applies unchanged: a
 ctrl32 device is [not a safety device](intended-use.md). Emergency
