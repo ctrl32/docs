@@ -27,6 +27,9 @@ same board with the peripherals already filled in. `S3 SSD1963 setup` is
 an S3 DevKit with the display wired the way the driver expects. Start
 from one when you are learning, then change what you need.
 
+Every module, the runtime class it gets and what that class can do (viewers, WiFi,
+limits) is one generated table: [Modules and runtime classes](modules.md).
+
 **A module is a target too.** Pick a bare module from the catalog and the
 project is *your own hardware around that part*: every bus pin is
 assigned on the bus pages, and the module's electrical rules check each
