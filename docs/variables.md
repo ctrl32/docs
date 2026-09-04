@@ -230,7 +230,8 @@ the same cycle, compute them in the logic and write the result.
 
 ## Limit
 
-**512 variables** (a Linux device: 5 120 — the full table by board
-type is in [Performance and limits](limits.md)). In practice this is
+**512 variables** (a Linux device: 5 120; an ESP32 without PSRAM, the
+LITE class: 128 — the full table by board type is in
+[Performance and limits](limits.md)). In practice this is
 the first thing to run out — before blocks, before compilation. The
 editor refuses a project over the limit at build time, at your desk.

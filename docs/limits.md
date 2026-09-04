@@ -32,6 +32,17 @@ configure.
 | Axes (drives) | 4 | 4 | — |
 | PLC tasks | 2 (fast + slow) | 2 (fast + slow) | 2 (fast + slow) |
 
+**The LITE class.** An ESP32 without PSRAM (the classic WROOM-32
+module and the boards built on it) has 320 kB of internal RAM for
+everything, and the tables sized by the variable limit sit all over
+the runtime. Such a board carries **128 variables, 32 alarms, 128
+blocks and 1 axis** - with those numbers the same board runs the
+display, WiFi with its access point, CAN and WEBview together. The
+board's catalog card says which class it is, the editor refuses a
+bigger project at your desk and the runtime refuses a bigger pack.
+The classes and their boards are listed in the
+[module catalog](modules.md).
+
 The Linux numbers are not paper: a generated proof project — 600
 variables, 40 screens of ~96 widgets each — runs on the reTerminal
 with the logic cycling at 10 ms and every variable served over

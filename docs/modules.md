@@ -28,6 +28,7 @@ the binaries are built from.
 | MQTT TLS | classic ESP32 / PICO | never | `proj_pack.cpp` - the desk refuses `mqtt.tls` off the S3/P4/STM32 |
 | Trend traces | classic ESP32 / PICO | 4 in all | `main.cpp` g_trend_rec.set_limit(4) |
 | Trend traces | ESP32-S3, ESP32-P4, Linux | 8 (4 per chart) | `visu_types.h` kLimitTrendSeries (from the schema) |
+| Variables, alarms, blocks, axes | the LITE class: `variant_wroom32e` (ESP32 without PSRAM) | **128 variables, 32 alarms, 128 blocks, 1 axis** - the tables sized by the variable limit sit all over the runtime and cost 20 kB at 512; with the small tables the EVB with glass runs WiFi + CAN + WEBview with room to spare. The catalog says it (`limit_tags` / `limit_alarms` / `limit_blocks` / `limit_axes`), the desk refuses a bigger project, the runtime refuses a bigger pack | `platformio.ini` -DVISU_MAX_TAGS/-DVISU_MAX_ALARMS/-DVISU_MAX_AXES, `boards/*.yaml`, `proj_pack.cpp`, `main.cpp` |
 | Project limits | a board with a display (type A) | 512 variables, 128 alarms, 32 screens, 64 widgets/screen, 512 blocks, 32 kB program, 8 kB instances | `visu_types.h` kLimit* (from the schema), the pack builder per target |
 | Project limits | a headless board (type B) | the same, with 1024 blocks, 64 kB program, 24 kB instances | the pack builder per target |
 | Project limits | Linux (type L) | 5120 variables, 1280 alarms, 320 screens, 256 widgets/screen, 5120 blocks, 320 kB program | `libvisu/CMakeLists` VISU_MAX_* |
@@ -41,13 +42,13 @@ One binary per class; a catalog board names its class, a bare module names it
 too. The sdkconfig groups are the build's memory facts; the rules above decide
 the rest at run time from what the board has.
 
-| Class (env) | Chip | Flash | PSRAM | WEBview viewers | WiFi | sdkconfig groups | build flags |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| `variant_p4_nrw32` | ESP32-P4 | 16 MB | P4_HEX | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K | `-DVISU_VARIANT_P4_NRW32` |
-| `variant_pico_v3_02` | ESP32-PICO-V3 | 8 MB | ESP32_QUAD | 2 | always | FLASH_8MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_PICO_V3_02` |
-| `variant_s3_n16r8` | ESP32-S3 | 16 MB | S3_OCT_40 | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8` |
-| `variant_s3_n8r8` | ESP32-S3 | 8 MB | S3_OCT_40 | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N8R8` |
-| `variant_wrover_n4r8` | ESP32 | 4 MB | ESP32_QUAD | 2 | always | FLASH_4MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_WROVER_N4R8` |
+| Class (env) | Chip | Flash | PSRAM | Variables / alarms / axes | WEBview viewers | WiFi | sdkconfig groups | build flags |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| `variant_p4_nrw32` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K | `-DVISU_VARIANT_P4_NRW32` |
+| `variant_pico_v3_02` | ESP32-PICO-V3 | 8 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_PICO_V3_02` |
+| `variant_s3_n16r8` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8` |
+| `variant_s3_n8r8` | ESP32-S3 | 8 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N8R8` |
+| `variant_wrover_n4r8` | ESP32 | 4 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_4MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_WROVER_N4R8` |
 
 ## The modules
 
@@ -146,40 +147,40 @@ that class.
 
 ## Boards and their class
 
-| Board | Kind | Chip | Display | Runtime class | Viewers |
-|:---|:---|:---|:---|:---|:---|
-| `adafruit_huzzah32` | devkit | ESP32 | - | - | - |
-| `espressif_devkitc_v4` | devkit | ESP32 | - | - | - |
-| `espressif_s3_devkitc_1` | devkit | ESP32-S3 | - | - | - |
-| `inocore32_tm1` | board | ESP32-PICO-V3 | - | `variant_pico_v3_02` | 2 |
-| `inocore32_tm1_1` | board | ESP32-PICO-V3 | - | `variant_pico_v3_02` | 2 |
-| `inocore32_tm1_3` | board | ESP32-PICO-V3 | - | - | - |
-| `inocore32_tm8_6` | board | ESP32-PICO-V3 | - | `variant_pico_v3_02` | 2 |
-| `inohmi32` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 2 |
-| `inohmi43` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 2 |
-| `inohmi53` | board | ESP32-S3 | [800, 480] | - | - |
-| `laskakit_esp32_lan` | devkit | ESP32 | - | `variant_wroom32e` | 2 |
-| `lilygo_t_can485` | devkit | ESP32 | - | - | - |
-| `olimex_esp32_evb` | devkit | ESP32 | [240, 320] | `variant_wroom32e` | 1 |
-| `olimex_esp32_gateway` | devkit | ESP32 | - | `variant_wroom32e` | 2 |
-| `olimex_esp32_poe` | devkit | ESP32 | - | `variant_wroom32e` | 2 |
-| `olimex_esp32_poe2` | devkit | ESP32 | - | `variant_wrover_n4r8` | 2 |
-| `olimex_esp32_poe_iso` | devkit | ESP32 | - | `variant_wroom32e` | 2 |
-| `preset_esp32_devkit` | preset | ESP32 | - | `esp32devkit` | 2 |
-| `preset_s3_can` | preset | ESP32-S3 | - | `esp32s3can` | 2 |
-| `preset_s3_devkit` | preset | ESP32-S3 | - | `esp32s3devkit` | 2 |
-| `preset_s3_ssd1963` | preset | ESP32-S3 | [480, 272] | `esp32s3ssd` | 1 |
-| `preset_ttgo_t_display` | preset | ESP32 | [240, 135] | `esp32tdisp` | 1 |
-| `raspberry_pi` | devkit | Linux | [1920, 1080] | - | many |
-| `seeed_reterminal` | devkit | Linux | [1280, 720] | - | many |
-| `sparkfun_thing_plus_esp32` | devkit | ESP32 | - | - | - |
-| `stephmi32_4` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 2 |
-| `stephmi32_5` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 2 |
-| `stephmi32_7` | board | ESP32-S3 | [800, 480] | - | - |
-| `stm32f746_disco` | devkit | STM32F746 | [480, 272] | `f746_disco` | 2 |
-| `stm32mp157c_dk2` | devkit | Linux | [480, 800] | - | many |
-| `ttgo_t_display` | devkit | ESP32 | [240, 135] | - | - |
-| `waveshare_p4_nano` | board | ESP32-P4 | [800, 1280] | `variant_p4_nrw32` | 2 |
+| Board | Kind | Chip | Display | Runtime class | Variables / alarms | Viewers |
+|:---|:---|:---|:---|:---|:---|:---|
+| `adafruit_huzzah32` | devkit | ESP32 | - | - | - | - |
+| `espressif_devkitc_v4` | devkit | ESP32 | - | - | - | - |
+| `espressif_s3_devkitc_1` | devkit | ESP32-S3 | - | - | - | - |
+| `inocore32_tm1` | board | ESP32-PICO-V3 | - | `variant_pico_v3_02` | 512 / 128 | 2 |
+| `inocore32_tm1_1` | board | ESP32-PICO-V3 | - | `variant_pico_v3_02` | 512 / 128 | 2 |
+| `inocore32_tm1_3` | board | ESP32-PICO-V3 | - | - | - | - |
+| `inocore32_tm8_6` | board | ESP32-PICO-V3 | - | `variant_pico_v3_02` | 512 / 128 | 2 |
+| `inohmi32` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 512 / 128 | 2 |
+| `inohmi43` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 512 / 128 | 2 |
+| `inohmi53` | board | ESP32-S3 | [800, 480] | - | - | - |
+| `laskakit_esp32_lan` | devkit | ESP32 | - | `variant_wroom32e` | 128 / 32 | 2 |
+| `lilygo_t_can485` | devkit | ESP32 | - | - | - | - |
+| `olimex_esp32_evb` | devkit | ESP32 | [240, 320] | `variant_wroom32e` | 128 / 32 | 1 |
+| `olimex_esp32_gateway` | devkit | ESP32 | - | `variant_wroom32e` | 128 / 32 | 2 |
+| `olimex_esp32_poe` | devkit | ESP32 | - | `variant_wroom32e` | 128 / 32 | 2 |
+| `olimex_esp32_poe2` | devkit | ESP32 | - | `variant_wrover_n4r8` | 512 / 128 | 2 |
+| `olimex_esp32_poe_iso` | devkit | ESP32 | - | `variant_wroom32e` | 128 / 32 | 2 |
+| `preset_esp32_devkit` | preset | ESP32 | - | `esp32devkit` | 512 / 128 | 2 |
+| `preset_s3_can` | preset | ESP32-S3 | - | `esp32s3can` | 512 / 128 | 2 |
+| `preset_s3_devkit` | preset | ESP32-S3 | - | `esp32s3devkit` | 512 / 128 | 2 |
+| `preset_s3_ssd1963` | preset | ESP32-S3 | [480, 272] | `esp32s3ssd` | 512 / 128 | 1 |
+| `preset_ttgo_t_display` | preset | ESP32 | [240, 135] | `esp32tdisp` | 512 / 128 | 1 |
+| `raspberry_pi` | devkit | Linux | [1920, 1080] | - | 5120 / 1280 | many |
+| `seeed_reterminal` | devkit | Linux | [1280, 720] | - | 5120 / 1280 | many |
+| `sparkfun_thing_plus_esp32` | devkit | ESP32 | - | - | - | - |
+| `stephmi32_4` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 512 / 128 | 2 |
+| `stephmi32_5` | board | ESP32-S3 | [480, 272] | `variant_s3_n16r8` | 512 / 128 | 2 |
+| `stephmi32_7` | board | ESP32-S3 | [800, 480] | - | - | - |
+| `stm32f746_disco` | devkit | STM32F746 | [480, 272] | `f746_disco` | 512 / 128 | 2 |
+| `stm32mp157c_dk2` | devkit | Linux | [480, 800] | - | 5120 / 1280 | many |
+| `ttgo_t_display` | devkit | ESP32 | [240, 135] | - | - | - |
+| `waveshare_p4_nano` | board | ESP32-P4 | [800, 1280] | `variant_p4_nrw32` | 512 / 128 | 2 |
 
 The measurement behind the no-PSRAM rules (2026-09-04, Olimex ESP32-EVB with the
 2.8" module, CAN and the i550 program): 122.6 kB internal RAM after the model,
