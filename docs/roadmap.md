@@ -42,7 +42,7 @@ Moved here out of *In progress* and *Planned*; details in
 [What's new](changelog.md).
 
 - **+7 — the S7 PLC client**: a panel replaces the operator panel on
-  an existing Siemens installation over ethernet, the PLC untouched.
+  an existing S7 installation over ethernet, the PLC untouched.
   See [+7 (S7 PLC)](plus7.md).
 - **The Linux runtime** shipped: Seeed reTerminal and the
   STM32MP157C-DK2 are catalogue devices, with OPC UA on top. See

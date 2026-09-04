@@ -116,8 +116,8 @@ runs.
 
 ## AI assistant connection (MCP server)
 
-An AI assistant on your computer — an AI assistant, or any client that
-speaks MCP — can join your **running editor session**: it sees the
+An AI assistant on your computer — any client that speaks MCP, the
+Model Context Protocol — can join your **running editor session**: it sees the
 project you have open, runs the build, reads the connected board, and
 can make edits that appear live in the editor, each one undoable with
 Ctrl+Z. It starts from *Tools → MCP server*, it is off by default,

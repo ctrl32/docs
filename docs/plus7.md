@@ -1,4 +1,4 @@
-# +7 — connecting a Siemens S7 PLC
+# +7 — connecting an S7 PLC
 
 **+7** lets a ctrl32 panel replace the operator panel on an existing
 S7 installation. The panel reads and writes the PLC's data over

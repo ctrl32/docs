@@ -1,7 +1,7 @@
 # The AI assistant (MCP server)
 
-An AI assistant running on your computer — an AI assistant, or any client
-that speaks **MCP** (the Model Context Protocol) — can join your
+An AI assistant running on your computer — any client that speaks
+**MCP** (the Model Context Protocol) — can join your
 **running editor session**. It does not get a copy of your project or
 a private workspace of its own: it works in the same window you are
 looking at. It sees the project you have open, reads variables,
@@ -27,11 +27,14 @@ That makes it useful for the real work, not just questions:
 
 ![The MCP server dialog: the local address, the session token, and the live-writes consent — off by default](img/mcp-dialog.webp){: .sb-center}
 
-Then press **Copy connect command** and paste it into a terminal. For
-an AI assistant the command looks like this (the port and the token are
-your session's own — always use the copied one):
+Then press **Copy connect command** and paste it where your assistant
+registers MCP servers - a terminal or its settings. The line carries
+the two things every client needs (the port and the token are your
+session's own — always use the copied one):
 
 ```
+transport: http    server: http://127.0.0.1:PORT/mcp
+header:    Authorization: Bearer TOKEN
 ```
 
 From that moment the assistant can reach the session. The dialog shows

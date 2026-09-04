@@ -119,7 +119,7 @@ is a constant.
 | **periph** | a chip pin on a local bus (expander, thermometer, LED) |
 | **adc** | the internal ADC1 — calibrated millivolts, × gain + offset |
 | **opcua** | a node polled from an OPC UA server — see [The Linux runtime](linux-runtime.md) |
-| **s7** | a DB value or flag bit read from a Siemens S7 PLC — see [+7 (S7 PLC)](plus7.md) |
+| **s7** | a DB value or flag bit read from an S7 PLC — see [+7 (S7 PLC)](plus7.md) |
 | **nvl** | a variable owned by another ctrl32 device — see [net32](net32.md) |
 
 ```yaml

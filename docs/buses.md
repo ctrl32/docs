@@ -21,7 +21,7 @@ trends, WEBview, alarms) works with variables.
 | **CANopen** | frequency and servo drives, professional I/O | ~40 m at 1 Mbit/s |
 | **Raw CAN** | a device with its own frame format | as above |
 | **MQTT** | telemetry to a dashboard or a home system | over the network |
-| **[+7](plus7.md)** (ethernet) | reading and writing a Siemens S7 PLC — the panel replaces the old HMI | wherever the network goes |
+| **[+7](plus7.md)** (ethernet) | reading and writing an S7 PLC — the panel replaces the old HMI | wherever the network goes |
 | **[net32](net32.md)** (WiFi, ethernet, CAN) | our network — ctrl32 devices as one system: home automation, shared variables, every node with its own logic | the network, or ~40 m of CAN |
 | **I2C** | expanders, RTC, sensors on the board | centimetres |
 | **SPI** | displays, memory, fast converters | centimetres |

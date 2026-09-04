@@ -25,15 +25,15 @@ the binaries are built from.
 | Render bands | everything else | 2 bands, the next one drawn while the previous goes out over DMA | `renderer.cpp` |
 | TCP console `:3232` | no PSRAM carrying a glass | off (the serial console stays) | `upload_uart.cpp` start |
 | MQTT TLS | ESP32-S3, ESP32-P4, STM32 | allowed (`mqtt.tls: true`, the firmware's CA bundle, buffers in PSRAM) | the editor and the pack build refuse it elsewhere |
-| MQTT TLS | classic ESP32 / PICO | never | the product limits |
-| Trend traces | classic ESP32 / PICO | 4 in all | the product limits |
-| Trend traces | ESP32-S3, ESP32-P4, Linux | 8 (4 per chart) | the product limits |
-| Project limits | a board with a display (type A) | 512 variables, 128 alarms, 32 screens, 64 widgets/screen, 512 blocks, 32 kB program, 8 kB instances | the pack builder per target |
+| MQTT TLS | classic ESP32 / PICO | never | `proj_pack.cpp` - the desk refuses `mqtt.tls` off the S3/P4/STM32 |
+| Trend traces | classic ESP32 / PICO | 4 in all | `main.cpp` g_trend_rec.set_limit(4) |
+| Trend traces | ESP32-S3, ESP32-P4, Linux | 8 (4 per chart) | `visu_types.h` kLimitTrendSeries (from the schema) |
+| Project limits | a board with a display (type A) | 512 variables, 128 alarms, 32 screens, 64 widgets/screen, 512 blocks, 32 kB program, 8 kB instances | `visu_types.h` kLimit* (from the schema), the pack builder per target |
 | Project limits | a headless board (type B) | the same, with 1024 blocks, 64 kB program, 24 kB instances | the pack builder per target |
 | Project limits | Linux (type L) | 5120 variables, 1280 alarms, 320 screens, 256 widgets/screen, 5120 blocks, 320 kB program | `libvisu/CMakeLists` VISU_MAX_* |
-| Modbus TCP | every ESP module | 4 connections at once | the product limits |
+| Modbus TCP | every ESP module | 4 connections at once | `main.cpp` - the Modbus TCP master |
 | PSRAM on the S3 | octal dies (R8, R16V) | 80 MHz DDR, the standard | `sdkconfig_fix.py` PSRAM_S3_OCT |
-| PSRAM on the S3 | quad dies (R2) | **not a slower mode - no PSRAM at all** on an octal-configured runtime; such a module has no runtime class | the product limits |
+| PSRAM on the S3 | quad dies (R2) | **not a slower mode - no PSRAM at all** on an octal-configured runtime; such a module has no runtime class | `sdkconfig_fix.py` PSRAM_S3_OCT groups |
 
 ## Runtime classes - the binaries
 

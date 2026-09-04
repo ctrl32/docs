@@ -18,8 +18,14 @@ moves. Releases before that carried dates (`year.month.day.build`).
   and CAN; a silent peer marks its variables stale, drops its health
   flag and never fires queued writes — local logic keeps running.
   The whole story: [net32](net32.md).
+- **One project for the whole system.** A single `.prj32` can hold
+  every device of an installation: switch devices in the tree, wire
+  their shared variables on the net32 canvas by dragging between
+  cards — both sides of every subscription are generated for you —
+  and **Deploy all** uploads every device over its own connection.
+  See [the system project](net32.md#the-system-project).
 - **An AI assistant can join your editor session.** Tools → MCP
-  server connects an AI assistant (or any MCP client) to the project you
+  server connects an AI assistant (any MCP client) to the project you
   have open: it reads variables, screens and programs, builds, and
   makes edits you can undo with Ctrl+Z — on this computer only, off
   by default, behind a per-session token, with live-board writes
@@ -31,7 +37,7 @@ moves. Releases before that carried dates (`year.month.day.build`).
 
 ## 1.00.034
 
-- **+7 — the panel talks to a Siemens S7 PLC.** A ctrl32 panel can
+- **+7 — the panel talks to an S7 PLC.** A ctrl32 panel can
   replace the operator panel on an existing S7 installation: it reads
   and writes data blocks and flag bits over ethernet, the PLC program
   stays untouched, no GSD files and no TIA project needed. S7-300/400

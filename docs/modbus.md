@@ -71,7 +71,7 @@ tags:
 An "EDS for Modbus": the directory `devices/modbus/*.yaml`, one file =
 one device (vendor, model, datasheet, `word_order`) plus a register map
 (address, fc, data type, scale, unit, description). The catalog is
-curated by inovaea and is signed like all the other catalogs.
+curated by ctrl32 and is signed like all the other catalogs.
 
 **Using it in the editor:** the *Modbus RTU master* or *Modbus TCP
 master* page → *Add Modbus device…* → pick from the catalog → tick the

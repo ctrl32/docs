@@ -136,6 +136,15 @@ version 1.00.040 every Linux device also has **CAN** and **RS485**:
 - **RS485** (Modbus RTU master or slave) over a USB-RS485 adapter or
   a HAT on the device's own UART — up to **four lines**, each with its
   own baud rate and parity, like the four CAN buses.
+- **EtherCAT master** (since 1.00.040): the device runs an EtherCAT
+  line on a second network interface — digital and analog terminals
+  map their process data to variables, a CiA402 drive on the line is
+  an axis the motion blocks command exactly like a CANopen drive. The
+  master is EtherCAT slaves in bus order, each with its expected
+  vendor/product and the signals of its process image, set on the
+  EtherCAT page. (Selling a device as an EtherCAT master requires the
+  EtherCAT Master License from the EtherCAT Technology Group (ETG);
+  ctrl32 handles that for its own products.)
 - **Motion**: up to **eight axes** on a Linux device (the boards keep
   four).
 
