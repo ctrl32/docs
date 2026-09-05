@@ -65,7 +65,7 @@ page says so. A customer has to see what the board can have, not guess it.
 
 | Icon | What it does |
 |:---|:---|
-| :ti-file-plus: | new project |
+| :ti-file-plus: | new project — the wizard: name, folder, board or module, what the project does (the editor starts empty until one is created or opened) |
 | :ti-folder-open: | open project |
 | :ti-device-floppy: | save project |
 | :ti-arrow-back-up: :ti-arrow-forward-up: | undo / redo (both unlimited; the count is in the Edit menu) |

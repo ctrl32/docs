@@ -39,11 +39,30 @@ holds whole working projects. Good places to start:
 
 ![The seal-in example open in the ladder editor](img/quickstart-sealin.webp){: .sb-center}
 
-## 3. Pick the board
+## 3. Your own project
 
-Click the board node in the project tree. The board decides the pins, the
-memory and which runtime is flashed into it — a project cannot be deployed
-without one.
+The editor starts empty. *New project* (the Welcome tab, the toolbar or
+Ctrl+N) opens one window with everything a fresh project needs:
+
+- **Name** — mandatory; it becomes the folder and the file name.
+- **Location** — `Documents\ctrl32\projects` unless you browse elsewhere;
+  the project lands in its own folder, `<location>\<name>\<name>.prj32`.
+- **Hardware** — a board from the catalog, or the processor module your
+  own hardware carries. The board decides the pins, the memory and which
+  runtime is flashed into it — a project cannot be deployed without one.
+- **What the project does** — visualization on the display, WEBview
+  screens, the first program in ladder or ST, and the roles it plays: CAN
+  master, Modbus RTU or TCP slave, MQTT, net32. Tick what you need; every
+  tick creates the matching part of the project, and every part can be
+  added or removed later from the tree.
+
+On a module the *Visualization* tick decides which runtime the module
+gets: with a display, or the headless one with the bigger program limits
+(see [Performance and limits](limits.md)). A board's type comes from the
+catalog, so that tick follows the board.
+
+*Create project* writes the file and opens the tree on it. The board can be
+changed later on the board tab, and a project may change hardware.
 
 ## 4. Flash the runtime (the first time)
 

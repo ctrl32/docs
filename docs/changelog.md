@@ -9,7 +9,34 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
-## 1.00.035 (upcoming)
+## 1.00.040 (upcoming)
+
+- **The editor starts empty and New project is a wizard.** One window
+  asks for the name, the folder (`Documents\ctrl32\projects` unless you
+  browse elsewhere), the board or the processor module, and what the
+  project does — visualization, WEBview, ladder or ST, CAN, Modbus,
+  MQTT, net32 — and creates the whole project from those ticks. See
+  [Quick start](quickstart.md#3-your-own-project).
+- **A module can run headless.** Every processor module now has two
+  runtimes: with a display, or headless with the bigger program limits
+  (64 kB program, 24 kB instances, 1024 blocks) for a project that shows
+  its screens in WEBview only. The wizard's *Visualization* tick picks
+  it; the board tab lets you change it. See
+  [Modules](modules.md) and [Performance and limits](limits.md).
+- **The LITE class.** A classic module without extra memory carries 128
+  variables, 32 alarms, 128 blocks and one axis — with those limits the
+  same board runs its display, WiFi with the access point, CAN and
+  WEBview together. The catalog says which boards it covers.
+- **Ladder blocks.** Every pin of a block is drawn always; a motion block
+  carries its axis on the rung (one axis assigns itself, more need the
+  choice on the block); a block dropped inside a function block binds to
+  the block's own inputs and outputs; blocks without outputs work as
+  boxes; a box on an empty rung stays a box.
+- **The device reports what it was built for.** The runtime tells the
+  editor its variable, alarm and axis capacities, and the editor's
+  checks compare them with the catalog.
+
+## 1.00.035
 
 - **net32 — our device network.** ctrl32 devices now work as one
   system — the backbone for home automation. One
