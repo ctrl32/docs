@@ -36,6 +36,26 @@ the binaries are built from.
 | PSRAM on the S3 | octal dies (R8, R16V) | 80 MHz DDR, the standard | `sdkconfig_fix.py` PSRAM_S3_OCT |
 | PSRAM on the S3 | quad dies (R2) | **not a slower mode - no PSRAM at all** on an octal-configured runtime; such a module has no runtime class | `sdkconfig_fix.py` PSRAM_S3_OCT groups |
 
+## The chips - which get a runtime and why
+
+A runtime needs **two cores** (the PLC cycle owns one, graphics and the network
+share the other), **4 MB of flash** or more, **PSRAM** for a glass that carries
+trends and assets, and an **Ethernet MAC** where the installation is wired. A
+single-core chip gets no runtime; a chip that fails two of the four is not on
+the list.
+
+| Chip | Cores | GPIO (usable) | SRAM | PSRAM | Radio | Ethernet MAC | CAN | Display peripheral | Runtime |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| ESP32 (classic) | 2 x 240 MHz | 34 (~26) | 520 kB | quad, up to 8 MB | WiFi 4, BT | yes | 1 | SPI glass | yes - the LITE class without PSRAM, the standard class with |
+| ESP32-PICO-V3-02 | 2 x 240 MHz | 34 (~26) | 520 kB | 2 MB in the package | WiFi 4, BT | yes | 1 | - | yes - headless |
+| ESP32-S3 | 2 x 240 MHz | 45 (~33) | 512 kB | octal, up to 16 MB | WiFi 4, BLE 5 | no (SPI Ethernet) | 1 | i80, RGB | yes - the reference platform, four memory variants |
+| ESP32-P4 | 2 x 400 MHz | 55 (~50) | 768 kB | up to 32 MB | through a companion chip | yes | 2 | MIPI DSI, RGB | yes |
+| STM32F746 | 216 MHz M7 | up to 168 | 320 kB + 64 kB | external SDRAM | - | yes | 2 | LTDC | yes |
+| STM32MP157 | 2 x 650 MHz A7 | ~170 | 512 MB | - | module | yes | 2 | LTDC, DSI | yes - the Linux runtime |
+| Raspberry Pi CM4 / 4 / 5 | 4 x A72 / A76 | 28 | 1 - 8 GB | - | WiFi 5, BLE | yes | via SPI/USB | HDMI, DSI | yes - the Linux runtime |
+| ESP32-S2, -C2, -C3, -C6, -C5, -C61, -H2 | 1 core | | | | | | | | no - single core |
+| STM32H7, STM32F4, STM32G4 | M7 / M4 | | | | | | | | planned |
+
 ## Runtime classes - the binaries
 
 One binary per class; a catalog board names its class, a bare module names it
@@ -45,6 +65,7 @@ the rest at run time from what the board has.
 | Class (env) | Chip | Flash | PSRAM | Variables / alarms / axes | WEBview viewers | WiFi | sdkconfig groups | build flags |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
 | `variant_p4_nrw32` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K | `-DVISU_VARIANT_P4_NRW32` |
+| `variant_p4_nrw32_hl` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K | `-DVISU_VARIANT_P4_NRW32_HL` |
 | `variant_pico_v3_02` | ESP32-PICO-V3 | 8 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_PICO_V3_02` |
 | `variant_s3_n16r8` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8` |
 | `variant_s3_n16r8_hl` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8_HL` |
@@ -69,7 +90,7 @@ that class.
 | ESP32-MINI-1-N4 | 4 MB (embedded) | - | - |  | no runtime class yet |
 | ESP32-MINI-1U-H4 | 4 MB (embedded) | - | - |  | no runtime class yet; external antenna |
 | ESP32-MINI-1U-N4 | 4 MB (embedded) | - | - |  | no runtime class yet; external antenna |
-| ESP32-WROOM-32E-N4 | 4 MB | - | `variant_wroom32e` + `variant_wroom32e_hl` (headless) | `laskakit_esp32_lan`, `olimex_esp32_evb`, `olimex_esp32_gateway`, `olimex_esp32_poe`, `olimex_esp32_poe_iso` |  |
+| ESP32-WROOM-32E-N4 | 4 MB | - | `variant_wroom32e` + `variant_wroom32e_hl` (headless) | `laskakit_esp32_lan`, `olimex_esp32_evb`, `olimex_esp32_gateway`, `olimex_esp32_poe`, `olimex_esp32_poe_iso`, `preset_ttgo_t_display` |  |
 | ESP32-WROOM-32E-H4 | 4 MB (quad) | - | - |  | no runtime class yet |
 | ESP32-WROOM-32E-H8 | 8 MB (quad) | - | - |  | no runtime class yet |
 | ESP32-WROOM-32E-N16 | 16 MB (quad) | - | - |  | no runtime class yet |
@@ -117,7 +138,7 @@ that class.
 | ESP32-S3-MINI-1U-N4R2 | 4 MB (quad) | 2 MB (quad) | - |  | quad PSRAM: no class (octal only); external antenna |
 | ESP32-S3-MINI-1U-N8 | 8 MB (quad) | - | - |  | no runtime class yet; external antenna |
 | ESP32-S3-WROOM-1-H4 | 4 MB (quad) | - | - |  | no runtime class yet |
-| ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | `variant_s3_n16` + `variant_s3_n16_hl` (headless) |  |  |
+| ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | `variant_s3_n16` + `variant_s3_n16_hl` (headless) | `preset_s3_ssd1963` |  |
 | ESP32-S3-WROOM-1-N16R16VA | 16 MB (quad) | 16 MB (octal) | - |  | no runtime class yet |
 | ESP32-S3-WROOM-1-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | quad PSRAM: no class (octal only) |
 | ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | `variant_s3_n16r8` + `variant_s3_n16r8_hl` (headless) | `inohmi32`, `inohmi43`, `stephmi32_4`, `stephmi32_5` |  |
@@ -146,7 +167,7 @@ that class.
 
 | Module | Flash | PSRAM | Runtime class | Boards on it | Note |
 |:---|:---|:---|:---|:---|:---|
-| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | `variant_p4_nrw32` | `waveshare_p4_nano` |  |
+| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | `variant_p4_nrw32` + `variant_p4_nrw32_hl` (headless) | `waveshare_p4_nano` |  |
 
 ## Boards and their class
 
@@ -169,11 +190,11 @@ that class.
 | `olimex_esp32_poe` | devkit | ESP32 | - | `variant_wroom32e` | 128 / 32 | 2 |
 | `olimex_esp32_poe2` | devkit | ESP32 | - | `variant_wrover_n4r8` | 512 / 128 | 2 |
 | `olimex_esp32_poe_iso` | devkit | ESP32 | - | `variant_wroom32e` | 128 / 32 | 2 |
-| `preset_esp32_devkit` | preset | ESP32 | - | `esp32devkit` | 512 / 128 | 2 |
-| `preset_s3_can` | preset | ESP32-S3 | - | `esp32s3can` | 512 / 128 | 2 |
-| `preset_s3_devkit` | preset | ESP32-S3 | - | `esp32s3devkit` | 512 / 128 | 2 |
-| `preset_s3_ssd1963` | preset | ESP32-S3 | [480, 272] | `esp32s3ssd` | 512 / 128 | 1 |
-| `preset_ttgo_t_display` | preset | ESP32 | [240, 135] | `esp32tdisp` | 512 / 128 | 1 |
+| `preset_esp32_devkit` | preset | ESP32 | - | `variant_wroom32e_hl` | 128 / 32 | 2 |
+| `preset_s3_can` | preset | ESP32-S3 | - | `variant_s3_n16_hl` | 512 / 128 | 2 |
+| `preset_s3_devkit` | preset | ESP32-S3 | - | `variant_s3_n8_hl` | 512 / 128 | 2 |
+| `preset_s3_ssd1963` | preset | ESP32-S3 | [480, 272] | `variant_s3_n16` | 512 / 128 | 1 |
+| `preset_ttgo_t_display` | preset | ESP32 | [240, 135] | `variant_wroom32e` | 128 / 32 | 1 |
 | `raspberry_pi` | devkit | Linux | [1920, 1080] | - | 5120 / 1280 | many |
 | `seeed_reterminal` | devkit | Linux | [1280, 720] | - | 5120 / 1280 | many |
 | `sparkfun_thing_plus_esp32` | devkit | ESP32 | - | - | - | - |
