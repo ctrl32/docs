@@ -69,7 +69,7 @@ that class.
 | ESP32-MINI-1-N4 | 4 MB (embedded) | - | - |  | no runtime class yet |
 | ESP32-MINI-1U-H4 | 4 MB (embedded) | - | - |  | no runtime class yet; external antenna |
 | ESP32-MINI-1U-N4 | 4 MB (embedded) | - | - |  | no runtime class yet; external antenna |
-| ESP32-WROOM-32E-N4 | 4 MB | - | `variant_wroom32e` | `laskakit_esp32_lan`, `olimex_esp32_evb`, `olimex_esp32_gateway`, `olimex_esp32_poe`, `olimex_esp32_poe_iso` |  |
+| ESP32-WROOM-32E-N4 | 4 MB | - | `variant_wroom32e` + `variant_wroom32e_hl` (headless) | `laskakit_esp32_lan`, `olimex_esp32_evb`, `olimex_esp32_gateway`, `olimex_esp32_poe`, `olimex_esp32_poe_iso` |  |
 | ESP32-WROOM-32E-H4 | 4 MB (quad) | - | - |  | no runtime class yet |
 | ESP32-WROOM-32E-H8 | 8 MB (quad) | - | - |  | no runtime class yet |
 | ESP32-WROOM-32E-N16 | 16 MB (quad) | - | - |  | no runtime class yet |
@@ -89,7 +89,7 @@ that class.
 | ESP32-WROVER-E-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | no runtime class yet |
 | ESP32-WROVER-E-N16R8 | 16 MB (quad) | 8 MB (quad) | - |  | no runtime class yet |
 | ESP32-WROVER-E-N4R2 | 4 MB (quad) | 2 MB (quad) | - |  | no runtime class yet |
-| ESP32-WROVER-E-N4R8 | 4 MB (quad) | 8 MB (quad) | `variant_wrover_n4r8` | `olimex_esp32_poe2` |  |
+| ESP32-WROVER-E-N4R8 | 4 MB (quad) | 8 MB (quad) | `variant_wrover_n4r8` + `variant_wrover_n4r8_hl` (headless) | `olimex_esp32_poe2` |  |
 | ESP32-WROVER-E-N8R2 | 8 MB (quad) | 2 MB (quad) | - |  | no runtime class yet |
 | ESP32-WROVER-IE-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | no runtime class yet |
 | ESP32-WROVER-IE-N16R8 | 16 MB (quad) | 8 MB (quad) | - |  | no runtime class yet |
@@ -117,16 +117,16 @@ that class.
 | ESP32-S3-MINI-1U-N4R2 | 4 MB (quad) | 2 MB (quad) | - |  | quad PSRAM: no class (octal only); external antenna |
 | ESP32-S3-MINI-1U-N8 | 8 MB (quad) | - | - |  | no runtime class yet; external antenna |
 | ESP32-S3-WROOM-1-H4 | 4 MB (quad) | - | - |  | no runtime class yet |
-| ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | `variant_s3_n16` |  |  |
+| ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | `variant_s3_n16` + `variant_s3_n16_hl` (headless) |  |  |
 | ESP32-S3-WROOM-1-N16R16VA | 16 MB (quad) | 16 MB (octal) | - |  | no runtime class yet |
 | ESP32-S3-WROOM-1-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | quad PSRAM: no class (octal only) |
-| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | `variant_s3_n16r8` | `inohmi32`, `inohmi43`, `stephmi32_4`, `stephmi32_5` |  |
+| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | `variant_s3_n16r8` + `variant_s3_n16r8_hl` (headless) | `inohmi32`, `inohmi43`, `stephmi32_4`, `stephmi32_5` |  |
 | ESP32-S3-WROOM-1-N4 | 4 MB (quad) | - | - |  | no runtime class yet |
 | ESP32-S3-WROOM-1-N4R2 | 4 MB (quad) | 2 MB (quad) | - |  | quad PSRAM: no class (octal only) |
 | ESP32-S3-WROOM-1-N4R8 | 4 MB (quad) | 8 MB (octal) | - |  | no runtime class yet |
-| ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | `variant_s3_n8` |  |  |
+| ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | `variant_s3_n8` + `variant_s3_n8_hl` (headless) |  |  |
 | ESP32-S3-WROOM-1-N8R2 | 8 MB (quad) | 2 MB (quad) | - |  | quad PSRAM: no class (octal only) |
-| ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | `variant_s3_n8r8` |  |  |
+| ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | `variant_s3_n8r8` + `variant_s3_n8r8_hl` (headless) |  |  |
 | ESP32-S3-WROOM-1U-H4 | 4 MB (quad) | - | - |  | no runtime class yet; external antenna |
 | ESP32-S3-WROOM-1U-N16 | 16 MB (quad) | - | - |  | no runtime class yet; external antenna |
 | ESP32-S3-WROOM-1U-N16R16VA | 16 MB (quad) | 16 MB (octal) | - |  | no runtime class yet; external antenna |
