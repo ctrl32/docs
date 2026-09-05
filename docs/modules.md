@@ -28,7 +28,7 @@ the binaries are built from.
 | MQTT TLS | classic ESP32 / PICO | never | `proj_pack.cpp` - the desk refuses `mqtt.tls` off the S3/P4/STM32 |
 | Trend traces | classic ESP32 / PICO | 4 in all | `main.cpp` g_trend_rec.set_limit(4) |
 | Trend traces | ESP32-S3, ESP32-P4, Linux | 8 (4 per chart) | `visu_types.h` kLimitTrendSeries (from the schema) |
-| Variables, alarms, blocks, axes | the LITE class: `variant_wroom32e` (ESP32 without PSRAM) | **128 variables, 32 alarms, 128 blocks, 1 axis** - the tables sized by the variable limit sit all over the runtime and cost 20 kB at 512; with the small tables the EVB with glass runs WiFi + CAN + WEBview with room to spare. The catalog says it (`limit_tags` / `limit_alarms` / `limit_blocks` / `limit_axes`), the desk refuses a bigger project, the runtime refuses a bigger pack | `platformio.ini` -DVISU_MAX_TAGS/-DVISU_MAX_ALARMS/-DVISU_MAX_AXES, `boards/*.yaml`, `proj_pack.cpp`, `main.cpp` |
+| Variables, alarms, blocks, axes | the LITE class: `variant_wroom32e` (ESP32 without PSRAM) | **128 variables, 32 alarms, 128 blocks, 1 axis** - the tables sized by the variable limit sit all over the runtime and cost 20 kB at 512; with the small tables the EVB with glass runs WiFi + CAN + WEBview with room to spare. The catalog says it (`limit_tags` / `limit_alarms` / `limit_blocks` / `limit_axes`), the desk refuses a bigger project, the runtime refuses a bigger pack and INFO says `cap=128,32,1` (the wall compares it with the catalog) | `platformio.ini` -DVISU_MAX_TAGS/-DVISU_MAX_ALARMS/-DVISU_MAX_AXES, `boards/*.yaml`, `proj_pack.cpp`, `main.cpp` |
 | Project limits | a board with a display (type A) | 512 variables, 128 alarms, 32 screens, 64 widgets/screen, 512 blocks, 32 kB program, 8 kB instances | `visu_types.h` kLimit* (from the schema), the pack builder per target |
 | Project limits | a headless board (type B) | the same, with 1024 blocks, 64 kB program, 24 kB instances | the pack builder per target |
 | Project limits | Linux (type L) | 5120 variables, 1280 alarms, 320 screens, 256 widgets/screen, 5120 blocks, 320 kB program | `libvisu/CMakeLists` VISU_MAX_* |
@@ -47,8 +47,11 @@ the rest at run time from what the board has.
 | `variant_p4_nrw32` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K | `-DVISU_VARIANT_P4_NRW32` |
 | `variant_pico_v3_02` | ESP32-PICO-V3 | 8 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_PICO_V3_02` |
 | `variant_s3_n16r8` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8` |
+| `variant_s3_n16r8_hl` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8_HL` |
 | `variant_s3_n8r8` | ESP32-S3 | 8 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N8R8` |
+| `variant_s3_n8r8_hl` | ESP32-S3 | 8 MB | S3_OCT_40 | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N8R8_HL` |
 | `variant_wrover_n4r8` | ESP32 | 4 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_4MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_WROVER_N4R8` |
+| `variant_wrover_n4r8_hl` | ESP32 | 4 MB | ESP32_QUAD | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_4MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_WROVER_N4R8_HL` |
 
 ## The modules
 
