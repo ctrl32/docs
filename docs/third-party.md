@@ -2,7 +2,8 @@
 
 ctrl32 is built on open-source components. Every one of them is under a
 **permissive** licence — the kind that asks for a copyright notice and
-nothing else.
+nothing else — with two exceptions in the Linux runtime, listed in their
+own section below, whose conditions fall on us and not on you.
 
 !!! success "What this means for you"
     Nothing here obliges you to publish your project, your logic or your
@@ -22,12 +23,35 @@ Everything that runs on the equipment.
 | LovyanGFX | BSD 2-clause | the rasteriser that draws the screens |
 | lwIP | BSD 3-clause | the network stack (ethernet, WEBview, Modbus TCP) |
 | STM32Cube HAL | BSD 3-clause | the hardware layer on STM32 boards |
+| CMSIS | Apache 2.0 | the processor core headers on STM32 boards |
+| Espressif hosted-WiFi components | Apache 2.0 | the WiFi of ESP32-P4 boards, which reaches the radio through a companion chip |
 | cJSON | MIT | reads the small pieces of JSON the WEBview exchanges |
 
 !!! note "The CANopen master is ours"
     ctrl32 does not use a third-party CANopen stack. The NMT master, SDO
     client, PDO mapping and the CiA 402 drive handling are our own code, so
     there is no licence on this page covering them.
+
+## In the Linux runtime
+
+The Linux runtime carries everything above that applies to a headless
+device, and three components of its own.
+
+| Component | Licence | What it does |
+|:---|:---:|:---|
+| open62541 | MPL 2.0 | the OPC UA server |
+| OpenSSL | Apache 2.0 | the certificates of the OPC UA endpoints |
+| SOEM | GPL 2.0 with the linking exception | the EtherCAT master |
+
+!!! note "The two exceptions, and what they mean for you"
+    open62541 is under the Mozilla Public License 2.0 and SOEM under the
+    GPL 2.0 with an explicit linking exception. Both allow a proprietary
+    program to link them; both ask that the sources of the component itself
+    stay public, and they are — we ship them unmodified. Neither reaches
+    your project, your logic or your screens, and there is nothing for you
+    to publish or to sign. Selling a device as an EtherCAT master also
+    requires a master licence from the EtherCAT Technology Group — a
+    paperwork step on the vendor's side, not the user's.
 
 ## In the editor
 
