@@ -17,6 +17,11 @@ moves. Releases before that carried dates (`year.month.day.build`).
   project does — visualization, WEBview, ladder or ST, CAN, Modbus,
   MQTT, net32 — and creates the whole project from those ticks. See
   [Quick start](quickstart.md#3-your-own-project).
+- **Your own board with a display.** A project on a module declares its
+  glass on the board tab: the catalog board with the same display
+  controller, the size as mounted, the display and touch pins. The
+  editor checks the pins and builds the same display record the catalog
+  board gets.
 - **A module can run headless.** Every processor module now has two
   runtimes: with a display, or headless with the bigger program limits
   (64 kB program, 24 kB instances, 1024 blocks) for a project that shows

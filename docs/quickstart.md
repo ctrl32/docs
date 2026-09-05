@@ -64,6 +64,13 @@ catalog, so that tick follows the board.
 *Create project* writes the file and opens the tree on it. The board can be
 changed later on the board tab, and a project may change hardware.
 
+**Your own board with a display.** On a module the display is yours to
+declare: the board tab's *Glass* card asks which catalog board carries the
+same display controller (that board's initialisation and touch calibration
+are reused), the size as mounted, and the display and touch pins of your
+board — picked from the module's free pins. Until every required pin is set
+the build says which one is missing.
+
 ## 4. Flash the runtime (the first time)
 
 If the board is new or carries old firmware, the board page has *Flash
