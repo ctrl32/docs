@@ -49,7 +49,7 @@ the list.
 | ESP32 (classic) | 2 x 240 MHz | 34 (~26) | 520 kB | quad, up to 8 MB | WiFi 4, BT | yes | 1 | SPI glass | yes - the LITE class without PSRAM, the standard class with |
 | ESP32-PICO-V3-02 | 2 x 240 MHz | 34 (~26) | 520 kB | 2 MB in the package | WiFi 4, BT | yes | 1 | - | yes - headless |
 | ESP32-S3 | 2 x 240 MHz | 45 (~33) | 512 kB | octal, up to 16 MB | WiFi 4, BLE 5 | no (SPI Ethernet) | 1 | i80, RGB | yes - the reference platform, four memory variants |
-| ESP32-P4 | 2 x 400 MHz | 55 (~50) | 768 kB | up to 32 MB | through a companion chip | yes | 2 | MIPI DSI, RGB | yes |
+| ESP32-P4 | 2 x 400 MHz | 55 (~50) | 768 kB | up to 32 MB | through a companion chip | yes | 3 | MIPI DSI, RGB | yes |
 | STM32F746 | 216 MHz M7 | up to 168 | 320 kB + 64 kB | external SDRAM | - | yes | 2 | LTDC | yes |
 | STM32MP157 | 2 x 650 MHz A7 | ~170 | 512 MB | - | module | yes | 2 | LTDC, DSI | yes - the Linux runtime |
 | Raspberry Pi CM4 / 4 / 5 | 4 x A72 / A76 | 28 | 1 - 8 GB | - | WiFi 5, BLE | yes | via SPI/USB | HDMI, DSI | yes - the Linux runtime |
