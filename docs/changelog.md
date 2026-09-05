@@ -9,7 +9,7 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
-## 1.00.040 (upcoming)
+## 1.00.040 (2026-09-05)
 
 - **The editor starts empty and New project is a wizard.** One window
   asks for the name, the folder (`Documents\ctrl32\projects` unless you
