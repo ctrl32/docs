@@ -1,5 +1,10 @@
 # Controls and shortcuts
 
+**Properties** (the panel at the bottom) follows what you click: a widget
+on a screen, a contact, coil or block on a ladder rung, a block in an FBD
+diagram — name, variables, parameters, axis, all editable there. The
+**Toolbox** on the right opens folded; expand the group you need.
+
 Everything the editor can do is reachable with the mouse; the
 shortcuts exist for the handful of actions you repeat all day. This
 page is the complete reference — menus, keys, and what the mouse

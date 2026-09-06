@@ -112,6 +112,10 @@ project's device repository; from there you pick objects and the editor
 *Add CAN device* shows the repository with the card of each file —
 click a device and its parameters are read out on the spot: objects,
 how many are writable, the PDO channels, the first free node-ID.
+The PDO mapping page lists the whole object dictionary of the device's EDS
+when you add an entry (the *mappable only* filter is a checkbox); the
+transmission type is chosen per PDO.
+
 Changing the node-ID later, in the device's window, moves the device's
 variables and the axis on it to the new node with it.
 

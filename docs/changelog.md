@@ -10,6 +10,16 @@ capabilities, the first one practically never moves.
 
 ## 1.00.042 (unreleased)
 
+- **Properties for every block.** Click a contact, coil or block in a
+  ladder rung or an FBD diagram and the Properties panel shows its
+  variables, parameters and axis, editable. An unfinished rung survives a
+  visit to another program. The Toolbox opens folded. A program keeps the
+  language it was created in (the view switch is gone). The interface
+  pane lists only variables you created. A BOOL variable may drive a
+  numeric pin or parameter (a direction, for one). A time or count
+  parameter fed from a REAL variable compiles now — every shipped block
+  is built with every pin bound to a variable of its type in the release
+  gate.
 - **CAN axis wizard.** Adding a CAN axis makes the axis, its CAN device
   with the PDOs the runtime exchanges and the variables the MC blocks
   bind to, in one dialog - single-word names, a prefix for a second
