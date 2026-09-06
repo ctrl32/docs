@@ -15,8 +15,9 @@ capabilities, the first one practically never moves.
   variables, parameters and axis, editable. An unfinished rung survives a
   visit to another program. The Toolbox opens folded. A program keeps the
   language it was created in (the view switch is gone). The interface
-  pane lists only variables you created. A BOOL variable may drive a
-  numeric pin or parameter (a direction, for one). A time or count
+  pane lists only variables you created. The pin rule holds everywhere: a
+  BOOL pin takes a BOOL or one bit of an integer variable, a numeric pin
+  or parameter takes a number and never a BOOL. A time or count
   parameter fed from a REAL variable compiles now — every shipped block
   is built with every pin bound to a variable of its type in the release
   gate.

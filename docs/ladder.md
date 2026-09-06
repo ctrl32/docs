@@ -43,6 +43,11 @@ start/stop seal-in is exactly:
 
 ### A contact on one bit of a word
 
+**The pin rule.** A BOOL pin of a block - a contact, a coil, a block's
+BOOL input or output - takes a BOOL variable or **one bit of an integer
+variable**; a numeric pin or parameter takes a numeric variable and never
+a BOOL. The pickers offer exactly that, in the sheet and in Properties.
+
 A contact or a coil can sit on **one bit of an integer variable**:
 pick the variable in the element's sheet and the sheet asks for the bit;
 the label reads `mask.3`, the same spelling ST uses. The sheet of a
