@@ -181,6 +181,9 @@ Two details that matter in practice:
   each other and nothing works. The unit ID is set on the device
   (DIP switches or a display menu), and every device on the line
   needs a *different* one and the *same* baud rate and parity.
+- In the editor, changing a device's unit ID in its window moves the
+  device's variables with it; a unit already taken on that line is
+  refused.
 - On **TCP**, the unit ID still exists in the header. It matters
   behind an **RTU↔TCP gateway**, where it selects which serial
   device behind the gateway you mean — the gateway's IP plus the

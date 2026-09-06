@@ -10,6 +10,15 @@ capabilities, the first one practically never moves.
 
 ## 1.00.042 (unreleased)
 
+- **CAN axis wizard.** Adding a CAN axis makes the axis, its CAN device
+  with the PDOs the runtime exchanges and the variables the MC blocks
+  bind to, in one dialog - single-word names, a prefix for a second
+  axis. See [Motion blocks](blocks-motion.md).
+- **Editor: what was made can be changed.** The bit of a contact or
+  coil on `mask.3` has its own field in the element's sheet; a recipe
+  definition is renamed in place; changing a CAN device's node-ID or a
+  Modbus device's unit moves the device's variables (and its axis) with
+  it instead of leaving them behind.
 - **Recipes.** A recipe definition names the variables a set carries;
   the device keeps the sets in its own store, through power cuts and
   program downloads. A recipe table and three button modes (load, save,

@@ -176,5 +176,24 @@ the full story, and the DIP switches worth writing on the drawing, is
 in [CANopen — drives](canopen.md). The startup block switches the mode
 over SDO so a project built from the i550 profile never meets it.
 
+The quickest road to a working axis is the **CAN axis wizard**: *Motion*
+-> add axis in the project tree, or the *CAN wizard...* button in an
+axis window. It takes the axis name, the node-ID and the profile and
+makes three things in one step:
+
+- the **CAN device** of that node with the two PDOs the runtime
+  exchanges on every SYNC (TPDO1 statusword + speed, RPDO1 controlword +
+  setpoint) and the start-up SDO writes (velocity mode; on the i550 the
+  network-control pair that switches its own state machine off)
+- the **variables the MC blocks bind to**: `enable`, `run`, `stop`,
+  `reset`, `speed`, `ready`, `fault`, `running`, `velocity`; an axis
+  that positions adds `move`, `home`, `target`, `position`, `done`
+- the **axis** itself, opened in its window
+
+The first axis gets single words; a second one gets its name as a
+prefix (`feed_speed`), editable in the dialog. A variable that already
+exists under that name is kept, never duplicated. What the wizard makes
+is an ordinary project afterwards - every part can be changed by hand.
+
 See [CANopen blocks](blocks-can.md) for what talks to a drive directly,
 and [Buses](buses.md) for the wiring.

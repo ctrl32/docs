@@ -24,6 +24,9 @@ The build adds two hidden variables per definition, both integers:
 | `<name>.recipe` | the slot last loaded, `-1` = none; a program may read it (a comparison block, a screen value) |
 | `<name>.recipe_sel` | the slot selected on the table; the buttons act on it |
 
+The name is edited in place in the Recipes window; every table that
+names the definition follows the rename.
+
 A definition can be removed like any tree node; the sets stay in the
 device's store until the next download compacts them.
 

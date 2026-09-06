@@ -41,6 +41,14 @@ start/stop seal-in is exactly:
 |--[ run   ]--+
 ```
 
+### A contact on one bit of a word
+
+A contact or a coil can sit on **one bit of an integer variable**:
+pick the variable in the element's sheet and the sheet asks for the bit;
+the label reads `mask.3`, the same spelling ST uses. The sheet of a
+bound contact shows that bit in its own field, so changing it is a
+matter of typing the new number and Enter - the variable stays.
+
 ## A rung does not need a coil
 
 A new rung starts as a **bare arrow** — no wire across, no coil. Build
