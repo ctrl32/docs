@@ -91,6 +91,28 @@ USB driver, which cable — answered in
     refuses it and the editor shows an error. The fix is always the same:
     **flash the runtime**.
 
+### Update the runtime over the network
+
+A board with 8 MB or 16 MB of flash carries **two runtime slots**, and from
+then on a new runtime travels the way a program does: type the board's IP
+into the port selector of *Flash runtime* instead of a COM port. The editor
+sends the runtime, the board writes it into the slot it is not running
+from, checks that it is a runtime for its own chip and memory, restarts
+into it, and only once the program has loaded and the server is up does
+the new runtime confirm itself. A runtime that does not get that far is
+rolled back by the bootloader at the next reset — the old one keeps
+running. The program, the retentive values and the network settings stay
+where they are. The whole update takes under a minute.
+
+Two things to know:
+
+- **The first update onto a two-slot runtime goes over USB.** A board
+  flashed before this feature existed has one slot; the editor says so
+  ("the first update onto the two-slot table goes over USB") and the USB
+  road lays the new layout down without touching the program.
+- **Boards with 4 MB of flash keep the USB road.** A runtime with a display
+  is 2.4 MB, and two copies do not fit; the device page shows `ota=0`.
+
 ## 5. Download the program
 
 Pick the COM port in the toolbar and click the blue :ti-download: icon (*Download to

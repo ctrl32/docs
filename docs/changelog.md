@@ -9,6 +9,19 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.041 (unreleased)
+
+- **The runtime updates over the network.** Boards with 8 MB or 16 MB of
+  flash carry two runtime slots: *Flash runtime* with the board's IP in the
+  port selector sends the runtime the way a program is sent, the board
+  writes the slot it is not running from, verifies it is a runtime for its
+  own chip and memory, restarts and confirms itself once the program has
+  loaded; a runtime that does not come up is rolled back by the bootloader.
+  The one USB flash that brings a board onto the two-slot layout keeps its
+  program and retentive values. 4 MB boards keep the USB road.
+- The device page and the scanner show `ota=`, the runtime's build (`env=`)
+  and the slot it runs from.
+
 ## 1.00.040 (2026-09-05)
 
 - **The editor starts empty and New project is a wizard.** One window

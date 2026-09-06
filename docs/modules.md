@@ -64,13 +64,13 @@ the rest at run time from what the board has.
 
 | Class (env) | Chip | Flash | PSRAM | Variables / alarms / axes | WEBview viewers | WiFi | sdkconfig groups | build flags |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| `variant_p4_nrw32` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K | `-DVISU_VARIANT_P4_NRW32` |
-| `variant_p4_nrw32_hl` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K | `-DVISU_VARIANT_P4_NRW32_HL` |
-| `variant_pico_v3_02` | ESP32-PICO-V3 | 8 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_PICO_V3_02` |
-| `variant_s3_n16r8` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8` |
-| `variant_s3_n16r8_hl` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N16R8_HL` |
-| `variant_s3_n8r8` | ESP32-S3 | 8 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N8R8` |
-| `variant_s3_n8r8_hl` | ESP32-S3 | 8 MB | S3_OCT_40 | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K | `-DVISU_VARIANT_S3_N8R8_HL` |
+| `variant_p4_nrw32` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K, OTA | `-DVISU_VARIANT_P4_NRW32` |
+| `variant_p4_nrw32_hl` | ESP32-P4 | 16 MB | P4_HEX | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_16MB, PSRAM_P4_HEX, HOSTED_C6, O2, MAIN_STACK_8K, OTA | `-DVISU_VARIANT_P4_NRW32_HL` |
+| `variant_pico_v3_02` | ESP32-PICO-V3 | 8 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM, OTA | `-DVISU_VARIANT_PICO_V3_02` |
+| `variant_s3_n16r8` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K, OTA | `-DVISU_VARIANT_S3_N16R8` |
+| `variant_s3_n16r8_hl` | ESP32-S3 | 16 MB | S3_OCT_40 | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_16MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K, OTA | `-DVISU_VARIANT_S3_N16R8_HL` |
+| `variant_s3_n8r8` | ESP32-S3 | 8 MB | S3_OCT_40 | 512 / 128 / 4 axes | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K, OTA | `-DVISU_VARIANT_S3_N8R8` |
+| `variant_s3_n8r8_hl` | ESP32-S3 | 8 MB | S3_OCT_40 | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_8MB, FLASH_QIO, PSRAM_S3_OCT_40, PPP, CPU_240, NET_SLIM, O2, MAIN_STACK_8K, OTA | `-DVISU_VARIANT_S3_N8R8_HL` |
 | `variant_wrover_n4r8` | ESP32 | 4 MB | ESP32_QUAD | 512 / 128 / 4 axes | 2 | always | FLASH_4MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_WROVER_N4R8` |
 | `variant_wrover_n4r8_hl` | ESP32 | 4 MB | ESP32_QUAD | 512 / 128 / 4 axes (headless twin: type B pools) | 2 | always | FLASH_4MB, FLASH_DIO, PSRAM_ESP32_QUAD, PPP, CPU_240, O2, MAIN_STACK_8K, NET_SLIM | `-DVISU_VARIANT_WROVER_N4R8_HL` |
 
