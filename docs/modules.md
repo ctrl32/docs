@@ -1,4 +1,4 @@
-# Supported hardware
+# Hardware catalog
 
 One editor, one project file, one runtime family. Pick a board from the
 catalog, or put your own design on a supported module and assign its pins in

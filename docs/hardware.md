@@ -28,7 +28,7 @@ an S3 DevKit with the display wired the way the driver expects. Start
 from one when you are learning, then change what you need.
 
 Every chip, module and board, the size it belongs to and what it reaches
-(display, Ethernet, WiFi, CAN, RS485) is one page: [Supported hardware](modules.md).
+(display, Ethernet, WiFi, CAN, RS485) is one page: [Hardware catalog](modules.md).
 
 **A module is a target too.** Pick a bare module from the catalog and the
 project is *your own hardware around that part*: every bus pin is
