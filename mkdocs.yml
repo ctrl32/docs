@@ -60,7 +60,7 @@ nav:
   - What ctrl32 is: index.md
   - Intended use: intended-use.md
   - Supported hardware: hardware.md
-  - Modules and runtime classes: modules.md
+  - Supported hardware: modules.md
   - The Linux runtime:
       - The Linux runtime: linux-runtime.md
       - Setting up a device: linux-setup.md
