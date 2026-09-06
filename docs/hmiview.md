@@ -109,6 +109,15 @@ right one.
 
 ## Colour carries meaning
 
+**Eight themes ship with the editor** - dark, light, night, steel, forest,
+sand, contrast and ocean - each a full set of the same style names
+(screen, card, title, value, input, led, button, nav, trend, gauge, table,
+recipes and the rest). The New project dialog starts a project on one of
+them; *Styles and themes* in the project tree adds another from the
+library or replaces the active one, and a variable can switch the panel
+between the project's themes at run time. Your own theme file in
+`Documents\ctrl32\themes` appears in the same list.
+
 The screen is read by somebody who is tired, in a hurry, and possibly
 holding a torch. Colour does more work than text.
 
