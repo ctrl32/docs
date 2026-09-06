@@ -87,19 +87,24 @@ it from either end:
   toggles its variable (simulation only; connected to a board everything
   is read-only).
 
-## Ladder and FBD — one owner, two views
+## The Properties panel
 
-A program belongs to ONE editor at a time. A ladder-owned program
-opens in the block editor as a read-only view — its networks mirror
-the rungs one to one, comments included — and a single button takes
-the ownership over when you want to continue in FBD. The way back is
-the same button on the other side. Nothing edited in one view can be
-silently overwritten by the other.
+Click any contact, coil or block on a rung and the **Properties** panel
+at the bottom shows everything about it: the kind of a contact, its
+variable and bit, a block's result, inputs, parameters and axis. Every
+row there is the same operation the right-click sheet performs — use
+whichever is closer to hand. An unfinished rung (a block without a
+result, a contact without a variable) stays on its page while you visit
+another program and come back; it goes only when the program itself
+changed underneath it.
 
-A function block created from a POU can be drawn in ladder too: its
-input and output ports behave as ordinary variables — contacts on the
-inputs, the coil on an output (see
-[composite blocks](fbd-composites.md)).
+## Ladder and FBD — one language per program
+
+A program is drawn in the language it was created in — ladder, FBD or
+ST — and keeps it. Both diagram languages compile to the same blocks and
+the same runtime, so nothing is lost either way; what you choose is the
+picture you want to look at. Create a new program for the other view
+when you need it.
 
 ## Limits
 
