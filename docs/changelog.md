@@ -9,6 +9,15 @@ Starting with **1.00.001**, versions are plain numbers in the form
 one grows with new capabilities, the first one practically never
 moves. Releases before that carried dates (`year.month.day.build`).
 
+## 1.00.042 (unreleased)
+
+- **The Linux runtime updates over the network too.** *Flash runtime* with
+  the device's IP sends the runtime out of the installer's bundle; the
+  device verifies it is built for its processor, runs it once as a
+  self-check, switches, and rolls back by itself if the new runtime does
+  not come up. The device page shows `ota=1`, the build (`env=`) and the
+  slot it runs from.
+
 ## 1.00.041 (2026-09-06)
 
 - **The runtime updates over the network.** Boards with 8 MB or 16 MB of

@@ -112,6 +112,13 @@ Two things to know:
   road lays the new layout down without touching the program.
 - **Boards with 4 MB of flash keep the USB road.** A runtime with a display
   is 2.4 MB, and two copies do not fit; the device page shows `ota=0`.
+- **A Linux device takes the same road.** Its runtime comes out of the
+  bundle the installer lays under `%ProgramData%\ctrl32\linux`; the device
+  checks that the file is built for its processor and starts it once as a
+  self-check before it switches, keeps the previous binary, and rolls back
+  on its own if the new one never gets as far as the program and the
+  server. The first update onto a runtime that knows this road (1.00.042)
+  is the bundle's `install.sh` as before.
 
 ## 5. Download the program
 

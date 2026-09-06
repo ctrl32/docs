@@ -282,9 +282,15 @@ editor connection all work the same.
 
 - **The program**: from the editor, over the network — nothing on
   this page is repeated, ever.
-- **The runtime**: stop the service, replace `ctrl32run`, start the
-  service. The program file and the retained values live next to it
-  and survive the swap.
+- **The runtime**: from the editor, over the network, the same way a
+  board's runtime goes since 1.00.042 - *Flash runtime* with the device's
+  IP. The device checks the file is built for its processor, starts it
+  once as a self-check, keeps the previous binary as `ctrl32run.prev` and
+  rolls back on its own if the new runtime never gets as far as the
+  program and the server. The program file, the retained values and the
+  settings file are not touched. By hand it is still: stop the service,
+  replace `ctrl32run`, start the service - the one road onto a runtime
+  older than 1.00.042.
 - **The kernel** (reTerminal): safe — the display driver is in DKMS
   and rebuilds itself for the new kernel.
 
