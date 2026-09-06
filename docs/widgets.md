@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **40** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **41** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -74,7 +74,7 @@ Schema version: **40** — the vocabulary of the project file. The compiled pack
 | `text` | str |  |
 | `text_on` | str | `` |
 | `tag` | variable |  |
-| `mode` | one of `momentary` / `toggle` / `set` / `reset` |  |
+| `mode` | one of `momentary` / `toggle` / `set` / `reset` / `recipe_load` / `recipe_save` / `recipe_delete` |  |
 | `value` | f32 | `1.0` |
 | `icon` | image_ref |  |
 | `confirm` | bool | `False` |
@@ -210,6 +210,12 @@ The ctrl32 mark, drawn as a crisp vector at whatever size the rect gives it. Col
 | Property | Type | Default |
 |---|---|---|
 | `color` | color |  |
+
+## `recipe_table`
+
+| Property | Type | Default |
+|---|---|---|
+| `font` | font_ref |  |
 
 ---
 

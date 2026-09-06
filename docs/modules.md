@@ -193,7 +193,7 @@ that class.
 | `ttgo_t_display` | devkit | ESP32 | [240, 135] | - | - | - |
 | `waveshare_p4_nano` | board | ESP32-P4 | [800, 1280] | `variant_p4_nrw32` | 512 / 128 | 2 |
 
-The measurement behind the no-PSRAM rules (2026-09-04, Olimex ESP32-EVB with the
+The measurement behind the no-PSRAM rules (Olimex ESP32-EVB with the
 2.8" module, CAN and the i550 program): 122.6 kB internal RAM after the model,
 114.3 kB after the display (one band), 101.6 kB at the network stage, 46.1 kB
 after the WiFi access point came up, 44.8 kB after CAN, 20.8 kB after the WEBview

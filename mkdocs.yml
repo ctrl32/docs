@@ -146,6 +146,7 @@ nav:
   - Operation:
       - Operation: operation.md
       - Online monitoring: online.md
+      - Recipes: recipes.md
       - Scope: scope.md
       - Forcing values: force.md
       - Performance and limits: limits.md

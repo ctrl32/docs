@@ -87,7 +87,7 @@ The interesting part: **it is not the arithmetic, it is variable access.** A
 synthetic loop over local variables runs at 0.145 µs per instruction; the
 same code touching variables is several times slower.
 
-That is why the lock in the variable table was removed on 2026-08-16 — every
+That is why the lock in the variable table was removed — every
 value is one naturally aligned 32-bit word, so the hardware already
 guaranteed what the mutex was being paid for. The result, same packs, same
 board:

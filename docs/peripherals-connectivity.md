@@ -66,7 +66,7 @@ not a program change.
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `ADRASTEA` | serial | Würth Adrastea-I cellular module (Sony ALT1250): LTE-M + NB-IoT + GNSS in one module, 3.0–3.6 V, AT over UART. Used by the gsm: service (SMS alarms), not a pin chip; its GNSS replaces a separate gps: receiver. PPP data dials but the module FW 06.006 wedges its IPCP on a standard ConfRej (bench 2026-08-14) — until a module FW fixes it, gsm data: needs an EC25/SIM7xxx instead. European supply chain and operator certificates — the product-line pick. |
+| `ADRASTEA` | serial | Würth Adrastea-I cellular module (Sony ALT1250): LTE-M + NB-IoT + GNSS in one module, 3.0–3.6 V, AT over UART. Used by the gsm: service (SMS alarms), not a pin chip; its GNSS replaces a separate gps: receiver. PPP data dials but the module FW 06.006 wedges its IPCP on a standard ConfRej — until a module FW fixes it, gsm data: needs an EC25/SIM7xxx instead. European supply chain and operator certificates — the product-line pick. |
 | `EC25` | serial | Quectel EC25 cellular module: LTE Cat 4 with 2G/3G fallback, GNSS variants, AT over UART. Used by the gsm: service, not a pin chip. Higher data rates and legacy fallback where LTE-M coverage is thin. |
 | `SIM7000G` | serial | SIMCom SIM7000G cellular module: LTE-M + NB-IoT + 2G fallback + GNSS, AT over UART. Used by the gsm: service, not a pin chip. The budget alternative to the Adrastea-I. |
 | `SIM7080G` | serial | SIMCom SIM7080G cellular module: LTE-M + NB-IoT + GNSS (no 2G), AT over UART. Used by the gsm: service, not a pin chip. |

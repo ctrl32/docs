@@ -75,7 +75,7 @@ time.
 
 Setting the time:
 
-- **Service cable**: the serial command `VUT!2026-08-09 14:32:05`,
+- **Service cable**: the serial command `VUT!YYYY-MM-DD hh:mm:ss`,
   typed into any terminal on the board's COM port.
 - **NTP**: a board with network access and NTP configured in the
   project sets itself, and keeps itself set.
