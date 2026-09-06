@@ -111,7 +111,7 @@ nav:
       - Signal handling: blocks-signal.md
       - Equipment blocks: blocks-equipment.md
       - Motion: blocks-motion.md
-      - CANopen: blocks-can.md
+      - CANopen blocks: blocks-can.md
       - Services: blocks-services.md
   - Buses and peripherals:
       - Buses and peripherals: buses.md
