@@ -132,7 +132,30 @@ and it never leaves this computer.
 
 ## Updates
 
-*Help → Check for updates* looks at our web and tells you whether a newer
-version exists. Downloading is manual — the editor never updates itself
-behind your back, because the editor version is tied to what is running in
-customers' boards.
+*Help -> Check for updates* reads a small signed notice from our web and
+tells you whether a newer version exists; with *Check on start* ticked
+the editor does this quietly every time it starts. Without internet
+nothing happens and nothing is shown.
+
+When a newer version exists, *Help -> New version* opens the update
+dialog:
+
+![The update dialog](img/editor-update.webp)
+
+- **Download and verify** fetches the installer into your temporary
+  folder and judges it twice before anything else happens: its
+  fingerprint must equal the one in the signed notice, and the file
+  must carry our publisher signature. A file that fails either test is
+  deleted and the dialog says so.
+- **Install** starts the verified installer and closes the editor; the
+  installer then replaces the program the usual way. The button stays
+  off while the open project has unsaved changes - save first, nothing
+  is closed under you.
+- **Open the download page** takes you to the web instead, the manual
+  road.
+
+The editor never updates itself on its own: every step above is your
+click. And because a device carries the same version number as the
+editor that programmed it, update the runtime of your devices after the
+editor (*Upload runtime*) - the editor refuses to work with a runtime of
+a different number.
