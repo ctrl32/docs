@@ -17,6 +17,19 @@ capabilities, the first one practically never moves.
   first turn of the motor. The three projects they build ship as tutorials
   (`first_light`, `own_block`, `i550_axis`). Every screenshot in the
   documentation is regenerated from this version.
+- **A TIME reads as a duration.** A screen shows a `TIME` variable as
+  `900ms`, `2s500ms`, `10s`, `1m5s` — on the glass and in the browser; the
+  keypad still takes the number in the variable's unit. The editor opens
+  in its light face. ONLINE, in ladder and FBD, a wire, a contact, a
+  block frame or a coil that does not conduct is drawn as a fine dashed
+  line; what conducts is solid green, as before.
+- **Variables are typed, not hunted.** Every variable field of a contact,
+  a coil or a block pin, in the sheet and in Properties, in ladder and in
+  FBD, is a text field with a filtered list under it; Enter binds the
+  match or creates the variable under the typed name. The coil is drawn
+  as `( )`; rung comments sit on a grey plate in black; pin names sit on
+  the height of their stubs; the rung toolbar and every dropdown arrow
+  follow the toolbar rule.
 - **A function block drawn in ladder stays ladder.** A saved project
   reopened its LD blocks as FBD, rungs gone; the language is now saved
   with the block. The block sheet lists each parameter once. A device the

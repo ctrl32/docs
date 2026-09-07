@@ -163,9 +163,9 @@ variable is for:
 
 - **the table always holds milliseconds** — the logic, the buses and
   Modbus see an ordinary integer
-- **the board shows and edits it in the variable's unit** (`ms`, `s`,
-  `min`, `h`). With `unit: s` the widget reads "2.5 s", the operator
-  types `2.5` and 2500 is stored
+- **the board shows it the readable way** — `2s500ms`, `10s`, `1m5s`,
+  `1h2m` — and the keypad **edits it in the variable's unit** (`ms`, `s`,
+  `min`, `h`): with `unit: s` the operator types `2.5` and 2500 is stored
 - **`min`/`max` on the `input` widget are in the same unit**, so the
   operator is bounded by numbers they can see
 - **in ST it is a `TIME`**, so `t1(PT := delay)` and

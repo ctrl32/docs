@@ -109,10 +109,9 @@ be selected and copied with a button, and the same text is in
 `build\last_build_error.txt`. A truncated line in the status bar was never
 enough for anyone to help you with.
 
-## Language and theme
+## Language
 
-*View → Language* and *View → Dark theme*. The choice is remembered between
-runs.
+*View → Language*. The choice is remembered between runs.
 
 ## AI assistant connection (MCP server)
 

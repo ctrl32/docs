@@ -62,7 +62,7 @@ Open **VAR**. The variables are a table in the PLCopen shape — type them:
 VAR_GLOBAL
     button : BOOL  { access := rw };
     light  : BOOL;
-    delay  : TIME := T#10s { unit := 'ms'; access := rw };
+    delay  : TIME := T#10s { access := rw };
 END_VAR
 ```
 
@@ -77,8 +77,9 @@ END_VAR
 *Apply* (`Ctrl+Enter`) takes the table into the project. `rw` means a
 screen may write the variable; `light` is written by the program only.
 
-A `TIME` variable holds **milliseconds** — `T#10s` is 10000. The unit is
-what a screen prints after the number, so `ms` is the honest one here.
+A `TIME` variable holds **milliseconds** — `T#10s` is 10000 — and a screen
+shows it the readable way: `10s`, `2s500ms`, `1m5s`. The keypad of an
+input takes seconds (milliseconds when the variable's unit is `ms`).
 
 Leave the source as internal for now: these are variables in the board's
 memory, which is exactly what you want while learning. Binding one to a
@@ -130,7 +131,7 @@ adds one into the selection, then drag it where it belongs and bind it in
 |:---|:---|:---|
 | **button** | `button` | text *Push*, mode `momentary` — TRUE while held |
 | **led** | `light` | |
-| **input** | `delay` | min 0, max 60000 |
+| **input** | `delay` | min 0.5, max 60 |
 | **label** | — | text *Hold to light* |
 
 ![The screen: a button, a lamp, the delay](img/first-screen.webp){: .sb-center}
@@ -151,7 +152,7 @@ The logic starts running on your PC and the screen goes live. Press the
 button on the canvas: the lamp lights. Release it: the lamp stays on for
 ten seconds, then goes out.
 
-Type `2000` into the delay field and try again. Nothing was rebuilt and
+Type `2` into the delay field and try again. Nothing was rebuilt and
 nothing was downloaded — the value is a variable, and the timer reads it
 every cycle.
 

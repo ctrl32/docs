@@ -40,7 +40,7 @@ inside a name edits the name, not the screen.
 |:---|:---|
 | **File** | New (`Ctrl+N`), Open (`Ctrl+O`), **Examples** (every shipped example and tutorial, one click), Save (`Ctrl+S`), Save as (`Ctrl+Shift+S`), Download to panel (`F5`), Exit |
 | **Edit** | Undo / Redo, each with its step count |
-| **View** | Dark theme, Language |
+| **View** | Language |
 | **Project** | Add device — the same list the tree's right-click offers |
 | **Build** | Compile (`F7`) |
 | **Online** | Download to panel (`F5`), Find devices, Scope, Force, **Simulation** start/stop |
@@ -99,7 +99,9 @@ selection, `Ctrl+Z` takes anything back.
 
 - **Ladder**: *+ Rung* adds a rung (and creates its variable when
   none is picked). Contacts and coils bind to a variable on the
-  element itself; a block placed on a rung joins it with its EN pin.
+  element itself - type its name, pick from the list under the field,
+  or Enter a new name to create it; a block placed on a rung joins it
+  with its EN pin.
 - **FBD**: blocks come from the **Toolbox** (click adds into the
   selected network); wires are drawn **pin to pin** — click an
   output, click an input. A wire that would cross networks is

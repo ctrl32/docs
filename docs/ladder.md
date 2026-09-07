@@ -48,6 +48,14 @@ BOOL input or output - takes a BOOL variable or **one bit of an integer
 variable**; a numeric pin or parameter takes a numeric variable and never
 a BOOL. The pickers offer exactly that, in the sheet and in Properties.
 
+**Typing a variable.** Every variable field - a contact, a coil, a
+block's pin in the sheet or in Properties - is a text field: click it
+and type. A list of the variables that fit the pin hangs under it and
+filters as you type; a click on a row binds it, Enter binds the exact
+name or the first match, and a name that does not exist yet is created
+as a variable of the pin's type (BOOL for a BOOL pin, REAL for a numeric
+one) - the `+ name` row in the list says so.
+
 A contact or a coil can sit on **one bit of an integer variable**:
 pick the variable in the element's sheet and the sheet asks for the bit;
 the label reads `mask.3`, the same spelling ST uses. The sheet of a
