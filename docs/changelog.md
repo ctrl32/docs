@@ -8,7 +8,38 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
-## 1.00.042 (unreleased)
+## 1.00.043 (unreleased)
+
+- **Durations read as `T#1s500ms`.** Every time parameter — on the
+  block's stub in a rung, in the sheet, in the block-diagram field, in
+  the ST a diagram renders to, and the live `ET` while online — is
+  written the IEC way. A bare number typed into a time field still
+  means milliseconds.
+- **A block's pin takes the variable you click.** Picking a variable
+  from the list under a pin field binds it; the list used to close on
+  the click. Typing a new name and Enter creates the variable.
+- **The Properties panel follows the page in front.** A page opened
+  from the tree takes the tab at once and the panel shows its selection
+  — nothing while a page without a sheet (styles, a device, WiFi) is
+  in front.
+- **Rungs and comments.** A rung's comment sits on a grey plate across
+  the whole rung; a variable's description is centred above its name.
+  A block inserted before or after a contact inside a parallel branch
+  goes into that branch.
+- **The variable table** centres every column but the name; the
+  Text/Table switch works with Modbus variables, also over edited text.
+  The register maps of the shipped Modbus meters create their
+  variables.
+- **Smaller things.** The new-project list names the processor module
+  beside every board; the Toolbox groups open with +/-; the ladder
+  toolbar symbols sit centred; the Serial, I2C and SPI nodes add a
+  device from the right-click menu only; a Modbus device window states
+  its transport instead of offering a switch; the Resources bars centre
+  their numbers. The application icon is a white "32" on a dark plate
+  so it reads on any desktop and taskbar; the window's title bar keeps
+  the blue one.
+
+## 1.00.042
 
 - **Step by step.** Four procedures with pictures: [a new project](tutorial.md)
   through the wizard, [your own function block](own-block.md), [downloading

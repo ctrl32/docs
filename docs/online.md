@@ -88,8 +88,8 @@ offsets are provably the board's; when they do not, it shows variables only and
 says so.
 
 In a rung that means concrete things: for a counter **how much it has
-counted** (`CV`), for a timer **how long it has been running** (`ET`, in ms
-below a second and in seconds above it), for a blinker **how long until it
+counted** (`CV`), for a timer **how long it has been running** (`ET`, as a
+duration: `T#850ms`, `T#2s500ms`), for a blinker **how long until it
 flips** (`REM`), and which `PT` or `PV` the block is **really** working
 with — not the one drawn on it. When a parameter is fed from a variable, that
 difference is exactly what you are looking for.

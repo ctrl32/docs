@@ -57,15 +57,19 @@ without one do not.
     equipment runs — so the editor can tell you a program does not fit
     *at your desk*, instead of the board finding out on the equipment.
 
-## Times are always milliseconds
+## Times are durations
 
-Every time parameter in every block is in **milliseconds**, and every
-block measures real elapsed time.
+Every time parameter in every block is a **duration** written the IEC
+way: `T#500ms`, `T#1s500ms`, `T#2m`, `T#1h30m`. That is how the block
+shows it on the rung, how the sheet and the block-diagram field take
+it, and how it reads in ST. A bare number typed into a time field still
+means milliseconds (`1500` becomes `T#1s500ms`). Every block measures
+real elapsed time.
 
 This sounds obvious and it is the single most common way home-made
 timers go wrong: counting cycles (`if (++n >= 100)`) drifts the moment
 the cycle jitters, and it jitters as soon as the network gets busy. A
-ctrl32 timer that says 1000 ms waits a second, whatever the cycle is
+ctrl32 timer that says `T#1s` waits a second, whatever the cycle is
 doing.
 
 The exceptions are marked at the block: PID uses **seconds** for TI and

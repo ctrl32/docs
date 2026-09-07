@@ -81,8 +81,8 @@ it from either end:
   offers cut/copy/paste for elements, boxes and whole rungs, and
   insert rung above/below. Everything is undoable.
 - **The comment line above every rung is written directly on the
-  canvas** — click it and type, multiple lines welcome, click away to
-  keep it. The same text is the network comment in the block-diagram
+  canvas** — a grey plate across the whole rung; click it and type,
+  multiple lines welcome, click away to keep it. The same text is the network comment in the block-diagram
   view.
 - Selecting a rung highlights it with a quiet grey background; the
   palette then targets that rung.
@@ -90,10 +90,11 @@ it from either end:
   pair's order decides the priority (set-first = set wins).
 - **Two plain coils on one variable are refused at the desk** — the last
   writer would silently win on the board. Use a branch or S/R.
-- Every contact and coil shows its variable name and, underneath,
-  the variable's **description as a `//comment`** (edited right in the
-  element popup; the *comments* checkbox hides them when the rungs
-  should pack tighter). Descriptions travel with the project.
+- Every contact and coil shows its variable name and, above it, the
+  variable's **description as a `//comment`**, both centred over the
+  symbol (edited right in the element popup; the *comments* checkbox
+  hides them when the rungs should pack tighter). Descriptions travel
+  with the project.
 - In **test mode** the rungs show the live power flow: conducting
   wires, symbols and block frames turn green — the frame as thick as
   the wires, so the active path reads at a glance. Clicking a contact
