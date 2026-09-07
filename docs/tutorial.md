@@ -1,12 +1,14 @@
 # Your first project
 
-Half an hour, from an empty project to something running: a variable, a
-rung of ladder, a screen, and a download. No hardware needed until the
-last step — everything before it runs in simulation on your PC.
+Half an hour, from an empty editor to something running: a project, three
+variables, one rung of ladder, a screen, and a download. No hardware
+needed until the last step — everything before it runs in simulation on
+your PC.
 
 If you would rather start by *looking* at something finished, open one of
-the [examples](examples.md) instead. This page is for building
-one yourself, which teaches more.
+the [examples](examples.md) instead. This page is for building one
+yourself, which teaches more. The finished result is
+`tutorials\first_light.prj32`, so you can compare at any step.
 
 **What we are building:** a light that switches on when a button is
 pressed and stays on for ten seconds after it is released. Small, but it
@@ -17,11 +19,28 @@ on.
 
 ## 1. A new project
 
-*File → New*, then pick your board. If you have none yet, pick anything
-with a display — you can change it later, and simulation does not care.
+The editor starts empty. Press *New project* — the button on the Welcome
+tab, the first icon of the toolbar, or `Ctrl+N`:
 
-The tree on the left is your project. Everything lives under
-**Application**:
+![The New project wizard](img/newproj-wizard.webp){: .sb-center}
+
+1. **Project name** — `first_light`. It becomes the folder and the file:
+   `<location>\first_light\first_light.prj32`.
+2. **Location** — `Documents\ctrl32\projects` unless you browse elsewhere.
+3. **Hardware** — click a board in the list. Its card shows what it
+   carries; if you have none yet, pick anything with a display and change
+   it later on the board tab. Simulation does not care.
+
+    ![A board picked: its description and photo](img/newproj-board.webp){: .sb-center}
+
+4. **Theme** — the colours the screens start with. `dark` is fine.
+5. **What the project does** — leave *Visualization on the display* and
+   *First program in LD* ticked. Untick *WEBview* for now; without browser
+   screens of its own the board serves the display's screens to a phone,
+   which is what we want here.
+
+*Create project* writes the file and opens the tree. Everything you build
+lives under **Application**:
 
 | Object | Holds |
 |:---|:---|
@@ -30,69 +49,94 @@ The tree on the left is your project. Everything lives under
 | **HMIview** | the board's own screens |
 | **WEBview** | the browser's screens |
 
-Both `VAR` and `PLC_PRG` are created with the project. You will not need
-to add anything.
+`VAR`, `PLC_PRG` and one screen are created with the project. You will
+not need to add anything else.
 
 ---
 
 ## 2. Three variables
 
-Open **VAR**. Add three:
+Open **VAR**. The variables are a table in the PLCopen shape — type them:
 
-| Name | Type | Access |
-|:---|:---:|:---:|
-| `button` | BOOL | rw |
-| `light` | BOOL | rw |
-| `delay` | TIME | rw |
+```
+VAR_GLOBAL
+    button : BOOL  { access := rw };
+    light  : BOOL;
+    delay  : TIME := T#10s { unit := 'ms'; access := rw };
+END_VAR
+```
 
-Give `delay` a unit of `s`, one decimal, and an initial value of
-**10000** — the table always holds milliseconds, and the unit is only how
-it is shown. The screen will read "10.0 s".
+![The three variables in VAR](img/first-variables.webp){: .sb-center}
 
-Leave `source` as **internal** for now: these are variables in the
-board's memory, which is exactly what you want while learning. Binding
-one to a real input is one field, later.
+| Name | Type | Access | Meaning |
+|:---|:---:|:---:|:---|
+| `button` | BOOL | rw | the push button on the screen |
+| `light` | BOOL | — | the lamp |
+| `delay` | TIME | rw | how long the lamp stays on |
+
+*Apply* (`Ctrl+Enter`) takes the table into the project. `rw` means a
+screen may write the variable; `light` is written by the program only.
+
+A `TIME` variable holds **milliseconds** — `T#10s` is 10000. The unit is
+what a screen prints after the number, so `ms` is the honest one here.
+
+Leave the source as internal for now: these are variables in the board's
+memory, which is exactly what you want while learning. Binding one to a
+real input is one field, later — see [Variables](variables.md).
 
 ---
 
 ## 3. One rung
 
-Open **PLC_PRG**. It starts as a [ladder](ladder.md) program — if it
-does not, right click it and choose *Edit as LD*.
-
-Build this rung:
+Open **PLC_PRG**. It is a [ladder](ladder.md) program, because that is
+what the wizard was told. Build this rung:
 
 ```
-button ──[TOF PT=delay]── Q ──> light
+1   |--[ button ]--[ TOF  PT = delay ]--( light )--|
 ```
 
-Concretely:
+1. *+ Rung*.
+2. Click *-[ ]-* in the rung toolbar: a contact appears with `...` where
+   its variable goes. Double-click it and pick `button`.
+3. Open **Timers** in the Toolbox on the right and click **TOF**. The
+   block lands after the contact.
+4. Click *-( )-*: a coil at the end of the rung. Double-click it, pick
+   `light`.
+5. Click the TOF block once. The **Properties** panel below shows its pins;
+   set **PT** to the variable `delay`.
 
-1. Drop a **contact** on the rung and bind it to `button`.
-2. Drop a **TOF** block after it.
-3. Set its `PT` parameter to the variable `delay` — a parameter can take
-   a variable, which is what makes the time adjustable from a screen.
-4. Bind the block's `Q` output to `light`.
+![The rung, the TOF block selected, its pins in Properties](img/first-ladder.webp){: .sb-center}
+
+A double-click on the block opens the same rows as a sheet, right where
+the block is — use whichever is closer to hand:
+
+![The block's sheet](img/first-sheet.webp){: .sb-center}
 
 That is the whole program. `TOF` is the off-delay timer: `Q` follows the
-input immediately when it rises, and holds for `PT` after it drops. See
+input at once when it rises and holds for `PT` after it drops. The rung
+is the block's `IN`; the coil is its `Q`. A parameter can take a variable,
+which is what makes the time adjustable from a screen. See
 [Timers](blocks-timers.md).
 
 ---
 
 ## 4. A screen
 
-Open **HMIview** and add a screen. From the Toolbox, place four things:
+Open the screen under **HMIview**. The Toolbox now lists widgets; a click
+adds one into the selection, then drag it where it belongs and bind it in
+**Properties**:
 
-| Widget | Bind to | Purpose |
+| Widget | Bind to | Set |
 |:---|:---|:---|
-| **button** | `button` | mode `momentary` — TRUE while held |
-| **led** | `light` | the result |
-| **input** | `delay` | so the delay can be changed |
-| **label** | — | text: "Hold to light" |
+| **button** | `button` | text *Push*, mode `momentary` — TRUE while held |
+| **led** | `light` | |
+| **input** | `delay` | min 0, max 60000 |
+| **label** | — | text *Hold to light* |
 
-Make the button big — 40 px tall at least. See
-[HMIview](hmiview.md) for why.
+![The screen: a button, a lamp, the delay](img/first-screen.webp){: .sb-center}
+
+Make the button big — 40 px tall at least. See [HMIview](hmiview.md) for
+why.
 
 The canvas is not an approximation: it runs the board's own renderer, so
 what you place is what will appear on the glass.
@@ -101,15 +145,15 @@ what you place is what will appear on the glass.
 
 ## 5. Run it, with no hardware
 
-Press **Simulate**.
+Press **Simulate** (the *Debug* menu).
 
 The logic starts running on your PC and the screen goes live. Press the
 button on the canvas: the lamp lights. Release it: the lamp stays on for
 ten seconds, then goes out.
 
-Change the delay in the input field to 2 seconds and try again. Nothing
-was rebuilt and nothing was downloaded — the value is a variable, and the
-timer reads it every cycle.
+Type `2000` into the delay field and try again. Nothing was rebuilt and
+nothing was downloaded — the value is a variable, and the timer reads it
+every cycle.
 
 **This is the loop worth getting used to.** Most of a project is built
 and tested this way, before any hardware is involved at all.
@@ -120,20 +164,24 @@ and tested this way, before any hardware is involved at all.
 
 When you do have hardware:
 
-1. **Connect it** — USB cable, or the network if the board is on one.
-2. **Flash the runtime once** — *Flash runtime* on the board page. This
-   is the firmware, and it only has to happen the first time or after
-   an update.
+![The toolbar: the port picker and the download button](img/deploy-toolbar.webp){: .sb-center}
+
+1. **Connect it** — USB cable — and pick its port in the toolbar's port
+   picker.
+2. **Flash the runtime once** — *Flash runtime* on the board tab. This is
+   the firmware, and it only has to happen the first time or after an
+   update.
 
     ![The Flash runtime dialog: the board's precompiled firmware, one button](img/deploy-runtime.webp){: .sb-center}
 
-See [Download to the board](deploy.md).
+The whole procedure, including the network road for a board that is
+already installed, is [Download to the panel](deploy.md).
 
 ---
 
 ## 7. Watch it from the outside
 
-With the board running, press **Online**.
+With the board running, press **ONLINE** (the plug icon).
 
 Live values appear in the rungs: the contact shows whether the button is
 pressed, the timer shows its elapsed time counting. That is the same view
@@ -164,13 +212,15 @@ Small as it is, that project used the whole shape of the tool:
 
 | You want to | Read |
 |:---|:---|
+| turn three rungs into a block you can reuse | [Your own function block](own-block.md) |
 | know what else is in the block library | [Function blocks](blocks.md) |
 | bind a variable to a real input | [Variables](variables.md) |
 | talk to a device over Modbus | [Modbus](modbus.md) |
+| run a drive over CAN | [A drive over CAN, step by step](tutorial-i550-can.md) |
 | make the screen usable by somebody else | [HMIview](hmiview.md) |
 | see it on a phone | [WEBview](webview.md) |
 | find out why something is not behaving | [Online monitoring](online.md) |
 
-Or read one of the [tutorial projects](tutorials.md) — eleven small
-ones, each about a single idea — and then an [example
-project](examples.md) to see how a complete one is put together.
+Or read one of the [tutorial projects](tutorials.md) — small ones, each
+about a single idea — and then an [example project](examples.md) to see
+how a complete one is put together.

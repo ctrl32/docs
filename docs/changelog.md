@@ -10,6 +10,17 @@ capabilities, the first one practically never moves.
 
 ## 1.00.042 (unreleased)
 
+- **Step by step.** Four procedures with pictures: [a new project](tutorial.md)
+  through the wizard, [your own function block](own-block.md), [downloading
+  a program](deploy.md) over USB and over the network, and [a drive over
+  CAN](tutorial-i550-can.md) from the wiring and the DIP switches to the
+  first turn of the motor. The three projects they build ship as tutorials
+  (`first_light`, `own_block`, `i550_axis`). Every screenshot in the
+  documentation is regenerated from this version.
+- **A function block drawn in ladder stays ladder.** A saved project
+  reopened its LD blocks as FBD, rungs gone; the language is now saved
+  with the block. The block sheet lists each parameter once. A device the
+  axis wizard makes no longer repeats the node in its name.
 - **Properties for every block.** Click a contact, coil or block in a
   ladder rung or an FBD diagram and the Properties panel shows its
   variables, parameters and axis, editable - one table, pin by pin, the

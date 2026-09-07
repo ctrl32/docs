@@ -153,7 +153,8 @@ the first thing to check.
 
 Node ID, baud rate and termination are DIP switches on the drive itself —
 worth writing on the drawing, because nothing in software can tell you
-they are wrong.
+they are wrong. The bank, its table and the wiring are in
+[A drive over CAN, step by step](tutorial-i550-can.md).
 
 ---
 

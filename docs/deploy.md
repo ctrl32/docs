@@ -6,6 +6,52 @@ and you do not have to know what happens underneath. This chapter is about
 what happens underneath — because during commissioning it comes in useful
 exactly once.
 
+## Step by step
+
+**The first time, over USB** — a board fresh from the box, or one that
+has never seen this ctrl32 version:
+
+![The toolbar: the port picker and the download button](img/deploy-toolbar.webp){: .sb-center}
+
+1. Connect the board with a USB cable. Windows needs the bridge driver of
+   the board's USB chip once; [A board from zero](first-run.md) says
+   which.
+2. Pick the board's port in the toolbar's **port picker**. It starts
+   empty on purpose; nothing is written until you choose one.
+3. Open the board tab (click the board in the tree) and press **Flash
+   runtime**. The dialog names the runtime it will write and its version,
+   which must be the editor's own; *Flash runtime* writes it, reads it
+   back and verifies it. Tens of seconds.
+4. Press :ti-download: in the toolbar, or `F5`. The project builds, goes
+   into the inactive slot, is verified, and the board switches to it and
+   restarts. Seconds.
+5. Press **ONLINE** (the plug icon) and watch the program run.
+
+**Every next time** — step 4 alone. The runtime stays; only the program
+changes. A build error stops the download before anything is sent and
+opens the output.
+
+**Over the network** — for a board that is installed and reachable over
+Ethernet or WiFi:
+
+1. Type the board's address into the port picker — an IP, or the
+   `name.local` the project gave it. [Finding your boards](find-devices.md)
+   lists what answers on the network.
+2. :ti-download: as before. The dialog shows *Network* as the target; the
+   same slot-and-verify road, over the board's own web server.
+3. A **runtime** can travel the same road on the 8 and 16 MB boards:
+   *Flash runtime* with the address in the port picker writes the new
+   runtime into the inactive application slot, the board restarts into
+   it, confirms it after the program loaded, and rolls back to the old
+   runtime by itself if that does not happen. The program, the retentive
+   values and the network settings stay.
+
+**What to check afterwards** — the status bar shows the board's name and
+version once ONLINE; the panel's own `INFO` line (the serial terminal,
+:ti-terminal-2:) carries the runtime version, the pack's CRC and the
+state of every bus. A pack the board refused says why in the download
+dialog — the table further down lists the messages.
+
 ## Two different things: the runtime and the program
 
 | | Runtime | Program (pack) |

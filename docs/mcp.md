@@ -42,7 +42,7 @@ a **request counter**, so you can watch it working, and three
 controls:
 
 | Control | What it does |
-|---|---|
+|:---|:---|
 | **New token** | issues a fresh secret and cuts off every connected client at once |
 | **Stop** | closes the server; nothing listens any more |
 | **Allow live writes** | consent for writing values to a running board — off by default, forgotten when the editor closes |
@@ -57,7 +57,7 @@ file.
 The reading tools cover the whole session, and they are read-only:
 
 | Tool | Answers |
-|---|---|
+|:---|:---|
 | `project_info` | project name, target board, resolutions, and every limit with its current usage |
 | `system_info` | the net32 system: devices, the active one, subscription links |
 | `list_variables` | every variable — name, type, access, source, unit, comment |
@@ -75,7 +75,7 @@ The writing tools are the same operations your own clicks perform —
 no back door, no second path:
 
 | Tool | What it does | What protects you |
-|---|---|---|
+|:---|:---|:---|
 | `edit_variable` | add or rename a variable | live in the editor, one Ctrl+Z away |
 | `edit_pou_source` | replace an ST program's source | undoable; the build checks it |
 | `online_write` | write ONE value to the running board | needs the *Allow live writes* consent; the program owns the value again next cycle |

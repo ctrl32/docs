@@ -73,6 +73,7 @@ nav:
       - Hot tank: three-zone-thermostat.md
       - Thermostat fed by Home Assistant: tutorial-ha-thermostat.md
       - Lights from the glass: tutorial-ha-lights.md
+      - A drive over CAN (Lenze i550): tutorial-i550-can.md
   - Examples:
       - Examples: examples.md
       - Thermostat (Olimex EVB): example-thermostat.md
@@ -100,6 +101,7 @@ nav:
       - Programming: programming.md
       - Ladder (LD): ladder.md
       - Function block diagram (FBD): fbd-composites.md
+      - Your own function block: own-block.md
       - Structured Text (ST): st-language.md
   - Function blocks:
       - Function blocks: blocks.md

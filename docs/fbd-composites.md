@@ -15,7 +15,9 @@ double-click opens it** and shows how it is put together. At compile
 time it is flattened into primitives — the board executes a flat list,
 with no recursion and no extra interpreter.
 
-- Creating one: right-click on *Application* → **Add Composite FB**.
+- Creating one: right-click on *Application* → **Add POU…**, type **FB**,
+  language LD, FBD or ST — the whole procedure, with pictures, is
+  [Your own function block](own-block.md).
   Above the canvas sits the **variables pane** in the PLCopen shape:
   `VAR_INPUT` and `VAR_OUTPUT` rows are the block's ports (name and
   BOOL/REAL type edited right in the table, ports added with one

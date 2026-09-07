@@ -112,7 +112,7 @@ And it is not a certified product. See [Intended use](intended-use.md).
     An empty file to something running, in half an hour. No hardware
     needed until the last step.
 
-    [Your first project](tutorial.md)
+    [Your first project](tutorial.md) · then [your own function block](own-block.md) · [a drive over CAN](tutorial-i550-can.md)
 
 -   **When something does not work**
 

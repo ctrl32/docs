@@ -176,9 +176,15 @@ the full story, and the DIP switches worth writing on the drawing, is
 in [CANopen — drives](canopen.md). The startup block switches the mode
 over SDO so a project built from the i550 profile never meets it.
 
-The quickest road to a working axis is the **CAN axis wizard**: *Motion*
--> add axis in the project tree, or the *CAN wizard...* button in an
-axis window. It takes the axis name, the node-ID and the profile and
+The quickest road to a working axis is the **CAN axis wizard**: right-click
+*CANopen Master* in the project tree and choose *Add Axis (drive)*, or
+press the *CAN wizard...* button in an axis window. The whole road from the
+wiring to the first turn of the motor, with pictures, is
+[A drive over CAN, step by step](tutorial-i550-can.md).
+
+![The CAN axis wizard](img/axis-wizard.webp){: .sb-center}
+
+It It takes the axis name, the node-ID and the profile and
 makes three things in one step:
 
 - the **CAN device** of that node with the two PDOs the runtime

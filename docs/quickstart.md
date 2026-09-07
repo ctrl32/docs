@@ -161,3 +161,6 @@ more in [Online monitoring](online.md).
 - [Variables](variables.md) — variables, types, deadband and where values come from
 - [Ladder](ladder.md) — drawing rungs
 - [Download to the board](deploy.md) — dual slot, runtime, what is verified when
+- [Your first project](tutorial.md) — the whole road once, with pictures
+- [Your own function block](own-block.md) — three rungs into a block you reuse
+- [A drive over CAN, step by step](tutorial-i550-can.md) — the wiring, the switches, the wizard, the first turn of the motor

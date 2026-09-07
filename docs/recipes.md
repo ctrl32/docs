@@ -20,7 +20,7 @@ In the project tree, **Recipes** -> *Add recipe*. A definition has:
 The build adds two hidden variables per definition, both integers:
 
 | Variable | Meaning |
-|---|---|
+|:---|:---|
 | `<name>.recipe` | the slot last loaded, `-1` = none; a program may read it (a comparison block, a screen value) |
 | `<name>.recipe_sel` | the slot selected on the table; the buttons act on it |
 
@@ -59,7 +59,7 @@ screen and in WEBview; nothing is lost quietly.
 ## Where the sets live
 
 | Target | Store |
-|---|---|
+|:---|:---|
 | ESP32 | the assets partition of the flash; a journal that survives a power cut at any moment of a write |
 | Linux runtime | a file beside the program (`<program>.recipes`), written the same way |
 | STM32 | not in this version - a recipe definition is refused for an STM32 target |
@@ -75,7 +75,7 @@ name, so renaming a variable orphans its stored values.
 ## Limits
 
 | | Standard | LITE (ESP32 without PSRAM) |
-|---|---|---|
+|:---|:---:|:---:|
 | Definitions per project | 8 | 4 |
 | Variables per definition | 64 | 16 |
 | Sets per definition | 64 | 8 |

@@ -1,6 +1,7 @@
 # Tutorial projects
 
-Ten small projects, each about **one idea**. Open one, read it whole
+Thirteen small projects, each about **one idea** — and three of them are
+the projects the step-by-step pages build. Open one, read it whole
 in a minute, and you know the thing it teaches.
 
 When the single ideas are familiar, two **worked projects** put them
@@ -42,6 +43,8 @@ Find them in **ProgramData\ctrl32\tutorials**.
 |:---|:---|
 | **ladder_sealin** | the seal-in circuit — a start button that latches through the contact it energised. The oldest pattern in ladder, and still the one you write most |
 | **ladder_box** | a block **in** a rung with EN/ENO: what happens when the rung stops conducting, and why the answer is "freezes", not "resets" |
+| **first_light** | the project of [Your first project](tutorial.md): a button, an off-delay timer, a lamp, a screen |
+| **own_block** | a start/stop latch as **your own function block**, used twice — the project of [Your own function block](own-block.md) |
 | **bit_lamp** | one **bit** of a word under a coil — a lamp test that writes bit 3 without disturbing the rest of the word |
 
 Start with `ladder_sealin`. If you have written ladder before, it will
@@ -70,6 +73,14 @@ in ladder, because that is where each is clearest.
 | **fbd_intro** | a complete tank controller in seven blocks: 4–20 mA scaled to a percentage, hysteresis deciding "full", and a low-level detector delayed so a wave does not trip it |
 
 ![The FBD editor with fbd_intro open: SCALE, HYST, NOT, LT and TON wired through named variables](img/editor-fbd.png){: .sb-center}
+
+---
+
+## Drives
+
+| Project | Teaches |
+|:---|:---|
+| **i550_axis** | a frequency inverter over CAN from the wizard to the first turn of the motor — the project of [A drive over CAN, step by step](tutorial-i550-can.md) |
 
 ---
 
