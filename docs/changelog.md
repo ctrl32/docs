@@ -12,7 +12,8 @@ capabilities, the first one practically never moves.
 
 - **Properties for every block.** Click a contact, coil or block in a
   ladder rung or an FBD diagram and the Properties panel shows its
-  variables, parameters and axis, editable. An unfinished rung survives a
+  variables, parameters and axis, editable - one table, pin by pin, the
+  same in the double-click sheet. An unfinished rung survives a
   visit to another program. The Toolbox opens folded. A program keeps the
   language it was created in (the view switch is gone). The interface
   pane lists only variables you created. The pin rule holds everywhere: a
