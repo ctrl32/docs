@@ -8,7 +8,7 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
-## 1.00.043 (unreleased)
+## 1.00.043
 
 - **Durations read as `T#1s500ms`.** Every time parameter — on the
   block's stub in a rung, in the sheet, in the block-diagram field, in
