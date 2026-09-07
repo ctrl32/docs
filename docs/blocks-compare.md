@@ -15,6 +15,50 @@ decision.
 | **LE** | IN1 ≤ IN2 |
 | **EQ** | IN1 and IN2 are equal within EPS |
 
+<!-- blk:GT -->
+**GT**
+
+![GT on a rung](img/blk-gt-ld.webp)
+
+![GT in structured text](img/blk-gt-st.webp)
+
+![GT on the WEBview screen](img/blk-gt-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:GE -->
+**GE**
+
+![GE on a rung](img/blk-ge-ld.webp)
+
+![GE in structured text](img/blk-ge-st.webp)
+
+![GE on the WEBview screen](img/blk-ge-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:LT -->
+**LT**
+
+![LT on a rung](img/blk-lt-ld.webp)
+
+![LT in structured text](img/blk-lt-st.webp)
+
+![LT on the WEBview screen](img/blk-lt-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:LE -->
+**LE**
+
+![LE on a rung](img/blk-le-ld.webp)
+
+![LE in structured text](img/blk-le-st.webp)
+
+![LE on the WEBview screen](img/blk-le-web.webp)
+
+<!-- /blk -->
+
 All take two number inputs and give one boolean output. An unconnected
 input is 0, so `GT` with only IN1 wired asks "is it positive?".
 
@@ -27,6 +71,15 @@ input is 0, so `GT` with only IN1 wired asks "is it positive?".
 | `IN1`, `IN2` | inputs, number | the two values |
 | `EPS` | parameter, number (0) | how close counts as equal |
 | `Q` | output, bool | TRUE when \|IN1 − IN2\| ≤ EPS |
+
+<!-- blk:EQ -->
+![EQ on a rung](img/blk-eq-ld.webp)
+
+![EQ in structured text](img/blk-eq-st.webp)
+
+![EQ on the WEBview screen](img/blk-eq-web.webp)
+
+<!-- /blk -->
 
 EQ has a tolerance and the others do not, for a reason worth
 understanding: **two calculated numbers are almost never exactly equal.**
@@ -84,6 +137,15 @@ costs nothing.
 | `IN0` | input, number | passed when G is FALSE |
 | `IN1` | input, number | passed when G is TRUE |
 | `OUT` | output, number | the chosen value |
+
+<!-- blk:SEL -->
+![SEL on a rung](img/blk-sel-ld.webp)
+
+![SEL in structured text](img/blk-sel-st.webp)
+
+![SEL on the WEBview screen](img/blk-sel-web.webp)
+
+<!-- /blk -->
 
 The IEC binary selector: an if-then-else you can draw.
 

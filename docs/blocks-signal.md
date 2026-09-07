@@ -20,6 +20,15 @@ equipment can act on.
 | `OUT_MIN`, `OUT_MAX` | parameters (0, 100) | the range you want |
 | `OUT` | output, number | the converted value |
 
+<!-- blk:SCALE -->
+![SCALE on a rung](img/blk-scale-ld.webp)
+
+![SCALE in structured text](img/blk-scale-st.webp)
+
+![SCALE on the WEBview screen](img/blk-scale-web.webp)
+
+<!-- /blk -->
+
 **What it is for:** every analog input, ever. A 4–20 mA sensor arriving
 as raw counts, a 0–10 V level, a fieldbus word that means something
 physical.
@@ -50,6 +59,15 @@ Two things worth knowing:
 | `MN`, `MX` | parameters (0, 100) | the allowed range |
 | `OUT` | output, number | IN, clamped |
 
+<!-- blk:LIMIT -->
+![LIMIT on a rung](img/blk-limit-ld.webp)
+
+![LIMIT in structured text](img/blk-limit-st.webp)
+
+![LIMIT on the WEBview screen](img/blk-limit-web.webp)
+
+<!-- /blk -->
+
 **What it is for:** making sure a value that came from somewhere you do
 not control — a screen, a recipe, a fieldbus master — cannot ask for
 something impossible.
@@ -76,6 +94,15 @@ setpoint_from_hmi ──[LIMIT MN=20 MX=80]── OUT ──> setpoint
 | `ON` | parameter (100) | switch-on level |
 | `OFF` | parameter (90) | switch-off level |
 | `Q` | output, bool | the switched output |
+
+<!-- blk:HYST -->
+![HYST on a rung](img/blk-hyst-ld.webp)
+
+![HYST in structured text](img/blk-hyst-st.webp)
+
+![HYST on the WEBview screen](img/blk-hyst-web.webp)
+
+<!-- /blk -->
 
 The gap between ON and OFF is the hysteresis, and it is why this block
 exists: a plain comparison at a single threshold chatters when the
@@ -119,6 +146,15 @@ two-degree gap doing the same job.
 | `RATE` | parameter, units/s (10) | the fastest OUT may change |
 | `OUT` | output, number | the rate-limited value |
 
+<!-- blk:RAMP -->
+![RAMP on a rung](img/blk-ramp-ld.webp)
+
+![RAMP in structured text](img/blk-ramp-st.webp)
+
+![RAMP on the WEBview screen](img/blk-ramp-web.webp)
+
+<!-- /blk -->
+
 **What it is for:** stopping a step change from becoming a mechanical
 shock. An operator typing a new speed, a recipe changing a setpoint, a
 mode switch — all of them can move a number instantly, and the equipment
@@ -148,6 +184,15 @@ get there.
 | `IN` | input, number | the noisy value |
 | `T` | parameter, ms (1000) | time constant |
 | `OUT` | output, number | the smoothed value |
+
+<!-- blk:PT1 -->
+![PT1 on a rung](img/blk-pt1-ld.webp)
+
+![PT1 in structured text](img/blk-pt1-st.webp)
+
+![PT1 on the WEBview screen](img/blk-pt1-web.webp)
+
+<!-- /blk -->
 
 After T milliseconds the output has covered about 63 % of a step; after
 about 3×T it has effectively arrived. Bigger T means smoother and slower.

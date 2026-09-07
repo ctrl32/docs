@@ -18,6 +18,15 @@ cycle carries on. Nothing here ever blocks the equipment.
 | `Done` | output, bool | the code went out |
 | `Error` | output, bool | no transmitter, or KEY out of range |
 
+<!-- blk:IR_SEND -->
+![IR_SEND on a rung](img/blk-ir-ld.webp)
+
+![IR_SEND in structured text](img/blk-ir-st.webp)
+
+![IR_SEND on the WEBview screen](img/blk-ir-web.webp)
+
+<!-- /blk -->
+
 The codes themselves are not in the logic — they are **learned into the
 project** on the peripherals page, where each one gets a number. The
 block sends number KEY.
@@ -49,6 +58,15 @@ temp_too_high ──[R_TRIG]── Execute ──[IR_SEND KEY=2]── Done ─�
 | `NUM` | parameter (0) | recipient: **0 = everyone configured**, 1–4 = one number |
 | `Done` | output, bool | queued successfully |
 | `Error` | output, bool | see below |
+
+<!-- blk:SMS_SEND -->
+![SMS_SEND on a rung](img/blk-sms-ld.webp)
+
+![SMS_SEND in structured text](img/blk-sms-st.webp)
+
+![SMS_SEND on the WEBview screen](img/blk-sms-web.webp)
+
+<!-- /blk -->
 
 Message texts and phone numbers live in the **project**, not the logic —
 so changing a text or a number is an edit and an upload, not a code
@@ -100,6 +118,15 @@ trigger.
 | 1–9 | marginal, expect failures |
 | 10–14 | usable |
 | 15–31 | good |
+
+<!-- blk:GSM_INFO -->
+![GSM_INFO on a rung](img/blk-gsm-ld.webp)
+
+![GSM_INFO in structured text](img/blk-gsm-st.webp)
+
+![GSM_INFO on the WEBview screen](img/blk-gsm-web.webp)
+
+<!-- /blk -->
 
 Without a configured modem, both outputs stay 0.
 

@@ -34,6 +34,28 @@ that the block handles for you.
 | `Done` | output, bool | the reset completed |
 | `Error` | output, bool | the reset failed |
 
+<!-- blk:MC_POWER -->
+**MC_POWER**
+
+![MC_POWER on a rung](img/blk-mcpow-ld.webp)
+
+![MC_POWER in structured text](img/blk-mcpow-st.webp)
+
+![MC_POWER on the WEBview screen](img/blk-mcpow-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_RESET -->
+**MC_RESET**
+
+![MC_RESET on a rung](img/blk-mcrst-ld.webp)
+
+![MC_RESET in structured text](img/blk-mcrst-st.webp)
+
+![MC_RESET on the WEBview screen](img/blk-mcrst-web.webp)
+
+<!-- /blk -->
+
 Fault acknowledge, on a rising edge of Execute. If `Error` stays on, the
 cause is still present — reset does not clear a fault that is still
 happening.
@@ -94,6 +116,61 @@ Until this has completed, absolute positions mean nothing.
 | `Done` | output, bool | stopped |
 | `Busy` | output, bool | stopping |
 
+<!-- blk:MC_MOVEVELOCITY -->
+**MC_MOVEVELOCITY**
+
+![MC_MOVEVELOCITY on a rung](img/blk-mcvel-ld.webp)
+
+![MC_MOVEVELOCITY in structured text](img/blk-mcvel-st.webp)
+
+![MC_MOVEVELOCITY on the WEBview screen](img/blk-mcvel-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_STOP -->
+**MC_STOP**
+
+![MC_STOP on a rung](img/blk-mcstop-ld.webp)
+
+![MC_STOP in structured text](img/blk-mcstop-st.webp)
+
+![MC_STOP on the WEBview screen](img/blk-mcstop-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_MOVEABS -->
+**MC_MOVEABS**
+
+![MC_MOVEABS on a rung](img/blk-mcabs-ld.webp)
+
+![MC_MOVEABS in structured text](img/blk-mcabs-st.webp)
+
+![MC_MOVEABS on the WEBview screen](img/blk-mcabs-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_MOVEREL -->
+**MC_MOVEREL**
+
+![MC_MOVEREL on a rung](img/blk-mcrel-ld.webp)
+
+![MC_MOVEREL in structured text](img/blk-mcrel-st.webp)
+
+![MC_MOVEREL on the WEBview screen](img/blk-mcrel-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_HOME -->
+**MC_HOME**
+
+![MC_HOME on a rung](img/blk-mchome-ld.webp)
+
+![MC_HOME in structured text](img/blk-mchome-st.webp)
+
+![MC_HOME on the WEBview screen](img/blk-mchome-web.webp)
+
+<!-- /blk -->
+
 A stop along a defined ramp. Not an emergency stop — see below.
 
 ---
@@ -105,6 +182,39 @@ A stop along a defined ramp. Not an emergency stop — see below.
 | **MC_READACTPOS** | Enable | Position, Valid |
 | **MC_READACTVEL** | Enable | Velocity, Valid |
 | **MC_READSTATUS** | Enable | Running, Error |
+
+<!-- blk:MC_READACTPOS -->
+**MC_READACTPOS**
+
+![MC_READACTPOS on a rung](img/blk-mcrpos-ld.webp)
+
+![MC_READACTPOS in structured text](img/blk-mcrpos-st.webp)
+
+![MC_READACTPOS on the WEBview screen](img/blk-mcrpos-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_READACTVEL -->
+**MC_READACTVEL**
+
+![MC_READACTVEL on a rung](img/blk-mcrvel-ld.webp)
+
+![MC_READACTVEL in structured text](img/blk-mcrvel-st.webp)
+
+![MC_READACTVEL on the WEBview screen](img/blk-mcrvel-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_READSTATUS -->
+**MC_READSTATUS**
+
+![MC_READSTATUS on a rung](img/blk-mcstat-ld.webp)
+
+![MC_READSTATUS in structured text](img/blk-mcstat-st.webp)
+
+![MC_READSTATUS on the WEBview screen](img/blk-mcstat-web.webp)
+
+<!-- /blk -->
 
 `Valid` is the pin that matters. It goes FALSE when the value is stale —
 the drive has stopped answering, the bus has dropped — and **acting on a

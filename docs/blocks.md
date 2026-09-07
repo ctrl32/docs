@@ -57,6 +57,16 @@ without one do not.
     equipment runs — so the editor can tell you a program does not fit
     *at your desk*, instead of the board finding out on the equipment.
 
+## Every block, in pictures
+
+Every block page shows the block three ways: on a rung of a ladder
+program while it runs, written in structured text, and as a card on a
+WEBview screen - the picture any phone can open from the device's own
+address. All of them come from one shipped project, `library.prj32` in
+`examples\blocks\`: one rung per block in the ladder program of its
+family, every block once more in the ST program, a card per block on
+the family's screens. Open it, press *Simulation*, flip a switch.
+
 ## Times are durations
 
 Every time parameter in every block is a **duration** written the IEC

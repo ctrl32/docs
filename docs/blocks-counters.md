@@ -17,6 +17,15 @@ states — a signal that stays TRUE counts once, not once per cycle.
 | `Q` | output, bool | TRUE while CV ≥ PV |
 | `CV` | output, number | the count so far |
 
+<!-- blk:CTU -->
+![CTU on a rung](img/blk-ctu-ld.webp)
+
+![CTU in structured text](img/blk-ctu-st.webp)
+
+![CTU on the WEBview screen](img/blk-ctu-web.webp)
+
+<!-- /blk -->
+
 Reset has priority: while R is TRUE the counter stays at zero and ignores
 CU.
 
@@ -48,6 +57,15 @@ Q comes on at the 24th part and stays on until somebody changes the box.
 | `PV` | parameter, number (10) | the value LD loads |
 | `Q` | output, bool | TRUE while CV ≤ 0 |
 | `CV` | output, number | what is left |
+
+<!-- blk:CTD -->
+![CTD on a rung](img/blk-ctd-ld.webp)
+
+![CTD in structured text](img/blk-ctd-st.webp)
+
+![CTD on the WEBview screen](img/blk-ctd-web.webp)
+
+<!-- /blk -->
 
 A down counter starts life at zero, which means **Q is TRUE before you
 load it**. Pulse LD once at startup, or whenever a new batch begins.

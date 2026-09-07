@@ -18,6 +18,50 @@ rungs where the logic reads better as a box than as a knot of contacts.
 | **XOR** | IN1, IN2 | Q | exactly one input is TRUE |
 | **NOT** | IN | Q | the input is FALSE |
 
+<!-- blk:AND -->
+**AND**
+
+![AND on a rung](img/blk-and-ld.webp)
+
+![AND in structured text](img/blk-and-st.webp)
+
+![AND on the WEBview screen](img/blk-and-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:OR -->
+**OR**
+
+![OR on a rung](img/blk-or-ld.webp)
+
+![OR in structured text](img/blk-or-st.webp)
+
+![OR on the WEBview screen](img/blk-or-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:XOR -->
+**XOR**
+
+![XOR on a rung](img/blk-xor-ld.webp)
+
+![XOR in structured text](img/blk-xor-st.webp)
+
+![XOR on the WEBview screen](img/blk-xor-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:NOT -->
+**NOT**
+
+![NOT on a rung](img/blk-not-ld.webp)
+
+![NOT in structured text](img/blk-not-st.webp)
+
+![NOT on the WEBview screen](img/blk-not-web.webp)
+
+<!-- /blk -->
+
 An unconnected input is FALSE — which matters: an unconnected input on an
 AND holds the output FALSE forever, and on an OR it changes nothing.
 
@@ -42,6 +86,15 @@ sensor_shut ──IN2─┤ XOR ├── Q ──> position_implausible
 | `CLK` | input, bool | the signal being watched |
 | `Q` | output, bool | one cycle of TRUE per rising edge |
 
+<!-- blk:R_TRIG -->
+![R_TRIG on a rung](img/blk-rtrig-ld.webp)
+
+![R_TRIG in structured text](img/blk-rtrig-st.webp)
+
+![R_TRIG on the WEBview screen](img/blk-rtrig-web.webp)
+
+<!-- /blk -->
+
 **What it is for:** turning "it is on" into "it just turned on". A button
 held down should start one thing, not restart it a hundred times a
 second.
@@ -60,6 +113,15 @@ start_button ──[R_TRIG]── Q ──> begin_cycle
 |:---|:---:|:---|
 | `CLK` | input, bool | the signal being watched |
 | `Q` | output, bool | one cycle of TRUE per falling edge |
+
+<!-- blk:F_TRIG -->
+![F_TRIG on a rung](img/blk-ftrig-ld.webp)
+
+![F_TRIG in structured text](img/blk-ftrig-st.webp)
+
+![F_TRIG on the WEBview screen](img/blk-ftrig-web.webp)
+
+<!-- /blk -->
 
 **What it is for:** reacting to something ending. A part leaving a
 sensor, a guard being released, a signal that was there and is not.
@@ -82,6 +144,15 @@ sensor, a guard being released, a signal that was there and is not.
 | `R` | input, bool | reset |
 | `Q1` | output, bool | the remembered state |
 
+<!-- blk:SR -->
+![SR on a rung](img/blk-sr-ld.webp)
+
+![SR in structured text](img/blk-sr-st.webp)
+
+![SR on the WEBview screen](img/blk-sr-web.webp)
+
+<!-- /blk -->
+
 ## RS — reset-dominant latch
 
 **Remembers. If both inputs are TRUE, RESET wins.**
@@ -91,6 +162,15 @@ sensor, a guard being released, a signal that was there and is not.
 | `S` | input, bool | set |
 | `R1` | input, bool | reset |
 | `Q1` | output, bool | the remembered state |
+
+<!-- blk:RS -->
+![RS on a rung](img/blk-rs-ld.webp)
+
+![RS in structured text](img/blk-rs-st.webp)
+
+![RS on the WEBview screen](img/blk-rs-web.webp)
+
+<!-- /blk -->
 
 The only difference between the two is what happens when set and reset
 arrive **together** — and that is exactly the case you have to think

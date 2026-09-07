@@ -17,6 +17,15 @@ Like the motion blocks, each one is bound to an **axis** at the call:
 | `Ready` | output, bool | the drive is in *operation enabled* |
 | `Fault` | output, bool | the drive is in fault |
 
+<!-- blk:CO_CIA402 -->
+![CO_CIA402 on a rung](img/blk-co402-ld.webp)
+
+![CO_CIA402 in structured text](img/blk-co402-st.webp)
+
+![CO_CIA402 on the WEBview screen](img/blk-co402-web.webp)
+
+<!-- /blk -->
+
 The CiA 402 state machine on its own. This is what
 [MC_POWER](blocks-motion.md#mc_power) uses underneath, exposed for when
 you want to build something the MC_ blocks do not cover.
@@ -36,6 +45,11 @@ statusword `0x6041`, and it must be walked through in order —
 | `IN` | input, number | the value |
 | `INDEX`, `SUB` | parameters | which object |
 | `VALUE`, `SIZE` | parameters | value and byte width |
+
+<!-- blk:CO_SDOWRITE -->
+![CO_SDOWRITE on the WEBview screen](img/blk-sdow-web.webp)
+
+<!-- /blk -->
 
 **This runs at startup only.** The project compiler turns it into a
 startup record; it never executes inside the cycle.
@@ -58,6 +72,13 @@ reference source.
 | `INDEX`, `SUB` | parameters | which object |
 | `OUT` | output, number | the value read |
 
+<!-- blk:CO_SDOREAD -->
+![CO_SDOREAD on a rung](img/blk-sdor-ld.webp)
+
+![CO_SDOREAD on the WEBview screen](img/blk-sdor-web.webp)
+
+<!-- /blk -->
+
 Startup only, for the same reason. Use it to read a nameplate value, a
 motor rating, a firmware revision — something you want in the program but
 that does not change while it runs.
@@ -71,6 +92,13 @@ that does not change while it runs.
 | `ACC` | input, **seconds** | acceleration time, 0 → target rpm |
 | `DEC` | input, **seconds** | deceleration time |
 | `REF` | input, number | reference speed the times relate to |
+
+<!-- blk:CO_RAMPTIME -->
+![CO_RAMPTIME in structured text](img/blk-coramp-st.webp)
+
+![CO_RAMPTIME on the WEBview screen](img/blk-coramp-web.webp)
+
+<!-- /blk -->
 
 Writes the CiA 402 ramp objects `0x6048` and `0x6049` — and it is careful
 about when:

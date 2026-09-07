@@ -19,29 +19,17 @@ report progress on a second output so you can show it on a screen.
 | `Q` | output, bool | TRUE once IN has held for PT |
 | `ET` | output, number | elapsed time so far, ms |
 
-The word that does the work is **continuously**. Any drop of IN, however
-brief, puts ET back to zero and the wait starts again.
-
-The block on a rung, running — the contact is closed, `ET` has reached
-`PT`, `Q` holds the coil:
-
-![TON on a rung, running](img/blk-ton-ld.webp)
-
-The same block written in structured text:
+<!-- blk:TON -->
+![TON on a rung](img/blk-ton-ld.webp)
 
 ![TON in structured text](img/blk-ton-st.webp)
 
-And what the operator sees on a phone — the WEBview screen the example
-serves from the device's own address: the switch is `IN`, the lamp is
-`Q`, the number and the bar are `ET`, the field is `PT` (editable), and
-the trend shows `ET` climbing with every start:
-
 ![TON on the WEBview screen](img/blk-ton-web.webp)
 
-The whole thing is the shipped example `ton.prj32` in `examples\blocks\`
-— open it, press *Simulation* and flip the switch; the same project
-downloads to any device with WEBview.
+<!-- /blk -->
 
+The word that does the work is **continuously**. Any drop of IN, however
+brief, puts ET back to zero and the wait starts again.
 **What it is for:** ignoring things that are not real yet. A door switch
 that rattles, a pressure that dips for an instant, an operator leaning on
 a button. TON is how you say "only if it is still true half a second
@@ -72,6 +60,15 @@ somebody walks through.
 | `Q` | output, bool | TRUE while IN is TRUE, and PT ms longer |
 | `ET` | output, number | how long since IN dropped, ms |
 
+<!-- blk:TOF -->
+![TOF on a rung](img/blk-tof-ld.webp)
+
+![TOF in structured text](img/blk-tof-st.webp)
+
+![TOF on the WEBview screen](img/blk-tof-web.webp)
+
+<!-- /blk -->
+
 Q switches on **immediately** with IN. Only the switching off is delayed.
 
 **What it is for:** run-on. A fan that keeps going after the heater stops.
@@ -97,6 +94,15 @@ logic, no timer you have to reset.
 | `PT` | parameter, ms (1000) | pulse length |
 | `Q` | output, bool | TRUE for PT ms after the trigger |
 | `ET` | output, number | time into the pulse, ms |
+
+<!-- blk:TP -->
+![TP on a rung](img/blk-tp-ld.webp)
+
+![TP in structured text](img/blk-tp-st.webp)
+
+![TP on the WEBview screen](img/blk-tp-web.webp)
+
+<!-- /blk -->
 
 The pulse is **non-retriggerable**: while it is running, further rising
 edges of IN are ignored. It also does not care what IN does afterwards —
@@ -132,6 +138,15 @@ it.
 | `T_OFF` | parameter, ms (500) | how long Q stays off |
 | `Q` | output, bool | the blinking signal |
 | `REM` | output, number | time left in the current phase, ms |
+
+<!-- blk:BLINK -->
+![BLINK on a rung](img/blk-blink-ld.webp)
+
+![BLINK in structured text](img/blk-blink-st.webp)
+
+![BLINK on the WEBview screen](img/blk-blink-web.webp)
+
+<!-- /blk -->
 
 The two times are separate, which is more useful than it first looks: a
 short on-time in a long off-time reads as a discreet heartbeat, the

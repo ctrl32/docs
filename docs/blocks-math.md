@@ -17,6 +17,61 @@ value is in knowing what happens at the edges.
 | **MAX** | IN1, IN2 | OUT | the larger of the two |
 | **ABS** | IN | OUT | the value without its sign |
 
+<!-- blk:ADD -->
+**ADD**
+
+![ADD on a rung](img/blk-add-ld.webp)
+
+![ADD in structured text](img/blk-add-st.webp)
+
+![ADD on the WEBview screen](img/blk-add-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:SUB -->
+**SUB**
+
+![SUB on a rung](img/blk-sub-ld.webp)
+
+![SUB in structured text](img/blk-sub-st.webp)
+
+![SUB on the WEBview screen](img/blk-sub-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MUL -->
+**MUL**
+
+![MUL on a rung](img/blk-mul-ld.webp)
+
+![MUL in structured text](img/blk-mul-st.webp)
+
+![MUL on the WEBview screen](img/blk-mul-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:DIV -->
+**DIV**
+
+![DIV on a rung](img/blk-div-ld.webp)
+
+![DIV in structured text](img/blk-div-st.webp)
+
+![DIV on the WEBview screen](img/blk-div-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:ABS -->
+**ABS**
+
+![ABS on a rung](img/blk-abs-ld.webp)
+
+![ABS in structured text](img/blk-abs-st.webp)
+
+![ABS on the WEBview screen](img/blk-abs-web.webp)
+
+<!-- /blk -->
+
 **ADD takes four inputs**, and unconnected ones are 0 — so it doubles as
 a two- or three-input adder without any special handling.
 
@@ -55,6 +110,28 @@ useless.
 The obvious use is picking the larger of two measurements. The more
 common one is putting a floor or a ceiling on a value:
 
+<!-- blk:MIN -->
+**MIN**
+
+![MIN on a rung](img/blk-min-ld.webp)
+
+![MIN in structured text](img/blk-min-st.webp)
+
+![MIN on the WEBview screen](img/blk-min-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MAX -->
+**MAX**
+
+![MAX on a rung](img/blk-max-ld.webp)
+
+![MAX in structured text](img/blk-max-st.webp)
+
+![MAX on the WEBview screen](img/blk-max-web.webp)
+
+<!-- /blk -->
+
 ```
 setpoint ──IN1─┐
       50 ──IN2─┤ MAX ├── OUT ──> setpoint_guarded
@@ -76,6 +153,15 @@ For a floor **and** a ceiling in one block, use
 |:---|:---:|:---:|
 | `IN` | input, number | the source |
 | `OUT` | output, number | the destination |
+
+<!-- blk:MOVE -->
+![MOVE on a rung](img/blk-move-ld.webp)
+
+![MOVE in structured text](img/blk-move-st.webp)
+
+![MOVE on the WEBview screen](img/blk-move-web.webp)
+
+<!-- /blk -->
 
 It looks like it does nothing, and in a diagram it nearly does — its job
 is to get a value from one variable into another. Where it earns its keep is

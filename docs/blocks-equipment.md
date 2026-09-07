@@ -23,6 +23,15 @@ not wind up.
 | `CMD` | output, bool | the contactor command |
 | `FAULT` | output, bool | latched fault |
 
+<!-- blk:MOTOR -->
+![MOTOR on a rung](img/blk-motor-ld.webp)
+
+![MOTOR in structured text](img/blk-motor-st.webp)
+
+![MOTOR on the WEBview screen](img/blk-motor-web.webp)
+
+<!-- /blk -->
+
 What it does, in order:
 
 1. START raises CMD — unless STOP is present, which always wins.
@@ -68,6 +77,15 @@ instead of carrying on as though it had.
 | `CMD` | output, bool | the valve output |
 | `FAULT` | output, bool | latched fault |
 
+<!-- blk:VALVE -->
+![VALVE on a rung](img/blk-valve-ld.webp)
+
+![VALVE in structured text](img/blk-valve-st.webp)
+
+![VALVE on the WEBview screen](img/blk-valve-web.webp)
+
+<!-- /blk -->
+
 The same shape as MOTOR, with the timing a valve needs: T_FB defaults to
 five seconds because a valve has to physically travel, and CLOSE wins
 over OPEN because closed is the safer state for most processes.
@@ -107,6 +125,15 @@ about.
 | `OUT_MIN`, `OUT_MAX` | parameters (0, 100) | output range |
 | `OUT` | output, number | the control output |
 | `LIM` | output, bool | TRUE while the output is saturated |
+
+<!-- blk:PID -->
+![PID on a rung](img/blk-pid-ld.webp)
+
+![PID in structured text](img/blk-pid-st.webp)
+
+![PID on the WEBview screen](img/blk-pid-web.webp)
+
+<!-- /blk -->
 
 Note the units: **TI and TD are in seconds**, not milliseconds. Every
 other block in the library uses ms; controllers are tuned in seconds
