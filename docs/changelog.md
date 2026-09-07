@@ -30,6 +30,13 @@ capabilities, the first one practically never moves.
   Text/Table switch works with Modbus variables, also over edited text.
   The register maps of the shipped Modbus meters create their
   variables.
+- **The simulation runs what the panel runs.** Test mode executes the
+  same program the download would carry — ladder and block diagrams
+  rendered to structured text, your own function blocks included — and
+  every axis of the project gets a simulated drive: Enable brings it to
+  operation, the velocity follows the setpoint with the ramps you set,
+  the gauge and the trend move. A timer's `ET` or a blinker's `REM`
+  shows its running value in the simulation as it does online.
 - **Smaller things.** The new-project list names the processor module
   beside every board; the Toolbox groups open with +/-; the ladder
   toolbar symbols sit centred; the Serial, I2C and SPI nodes add a

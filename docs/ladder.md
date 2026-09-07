@@ -95,9 +95,13 @@ it from either end:
   symbol (edited right in the element popup; the *comments* checkbox
   hides them when the rungs should pack tighter). Descriptions travel
   with the project.
-- In **test mode** the rungs show the live power flow: conducting
-  wires, symbols and block frames turn green — the frame as thick as
-  the wires, so the active path reads at a glance. Clicking a contact
+- **Test mode** runs the same program the panel runs, with every drive
+  simulated (Enable brings it to operation, the velocity follows the
+  setpoint with your ramps), so a motion rung behaves at the desk the
+  way it behaves on the equipment. In test mode the rungs show the live power flow: conducting
+  wires, symbols and block frames turn green — every line of a block
+  that conducts, its pin stubs and the line under its name included;
+  only the text keeps its colour, so the active path reads at a glance. Clicking a contact
   toggles its variable (simulation only; connected to a board everything
   is read-only).
 
