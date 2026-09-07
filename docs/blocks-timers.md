@@ -22,6 +22,26 @@ report progress on a second output so you can show it on a screen.
 The word that does the work is **continuously**. Any drop of IN, however
 brief, puts ET back to zero and the wait starts again.
 
+The block on a rung, running — the contact is closed, `ET` has reached
+`PT`, `Q` holds the coil:
+
+![TON on a rung, running](img/blk-ton-ld.webp)
+
+The same block written in structured text:
+
+![TON in structured text](img/blk-ton-st.webp)
+
+And what the operator sees on a phone — the WEBview screen the example
+serves from the device's own address: the switch is `IN`, the lamp is
+`Q`, the number and the bar are `ET`, the field is `PT` (editable), and
+the trend shows `ET` climbing with every start:
+
+![TON on the WEBview screen](img/blk-ton-web.webp)
+
+The whole thing is the shipped example `ton.prj32` in `examples\blocks\`
+— open it, press *Simulation* and flip the switch; the same project
+downloads to any device with WEBview.
+
 **What it is for:** ignoring things that are not real yet. A door switch
 that rattles, a pressure that dips for an instant, an operator leaning on
 a button. TON is how you say "only if it is still true half a second
