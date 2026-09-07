@@ -102,7 +102,9 @@ selection, `Ctrl+Z` takes anything back.
   element itself - type its name, pick from the list under the field,
   or Enter a new name to create it; a block placed on a rung joins it
   with its EN pin.
-- **FBD**: blocks come from the **Toolbox** (click adds into the
+- **FBD**: a program is numbered **networks** stacked like rungs
+  (*+ Network*; right-click the number lane to insert, move or delete
+  one); blocks come from the **Toolbox** (click adds into the
   selected network); wires are drawn **pin to pin** — click an
   output, click an input. A wire that would cross networks is
   refused.

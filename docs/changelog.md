@@ -23,6 +23,13 @@ capabilities, the first one practically never moves.
   in its light face. ONLINE, in ladder and FBD, a wire, a contact, a
   block frame or a coil that does not conduct is drawn as a fine dashed
   line; what conducts is solid green, as before.
+- **FBD has networks, not a canvas.** An FBD program is a stack of
+  numbered networks like ladder rungs: *+ Network*, a comment lane on a
+  grey plate, blocks inside the strip, the strips packed top-down;
+  insert, move (the execution order follows), delete with the blocks.
+  A page you open docks into the tab bar at once. A tree node with
+  nothing under it is a leaf, never a `+`. Every `x` button sits on
+  its row's line.
 - **Variables are typed, not hunted.** Every variable field of a contact,
   a coil or a block pin, in the sheet and in Properties, in ladder and in
   FBD, is a text field with a filtered list under it; Enter binds the

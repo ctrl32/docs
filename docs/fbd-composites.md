@@ -6,6 +6,31 @@ fixed block library (TON, PID, … — see `widgets.md`) there are:
 
 ![An i550 drive in FBD: the DRIVE_i550 block and its ramps, bound to axis 1](img/fbd-i550.webp){: .sb-center}
 
+## Networks — the rungs of FBD
+
+An FBD program is a stack of **networks**, numbered from the top, exactly
+as a ladder program is a stack of rungs. A network is a strip: its number
+and a comment lane at the top, its blocks inside, its height whatever its
+blocks need. There is no free canvas — every block belongs to a network,
+and the strips pack top-down with nothing between them.
+
+- **+ Network** in the rung toolbar adds an empty network at the end and
+  selects it; a click on a strip's empty space selects it (grey, like a
+  selected rung). New blocks — from the Toolbox or *+ block* — land in
+  the **selected** network.
+- Drag a block into another strip and it belongs there; the strips
+  repack on the drop.
+- Right-click the number lane: *Insert network above / below*, *Move
+  network up / down* (the execution order follows the picture), *Delete
+  network* — with its blocks. `Delete` on a selected empty strip does the
+  same.
+- Click the comment lane and write; the comment sits on a grey plate in
+  black, like a rung comment.
+- A wire never crosses a strip; across networks the variable's **name**
+  carries the signal, drawn at both ends.
+
+![Two networks: the tank logic in the first, the pump interlock in the second](img/fbd-networks.webp){: .sb-center}
+
 ## Composite block (an FB built from blocks)
 
 A composite is a POU with an **interface** (input/output ports) and its
