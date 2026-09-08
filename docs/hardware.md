@@ -113,7 +113,9 @@ the **STM32F746 Discovery** is in the catalogue, its runtime flashes
 [straight from the editor](first-run.md) over the on-board ST-LINK,
 and the [showcase example](example-showcase.md) runs on it — the
 same VM, the same variables, the same Modbus and CANopen, the same
-rasteriser and the same pack format.
+rasteriser and the same pack format. Today that is one board of one
+family: the F746 Discovery class. The rest of the family follows, and
+[recipes](recipes.md) are not on STM32 yet.
 
 What that means for you: a project is not locked to a chip family. The
 screens, the logic and the variables are data, and the same data runs on the
@@ -174,5 +176,5 @@ instead of running something that was never meant for it.
 | the most headroom | **ESP32-S3** with 16 MB flash and PSRAM |
 
 Then check [Performance and limits](limits.md) for what fits, and
-[Peripherals and services](peripherals-and-services.md) for what you can
+[Chips and services](peripherals-and-services.md) for what you can
 attach.

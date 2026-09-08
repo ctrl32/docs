@@ -17,19 +17,19 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
   against a physical Lenze i550: measuring the bus delay, the creep
   phase, and the numbers only a bench can give you. See [Motion
   blocks](blocks-motion.md).
-- **Documentation.** A written reference for the block library and the
-  peripheral catalogue, replacing generated tables nobody could read end
-  to end.
 
 ## Planned
 
 - **Production security**: secure boot and flash encryption switched on
   for production boards, so a deployed unit cannot be cloned or
   reflashed by a third party.
-- **Custom block libraries**: distributing your own FB/FC packages in
+- **Compiled block libraries**: your own blocks and libraries exist
+  today ([your own function block](own-block.md), *Add library* with the
+  drive library that ships). What is planned is distributing them in
   compiled form with versioning and dependency checks — share the
   know-how, keep the source.
-- **Editor localisation** — the user interface in more languages.
+- **More editor languages** — the editor speaks English and Slovak
+  today (*View → Language*); further languages follow.
 
 ## Under consideration
 
@@ -41,6 +41,10 @@ ships when it is solid, and then it appears in [What's new](changelog.md).
 Moved here out of *In progress* and *Planned*; details in
 [What's new](changelog.md).
 
+- **Every function block in pictures**: each block on a rung, in
+  Structured Text and on a WEBview screen, drawn from one library
+  project that ships with the examples. See [Function
+  blocks](blocks.md).
 - **+7 — the S7 PLC client**: a panel replaces the operator panel on
   an existing S7 installation over ethernet, the PLC untouched.
   See [+7 (S7 PLC)](plus7.md).

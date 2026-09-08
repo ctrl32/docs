@@ -57,6 +57,8 @@ the board keeps running.
 That is also why the editor shows exactly what the board will: both draw
 the same data with the same code.
 
+## An assistant that works inside the editor
+
 ## What it really handles
 
 Measured on the slowest board we support (a classic ESP32 at 240 MHz),
@@ -81,8 +83,6 @@ with ethernet and CAN running alongside:
 
 Nor is it a real-time system. It holds a 10–20 ms cycle dependably, but
 jitter from the network stack exists and we never promise it away.
-
-And it is not a certified product. See [Intended use](intended-use.md).
 
 ## Where to start
 

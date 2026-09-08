@@ -1,5 +1,5 @@
 site_name: ctrl32
-site_description: A development and learning environment for HMI and PLC logic on a single ESP32 or STM32 board
+site_description: A development and learning environment for HMI and PLC logic on ESP32 and STM32 boards and on Linux devices
 site_author: Pavol Krnáč
 site_url: https://www.ctrl32.com/docs/
 copyright: © Pavol Krnáč, Slovakia
@@ -65,8 +65,10 @@ nav:
       - The Linux runtime: linux-runtime.md
       - Setting up a device: linux-setup.md
   - Licensing: licensing.md
-  - Quick start: quickstart.md
-  - Your first project: tutorial.md
+  - Start here:
+      - Start here: start-here.md
+      - Quick start: quickstart.md
+      - Your first project: tutorial.md
   - Tutorial projects:
       - Tutorial projects: tutorials.md
       - Two boards over Modbus: tutorial-modbus-pair.md
@@ -84,7 +86,7 @@ nav:
       - Layout and how to work in it: editor.md
       - Controls and shortcuts: editor-controls.md
       - Variables: variables.md
-      - The AI assistant (MCP): mcp.md
+  - The AI assistant (MCP): mcp.md
   - Visualisation:
       - Visualisation: visualisation.md
       - HMIview — the panel screen: hmiview.md
@@ -115,8 +117,8 @@ nav:
       - Motion: blocks-motion.md
       - CANopen blocks: blocks-can.md
       - Services: blocks-services.md
-  - Buses and peripherals:
-      - Buses and peripherals: buses.md
+  - Protocols:
+      - Protocols: buses.md
       - What Modbus is: modbus-basics.md
       - Modbus: modbus.md
       - Raw CAN: rawcan.md
@@ -127,8 +129,8 @@ nav:
       - net32: net32.md
       - OPC UA: opcua.md
       - Adding a peripheral: adding-peripherals.md
-  - Peripherals and services:
-      - Peripherals and services: peripherals-and-services.md
+  - Chips and services:
+      - Chips and services: peripherals-and-services.md
       - Temperature: peripherals-temperature.md
       - Environment: peripherals-environment.md
       - Air quality: peripherals-air.md

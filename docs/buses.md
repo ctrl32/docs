@@ -1,4 +1,4 @@
-# Buses and peripherals
+# Protocols
 
 The board speaks Modbus on RS485 and Ethernet, CANopen to drives, raw CAN
 frames, MQTT for telemetry — and drives local chips over I2C, SPI and
@@ -189,5 +189,5 @@ fields do not apply there, and the editor says so.
 | [MQTT](mqtt.md) | telemetry into ThingsBoard, OpenRemote or Home Assistant |
 | [CANopen blocks](blocks-can.md) | talking to a drive directly |
 | [Motion blocks](blocks-motion.md) | driving an axis |
-| [Peripherals and services](peripherals-and-services.md) | expanders, converters, RTC and the rest |
+| [Chips and services](peripherals-and-services.md) | expanders, converters, RTC and the rest |
 | [Adding a peripheral](adding-peripherals.md) | the two-minute click-through, recorded |

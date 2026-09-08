@@ -1,4 +1,4 @@
-# Board peripherals and system services
+# Chips and services
 
 How the board works with the ADS1115 analog-to-digital converter, with
 fitted retentive memory (FRAM/EEPROM), with a real-time clock (RTC) —
