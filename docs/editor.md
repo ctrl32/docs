@@ -111,7 +111,14 @@ enough for anyone to help you with.
 
 ## Language
 
-*View → Language*. The choice is remembered between runs.
+*View → Language*. The editor speaks English, Slovak, Spanish and
+Turkish; more languages are being translated. The first start picks the
+language your Windows runs in, when the editor has it, and the choice is
+remembered between runs. The documentation is English.
+
+The translations were made by the authors with machine help and
+checked where a native speaker was at hand — a wrong word in your
+language is worth a message, it gets fixed in the next release.
 
 ## AI assistant connection (MCP server)
 
