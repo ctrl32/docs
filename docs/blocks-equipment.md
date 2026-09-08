@@ -26,7 +26,15 @@ not wind up.
 <!-- blk:MOTOR -->
 ![MOTOR on a rung](img/blk-motor-ld.webp)
 
-![MOTOR in structured text](img/blk-motor-st.webp)
+```iecst
+PROGRAM MOTOR_ST
+VAR motor : MOTOR; END_VAR
+  motor(START := motor_start, STOP := motor_stop, FB := motor_fb,
+        ACK := motor_ack, T_FB := motor_t_fb);
+  motor_cmd_st := motor.CMD;
+  motor_fault_st := motor.FAULT;
+END_PROGRAM
+```
 
 ![MOTOR on the WEBview screen](img/blk-motor-web.webp)
 
@@ -80,7 +88,15 @@ instead of carrying on as though it had.
 <!-- blk:VALVE -->
 ![VALVE on a rung](img/blk-valve-ld.webp)
 
-![VALVE in structured text](img/blk-valve-st.webp)
+```iecst
+PROGRAM VALVE_ST
+VAR valve : VALVE; END_VAR
+  valve(OPEN := valve_open, CLOSE := valve_close, FB := valve_fb,
+        ACK := valve_ack, T_FB := valve_t_fb);
+  valve_cmd_st := valve.CMD;
+  valve_fault_st := valve.FAULT;
+END_PROGRAM
+```
 
 ![VALVE on the WEBview screen](img/blk-valve-web.webp)
 
@@ -129,7 +145,16 @@ about.
 <!-- blk:PID -->
 ![PID on a rung](img/blk-pid-ld.webp)
 
-![PID in structured text](img/blk-pid-st.webp)
+```iecst
+PROGRAM PID_ST
+VAR pid : PID; END_VAR
+  pid(SP := pid_sp, PV := pid_pv, MAN := pid_man,
+      AUTO := pid_auto, KP := pid_kp, TI := pid_ti, TD := pid_td,
+      OUT_MIN := pid_out_min, OUT_MAX := pid_out_max);
+  pid_out_st := pid.OUT;
+  pid_lim_st := pid.LIM;
+END_PROGRAM
+```
 
 ![PID on the WEBview screen](img/blk-pid-web.webp)
 

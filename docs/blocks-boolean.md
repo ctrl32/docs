@@ -23,7 +23,11 @@ rungs where the logic reads better as a box than as a knot of contacts.
 
 ![AND on a rung](img/blk-and-ld.webp)
 
-![AND in structured text](img/blk-and-st.webp)
+```iecst
+PROGRAM AND_ST
+  and_q_st := and_in1 AND and_in2;
+END_PROGRAM
+```
 
 ![AND on the WEBview screen](img/blk-and-web.webp)
 
@@ -34,7 +38,11 @@ rungs where the logic reads better as a box than as a knot of contacts.
 
 ![OR on a rung](img/blk-or-ld.webp)
 
-![OR in structured text](img/blk-or-st.webp)
+```iecst
+PROGRAM OR_ST
+  or_q_st := or_in1 OR or_in2;
+END_PROGRAM
+```
 
 ![OR on the WEBview screen](img/blk-or-web.webp)
 
@@ -45,7 +53,11 @@ rungs where the logic reads better as a box than as a knot of contacts.
 
 ![XOR on a rung](img/blk-xor-ld.webp)
 
-![XOR in structured text](img/blk-xor-st.webp)
+```iecst
+PROGRAM XOR_ST
+  xor_q_st := xor_in1 XOR xor_in2;
+END_PROGRAM
+```
 
 ![XOR on the WEBview screen](img/blk-xor-web.webp)
 
@@ -56,7 +68,11 @@ rungs where the logic reads better as a box than as a knot of contacts.
 
 ![NOT on a rung](img/blk-not-ld.webp)
 
-![NOT in structured text](img/blk-not-st.webp)
+```iecst
+PROGRAM NOT_ST
+  not_q_st := NOT not_in;
+END_PROGRAM
+```
 
 ![NOT on the WEBview screen](img/blk-not-web.webp)
 
@@ -89,7 +105,13 @@ sensor_shut ──IN2─┤ XOR ├── Q ──> position_implausible
 <!-- blk:R_TRIG -->
 ![R_TRIG on a rung](img/blk-rtrig-ld.webp)
 
-![R_TRIG in structured text](img/blk-rtrig-st.webp)
+```iecst
+PROGRAM R_TRIG_ST
+VAR rtrig : R_TRIG; END_VAR
+  rtrig(CLK := rtrig_clk);
+  rtrig_q_st := rtrig.Q;
+END_PROGRAM
+```
 
 ![R_TRIG on the WEBview screen](img/blk-rtrig-web.webp)
 
@@ -117,7 +139,13 @@ start_button ──[R_TRIG]── Q ──> begin_cycle
 <!-- blk:F_TRIG -->
 ![F_TRIG on a rung](img/blk-ftrig-ld.webp)
 
-![F_TRIG in structured text](img/blk-ftrig-st.webp)
+```iecst
+PROGRAM F_TRIG_ST
+VAR ftrig : F_TRIG; END_VAR
+  ftrig(CLK := ftrig_clk);
+  ftrig_q_st := ftrig.Q;
+END_PROGRAM
+```
 
 ![F_TRIG on the WEBview screen](img/blk-ftrig-web.webp)
 
@@ -147,7 +175,13 @@ sensor, a guard being released, a signal that was there and is not.
 <!-- blk:SR -->
 ![SR on a rung](img/blk-sr-ld.webp)
 
-![SR in structured text](img/blk-sr-st.webp)
+```iecst
+PROGRAM SR_ST
+VAR sr : SR; END_VAR
+  sr(S1 := sr_s1, R := sr_r);
+  sr_q1_st := sr.Q1;
+END_PROGRAM
+```
 
 ![SR on the WEBview screen](img/blk-sr-web.webp)
 
@@ -166,7 +200,13 @@ sensor, a guard being released, a signal that was there and is not.
 <!-- blk:RS -->
 ![RS on a rung](img/blk-rs-ld.webp)
 
-![RS in structured text](img/blk-rs-st.webp)
+```iecst
+PROGRAM RS_ST
+VAR rs : RS; END_VAR
+  rs(S := rs_s, R1 := rs_r1);
+  rs_q1_st := rs.Q1;
+END_PROGRAM
+```
 
 ![RS on the WEBview screen](img/blk-rs-web.webp)
 

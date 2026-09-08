@@ -20,7 +20,14 @@ states — a signal that stays TRUE counts once, not once per cycle.
 <!-- blk:CTU -->
 ![CTU on a rung](img/blk-ctu-ld.webp)
 
-![CTU in structured text](img/blk-ctu-st.webp)
+```iecst
+PROGRAM CTU_ST
+VAR ctu : CTU; END_VAR
+  ctu(CU := ctu_cu, R := ctu_r, PV := ctu_pv);
+  ctu_q_st := ctu.Q;
+  ctu_cv_st := ctu.CV;
+END_PROGRAM
+```
 
 ![CTU on the WEBview screen](img/blk-ctu-web.webp)
 
@@ -61,7 +68,14 @@ Q comes on at the 24th part and stays on until somebody changes the box.
 <!-- blk:CTD -->
 ![CTD on a rung](img/blk-ctd-ld.webp)
 
-![CTD in structured text](img/blk-ctd-st.webp)
+```iecst
+PROGRAM CTD_ST
+VAR ctd : CTD; END_VAR
+  ctd(CD := ctd_cd, LD := ctd_ld, PV := ctd_pv);
+  ctd_q_st := ctd.Q;
+  ctd_cv_st := ctd.CV;
+END_PROGRAM
+```
 
 ![CTD on the WEBview screen](img/blk-ctd-web.webp)
 

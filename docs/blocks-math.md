@@ -22,7 +22,11 @@ value is in knowing what happens at the edges.
 
 ![ADD on a rung](img/blk-add-ld.webp)
 
-![ADD in structured text](img/blk-add-st.webp)
+```iecst
+PROGRAM ADD_ST
+  add_out_st := add_in1 + add_in2 + add_in3 + add_in4;
+END_PROGRAM
+```
 
 ![ADD on the WEBview screen](img/blk-add-web.webp)
 
@@ -33,7 +37,11 @@ value is in knowing what happens at the edges.
 
 ![SUB on a rung](img/blk-sub-ld.webp)
 
-![SUB in structured text](img/blk-sub-st.webp)
+```iecst
+PROGRAM SUB_ST
+  sub_out_st := sub_in1 - sub_in2;
+END_PROGRAM
+```
 
 ![SUB on the WEBview screen](img/blk-sub-web.webp)
 
@@ -44,7 +52,11 @@ value is in knowing what happens at the edges.
 
 ![MUL on a rung](img/blk-mul-ld.webp)
 
-![MUL in structured text](img/blk-mul-st.webp)
+```iecst
+PROGRAM MUL_ST
+  mul_out_st := mul_in1 * mul_in2;
+END_PROGRAM
+```
 
 ![MUL on the WEBview screen](img/blk-mul-web.webp)
 
@@ -55,7 +67,11 @@ value is in knowing what happens at the edges.
 
 ![DIV on a rung](img/blk-div-ld.webp)
 
-![DIV in structured text](img/blk-div-st.webp)
+```iecst
+PROGRAM DIV_ST
+  div_out_st := div_in1 / div_in2;
+END_PROGRAM
+```
 
 ![DIV on the WEBview screen](img/blk-div-web.webp)
 
@@ -66,7 +82,11 @@ value is in knowing what happens at the edges.
 
 ![ABS on a rung](img/blk-abs-ld.webp)
 
-![ABS in structured text](img/blk-abs-st.webp)
+```iecst
+PROGRAM ABS_ST
+  abs_out_st := ABS(abs_in);
+END_PROGRAM
+```
 
 ![ABS on the WEBview screen](img/blk-abs-web.webp)
 
@@ -115,7 +135,11 @@ common one is putting a floor or a ceiling on a value:
 
 ![MIN on a rung](img/blk-min-ld.webp)
 
-![MIN in structured text](img/blk-min-st.webp)
+```iecst
+PROGRAM MIN_ST
+  min_out_st := MIN(min_in1, min_in2);
+END_PROGRAM
+```
 
 ![MIN on the WEBview screen](img/blk-min-web.webp)
 
@@ -126,7 +150,11 @@ common one is putting a floor or a ceiling on a value:
 
 ![MAX on a rung](img/blk-max-ld.webp)
 
-![MAX in structured text](img/blk-max-st.webp)
+```iecst
+PROGRAM MAX_ST
+  max_out_st := MAX(max_in1, max_in2);
+END_PROGRAM
+```
 
 ![MAX on the WEBview screen](img/blk-max-web.webp)
 
@@ -157,7 +185,11 @@ For a floor **and** a ceiling in one block, use
 <!-- blk:MOVE -->
 ![MOVE on a rung](img/blk-move-ld.webp)
 
-![MOVE in structured text](img/blk-move-st.webp)
+```iecst
+PROGRAM MOVE_ST
+  move_out_st := move_in;
+END_PROGRAM
+```
 
 ![MOVE on the WEBview screen](img/blk-move-web.webp)
 

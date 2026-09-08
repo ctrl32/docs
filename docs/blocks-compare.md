@@ -20,7 +20,11 @@ decision.
 
 ![GT on a rung](img/blk-gt-ld.webp)
 
-![GT in structured text](img/blk-gt-st.webp)
+```iecst
+PROGRAM GT_ST
+  gt_q_st := gt_in1 > gt_in2;
+END_PROGRAM
+```
 
 ![GT on the WEBview screen](img/blk-gt-web.webp)
 
@@ -31,7 +35,11 @@ decision.
 
 ![GE on a rung](img/blk-ge-ld.webp)
 
-![GE in structured text](img/blk-ge-st.webp)
+```iecst
+PROGRAM GE_ST
+  ge_q_st := ge_in1 >= ge_in2;
+END_PROGRAM
+```
 
 ![GE on the WEBview screen](img/blk-ge-web.webp)
 
@@ -42,7 +50,11 @@ decision.
 
 ![LT on a rung](img/blk-lt-ld.webp)
 
-![LT in structured text](img/blk-lt-st.webp)
+```iecst
+PROGRAM LT_ST
+  lt_q_st := lt_in1 < lt_in2;
+END_PROGRAM
+```
 
 ![LT on the WEBview screen](img/blk-lt-web.webp)
 
@@ -53,7 +65,11 @@ decision.
 
 ![LE on a rung](img/blk-le-ld.webp)
 
-![LE in structured text](img/blk-le-st.webp)
+```iecst
+PROGRAM LE_ST
+  le_q_st := le_in1 <= le_in2;
+END_PROGRAM
+```
 
 ![LE on the WEBview screen](img/blk-le-web.webp)
 
@@ -75,7 +91,11 @@ input is 0, so `GT` with only IN1 wired asks "is it positive?".
 <!-- blk:EQ -->
 ![EQ on a rung](img/blk-eq-ld.webp)
 
-![EQ in structured text](img/blk-eq-st.webp)
+```iecst
+PROGRAM EQ_ST
+  eq_q_st := ABS(eq_in1 - eq_in2) <= eq_eps;
+END_PROGRAM
+```
 
 ![EQ on the WEBview screen](img/blk-eq-web.webp)
 
@@ -141,7 +161,11 @@ costs nothing.
 <!-- blk:SEL -->
 ![SEL on a rung](img/blk-sel-ld.webp)
 
-![SEL in structured text](img/blk-sel-st.webp)
+```iecst
+PROGRAM SEL_ST
+  sel_out_st := SEL(sel_g, sel_in0, sel_in1);
+END_PROGRAM
+```
 
 ![SEL on the WEBview screen](img/blk-sel-web.webp)
 

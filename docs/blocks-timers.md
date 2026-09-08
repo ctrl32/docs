@@ -22,7 +22,14 @@ report progress on a second output so you can show it on a screen.
 <!-- blk:TON -->
 ![TON on a rung](img/blk-ton-ld.webp)
 
-![TON in structured text](img/blk-ton-st.webp)
+```iecst
+PROGRAM TON_ST
+VAR ton : TON; END_VAR
+  ton(IN := ton_in, PT := ton_pt);
+  ton_q_st := ton.Q;
+  ton_et_st := ton.ET;
+END_PROGRAM
+```
 
 ![TON on the WEBview screen](img/blk-ton-web.webp)
 
@@ -63,7 +70,14 @@ somebody walks through.
 <!-- blk:TOF -->
 ![TOF on a rung](img/blk-tof-ld.webp)
 
-![TOF in structured text](img/blk-tof-st.webp)
+```iecst
+PROGRAM TOF_ST
+VAR tof : TOF; END_VAR
+  tof(IN := tof_in, PT := tof_pt);
+  tof_q_st := tof.Q;
+  tof_et_st := tof.ET;
+END_PROGRAM
+```
 
 ![TOF on the WEBview screen](img/blk-tof-web.webp)
 
@@ -98,7 +112,14 @@ logic, no timer you have to reset.
 <!-- blk:TP -->
 ![TP on a rung](img/blk-tp-ld.webp)
 
-![TP in structured text](img/blk-tp-st.webp)
+```iecst
+PROGRAM TP_ST
+VAR tp : TP; END_VAR
+  tp(IN := tp_in, PT := tp_pt);
+  tp_q_st := tp.Q;
+  tp_et_st := tp.ET;
+END_PROGRAM
+```
 
 ![TP on the WEBview screen](img/blk-tp-web.webp)
 
@@ -142,7 +163,15 @@ it.
 <!-- blk:BLINK -->
 ![BLINK on a rung](img/blk-blink-ld.webp)
 
-![BLINK in structured text](img/blk-blink-st.webp)
+```iecst
+PROGRAM BLINK_ST
+VAR blink : BLINK; END_VAR
+  blink(RUN := blink_run, T_ON := blink_t_on,
+        T_OFF := blink_t_off);
+  blink_q_st := blink.Q;
+  blink_rem_st := blink.REM;
+END_PROGRAM
+```
 
 ![BLINK on the WEBview screen](img/blk-blink-web.webp)
 

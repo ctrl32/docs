@@ -39,7 +39,14 @@ that the block handles for you.
 
 ![MC_POWER on a rung](img/blk-mcpow-ld.webp)
 
-![MC_POWER in structured text](img/blk-mcpow-st.webp)
+```iecst
+PROGRAM MC_POWER_ST
+VAR mcpow : MC_POWER; END_VAR
+  mcpow(AXIS := 0, Enable := mcpow_enable);
+  mcpow_status_st := mcpow.Status;
+  mcpow_error_st := mcpow.Error;
+END_PROGRAM
+```
 
 ![MC_POWER on the WEBview screen](img/blk-mcpow-web.webp)
 
@@ -50,7 +57,14 @@ that the block handles for you.
 
 ![MC_RESET on a rung](img/blk-mcrst-ld.webp)
 
-![MC_RESET in structured text](img/blk-mcrst-st.webp)
+```iecst
+PROGRAM MC_RESET_ST
+VAR mcrst : MC_RESET; END_VAR
+  mcrst(AXIS := 0, Execute := mcrst_execute);
+  mcrst_done_st := mcrst.Done;
+  mcrst_error_st := mcrst.Error;
+END_PROGRAM
+```
 
 ![MC_RESET on the WEBview screen](img/blk-mcrst-web.webp)
 
@@ -121,7 +135,16 @@ Until this has completed, absolute positions mean nothing.
 
 ![MC_MOVEVELOCITY on a rung](img/blk-mcvel-ld.webp)
 
-![MC_MOVEVELOCITY in structured text](img/blk-mcvel-st.webp)
+```iecst
+PROGRAM MC_MOVEVELOCITY_ST
+VAR mcvel : MC_MOVEVELOCITY; END_VAR
+  mcvel(AXIS := 0, Execute := mcvel_execute,
+        Velocity := mcvel_velocity,
+        Direction := mcvel_direction);
+  mcvel_invelocity_st := mcvel.InVelocity;
+  mcvel_busy_st := mcvel.Busy;
+END_PROGRAM
+```
 
 ![MC_MOVEVELOCITY on the WEBview screen](img/blk-mcvel-web.webp)
 
@@ -132,7 +155,15 @@ Until this has completed, absolute positions mean nothing.
 
 ![MC_STOP on a rung](img/blk-mcstop-ld.webp)
 
-![MC_STOP in structured text](img/blk-mcstop-st.webp)
+```iecst
+PROGRAM MC_STOP_ST
+VAR mcstop : MC_STOP; END_VAR
+  mcstop(AXIS := 0, Execute := mcstop_execute,
+         Decel := mcstop_decel);
+  mcstop_done_st := mcstop.Done;
+  mcstop_busy_st := mcstop.Busy;
+END_PROGRAM
+```
 
 ![MC_STOP on the WEBview screen](img/blk-mcstop-web.webp)
 
@@ -143,7 +174,16 @@ Until this has completed, absolute positions mean nothing.
 
 ![MC_MOVEABS on a rung](img/blk-mcabs-ld.webp)
 
-![MC_MOVEABS in structured text](img/blk-mcabs-st.webp)
+```iecst
+PROGRAM MC_MOVEABS_ST
+VAR mcabs : MC_MOVEABS; END_VAR
+  mcabs(AXIS := 0, Execute := mcabs_execute,
+        Position := mcabs_position, Velocity := mcabs_velocity,
+        Accel := mcabs_accel, Decel := mcabs_decel);
+  mcabs_done_st := mcabs.Done;
+  mcabs_busy_st := mcabs.Busy;
+END_PROGRAM
+```
 
 ![MC_MOVEABS on the WEBview screen](img/blk-mcabs-web.webp)
 
@@ -154,7 +194,16 @@ Until this has completed, absolute positions mean nothing.
 
 ![MC_MOVEREL on a rung](img/blk-mcrel-ld.webp)
 
-![MC_MOVEREL in structured text](img/blk-mcrel-st.webp)
+```iecst
+PROGRAM MC_MOVEREL_ST
+VAR mcrel : MC_MOVEREL; END_VAR
+  mcrel(AXIS := 0, Execute := mcrel_execute,
+        Distance := mcrel_distance, Velocity := mcrel_velocity,
+        Accel := mcrel_accel, Decel := mcrel_decel);
+  mcrel_done_st := mcrel.Done;
+  mcrel_busy_st := mcrel.Busy;
+END_PROGRAM
+```
 
 ![MC_MOVEREL on the WEBview screen](img/blk-mcrel-web.webp)
 
@@ -165,7 +214,14 @@ Until this has completed, absolute positions mean nothing.
 
 ![MC_HOME on a rung](img/blk-mchome-ld.webp)
 
-![MC_HOME in structured text](img/blk-mchome-st.webp)
+```iecst
+PROGRAM MC_HOME_ST
+VAR mchome : MC_HOME; END_VAR
+  mchome(AXIS := 0, Execute := mchome_execute);
+  mchome_done_st := mchome.Done;
+  mchome_busy_st := mchome.Busy;
+END_PROGRAM
+```
 
 ![MC_HOME on the WEBview screen](img/blk-mchome-web.webp)
 
@@ -188,7 +244,14 @@ A stop along a defined ramp. Not an emergency stop — see below.
 
 ![MC_READACTPOS on a rung](img/blk-mcrpos-ld.webp)
 
-![MC_READACTPOS in structured text](img/blk-mcrpos-st.webp)
+```iecst
+PROGRAM MC_READACTPOS_ST
+VAR mcrpos : MC_READACTPOS; END_VAR
+  mcrpos(AXIS := 0, Enable := mcrpos_enable);
+  mcrpos_position_st := mcrpos.Position;
+  mcrpos_valid_st := mcrpos.Valid;
+END_PROGRAM
+```
 
 ![MC_READACTPOS on the WEBview screen](img/blk-mcrpos-web.webp)
 
@@ -199,7 +262,14 @@ A stop along a defined ramp. Not an emergency stop — see below.
 
 ![MC_READACTVEL on a rung](img/blk-mcrvel-ld.webp)
 
-![MC_READACTVEL in structured text](img/blk-mcrvel-st.webp)
+```iecst
+PROGRAM MC_READACTVEL_ST
+VAR mcrvel : MC_READACTVEL; END_VAR
+  mcrvel(AXIS := 0, Enable := mcrvel_enable);
+  mcrvel_velocity_st := mcrvel.Velocity;
+  mcrvel_valid_st := mcrvel.Valid;
+END_PROGRAM
+```
 
 ![MC_READACTVEL on the WEBview screen](img/blk-mcrvel-web.webp)
 
@@ -210,7 +280,14 @@ A stop along a defined ramp. Not an emergency stop — see below.
 
 ![MC_READSTATUS on a rung](img/blk-mcstat-ld.webp)
 
-![MC_READSTATUS in structured text](img/blk-mcstat-st.webp)
+```iecst
+PROGRAM MC_READSTATUS_ST
+VAR mcstat : MC_READSTATUS; END_VAR
+  mcstat(AXIS := 0, Enable := mcstat_enable);
+  mcstat_running_st := mcstat.Running;
+  mcstat_error_st := mcstat.Error;
+END_PROGRAM
+```
 
 ![MC_READSTATUS on the WEBview screen](img/blk-mcstat-web.webp)
 

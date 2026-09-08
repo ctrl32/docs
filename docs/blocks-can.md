@@ -20,7 +20,14 @@ Like the motion blocks, each one is bound to an **axis** at the call:
 <!-- blk:CO_CIA402 -->
 ![CO_CIA402 on a rung](img/blk-co402-ld.webp)
 
-![CO_CIA402 in structured text](img/blk-co402-st.webp)
+```iecst
+PROGRAM CO_CIA402_ST
+VAR co402 : CO_CIA402; END_VAR
+  co402(AXIS := 0, Enable := co402_enable);
+  co402_ready_st := co402.Ready;
+  co402_fault_st := co402.Fault;
+END_PROGRAM
+```
 
 ![CO_CIA402 on the WEBview screen](img/blk-co402-web.webp)
 
@@ -94,9 +101,15 @@ that does not change while it runs.
 | `REF` | input, number | reference speed the times relate to |
 
 <!-- blk:CO_RAMPTIME -->
-![CO_RAMPTIME in structured text](img/blk-coramp-st.webp)
-
 ![CO_RAMPTIME on the WEBview screen](img/blk-coramp-web.webp)
+
+```iecst
+PROGRAM CO_RAMPTIME_ST
+VAR coramp : CO_RAMPTIME; END_VAR
+  coramp(AXIS := 0, ACC := coramp_acc, DEC := coramp_dec,
+         REF := coramp_ref);
+END_PROGRAM
+```
 
 <!-- /blk -->
 

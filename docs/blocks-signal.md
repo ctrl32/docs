@@ -23,7 +23,11 @@ equipment can act on.
 <!-- blk:SCALE -->
 ![SCALE on a rung](img/blk-scale-ld.webp)
 
-![SCALE in structured text](img/blk-scale-st.webp)
+```iecst
+PROGRAM SCALE_ST
+  scale_out_st := SCALE(scale_in, scale_in_min, scale_in_max, scale_out_min, scale_out_max);
+END_PROGRAM
+```
 
 ![SCALE on the WEBview screen](img/blk-scale-web.webp)
 
@@ -62,7 +66,11 @@ Two things worth knowing:
 <!-- blk:LIMIT -->
 ![LIMIT on a rung](img/blk-limit-ld.webp)
 
-![LIMIT in structured text](img/blk-limit-st.webp)
+```iecst
+PROGRAM LIMIT_ST
+  limit_out_st := LIMIT(limit_mn, limit_in, limit_mx);
+END_PROGRAM
+```
 
 ![LIMIT on the WEBview screen](img/blk-limit-web.webp)
 
@@ -98,7 +106,13 @@ setpoint_from_hmi ──[LIMIT MN=20 MX=80]── OUT ──> setpoint
 <!-- blk:HYST -->
 ![HYST on a rung](img/blk-hyst-ld.webp)
 
-![HYST in structured text](img/blk-hyst-st.webp)
+```iecst
+PROGRAM HYST_ST
+VAR hyst : HYST; END_VAR
+  hyst(IN := hyst_in, ON := hyst_on, OFF := hyst_off);
+  hyst_q_st := hyst.Q;
+END_PROGRAM
+```
 
 ![HYST on the WEBview screen](img/blk-hyst-web.webp)
 
@@ -149,7 +163,13 @@ two-degree gap doing the same job.
 <!-- blk:RAMP -->
 ![RAMP on a rung](img/blk-ramp-ld.webp)
 
-![RAMP in structured text](img/blk-ramp-st.webp)
+```iecst
+PROGRAM RAMP_ST
+VAR ramp : RAMP; END_VAR
+  ramp(IN := ramp_in, RATE := ramp_rate);
+  ramp_out_st := ramp.OUT;
+END_PROGRAM
+```
 
 ![RAMP on the WEBview screen](img/blk-ramp-web.webp)
 
@@ -188,7 +208,13 @@ get there.
 <!-- blk:PT1 -->
 ![PT1 on a rung](img/blk-pt1-ld.webp)
 
-![PT1 in structured text](img/blk-pt1-st.webp)
+```iecst
+PROGRAM PT1_ST
+VAR pt1 : PT1; END_VAR
+  pt1(IN := pt1_in, T := pt1_t);
+  pt1_out_st := pt1.OUT;
+END_PROGRAM
+```
 
 ![PT1 on the WEBview screen](img/blk-pt1-web.webp)
 

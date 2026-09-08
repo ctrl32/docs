@@ -21,7 +21,14 @@ cycle carries on. Nothing here ever blocks the equipment.
 <!-- blk:IR_SEND -->
 ![IR_SEND on a rung](img/blk-ir-ld.webp)
 
-![IR_SEND in structured text](img/blk-ir-st.webp)
+```iecst
+PROGRAM IR_SEND_ST
+VAR ir : IR_SEND; END_VAR
+  ir(Execute := ir_execute, KEY := 0);
+  ir_done_st := ir.Done;
+  ir_error_st := ir.Error;
+END_PROGRAM
+```
 
 ![IR_SEND on the WEBview screen](img/blk-ir-web.webp)
 
@@ -62,7 +69,13 @@ temp_too_high ──[R_TRIG]── Execute ──[IR_SEND KEY=2]── Done ─�
 <!-- blk:SMS_SEND -->
 ![SMS_SEND on a rung](img/blk-sms-ld.webp)
 
-![SMS_SEND in structured text](img/blk-sms-st.webp)
+```iecst
+PROGRAM SMS_SEND_ST
+  IF sms_execute THEN
+    sms_done_st := SMS_SEND('block library: SMS_SEND fired', 0);
+  END_IF;
+END_PROGRAM
+```
 
 ![SMS_SEND on the WEBview screen](img/blk-sms-web.webp)
 
@@ -122,7 +135,14 @@ trigger.
 <!-- blk:GSM_INFO -->
 ![GSM_INFO on a rung](img/blk-gsm-ld.webp)
 
-![GSM_INFO in structured text](img/blk-gsm-st.webp)
+```iecst
+PROGRAM GSM_INFO_ST
+VAR gsm : GSM_INFO; END_VAR
+  gsm(Enable := gsm_enable);
+  gsm_ready_st := gsm.Ready;
+  gsm_signal_st := gsm.Signal;
+END_PROGRAM
+```
 
 ![GSM_INFO on the WEBview screen](img/blk-gsm-web.webp)
 
