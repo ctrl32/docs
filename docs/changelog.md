@@ -8,6 +8,42 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.044
+
+- **A block on an empty rung runs.** A timer, a blinker or an addition
+  dropped on a rung with nothing in front of it was gated by a rail the
+  program never switched on: the block did nothing, showed nothing, and
+  the ladder looked right. It runs now, and the two engines are compared
+  on exactly that shape before every release.
+- **Every block, with EN/ENO or in the rung.** The palette used to offer
+  the in-rung form for five blocks; it offers it for every block whose
+  power flow can pass through it — triggers, flip-flops, the blinker,
+  the motor and valve blocks, the whole motion set. A block with a
+  number on either end stays a box, and the menu says which is which.
+- **The variable list under a pin scrolls.** It drew the first eight
+  candidates and stopped, so a variable created later — always the last
+  one — could not be picked at all. It now holds every candidate, in the
+  order the variable table shows them, and opens on the one that is
+  bound.
+- **An unfinished rung survives leaving the page.** A rung the build
+  still refuses lives only in the drawing; switching to another window
+  and back used to throw it away as soon as anything else in the project
+  had moved.
+- **A time parameter reads `T#1s` everywhere.** The box form of a block
+  printed the bare millisecond number.
+- **The editor updates itself, safely.** *Help → New version* downloads
+  the installer and checks it twice before it may run: its fingerprint
+  against the signed notice, and the publisher's signature. Install
+  closes the editor and starts it — only with the project saved.
+- **The editor speaks four languages.** English, Slovak, Spanish and
+  Turkish, chosen in *View → Language*; the first start follows Windows.
+  More are being translated.
+- **Modules with a headless runtime** — the PICO-V3-02 class — create,
+  build and flash. They used to be refused both ways round.
+- **Every function block in pictures.** Each block's page shows it on a
+  rung, its Structured Text as text you can copy, and its card on a
+  WEBview screen, all from one project that ships with the examples.
+
 ## 1.00.043
 
 - **Durations read as `T#1s500ms`.** Every time parameter — on the
