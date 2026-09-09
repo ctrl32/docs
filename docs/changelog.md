@@ -8,6 +8,14 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.045
+
+- **The Toolbox and the insert menu offer every in-rung block.** The
+  right-click palette on a rung already did. The other two ways of
+  reaching the same blocks kept an older list of five, so which blocks
+  you could drop into a rung depended on where you asked for them. All
+  three now offer the same set, grouped by category.
+
 ## 1.00.044
 
 - **A block on an empty rung runs.** A timer, a blinker or an addition
