@@ -133,6 +133,12 @@ ESP32: GPIO 32–39, ESP32-S3: GPIO 1–10) — ADC2 shares silicon with WiFi
 and loses, so an ADC2 pin is refused at build time, not discovered on the
 bench.
 
+The quickest way to make one is the board card: every free pin has a row
+with a name field, and a pin marked *ADC1* offers *analog input* in the
+choice beside the name, next to *input* and *output*. Type the name, pick
+*analog input*, and the variable exists with the pin already set; the
+same choice turns it back into a digital one.
+
 !!! note "Battery duty, not measurement"
     The internal ADC is fine for a battery level, a potentiometer or a
     light sensor. For anything called **measurement**, use an
