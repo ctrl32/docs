@@ -8,6 +8,29 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.046
+
+- **System variables.** Every project has a `SYS.` set the device
+  writes each cycle — the uptime, the cycle time and its overruns, the
+  state of CAN, Ethernet, WiFi, MQTT, Modbus and the +7 connection, the
+  retentive store, the clock — usable from LD, FBD, ST and every screen
+  like any variable. `SYS.RETAIN_SAVE` writes the retentive values to
+  the chip the moment it is set (put it on a keypad's OK), and the
+  project's Application page sets how often they are written otherwise.
+  See [Variables](variables.md).
+- **Tasks like a PLC.** Up to four cyclic tasks with their periods,
+  priority by period, the programs of a task in the order they run, and
+  a program that calls another program (`STATS();` in ST, a program box
+  in FBD). A program nothing calls stays in the project and does not
+  run; the tree says so. See [Editor](editor.md).
+- **The WEBview keypad speaks the variable's unit.** A `TIME` was shown
+  and taken in milliseconds in the browser while the board's keypad
+  spoke seconds, and a widget without limits clamped every entry to
+  zero. The browser follows the board's rules now.
+- **The board card names the processor** — its type, RAM, flash and
+  PSRAM come from the module the board carries, and the analog input
+  pins get their variable from the pin row.
+
 ## 1.00.045
 
 - **The Toolbox and the insert menu offer every in-rung block.** The

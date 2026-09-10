@@ -116,6 +116,11 @@ mistyped digit and a setpoint of 9000. The keypad refuses a value outside
 the range and says so, which is far better than accepting it and having
 the logic clamp it silently.
 
+The browser keypad of WEBview follows the same rules as the one on the
+board: it shows and takes the number in the variable's unit — a `TIME`
+in seconds when the variable says seconds — and applies the widget's
+limits only when the widget has them.
+
 `title` is worth filling in: a keypad with "Target temperature (°C)" at
 the top is unambiguous, one with just a number is a guess.
 

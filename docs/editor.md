@@ -68,15 +68,32 @@ with its period and priority — *FAST (10 ms, priority 1)* is the main
 one and every new project starts with its first program in it. Under a
 task you see the programs it calls, in the order they run.
 
-A program runs only when a task calls it. A program that no task calls
-stays in the project, is drawn grey in the tree and does not run; hover
-it and the tree says so. Right-click a task to change its period, rename
-it, add a program to it or remove it; right-click a program under a task
-to take it out. The program's own menu offers the same choice under
-*Task*, including *(none)*.
+A project holds up to four tasks. The priority follows the period: the
+task with the shortest period is priority 1 and runs first when several
+are due — the same rule the device schedules them by. *FAST* owns the
+inputs and outputs; the other tasks run logic only, each at its own
+period.
+
+A program runs only when a task calls it or another program calls it.
+A program that nothing calls stays in the project, is drawn grey in the
+tree and does not run; hover it and the tree says so. Right-click a task
+to change its period, rename it, add a program to it or remove it;
+right-click a program under a task to move it up or down in the run
+order or to take it out. The program's own menu offers the same choice
+under *Task*, including *(none)*.
+
+**Calling a program from a program.** Write its name as a statement in
+ST — `STATS();` — or drop the program from the insert menu as a box in
+FBD. The called program runs at that point of the caller's cycle, on its
+own variables, and what it wrote the caller reads right after the call.
+A called program needs no task; the tree shows it in normal colour and
+says it is called. A program cannot be called and run by a task at the
+same time (it would run twice), calls never form a loop, and they nest
+at most eight deep — the build says so.
 
 A project saved before this version keeps working exactly as it did:
-every program that had no task written in the file belongs to *FAST*.
+every program that had no task written in the file belongs to *FAST*,
+and the programs keep the order they ran in.
 
 ## Toolbar
 

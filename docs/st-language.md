@@ -72,6 +72,25 @@ set the equipment's delay on the screen and the program takes it straight as
 **Standard functions**: `ABS MIN MAX LIMIT SEL TRUNC`, the
 conversions above, and the string set below.
 
+## Calling another program
+
+A program of the project is called by its name as a statement:
+
+```
+PROGRAM MAIN
+  ...
+  STATS();
+END_PROGRAM
+```
+
+`STATS` runs at that point of `MAIN`'s cycle, on its own variables,
+inside the task that runs `MAIN`; the values it wrote are what `MAIN`
+reads right after the call. A program takes no arguments — it works on
+the project's variables. A called program needs no task of its own; a
+program that a task runs cannot be called as well (it would run twice),
+calls never form a loop, and they nest at most eight deep — the build
+refuses each of these with the names involved.
+
 ## Your own function block
 
 The classic on-delay written from scratch — if you can read this, you
