@@ -139,6 +139,56 @@ choice beside the name, next to *input* and *output*. Type the name, pick
 *analog input*, and the variable exists with the pin already set; the
 same choice turns it back into a digital one.
 
+## System variables
+
+Every project has a set of variables the device fills in by itself,
+once per cycle, before your logic runs. They live under the reserved
+name `SYS.` and are used like any other variable — in a rung, in ST, on
+a screen, in an alarm. Right-click a variable list in the tree and pick
+*Add system variable* to bring one into the project; in ST you may
+simply write it, `x := SYS.UPTIME_S;`, and the build adds it for you.
+
+| name | type | meaning |
+|:---|:---|:---|
+| `SYS.FIRST_CYCLE` | BOOL | TRUE in the first cycle after start — the place for start-up code |
+| `SYS.UPTIME_S` | DINT | seconds since start |
+| `SYS.CYCLE_US`, `SYS.CYCLE_MAX_US` | DINT | the last and the worst cycle time |
+| `SYS.OVERRUNS` | DINT | cycles that ran past their period |
+| `SYS.CYCLE2_US`, `SYS.OVERRUNS2` | DINT | the same for the slow task |
+| `SYS.CAN_OK` | BOOL | the CAN driver runs |
+| `SYS.CAN_FAULT` | BOOL | the bus is off, or recovering from bus-off |
+| `SYS.CAN_RECOVERIES` | DINT | bus-off recoveries since start |
+| `SYS.ETH_OK`, `SYS.WIFI_OK`, `SYS.NET_OK` | BOOL | the interface has an address; NET_OK = either |
+| `SYS.MQTT_OK` | BOOL | the MQTT client is connected |
+| `SYS.NVL_PEERS`, `SYS.NVL_NODES` | INT | net32 peers alive, and configured |
+| `SYS.MB_OK` | BOOL | every polled Modbus device answers |
+| `SYS.S7_OK` | BOOL | the +7 connection is up |
+| `SYS.RETAIN_BACKEND` | INT | where retentive values go: 0 flash, 1 FRAM, 2 EEPROM |
+| `SYS.RETAIN_OK` | BOOL | the last retentive write succeeded |
+| `SYS.RETAIN_SAVE` | BOOL | **writable** — set it and the retentive values are written now; the device clears it |
+| `SYS.OTA_PENDING` | BOOL | a freshly updated runtime that has not confirmed itself yet |
+| `SYS.TIME_VALID` | BOOL | the clock is set — NTP answered or the RTC was read |
+| `SYS.HW_ID` | DINT | the board's hardware id |
+
+A fact a device does not have reads FALSE or 0 there; nothing is ever
+invented.
+
+### Saving retentive values
+
+Retentive variables are written to the chip on an interval that suits
+it — an EEPROM once in five minutes (its cells wear), FRAM every second,
+flash every ten seconds. *Project → Retentive save interval* changes it
+for a project that needs to. Independent of the interval,
+`SYS.RETAIN_SAVE` writes everything **now**: put it on the OK of a keypad
+and a value the operator confirmed is on the chip before the hand leaves
+the glass, whatever the interval says.
+
+!!! note "EEPROM cells wear"
+    An EEPROM cell takes about a million writes. A program that pulses
+    `SYS.RETAIN_SAVE` every cycle, or an interval of a few seconds on a
+    value that changes all the time, wears it out in months. FRAM does
+    not care.
+
 !!! note "Battery duty, not measurement"
     The internal ADC is fine for a battery level, a potentiometer or a
     light sensor. For anything called **measurement**, use an
