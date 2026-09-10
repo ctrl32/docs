@@ -178,20 +178,15 @@ tells you whether a newer version exists; with *Check on start* ticked
 the editor does this quietly every time it starts. Without internet
 nothing happens and nothing is shown.
 
-When a newer version exists, *Help -> New version* opens the update
-dialog:
-
 ![The update dialog](img/editor-update.webp)
 
-- **Download and verify** fetches the installer into your temporary
-  folder and judges it twice before anything else happens: its
-  fingerprint must equal the one in the signed notice, and the file
-  must carry our publisher signature. A file that fails either test is
-  deleted and the dialog says so.
-- **Install** starts the verified installer and closes the editor; the
-  installer then replaces the program the usual way. The button stays
-  off while the open project has unsaved changes - save first, nothing
-  is closed under you.
+- **Install now** fetches the installer into your temporary folder,
+  judges it twice - its fingerprint must equal the one in the signed
+  notice, and the file must carry our publisher signature - and then
+  starts it and closes the editor; the installer replaces the program
+  the usual way. A file that fails either test is deleted and the
+  dialog says so. The installer never starts while the open project has
+  unsaved changes - save first, nothing is closed under you.
 - **Open the download page** takes you to the web instead, the manual
   road.
 
