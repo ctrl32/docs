@@ -101,6 +101,16 @@ board:
 The last row is the control sample: code that does not touch variables did not
 move by a microsecond. Everything that moved, moved because of variables.
 
+## Fonts on 4 MB boards
+
+A device with a display embeds ten text sizes. Boards with 4 MB of
+flash and a display are the exception: their runtime leaves out the
+largest face, 36 px, to keep room for new capabilities. A project on
+such a board that uses the 36 px size still works exactly the same: the
+editor puts that face inside the project's pack (about 200 kB), and the
+device loads it from there. A project that never uses 36 px pays
+nothing. On every other board every size is built in.
+
 ## The degradation rule
 
 When performance runs out, the order is fixed and written into the code
