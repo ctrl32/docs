@@ -61,6 +61,23 @@ devices' shared variables are wired together. See
 Nodes for features that are not finished yet are in the tree as well — their
 page says so. A customer has to see what the board can have, not guess it.
 
+## Tasks — which programs run
+
+Under *Application* the tree has a *Tasks* node. Each task is a cycle
+with its period and priority — *FAST (10 ms, priority 1)* is the main
+one and every new project starts with its first program in it. Under a
+task you see the programs it calls, in the order they run.
+
+A program runs only when a task calls it. A program that no task calls
+stays in the project, is drawn grey in the tree and does not run; hover
+it and the tree says so. Right-click a task to change its period, rename
+it, add a program to it or remove it; right-click a program under a task
+to take it out. The program's own menu offers the same choice under
+*Task*, including *(none)*.
+
+A project saved before this version keeps working exactly as it did:
+every program that had no task written in the file belongs to *FAST*.
+
 ## Toolbar
 
 | Icon | What it does |
