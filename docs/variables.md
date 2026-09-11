@@ -154,7 +154,8 @@ simply write it, `x := SYS.UPTIME_S;`, and the build adds it for you.
 | `SYS.UPTIME_S` | DINT | seconds since start |
 | `SYS.CYCLE_US`, `SYS.CYCLE_MAX_US` | DINT | the last and the worst cycle time |
 | `SYS.OVERRUNS` | DINT | cycles that ran past their period |
-| `SYS.CYCLE2_US`, `SYS.OVERRUNS2` | DINT | the same for the slow task |
+| `SYS.CYCLE2_US`, `SYS.OVERRUNS2` | DINT | the same for the second task |
+| `SYS.CYCLE3_US`, `SYS.OVERRUNS3`, `SYS.CYCLE4_US`, `SYS.OVERRUNS4` | DINT | the same for the third and fourth task |
 | `SYS.CAN_OK` | BOOL | the CAN driver runs |
 | `SYS.CAN_FAULT` | BOOL | the bus is off, or recovering from bus-off |
 | `SYS.CAN_RECOVERIES` | DINT | bus-off recoveries since start |
