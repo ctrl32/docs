@@ -8,6 +8,26 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.047
+
+- **The editor speaks eleven languages.** Czech, Polish, Hungarian,
+  German, Italian, Romanian and Ukrainian join English, Slovak, Spanish
+  and Turkish (*View → Language*; the first start picks the language
+  your Windows runs in). The translations were made with the product
+  glossary — a wrong word in your language is worth a message.
+- **A rung calls a program.** The box menu of a rung and the palette
+  offer the other programs of the project under *Programs*; the program
+  runs while the rung conducts, the same way an FBD box or `STATS();` in
+  ST calls it. See [Ladder](ladder.md).
+- **Tasks on every device.** The third and fourth task report their
+  cycle time and overruns (`SYS.CYCLE3_US` … `SYS.OVERRUNS4`), the
+  Diagnostics page shows every task and the Resources page lists the
+  programs of each.
+- **Room on 4 MB devices.** The two 4 MB display runtimes are compiled
+  for size and no longer carry the largest built-in font; a project that
+  draws with the 36 px face carries it in its own pack. See
+  [Limits](limits.md).
+
 ## 1.00.046
 
 - **System variables.** Every project has a `SYS.` set the device
