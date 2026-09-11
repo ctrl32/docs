@@ -145,8 +145,9 @@ enough for anyone to help you with.
 
 ## Language
 
-*View → Language*. The editor speaks English, Slovak, Spanish and
-Turkish; more languages are being translated. The first start picks the
+*View → Language*. The editor speaks English, Slovak, Czech, Polish,
+Hungarian, German, Italian, Spanish, Romanian, Turkish and Ukrainian.
+The first start picks the
 language your Windows runs in, when the editor has it, and the choice is
 remembered between runs. The documentation is English.
 
