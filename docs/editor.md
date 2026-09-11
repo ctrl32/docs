@@ -84,7 +84,7 @@ under *Task*, including *(none)*.
 
 **Calling a program from a program.** Write its name as a statement in
 ST — `STATS();` — or drop the program from the insert menu as a box in
-FBD. The called program runs at that point of the caller's cycle, on its
+FBD or LD (the box menu's *Programs* group). The called program runs at that point of the caller's cycle, on its
 own variables, and what it wrote the caller reads right after the call.
 A called program needs no task; the tree shows it in normal colour and
 says it is called. A program cannot be called and run by a task at the

@@ -73,6 +73,15 @@ it from either end:
   run wire simply ends in an arrow. Contacts placed before the boxes
   become their EN condition — no helper variable needed.
 
+## Calling a program from a rung
+
+The box menu of a rung (and the palette's box list) offers the other
+programs of the project under *Programs*. Such a box has no pins: while
+the rung conducts, the program runs at that point of the cycle, on the
+project's variables, and the rung's ENO carries on. A program called
+this way needs no task of its own, and it cannot be called and run by
+a task at the same time.
+
 ## Working with rungs
 
 - **+ Rung** adds a rung; **click a contact, box or the coil** to
