@@ -19,8 +19,8 @@ screens to a phone either way.
 - **Alarms, trends, recipes and retentive values**, a diagnostic log with
   timestamps, forcing and online monitoring from the editor
 - **Updates over the network** - the program on every device; the runtime
-  itself on modules with 8 MB of flash or more and on Linux, with an
-  automatic roll-back when the new one does not come up
+  itself on modules with 8 MB of flash or more, on Linux and on the
+  STM32 F7, with an automatic roll-back when the new one does not come up
 - **Diagnostics you can read** - cycle time, memory, bus and drive health on
   the device page and in the editor
 

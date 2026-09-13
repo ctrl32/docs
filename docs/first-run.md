@@ -69,7 +69,11 @@ console in one USB cable.
   contact. Offline, install ST's *ST-LINK USB driver* package
   (a free download from st.com) beforehand.
 - **Flash runtime** writes the firmware through the ST-LINK — no
-  boot buttons, no jumpers.
+  boot buttons, no jumpers. It writes two parts, a small loader and
+  the runtime; from then on the runtime also travels over the network
+  like on every other device (type the board's address instead of a
+  COM port), with the previous one kept and restored when the new one
+  does not come up.
 - **The program** travels over the ST-LINK's virtual COM port — the
   same cable, picked with Select COM like any serial board.
 

@@ -8,6 +8,19 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.048
+
+- **The STM32 F7 updates its runtime over the network.** The board keeps
+  a small loader that never changes and swaps the runtime through its
+  QSPI memory: the running one is kept aside, the new one is written and
+  verified, a runtime that does not confirm itself is put back at the
+  next start. Type the board's address instead of a COM port in *Flash
+  runtime*; the one-time move onto this layout is a *Flash runtime* over
+  the ST-LINK, which writes both parts. See [Quick start](quickstart.md).
+- **The F7 console says what happened.** A fault reports where it
+  happened and restarts the board; lines printed by several parts of
+  the runtime at once no longer garble each other.
+
 ## 1.00.047
 
 - **The editor speaks eleven languages.** Czech, Polish, Hungarian,

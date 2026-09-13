@@ -112,6 +112,14 @@ Two things to know:
   road lays the new layout down without touching the program.
 - **Boards with 4 MB of flash keep the USB road.** A runtime with a display
   is 2.4 MB, and two copies do not fit; the device page shows `ota=0`.
+- **The STM32 F7 takes the same road.** Its runtime is two parts - a small
+  loader that never changes and the runtime itself - and the network
+  update swaps the runtime through the board's QSPI memory: the running
+  one is kept aside, the new one is written and verified, and a runtime
+  that does not confirm itself is put back at the next start. The device
+  page counts the generations (`g1`, `g2`, ...). The one-time move onto
+  this layout is a *Flash runtime* over the ST-LINK, which writes both
+  parts; the program and the retentive values stay where they are.
 - **A Linux device takes the same road.** Its runtime comes out of the
   bundle the installer lays under `%ProgramData%\ctrl32\linux`; the device
   checks that the file is built for its processor and starts it once as a

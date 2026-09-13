@@ -110,7 +110,8 @@ full eight.
 
 The runtime is not tied to Espressif. The first STM32 target ships:
 the **STM32F746 Discovery** is in the catalogue, its runtime flashes
-[straight from the editor](first-run.md) over the on-board ST-LINK,
+[straight from the editor](first-run.md) over the on-board ST-LINK
+and updates over the network after that,
 and the [showcase example](example-showcase.md) runs on it — the
 same VM, the same variables, the same Modbus and CANopen, the same
 rasteriser and the same pack format. Today that is one board of one
