@@ -1,6 +1,7 @@
 # Home automation
 
-Twelve blocks for a house: the wall button and what it drives. They live
+Twenty blocks for a house: the wall button and what it drives, the clock
+and the sun. They live
 in the `home` block library that ships with the editor, and the Toolbox
 lists them under **Home** the moment a project uses the library (*File →
 Libraries*, or `libraries: [ libraries/home.yaml ]` in the project file).
@@ -233,6 +234,163 @@ clock is the device's, in the project's time zone (*clock: tz*); while
 the device has no valid time (`SYS.TIME_VALID` FALSE) the minute reads 0
 and the weekday 0, so `Q` stays FALSE rather than guessing. See the
 system variables in [Variables](variables.md).
+
+---
+
+## SUNTIMES — today's sunrise and sunset
+
+**The minutes of the local day the sun rises and sets at a place.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `DOY` | input, INT | the day of the year — bind `SYS.DAY_OF_YEAR` |
+| `UTC_OFF` | input, INT | the device's offset to UTC in minutes, summer time included — bind `SYS.UTC_OFFSET` |
+| `LAT` | parameter, 48.15 | latitude, degrees north |
+| `LON` | parameter, 17.11 | longitude, degrees east |
+| `SUNRISE` | output, INT | minute of the day, 0..1439 |
+| `SUNSET` | output, INT | minute of the day |
+
+The defaults are Bratislava. The block computes the standard
+approximation, good to a few minutes; a polar night gives 0 and 0, a
+midnight sun 0 and 1439. Show the two numbers on a screen or feed them
+to a DAYTIME through variables.
+
+## ASTRO — day and dark by the sun
+
+**DAY between sunrise and sunset, DARK outside, each edge shifted by an offset.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `ENABLE` | input, bool | |
+| `MINUTES` | input, INT | bind `SYS.MINUTE_OF_DAY` |
+| `DOY` | input, INT | bind `SYS.DAY_OF_YEAR` |
+| `UTC_OFF` | input, INT | bind `SYS.UTC_OFFSET` |
+| `LAT`, `LON` | parameters | the place, as in SUNTIMES |
+| `OFS_RISE` | parameter, 0 | minutes added to the sunrise (−30: the day starts half an hour before) |
+| `OFS_SET` | parameter, 0 | minutes added to the sunset (+20: the garden light waits for real dusk) |
+| `DAY` | output, bool | |
+| `DARK` | output, bool | NOT DAY while enabled — the garden light, the blinds at dusk |
+
+TWILIGHT measures the light where the sensor is; ASTRO knows it from
+the calendar and needs no sensor. Both give a DARK, use the one you
+have.
+
+## SCHEDULE — two windows a day, a value
+
+**VALUE is V_IN inside either window on the listed days and V_OUT outside.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `ENABLE` | input, bool | |
+| `MINUTES` | input, INT | bind `SYS.MINUTE_OF_DAY` |
+| `WEEKDAY` | input, INT | bind `SYS.WEEKDAY` |
+| `DAYS` | input, INT | a bit per day, Monday = 1 .. Sunday = 64; 127 every day, 31 Monday to Friday |
+| `FROM1`, `TO1` | parameters, 360, 480 | the first window, 06:00–08:00 |
+| `FROM2`, `TO2` | parameters, 960, 1320 | the second, 16:00–22:00 |
+| `V_IN` | parameter, 2 | the value inside — comfort for THERMOSTAT's MODE |
+| `V_OUT` | parameter, 1 | the value outside — eco |
+| `VALUE` | output, INT | |
+| `Q` | output, bool | inside a window |
+
+Wire `VALUE` into THERMOSTAT's `MODE` and the room heats by the clock.
+A different weekend: a second SCHEDULE with `DAYS` 96 and a SEL block
+on `Q`.
+
+## SCENE — two channels, three scenes
+
+**An APPLY edge sets A and B to the levels of scene SEL; OFF clears both.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `SEL` | input, INT | the scene, 1..3 (0 = off) |
+| `APPLY` | input, bool | an edge applies it |
+| `OFF` | input, bool | an edge sets both channels to 0 |
+| `S1_A`, `S1_B` | parameters, 100, 100 | scene 1 |
+| `S2_A`, `S2_B` | parameters, 60, 30 | scene 2 |
+| `S3_A`, `S3_B` | parameters, 20, 0 | scene 3 |
+| `A`, `B` | outputs, number | the two levels — into DIMMER's SET |
+
+MULTICLICK's `CLICKS` into `SEL` and a GT block (`CLICKS > 0`) into
+`APPLY` make one click scene 1, two clicks scene 2, three clicks scene
+3 on one wall button. More channels: another SCENE on the same `SEL`
+and `APPLY`.
+
+## GATE — a garage door or a gate
+
+**One impulse key cycles open – stop – close – stop; the photocell reverses a closing gate.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `TRIG` | input, bool | the impulse key (the remote, the keypad) |
+| `OPEN` | input, bool | an edge opens; the same direction stops |
+| `CLOSE` | input, bool | an edge closes |
+| `SAFETY` | input, bool | the photocell or the safety edge: a closing gate reverses and stays open while TRUE |
+| `T_RUN` | parameter, T#20s | the travel time; the motor runs one second longer |
+| `T_REVERSE` | parameter, T#500ms | the pause before the other direction |
+| `T_AUTO` | parameter, T#0s | a fully open gate closes by itself after this; 0 = never |
+| `M_OPEN` | output, bool | |
+| `M_CLOSE` | output, bool | |
+
+The two outputs are never TRUE together. The gate drive's own safety
+devices stay wired as the manufacturer says — the block is the key
+logic, not the protection.
+
+## VENT — the bathroom fan
+
+**Runs with the light after a delay, runs on after it, runs on humidity, or by hand.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `LIGHT` | input, bool | the bathroom light |
+| `HUM` | input, number | relative humidity, % |
+| `MANUAL` | input, bool | an edge toggles the fan by hand |
+| `T_DELAY` | parameter, T#2m | the light must be on this long first (a short visit runs no fan) |
+| `T_RUNON` | parameter, T#10m | after the light went off |
+| `T_MAX` | parameter, T#1h | the longest humidity or manual run |
+| `H_ON` | parameter, 70 | humidity that starts the fan |
+| `H_OFF` | parameter, 60 | humidity that ends the demand |
+| `FAN` | output, bool | |
+| `HUMID` | output, bool | the humidity demand, for a screen |
+
+## CENTRAL — everything on, everything off, leaving
+
+**ON and OFF edges make a pulse; LEAVE makes the off pulse T_LEAVE later.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `ON` | input, bool | an edge: ALL_ON pulses |
+| `OFF` | input, bool | an edge: ALL_OFF pulses now |
+| `LEAVE` | input, bool | an edge: ALL_OFF pulses after T_LEAVE — time to reach the door |
+| `CANCEL` | input, bool | an edge forgets a pending LEAVE (so does ON) |
+| `T_LEAVE` | parameter, T#30s | |
+| `T_PULSE` | parameter, T#200ms | the pulse length |
+| `ALL_ON` | output, bool | into TOGGLE's SET and DIMMER's ON |
+| `ALL_OFF` | output, bool | into TOGGLE's RESET, STAIRLIGHT's OFF and DIMMER's OFF |
+
+## ENERGY — kilowatt-hours from a power
+
+**E counts kWh from a power in kW, once a second; COST is E times PRICE.**
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `P` | input, number | the power, kW (a meter's reading) |
+| `RESET` | input, bool | an edge starts from 0 |
+| `E_IN` | input, number | the count to continue from — bind the SAME variable as E |
+| `PRICE` | parameter, 0.25 | per kWh |
+| `E` | output, number | kWh |
+| `COST` | output, number | |
+
+The count lives in the variable bound to `E`: bind it to `E_IN` as
+well and mark it retained (*Variables → retain*), and the counter
+survives a restart. Without the `E_IN` wire the block counts one
+second at a time and forgets.
+
+## Standard functions in your own blocks
+
+The blocks above are ST you can read. SUNTIMES uses the standard
+functions `SIN`, `COS`, `TAN` and `ACOS`; `SQRT`, `ASIN`, `ATAN`,
+`EXP`, `LN`, `LOG` and `EXPT(base, exponent)` are there as well, all on
+REAL. See [Structured Text](st-language.md).
 
 ---
 

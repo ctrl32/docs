@@ -5,7 +5,7 @@ so you do not have to. A timer, a counter, a motor starter with feedback
 supervision — you drop it into a rung or a diagram, wire its pins, and it
 behaves the same on every board ctrl32 runs on.
 
-ctrl32 ships **53 of them** in the firmware and twelve more for a house in the
+ctrl32 ships **53 of them** in the firmware and twenty more for a house in the
 `home` block library. This page is what they have in common; the
 pages that follow are the reference, grouped the way the Toolbox groups
 them.
@@ -22,7 +22,7 @@ them.
 | [Motion](blocks-motion.md) | MC_POWER, MC_MOVEVELOCITY, MC_MOVEABS, … | driving an axis |
 | [CANopen](blocks-can.md) | CO_CIA402, CO_SDOWRITE, CO_SDOREAD, CO_RAMPTIME | talking to a drive directly |
 | [Services](blocks-services.md) | IR_SEND, SMS_SEND, GSM_INFO | infrared, SMS, modem state |
-| [Home automation](blocks-home.md) | PUSHBUTTON, TOGGLE, STAIRLIGHT, DIMMER, BLINDS, THERMOSTAT, DAYTIME, … | a house: wall buttons, lights, blinds, rooms and the clock |
+| [Home automation](blocks-home.md) | PUSHBUTTON, TOGGLE, STAIRLIGHT, DIMMER, BLINDS, THERMOSTAT, DAYTIME, ASTRO, SCHEDULE, SCENE, GATE, VENT, … | a house: wall buttons, lights, blinds, rooms, the clock and the sun |
 
 ![Function blocks wired in the FBD editor](img/fbd-i550.webp){: .sb-center}
 

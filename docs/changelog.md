@@ -12,11 +12,16 @@ capabilities, the first one practically never moves.
 
 - **Home automation blocks.** The `home` block library brings the wall
   button and what it drives: PUSHBUTTON (short, long), MULTICLICK,
-  TOGGLE, STAIRLIGHT, DIMMER with PWM, BLINDS with TRAVEL, PRESENCE,
-  TWILIGHT, THERMOSTAT and DAYTIME. They are ST blocks you can read and
-  copy, the Toolbox lists them under *Home*, and every one is held by a
-  simulation test. See [Home automation](blocks-home.md) and the
-  example `home_blocks.prj32`.
+  TOGGLE, STAIRLIGHT, DIMMER with PWM, BLINDS with TRAVEL (roller
+  shutter or venetian), PRESENCE, TWILIGHT, THERMOSTAT and DAYTIME - and
+  the house around them: SUNTIMES and ASTRO (sunrise and sunset for a
+  place), SCHEDULE, SCENE, GATE, VENT, CENTRAL and ENERGY. They are ST
+  blocks you can read and copy, the Toolbox lists them under *Home*,
+  and every one is held by a simulation test. See
+  [Home automation](blocks-home.md) and the example `home_blocks.prj32`.
+- **Maths in ST.** `SQRT`, `SIN`, `COS`, `TAN`, `ASIN`, `ACOS`, `ATAN`,
+  `EXP`, `LN`, `LOG` and `EXPT` on REAL. A project using them needs this
+  version's runtime on the device (pack format 61).
 - **Your own block takes parameters.** A `VAR_INPUT` with a default
   (`PT : TIME := T#3m;`) in an ST function block is a parameter row
   inside the box - a literal or a bound variable - and a block may use

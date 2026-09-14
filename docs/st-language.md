@@ -70,7 +70,11 @@ set the equipment's delay on the screen and the program takes it straight as
 `t1(PT := delay)`. See [Variables](variables.md).
 
 **Standard functions**: `ABS MIN MAX LIMIT SEL TRUNC`, the
-conversions above, and the string set below.
+conversions above, the string set below, and on REAL the maths of
+the norm: `SQRT SIN COS TAN ASIN ACOS ATAN EXP LN LOG` and
+`EXPT(base, exponent)`. Angles are radians; a value outside a
+function's domain answers 0 rather than a NaN that would poison
+every comparison after it.
 
 ## Calling another program
 

@@ -174,6 +174,7 @@ simply write it, `x := SYS.UPTIME_S;`, and the build adds it for you.
 | `SYS.MINUTE_OF_DAY` | INT | hour x 60 + minute, 0..1439 - the number a schedule compares |
 | `SYS.WEEKDAY` | INT | 1 = Monday .. 7 = Sunday |
 | `SYS.DAY`, `SYS.MONTH`, `SYS.YEAR`, `SYS.DAY_OF_YEAR` | INT | the date, 1-based |
+| `SYS.UTC_OFFSET` | INT | the device's offset to UTC in minutes, summer time included (120 in Bratislava in June) - what SUNTIMES needs |
 
 A fact a device does not have reads FALSE or 0 there; nothing is ever
 invented.
