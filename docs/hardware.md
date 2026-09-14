@@ -89,7 +89,7 @@ silicon. This is the table to check before choosing:
 | WiFi | yes | yes | yes | via C6 companion | — |
 | Ethernet | on-chip MAC | on-chip MAC | W5500 over SPI | on-chip | on-chip |
 | CAN / CANopen | yes | yes | yes | yes | yes |
-| RS485 / Modbus RTU | yes | yes | yes | yes | yes |
+| RS485 / Modbus RTU | yes | yes | yes | yes | — (the Discovery board has no RS485 transceiver) |
 | Modbus TCP | yes | yes | yes | yes | yes |
 | MQTT telemetry | yes | yes | yes | yes | yes |
 | MQTT over TLS | — | — | **yes** | **yes** | **yes** |
