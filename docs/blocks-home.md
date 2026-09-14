@@ -136,11 +136,19 @@ minutes is right. For a lamp use a PWM output of the board instead: the
 | `SAFETY` | input, bool | wind or frost: drives up once and locks both keys while TRUE |
 | `T_RUN` | parameter, T#25s | the full travel time; the motor runs one second longer so the end switch is reached |
 | `T_REVERSE` | parameter, T#500ms | the pause between two directions, so the motor never reverses under load |
+| `T_TILT` | parameter, T#0s | venetian blinds: the motor time of one tilt step; 0 = a roller shutter |
+| `T_LONG` | parameter, T#400ms | venetian blinds: a key held longer than this runs to the end |
 | `M_UP` | output, bool | the motor relay up |
 | `M_DOWN` | output, bool | the motor relay down |
 
 The two outputs are never TRUE together. Wire the end switches into the
 motor as the manufacturer says — the block only times the run.
+
+With `T_TILT` at zero the block is a **roller shutter**: a click on a
+key runs to the end. With `T_TILT` set it is a **venetian blind**: a
+short click on a key turns the slats one step (the motor runs `T_TILT`),
+a key held past `T_LONG` runs to the end, and a click during a run stops
+it as before.
 
 ## TRAVEL — where the blind is
 
