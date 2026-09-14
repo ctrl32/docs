@@ -170,6 +170,10 @@ simply write it, `x := SYS.UPTIME_S;`, and the build adds it for you.
 | `SYS.OTA_PENDING` | BOOL | a freshly updated runtime that has not confirmed itself yet |
 | `SYS.TIME_VALID` | BOOL | the clock is set — NTP answered or the RTC was read |
 | `SYS.HW_ID` | DINT | the board's hardware id |
+| `SYS.HOUR`, `SYS.MINUTE` | INT | the wall clock in the project's time zone (*clock: tz*); 0 while `SYS.TIME_VALID` is FALSE |
+| `SYS.MINUTE_OF_DAY` | INT | hour x 60 + minute, 0..1439 - the number a schedule compares |
+| `SYS.WEEKDAY` | INT | 1 = Monday .. 7 = Sunday |
+| `SYS.DAY`, `SYS.MONTH`, `SYS.YEAR`, `SYS.DAY_OF_YEAR` | INT | the date, 1-based |
 
 A fact a device does not have reads FALSE or 0 there; nothing is ever
 invented.

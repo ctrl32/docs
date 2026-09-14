@@ -10,6 +10,24 @@ capabilities, the first one practically never moves.
 
 ## 1.00.048
 
+- **Home automation blocks.** The `home` block library brings the wall
+  button and what it drives: PUSHBUTTON (short, long), MULTICLICK,
+  TOGGLE, STAIRLIGHT, DIMMER with PWM, BLINDS with TRAVEL, PRESENCE,
+  TWILIGHT, THERMOSTAT and DAYTIME. They are ST blocks you can read and
+  copy, the Toolbox lists them under *Home*, and every one is held by a
+  simulation test. See [Home automation](blocks-home.md) and the
+  example `home_blocks.prj32`.
+- **Your own block takes parameters.** A `VAR_INPUT` with a default
+  (`PT : TIME := T#3m;`) in an ST function block is a parameter row
+  inside the box - a literal or a bound variable - and a block may use
+  another block of the project inside. Program and block variables
+  take initial values (`x : INT := 5;`).
+- **The clock as variables.** `SYS.HOUR`, `SYS.MINUTE`, `SYS.WEEKDAY`,
+  `SYS.MINUTE_OF_DAY`, `SYS.DAY`, `SYS.MONTH`, `SYS.YEAR` and
+  `SYS.DAY_OF_YEAR` in the project's time zone (*clock: tz*), on every
+  device. See [Variables](variables.md).
+- **The simulation counts exact milliseconds** when a test drives it, so
+  a timing test gives the same answer on every PC.
 - **The STM32 F7 updates its runtime over the network.** The board keeps
   a small loader that never changes and swaps the runtime through its
   QSPI memory: the running one is kept aside, the new one is written and

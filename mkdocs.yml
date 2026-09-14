@@ -117,6 +117,7 @@ nav:
       - Motion: blocks-motion.md
       - CANopen blocks: blocks-can.md
       - Services: blocks-services.md
+      - Home automation: blocks-home.md
   - Protocols:
       - Protocols: buses.md
       - What Modbus is: modbus-basics.md
