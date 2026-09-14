@@ -106,8 +106,12 @@ selection, `Ctrl+Z` takes anything back.
   (*+ Network*; right-click the number lane to insert, move or delete
   one); blocks come from the **Toolbox** (click adds into the
   selected network); wires are drawn **pin to pin** — click an
-  output, click an input. A wire that would cross networks is
-  refused.
+  output, click an input — and run as horizontal and vertical
+  segments, a signal that feeds a block to its left goes around
+  underneath. A wire that would cross networks is refused. Blocks
+  never overlap: a block occupies its box and the names beside its
+  pins, a block dropped onto another is moved clear to the right, and
+  *Arrange* lays the columns out as wide as their blocks need.
 - **ST**: a plain text editor with completion; the declaration pane
   above applies with `Ctrl+Enter`.
 
