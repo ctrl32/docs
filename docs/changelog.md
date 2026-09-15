@@ -8,6 +8,18 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.049
+
+- **Modbus RTU on RS485 works on every ESP32 board.** The RS485 line
+  opens the moment a project uses it: a device on the RS485 line, or
+  the panel answering as a Modbus RTU slave. Before this release the
+  line stayed closed on every ESP32 board (a compiled switch nobody
+  could reach), so Modbus RTU worked only on the Linux runtime. Proven
+  on two boards over one A/B pair: a master reads a slave's temperature
+  bit for bit. Headless boards report the state of every Modbus device
+  on the console as the display boards do. The F7 Discovery has no RS485
+  transceiver, so the hardware table says so.
+
 ## 1.00.048
 
 - **Home automation blocks.** The `home` block library brings the wall
