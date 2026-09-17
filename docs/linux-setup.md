@@ -180,7 +180,11 @@ on the device itself:
 
 - **Expansion board** — a preset for the boards the catalog knows
   (the reTerminal E10-1: its CAN controller, RS-485/RS-232 and second
-  network port), which writes the boot lines the board needs
+  network port), which writes the boot lines the board needs and turns
+  on what its own chips require (the I2C driver, the serial port). The
+  board's own chips are known to the scanner by name; the ones the
+  operating system drives (the E10-1's control expander and its
+  charger) are shown as such and never added to a project
 - the boot lines the device itself asked for (an expansion controller
   you assigned on the device's bus page)
 - **Free the serial port from the login console** — ticked whenever a
