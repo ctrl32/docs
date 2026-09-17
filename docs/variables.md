@@ -175,6 +175,12 @@ simply write it, `x := SYS.UPTIME_S;`, and the build adds it for you.
 | `SYS.WEEKDAY` | INT | 1 = Monday .. 7 = Sunday |
 | `SYS.DAY`, `SYS.MONTH`, `SYS.YEAR`, `SYS.DAY_OF_YEAR` | INT | the date, 1-based |
 | `SYS.UTC_OFFSET` | INT | the device's offset to UTC in minutes, summer time included (120 in Bratislava in June) - what SUNTIMES needs |
+| `SYS.BATTERY_PRESENT` | BOOL | a battery is fitted and known to the device (a Linux device with a UPS, such as the reTerminal with its E10-1) |
+| `SYS.ON_BATTERY` | BOOL | the supply is gone and the battery carries the device — the moment to save, to warn, to stop what must not run unattended |
+| `SYS.CHARGING` | BOOL | the charger is charging |
+| `SYS.BATTERY_PERCENT` | INT | 0..100 when the device has a gauge, otherwise -1 (the E10-1 has none: judge the pack by its voltage) |
+| `SYS.BATTERY_VOLTAGE` | REAL | the battery pack, in volts |
+| `SYS.INPUT_VOLTAGE` | REAL | the supply at the charger's input, in volts (the 12 V jack or PoE) |
 
 A fact a device does not have reads FALSE or 0 there; nothing is ever
 invented.

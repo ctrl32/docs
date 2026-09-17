@@ -30,6 +30,12 @@ capabilities, the first one practically never moves.
   (DHCP or a fixed address). It lists the steps before Apply, checks
   each on the device afterwards, restarts the device only when a boot
   setting changed, and refuses in words what the device cannot take.
+- **The UPS as system variables.** A Linux device with a battery
+  (the reTerminal with its E10-1) reports `SYS.ON_BATTERY`,
+  `SYS.CHARGING`, `SYS.BATTERY_PRESENT`, `SYS.BATTERY_VOLTAGE`,
+  `SYS.INPUT_VOLTAGE` and `SYS.BATTERY_PERCENT` (-1 where the device
+  has no gauge) — a program saves, warns or stops when the supply
+  goes. The device page's scan shows the same line.
 - **Bus problems in words.** A serial port the runtime may not open
   says which group it needs; a port that does not exist says what
   driver or overlay would make it; a port that is the device's own
