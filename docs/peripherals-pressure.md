@@ -38,7 +38,7 @@ axis that does not need to count revolutions.
 therefore heading. On a setup, more often used to detect a large steel
 object moving nearby.
 
-**Inertial** — `MPU6050`, `BMI160`, `LSM6DS` — accelerometer and
+**Inertial** — `MPU6050`, `BMI160`, `LSM6DS`, `LIS3DH`, `LIS331DLH` — accelerometer and
 gyroscope together: tilt, and vibration.
 
 !!! tip "Vibration is easier than orientation"
@@ -81,6 +81,8 @@ gyroscope together: tilt, and vibration.
 | `HMC5883L` | I2C | I2C magnetometer (Honeywell classic) — channels: 0–2 = field X/Y/Z [gauss]. Fixed address 0x1E; continuous mode, ±1.3 G range. |
 | `LSM6DS` | I2C | I2C accelerometer + gyroscope (ST LSM6DS3/DSO family) — channels: 0–2 = acceleration X/Y/Z [g], 3–5 = angular rate X/Y/Z [°/s], 6 = die temperature [°C]. Ranges ±2 g / ±250 °/s. Address 0x6A–0x6B. |
 | `MPU6050` | I2C | I2C accelerometer + gyroscope — channels: 0–2 = acceleration X/Y/Z [g], 3–5 = angular rate X/Y/Z [°/s], 6 = die temperature [°C]. Ranges ±2 g / ±250 °/s. Address 0x68–0x69. Vibration and tilt monitoring. |
+| `LIS331DLH` | I2C | I2C 3-axis accelerometer (ST LIS331DLH) — channels: 0–2 = acceleration X/Y/Z [g]. ±2 g range, 12-bit, 1 mg/LSB, normal mode 50 Hz. Tilt, vibration and shock monitoring. Address 0x18–0x19 (the reTerminal's own accelerometer is the LIS3DH). |
+| `LIS3DH` | I2C | I2C 3-axis accelerometer (ST LIS3DH / LIS3DHTR; the reTerminal's own, address 0x19) — channels: 0–2 = acceleration X/Y/Z [g]. ±2 g range, high-resolution 12-bit, 1 mg/LSB, 50 Hz. Tilt, vibration and shock monitoring on a Linux device; the kernel's evdev driver may run beside it. Address 0x18–0x19. |
 | `QMC5883L` | I2C | I2C magnetometer (the HMC5883L clone) — channels: 0–2 = field X/Y/Z [gauss]. Fixed address 0x0D; continuous mode, ±8 G range. |
 
 Every entry above is in the editor: pick the chip, give it

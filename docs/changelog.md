@@ -36,6 +36,13 @@ capabilities, the first one practically never moves.
   `SYS.INPUT_VOLTAGE` and `SYS.BATTERY_PERCENT` (-1 where the device
   has no gauge) — a program saves, warns or stops when the supply
   goes. The device page's scan shows the same line.
+- **Three more chips in the peripheral library.** `LIS3DH` (a 3-axis
+  accelerometer, the reTerminal's own), `LIS331DLH` (its sibling) and
+  `BQ25790` (the buck-boost battery charger of the reTerminal E10-1
+  UPS: supply and battery voltage and current, charge state, supply
+  present, die temperature) - as project peripherals with their own
+  drivers, named by the device scanner, listed as fitted on the
+  reTerminal and proven on it.
 - **The device's own sensors as system variables.** Where the device
   has them (the reTerminal): `SYS.ACCEL_X/Y/Z` in g, `SYS.TILT` in
   degrees, `SYS.SHOCK_G` (the largest acceleration of the last two

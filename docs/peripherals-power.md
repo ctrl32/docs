@@ -7,6 +7,7 @@ Nine power monitors, three energy meters and two battery gauges.
 | You need | Reach for |
 |:---|:---:|
 | DC current and voltage on a rail | `INA219`, `INA226`, `INA236` |
+| A battery charger / UPS: supply and battery voltage and current, charge state | `BQ25790` |
 | higher precision, wider range | `INA228`, `INA238` |
 | three rails at once | `INA3221` |
 | current without an external shunt | `INA260` (shunt built in) |
@@ -60,6 +61,7 @@ occasionally.
 |:---|:---:|:---|
 | `INA219` | I2C | I2C current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt resistance in tenths of mΩ (0 = 100 mΩ, the common blue module; YAML key shunt_mohm). Address 0x40–0x4F. |
 | `INA226` | I2C | I2C current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt resistance in tenths of mΩ (0 = 100 mΩ, the common blue module; YAML key shunt_mohm). Current is computed from Vshunt/R; fine-tuning via variable gain/offset. |
+| `BQ25790` | I2C | I2C buck-boost battery charger with ADC (TI BQ25790 / BQ25792; the UPS of the reTerminal E10-1) — channels: 0 = supply voltage VBUS [V], 1 = battery VBAT [V], 2 = supply current IBUS [A], 3 = battery current IBAT [A] (+ = charging), 4 = charge state (0 off, 1 trickle, 2 pre, 3 fast, 4 taper, 6 top-off, 7 done), 5 = supply present (1/0), 6 = die temperature [°C]. Read-only: the charge limits stay the board's. Address 0x6B. |
 | `INA228` | I2C | I2C 20-bit current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). Address 0x40–0x4F. |
 | `INA229` | SPI | SPI 20-bit current/voltage/power monitor (the INA228 over SPI) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). addr = CS pin. |
 | `INA236` | I2C | I2C current/voltage/power monitor (the INA226 successor) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). Address 0x40–0x4F. |
