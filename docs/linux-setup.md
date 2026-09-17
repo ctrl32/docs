@@ -166,9 +166,43 @@ On a Raspberry Pi image the device's own UART (`/dev/serial0`)
 carries a login console by default. A HAT on that UART then shares
 the line with a shell that answers every Modbus frame with a login
 prompt — the slave "never answers". The runtime names this when it
-opens the port; turn the console off (`raspi-config` → *Interface
-Options* → *Serial Port*: login shell **No**, hardware **Yes**) and
-reboot. A USB-RS485 adapter has no such conflict.
+opens the port; the editor turns the console off for you (below), or
+do it on the device (`raspi-config` → *Interface Options* → *Serial
+Port*: login shell **No**, hardware **Yes**) and reboot. A USB-RS485
+adapter has no such conflict.
+
+#### The operating system, from the editor
+
+Everything a Linux device needs beyond the project is set from the
+editor — *Tools* → *Prepare a Linux device*, then **Look at the
+device**. Under the device's summary the editor shows what it can set
+on the device itself:
+
+- **Expansion board** — a preset for the boards the catalog knows
+  (the reTerminal E10-1: its CAN controller, RS-485/RS-232 and second
+  network port), which writes the boot lines the board needs
+- the boot lines the device itself asked for (an expansion controller
+  you assigned on the device's bus page)
+- **Free the serial port from the login console** — ticked whenever a
+  console is found on a UART
+- the I2C driver at every start
+- the **device name**
+- the **network**: an interface, then *leave as it is*, *automatic
+  address (DHCP)* or a *fixed address* with prefix, gateway and DNS
+
+The editor lists what pressing **Apply** will do, step by step, and
+says beforehand when the device will restart (only a boot setting
+needs that). Each step is checked on the device after it ran; a step
+that did not take is named, and the rest is left alone. Pressing
+Apply again on a device that already is as chosen changes nothing —
+the editor says so. A setting the device cannot take (a boot
+configuration the editor does not know, a network not managed by
+NetworkManager, a name that is not a name) is refused in words before
+anything is sent.
+
+Changing the address of the port the editor is talking over ends the
+session — the editor says so; afterwards the device answers at the
+new address, and that is the address to type.
 
 ### 5. Check it
 

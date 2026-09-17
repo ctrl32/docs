@@ -22,6 +22,14 @@ capabilities, the first one practically never moves.
   port the project sets), up to four connections at once — as every
   ESP32 board has. Before this release the Linux runtime served Modbus
   RTU only and said so.
+- **The operating system of a Linux device, from the editor.** Under
+  *Prepare a Linux device*, after a Look, the editor sets what a
+  project cannot: the boot lines an expansion board needs (a preset
+  for the reTerminal E10-1), the login console off the serial port,
+  the I2C driver at every start, the device name and the network
+  (DHCP or a fixed address). It lists the steps before Apply, checks
+  each on the device afterwards, restarts the device only when a boot
+  setting changed, and refuses in words what the device cannot take.
 - **Bus problems in words.** A serial port the runtime may not open
   says which group it needs; a port that does not exist says what
   driver or overlay would make it; a port that is the device's own
