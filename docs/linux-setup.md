@@ -182,6 +182,9 @@ on the device itself:
   (the reTerminal E10-1: its CAN controller, RS-485/RS-232 and second
   network port), which writes the boot lines the board needs and turns
   on what its own chips require (the I2C driver, the serial port). The
+  board's RS-485 transceiver is driven the way the board wires it — on
+  the E10-1 the direction is a pair of GPIO lines, and picking its
+  serial port on the bus page writes that with the port. The
   board's own chips are known to the scanner by name; the ones the
   operating system drives (the E10-1's control expander and its
   charger) are shown as such and never added to a project

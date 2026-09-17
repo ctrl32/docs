@@ -9,6 +9,29 @@ the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
 ## 1.00.050
+- **An RS-485 system example.** `rs485_system` — a reTerminal with the
+  E10-1 as the Modbus RTU master of three slaves on one pair (an
+  inoCORE32-TM8.6 with three RTD zones, two inoCORE32-TM1.1 panels),
+  and the CANopen master of an i550 on the E10-1's CAN. The master's
+  screen shows every slave, writes their setpoints and starts their
+  machines; each slave keeps its own program. One project, deployed as
+  one. The page: [RS-485 system](example-rs485.md).
+- **RS-485 direction from GPIO lines.** A Linux device whose serial
+  port has no RTS on the wire (the reTerminal E10-1) drives its
+  transceiver from the GPIO lines the board wires — the editor writes
+  them with the port, the device's console says which. Proven with the
+  E10-1 on a live pair.
+- **32-bit integers over Modbus, both ways.** A master's `i32`/`u32`
+  variable is read from two registers, as the documentation always
+  said (it read one before), and a master WRITES a 32-bit value —
+  a setpoint, a counter — as two registers in one request, which a
+  ctrl32 slave (and every other) accepts; before, such a write was
+  silently not made.
+- **A CAN interface left in listen-only mode is set right.** A device's
+  CAN interface found listen-only (a passive look with `candump` that
+  was never undone) is brought back to a normal link when the runtime
+  starts — before, every request to a drive timed out with nothing
+  saying why.
 
 - **CAN on a Linux device needs nobody at its shell.** The runtime
   sets the CAN interface's bitrate from the project and brings the

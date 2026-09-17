@@ -81,6 +81,7 @@ nav:
       - Thermostat (Olimex EVB): example-thermostat.md
       - Drive control (Lenze i550): example-i550.md
       - Showcase (STM32F746): example-showcase.md
+      - RS-485 system (reTerminal + three slaves): example-rs485.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md
