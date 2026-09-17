@@ -181,6 +181,10 @@ simply write it, `x := SYS.UPTIME_S;`, and the build adds it for you.
 | `SYS.BATTERY_PERCENT` | INT | 0..100 when the device has a gauge, otherwise -1 (the E10-1 has none: judge the pack by its voltage) |
 | `SYS.BATTERY_VOLTAGE` | REAL | the battery pack, in volts |
 | `SYS.INPUT_VOLTAGE` | REAL | the supply at the charger's input, in volts (the 12 V jack or PoE) |
+| `SYS.ACCEL_X`, `SYS.ACCEL_Y`, `SYS.ACCEL_Z` | REAL | the device's accelerometer, in g (a reTerminal lying flat reads about -1 on Z) |
+| `SYS.TILT` | REAL | degrees between the device's face and level — 0 lying flat, 90 standing upright |
+| `SYS.SHOCK_G` | REAL | the largest acceleration seen in the last two seconds, in g — a knock, a drop, a machine that vibrates |
+| `SYS.LIGHT` | REAL | the device's light sensor, in lux; -1 where there is none |
 
 A fact a device does not have reads FALSE or 0 there; nothing is ever
 invented.

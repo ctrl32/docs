@@ -36,6 +36,11 @@ capabilities, the first one practically never moves.
   `SYS.INPUT_VOLTAGE` and `SYS.BATTERY_PERCENT` (-1 where the device
   has no gauge) — a program saves, warns or stops when the supply
   goes. The device page's scan shows the same line.
+- **The device's own sensors as system variables.** Where the device
+  has them (the reTerminal): `SYS.ACCEL_X/Y/Z` in g, `SYS.TILT` in
+  degrees, `SYS.SHOCK_G` (the largest acceleration of the last two
+  seconds — a knock, a drop, a vibrating machine) and `SYS.LIGHT` in
+  lux (-1 without a light sensor).
 - **Bus problems in words.** A serial port the runtime may not open
   says which group it needs; a port that does not exist says what
   driver or overlay would make it; a port that is the device's own
