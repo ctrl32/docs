@@ -132,7 +132,8 @@ version 1.00.040 every Linux device also has **CAN** and **RS485**:
 - **CAN** (CANopen master or slave, raw CAN, net32 over CAN) over
   the interface the operating system knows as `can0` — a CAN HAT on
   a Raspberry Pi, the DK2's FDCAN with a transceiver, or a USB-CAN
-  adapter. The bitrate is set on the interface in the service unit.
+  adapter. The runtime sets the interface's bitrate from the project
+  and brings it up itself — nothing is typed on the device.
 - **RS485** (Modbus RTU master or slave) over a USB-RS485 adapter or
   a HAT on the device's own UART — up to **four lines**, each with its
   own baud rate and parity, like the four CAN buses.

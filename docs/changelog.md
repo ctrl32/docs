@@ -8,6 +8,29 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.050
+
+- **CAN on a Linux device needs nobody at its shell.** The runtime
+  sets the CAN interface's bitrate from the project and brings the
+  interface up itself when it starts — every bus its own speed, bus-off
+  recovery included. The commented `ip link` line in the service unit
+  is gone; a runtime started by hand from a shell still prints the line
+  to run once as root. The log says which it did: *set by the runtime*
+  or *as found*.
+- **Modbus TCP slave on Linux.** A Linux device answers a SCADA, a PLC
+  or another ctrl32 device as a Modbus TCP slave on port 502 (or the
+  port the project sets), up to four connections at once — as every
+  ESP32 board has. Before this release the Linux runtime served Modbus
+  RTU only and said so.
+- **Bus problems in words.** A serial port the runtime may not open
+  says which group it needs; a port that does not exist says what
+  driver or overlay would make it; a port that is the device's own
+  login console — the Raspberry Pi default — is named the moment it
+  opens, because a login shell on the same UART answers Modbus frames
+  with a prompt and the slave "never answers". An EtherCAT interface
+  with only a link-local address (nobody configured it) is accepted,
+  and one that is down is brought up.
+
 ## 1.00.049
 
 - **Modbus RTU on RS485 works on every ESP32 board.** The RS485 line

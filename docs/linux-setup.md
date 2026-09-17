@@ -122,7 +122,7 @@ CTRL32_HWID=0x20000001
 | `CTRL32_RS485` | optional: the Modbus RTU line — a USB-RS485 adapter (`/dev/ttyUSB0`, direction handled by the adapter) or the SoC UART of an RS485 HAT (`/dev/ttyAMA0`) |
 | `CTRL32_RS485_RTS` | `1` with a HAT on the SoC UART: the kernel drives the direction pin (DE) from RTS. Leave it out for a USB adapter. **More lines**: `CTRL32_RS485=/dev/ttyUSB0,/dev/ttyUSB1,…` names up to four RS485 lines (`CTRL32_RS485_RTS=1,0,…` per line); the project declares the extra lines (right-click *Serial* in the editor → *Add RS485 line*, each with its own baud and parity) and every RTU device and variable says which line it is on — the same unit number may then live on two lines |
 | `CTRL32_ECAT` | optional: the network interface your **EtherCAT** slaves hang on — a second NIC or a USB one that the runtime owns alone — **nothing else goes over that link**: the runtime refuses an interface that carries an IP address and says which address it found; remove the address or use a dedicated adapter. The project's EtherCAT page lists the slaves in bus order and their signals; the service unit grants the raw-socket right the master needs |
-| `CTRL32_CAN` | optional: the CAN interface for CANopen, raw CAN and net32 over CAN — `can0` of a CAN HAT (MCP2515 / MCP251xFD overlay) or a USB adapter (`gs_usb`, `slcan`). The bitrate is set on the interface in the service unit, see below. **More buses**: `CTRL32_CAN=can0,can1` — the project declares its extra buses (right-click the CAN node in the editor → *Add CAN bus*) and every CAN device, axis and variable says which bus it is on; the same node-ID may then live on two buses |
+| `CTRL32_CAN` | optional: the CAN interface for CANopen, raw CAN and net32 over CAN — `can0` of a CAN HAT (MCP2515 / MCP251xFD overlay) or a USB adapter (`gs_usb`, `slcan`). The runtime sets the interface's bitrate from the project and brings it up itself, see below. **More buses**: `CTRL32_CAN=can0,can1` — the project declares its extra buses (right-click the CAN node in the editor → *Add CAN bus*), each with its own bitrate, and every CAN device, axis and variable says which bus it is on; the same node-ID may then live on two buses |
 
 Enable and start:
 
@@ -137,17 +137,38 @@ the first upload from the editor creates it.
 
 #### CAN on a Linux device
 
-The runtime uses the interface as the operating system configured
-it; the **bitrate** is set in the service unit, where the line is
-already prepared (remove the `#`, match the project's bitrate):
+The runtime configures the interface itself when it starts: the
+**bitrate** the project declares on its CAN node (every bus its own),
+bus-off recovery, and the interface up. Nothing is typed on the
+device — the service unit carries the right this needs. The log says
+which it did:
 
 ```
-ExecStartPre=+/sbin/ip link set can0 up type can bitrate 500000 restart-ms 100
+can: can0 up at 500000 bit/s (set by the runtime)
 ```
 
-`restart-ms` lets the kernel recover from a bus-off. If the interface
-is down when the runtime starts, its log prints exactly this line
-with the project's bitrate filled in.
+A runtime started by hand from a shell has no such right; it then
+prints the `ip link` line to run once as root instead. A USB adapter
+that sets its own speed (`slcan`) is only brought up.
+
+#### Modbus TCP slave on a Linux device
+
+A Linux device answers as a **Modbus TCP slave** on port 502 (or the
+port the project's Modbus slave page sets) — a SCADA, a PLC or another
+ctrl32 device reads and writes its variable map over the network, up
+to four connections at once. The service unit carries the right the
+standard port needs; a runtime started by hand from a shell is told
+so and can use a port above 1023 instead.
+
+#### The serial console
+
+On a Raspberry Pi image the device's own UART (`/dev/serial0`)
+carries a login console by default. A HAT on that UART then shares
+the line with a shell that answers every Modbus frame with a login
+prompt — the slave "never answers". The runtime names this when it
+opens the port; turn the console off (`raspi-config` → *Interface
+Options* → *Serial Port*: login shell **No**, hardware **Yes**) and
+reboot. A USB-RS485 adapter has no such conflict.
 
 ### 5. Check it
 
@@ -186,8 +207,8 @@ shows the visualisation, a device without one serves WEBview.
    service; it prints the `/devinfo` address at the end.
 3. The bus lines your hardware has go into `/etc/default/ctrl32run`:
    `CTRL32_RS485` for an RS485 adapter or HAT, `CTRL32_CAN` for a
-   CAN HAT or USB adapter (its bitrate line in the unit),
-   `CTRL32_ECAT` for a dedicated EtherCAT NIC. No monitor: nothing
+   CAN HAT or USB adapter (the runtime sets its bitrate from the
+   project), `CTRL32_ECAT` for a dedicated EtherCAT NIC. No monitor: nothing
    to set, the runtime serves WEBview when no display is connected.
    After an edit: `sudo systemctl restart ctrl32run`.
 4. From here on SSH is not needed: the editor's scanner finds the
