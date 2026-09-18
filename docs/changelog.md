@@ -9,6 +9,13 @@ the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
 ## 1.00.050
+- **The reTerminal example.** `reterminal_example` — the board's own
+  project: a Lenze i550 driven over CANopen from one screen (the dial,
+  START/STOP with a confirmation, setpoint, direction, ramps, current,
+  torque, DC link, frequency, error code, the CiA 402 lamps, a trend),
+  the RS-485 pair with two slaves, the device's UPS and sensors, and
+  the alarms — on the glass and on a phone. The page:
+  [reTerminal](example-reterminal.md).
 - **An RS-485 system example.** `rs485_system` — a reTerminal with the
   E10-1 as the Modbus RTU master of two slaves on one pair (an
   inoCORE32-TM8.6 with three RTD zones, an inoCORE32-TM1.1 panel),

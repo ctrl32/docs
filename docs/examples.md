@@ -18,6 +18,7 @@ after an update.
 | [Thermostat](example-thermostat.md) | Olimex ESP32-EVB, 240×320 | a wall thermostat: hysteresis, two relays, manual mode, trend, alarms and a phone page |
 | [Drive control](example-i550.md) | Olimex ESP32-EVB, 240×320 | a Lenze i550 over CANopen: the DRIVE_i550 block, diagnostics straight from the drive's objects, START/STOP from the glass and from a phone |
 | [Showcase](example-showcase.md) | STM32F746 Discovery, 480×272 | the same runtime on other silicon: status word lamps, bit access, ethernet, online |
+| [reTerminal](example-reterminal.md) | Seeed reTerminal + E10-1, 1280×720 | a Linux device doing everything at once: a Lenze i550 over CANopen from one screen, two RS-485 slaves, the device's own UPS and sensors, alarms |
 | [RS-485 system](example-rs485.md) | reTerminal + E10-1, inoCORE32-TM8.6, inoCORE32-TM1.1 | one Modbus RTU master and two slaves on one pair, an i550 on the master's CAN — a system project the editor deploys as one |
 
 More will be added here. Each gets its own page, with what it shows,
