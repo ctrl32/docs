@@ -10,8 +10,8 @@ capabilities, the first one practically never moves.
 
 ## 1.00.050
 - **An RS-485 system example.** `rs485_system` — a reTerminal with the
-  E10-1 as the Modbus RTU master of three slaves on one pair (an
-  inoCORE32-TM8.6 with three RTD zones, two inoCORE32-TM1.1 panels),
+  E10-1 as the Modbus RTU master of two slaves on one pair (an
+  inoCORE32-TM8.6 with three RTD zones, an inoCORE32-TM1.1 panel),
   and the CANopen master of an i550 on the E10-1's CAN. The master's
   screen shows every slave, writes their setpoints and starts their
   machines; each slave keeps its own program. One project, deployed as

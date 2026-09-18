@@ -1,15 +1,15 @@
-# RS-485 system — one master, three slaves
+# RS-485 system — one master, two slaves
 
-One Modbus RTU master reading and writing three slaves over a single
+One Modbus RTU master reading and writing two slaves over a single
 RS-485 pair, with a frequency drive on the master's CAN beside it. A
-**system project**: four devices in one file, deployed as one from the
+**system project**: three devices in one file, deployed as one from the
 editor's system page, each device keeping its own program and its own
 screens.
 
 **Project:** `examples\rs485_system.prj32`
 **Boards:** a reTerminal with the E10-1 expansion (the master), an
-inoCORE32-TM8.6 and two inoCORE32-TM1.1 (the slaves)
-**Needs:** the four boards on one A/B pair (19200 8N1, a termination
+inoCORE32-TM8.6 and an inoCORE32-TM1.1 (the slaves)
+**Needs:** the three boards on one A/B pair (19200 8N1, a termination
 at each end) — the slaves run without the master, the master's screen
 shows what answers; the Lenze i550 on the E10-1's CAN terminal is
 optional (its lamps simply stay dark)
@@ -38,10 +38,9 @@ would run on a Raspberry Pi with a USB-RS485 dongle without a change.
 
 | Device | Board | Role |
 |:---|:---|:---|
-| `master` | reTerminal + E10-1 | Modbus RTU master of units 1..3 on `ttyS0`; CANopen master of the i550 (node 2) on the E10-1's CAN; a 1280×720 screen and a phone page |
+| `master` | reTerminal + E10-1 | Modbus RTU master of units 1 and 2 on `ttyS0`; CANopen master of the i550 (node 2) on the E10-1's CAN; a 1280×720 screen and a phone page |
 | `zones` | inoCORE32-TM8.6 | slave unit 1: three RTD temperatures over its MAX31865 converters, a thermostat per zone, setpoints the master writes |
 | `panel_a` | inoCORE32-TM1.1 | slave unit 2: the [TM1.1 example's](examples.md) little machine — the master starts it, reads its counter and its inputs |
-| `panel_b` | inoCORE32-TM1.1 | slave unit 3: the same program on the second panel |
 
 ### What travels over the pair
 
@@ -53,7 +52,7 @@ The zones slave (unit 1):
 | holding 6–7, 8–9, 10–11 | `sp_a`, `sp_b`, `sp_c` | read and **written** by the master |
 | coil 0, 1, 2 | `heat_a`, `heat_b`, `heat_c` | read |
 
-A panel slave (units 2 and 3):
+The panel slave (unit 2):
 
 | Register | Variable | Direction |
 |:---|:---|:---|
@@ -65,10 +64,12 @@ A panel slave (units 2 and 3):
 | coil 5 | `lamp` | **written** — lit while a zone is over the limit |
 | coil 6, 7 | `out_user1`, `out_user2` | **written** |
 
-The master's program is three lines: a heartbeat it writes to both
-panels once a second, the average of the three zones, and a limit
-that lights the panels' lamps. Everything else is wiring — variables
-that name a unit and a register, widgets that name a variable.
+The master's program is three lines: a heartbeat it writes to the
+panel once a second, the average of the three zones, and a limit
+that lights the panel's lamp. Everything else is wiring — variables
+that name a unit and a register, widgets that name a variable. A third
+slave is one more block of variables naming `unit: 3`; nothing else
+changes.
 
 ---
 
@@ -99,8 +100,8 @@ that name a unit and a register, widgets that name a variable.
 - Change a setpoint on the master's screen and watch the zone's heater
   lamp follow on the slave's phone page.
 - Pull the A/B wire from one slave: the master's RS-485 lamp goes out
-  (`SYS.MB_OK`), the other slaves keep answering, and the panels'
-  `master_beat` stops on the one you unplugged.
+  (`SYS.MB_OK`), the other slave keeps answering, and the panel's
+  `master_beat` stops if it was the panel.
 - Give the zones slave its solid-state relays: the project says which
   pins they are (a `gpio` source with `access: rw` is an output).
 
