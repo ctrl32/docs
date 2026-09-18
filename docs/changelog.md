@@ -27,6 +27,21 @@ capabilities, the first one practically never moves.
   Lenze i550 raised "PDO mapping error" and sent zeros) gets it at
   every start; a slave's state is read after the bus comes up, so a
   drive is under program control from the first cycle.
+- **EtherCAT: a slave that comes back.** A slave that was switched
+  off and on (a drive after a reset by hand) is configured again and
+  rejoins the cycle instead of flapping between lost and found twice a
+  second; a drive found in fault when the line starts gets one fault
+  reset, so START works without a visit to the drive.
+- **net32 over UDP keeps its multicast membership.** A device asks for
+  its multicast group again every half minute — a network that forgot
+  the membership had left a device sending for a day and hearing
+  nothing.
+- **`SYS.MB_OK` and `SYS.CAN_OK` on a Linux device.** Both facts follow
+  the Modbus master and the CAN interface as on every ESP32 board; they
+  read false before, whatever the buses did.
+- **The New project wizard lists the boards by manufacturer** again,
+  with a heading per manufacturer and ours first; the filter searches
+  across all of them.
 - **An RS-485 system example.** `rs485_system` — a reTerminal with the
   E10-1 as the Modbus RTU master of two slaves on one pair (an
   inoCORE32-TM8.6 with three RTD zones, an inoCORE32-TM1.1 panel),
