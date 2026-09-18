@@ -45,7 +45,7 @@ inside a name edits the name, not the screen.
 | **Build** | Compile (`F7`) |
 | **Online** | Download to panel (`F5`), Find devices, Scope, Force, **Simulation** start/stop |
 | **Debug** | Pause and single-cycle Step — enabled while a simulation runs |
-| **Tools** | Device library (the Modbus and EDS catalogues) |
+| **Tools** | Device library (the Modbus, CAN EDS and EtherCAT ESI catalogues) |
 | **Window** | Close all tabs, Reset layout — the cure for a panel dragged somewhere unrecoverable |
 
 ## The toolbar, left to right

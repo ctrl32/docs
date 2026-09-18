@@ -143,7 +143,9 @@ version 1.00.040 every Linux device also has **CAN** and **RS485**:
   an axis the motion blocks command exactly like a CANopen drive. The
   master is EtherCAT slaves in bus order, each with its expected
   vendor/product and the signals of its process image, set on the
-  EtherCAT page. (Selling a device as an EtherCAT master requires the
+  EtherCAT page — or taken from the device's ESI file in the device
+  library with *Add from library*, which fills the identity, the image
+  sizes, the CiA 402 layout and the default signals. (Selling a device as an EtherCAT master requires the
   EtherCAT Master License from the EtherCAT Technology Group (ETG);
   ctrl32 handles that for its own products.)
 - **Motion**: up to **eight axes** on a Linux device (the boards keep

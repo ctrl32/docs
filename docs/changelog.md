@@ -8,6 +8,26 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.051
+- **EtherCAT devices from their ESI files, the way CAN devices come
+  from EDS.** The device library holds the vendors' EtherCAT
+  descriptions (ESI) beside the EDS files — *Tools › Device library*
+  lists them and imports more — and the EtherCAT page's **Add from
+  library** turns a picked device into a slave: its identity (vendor,
+  product, the revision the file describes), the sizes of its process
+  images, the CiA 402 layout when the device is a drive, and one signal
+  with its variable for every other entry of the default process data
+  (the i550's error code, for instance). The Lenze i550 Cabinet ships
+  in the library with its object dictionaries.
+- **The reTerminal EtherCAT example shows current, torque, DC link and
+  frequency.** The i550 lets a master map its user-configurable
+  process data; the example does it with SDO writes at start (the
+  assignment cleared, the mapping written, the assignment set to both
+  PDOs) and the screen shows the same numbers as the CAN twin.
+- **A refused start-up SDO says why.** When a slave refuses one of the
+  project's SDO writes at start, the runtime prints the slave's abort
+  reason with it — before, the line said only *rejected*.
+
 ## 1.00.050
 - **The reTerminal example.** `reterminal_example` — the board's own
   project: a Lenze i550 driven over CANopen from one screen (the dial,
