@@ -170,6 +170,9 @@ terminals, hard-wired limit switches, and the reactions worth defining
 
 ## Where to go next
 
+- [EtherCAT](ethercat.md) — the other bus a drive can sit on, and
+  what changes when it does.
+
 | | |
 |:---|:---|
 | [CANopen blocks](blocks-can.md) | `CO_CIA402`, `CO_SDOWRITE`, `CO_SDOREAD`, `CO_RAMPTIME` |

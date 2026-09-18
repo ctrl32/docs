@@ -61,3 +61,6 @@ the pair, the device page and the alarms: unchanged.
 - **Vendor and product in the slave.** With them the runtime refuses
   to run the line when the wrong device sits at that position, instead
   of writing a controlword into it.
+
+How a line is put together, device by device:
+[EtherCAT](ethercat.md).
