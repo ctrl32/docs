@@ -34,6 +34,20 @@ capabilities, the first one practically never moves.
   order the standard wants, the signals behind the device's own data,
   their variables and the image size. Mapping again replaces that plan
   instead of adding to it.
+- **An EtherCAT device has the window a CAN device has.** Double-click a
+  slave in the tree and it opens with the same tabs: the device (its
+  identity from the vendor's description, the process image, the CiA 402
+  layout), its variables, the PDO mapping in both directions, the
+  start-up writes, the I/O mapping and the device log. The EtherCAT page
+  keeps what a master page keeps, the cycle and the list of slaves.
+- **One CAN node on a Linux device, not two.** There the bus *is* the
+  interface, so the tree says *CAN (can0)* and the devices and axes hang
+  directly under it. The separate *CANopen master* row belonged to the
+  boards, where CAN is the board's own peripheral, and stays there.
+- **CAN buses and RS-485 lines share one budget on a Linux device.**
+  Each one past the board's own is a chip on the SPI bus, and a
+  Raspberry's standard SPI has four selects: four CAN, four RS-485, or
+  two of each. The fifth is refused, with the reason.
 - **A refused start-up SDO says why.** When a slave refuses one of the
   project's SDO writes at start, the runtime prints the slave's abort
   reason with it — before, the line said only *rejected*.
