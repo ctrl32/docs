@@ -8,7 +8,7 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
-## 1.00.051
+## 1.00.050
 - **EtherCAT devices from their ESI files, the way CAN devices come
   from EDS.** The device library holds the vendors' EtherCAT
   descriptions (ESI) beside the EDS files — *Tools › Device library*
@@ -37,8 +37,6 @@ capabilities, the first one practically never moves.
 - **A refused start-up SDO says why.** When a slave refuses one of the
   project's SDO writes at start, the runtime prints the slave's abort
   reason with it — before, the line said only *rejected*.
-
-## 1.00.050
 - **The reTerminal example.** `reterminal_example` — the board's own
   project: a Lenze i550 driven over CANopen from one screen (the dial,
   START/STOP with a confirmation, setpoint, direction, ramps, current,
