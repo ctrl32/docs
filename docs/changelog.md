@@ -16,6 +16,17 @@ capabilities, the first one practically never moves.
   the RS-485 pair with two slaves, the device's UPS and sensors, and
   the alarms — on the glass and on a phone. The page:
   [reTerminal](example-reterminal.md).
+- **The reTerminal example with the drive on EtherCAT.**
+  `reterminal_ecat_example` — the same project with the i550 as an
+  EtherCAT slave on the E10-1's second network port: the axis names
+  the EtherCAT backend, an `ethercat:` section describes the slave and
+  its signals, the rest is untouched. The page:
+  [reTerminal, drive on EtherCAT](example-reterminal-ecat.md).
+- **EtherCAT master: the PDO assignment written to the slave.** A
+  slave that expects its master to write the PDO assignment (the
+  Lenze i550 raised "PDO mapping error" and sent zeros) gets it at
+  every start; a slave's state is read after the bus comes up, so a
+  drive is under program control from the first cycle.
 - **An RS-485 system example.** `rs485_system` — a reTerminal with the
   E10-1 as the Modbus RTU master of two slaves on one pair (an
   inoCORE32-TM8.6 with three RTD zones, an inoCORE32-TM1.1 panel),

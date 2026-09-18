@@ -82,6 +82,7 @@ nav:
       - Drive control (Lenze i550): example-i550.md
       - Showcase (STM32F746): example-showcase.md
       - reTerminal (a drive, a pair, the device): example-reterminal.md
+      - reTerminal, the drive on EtherCAT: example-reterminal-ecat.md
       - RS-485 system (reTerminal + two slaves): example-rs485.md
   - Editor:
       - Editor: editor-overview.md
