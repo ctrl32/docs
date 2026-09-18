@@ -24,6 +24,16 @@ capabilities, the first one practically never moves.
   process data; the example does it with SDO writes at start (the
   assignment cleared, the mapping written, the assignment set to both
   PDOs) and the screen shows the same numbers as the CAN twin.
+- **What a slave is told at start, and what it sends, are now set in
+  the editor.** The EtherCAT page shows a slave's **start-up writes**
+  (they travelled in projects before, with no window to see or change
+  them) and adds them from the device's own object dictionary — picked
+  by name, sized by the vendor. **Map from the device** goes further:
+  tick the values the drive or terminal should send or receive, and the
+  editor writes the whole plan — the mapping, the assignment in the
+  order the standard wants, the signals behind the device's own data,
+  their variables and the image size. Mapping again replaces that plan
+  instead of adding to it.
 - **A refused start-up SDO says why.** When a slave refuses one of the
   project's SDO writes at start, the runtime prints the slave's abort
   reason with it — before, the line said only *rejected*.

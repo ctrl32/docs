@@ -145,7 +145,10 @@ version 1.00.040 every Linux device also has **CAN** and **RS485**:
   vendor/product and the signals of its process image, set on the
   EtherCAT page — or taken from the device's ESI file in the device
   library with *Add from library*, which fills the identity, the image
-  sizes, the CiA 402 layout and the default signals. (Selling a device as an EtherCAT master requires the
+  sizes, the CiA 402 layout and the default signals. What the device is
+  told when the line starts, and the values it should send beyond its
+  default data, are picked from its own object dictionary on the same
+  page. (Selling a device as an EtherCAT master requires the
   EtherCAT Master License from the EtherCAT Technology Group (ETG);
   ctrl32 handles that for its own products.)
 - **Motion**: up to **eight axes** on a Linux device (the boards keep
