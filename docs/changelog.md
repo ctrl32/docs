@@ -27,6 +27,12 @@ capabilities, the first one practically never moves.
   a setpoint, a counter — as two registers in one request, which a
   ctrl32 slave (and every other) accepts; before, such a write was
   silently not made.
+- **Modbus RTU timing per the specification.** The silence between
+  frames is the standard's 3.5 characters at the line's baud rate, on
+  the master (before a request that follows a reply) and on every
+  slave (the end of a frame) — before, a master polling several slaves
+  could lose the first request after another slave's reply. Devices on
+  one pair should carry this version together.
 - **A CAN interface left in listen-only mode is set right.** A device's
   CAN interface found listen-only (a passive look with `candump` that
   was never undone) is brought back to a normal link when the runtime
