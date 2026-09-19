@@ -7,6 +7,9 @@ in a minute, and you know the thing it teaches.
 When the single ideas are familiar, two **worked projects** put them
 together across two real boards:
 
+- [From a blank device to a running one](tutorial-linux-device.md) —
+  a Raspberry Pi with nothing but an operating system becomes a
+  ctrl32 device, from the editor, without a single Linux command.
 - [Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
   measuring temperatures, an ethernet master displaying and
   commanding them, and the same interlock written in all three

@@ -71,6 +71,7 @@ nav:
       - Your first project: tutorial.md
   - Tutorial projects:
       - Tutorial projects: tutorials.md
+      - "From a blank device to a running one": tutorial-linux-device.md
       - Two boards over Modbus: tutorial-modbus-pair.md
       - Hot tank: three-zone-thermostat.md
       - Thermostat fed by Home Assistant: tutorial-ha-thermostat.md
@@ -129,6 +130,7 @@ nav:
       - MQTT: mqtt.md
       - Home Assistant: home-assistant.md
       - CANopen: canopen.md
+      - EtherCAT: ethercat.md
       - "+7 (S7 PLC)": plus7.md
       - net32: net32.md
       - OPC UA: opcua.md

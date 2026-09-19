@@ -6,6 +6,13 @@ nothing assumed. At the end the device boots straight into your
 visualisation, serves its WEBview and OPC UA, and appears in the
 editor's [scanner](find-devices.md) like any other board.
 
+!!! tip "In a hurry? There is a walk-through"
+    [From a blank device to a running one](tutorial-linux-device.md)
+    does the whole thing from the editor, with pictures, for a
+    Raspberry Pi or a reTerminal. This page is the reference behind
+    it: every device, every setting, and the roads that walk-through
+    does not take.
+
 Three devices are in the catalogue — the reTerminal, the DK2 and
 **any 64-bit Raspberry Pi** — and they differ only in how the
 operating system gets onto them. The ctrl32 part — the runtime, the
