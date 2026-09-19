@@ -58,6 +58,33 @@ capabilities, the first one practically never moves.
   the RS-485 pair with two slaves, the device's UPS and sensors, and
   the alarms — on the glass and on a phone. The page:
   [reTerminal](example-reterminal.md).
+- **The reTerminal example as the panel of a SIMATIC.**
+  `reterminal_s7_example` — the same board with no fieldbus at all: a
+  data block of an S7-1200 read live with the controller's own
+  addresses beside the values, one INT typed back, the PLC's clock bit
+  as the link lamp and the panel's own counter beside it, so a stopped
+  controller cannot be mistaken for a stopped panel. The page:
+  [reTerminal — the panel of a SIMATIC](example-reterminal-s7.md).
+- **The STM32F746 showcase in daylight, with a SIMATIC on it.** The
+  example starts in the light theme and its screens were relit — an
+  unlit lamp, a track and a field used to be drawn black, which nobody
+  saw while the screens were dark. Two screens are new: the data block
+  of an S7-1200 read live with one value written back, and a trend
+  carrying the board's own value beside the controller's with the
+  alarm list under them. The page:
+  [Showcase — STM32F746 Discovery](example-showcase.md).
+- **A value typed into a +7 variable always reaches the PLC.** A change
+  made while the client was inside its cycle could be undone by that
+  cycle's own read, and the write then never left — about two in every
+  eight on a busy screen, with nothing said anywhere. A pending change
+  now owns the variable until it has been sent, and a write the
+  controller refuses is said once in the diagnostic buffer and the
+  variable goes back to showing what the controller really holds.
+- **The rows of an alarm table are readable on a light screen.** Their
+  text was a fixed white, so an alarm list on a light theme was an
+  empty box with a coloured stripe; the colour now comes from the
+  style, and from the table's own background when the style does not
+  name one. The recipe table had the same fixed white.
 - **The reTerminal example with the drive on EtherCAT.**
   `reterminal_ecat_example` — the same project with the i550 as an
   EtherCAT slave on the E10-1's second network port: the axis names

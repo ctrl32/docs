@@ -1,11 +1,14 @@
 # Showcase — STM32F746 Discovery
 
 The same runtime on entirely different silicon: an STM32F7 with a 4.3"
-landscape screen, ethernet and capacitive touch.
+landscape screen, ethernet and capacitive touch — and, on the last two
+screens, a **SIMATIC S7-1200** read live over the same cable.
 
 **Project:** `examples\f746_disco_example.prj32`
 **Board:** ST 32F746G-DISCOVERY, 480×272 landscape
-**Needs:** nothing wired up — it runs in simulation as it is
+**Needs:** nothing wired up for three of the five screens. The other two
+read a SIMATIC S7-1200 on the same ethernet with **PUT/GET** allowed -
+without one the screens still run and the link lamp stays dark
 
 ---
 
@@ -17,20 +20,21 @@ underneath, and nothing about the project has to know.
 
 It is also the project that proves the small things work on a new
 target: the font carries accented characters, the icons are sharp, the
-clock is set, and bit access is atomic while three writers use one word.
+clock is set, bit access is atomic while three writers use one word,
+and a controller on the network is just another source of values.
 
 ---
 
 ## The screens
 
-![The main screen: temperature, switches, icons and the brand mark](img/example-f7-0.png){: .sb-center}
+![The main screen: temperature, switches, icons and the brand mark](img/example-f7-main.webp){: .sb-center}
 
 **Main.** A value in a large font — the fastest thing on any screen to
 read — with vector icons and switches bound to variables. The bar under
 the temperature is the same value again, because a number tells you what
 and a bar tells you where in the range.
 
-![The info screen: a line of accented text, a counter, the brand mark and a bit switch](img/example-f7-1.png){: .sb-center}
+![The info screen: a line of accented text, a counter, the brand mark and a bit switch](img/example-f7-info.webp){: .sb-center}
 
 **Info.** The line of accented text is deliberate: *Príliš žltučký kôň
 úpel ďábelské ódy* is the proof that the font carries the characters
@@ -40,7 +44,7 @@ than on a finished board in front of somebody.
 Below it, bit access — a switch writing **one bit** of a word the logic
 is hammering at the same time, and neither losing the other's work.
 
-![The states screen: four lamps on four bits of one word](img/example-f7-2.png){: .sb-center}
+![The states screen: four lamps on four bits of one word](img/example-f7-states.webp){: .sb-center}
 
 **States.** The picture worth understanding: **four lamps on four bits
 of one 16-bit variable**, with no logic between them.
@@ -51,6 +55,26 @@ independent writers into one word, and none of them can undo another.
 
 That is exactly how a drive's status word is displayed — and it is one
 variable, four widgets, no code.
+
+![The PLC screen: a data block read live, one value written back, the controller's clock bit as the link lamp](img/example-f7-plc.webp){: .sb-center}
+
+**PLC.** A data block of the SIMATIC, read every 200 ms, with the
+controller's own addresses printed beside the values so the screen
+doubles as the map between the two sides. `DB120.DBW4` is typed here
+and travels the other way: a write is a command, not a force, and the
+PLC owns the value again on its next scan.
+
+The two lamps at the top are the link itself and `%M0.5`, a bit of the
+controller's own clock byte. A blinking lamp beside a lit one is the
+shortest proof there is that the PLC is in RUN and the connection is
+alive.
+
+![The trend screen: the panel's own value and the controller's on one chart, with the alarm list below](img/example-f7-trend.webp){: .sb-center}
+
+**Trend.** The board's own simulated temperature and the REAL the
+SIMATIC holds, sampled by one trend widget, with the project's alarms
+under them. A value from a controller and a value from the program are
+the same kind of thing here — that is the whole point of the picture.
 
 ---
 
@@ -71,6 +95,10 @@ editor takes an IP address anywhere it would take a COM port.
 
 - **a row of lamps reading a status word.** Four widgets, one variable,
   no logic — and it is how every fieldbus device's state is displayed.
+- **the controller's own address in the label.** Writing `DB120.DBD0`
+  beside the value costs nothing and saves the next person half an hour.
+- **a link lamp and a life counter side by side.** Together they say
+  which of the two sides stopped.
 - **an alarm shown twice**: as a lamp taking its colour from the alarm
   system, and in an alarm table. One definition, two ways to notice it.
 - **a landscape layout that stays readable at arm's length** — one big
@@ -83,8 +111,12 @@ editor takes an IP address anywhere it would take a COM port.
 
 ## Try changing
 
-- flip bit 1 from the Info screen and watch the lamp on States follow —
+- flip bit 1 from the Info screen and watch the lamp on States follow -
   then flip bit 3 there and watch the number under the lamps change by 8
+- type a value into `DB120.DBW4` and watch it appear in the PLC's own
+  monitoring table
+- stop the PLC: the link lamp goes out, the alarm arrives after three
+  seconds, and the panel's own counter keeps running
 - change the sweep of `sim_temp` and watch the high alarm fire and clear
   itself
 - open `http://<board>/` in a phone while it runs: the same screens,
@@ -95,5 +127,6 @@ editor takes an IP address anywhere it would take a COM port.
 | | |
 |:---|:---|
 | [Examples](examples.md) | back to the list |
+| [reTerminal — the panel of a SIMATIC](example-reterminal-s7.md) | the same connection on a Linux device |
 | [Thermostat — Olimex EVB](example-thermostat.md) | the ESP32 project |
 | [Supported hardware](hardware.md) | what else the runtime runs on |

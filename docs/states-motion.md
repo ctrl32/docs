@@ -26,7 +26,7 @@ watch. That is the whole trick behind lighting a panel from a status
 word: one integer arrives from a drive, four lamps each watch one bit,
 and there is no logic between them.
 
-![Four lamps on four bits of one status word — the F7 example's states screen](img/example-f7-2.png){: .sb-center}
+![Four lamps on four bits of one status word — the F7 example's states screen](img/example-f7-states.webp){: .sb-center}
 
 ```yaml
 - { type: led, rect: [24, 78, 38, 38],
