@@ -13,6 +13,12 @@ together across two real boards:
 - [RS-485, step by step](tutorial-rs485.md) — the wires, the port,
   the master, a device, a variable, and what to check when the pair
   stays silent.
+- [OPC UA, step by step](tutorial-opcua.md) — turn the server on,
+  read a value, write one back, and choose what the device's
+  certificate should be before it leaves the desk.
+- [EtherCAT, step by step](tutorial-ethercat.md) — a spare network
+  port becomes a line with a drive on it, and the motor turns from
+  the screen.
 - [Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
   measuring temperatures, an ethernet master displaying and
   commanding them, and the same interlock written in all three
