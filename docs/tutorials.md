@@ -10,6 +10,9 @@ together across two real boards:
 - [From a blank device to a running one](tutorial-linux-device.md) —
   a Raspberry Pi with nothing but an operating system becomes a
   ctrl32 device, from the editor, without a single Linux command.
+- [RS-485, step by step](tutorial-rs485.md) — the wires, the port,
+  the master, a device, a variable, and what to check when the pair
+  stays silent.
 - [Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
   measuring temperatures, an ethernet master displaying and
   commanding them, and the same interlock written in all three
