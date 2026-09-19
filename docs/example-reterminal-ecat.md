@@ -69,11 +69,12 @@ How a line is put together, device by device:
 
 ---
 
-## The same board, three buses
+## The same board, four buses
 
-The reTerminal carries this project on all three, and the three
-pages differ only in the bus:
+The reTerminal carries this project on all four, and the pages differ
+only in how it talks to the machine:
 
 - [the drive on CANopen](example-reterminal.md),
 - [the drive on EtherCAT](example-reterminal-ecat.md),
-- [two slaves on an RS-485 pair](example-rs485.md).
+- [two slaves on an RS-485 pair](example-rs485.md),
+- [a SIMATIC over ethernet](example-reterminal-s7.md).

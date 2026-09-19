@@ -21,9 +21,11 @@ after an update.
 | [reTerminal](example-reterminal.md) | Seeed reTerminal + E10-1, 1280×720 | a Linux device doing everything at once: a Lenze i550 over CANopen from one screen, two RS-485 slaves, the device's own UPS and sensors, alarms |
 | [reTerminal, drive on EtherCAT](example-reterminal-ecat.md) | Seeed reTerminal + E10-1, 1280×720 | the same project with the i550 as an EtherCAT slave on the second network port — what moving a drive between buses costs |
 | [reTerminal, an RS-485 pair](example-rs485.md) | reTerminal + E10-1, inoCORE32-TM8.6, inoCORE32-TM1.1 | one Modbus RTU master and two slaves on one pair, an i550 on the master's CAN — a system project the editor deploys as one |
+| [reTerminal, a SIMATIC over +7](example-reterminal-s7.md) | Seeed reTerminal, 1280×720 | the same board as the panel of an S7-1200: a data block read live, one value written back, the PLC's clock bit as the link lamp |
 
-The three reTerminal rows are one board on three buses — CANopen,
-EtherCAT and an RS-485 pair — and are worth reading together.
+The four reTerminal rows are one board on four roads — CANopen,
+EtherCAT, an RS-485 pair and a SIMATIC over ethernet — and are worth
+reading together.
 
 More will be added here. Each gets its own page, with what it shows,
 what is worth copying from it, and something to try changing.
