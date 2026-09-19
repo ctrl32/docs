@@ -15,7 +15,7 @@ screens run and the link lamp stays dark
 
 ## What it shows
 
-![The PLC screen: the data block with the PLC's own addresses, the value written back, the markers and the trend](img/rt-s7.webp){: .sb-center}
+![The PLC screen with the controller answering: the data block read live with its own addresses beside the values, the INT written back, the marker word and both lamps lit](img/rt-s7.webp){: .sb-center}
 
 **A data block, read live.** A REAL, a DINT, a second REAL and two
 bits out of `DB120`, each with the PLC's own address printed beside
