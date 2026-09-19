@@ -34,6 +34,8 @@ code — all of them CANopen objects the drive sends in its PDOs, with a
 gain — the CiA 402 lamps (ready, running, fault, warning) from bits of
 the statusword, and a two-minute trend.
 
+![The Zones screen: the three zones of the TM8.6, their setpoints written from here](img/rt-zones.webp){: .sb-center}
+
 **The RS-485 pair.** The E10-1's serial port masters two slaves — a
 TM8.6 with three temperature zones whose setpoints are written from
 this screen, and a TM1.1 panel whose machine this screen starts. The
@@ -44,6 +46,8 @@ supply voltage), the accelerometer and the light sensor — twice: as the
 system's own facts (`SYS.ON_BATTERY`, `SYS.TILT`, `SYS.LIGHT`, …) and
 as chips read by the project's own drivers over I2C — and the cycle
 (time, worst, overruns).
+
+![The Device screen: the UPS, the chips read twice, and the cycle](img/rt-device.webp){: .sb-center}
 
 **Alarms.** The drive's fault, a zone over the limit, the supply gone,
 the pair or the CAN interface silent.
@@ -80,3 +84,14 @@ editor's board window — not lines in the project.
   over, and the alarm appears.
 - Add a third RS-485 slave: one more block of variables naming
   `unit: 3`.
+
+---
+
+## The same board, three buses
+
+The reTerminal carries this project on all three, and the three
+pages differ only in the bus:
+
+- [the drive on CANopen](example-reterminal.md),
+- [the drive on EtherCAT](example-reterminal-ecat.md),
+- [two slaves on an RS-485 pair](example-rs485.md).

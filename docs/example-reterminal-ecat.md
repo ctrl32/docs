@@ -24,6 +24,8 @@ on its RS-485 terminal — or nothing: the screens run, the lamps stay dark
 
 ![The drive screen with the i550 on EtherCAT: the same dial, current, torque, DC link and frequency from the mapped process data](img/example-reterminal-ecat-0.webp){: .sb-center}
 
+![The drive screen: the dial, START with its confirmation, the values that travel over the line](img/rt-drive-ecat.webp){: .sb-center}
+
 - **The axis** names the EtherCAT backend and the slave's position on
   the bus instead of a CANopen node: `backend: cia402_ecat, node: 1`.
 - **The slave comes from its ESI.** The i550's description sits in the
@@ -64,3 +66,14 @@ the pair, the device page and the alarms: unchanged.
 
 How a line is put together, device by device:
 [EtherCAT](ethercat.md).
+
+---
+
+## The same board, three buses
+
+The reTerminal carries this project on all three, and the three
+pages differ only in the bus:
+
+- [the drive on CANopen](example-reterminal.md),
+- [the drive on EtherCAT](example-reterminal-ecat.md),
+- [two slaves on an RS-485 pair](example-rs485.md).

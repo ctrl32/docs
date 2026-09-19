@@ -34,6 +34,8 @@ would run on a Raspberry Pi with a USB-RS485 dongle without a change.
 
 ---
 
+![The master's screen: both slaves, their values and the commands written back](img/rt-zones.webp){: .sb-center}
+
 ## The devices
 
 | Device | Board | Role |
@@ -109,3 +111,14 @@ changes.
     A serial line is either the master's or the slave's. A device can
     master one line and answer on another, but never both on the same
     pair — and two masters on one pair talk over each other.
+
+---
+
+## The same board, three buses
+
+The reTerminal carries this project on all three, and the three
+pages differ only in the bus:
+
+- [the drive on CANopen](example-reterminal.md),
+- [the drive on EtherCAT](example-reterminal-ecat.md),
+- [two slaves on an RS-485 pair](example-rs485.md).
