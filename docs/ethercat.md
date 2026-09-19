@@ -30,6 +30,8 @@ its identity, the sizes of its process data, what travels in it and
 what can be written. It plays exactly the part an EDS file plays for
 CANopen.
 
+![The EtherCAT master's page: the cycle and the slaves in bus order](img/ecat-buspage.webp){: .sb-center}
+
 Put the file in the device library (*Tools › Device library*, the
 EtherCAT section) and the EtherCAT page's **Add from library** turns a
 picked device into a slave: identity, image sizes, the CiA 402 layout
@@ -40,9 +42,11 @@ the device sends by default. The Lenze i550 ships in the library.
 
 ## The device's window
 
-![The EtherCAT slave's window on its PDO tab: what the drive sends by itself and what this project added](img/ethercat-device.webp){: .sb-center}
+![The tree of a Linux device: the EtherCAT line under Ethernet, its slaves under it](img/ecat-tree.webp){: .sb-center}
 
 Double-click a slave and it opens with the same tabs a CAN device has:
+
+![The Device tab: identity, the process image and the CiA 402 offsets](img/ecat-device-tab.webp){: .sb-center}
 
 - **Device** — who it is: vendor, product, the revision of the
   description it came from, the sizes of its process image, and for a
@@ -57,6 +61,8 @@ Double-click a slave and it opens with the same tabs a CAN device has:
   its gain and offset.
 - **Log** — the device's own messages, read from the panel.
 
+![The PDO tab: what the drive sends by itself, and what this project added behind it](img/ethercat-device.webp){: .sb-center}
+
 ---
 
 ## Process data and what a master may add
@@ -67,17 +73,31 @@ its actual speed and its error code; its current, torque, DC link
 voltage and output frequency are objects the master may **add** to the
 data it sends.
 
+![The Variables tab: the device's own objects, ticked](img/ecat-vars-tab.webp){: .sb-center}
+
 That is what **Map from the device** does. Tick the values in the
 device's own dictionary and the editor writes the whole plan: the
 mapping, the assignment in the order the standard wants, the signals
 that read those bytes, the variables they need and the new image size.
 Map again and the plan is replaced, not appended to.
 
+![The start-up writes the editor composed: the assignment cleared, the mapping written, both objects assigned](img/ecat-sdo-tab.webp){: .sb-center}
+
 Doing it by hand means composing 32-bit mapping words out of an index,
 a sub-index and a bit width, and writing them in an order the device
 accepts. A drive that receives them in the wrong order answers with a
 mapping error and sends zeros — and looks, from the outside, exactly
 like a broken device.
+
+---
+
+## Which byte is which variable
+
+![The I/O mapping tab: every byte of the image, its variable, its gain](img/ecat-iomap-tab.webp){: .sb-center}
+
+The signals of a slave are plain variables with a byte offset, a width
+and a gain. A screen reads them, a program computes with them, and
+nothing in between needs code.
 
 ---
 
