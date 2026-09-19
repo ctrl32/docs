@@ -179,6 +179,11 @@ tells you whether a newer version exists; with *Check on start* ticked
 the editor does this quietly every time it starts. Without internet
 nothing happens and nothing is shown.
 
+The switch is in *Tools -> Settings*, under **Updates**. Turned off, the
+editor never reaches the network on its own and asks for nothing at all.
+
+![Settings: the language, the theme and whether the editor looks for a new version by itself](img/editor-settings.webp){: .sb-center}
+
 ![The update dialog](img/editor-update.webp)
 
 - **Install now** fetches the installer into your temporary folder,

@@ -58,6 +58,11 @@ capabilities, the first one practically never moves.
   the RS-485 pair with two slaves, the device's UPS and sensors, and
   the alarms — on the glass and on a phone. The page:
   [reTerminal](example-reterminal.md).
+- **Settings.** *Tools -> Settings* holds the three things a person
+  actually changes - the language, the theme, and whether the editor
+  looks for a new version and says so. Turned off, the editor never
+  reaches the network on its own. The language and the theme moved here
+  from two different menus.
 - **The reTerminal example as the panel of a SIMATIC.**
   `reterminal_s7_example` — the same board with no fieldbus at all: a
   data block of an S7-1200 read live with the controller's own
