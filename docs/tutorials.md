@@ -1,3 +1,8 @@
+---
+image: img/editor-fbd.png
+image_alt: "A function block diagram in the editor"
+---
+
 # Tutorial projects
 
 Thirteen small projects, each about **one idea** — and three of them are

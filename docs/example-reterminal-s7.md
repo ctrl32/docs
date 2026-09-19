@@ -1,3 +1,8 @@
+---
+image: img/rt-s7.webp
+image_alt: "The reTerminal as the panel of a SIMATIC: a data block read live"
+---
+
 # reTerminal — the panel of a SIMATIC
 
 The same board again, and this time no fieldbus at all: the PLC is a

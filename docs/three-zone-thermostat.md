@@ -1,3 +1,8 @@
+---
+image: img/thermostat-home.png
+image_alt: "The three-zone thermostat on the glass"
+---
+
 # Hot tank
 
 A complete, working control system for a **hot tank in cosmetics

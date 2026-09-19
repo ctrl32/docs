@@ -1,3 +1,8 @@
+---
+image: img/rt-zones.webp
+image_alt: "The master's screen of the RS-485 system: every slave on one picture"
+---
+
 # RS-485 system — one master, two slaves
 
 One Modbus RTU master reading and writing two slaves over a single

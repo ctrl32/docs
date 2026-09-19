@@ -1,3 +1,8 @@
+---
+image: img/ha-lights-glass.webp
+image_alt: "Two Zigbee lights and a dimmer driven from the touch glass through Home Assistant"
+---
+
 # Lights and a dimmer from the glass
 
 Two Zigbee lights switched — and one of them dimmed — from the touch
@@ -20,6 +25,8 @@ route is the same as every HA connection —
 sibling, with the data flowing the other way.
 
 ---
+
+![The glass: two lights with their feedback lamps, a brightness slider and one button that turns everything off](img/ha-lights-glass.webp){: .sb-center}
 
 ## The design decision worth copying
 

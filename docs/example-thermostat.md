@@ -1,3 +1,8 @@
+---
+image: img/example-evb-0.png
+image_alt: "The thermostat example on the glass: the temperature, the setpoint and the relay"
+---
+
 # Thermostat — Olimex ESP32-EVB
 
 A wall thermostat on a 2.8" portrait screen, driving the two relays the

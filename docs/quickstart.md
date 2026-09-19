@@ -1,3 +1,8 @@
+---
+image: img/quickstart-sealin.webp
+image_alt: "The seal-in example open in the ladder editor"
+---
+
 # Quick start
 
 The goal of this chapter: **from an installed editor to a program running in

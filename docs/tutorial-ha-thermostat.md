@@ -1,3 +1,8 @@
+---
+image: img/mqtt-card.webp
+image_alt: "The MQTT page: the broker, the mode and the variables that travel"
+---
+
 # A thermostat fed by Home Assistant
 
 A wall thermostat on the Olimex ESP32-EVB with its 2.8" glass — with

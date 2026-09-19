@@ -1,3 +1,8 @@
+---
+image: img/modbus-slave-map.png
+image_alt: "A Modbus slave register map: what each address carries"
+---
+
 # Two boards over Modbus
 
 A complete, working pair of projects — the kind of job Modbus exists

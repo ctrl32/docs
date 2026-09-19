@@ -1,3 +1,8 @@
+---
+image: img/rtu-master-page.webp
+image_alt: "The Modbus RTU master page: the line it uses and the devices on it"
+---
+
 # RS-485, step by step
 
 Two wires, a handful of devices, and the oldest industrial protocol

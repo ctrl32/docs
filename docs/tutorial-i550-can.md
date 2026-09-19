@@ -1,3 +1,8 @@
+---
+image: img/i550-wiring.webp
+image_alt: "A ctrl32 panel and a Lenze i550 on one CAN bus"
+---
+
 # A drive over CAN, step by step
 
 A frequency inverter on the CAN bus, controlled from the panel: enable,

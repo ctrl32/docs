@@ -1,3 +1,8 @@
+---
+image: img/editor-ladder.png
+image_alt: "A ladder program in the editor, the way every example is authored"
+---
+
 # Examples
 
 Complete projects that ship with the editor. Open one, look at how it is

@@ -1,3 +1,8 @@
+---
+image: img/lx-prepare-plan.webp
+image_alt: "Prepare a Linux device: what the device is, and the plan before anything changes"
+---
+
 # From a blank device to a running one
 
 A Raspberry Pi with nothing on it but an operating system, and half an

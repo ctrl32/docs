@@ -1,3 +1,8 @@
+---
+image: img/example-f7-main.webp
+image_alt: "The showcase on an STM32F746: the temperature in a large font, switches and icons"
+---
+
 # Showcase — STM32F746 Discovery
 
 The same runtime on entirely different silicon: an STM32F7 with a 4.3"

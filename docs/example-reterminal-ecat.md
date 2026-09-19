@@ -1,3 +1,8 @@
+---
+image: img/example-reterminal-ecat-0.webp
+image_alt: "The same reTerminal project with the drive on EtherCAT"
+---
+
 # reTerminal — the same, with the drive on EtherCAT
 
 The [reTerminal example](example-reterminal.md) with one change: the

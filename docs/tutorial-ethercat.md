@@ -1,3 +1,8 @@
+---
+image: img/ethercat-device.webp
+image_alt: "The PDO tab of an EtherCAT drive: its own data and what was added to it"
+---
+
 # EtherCAT, step by step
 
 One cable through every device, a drive at the end of it, and a motor

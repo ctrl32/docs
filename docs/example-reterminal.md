@@ -1,3 +1,8 @@
+---
+image: img/example-reterminal-0.webp
+image_alt: "The reTerminal driving a Lenze i550 over CANopen from its own screen"
+---
+
 # reTerminal — a drive, a pair and the device itself
 
 A Linux device doing everything at once: a frequency drive driven over

@@ -1,3 +1,8 @@
+---
+image: img/opcua-page.webp
+image_alt: "The OPC UA page: the server, its port and the variables it serves"
+---
+
 # OPC UA, step by step
 
 A Linux device serves every variable of its project over OPC UA, and

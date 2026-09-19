@@ -1,3 +1,8 @@
+---
+image: img/newproj-wizard.webp
+image_alt: "The New project wizard, where every ctrl32 project starts"
+---
+
 # Your first project
 
 Half an hour, from an empty editor to something running: a project, three

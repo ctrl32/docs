@@ -1,3 +1,8 @@
+---
+image: img/example-i550-0.webp
+image_alt: "The drive screen of the i550 example, online with a real drive on the bench"
+---
+
 # Drive control — Lenze i550
 
 A frequency drive on CANopen, driven from the EVB's 2.8" portrait glass
