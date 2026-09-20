@@ -42,7 +42,7 @@ the device sends by default. The Lenze i550 ships in the library.
 
 ## The device's window
 
-![The tree of a Linux device: the EtherCAT line under Ethernet, its slaves under it](img/ecat-tree.webp){: .sb-center}
+![The tree of a Linux device: the network adapters under Ethernet, and the EtherCAT master under the one it owns](img/ecat-tree.webp){: .sb-center}
 
 Double-click a slave and it opens with the same tabs a CAN device has:
 

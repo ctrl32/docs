@@ -51,7 +51,14 @@ In the tree, under **Ethernet**, add **EtherCAT**. The page that opens
 is the master's: the cycle time, and the slaves in the order they are
 wired.
 
-![The tree with the line in place: the EtherCAT master, the slave under it and the variables it brought with it](img/ecat-tree.webp){: .sb-center}
+A Linux device usually has two network ports, so the tree shows them:
+under *Ethernet* sits one row per adapter, and the master hangs under
+the one it owns — the port with no address, the one you picked in
+*Prepare a Linux device*. The adapters appear once the editor has
+looked at the device; before that the master sits under *Ethernet*
+itself.
+
+![The tree with the line in place: the master sits under the adapter it owns, eth1, with its slave under it](img/ecat-tree.webp){: .sb-center}
 
 ![The EtherCAT master's page](img/ecat-buspage.webp){: .sb-center}
 
