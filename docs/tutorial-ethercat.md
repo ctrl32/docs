@@ -51,6 +51,8 @@ In the tree, under **Ethernet**, add **EtherCAT**. The page that opens
 is the master's: the cycle time, and the slaves in the order they are
 wired.
 
+![The tree with the line in place: the EtherCAT master, the slave under it and the variables it brought with it](img/ecat-tree.webp){: .sb-center}
+
 ![The EtherCAT master's page](img/ecat-buspage.webp){: .sb-center}
 
 Press **Add from library** and pick the device. Everything the project
@@ -91,6 +93,8 @@ from the library. One step makes the slave, the axis on its position,
 the start-up writes that put the drive in velocity mode under network
 control, and the variables the blocks bind to.
 
+![The axis wizard: the bus, the device from the library and the axis it will make](img/axis-wizard.webp){: .sb-center}
+
 From there the program is ordinary: `MC_POWER` to enable,
 `MC_MOVEVELOCITY` for a speed, the status word's bits for the lamps.
 
@@ -107,6 +111,11 @@ This catches people out when a drive's **network module is replaced**,
 because the parameter set lives in the module: the drive looks
 identical and knows nothing about the motor. Set the motor data in the
 drive, by its keypad or its own tool, before the first start.
+
+The writes the project makes at every start are its own tab, so what
+the drive is told is visible before anything turns.
+
+![The start-up writes of the slave: what the project sets in the drive at every start](img/ecat-sdo-tab.webp){: .sb-center}
 
 ---
 

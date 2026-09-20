@@ -5,7 +5,7 @@ image_alt: "A function block diagram in the editor"
 
 # Tutorial projects
 
-Thirteen small projects, each about **one idea** — and three of them are
+Sixteen small projects, each about **one idea** — and five of them are
 the projects the step-by-step pages build. Open one, read it whole
 in a minute, and you know the thing it teaches.
 
@@ -56,9 +56,12 @@ Find them in **ProgramData\ctrl32\tutorials**.
 
 ## Ladder
 
+![The seal-in circuit: a start button that latches through the contact it energised](img/quickstart-sealin.webp){: .sb-center}
+
 | Project | Teaches |
 |:---|:---|
 | **ladder_sealin** | the seal-in circuit — a start button that latches through the contact it energised. The oldest pattern in ladder, and still the one you write most |
+| **ladder_sealin_st** | the same circuit written in **ST** — open the two side by side and the language stops being a mystery |
 | **ladder_box** | a block **in** a rung with EN/ENO: what happens when the rung stops conducting, and why the answer is "freezes", not "resets" |
 | **first_light** | the project of [Your first project](tutorial.md): a button, an off-delay timer, a lamp, a screen |
 | **own_block** | a start/stop latch as **your own function block**, used twice — the project of [Your own function block](own-block.md) |
@@ -70,6 +73,8 @@ look familiar in ten seconds and confirm that nothing here is exotic.
 ---
 
 ## Structured Text
+
+![Structured Text in the editor, with the same variables the rungs use](img/st-editor.webp){: .sb-center}
 
 | Project | Teaches |
 |:---|:---|
@@ -98,6 +103,15 @@ in ladder, because that is where each is clearest.
 | Project | Teaches |
 |:---|:---|
 | **i550_axis** | a frequency inverter over CAN from the wizard to the first turn of the motor — the project of [A drive over CAN, step by step](tutorial-i550-can.md) |
+
+---
+
+## Home Assistant
+
+| Project | Teaches |
+|:---|:---|
+| **ha_thermostat_evb** | a wall thermostat whose room temperature arrives from a Zigbee sensor through Home Assistant, with a watchdog that says so when it stops — the project of [A thermostat fed by Home Assistant](tutorial-ha-thermostat.md) |
+| **ha_lights_f7** | two lights and a dimmer driven from the glass, where every switch has a lamp beside it showing what the bulb really did — the project of [Lights and a dimmer from the glass](tutorial-ha-lights.md) |
 
 ---
 

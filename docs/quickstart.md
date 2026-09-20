@@ -49,6 +49,8 @@ holds whole working projects. Good places to start:
 The editor starts empty. *New project* (the Welcome tab, the toolbar or
 Ctrl+N) opens one window with everything a fresh project needs:
 
+![The New project wizard with a board picked: the name, where it lands and what the project will do](img/newproj-board.webp){: .sb-center}
+
 - **Name** — mandatory; it becomes the folder and the file name.
 - **Location** — `Documents\ctrl32\projects` unless you browse elsewhere;
   the project lands in its own folder, `<location>\<name>\<name>.prj32`.
@@ -167,6 +169,8 @@ pins, in the variable list and in the screen preview.
 There is one condition: **the editor and the board must run the same
 program**. If they do not, the editor says so and offers to download it —
 more in [Online monitoring](online.md).
+
+![The same rungs with the board running: green is current flowing, and every pin carries its live value](img/editor-online.png){: .sb-center}
 
 ## What next
 

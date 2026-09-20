@@ -1,6 +1,6 @@
 ---
-image: img/mqtt-card.webp
-image_alt: "The MQTT page: the broker, the mode and the variables that travel"
+image: img/ha-therm-glass.webp
+image_alt: "The thermostat on the glass: the room temperature from Home Assistant, the setpoint and the link lamp"
 ---
 
 # A thermostat fed by Home Assistant
@@ -123,6 +123,10 @@ temperature, orange setpoint), Manual, and a two-curve Trend
 (`ha_temp` + `temp_sp`). The watchdog banner is one label with
 `visible_if: n_haok` — drawn only while HA is silent, exactly like
 the [states and motion](states-motion.md) page describes.
+
+![The dial: the room temperature that came over MQTT, the setpoint, and the green lamp that says Home Assistant is still talking](img/ha-therm-glass.webp){: .sb-center}
+
+![Manual control: the heat runs from the glass while Auto is off, and needs nothing from the network](img/ha-therm-manual.webp){: .sb-center}
 
 ### 7. Download
 

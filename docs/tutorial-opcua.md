@@ -44,6 +44,8 @@ There is nothing to map and nothing to name twice. A variable that
 exists in the project is on the server; a variable renamed in the
 project is renamed on the server.
 
+![The project's variables: every one of them is a node on the server, under its own name](img/opcua-vars.webp){: .sb-center}
+
 On our own bench the reTerminal serves 46 variables that way — the
 zone temperatures, the drive's values, the device's own sensors and
 the system variables, all of them.
@@ -81,6 +83,8 @@ The OPC UA page has a **Device certificate** section that works on the
 **running device**, not on the project: type its address, pick a mode
 and press *Apply to device*. The runtime stores it and restarts, and
 the page shows what it answered.
+
+![The certificate section: the address of the running device, the three modes and Apply to device](img/opcua-cert.webp){: .sb-center}
 
 - **Self-signed (generated on the device)** — the device makes its own
   certificate on first start. The client trusts it once. This is the

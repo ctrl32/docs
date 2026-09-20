@@ -95,6 +95,8 @@ Three rungs:
    `false`. One press, both commands cleared; the automations do the
    switching-off.
 
+![The three rungs: the heartbeat, the summary lamp built from the feedback rather than the commands, and the all-off edge](img/ha-lights-ladder.webp){: .sb-center}
+
 ### 5. The screen
 
 One landscape screen, two cards. Each card: a name, a bulb icon, the

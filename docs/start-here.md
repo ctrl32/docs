@@ -1,3 +1,8 @@
+---
+image: img/editor-layout.webp
+image_alt: "The editor with a project open: the tree, the canvas and the properties"
+---
+
 # Start here
 
 One path, in order. Each step stands on the one before it and none of
