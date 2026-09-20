@@ -1,6 +1,6 @@
 ---
 image: img/ethercat-device.webp
-image_alt: "The PDO tab of an EtherCAT drive: its own data and what was added to it"
+image_alt: "The PDO tab of an EtherCAT drive: its sync managers, the assigned PDOs and what they carry"
 ---
 
 # EtherCAT, step by step
@@ -80,7 +80,7 @@ Double-click the slave. The window has the same tabs a CAN device has,
 and the one to read first is **PDO mapping**: what the device sends by
 itself, and what this project added behind it.
 
-![The PDO tab of the drive: its own data, and what was added](img/ethercat-device.webp){: .sb-center}
+![The PDO tab: the sync managers of the drive, the PDOs assigned to the one picked, and the entries that PDO carries](img/ethercat-device.webp){: .sb-center}
 
 A drive always sends its status word, its actual speed and its error
 code. The current, the torque, the DC link voltage and the output

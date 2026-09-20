@@ -53,15 +53,19 @@ Double-click a slave and it opens with the same tabs a CAN device has:
   drive the four byte offsets of the CiA 402 words.
 - **Variables** — the device's own objects. Tick what it should send or
   take and *Import* writes the rest.
-- **PDO mapping** — what really travels, in both directions: the data
-  the vendor fixed, and behind it what this project added.
+- **PDO mapping** — what really travels, in the shape every EtherCAT
+  tool uses: the slave's **sync managers** (SM2 carries the outputs,
+  SM3 the inputs), the **PDOs assigned** to the one picked, and the
+  **entries** of the PDO picked among those, each with its offset and
+  its name. The device's own mapping is the vendor's and is shown as
+  it is; the configurable PDO is the one this project fills.
 - **SDO parameters** — what is written into the device every time the
   line starts.
 - **I/O mapping** — which byte of the image feeds which variable, with
   its gain and offset.
 - **Log** — the device's own messages, read from the panel.
 
-![The PDO tab: what the drive sends by itself, and what this project added behind it](img/ethercat-device.webp){: .sb-center}
+![The PDO tab in the shape every EtherCAT tool uses: the sync managers, what is assigned to the picked one, and what that PDO carries](img/ethercat-device.webp){: .sb-center}
 
 ---
 
