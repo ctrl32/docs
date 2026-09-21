@@ -1,7 +1,8 @@
 # Service blocks
 
-Three blocks that let the program reach a service the board provides:
-infrared, SMS, and the modem's own state.
+Blocks that let the program reach a service the board provides:
+infrared, SMS, the modem's own state, and the diagnostics of a vehicle
+control unit.
 
 They share a shape. The board does the slow work — a modem takes seconds
 to send an SMS — while the block reports progress on its outputs and the
@@ -164,6 +165,73 @@ fault_latched ─────────────────┤ AND ├─�
     A modem status variable carries the same information to *screens*. This
     block is the version for *logic* — interlocks and retry gating. Use
     whichever fits where you are working.
+
+---
+
+## Diagnostics: asking a control unit
+
+On a vehicle bus a control unit answers questions: what the fault codes
+are, what a measured value is right now. The values a project reads
+regularly are set up on the Diagnostics node and arrive on their own —
+no program is needed for them. These three blocks are for what a
+**person** sets off: read the faults, clear them, ask once.
+
+They need a board whose runtime carries the diagnostics. On one that
+does not, every block reports `Error` — which is the honest answer to
+"read the faults" on equipment that cannot.
+
+### UDS_DTC — read the fault codes
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `Execute` | input, bool | ask on the rising edge |
+| `ECU` | parameter (0) | which control unit, as numbered on the Diagnostics node |
+| `Done` | output, bool | it answered |
+| `Error` | output, bool | it refused, said nothing, or there are no diagnostics |
+
+The count of faults and the first of their codes land in the variables
+the control unit's page names, so a screen shows them like any other
+value. Every code also goes into the diagnostic buffer with its time —
+that is the record a service engineer reads afterwards.
+
+```iecst
+PROGRAM READ_FAULTS
+VAR dtc : UDS_DTC; END_VAR
+  dtc(Execute := btn_read_faults, ECU := 0);
+  faults_read := dtc.Done;
+  faults_error := dtc.Error;
+END_PROGRAM
+```
+
+### UDS_CLEAR — clear them
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `Execute` | input, bool | clear on the rising edge |
+| `ECU` | parameter (0) | which control unit |
+| `Done` | output, bool | it confirmed; the fault variables went back to zero |
+| `Error` | output, bool | it refused, said nothing, or there are no diagnostics |
+
+!!! tip "A unit may refuse while the machine runs"
+    Clearing faults is often allowed only with the engine stopped. `Error`
+    then means exactly that, and the program should say so rather than
+    retry — the answer will not change while the conditions do not.
+
+### UDS_READ — ask for one value now
+
+| Pin | Type | Meaning |
+|:---|:---:|:---|
+| `Execute` | input, bool | ask on the rising edge |
+| `ECU` | parameter (0) | which control unit |
+| `DID` | parameter (0) | which value, by the number its document gives |
+| `Done` | output, bool | it answered |
+| `Error` | output, bool | it refused, said nothing, or there are no diagnostics |
+
+!!! note "One question at a time"
+    A control unit answers one question at a time, which is what the
+    protocol allows. A block pressed while another question of the same
+    unit is still in hand reports `Error`; the program tries again on the
+    next press.
 
 ---
 
