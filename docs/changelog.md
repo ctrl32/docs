@@ -8,7 +8,7 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
-## 1.00.051
+## 1.00.052
 
 - **Vehicle buses: J1939, and the two worlds built on it.** A CAN bus
   can now carry a vehicle network, and the device is a **node** on it:
