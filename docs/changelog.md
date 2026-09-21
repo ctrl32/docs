@@ -8,6 +8,47 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.051
+
+- **Vehicle buses: J1939, and the two worlds built on it.** A CAN bus
+  can now carry a vehicle network, and the device is a **node** on it:
+  it has its own NAME, claims an address and defends it, reads the
+  parameter groups the control units broadcast and sends its own. A
+  group is picked from the library the editor ships — the engine, the
+  fuel, the speed, the fault-code message, the boats' engine, tank and
+  navigation groups, the tractor's hitches, power take-offs and valves —
+  and every ticked signal becomes a variable, already scaled, in one
+  step you can undo. Where the library does not reach, the vendor's own
+  **DBC file** does. Long messages arrive whole or not at all, over
+  either transport: J1939's own or the boats' **Fast Packet**.
+  **NMEA 2000 compatible** and **ISOBUS** are the same layer with their
+  own groups — the marine names and the agricultural ones, the industry
+  group in the NAME set for you. It runs on Linux devices (any of their
+  four CAN interfaces) and on boards with CAN. The page:
+  [Vehicle buses](vehicle-buses.md).
+- **Vehicle diagnostics: asking a control unit.** Under a CAN bus of a
+  Linux device sits **Diagnostics**, and under it the control units you
+  ask — the usual 0x7E0 / 0x7E8 pair, or whatever the unit's document
+  names. The values you list are read over and over by their period and
+  land in variables with no program at all; the **fault codes** go into
+  variables AND into the diagnostic buffer with the time they were
+  read, which is the record a service engineer reads afterwards. What a
+  person sets off — read the faults, clear them, ask for one value now —
+  is the three new blocks `UDS_DTC`, `UDS_CLEAR` and `UDS_READ`, which
+  work like the other service blocks. The page:
+  [Vehicle diagnostics](vehicle-diagnostics.md).
+- **The tree shows the network adapters, and EtherCAT hangs under the
+  one that carries it.** A device scan lists the adapters the device
+  really has; the EtherCAT master sits under the port it runs on
+  instead of beside it, so a machine with two ports says which one is
+  the bus.
+- **The EtherCAT process data reads the way every EtherCAT tool writes
+  it.** The slave's tab shows its sync managers, the assignment and the
+  contents of the picked process data object — the same names and
+  numbers the vendor's own documentation uses.
+- **A CAN device keeps its own mark in the tree.** The circle with the
+  arrow stays with the drives on CAN and EtherCAT.
+
 ## 1.00.050
 - **EtherCAT devices from their ESI files, the way CAN devices come
   from EDS.** The device library holds the vendors' EtherCAT
