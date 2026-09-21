@@ -20,6 +20,8 @@ trends, WEBview, alarms) works with variables.
 | **Modbus TCP** (ethernet) | PLCs, SCADA, other boards | wherever the network goes |
 | **CANopen** | frequency and servo drives, professional I/O | ~40 m at 1 Mbit/s |
 | **Raw CAN** | a device with its own frame format | as above |
+| **[Vehicle buses](vehicle-buses.md)** (J1939, NMEA 2000, ISOBUS) | engines, tractors and implements, boats — what the vehicle broadcasts | as above |
+| **[Vehicle diagnostics](vehicle-diagnostics.md)** | asking a control unit for its fault codes and readings (Linux devices) | as above |
 | **MQTT** | telemetry to a dashboard or a home system | over the network |
 | **[+7](plus7.md)** (ethernet) | reading and writing an S7 PLC — the panel replaces the old HMI | wherever the network goes |
 | **[net32](net32.md)** (WiFi, ethernet, CAN) | our network — ctrl32 devices as one system: home automation, shared variables, every node with its own logic | the network, or ~40 m of CAN |

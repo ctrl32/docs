@@ -135,6 +135,8 @@ nav:
       - Home Assistant: home-assistant.md
       - CANopen: canopen.md
       - EtherCAT: ethercat.md
+      - Vehicle buses (J1939): vehicle-buses.md
+      - Vehicle diagnostics: vehicle-diagnostics.md
       - "+7 (S7 PLC)": plus7.md
       - net32: net32.md
       - OPC UA: opcua.md
