@@ -75,6 +75,7 @@ nav:
       - "RS-485, step by step": tutorial-rs485.md
       - "OPC UA, step by step": tutorial-opcua.md
       - "EtherCAT, step by step": tutorial-ethercat.md
+      - "A vehicle bus, step by step": tutorial-vehicle.md
       - Two boards over Modbus: tutorial-modbus-pair.md
       - Hot tank: three-zone-thermostat.md
       - Thermostat fed by Home Assistant: tutorial-ha-thermostat.md

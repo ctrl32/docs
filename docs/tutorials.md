@@ -5,7 +5,7 @@ image_alt: "A function block diagram in the editor"
 
 # Tutorial projects
 
-Sixteen small projects, each about **one idea** — and five of them are
+Seventeen small projects, each about **one idea** — and six of them are
 the projects the step-by-step pages build. Open one, read it whole
 in a minute, and you know the thing it teaches.
 
@@ -24,6 +24,10 @@ together across two real boards:
 - [EtherCAT, step by step](tutorial-ethercat.md) — a spare network
   port becomes a line with a drive on it, and the motor turns from
   the screen.
+- [A vehicle bus, step by step](tutorial-vehicle.md) — an engine on
+  J1939: the parameter groups it broadcasts taken from the library,
+  the same control unit asked for its readings and its fault codes,
+  and one rung that does the asking when a person presses.
 - [Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
   measuring temperatures, an ethernet master displaying and
   commanding them, and the same interlock written in all three

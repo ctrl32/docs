@@ -7,7 +7,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## Common properties (widget_base)
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `id` | str |  |
 | `x` | i16 |  |
 | `y` | i16 |  |
@@ -27,32 +27,32 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `panel`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `radius` | i16 | `0` |
 
 ## `list`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `item_height` | i16 |  |
 | `inertia` | bool | `True` |
 
 ## `tabs`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `active` | i16 | `0` |
 
 ## `popup`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `radius` | i16 | `8` |
 
 ## `label`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `text` | str |  |
 | `font` | font_ref |  |
 | `align` | one of `left` / `center` / `right` | `left` |
@@ -60,7 +60,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `value`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | variable |  |
 | `font` | font_ref |  |
 | `show_unit` | bool | `True` |
@@ -70,7 +70,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `button`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `text` | str |  |
 | `text_on` | str | `` |
 | `tag` | variable |  |
@@ -83,7 +83,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `switch`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | variable |  |
 | `label_on` | str | `ON` |
 | `label_off` | str | `OFF` |
@@ -92,7 +92,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `led`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `shape` | one of `round` / `rect` | `round` |
 | `tag` | variable |  |
 | `color_on` | color |  |
@@ -103,7 +103,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `slider`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | variable |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -112,7 +112,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `bar`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | variable |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -121,7 +121,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `gauge`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | variable |  |
 | `min` | f32 | `0.0` |
 | `max` | f32 | `100.0` |
@@ -135,14 +135,14 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `image`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `src` | image_ref |  |
 | `tint` | color |  |
 
 ## `nav`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `text` | str |  |
 | `target` | str |  |
 | `icon` | image_ref |  |
@@ -150,7 +150,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `icon`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `src` | icon_ref |  |
 | `color` | color |  |
 | `tag` | variable |  |
@@ -160,7 +160,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `input`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | variable |  |
 | `keypad` | one of `numeric` / `integer` / `alphanumeric` / `password` |  |
 | `min` | f32 |  |
@@ -171,7 +171,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `trend`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `series` | list |  |
 | `timespan_s` | i32 | `300` |
 | `sample_ms` | i32 | `1000` |
@@ -185,7 +185,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 ## `alarm_table`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `filter` | one of `active` / `unacked` / `history` / `all` |  |
 | `min_priority` | one of `info` / `warning` / `fault` / `critical` |  |
 | `rows` | i16 | `8` |
@@ -199,7 +199,7 @@ Schema version: **43** — the vocabulary of the project file. The compiled pack
 A live oscilloscope-style curve of one variable, drawn as values arrive — the on-screen counterpart of the editor's Scope. For the recorded, multi-curve history see `trend`.
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `tag` | variable |  |
 | `color` | color |  |
 
@@ -208,13 +208,13 @@ A live oscilloscope-style curve of one variable, drawn as values arrive — the 
 The ctrl32 mark, drawn as a crisp vector at whatever size the rect gives it. Colourable; empty means the brand blue.
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `color` | color |  |
 
 ## `recipe_table`
 
 | Property | Type | Default |
-|:---|:---:|:---:|
+|---|---|---|
 | `font` | font_ref |  |
 
 ---
