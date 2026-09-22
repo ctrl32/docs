@@ -65,6 +65,7 @@ nav:
       - The Linux runtime: linux-runtime.md
       - Setting up a device: linux-setup.md
   - Licensing: licensing.md
+  - Why ctrl32 at home: home-automation.md
   - Start here:
       - Start here: start-here.md
       - Quick start: quickstart.md
