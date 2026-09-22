@@ -130,7 +130,66 @@ reported back to the switch on the screen.
 
 ---
 
-## 5. How it compares with the usual ways
+## 5. The other half of a house: getting I/O to where things are
+
+A controller on a DIN rail solves nothing by itself. The sensors are
+in the boiler room, the buttons are by the doors, the blinds are on
+the first floor and the pump is in the garden — and the reason home
+automation gets expensive is not the controller, it is **one cable per
+signal, all the way back to one box**.
+
+The usual answers each cost something:
+
+- **A device per point on Wi-Fi.** Cheap and quick, and now the
+  interlock depends on the access point.
+- **A cable per signal to a central rack.** Correct, and priced like
+  it: the copper and the labour dwarf the electronics.
+- **A fieldbus with addressed modules.** The right shape — one cable
+  past every module — with one nuisance that never goes away: each
+  module has to be told *who it is*, with DIP switches, a rotary
+  encoder or a commissioning tool. Replace a failed module and
+  somebody has to remember the setting; fit the right module in the
+  wrong slot and nothing tells you.
+
+**[stepCAN](https://www.ctrl32.com/docs/stepcan/) is our answer to
+that last nuisance.** It is a modular I/O bus in which a module's
+address comes from *where it is*, not from what somebody set on it.
+One Cat5e cable carries the CAN network past every module, and
+alongside it runs a one-way "you are next" chain. At power-up the head
+station walks that chain and hands out CANopen node-IDs **in strict
+physical order** — sixty-four modules in under a second.
+
+What that changes in a house:
+
+| | With address switches | With stepCAN |
+|:---|:---|:---|
+| Adding a module | set the address, avoid clashes | plug it in |
+| Replacing a failed one | remember what the old one was set to | plug it in |
+| Wrong module in a slot | discovered eventually, by behaviour | the head station sees the mismatch |
+| Commissioning | a tool and a list | power up |
+
+The numbers it is designed to: **64 modules per segment**,
+**500 kbit/s**, up to **30 m** of bus, RJ45 in the CANopen connector
+standard, modules on a DIN-rail backplane or scattered around a
+building — or both on one segment.
+
+And because it is **CANopen** underneath (CiA 301, 305 and 401), the
+I/O arrives in a ctrl32 project the way CANopen devices already do:
+as variables, in the cycle, with the manager the runtime already
+carries.
+
+!!! note "Where stepCAN is today"
+    stepCAN is a **published specification and reference design**, not
+    a box you can order yet. The documentation is open — the physical
+    layer, the enumeration, the CANopen profile, the power
+    distribution, a reference module design and a bill of materials —
+    including a verification page that says plainly which questions
+    are settled and which are still open. Read it before you build
+    against it: [the stepCAN documentation](https://www.ctrl32.com/docs/stepcan/).
+
+---
+
+## 6. How it compares with the usual ways
 
 Named products change every year; the *categories* do not. Here is
 what each one is actually good at.
@@ -155,7 +214,7 @@ discipline at hobby prices, with the fieldbuses already on the board**.
 
 ---
 
-## 6. What you actually build with it
+## 7. What you actually build with it
 
 - **Ladder, function blocks or structured text** — the three
   languages an electrician already knows, compiled in the editor and
@@ -179,7 +238,7 @@ discipline at hobby prices, with the fieldbuses already on the board**.
 
 ---
 
-## 7. What it is NOT — read this before you plan anything
+## 8. What it is NOT — read this before you plan anything
 
 This is the part a marketing page usually leaves out, so it is in the
 middle of this one.
@@ -202,14 +261,14 @@ documentation, including [Intended use](intended-use.md).
 
 ---
 
-## 8. What it costs
+## 9. What it costs
 
 - **The hardware** is whatever an ESP32 board with the buses you need
   costs — usually less than one smart relay.
 
 ---
 
-## 9. How to find out in an afternoon
+## 10. How to find out in an afternoon
 
 1. [Quick start](quickstart.md) — install, open a shipped project,
    look at it.
