@@ -25,6 +25,12 @@ The industrial standard, and it needs one resistor: current through a
 precision resistor becomes a voltage the ADC can read. 4–20 mA through
 **165 Ω** gives 0.66–3.3 V, which suits a 3.3 V input.
 
+You do not work the rest out yourself: tell the channel it is a
+4-20 mA input, give it the shunt and what the range means, and the
+device delivers bar (or whatever your unit is). The same goes for
+0-10 V sensors, thermistors and Pt100/Pt1000 —
+[Reading real values](analog-inputs.md) is the page.
+
 Why the world uses current rather than voltage is worth knowing. A broken
 wire reads **0 mA** — outside the 4–20 range, and therefore *detectably*
 wrong. A 0–10 V sensor with a broken wire reads 0 V, which is a perfectly
@@ -65,7 +71,9 @@ it drives LEDs, heaters and servos directly.
 !!! tip "Scale in the variable, not in the logic"
     Give the variable a scale and a unit and let it convert counts to bar or
     volts. The logic then reads bar, the screen shows bar, and nobody has
-    to remember what 24 576 meant.
+    to remember what 24 576 meant. For an input, the shortest road there is
+    to say what is wired to it — see
+    [Reading real values](analog-inputs.md).
 
 ## The chips
 

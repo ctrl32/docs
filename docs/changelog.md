@@ -10,6 +10,22 @@ capabilities, the first one practically never moves.
 
 ## 1.00.052
 
+- **Analog inputs read real values.** An analog channel now says WHAT
+  IS WIRED TO IT and the device does the arithmetic: a 0-10 V or 0-5 V
+  sensor through its divider, a 4-20 or 0-20 mA loop through its
+  shunt, an NTC thermistor (by R25 and B, or by Steinhart-Hart
+  coefficients) and a Pt100 or Pt1000 through the standard curve. Pick
+  the sensor on the variable's sheet and the usual numbers are filled
+  in - a 165 ohm shunt, a 10k reference, 3.3 V - and every one of them
+  can be overwritten for another board. A line under the fields says
+  what a reading WOULD mean, so an upside-down divider shows up at the
+  desk. A 4-20 mA loop that breaks is refused rather than read as a
+  large negative value: the variable keeps what it had and the
+  diagnostic buffer says why. It works on every analog input - the
+  ADS1115, the ADS1118 and the board's own ADC - and a channel with
+  no type keeps the gain and offset it always had. The page:
+  [Reading real values](analog-inputs.md), the example:
+  `examples\analog_inputs.prj32`.
 - **Vehicle buses: J1939, and the two worlds built on it.** A CAN bus
   can now carry a vehicle network, and the device is a **node** on it:
   it has its own NAME, claims an address and defends it, reads the

@@ -150,6 +150,7 @@ nav:
       - Light, distance, motion: peripherals-light.md
       - Pressure and position: peripherals-pressure.md
       - Analog in and out: peripherals-analog.md
+      - Reading real values: analog-inputs.md
       - I/O expanders and drivers: peripherals-io.md
       - Power and energy: peripherals-power.md
       - Cellular modems: peripherals-connectivity.md
