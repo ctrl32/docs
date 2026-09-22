@@ -29,8 +29,21 @@ configure.
 | Trend curves (per chart) | 4 | 4 | 4 |
 | Trend curves (whole project) | 8 (classic ESP32: 4) | 8 (classic ESP32: 4) | 8 |
 | WEBview clients (ESP32; STM32F7: 1) | 2 | 2 | more |
-| Axes (drives) | 4 | 4 | — |
-| PLC tasks | 2 (fast + slow) | 2 (fast + slow) | 2 (fast + slow) |
+| Axes (drives) | 4 | 4 | **8** |
+| PLC tasks | 4 | 4 | 4 |
+
+**Vehicle buses.** A project that speaks
+[J1939](vehicle-buses.md) — on a truck, a boat or a tractor — holds:
+
+| Limit | How many |
+|:---|:---:|
+| Networks (one per CAN interface) | 4 |
+| Control units on them | 32 |
+| Parameter groups | 64 |
+| Signals in those groups | 256 |
+| A message assembled from many frames | 1785 bytes on a Linux device, 512 on a panel |
+| Control units asked over [diagnostics](vehicle-diagnostics.md) | 8 |
+| Values read out of them | 64 |
 
 **The LITE class.** An ESP32 without PSRAM (the classic WROOM-32
 module and the boards built on it) has 320 kB of internal RAM for
