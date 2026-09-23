@@ -10,6 +10,12 @@ capabilities, the first one practically never moves.
 
 ## 1.00.052
 
+- **Update the runtime on your boards with this version.** The
+  program pack format moved (62), so a board still running an
+  older runtime refuses a pack built here and says so - it keeps
+  running what it has, nothing is lost. Upload the runtime first
+  (over the network or USB), then deploy the project. A board you
+  are not updating is unaffected: it keeps running its own pack.
 - **Analog inputs read real values.** An analog channel now says WHAT
   IS WIRED TO IT and the device does the arithmetic: a 0-10 V or 0-5 V
   sensor through its divider, a 4-20 or 0-20 mA loop through its
