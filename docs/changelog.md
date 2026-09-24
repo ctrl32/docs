@@ -8,6 +8,14 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.053
+
+- **The editor speaks Bulgarian.** Български joins the eleven
+  languages of *View → Language*; a Windows set to Bulgarian starts
+  the editor in it, and the installer speaks it too. The translation
+  was made with the product glossary — a wrong word in your language
+  is worth a message, it gets fixed in the next release.
+
 ## 1.00.052
 
 - **Update the runtime on your boards with this version.** The
