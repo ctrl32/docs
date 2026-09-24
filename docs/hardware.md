@@ -92,7 +92,7 @@ silicon. This is the table to check before choosing:
 | RS485 / Modbus RTU | yes | yes | yes | yes | — (the Discovery board has no RS485 transceiver) |
 | Modbus TCP | yes | yes | yes | yes | yes |
 | MQTT telemetry | yes | yes | yes | yes | yes |
-| MQTT over TLS | — | — | **yes** | **yes** | **yes** |
+| MQTT over TLS | — | — | **yes** | **yes** | planned |
 | PSRAM variants | quad (WROVER) | 2 MB | up to 8 MB octal | 32 MB | SDRAM |
 | Trend curves in a project | 4 | 4 | 8 | 8 | 8 |
 | WEBview clients | 2 | 2 | 2 | 2 | 1 |

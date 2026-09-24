@@ -17,6 +17,11 @@ capabilities, the first one practically never moves.
   of a local instance of the platform. Update the runtime on the boards
   that use it: an older runtime sends the old message shape, which the
   platform keeps as a raw message. The page: [MQTT telemetry](mqtt.md).
+- **MQTT on Linux devices.** A Linux runtime publishes over MQTT like
+  every other board now - every mode, TLS included (the system's
+  certificate store judges the broker, so a public certificate needs
+  nothing from you). The device page and the console carry the
+  connection state (`mqtt=`), and `SYS.MQTT_OK` is real on Linux.
 - **The editor speaks Bulgarian.** Български joins the eleven
   languages of *View → Language*; a Windows set to Bulgarian starts
   the editor in it, and the installer speaks it too. The translation
