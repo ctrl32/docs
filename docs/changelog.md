@@ -10,6 +10,13 @@ capabilities, the first one practically never moves.
 
 ## 1.00.053
 
+- **A device sends to ctrl32 telemetry.** The MQTT page has a third
+  publish mode, *ctrl32 telemetry*: pick it, type the device's id and
+  token from the platform, tick the variables — the values arrive on
+  the datastreams of [telemetry.digital](https://telemetry.digital) or
+  of a local instance of the platform. Update the runtime on the boards
+  that use it: an older runtime sends the old message shape, which the
+  platform keeps as a raw message. The page: [MQTT telemetry](mqtt.md).
 - **The editor speaks Bulgarian.** Български joins the eleven
   languages of *View → Language*; a Windows set to Bulgarian starts
   the editor in it, and the installer speaks it too. The translation

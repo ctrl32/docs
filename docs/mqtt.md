@@ -146,6 +146,42 @@ anything actually leaving the board? — without a laptop.
 For OpenRemote or any other broker only the topic and the credentials
 change — the message format is the same.
 
+## ctrl32 telemetry (telemetry.digital)
+
+[ctrl32 telemetry](https://telemetry.digital) is the free data platform
+from the same author: measurements from devices, PLCs and gateways,
+stored as verifiable records, with alarms, reports and a remote device
+console. A ctrl32 device talks to it in its own *Publish mode*:
+
+1. In ctrl32 telemetry: *Devices → New device*, an external id (say
+   `panel-1`), *Issue token* — the token `c32d_…` shows once. Under the
+   asset create a **datastream for every variable you will publish**,
+   with the **same key as the variable name**, and assign the keys to
+   the device (device page → *Datastreams*). A value whose key the
+   device does not have is kept as a raw message and never reaches a
+   chart.
+2. In the editor: *Publish mode* → **ctrl32 telemetry**. Picked on an
+   empty form it fills the platform's address (`telemetry.digital`,
+   port 8883, TLS on); username = the external id, password = the
+   token, leave the topic at its default. Tick the variables.
+3. After the upload the device shows **connected** on the Devices page
+   and the values arrive on the datastreams — every change at most
+   once per interval, everything once after a reconnect.
+
+What travels is one object per message, `{"ts": <UNIX seconds>, "v":
+{"temp": 21.5, "run": true}}`; the time is sent only while the
+device's clock is set (NTP or an RTC), otherwise the server stamps the
+arrival. Commands from the platform are not supported in this version
+— the *Allow setVar commands* switch has no effect here.
+
+Two rules the platform imposes, both checked at your desk: a variable
+name used as a key is lowercase letters, digits and `_` (a letter
+first, 32 at most) — the build refuses a `Voltage_L1` and says so; and
+TLS needs a board that has it (see *Encrypted connection*). A classic
+ESP32 reaches a **local instance** of the platform on port 1883
+without TLS (the platform's *intranet* profile), which is also the
+road for a board with no internet access.
+
 ## Home Assistant mode (one topic per variable)
 
 The MQTT settings let you switch the publish mode to **one topic per
