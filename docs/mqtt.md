@@ -178,9 +178,11 @@ device's clock is set (NTP or an RTC), otherwise the server stamps the
 arrival. Commands from the platform are not supported in this version
 — the *Allow setVar commands* switch has no effect here.
 
-Two rules the platform imposes, both checked at your desk: a variable
-name used as a key is lowercase letters, digits and `_` (a letter
-first, 32 at most) — the build refuses a `Voltage_L1` and says so; and
+Two rules the platform imposes, both checked at your desk: a variable's
+name becomes its datastream key written in lower case with `.` and `-`
+as `_` (`Voltage_L1` → `voltage_l1`, `SYS.CYCLE_US` → `sys_cycle_us`,
+32 characters at most) — two variables that would share a key are
+refused with both named, so is a name that cannot become a key; and
 TLS needs a board that has it (see *Encrypted connection*). A classic
 ESP32 reaches a **local instance** of the platform on port 1883
 without TLS (the platform's *intranet* profile), which is also the
