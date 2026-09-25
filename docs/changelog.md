@@ -22,6 +22,13 @@ capabilities, the first one practically never moves.
   certificate store judges the broker, so a public certificate needs
   nothing from you). The device page and the console carry the
   connection state (`mqtt=`), and `SYS.MQTT_OK` is real on Linux.
+- **MQTT over TLS on the STM32 F7.** The Discovery reaches an
+  encrypted broker too - telemetry.digital included - verifying the
+  server against a built-in set of public roots and checking its
+  name, like the S3 and the P4. A failed handshake says why in the
+  diagnostic buffer. The board's RAM budget moved with it: the
+  FreeRTOS heap lives in SDRAM now, which left the runtime 50 kB of
+  internal heap instead of 20.
 - **The editor speaks Bulgarian.** Български joins the eleven
   languages of *View → Language*; a Windows set to Bulgarian starts
   the editor in it, and the installer speaks it too. The translation

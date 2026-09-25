@@ -99,12 +99,13 @@ Two things follow from how certificates work:
   against the clock, so a TLS project should keep NTP on (*Clock* →
   *NTP*). Until the first time sync lands, the connection simply
   retries — nothing breaks, it connects a few seconds later.
-- **S3, P4 and Linux devices.** The classic ESP32 does not have the
-  memory for a TLS session next to control and rendering; the editor
-  tells you at your desk, not the board at the site. The STM32 F7
-  runtime speaks plain MQTT for now: with TLS ticked it says so in
-  its diagnostic buffer and keeps the broker connection off rather
-  than send a password in the clear.
+- **S3, P4, STM32 F7 and Linux devices.** The classic ESP32 does not
+  have the memory for a TLS session next to control and rendering; the
+  editor tells you at your desk, not the board at the site. The F7
+  carries its own small set of public root certificates (Let's Encrypt,
+  DigiCert, GlobalSign, Amazon, Google, Sectigo, Go Daddy); a broker
+  signed by another root is refused with the reason in the diagnostic
+  buffer.
 
 ## Changing the network on the board itself
 
