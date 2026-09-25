@@ -34,6 +34,15 @@ capabilities, the first one practically never moves.
   the editor in it, and the installer speaks it too. The translation
   was made with the product glossary — a wrong word in your language
   is worth a message, it gets fixed in the next release.
+- **An EtherCAT drive that lost its PDO assignment comes back.** A
+  drive switched off and on while the master was configuring it could
+  be left with an empty output assignment; from then on the bus never
+  reached OPERATIONAL ("Invalid output configuration") and the drive
+  sat in fault. The master now finishes that write in every case,
+  names an empty assignment on the console and in the diagnostic
+  buffer, and the reTerminal EtherCAT example declares both PDO
+  assignments in its SDO list, so a drive that lost one is set right at
+  the next start. Update the Linux runtime bundle to get it.
 
 ## 1.00.052
 

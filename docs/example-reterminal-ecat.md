@@ -49,8 +49,12 @@ on its RS-485 terminal — or nothing: the screens run, the lamps stay dark
   user-configurable process data object, and the `sdo_init` list maps
   current, torque, DC link and output frequency into it at every start
   (the assignment cleared first, the mapping written, then the
-  assignment set to both objects). Four more signals with a gain, and
-  the screen shows the same numbers as the CAN twin.
+  assignment set to both objects). The list declares the assignment of
+  the fixed receive object as well — a drive that lost either one, say
+  switched off and on while the master was configuring it, is set right
+  at the next start instead of refusing every output image. Four more
+  signals with a gain, and the screen shows the same numbers as the CAN
+  twin.
 
 The `DRIVE_i550` block, the confirmation on START, the setpoint by
 keypad or slider, the ramps, the lamps from statusword bits, the trend,
