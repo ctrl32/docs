@@ -178,6 +178,13 @@ device's clock is set (NTP or an RTC), otherwise the server stamps the
 arrival. Commands from the platform are not supported in this version
 — the *Allow setVar commands* switch has no effect here.
 
+**Position on the map.** Publish two variables named `lat` and `lon`
+(decimal degrees, `48.1486` / `17.1077`; an initial value is enough for
+a device that does not move) and the platform places the device on its
+map from the telemetry — no datastream is needed for that, and a
+position fixed on the device page in the platform wins over the
+reported one.
+
 Two rules the platform imposes, both checked at your desk: a variable's
 name becomes its datastream key written in lower case with `.` and `-`
 as `_` (`Voltage_L1` → `voltage_l1`, `SYS.CYCLE_US` → `sys_cycle_us`,
