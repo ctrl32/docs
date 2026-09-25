@@ -43,6 +43,19 @@ capabilities, the first one practically never moves.
   buffer, and the reTerminal EtherCAT example declares both PDO
   assignments in its SDO list, so a drive that lost one is set right at
   the next start. Update the Linux runtime bundle to get it.
+- **A planned restart tells the broker.** Before a pack upload, a
+  runtime update or saved settings restart the board, the MQTT client
+  now sends a proper disconnect, so the broker closes the old session
+  at once instead of holding it until its keepalive runs out. Without
+  it a device that came back within seconds with the same client id
+  could be attached to a session the broker had already closed - it
+  looked connected on the device and offline on the platform.
+- **STM32 F7: a runtime update over the network with MQTT running.**
+  The telemetry tick kept reading variable names out of the pack while
+  the new image was being written into QSPI, and the board reset in the
+  middle of every network update. The tick waits like the screen does.
+  This one needs the ST-LINK road once, the network road works from
+  the next update on.
 
 ## 1.00.052
 
