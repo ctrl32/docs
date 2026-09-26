@@ -151,7 +151,7 @@ version 1.00.040 every Linux device also has **CAN** and **RS485**:
   page. (Selling a device as an EtherCAT master requires the
   EtherCAT Master License from the EtherCAT Technology Group (ETG);
   ctrl32 handles that for its own products.)
-- **Motion**: up to **eight axes** on a Linux device (the boards keep
+- **Motion**: up to **32 axes** on a Linux device (the boards keep
   four).
 
 The adapter is a **device name** in the runtime's settings file

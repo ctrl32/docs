@@ -23,7 +23,7 @@ capabilities, the first one practically never moves.
   in a four-drive form (`reterminal_ecat_4x` in the examples: four
   i550s daisy-chained, position on the line = axis number, a screen
   with a column per drive). A line takes up to 32 devices and a Linux
-  device drives up to 8 axes; each drive carries its own start-up
+  device drives up to 32 axes; each drive carries its own start-up
   parameters and its own signals, and every extra axis has its own
   program.
 - **The device's position always arrives whole.** In the ctrl32

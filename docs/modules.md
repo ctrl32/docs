@@ -32,7 +32,7 @@ screens to a phone either way.
 | Variables | 128 | 512 | 5120 |
 | Alarms | 32 | 128 | 1280 |
 | Program blocks | 128 | 512, 1024 headless | 5120 |
-| Drive axes | 1 | 4 | 8 |
+| Drive axes | 1 | 4 | 32 |
 | Screens | 32 | 32 | 320 |
 | Trend traces | 4 | 4, 8 on ESP32-S3 and ESP32-P4 | 8 |
 | Phone viewers at once | 1 with a display, 2 headless | 2 | many |
