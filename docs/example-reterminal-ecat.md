@@ -85,5 +85,12 @@ only in how it talks to the machine:
 
 - [the drive on CANopen](example-reterminal.md),
 - [the drive on EtherCAT](example-reterminal-ecat.md),
+- the same line with four drives: `reterminal_ecat_4x.prj32` in the
+  examples (position on the line = axis number, a screen with a column
+  per drive),
 - [two slaves on an RS-485 pair](example-rs485.md),
 - [a SIMATIC over ethernet](example-reterminal-s7.md).
+
+---
+
+*EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*

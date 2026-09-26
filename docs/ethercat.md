@@ -147,3 +147,7 @@ any other bus.
   example this page's pictures come from.
 - [CANopen](canopen.md) — the same drive on the other bus.
 - [Motion blocks](blocks-motion.md) — what commands an axis.
+
+---
+
+*EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*

@@ -53,6 +53,8 @@ device, and three components of its own.
     requires a master licence from the EtherCAT Technology Group — a
     paperwork step on the vendor's side, not the user's.
 
+EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.
+
 ## In the editor
 
 Everything that runs on your PC. None of it reaches the equipment.

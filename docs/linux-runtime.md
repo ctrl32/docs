@@ -170,3 +170,7 @@ device would silently ignore. They will arrive with their drivers.
 And the standing rule of the whole product applies unchanged: a
 ctrl32 device is [not a safety device](intended-use.md). Emergency
 stops stay hard-wired.
+
+---
+
+*EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*

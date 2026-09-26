@@ -167,3 +167,7 @@ over the line as a variable, none of them written by hand.
 - [reTerminal, the drive on EtherCAT](example-reterminal-ecat.md) —
   the project this page walks.
 - [Motion blocks](blocks-motion.md) — what commands an axis.
+
+---
+
+*EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*

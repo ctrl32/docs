@@ -8,6 +8,28 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.054
+
+- **An EtherCAT drive comes back from a power cycle.** The master now
+  waits for the drive's own application to answer before it writes the
+  start-up parameters, and a parameter set the drive refused in part is
+  written again every few seconds until it takes. Before, a drive
+  switched off and on while the line was running could reach the
+  operational state without its control mode and its network-enable
+  bits - alive on the bus and impossible to start. The console and the
+  diagnostic buffer say "configuration incomplete" while it lasts and
+  "configuration complete" when it is done. Linux runtime bundle.
+- **Several drives on one EtherCAT line.** The reTerminal example comes
+  in a four-drive form (`reterminal_ecat_4x` in the examples: four
+  i550s daisy-chained, position on the line = axis number, a screen
+  with a column per drive). A line takes up to 32 devices and a Linux
+  device drives up to 8 axes; each drive carries its own start-up
+  parameters and its own signals, and every extra axis has its own
+  program.
+- **The device's position always arrives whole.** In the ctrl32
+  telemetry mode `lat` and `lon` are never split across two messages
+  when a large set of values does not fit one.
+
 ## 1.00.053
 
 - **A device sends to ctrl32 telemetry.** The MQTT page has a third
