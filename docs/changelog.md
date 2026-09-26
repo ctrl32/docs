@@ -29,6 +29,13 @@ capabilities, the first one practically never moves.
 - **The device's position always arrives whole.** In the ctrl32
   telemetry mode `lat` and `lon` are never split across two messages
   when a large set of values does not fit one.
+- **EtherCAT: the distributed clock and a cycle in microseconds.** The
+  EtherCAT page has a *Cycle µs* field and a *Distributed clock* switch:
+  devices with a clock get SYNC0, the master locks its cycle to the
+  line's reference clock, and the device page shows the worst wake-up
+  lateness of the last minute - the figure a fast servo line lives by.
+  What the hardware under the runtime must offer for a sub-millisecond
+  cycle is on the [EtherCAT](ethercat.md) page.
 
 ## 1.00.053
 

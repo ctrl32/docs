@@ -148,6 +148,30 @@ any other bus.
 - [CANopen](canopen.md) — the same drive on the other bus.
 - [Motion blocks](blocks-motion.md) — what commands an axis.
 
+## Distributed clock and fast cycles
+
+The line's cycle is the master's setting: *Cycle ms* on the EtherCAT
+page, or *Cycle µs* when a servo wants less than a millisecond (the µs
+field wins when it is set). Two things decide how fast a line can really
+run:
+
+- **The distributed clock.** With *Distributed clock* ticked, every device
+  that has a clock gets SYNC0 at the cycle and the master locks its own
+  cycle to the line's reference clock, so a servo sees its setpoints at
+  the same instant every cycle. A device without a clock (the i550, for
+  one) keeps running SM-synchronous on the same line - it does not sync,
+  it does not stop the others. The device page shows `dc` in the EtherCAT
+  state when the clock is running.
+- **The device below the runtime.** A cycle under a millisecond needs a
+  network port wired straight to the processor (not a USB adapter), a
+  real-time kernel and a core kept free for the bus. The EtherCAT state
+  on the device page carries the worst wake-up lateness of the last
+  minute in microseconds - keep it under a quarter of the cycle, or the
+  drives will report synchronisation errors.
+
+The examples run the i550 at 4 ms without the clock; a servo line is
+set up the same way with the two fields above.
+
 ---
 
 *EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*
