@@ -44,6 +44,10 @@ capabilities, the first one practically never moves.
   and overrun counters start once every device is operational, so a
   start-up no longer reads as a fault, and the master waits for the
   port's link before it looks for devices.
+- **The Lenze i750 and i950 servo inverters in the EtherCAT library.**
+  Their device descriptions (with the object dictionaries of the current
+  firmware) ship beside the i550's, so an axis on either is added from
+  the library like any other device.
 
 ## 1.00.053
 
