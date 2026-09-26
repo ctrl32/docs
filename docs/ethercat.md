@@ -164,10 +164,23 @@ run:
   state when the clock is running.
 - **The device below the runtime.** A cycle under a millisecond needs a
   network port wired straight to the processor (not a USB adapter), a
-  real-time kernel and a core kept free for the bus. The EtherCAT state
-  on the device page carries the worst wake-up lateness of the last
-  minute in microseconds - keep it under a quarter of the cycle, or the
-  drives will report synchronisation errors.
+  real-time kernel and a core kept free for the bus. On a Raspberry Pi
+  that is the `-rt` kernel image the distribution ships, the kernel line
+  extended with `isolcpus=3 nohz_full=3 rcu_nocbs=3 irqaffinity=0-2`
+  (core 3 is then the bus's alone), and the drop-in `ctrl32run-rt.conf`
+  from the runtime bundle copied to
+  `/etc/systemd/system/ctrl32run.service.d/` - it names that core, the
+  runtime pins its cycle thread to it, and the interrupt mover installed
+  with the runtime brings the port's interrupts along once the link is
+  up. Measured with an i550 on the reTerminal's own port: 250 µs and
+  200 µs run without a lost frame and the worst wake-up lateness stays
+  under 15 µs; over a USB adapter the same line carries 1 ms and loses
+  frames at 250 µs. The EtherCAT state on the device page carries the
+  worst wake-up lateness of the last minute in microseconds - keep it
+  under a quarter of the cycle, or the drives will report
+  synchronisation errors. Its two counters (lost frames, overruns) start
+  once every device on the line is operational, so a start-up never
+  reads as a fault.
 
 The examples run the i550 at 4 ms without the clock; a servo line is
 set up the same way with the two fields above.

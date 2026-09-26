@@ -36,6 +36,14 @@ capabilities, the first one practically never moves.
   lateness of the last minute - the figure a fast servo line lives by.
   What the hardware under the runtime must offer for a sub-millisecond
   cycle is on the [EtherCAT](ethercat.md) page.
+- **A real-time kernel recipe for sub-millisecond EtherCAT.** The Linux
+  runtime bundles carry `ctrl32run-rt.conf` and the interrupt mover; with
+  the distribution's `-rt` kernel and one core kept for the bus, a
+  Raspberry Pi device runs the line at 200 µs without a lost frame. The
+  recipe is on the [EtherCAT](ethercat.md) page. The line's lost-frame
+  and overrun counters start once every device is operational, so a
+  start-up no longer reads as a fault, and the master waits for the
+  port's link before it looks for devices.
 
 ## 1.00.053
 
