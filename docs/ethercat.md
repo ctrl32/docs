@@ -36,8 +36,8 @@ Put the file in the device library (*Tools › Device library*, the
 EtherCAT section) and the EtherCAT page's **Add from library** turns a
 picked device into a slave: identity, image sizes, the CiA 402 layout
 when it is a drive, and one signal with its variable for every value
-the device sends by default. The Lenze i550, i750 and i950 ship in the
-library (the i950 in two firmware generations; pick the one on the
+the device sends by default. The Lenze i550, i700, i750 and i950 ship
+in the library (the i950 in two firmware generations; pick the one on the
 name plate - a drive answers the scan with its own code and revision).
 
 ---
