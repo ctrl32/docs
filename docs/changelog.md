@@ -22,6 +22,15 @@ capabilities, the first one practically never moves.
   axis picks A or B. The reTerminal EtherCAT example carries the bench's
   two Lenze i700s this way, on the distributed clock at 1 ms. Linux
   runtime bundle.
+- **A virtual master axis.** An axis with no drive behind it, added on
+  the EtherCAT node: the program commands it like any axis, the device
+  runs its profile every bus cycle, and the followers of a line shaft
+  gear to its position - one clock for the whole line - while a drum
+  that takes only a speed follows its velocity. It can instead follow
+  a counter variable (the drum's encoder as a process-data signal) and
+  be the measured drum. The reTerminal EtherCAT example's line screen
+  has the source switch and a second register, the followers against
+  the drum. Linux runtime bundle.
 - **Torque and positioning on a servo.** Two motion blocks:
   `MC_SETTORQUELIMIT` holds a torque limit (per cent of rated) on the
   drive every bus cycle while it is enabled - the tension of a winder,

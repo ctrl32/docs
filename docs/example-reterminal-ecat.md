@@ -178,6 +178,33 @@ the real machine with its motors and loads. Through all of it the bus
 stayed clean: no lost frame, no overrun, the worst wake-up under 30 µs
 at 1 ms and 250 µs alike.
 
+### The virtual master
+
+The line screen's *Master source* switch picks who leads. Off, the
+followers gear to servo1's **measured** position, as above. On, a
+**virtual master** leads - an axis with no drive behind it, `vm` in the
+project, that runs the line's profile (the same RUN, setpoint and ramp
+command it), the double's axes gear to its position and servo1 takes
+its velocity only, the way a drum that gets a speed setpoint would. A
+second register on that row, *register vs drum*, shows the followers
+against servo1 while the virtual master leads.
+
+What the bench read at 300 rpm, 1:1: against the virtual master the
+followers sit 88 and 67 increments behind in the hold with a delay of
+2.5 ms compensated (the followers' own chain: the setpoint IS the
+master, what remains is the time the drive takes to apply it - 2.75 ms
+zeroes it); against the **drum** they run 4 500 increments ahead in
+the hold, and 4 300 behind once the line has stopped - a drum that
+follows a velocity through a 10 ms program cycle and its own ramp is
+not where the profile says, and every start and stop moves it a
+little further. That is the design lesson for a printing machine: the
+drum is either geared to the virtual master in position like the
+plates, or the plates gear to the drum's **measured** encoder - the
+virtual master can take a counter variable (the encoder on the drive's
+input B as a process-data signal) as its source instead of a profile,
+and then the delay compensation of the line shaft applies as measured
+above.
+
 ---
 
 ## Position and torque

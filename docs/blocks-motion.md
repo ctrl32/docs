@@ -388,6 +388,10 @@ constant speed with `Delay` 0, read `Register`, divide by the speed in
 increments per second - that quotient is the delay. `Delay` is read
 every cycle, so it can be tuned from a screen while the line runs.
 
+`Master` may be a servo axis or a **virtual master** - an axis with no
+drive that the program commands, or one that follows a counter variable
+(the drum's encoder); the EtherCAT page says how it is made.
+
 `Register` is the follower's actual position against the master's,
 through the ratio and the phase, in the follower's increments: 0 is in
 register, and a ramp of the master shows the uncompensated delay as a

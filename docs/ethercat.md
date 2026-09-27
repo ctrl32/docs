@@ -165,6 +165,24 @@ drive without a dictionary takes the vendor's known unit). A **double
 inverter** carries two axes in one slave: the window names where axis
 B's words begin, and an axis on it picks *A* or *B*.
 
+### A virtual master
+
+A line shaft needs a master, and the master need not be a drive. *Add
+virtual master axis* on the EtherCAT node makes an axis with nothing
+behind it: the program powers it and commands it like any axis
+(`MC_POWER`, `MC_MOVEVELOCITY`, `CO_RAMPTIME`, `MC_MOVEABS`), the device
+runs its profile every bus cycle, and every follower geared to it with
+`MC_GEARIN` sees the commanded position of the same cycle - the line's
+one clock. A drum that only takes a speed follows its velocity
+(`MC_READACTVEL`); a drum that must be in register is geared to it in
+position like the plates. The axis's window has one more choice: a
+**source** variable - a 32-bit integer counter, such as the drum's
+encoder on the drive's input B mapped as a process-data signal - and
+the virtual master is then the measured drum, with the counter's
+increments per revolution named beside it; the followers compensate
+the chain delay as they do behind a servo master. A Linux device only:
+the EtherCAT master steps it.
+
 A servo in csp needs the **distributed clock** (below): its position
 loop expects the setpoint at a fixed phase of its own cycle. While the
 axis is off, faulted or the slave is away, the setpoint follows the
