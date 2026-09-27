@@ -10,6 +10,22 @@ capabilities, the first one practically never moves.
 
 ## 1.00.054
 
+- **Servo inverters on EtherCAT in cyclic position mode.** A slave's
+  window takes an operation mode - velocity, or *cyclic position (csp)*
+  for a servo - and, for a servo, the byte offsets of its 32-bit words.
+  The device ramps the velocity the program asked for, integrates it
+  into the position setpoint every cycle and sends it with the velocity
+  feed-forward; the drive's own position loop follows. The same motion
+  blocks command a servo and a frequency inverter. *Add from library*
+  lays a servo out from its description with only the csp process data
+  assigned, and a double inverter carries two axes in one slave - the
+  axis picks A or B. The reTerminal EtherCAT example carries the bench's
+  two Lenze i700s this way, on the distributed clock at 1 ms. Linux
+  runtime bundle.
+- **The library's start-up writes declare the process data assignment.**
+  A device added from its description carries the assignment of the
+  objects that travel among its start-up writes, so the offsets the
+  window shows hold on the wire at every start.
 - **An EtherCAT drive comes back from a power cycle.** The master now
   waits for the drive's own application to answer before it writes the
   start-up parameters, and a parameter set the drive refused in part is

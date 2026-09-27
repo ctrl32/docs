@@ -121,6 +121,40 @@ What a drive needs beyond that is its **motor data**, and that lives
 in the drive, not in the project. A drive that has never met the motor
 runs the factory values and trips on its first start.
 
+### A servo in cyclic position mode
+
+A servo inverter - the Lenze i700, i750 and i950 are the ones in the
+library - is driven differently from a frequency inverter: it runs
+**csp**, cyclic synchronous position. The device owns the profile. Every
+cycle it ramps the velocity the program asked for, integrates it into a
+32-bit position setpoint and sends it with the velocity as feed-forward;
+the drive's own position loop follows and reports its actual position
+and velocity back. The program does not see the difference: the same
+`MC_POWER` and `MC_MOVEVELOCITY` command a servo and a frequency
+inverter, and `CO_RAMPTIME` sets the ramp the setpoint follows.
+
+*Add from library* recognises a servo by its description and lays it
+out: only the csp pair of process data objects travels (a touch probe
+or a torque limit the vendor also assigns would have to be written
+every cycle, and a zero there is a motor that cannot move), the
+assignment is declared among the start-up writes, and the slave's
+window shows the mode *cyclic position (csp)* with the byte offsets of
+the 32-bit words - the target position, the actual position, the
+actual velocity, the velocity offset, and the mode inside the receive
+object, which such a drive wants every cycle. Two numbers describe the
+drive's units: the increments of one motor revolution (65536 on these
+drives) and the velocity units per rpm (Lenze counts 2^31-1 for
+480 000 rpm; the description's dictionary carries the figure, and a
+drive without a dictionary takes the vendor's known unit). A **double
+inverter** carries two axes in one slave: the window names where axis
+B's words begin, and an axis on it picks *A* or *B*.
+
+A servo in csp needs the **distributed clock** (below): its position
+loop expects the setpoint at a fixed phase of its own cycle. While the
+axis is off, faulted or the slave is away, the setpoint follows the
+actual position, so enabling never jumps and a drive that comes back
+starts from where it stands.
+
 ---
 
 ## Safety
@@ -135,9 +169,10 @@ any other bus.
 
 - **One line per device.** The master runs on one network interface;
   a second line would need a second port and is not supported.
-- **No distributed clocks.** The cycle is the runtime's own, which is
-  what a drive in velocity mode and a terminal both need. Motion that
-  requires synchronised clocks across slaves is out of scope.
+- **One clock per line.** The distributed clock phase-locks the cycle
+  to the first slave that carries one; a slave without a clock, or one
+  that refuses the sync type, stays synchronous to its process data
+  and the console says so.
 - **Linux only.** The boards run CANopen; EtherCAT wants an interface
   that belongs to the master alone.
 
