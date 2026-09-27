@@ -115,6 +115,43 @@ device ramps it and integrates it into the setpoint the drive follows -
 and `MC_READACTVEL` reads the actual velocity back. The variables
 `s1_en`, `s1_go` and `s1_rpm` are what the servo screen's buttons and
 slider write; the program is there to be copied.
+
+---
+
+## The line shaft
+
+![The line-shaft screen: the master's run and ramp, the gear switch, the compensated delay, the two registers live and at their peaks, and their trend](img/example-reterminal-ecat-line.webp){: .sb-center}
+
+The same program gears the double's two axes to the single with
+`MC_GEARIN` - ratio 1:1, the master's measured position every bus
+cycle - and reads each follower's **register** (its actual position
+against the master's, in increments; 65536 = one revolution) into a
+variable, with a peak the RESET PEAKS button clears. `CO_RAMPTIME`
+gives the master its ramp, so a run is a real profile: ramp up, hold,
+ramp down. The *Line shaft* screen (the door on the servo screen) has
+the master's run and ramp, the gear switch, the delay the followers
+compensate, the two registers live and at their peaks, and a trend of
+both.
+
+What the bench measured with it, the master ramping to 300 rpm in 3 s,
+the followers at 1:1:
+
+| bus cycle | register in the hold, delay 0 | the delay that implies | register in the hold, delay set | peak during the ramp, delay 0 → set |
+|---|---|---|---|---|
+| 2 ms | −1479 inc | 4.5 ms | −6 inc | −1483 → −225 |
+| 1 ms | −1058 inc | 3.2 ms | +8 inc | −1068 → −237 |
+| 500 µs | −653 inc | 2.0 ms | −3 inc | −656 → −244 |
+| 250 µs | −568 inc | 1.7 ms | −8 inc | −573 → −234 |
+
+Without the compensation the register is the master's velocity times a
+delay that grows with the cycle - 2 ms is 1.4 times 1 ms - which is the
+error a press shows as colours running away during ramps. With the
+delay set to the number the hold implies, the register in the hold is
+within ten increments at every cycle time, and what remains during a
+ramp is the followers' own loop under acceleration, the same ~230
+increments whatever the cycle. The delay is found the way the table
+shows: one run with the compensation off, the hold's register divided
+by the velocity in increments per second.
 The motors are real. The bench feeds the i700s single-phase from 230 V,
 so their start-up writes set the rated mains voltage to 230 V
 (`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V

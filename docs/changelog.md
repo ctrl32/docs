@@ -22,6 +22,18 @@ capabilities, the first one practically never moves.
   axis picks A or B. The reTerminal EtherCAT example carries the bench's
   two Lenze i700s this way, on the distributed clock at 1 ms. Linux
   runtime bundle.
+- **A line shaft: one axis follows another.** Three motion blocks -
+  `MC_GEARIN`, `MC_GEAROUT`, `MC_PHASING` - couple a servo in cyclic
+  position mode to a master axis at a rational ratio from the master's
+  measured position every bus cycle, with the master's velocity as the
+  follower's feed-forward, the chain delay compensated live, a phase
+  shift ramped in, and the register (the follower against the master,
+  in increments) as an output. Measured on the bench at 1:1: a
+  compensated follower holds within ten increments of its master at
+  every cycle time from 2 ms to 250 µs; without the compensation the
+  error is the velocity times a delay that grows with the cycle. The
+  reTerminal EtherCAT example has a line-shaft screen with the numbers
+  live. Linux runtime bundle.
 - **The library's start-up writes declare the process data assignment.**
   A device added from its description carries the assignment of the
   objects that travel among its start-up writes, so the offsets the

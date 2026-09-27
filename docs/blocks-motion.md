@@ -300,6 +300,103 @@ understands**. Gate anything that uses the position on `Valid`.
 
 ---
 
+## The line shaft
+
+| Block | Inputs | Parameters | Outputs |
+|:---|:---:|:---:|:---:|
+| **MC_GEARIN** | Execute, Delay | Master, RatioNum, RatioDen | InGear, Register |
+| **MC_GEAROUT** | Execute | | Done, Busy |
+| **MC_PHASING** | Execute, PhaseShift | Velocity | Done, Busy |
+
+<!-- blk:MC_GEARIN -->
+**MC_GEARIN**
+
+![MC_GEARIN on a rung](img/blk-mcgin-ld.webp)
+
+```iecst
+PROGRAM MC_GEARIN_ST
+VAR mcgin : MC_GEARIN; END_VAR
+  mcgin(AXIS := 0, Execute := mcgin_execute,
+        Delay := mcgin_delay, Master := mcgin_master,
+        RatioNum := mcgin_rationum, RatioDen := mcgin_ratioden);
+  mcgin_ingear_st := mcgin.InGear;
+  mcgin_register_st := mcgin.Register;
+END_PROGRAM
+```
+
+![MC_GEARIN on the WEBview screen](img/blk-mcgin-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_GEAROUT -->
+**MC_GEAROUT**
+
+![MC_GEAROUT on a rung](img/blk-mcgout-ld.webp)
+
+```iecst
+PROGRAM MC_GEAROUT_ST
+VAR mcgout : MC_GEAROUT; END_VAR
+  mcgout(AXIS := 0, Execute := mcgout_execute);
+  mcgout_done_st := mcgout.Done;
+  mcgout_busy_st := mcgout.Busy;
+END_PROGRAM
+```
+
+![MC_GEAROUT on the WEBview screen](img/blk-mcgout-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_PHASING -->
+**MC_PHASING**
+
+![MC_PHASING on a rung](img/blk-mcphs-ld.webp)
+
+```iecst
+PROGRAM MC_PHASING_ST
+VAR mcphs : MC_PHASING; END_VAR
+  mcphs(AXIS := 0, Execute := mcphs_execute,
+        PhaseShift := mcphs_phaseshift,
+        Velocity := mcphs_velocity);
+  mcphs_done_st := mcphs.Done;
+  mcphs_busy_st := mcphs.Busy;
+END_PROGRAM
+```
+
+![MC_PHASING on the WEBview screen](img/blk-mcphs-web.webp)
+
+<!-- /blk -->
+
+A line shaft is one axis following another: the plate cylinders of a
+press follow the drum, a slitter follows the web, a labeller follows
+the conveyor. `MC_GEARIN` couples the block's axis to the axis
+`Master` at the ratio `RatioNum : RatioDen` - from the master's
+**measured** position, every bus cycle, exactly (a ratio of 2:3 never
+drifts, however long the line runs), with the master's velocity
+through the ratio as the follower's feed-forward. It takes a servo in
+cyclic position mode on EtherCAT with the distributed clock; a
+frequency drive or the simulation answers *InGear* false.
+
+`Delay` is the chain delay the follower compensates, in seconds: the
+time between the master's position being sampled and the follower's
+setpoint being applied. Without it a follower lags the master by
+velocity × delay - an error that grows with speed and doubles when
+the cycle doubles, which is what a press shows as colours running
+away during ramps. With the measured delay in, the setpoint is where
+the master will be when it is applied, and what remains is the
+follower's own loop. Measure it, do not guess it: run the line at a
+constant speed with `Delay` 0, read `Register`, divide by the speed in
+increments per second - that quotient is the delay. `Delay` is read
+every cycle, so it can be tuned from a screen while the line runs.
+
+`Register` is the follower's actual position against the master's,
+through the ratio and the phase, in the follower's increments: 0 is in
+register, and a ramp of the master shows the uncompensated delay as a
+bump the size of velocity × delay. `MC_PHASING` shifts the follower
+against the master by `PhaseShift` increments, moved at `Velocity`
+increments per second - the register measures against the shifted
+relation, so a phase set on purpose is not an error. `MC_GEAROUT`
+releases the follower where it stands; disabling it releases it too.
+
 ## A frequency drive is not a servo
 
 The reference target is the **Lenze i550** over CANopen: a frequency
