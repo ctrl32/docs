@@ -22,6 +22,17 @@ capabilities, the first one practically never moves.
   axis picks A or B. The reTerminal EtherCAT example carries the bench's
   two Lenze i700s this way, on the distributed clock at 1 ms. Linux
   runtime bundle.
+- **Torque and position on a servo, and the line shaft's feed-forward.**
+  `MC_SETTORQUELIMIT` holds a torque limit on the drive every cycle,
+  `MC_TORQUECONTROL` commands the torque of a servo declared in cyclic
+  torque mode, `MC_MOVEABS` / `MC_MOVEREL` / `MC_HOME` run on a servo in
+  cyclic position mode with the profile on the setpoint, and
+  `MC_TORQUEFF` writes the acceleration feed-forward as the drive's
+  torque offset: exact from the axis's own ramp or move and from the
+  master's through the ratio, measured over a short window from an
+  encoder-fed virtual master. A slave's window names the torque words;
+  *Add from library* finds them in the description. Linux runtime
+  bundle.
 - **A virtual master axis.** An axis with no drive behind it, added on
   the EtherCAT node: the program commands it like any axis, the device
   runs its profile every bus cycle, and the followers of a line shaft

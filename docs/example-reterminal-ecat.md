@@ -207,6 +207,15 @@ own (no source named) for a line where the drum too is geared in
 position; a drum that follows a velocity only, measured the same
 evening, ran 4 500 increments off its followers at 300 rpm and drifted
 with every stop - which is why the drum is measured.
+
+The line screen's *acc FF gain* field is the followers' acceleration
+feed-forward (`MC_TORQUEFF`, one gain for both, 0 = off) and the two
+*offset* values show the torque offset each follower writes to its
+drive. On the bench the field stays at 0: a bare motor's inertia
+torque is under a per cent even at 25 revolutions per second squared,
+so no gain moves the register here. On a press the plate cylinder is
+the inertia, and the gain is found there: raise it until the register
+stops dipping at the start of a ramp, and stop before it overshoots.
 The motors are real. The bench feeds the i700s single-phase from 230 V,
 so their start-up writes set the rated mains voltage to 230 V
 (`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V

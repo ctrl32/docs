@@ -407,6 +407,7 @@ releases the follower where it stands; disabling it releases it too.
 |:---|:---:|:---:|:---:|
 | **MC_SETTORQUELIMIT** | Enable, PosLimit, NegLimit | | Enabled, Error |
 | **MC_TORQUECONTROL** | Execute, Torque | VelLimit | InTorque, Busy |
+| **MC_TORQUEFF** | Enable, AccGain | | Enabled, Torque |
 
 <!-- blk:MC_SETTORQUELIMIT -->
 **MC_SETTORQUELIMIT**
@@ -447,6 +448,25 @@ END_PROGRAM
 
 <!-- /blk -->
 
+<!-- blk:MC_TORQUEFF -->
+**MC_TORQUEFF**
+
+![MC_TORQUEFF on a rung](img/blk-mctff-ld.webp)
+
+```iecst
+PROGRAM MC_TORQUEFF_ST
+VAR mctff : MC_TORQUEFF; END_VAR
+  mctff(AXIS := 0, Enable := mctff_enable,
+        AccGain := mctff_accgain);
+  mctff_enabled_st := mctff.Enabled;
+  mctff_torque_st := mctff.Torque;
+END_PROGRAM
+```
+
+![MC_TORQUEFF on the WEBview screen](img/blk-mctff-web.webp)
+
+<!-- /blk -->
+
 A servo's torque is a number the program can hold. `MC_SETTORQUELIMIT`
 writes the positive and the negative torque limit (per cent of the
 motor's rated torque) to the drive **every bus cycle** while `Enable`
@@ -465,6 +485,23 @@ its speed to `VelLimit` rpm - an unloaded motor in torque control runs
 away to that limit, so the limit is not optional. `InTorque` once the
 actual torque is within 5 % of the command, `Busy` on the way. A servo
 in position mode, a frequency drive or the simulation answer neither.
+
+`MC_TORQUEFF` is the **acceleration feed-forward** of a servo in
+position mode. A position loop can only produce the torque a ramp
+needs by falling behind first; the feed-forward hands the drive that
+torque up front - `AccGain` times the acceleration the setpoint asks
+for - as the drive's torque offset, per mille of the rated torque.
+That acceleration is exact where the setpoint is ours: the axis's own
+ramp or move, or the master's through the ratio while the axis is
+geared; a virtual master that reads an encoder measures it over a
+short window (about 30 ms), so the offset is quiet at constant speed.
+`AccGain` is per mille per revolution per second squared and stands
+for the inertia behind the axis: found on the machine by watching the
+register through a ramp, never computed - a bare motor needs almost
+none, a plate cylinder needs it. The drive's cyclic set has to carry
+the offset word (the i700 family's does; a device added from its
+description gets it). `Torque` shows the offset in force; a drive
+without the word answers `Enabled` false.
 
 ## A frequency drive is not a servo
 

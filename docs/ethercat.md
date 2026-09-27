@@ -152,7 +152,8 @@ vendor also assigns stays off. The assignment is declared among the
 start-up writes, and the slave's window shows the mode *cyclic position
 (csp)* with the byte offsets of the 32-bit words - the target position,
 the actual position, the actual velocity, the velocity offset, the
-torque limits, the actual torque, and the mode inside the receive
+torque offset (the acceleration feed-forward `MC_TORQUEFF` writes),
+the torque limits, the actual torque, and the mode inside the receive
 object, which such a drive wants every cycle. A servo can be declared
 in **cyclic torque** mode (cst) instead: its setpoint is then the target
 torque `MC_TORQUECONTROL` commands and the window names the speed
