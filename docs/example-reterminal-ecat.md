@@ -87,6 +87,19 @@ record says where axis B's words begin (`stride_out: 17`,
 axis read the error code, the actual position and the following error
 into variables.
 
+![The servo screen: three axes side by side with enable, run, the setpoint, the actual velocity, the following error, the torque and the position, and one trend of the three velocities](img/example-reterminal-ecat-servo.webp){: .sb-center}
+
+The **servo screen** (the *Servos* door on the drive screen; the web
+page has the same) puts the three axes side by side: enable and run
+with a confirmation, the setpoint by keypad or slider, the actual
+velocity with a bar, the following error, the torque and the position
+straight from the drive's words, the error code - and one trend of the
+three actual velocities at 50 ms. A well-tuned axis draws a flat line;
+one whose loop hunts draws a band, which is what the screen is for: the
+drive's controller is tuned against it (the speed controller's gain and
+reset time and the position controller's gain are start-up writes of
+the slave, so a setting found on the bench is written at every start).
+
 Three axes - `servo1` on the single, `servo2a` and `servo2b` on the
 double - are commanded by the `SERVO` program, three lines per axis:
 
@@ -100,8 +113,8 @@ s1_act := rd1.Velocity;
 `MC_POWER` enables the drive, `MC_MOVEVELOCITY` sets the velocity - the
 device ramps it and integrates it into the setpoint the drive follows -
 and `MC_READACTVEL` reads the actual velocity back. The variables
-`s1_en`, `s1_go` and `s1_rpm` have no widget on the screens: the program
-is there to be copied, and the online monitor is the way to try it.
+`s1_en`, `s1_go` and `s1_rpm` are what the servo screen's buttons and
+slider write; the program is there to be copied.
 The motors are real. The bench feeds the i700s single-phase from 230 V,
 so their start-up writes set the rated mains voltage to 230 V
 (`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V
