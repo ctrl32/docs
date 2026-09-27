@@ -102,8 +102,15 @@ device ramps it and integrates it into the setpoint the drive follows -
 and `MC_READACTVEL` reads the actual velocity back. The variables
 `s1_en`, `s1_go` and `s1_rpm` have no widget on the screens: the program
 is there to be copied, and the online monitor is the way to try it.
-The motors are real and the drives need their power section supplied;
-a drive that reports the error 0x3220 waits for its DC link.
+The motors are real. The bench feeds the i700s single-phase from 230 V,
+so their start-up writes set the rated mains voltage to 230 V
+(`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V
+default the DC link of such a supply sits between the drive's
+undervoltage error and its reset threshold, and every enable answers
+the error 0x3220 while everything else looks healthy. The drives run
+the factory motor data in this example; a servo with the wrong motor
+data turns, but hunts at low speed - the parameter set of the real
+motor belongs in the drive before anything is judged.
 
 ---
 
