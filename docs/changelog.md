@@ -48,6 +48,11 @@ capabilities, the first one practically never moves.
   library.** Their device descriptions (with the object dictionaries of
   the current firmware where Lenze publishes them) ship beside the i550's, so an axis on either is added from
   the library like any other device.
+- **The vendor's engineering tool reaches a drive through the Linux
+  device.** A slave takes an *EoE address* and the EtherCAT page an *EoE
+  gateway*; the runtime becomes the Ethernet-over-EtherCAT gateway, so a
+  tool on the PC talks to every drive by IP while the line runs. The
+  EtherCAT page says the two network settings it takes.
 
 ## 1.00.053
 
