@@ -180,65 +180,33 @@ at 1 ms and 250 µs alike.
 
 ### The virtual master
 
-The line screen's *Master source* switch picks who leads. Off, the
-followers gear to servo1's **measured** position, as above. On, a
-**virtual master** leads - an axis with no drive behind it, `vm` in the
-project, that runs the line's profile (the same RUN, setpoint and ramp
-command it), the double's axes gear to its position and servo1 takes
-its velocity only, the way a drum that gets a speed setpoint would. A
-second register on that row, *register vs drum*, shows the followers
-against servo1 while the virtual master leads.
+A printing machine's drum is a drive that lives its own life: it gets
+a velocity and a ramp, nothing more. Its position is measured - the
+encoder on the drive's input B - and everything else derives from that
+measurement. The example has that shape: the axis `vm` is a **virtual
+master** with no drive behind it that follows servo1's actual position
+signal (the stand-in for the drum's encoder), servo1 runs on its own
+velocity command and ramp, and the double's axes gear to `vm` with the
+chain delay compensated. The line screen's *Master source* switch
+compares that with gearing to servo1 directly, and the *register vs
+drum* row reads the followers against servo1 from the positions
+themselves, whichever master leads.
 
-What the bench read at 300 rpm, 1:1: against the virtual master the
-followers sit 88 and 67 increments behind in the hold with a delay of
-2.5 ms compensated (the followers' own chain: the setpoint IS the
-master, what remains is the time the drive takes to apply it - 2.75 ms
-zeroes it); against the **drum** they run 4 500 increments ahead in
-the hold, and 4 300 behind once the line has stopped - a drum that
-follows a velocity through a 10 ms program cycle and its own ramp is
-not where the profile says, and every start and stop moves it a
-little further. That is the design lesson for a printing machine: the
-drum is either geared to the virtual master in position like the
-plates, or the plates gear to the drum's **measured** encoder - the
-virtual master can take a counter variable (the encoder on the drive's
-input B as a process-data signal) as its source instead of a profile,
-and then the delay compensation of the line shaft applies as measured
-above.
+What the bench read, 1:1, the delay 2.8 ms compensated:
 
----
+| master | 300 rpm, in the hold | 600 rpm, in the hold | after the stop |
+|---|---|---|---|
+| servo1 directly | −100 / −99 inc | −98 / −138 inc | 0 |
+| the virtual master reading its encoder | −37 / −65 inc | −108 / −123 inc | 0 |
 
-## Position and torque
-
-![The position screen: the single's enable and run, a move to a position in revolutions with GO and ZERO, the torque limit held on the drive, and the trends of velocity and torque](img/example-reterminal-ecat-position.webp){: .sb-center}
-
-A servo in cyclic position mode positions **on its setpoint**: the
-*Position* screen sends the single to a target in revolutions with
-`MC_MOVEABS` - the device runs the profile in the bus cycle and the
-setpoint ends exactly on the target, the drive's own loop does the
-approach - and `MC_READACTPOS` shows where it is; ZERO (`MC_HOME` on a
-servo) makes the position it stands on the zero. Measured: 10
-revolutions at 2 rev/s, Done after 5.5 s (the move and its ramps), the
-peak velocity 123 rpm for 120 commanded, the following error under 40
-increments on the way and 0 at rest, the position 10.000 and back to
-0.000.
-
-The torque limit is the other half. `MC_SETTORQUELIMIT` holds a limit
-on the drive every bus cycle while the switch is on: with 3 % of the
-rated torque held and 300 rpm commanded, the axis stalls at a few rpm
-with the torque word flat on the limit (2.5..3.2 %); released, it
-reaches 303 rpm on the 5..6 % the speed needs. The torque-limit process
-data object of the i700 travels beside the cyclic pair for that, and a
-device added from its description gets it laid out; without the block
-the drive keeps its own limits (100 % on these).
-
-A servo declared in **torque mode** (cst) is commanded the torque itself
-with `MC_TORQUECONTROL`: on the bench the single was given 10 % with the
-speed limited to 100 rpm and ran to 98..101 rpm, then to -102..-98 on
--10 % - an unloaded motor runs to the speed limit, which is what holds
-it, and the drive then delivers only the 4..5 % the friction takes;
-0.5 % stands still with *InTorque* on. The example keeps the single in
-position mode; the torque-mode form is the same slave with the cst pair
-of process data objects and the speed limits.
+The virtual master adds nothing to the error - the counter it reads is
+the same word the direct master reads - and the followers stay
+position-locked to the measured drum: after a run the register is
+where it was, no drift. The same axis can instead run a profile of its
+own (no source named) for a line where the drum too is geared in
+position; a drum that follows a velocity only, measured the same
+evening, ran 4 500 increments off its followers at 300 rpm and drifted
+with every stop - which is why the drum is measured.
 The motors are real. The bench feeds the i700s single-phase from 230 V,
 so their start-up writes set the rated mains voltage to 230 V
 (`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V
