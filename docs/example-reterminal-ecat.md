@@ -133,25 +133,50 @@ the master's run and ramp, the gear switch, the delay the followers
 compensate, the two registers live and at their peaks, and a trend of
 both.
 
-What the bench measured with it, the master ramping to 300 rpm in 3 s,
-the followers at 1:1:
+What the bench measured with it, the followers at 1:1. The chain delay
+first - one run per bus cycle with the compensation off, the register
+in the hold divided by the master's velocity:
 
-| bus cycle | register in the hold, delay 0 | the delay that implies | register in the hold, delay set | peak during the ramp, delay 0 → set |
-|---|---|---|---|---|
-| 2 ms | −1479 inc | 4.5 ms | −6 inc | −1483 → −225 |
-| 1 ms | −1058 inc | 3.2 ms | +8 inc | −1068 → −237 |
-| 500 µs | −653 inc | 2.0 ms | −3 inc | −656 → −244 |
-| 250 µs | −568 inc | 1.7 ms | −8 inc | −573 → −234 |
+| bus cycle | delay found at 60 rpm | at 300 rpm | at 600 rpm |
+|---|---|---|---|
+| 2 ms | | 4.5 ms | |
+| 1 ms | 3.0 ms | 3.1 ms | 3.0 ms |
+| 500 µs | | 2.3 ms | |
+| 250 µs | | 1.7 ms | |
 
-Without the compensation the register is the master's velocity times a
-delay that grows with the cycle - 2 ms is 1.4 times 1 ms - which is the
-error a press shows as colours running away during ramps. With the
-delay set to the number the hold implies, the register in the hold is
-within ten increments at every cycle time, and what remains during a
-ramp is the followers' own loop under acceleration, the same ~230
-increments whatever the cycle. The delay is found the way the table
-shows: one run with the compensation off, the hold's register divided
-by the velocity in increments per second.
+The delay does not depend on the speed - it is a property of the chain
+(the drives' input latch, their velocity filter and loop, the bus's
+sampling and applying) - and it shrinks with the cycle, roughly 1.2 ms
+plus 1.7 cycles. Without the compensation the register is the velocity
+times that delay: −1058 increments at 300 rpm on the 1 ms cycle, −1993
+at 600 rpm, 1.4 times as much on a 2 ms cycle - the error a press shows
+as colours running away during ramps. The delay is found the way the
+table shows: one run with the compensation off, the hold's register
+divided by the velocity in increments per second; the screen's peak
+values make the run a matter of reading two numbers.
+
+With the delay set, what remained was a spike of ~230 increments at the
+START of every ramp - the followers' own loop taking up the breakaway,
+the same size at 20, 100, 300 and 600 rpm/s, so it is not the
+acceleration. The position controller gain is the lever (1 ms cycle,
+300 rpm in 3 s):
+
+| position controller gain (0x2980) | spike at the ramp start | register through the ramp | in the hold |
+|---|---|---|---|
+| 28.4 1/s (the drive's own number for the motor) | −225 | ±60 | +60 |
+| 50 1/s | −137 | ±100 | +85 |
+| 80 1/s (the example's setting) | −17 | −45..+126 | +5..+110 |
+
+A gain of 120 1/s was taken by the drive and was worse - the follower
+lagged half a millisecond more - so 80 is where the example stops. It
+ships 80 1/s and a delay of 2.8 ms; the delay is re-measured after any
+change of a drive's loops, because the number the hold implies includes
+the follower's response. What is left - a few tens of increments that
+differ from run to run, the same size as the two drives' own following
+errors in the hold - is the drives' speed loops, and that is tuned on
+the real machine with its motors and loads. Through all of it the bus
+stayed clean: no lost frame, no overrun, the worst wake-up under 30 µs
+at 1 ms and 250 µs alike.
 The motors are real. The bench feeds the i700s single-phase from 230 V,
 so their start-up writes set the rated mains voltage to 230 V
 (`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V

@@ -28,12 +28,15 @@ capabilities, the first one practically never moves.
   measured position every bus cycle, with the master's velocity as the
   follower's feed-forward, the chain delay compensated live, a phase
   shift ramped in, and the register (the follower against the master,
-  in increments) as an output. Measured on the bench at 1:1: a
-  compensated follower holds within ten increments of its master at
-  every cycle time from 2 ms to 250 µs; without the compensation the
-  error is the velocity times a delay that grows with the cycle. The
-  reTerminal EtherCAT example has a line-shaft screen with the numbers
-  live. Linux runtime bundle.
+  in increments) as an output. Measured on the bench at 1:1 from 60 to
+  600 rpm and from 2 ms to 250 µs of bus cycle: without the
+  compensation the error is the velocity times a chain delay that grows
+  with the cycle (−1058 increments at 300 rpm on 1 ms, −1993 at 600);
+  with the measured delay in and the position loop at 80 1/s a follower
+  stays within about a hundred increments of its master through ramps
+  and holds, the rest being the drives' own loops. The reTerminal
+  EtherCAT example has a line-shaft screen with the numbers live and
+  ships the measured delay and the gain. Linux runtime bundle.
 - **The library's start-up writes declare the process data assignment.**
   A device added from its description carries the assignment of the
   objects that travel among its start-up writes, so the offsets the
