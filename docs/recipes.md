@@ -66,6 +66,12 @@ screen and in WEBview; nothing is lost quietly.
 
 A program download keeps the sets. The device page shows `rc=<definitions>,<sets>`.
 
+A recipe is also how a line shaft carries its jobs: the speed, the ratio
+of every follower and its phase are members of one definition, the
+followers gear in through `MC_GEARINPOS` with those numbers, and a job
+loaded at standstill re-gears and re-phases the line (the reTerminal
+EtherCAT example's *Jobs* screen).
+
 When a variable of a definition is removed from the project, a load
 writes the values it still has and says how many it dropped in the
 diagnostic buffer; a variable added to the definition keeps its current

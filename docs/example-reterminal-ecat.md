@@ -208,6 +208,24 @@ position; a drum that follows a velocity only, measured the same
 evening, ran 4 500 increments off its followers at 300 rpm and drifted
 with every stop - which is why the drum is measured.
 
+### Jobs
+
+A printing job is a speed, a ratio per colour and a phase per colour.
+The example keeps them as a **recipe** named `job` (the *Jobs* screen,
+on the glass and in the browser): the master's setpoint, the two
+followers' ratios as numerator and denominator, and their phases in
+increments of the follower's revolution. The followers gear to the
+virtual master through `MC_GEARINPOS` with the job's ratio and phase:
+at gear-in each follower moves the shortest way into "master at 0,
+follower at its phase", a phase edited on the screen while the line
+runs is a smooth move to the new relation (the register trim), a ratio
+loaded from another job is applied the moment the line stands still.
+The job's values are persisted, so after a restart the same numbers
+are in the variables and the next gear-in finds the same relation -
+the drives' positions are absolute, nothing has to be homed. *Load*,
+*Save* and *Delete* act on the row selected in the table; the two lamps
+say when a follower is in its relation.
+
 The line screen's *acc FF gain* field is the followers' acceleration
 feed-forward (`MC_TORQUEFF`, one gain for both, 0 = off) and the two
 *offset* values show the torque offset each follower writes to its

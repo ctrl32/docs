@@ -30,9 +30,12 @@ capabilities, the first one practically never moves.
   `MC_TORQUEFF` writes the acceleration feed-forward as the drive's
   torque offset: exact from the axis's own ramp or move and from the
   master's through the ratio, measured over a short window from an
-  encoder-fed virtual master. A slave's window names the torque words;
-  *Add from library* finds them in the description. Linux runtime
-  bundle.
+  encoder-fed virtual master. `MC_GEARINPOS` gears a follower in at a
+  defined relation of the positions, so a job's phases are numbers a
+  recipe keeps and the same relation comes back after a job change and
+  a restart; a changed ratio is applied at standstill. A slave's window
+  names the torque words; *Add from library* finds them in the
+  description. Linux runtime bundle.
 - **A virtual master axis.** An axis with no drive behind it, added on
   the EtherCAT node: the program commands it like any axis, the device
   runs its profile every bus cycle, and the followers of a line shaft

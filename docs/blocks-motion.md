@@ -307,6 +307,7 @@ understands**. Gate anything that uses the position on `Valid`.
 | **MC_GEARIN** | Execute, Delay | Master, RatioNum, RatioDen | InGear, Register |
 | **MC_GEAROUT** | Execute | | Done, Busy |
 | **MC_PHASING** | Execute, PhaseShift | Velocity | Done, Busy |
+| **MC_GEARINPOS** | Execute, Delay, MasterSync, SlaveSync | Master, RatioNum, RatioDen, Velocity | InSync, Register |
 
 <!-- blk:MC_GEARIN -->
 **MC_GEARIN**
@@ -366,6 +367,28 @@ END_PROGRAM
 
 <!-- /blk -->
 
+<!-- blk:MC_GEARINPOS -->
+**MC_GEARINPOS**
+
+![MC_GEARINPOS on a rung](img/blk-mcgip-ld.webp)
+
+```iecst
+PROGRAM MC_GEARINPOS_ST
+VAR mcgip : MC_GEARINPOS; END_VAR
+  mcgip(AXIS := 0, Execute := mcgip_execute,
+        Delay := mcgip_delay, MasterSync := mcgip_mastersync,
+        SlaveSync := mcgip_slavesync, Master := mcgip_master,
+        RatioNum := mcgip_rationum, RatioDen := mcgip_ratioden,
+        Velocity := mcgip_velocity);
+  mcgip_insync_st := mcgip.InSync;
+  mcgip_register_st := mcgip.Register;
+END_PROGRAM
+```
+
+![MC_GEARINPOS on the WEBview screen](img/blk-mcgip-web.webp)
+
+<!-- /blk -->
+
 A line shaft is one axis following another: the plate cylinders of a
 press follow the drum, a slitter follows the web, a labeller follows
 the conveyor. `MC_GEARIN` couples the block's axis to the axis
@@ -400,6 +423,21 @@ against the master by `PhaseShift` increments, moved at `Velocity`
 increments per second - the register measures against the shifted
 relation, so a phase set on purpose is not an error. `MC_GEAROUT`
 releases the follower where it stands; disabling it releases it too.
+
+`MC_GEARINPOS` gears in **at a defined relation of the two positions**:
+when the master stands at `MasterSync` (its increments) the follower
+stands at `SlaveSync` (its increments), the relation repeating every
+`RatioDen` master revolutions. At gear-in the follower moves the
+shortest way into that relation at `Velocity` increments per second;
+while `Execute` holds, a changed `SlaveSync` is a further move - the
+operator's register trim, or the phase a job carries - and a changed
+ratio is applied at standstill (`MC_GEARIN` applies a changed ratio the
+same way). So a job's phases are plain numbers a recipe keeps: the same
+relation comes back after a job change and after a restart, without a
+mark and without a homing run, because the drives' positions are
+absolute. `InSync` is in gear and in the relation (false while moving
+into it); `Register` is `MC_GEARIN`'s. `MC_PHASING` is not used beside
+it - `SlaveSync` is the trim.
 
 ## Torque
 
