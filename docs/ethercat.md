@@ -187,6 +187,30 @@ run:
 The examples run the i550 at 4 ms without the clock; a servo line is
 set up the same way with the two fields above.
 
+## The vendor's tool reaches a drive through the device
+
+A servo inverter is commissioned with its maker's tool (motor
+identification, the control loops, an oscilloscope), and many of them
+have no service port: the tool reaches the drive by IP over **EoE**,
+Ethernet over EtherCAT, with the EtherCAT master as the gateway. A Linux
+device is that gateway. Give a slave an *EoE address* in its window (an
+IPv4 address on a subnet of its own, say `192.168.100.11`) and, on the
+EtherCAT page, the *EoE gateway* - this device's address on that subnet
+(empty = the `.1`). The runtime then raises an interface `ecat0` with the
+gateway address, hands every drive its address at start-up, and carries
+the frames between the PC and the drives in the cycle's spare time - the
+line's own frames come first, an engineering session costs it nothing it
+can measure.
+
+Two things on the network side, once per device: IP forwarding on the
+Linux device (`net.ipv4.ip_forward = 1` in a file under
+`/etc/sysctl.d/`), and a route on the engineering PC to the drives'
+subnet through the device (on Windows, as administrator:
+`route add 192.168.100.0 mask 255.255.255.0 <the device's LAN address>`).
+The tool then adds each drive by its EoE address, and the drives answer
+a `ping` the same way. The address is the engineering window only; the
+parameters a line runs on come from the project at every start.
+
 ---
 
 *EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*
