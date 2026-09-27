@@ -397,6 +397,71 @@ increments per second - the register measures against the shifted
 relation, so a phase set on purpose is not an error. `MC_GEAROUT`
 releases the follower where it stands; disabling it releases it too.
 
+## Torque
+
+| Block | Inputs | Parameters | Outputs |
+|:---|:---:|:---:|:---:|
+| **MC_SETTORQUELIMIT** | Enable, PosLimit, NegLimit | | Enabled, Error |
+| **MC_TORQUECONTROL** | Execute, Torque | VelLimit | InTorque, Busy |
+
+<!-- blk:MC_SETTORQUELIMIT -->
+**MC_SETTORQUELIMIT**
+
+![MC_SETTORQUELIMIT on a rung](img/blk-mctlim-ld.webp)
+
+```iecst
+PROGRAM MC_SETTORQUELIMIT_ST
+VAR mctlim : MC_SETTORQUELIMIT; END_VAR
+  mctlim(AXIS := 0, Enable := mctlim_enable,
+         PosLimit := mctlim_poslimit,
+         NegLimit := mctlim_neglimit);
+  mctlim_enabled_st := mctlim.Enabled;
+  mctlim_error_st := mctlim.Error;
+END_PROGRAM
+```
+
+![MC_SETTORQUELIMIT on the WEBview screen](img/blk-mctlim-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_TORQUECONTROL -->
+**MC_TORQUECONTROL**
+
+![MC_TORQUECONTROL on a rung](img/blk-mctrq-ld.webp)
+
+```iecst
+PROGRAM MC_TORQUECONTROL_ST
+VAR mctrq : MC_TORQUECONTROL; END_VAR
+  mctrq(AXIS := 0, Execute := mctrq_execute,
+        Torque := mctrq_torque, VelLimit := mctrq_vellimit);
+  mctrq_intorque_st := mctrq.InTorque;
+  mctrq_busy_st := mctrq.Busy;
+END_PROGRAM
+```
+
+![MC_TORQUECONTROL on the WEBview screen](img/blk-mctrq-web.webp)
+
+<!-- /blk -->
+
+A servo's torque is a number the program can hold. `MC_SETTORQUELIMIT`
+writes the positive and the negative torque limit (per cent of the
+motor's rated torque) to the drive **every bus cycle** while `Enable`
+holds - the classic tension control of a winder (the speed set a
+little above the line, the torque limit is the tension), or a gentle
+approach against a mechanical stop. The drive's image has to carry the
+limit words (the *Torque limits* PDO of the i700 family travels beside
+the servo's cyclic pair when the device is added from its description);
+without them the block answers `Error`. Without the block the drive
+keeps its own limits.
+
+`MC_TORQUECONTROL` commands the torque itself: a servo declared in
+**cyclic synchronous torque** mode (cst) on its slave is given `Torque`
+per cent of its rated torque while `Execute` holds, and the drive limits
+its speed to `VelLimit` rpm - an unloaded motor in torque control runs
+away to that limit, so the limit is not optional. `InTorque` once the
+actual torque is within 5 % of the command, `Busy` on the way. A servo
+in position mode, a frequency drive or the simulation answer neither.
+
 ## A frequency drive is not a servo
 
 The reference target is the **Lenze i550** over CANopen: a frequency

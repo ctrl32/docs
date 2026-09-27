@@ -22,6 +22,20 @@ capabilities, the first one practically never moves.
   axis picks A or B. The reTerminal EtherCAT example carries the bench's
   two Lenze i700s this way, on the distributed clock at 1 ms. Linux
   runtime bundle.
+- **Torque and positioning on a servo.** Two motion blocks:
+  `MC_SETTORQUELIMIT` holds a torque limit (per cent of rated) on the
+  drive every bus cycle while it is enabled - the tension of a winder,
+  a gentle approach against a stop - and `MC_TORQUECONTROL` commands the
+  torque itself on a servo declared in cyclic torque mode, the drive
+  limiting the speed. A servo added from its description carries the
+  torque-limit object beside its cyclic pair; without the block the
+  drive keeps its own limits. `MC_MOVEABS` / `MC_MOVEREL` on a servo in
+  cyclic position mode run their profile on the setpoint in the bus
+  cycle and end exactly on the target, `MC_HOME` takes the position the
+  axis stands on as zero. Measured on the bench: a 10-revolution move
+  settles at 10.000; a 3 % limit holds an axis commanded 300 rpm at a
+  few rpm with the torque flat on the limit. The reTerminal EtherCAT
+  example has a *Position* screen for both. Linux runtime bundle.
 - **A line shaft: one axis follows another.** Three motion blocks -
   `MC_GEARIN`, `MC_GEAROUT`, `MC_PHASING` - couple a servo in cyclic
   position mode to a master axis at a rational ratio from the master's

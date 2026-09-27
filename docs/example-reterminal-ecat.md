@@ -177,6 +177,41 @@ errors in the hold - is the drives' speed loops, and that is tuned on
 the real machine with its motors and loads. Through all of it the bus
 stayed clean: no lost frame, no overrun, the worst wake-up under 30 µs
 at 1 ms and 250 µs alike.
+
+---
+
+## Position and torque
+
+![The position screen: the single's enable and run, a move to a position in revolutions with GO and ZERO, the torque limit held on the drive, and the trends of velocity and torque](img/example-reterminal-ecat-position.webp){: .sb-center}
+
+A servo in cyclic position mode positions **on its setpoint**: the
+*Position* screen sends the single to a target in revolutions with
+`MC_MOVEABS` - the device runs the profile in the bus cycle and the
+setpoint ends exactly on the target, the drive's own loop does the
+approach - and `MC_READACTPOS` shows where it is; ZERO (`MC_HOME` on a
+servo) makes the position it stands on the zero. Measured: 10
+revolutions at 2 rev/s, Done after 5.5 s (the move and its ramps), the
+peak velocity 123 rpm for 120 commanded, the following error under 40
+increments on the way and 0 at rest, the position 10.000 and back to
+0.000.
+
+The torque limit is the other half. `MC_SETTORQUELIMIT` holds a limit
+on the drive every bus cycle while the switch is on: with 3 % of the
+rated torque held and 300 rpm commanded, the axis stalls at a few rpm
+with the torque word flat on the limit (2.5..3.2 %); released, it
+reaches 303 rpm on the 5..6 % the speed needs. The torque-limit process
+data object of the i700 travels beside the cyclic pair for that, and a
+device added from its description gets it laid out; without the block
+the drive keeps its own limits (100 % on these).
+
+A servo declared in **torque mode** (cst) is commanded the torque itself
+with `MC_TORQUECONTROL`: on the bench the single was given 10 % with the
+speed limited to 100 rpm and ran to 98..101 rpm, then to -102..-98 on
+-10 % - an unloaded motor runs to the speed limit, which is what holds
+it, and the drive then delivers only the 4..5 % the friction takes;
+0.5 % stands still with *InTorque* on. The example keeps the single in
+position mode; the torque-mode form is the same slave with the cst pair
+of process data objects and the speed limits.
 The motors are real. The bench feeds the i700s single-phase from 230 V,
 so their start-up writes set the rated mains voltage to 230 V
 (`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V

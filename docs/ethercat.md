@@ -142,14 +142,22 @@ and velocity back. The program does not see the difference: the same
 inverter, and `CO_RAMPTIME` sets the ramp the setpoint follows.
 
 *Add from library* recognises a servo by its description and lays it
-out: only the csp pair of process data objects travels (a touch probe
-or a torque limit the vendor also assigns would have to be written
-every cycle, and a zero there is a motor that cannot move), the
-assignment is declared among the start-up writes, and the slave's
-window shows the mode *cyclic position (csp)* with the byte offsets of
-the 32-bit words - the target position, the actual position, the
-actual velocity, the velocity offset, and the mode inside the receive
-object, which such a drive wants every cycle. Two numbers describe the
+out: the csp pair of process data objects travels, and beside it the
+**torque limits** object when the device has one (`MC_SETTORQUELIMIT`
+holds the limits on the drive through it; while no block does, the
+device writes the limits the drive had at its configuration every
+cycle - an object a drive takes from the image every cycle can never be
+left at zero, that is a motor that cannot move). A touch probe the
+vendor also assigns stays off. The assignment is declared among the
+start-up writes, and the slave's window shows the mode *cyclic position
+(csp)* with the byte offsets of the 32-bit words - the target position,
+the actual position, the actual velocity, the velocity offset, the
+torque limits, the actual torque, and the mode inside the receive
+object, which such a drive wants every cycle. A servo can be declared
+in **cyclic torque** mode (cst) instead: its setpoint is then the target
+torque `MC_TORQUECONTROL` commands and the window names the speed
+limits the drive holds it under - the cst pair of objects replaces the
+csp pair (the i700 excludes the one when the other is assigned). Two numbers describe the
 drive's units: the increments of one motor revolution (65536 on these
 drives) and the velocity units per rpm (Lenze counts 2^31-1 for
 480 000 rpm; the description's dictionary carries the figure, and a
