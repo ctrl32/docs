@@ -117,9 +117,17 @@ description, the axis on its position, the start-up writes that put
 the drive in velocity mode under network control, and the variables
 the blocks bind to.
 
-What a drive needs beyond that is its **motor data**, and that lives
-in the drive, not in the project. A drive that has never met the motor
-runs the factory values and trips on its first start.
+What a drive needs beyond that is its **motor data**. A frequency
+inverter keeps them itself; a servo inverter such as the i700 or the
+i750 keeps nothing at power-off and expects its controller to write
+them at every start - so the motor's catalogue row (resistance,
+inductance, rated speed, frequency, power, voltage, the back-EMF
+constant, the inertia, rated current and torque) and the loops computed
+for it are **start-up writes of the slave**. A drive run on the factory
+motor data turns, but its current loop is tuned for another winding:
+the bench's i700s hunted at low speed on the factory set of a motor with
+four times the inductance, and were steady to a few increments once
+their own row was written.
 
 ### A servo in cyclic position mode
 

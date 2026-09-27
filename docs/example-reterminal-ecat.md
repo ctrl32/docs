@@ -96,9 +96,9 @@ velocity with a bar, the following error, the torque and the position
 straight from the drive's words, the error code - and one trend of the
 three actual velocities at 50 ms. A well-tuned axis draws a flat line;
 one whose loop hunts draws a band, which is what the screen is for: the
-drive's controller is tuned against it (the speed controller's gain and
-reset time and the position controller's gain are start-up writes of
-the slave, so a setting found on the bench is written at every start).
+drive's loops are tuned against it (the current, speed and position
+controller settings are start-up writes of the slave, so a setting
+found on the bench is written at every start).
 
 Three axes - `servo1` on the single, `servo2a` and `servo2b` on the
 double - are commanded by the `SERVO` program, three lines per axis:
@@ -120,10 +120,17 @@ so their start-up writes set the rated mains voltage to 230 V
 (`0x2540:1 = 0`; on a 400 V supply drop the line): with the 400 V
 default the DC link of such a supply sits between the drive's
 undervoltage error and its reset threshold, and every enable answers
-the error 0x3220 while everything else looks healthy. The drives run
-the factory motor data in this example; a servo with the wrong motor
-data turns, but hunts at low speed - the parameter set of the real
-motor belongs in the drive before anything is judged.
+the error 0x3220 while everything else looks healthy. The start-up
+writes also carry the **motor**: the MCS06C60's catalogue row in the
+drive's units (resistance, inductance, rated speed and frequency, power,
+voltage, the back-EMF constant, the inertia, rated current and torque)
+and the loops for it - the current controller's gain scaled to the
+motor's inductance, the speed and position controller gains - because
+an i700 keeps nothing at power-off. On the factory set (another motor
+with four times the inductance) the axes turned but hunted at low speed;
+with their own row every axis holds its setpoint within a few tens of
+increments. The double inverter's second axis takes the same objects
+0x800 higher. Another motor: its catalogue row in place of these lines.
 
 ---
 
