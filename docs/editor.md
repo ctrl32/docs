@@ -167,8 +167,6 @@ and it never leaves this computer.
 
 ## Licence
 
-- **Linux-only projects are free outright** — saving, download and
-  online included,
 - what is paid is **ESP32 and STM32** work leaving the editor: saving
   such a project, and talking to such a board — download and online
   alike.
