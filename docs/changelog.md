@@ -8,6 +8,15 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.055
+
+- **The M5Stack StamPLC's relays and inputs.** A new I/O expander in the
+  peripheral library, the AW9523B: on a StamPLC it is fitted at 0x59 and
+  added with one click - the four relays on pins 0-3, the eight isolated
+  inputs on pins 4-7 and 12-15 - beside the RS485 and CAN lines the board
+  already had. The chip must answer its own ID before anything is
+  written to it.
+
 ## 1.00.054
 
 - **Servo inverters on EtherCAT in cyclic position mode.** A slave's
