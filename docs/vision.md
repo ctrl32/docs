@@ -82,6 +82,15 @@ Everything else - cropping, colour ranges, thresholds, filters,
 counting objects, turning pixels into millimetres - is there to build
 a check of your own.
 
+## Settings from variables
+
+Any number or yes/no setting of a block can come from a **variable**
+instead of being fixed: pick the variable in the small list beside the
+setting (*fixed* is the other choice). The device reads it **before
+every run**, kept inside the setting's range. A recipe or the PLC
+program then changes the check - another product, another area,
+another limit - without a new vision program.
+
 ## Finding objects
 
 Some blocks give a **list of objects** rather than a number: **Find
