@@ -138,7 +138,7 @@ first - one run per bus cycle with the compensation off, the register
 in the hold divided by the master's velocity:
 
 | bus cycle | delay found at 60 rpm | at 300 rpm | at 600 rpm |
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 | 2 ms | | 4.5 ms | |
 | 1 ms | 3.0 ms | 3.1 ms | 3.0 ms |
 | 500 µs | | 2.3 ms | |
@@ -162,7 +162,7 @@ acceleration. The position controller gain is the lever (1 ms cycle,
 300 rpm in 3 s):
 
 | position controller gain (0x2980) | spike at the ramp start | register through the ramp | in the hold |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | 28.4 1/s (the drive's own number for the motor) | −225 | ±60 | +60 |
 | 50 1/s | −137 | ±100 | +85 |
 | 80 1/s (the example's setting) | −17 | −45..+126 | +5..+110 |
@@ -195,7 +195,7 @@ themselves, whichever master leads.
 What the bench read, 1:1, the delay 2.8 ms compensated:
 
 | master | 300 rpm, in the hold | 600 rpm, in the hold | after the stop |
-|---|---|---|---|
+|:---|:---:|:---:|:---:|
 | servo1 directly | −100 / −99 inc | −98 / −138 inc | 0 |
 | the virtual master reading its encoder | −37 / −65 inc | −108 / −123 inc | 0 |
 
@@ -209,6 +209,9 @@ evening, ran 4 500 increments off its followers at 300 rpm and drifted
 with every stop - which is why the drum is measured.
 
 ### Jobs
+
+[The line shaft, step by step](tutorial-line-shaft.md) walks this part
+of the project from the first servo to the jobs.
 
 A printing job is a speed, a ratio per colour and a phase per colour.
 The example keeps them as a **recipe** named `job` (the *Jobs* screen,

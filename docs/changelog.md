@@ -121,6 +121,14 @@ capabilities, the first one practically never moves.
   gateway*; the runtime becomes the Ethernet-over-EtherCAT gateway, so a
   tool on the PC talks to every drive by IP while the line runs. The
   EtherCAT page says the two network settings it takes.
+- **An axis window lists the ST calls on its axis.** Beside the FBD and
+  LD blocks, every ST call that names the axis - `AXIS := 2`, and
+  `Master := 4` for a follower's master - is listed with its program,
+  so a line written in ST no longer reads as an axis nothing uses.
+- **A new tutorial: the line shaft.** Two servos geared to a virtual
+  master, the delay compensation, a job as a recipe with its speed,
+  ratios and phases - step by step on the reTerminal EtherCAT example,
+  whose Jobs screen was listed twice and is now listed once.
 
 ## 1.00.053
 

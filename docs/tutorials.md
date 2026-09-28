@@ -24,6 +24,10 @@ together across two real boards:
 - [EtherCAT, step by step](tutorial-ethercat.md) — a spare network
   port becomes a line with a drive on it, and the motor turns from
   the screen.
+- [The line shaft, step by step](tutorial-line-shaft.md) — servos in
+  cyclic position mode, a drum on its own velocity, followers geared
+  to its encoder at a ratio and a phase, the chain delay measured, and
+  a job that carries the numbers.
 - [A vehicle bus, step by step](tutorial-vehicle.md) — an engine on
   J1939: the parameter groups it broadcasts taken from the library,
   the same control unit asked for its readings and its fault codes,
