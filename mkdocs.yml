@@ -65,6 +65,8 @@ nav:
       - The Linux runtime: linux-runtime.md
       - Setting up a device: linux-setup.md
       - Cameras: cameras.md
+      - Vision: vision.md
+      - Vision blocks: vision-blocks.md
   - Licensing: licensing.md
   - Why ctrl32 at home: home-automation.md
   - Start here:

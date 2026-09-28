@@ -79,9 +79,12 @@ threads, off the core the cycle and the EtherCAT line use. When the
 device is busy, a picture is dropped - the cycle never waits for a
 camera.
 
+## Looking and deciding
+
+A camera can also **check**: is the part there, is it the right colour,
+where is its edge, what does its code say - the answers become
+variables. See [Vision](vision.md).
+
 ## What comes next
 
-Picture analysis - is a part there, what colour it is, where a mark or
-an edge sits, what a code says - with the results in variables the
-program uses, each step a block with its own settings window. Stereo
-cameras, the Raspberry Pi camera port and network cameras follow.
+Stereo cameras, the Raspberry Pi camera port and network cameras.

@@ -18,6 +18,16 @@ capabilities, the first one practically never moves.
   picture and a live stream on its own address. The camera never slows
   the PLC - under load a picture is dropped, not a cycle. See
   [Cameras](cameras.md).
+- **Vision on a Linux device.** A vision program is drawn from blocks -
+  the camera, what is done with its picture, what is measured - under
+  the new **Vision** node of the tree, and its answers are variables:
+  presence, colour check, edge position and reading a QR code or a
+  barcode are ready tools, with cropping, colour ranges, thresholds,
+  filters and counting objects to build your own. Every block has its
+  own window with its settings and the picture it makes - at the desk
+  on a test picture, online from the device. A program runs on a rising
+  edge of a variable (with BUSY and DONE for the rung that waits) or
+  periodically, below the PLC. See [Vision](vision.md).
 - **The browser keeps up while it is open.** A browser showing a Linux
   device's screens no longer holds up a program download or the
   editor's device queries.
