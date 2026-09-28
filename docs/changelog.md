@@ -26,7 +26,9 @@ capabilities, the first one practically never moves.
   filters and counting objects to build your own. Every block has its
   own window with its settings and the picture it makes - at the desk
   on a test picture, online from the device; an area is set by a drag
-  on the picture, a colour by a right click on it. A program runs on a rising
+  on the picture, a colour by a right click on it. Blocks that find
+  objects and circles give a list the program picks from, or crops to -
+  the check follows the part wherever it lies. A program runs on a rising
   edge of a variable (with BUSY and DONE for the rung that waits) or
   periodically, below the PLC. See [Vision](vision.md).
 - **The browser keeps up while it is open.** A browser showing a Linux

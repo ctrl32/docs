@@ -219,6 +219,60 @@ White on the edges of things, black elsewhere (Canny).
 | `low` | 0 .. 1000 | 50 |  | weaker edges continue a strong one above this |
 | `high` | 0 .. 1000 | 150 |  | an edge starts above this |
 
+## Finding objects
+
+### Find objects
+
+Finds the separate white areas of a black-and-white picture as a list of objects - each with its centre, frame, angle and area - sorted as chosen.
+
+**In:** `src` (picture)  
+**Out:** `objects` (list of objects), `count` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `min_area` | 1 .. 10000000 | 50 | px² | smaller areas are not objects |
+| `max_area` | 1 .. 100000000 | 100000000 | px² | larger areas are not objects |
+| `sort` | largest / left_to_right / top_to_bottom | largest |  | which object is number 0 |
+
+### Find circles
+
+Finds round things in the picture - holes, caps, bearings - as a list of objects with their centre and radius.
+
+**In:** `src` (picture)  
+**Out:** `objects` (list of objects), `count` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `min_r` | 1 .. 4096 | 10 | px | smallest radius |
+| `max_r` | 1 .. 4096 | 200 | px | largest radius |
+| `min_dist` | 1 .. 4096 | 20 | px | two centres closer than this are one circle |
+| `edge` | 1 .. 1000 | 300 |  | the contrast of the circle's edge |
+| `roundness` | 1 .. 100 | 80 | % | how perfect a circle must be (lower finds more |
+| `sort` | largest / left_to_right / top_to_bottom | largest |  | which circle is number 0 |
+
+### Pick object
+
+Takes one object of a list - number 0 is the first after sorting - and gives its numbers.
+
+**In:** `objects` (list of objects)  
+**Out:** `found` (yes/no), `x` (number), `y` (number), `w` (number), `h` (number), `r` (number), `angle` (number), `area` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `index` | 0 .. 10000 | 0 |  | which object (0 = the first) |
+
+### Crop to object
+
+Keeps the frame around one found object, with a margin - the next blocks look only where the part really is, wherever it lies.
+
+**In:** `src` (picture), `objects` (list of objects)  
+**Out:** `out` (picture), `found` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `index` | 0 .. 10000 | 0 |  | which object (0 = the first) |
+| `margin` | 0 .. 4096 | 10 | px | added around the object's frame |
+
 ## Measurements
 
 ### Brightness

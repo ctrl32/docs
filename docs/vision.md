@@ -82,6 +82,23 @@ Everything else - cropping, colour ranges, thresholds, filters,
 counting objects, turning pixels into millimetres - is there to build
 a check of your own.
 
+## Finding objects
+
+Some blocks give a **list of objects** rather than a number: **Find
+objects** (the separate white areas of a black-and-white picture) and
+**Find circles**. Every object has its centre, its frame, a radius, an
+angle and an area, and the list is sorted - the largest first, or left
+to right, or top to bottom - so *object 0* always means the same one.
+
+- **Pick object** gives the numbers of one object of the list - its
+  position and size go into variables like any result.
+- **Crop to object** keeps the frame around one object: the blocks
+  after it look only where the part really is, wherever it lies on
+  the belt.
+
+The window of a block that finds objects shows each one framed and
+numbered on the picture it was found in.
+
 ## When it runs
 
 - **On a rising edge** of a BOOL variable - the PLC way: the program
