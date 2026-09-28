@@ -48,6 +48,12 @@ it is *no*. Several windows can be open at once.
 
 ![The window of a presence block: its area, its limits, its answer, and the part it found framed in green](img/vision-block.webp){: .sb-center}
 
+**Teach by hand:** a block that looks at an area takes it from a
+**drag on its picture**, and a colour check (or a colour range) takes
+its colour from a **right click on a point** of the picture - the
+label, the cap, the mark it must recognise. The numbers in the window
+follow, and can still be typed.
+
 The pictures need a **test picture**: **Take a picture from the device**
 (the camera the program reads, over the network), or **Open a
 picture...** from a file. The editor then runs the program on it with
