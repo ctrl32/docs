@@ -30,10 +30,7 @@ service, the settings file — is identical on all of them.
     - `ctrl32-runtime-raspi-<version>.tar.gz` — prebuilt for **any
       64-bit Raspberry Pi** (Pi 4, Pi 5, CM4, CM5, Zero 2 W): the
       runtime, its service file and `ctrl32run.default.example`, the
-      settings file with every bus variable explained,
-    - `ctrl32-runtime-src-<version>.tar.gz` — the **source
-      archive**: any Linux device with a C++ toolchain builds its
-      own runtime from it (see the end of this page).
+      settings file with every bus variable explained.
 
 ---
 
@@ -324,26 +321,12 @@ device, these three are what has to pass.
 
 ---
 
-## Any other Linux device: building from source
+## Any other Linux device
 
-The two prebuilts cover the catalogue devices. For anything else —
-another Pi, an industrial PC, a gateway — the **source archive**
-builds the same runtime natively on the device itself, which also
-means it links against the device's own system libraries and no
-compatibility questions arise:
-
-```
-tar xzf ctrl32-runtime-src-<version>.tar.gz
-sudo apt install build-essential cmake ninja-build libdrm-dev libssl-dev
-cmake -G Ninja -B build runtime-linux
-ninja -C build ctrl32run
-```
-
-(The first `cmake` downloads the OPC UA library, so the device needs
-network access once.) The result is `build/ctrl32run`; from there the
-service installation is exactly step 4 above. A device without a
-display runs the same runtime headless — WEBview, OPC UA and the
-editor connection all work the same.
+The prebuilts cover the catalogue devices, and the Raspberry Pi one
+runs on every 64-bit Raspberry Pi. For another device - an industrial
+PC, a gateway, another module - write to us: the runtime is built for
+it and joins the catalogue, like every device here.
 
 ---
 

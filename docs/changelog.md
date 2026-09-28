@@ -36,6 +36,10 @@ capabilities, the first one practically never moves.
   a restart; a changed ratio is applied at standstill. A slave's window
   names the torque words; *Add from library* finds them in the
   description. Linux runtime bundle.
+- **The Linux runtime installs as prebuilts only.** The installer lays
+  the runtimes for the reTerminal, any 64-bit Raspberry Pi and the DK2
+  under `%ProgramData%\ctrl32\linux`; the source archive is no longer
+  part of it. For another Linux device, write to us.
 - **A virtual master axis.** An axis with no drive behind it, added on
   the EtherCAT node: the program commands it like any axis, the device
   runs its profile every bus cycle, and the followers of a line shaft
