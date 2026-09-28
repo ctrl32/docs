@@ -10,6 +10,17 @@ capabilities, the first one practically never moves.
 
 ## 1.00.055
 
+- **Cameras on a Linux device.** Plug a USB camera into the device, add
+  it under the new **Cameras** node of the tree and draw a **camera**
+  element on a screen: the live picture appears on the device's screen
+  and in the browser. The camera's page takes a picture from the device,
+  the quickest check of focus and direction; the device also serves the
+  picture and a live stream on its own address. The camera never slows
+  the PLC - under load a picture is dropped, not a cycle. See
+  [Cameras](cameras.md).
+- **The browser keeps up while it is open.** A browser showing a Linux
+  device's screens no longer holds up a program download or the
+  editor's device queries.
 - **The M5Stack StamPLC's relays and inputs.** A new I/O expander in the
   peripheral library, the AW9523B: on a StamPLC it is fitted at 0x59 and
   added with one click - the four relays on pins 0-3, the eight isolated

@@ -160,6 +160,12 @@ device](linux-setup.md)), never a pin: the editor's board card says
 so, and a project's CAN or RTU configuration is carried to the
 device unchanged.
 
+## Cameras
+
+A USB camera plugged into a Linux device shows its live picture on
+the device's screen and in the browser - a **camera** element on a
+screen, no programming. See [Cameras](cameras.md).
+
 ## What the Linux runtime does not do (yet)
 
 **Local chips** — I2C and SPI peripherals of the part library — are

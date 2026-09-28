@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **49** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **50** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -216,6 +216,12 @@ The ctrl32 mark, drawn as a crisp vector at whatever size the rect gives it. Col
 | Property | Type | Default |
 |---|---|---|
 | `font` | font_ref |  |
+
+## `camera`
+
+The live picture of one of the project's cameras. The text names the camera.
+
+(no properties of its own)
 
 ---
 
