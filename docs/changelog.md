@@ -20,6 +20,10 @@ capabilities, the first one practically never moves.
   works like any board's glass: draw screens for it and they appear on
   the device; its backlight, which sits on an I/O expander rather than
   a pin, comes on by itself.
+- **The StamPLC talks over its USB-C.** It has a runtime of its own:
+  the runtime upload, the program download, going online and the console
+  all use the board's USB-C, and the CAN line and the buzzer keep the
+  pins they are wired to.
 
 ## 1.00.054
 
