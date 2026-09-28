@@ -129,6 +129,17 @@ capabilities, the first one practically never moves.
   master, the delay compensation, a job as a recipe with its speed,
   ratios and phases - step by step on the reTerminal EtherCAT example,
   whose Jobs screen was listed twice and is now listed once.
+- **Twenty more boards in the hardware catalog.** KinCony KC868-A4,
+  A8, A16 and A32; LaskaKit ESP32-DEVKit, LPKit, RoboBoard,
+  ESP-VINDRIKTNING and ESP32-S3-DEVKit; Olimex ESP32-DevKit-LiPo,
+  ESP32-S3-DevKit-LiPo and ESP32-P4-DevKit; M5Stack StamPLC; Makerfabs
+  8-channel relay and button boards, AC dimmer, DC motor, weather
+  station, WiFi AC dimmer switch and energy meter. Each is picked like
+  any board - its buses, Ethernet and relay pins set, its free pins
+  listed - and runs the runtime of the module it carries.
+- **A board's soldered chips are added with one click again** - the
+  expander and the analog inputs of an inoCORE32-TM1.1, for instance,
+  were listed but never offered.
 
 ## 1.00.053
 

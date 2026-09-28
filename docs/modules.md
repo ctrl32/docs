@@ -71,13 +71,13 @@ the catalog boards built on it.
 | ESP32-MINI-1-N4 | 4 MB (embedded) | - | Compact |  |  |
 | ESP32-MINI-1U-H4 | 4 MB (embedded) | - | Compact |  | external antenna |
 | ESP32-MINI-1U-N4 | 4 MB (embedded) | - | Compact |  | external antenna |
-| ESP32-WROOM-32E-N4 | 4 MB | - | Compact | Adafruit HUZZAH32 Feather, DevKitC WEBview setup, ESP32-DevKitC V4, LaskaKit ESPlan, LilyGO T-CAN485, Olimex ESP32-EVB, Olimex ESP32-GATEWAY, Olimex ESP32-PoE, Olimex ESP32-PoE-ISO, SparkFun Thing Plus ESP32, T-Display setup, TTGO T-Display |  |
+| ESP32-WROOM-32E-N4 | 4 MB | - | Compact | Adafruit HUZZAH32 Feather, DevKitC WEBview setup, ESP32-DevKitC V4, KinCony KC868-A16, KinCony KC868-A32, KinCony KC868-A4, KinCony KC868-A8, LaskaKit ESPlan, LilyGO T-CAN485, Makerfabs 8-Channel Button Controller, Makerfabs 8-Channel Relay, Makerfabs AC Dimmer for Home Assistant, Makerfabs Weather Station, Makerfabs WiFi AC Dimmer Switch, Olimex ESP32-DevKit-LiPo, Olimex ESP32-EVB, Olimex ESP32-GATEWAY, Olimex ESP32-PoE, Olimex ESP32-PoE-ISO, SparkFun Thing Plus ESP32, T-Display setup, TTGO T-Display |  |
 | ESP32-WROOM-32E-H4 | 4 MB (quad) | - | Compact |  |  |
 | ESP32-WROOM-32E-H8 | 8 MB (quad) | - | Compact |  |  |
-| ESP32-WROOM-32E-N16 | 16 MB (quad) | - | Compact |  |  |
+| ESP32-WROOM-32E-N16 | 16 MB (quad) | - | Compact | LaskaKit ESP32-DEVKit, LaskaKit ESP32-LPKit, LaskaKit RoboBoard ESP32 |  |
 | ESP32-WROOM-32E-N16R2 | 16 MB (quad) | 2 MB (quad) | Standard |  |  |
 | ESP32-WROOM-32E-N4R2 | 4 MB (quad) | 2 MB (quad) | Standard |  |  |
-| ESP32-WROOM-32E-N8 | 8 MB (quad) | - | Compact |  |  |
+| ESP32-WROOM-32E-N8 | 8 MB (quad) | - | Compact | LaskaKit ESP-VINDRIKTNING |  |
 | ESP32-WROOM-32E-N8R2 | 8 MB (quad) | 2 MB (quad) | Standard |  |  |
 | ESP32-WROOM-32UE-H4 | 4 MB (quad) | - | Compact |  | external antenna |
 | ESP32-WROOM-32UE-H8 | 8 MB (quad) | - | Compact |  | external antenna |
@@ -106,7 +106,7 @@ the catalog boards built on it.
 |:---|:---|:---|:---|:---|:---|
 | ESP32-PICO-MINI-02-N8R2 | 8 MB (embedded) | 2 MB (embedded) | Standard |  |  |
 | ESP32-PICO-MINI-02U-N8R2 | 8 MB (embedded) | 2 MB (embedded) | Standard |  |  |
-| ESP32-PICO-V3 | 4 MB (embedded) | - | Compact |  |  |
+| ESP32-PICO-V3 | 4 MB (embedded) | - | Compact | Makerfabs DC Motor GA36Y-555 |  |
 | ESP32-PICO-V3-02 | 8 MB (embedded) | 2 MB (embedded) | Standard | inoCORE32-TM1.0, inoCORE32-TM1.1, inoCORE32-TM8.6 |  |
 | ESP32-PICO-V3-ZERO | 4 MB (embedded, quad) | - | Compact |  |  |
 
@@ -116,13 +116,13 @@ the catalog boards built on it.
 |:---|:---|:---|:---|:---|:---|
 | ESP32-S3-MINI-1-N8 | 8 MB (quad) | - | Standard |  |  |
 | ESP32-S3-MINI-1U-N8 | 8 MB (quad) | - | Standard |  | external antenna |
-| ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | Standard | S3 CAN setup, S3 SSD1963 setup |  |
+| ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | Standard | LaskaKit ESP32-S3-DEVKit, S3 CAN setup, S3 SSD1963 setup |  |
 | ESP32-S3-WROOM-1-N16R16VA | 16 MB (quad) | 16 MB (octal) | Standard |  |  |
 | ESP32-S3-WROOM-1-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only |
-| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | Standard | ESP32-S3-DevKitC-1 (N16R8), inoHMI32, inoHMI43, stepHMI32.4, stepHMI32.5 |  |
-| ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | Standard | S3-DevKitC-1 WEBview setup |  |
+| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | Standard | ESP32-S3-DevKitC-1 (N16R8), Makerfabs Energy Meter, inoHMI32, inoHMI43, stepHMI32.4, stepHMI32.5 |  |
+| ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | Standard | M5Stack StamPLC, S3-DevKitC-1 WEBview setup |  |
 | ESP32-S3-WROOM-1-N8R2 | 8 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only |
-| ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | Standard |  |  |
+| ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | Standard | Olimex ESP32-S3-DevKit-LiPo |  |
 | ESP32-S3-WROOM-1U-N16 | 16 MB (quad) | - | Standard |  | external antenna |
 | ESP32-S3-WROOM-1U-N16R16VA | 16 MB (quad) | 16 MB (octal) | Standard |  | external antenna |
 | ESP32-S3-WROOM-1U-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only; external antenna |
@@ -135,7 +135,7 @@ the catalog boards built on it.
 
 | Module | Flash | PSRAM | Size | Boards on it | Note |
 |:---|:---|:---|:---|:---|:---|
-| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Standard | ESP32-P4-NANO |  |
+| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Standard | ESP32-P4-NANO, Olimex ESP32-P4-DevKit |  |
 
 ## Boards
 
@@ -153,13 +153,33 @@ the catalog boards built on it.
 | inoHMI32 | ESP32-S3 | 480 x 272 | yes | yes | yes | yes | Standard | 2 |
 | inoHMI43 | ESP32-S3 | 480 x 272 | - | yes | yes | yes | Standard | 2 |
 | inoHMI53 | ESP32-S3 | 800 x 480 | - | yes | yes | yes | on request | on request |
+| KinCony KC868-A16 | ESP32 | - | yes | yes | - | yes | Compact | 2 |
+| KinCony KC868-A32 | ESP32 | - | yes | yes | - | yes | Compact | 2 |
+| KinCony KC868-A4 | ESP32 | - | - | yes | - | - | Compact | 2 |
+| KinCony KC868-A8 | ESP32 | - | yes | yes | - | - | Compact | 2 |
+| LaskaKit ESP-VINDRIKTNING | ESP32 | - | - | yes | - | - | Compact | 2 |
+| LaskaKit ESP32-DEVKit | ESP32 | - | - | yes | - | - | Compact | 2 |
+| LaskaKit ESP32-LPKit | ESP32 | - | - | yes | - | - | Compact | 2 |
+| LaskaKit ESP32-S3-DEVKit | ESP32-S3 | - | - | yes | - | - | Standard | 2 |
 | LaskaKit ESPlan | ESP32 | - | yes | yes | - | yes | Compact | 2 |
+| LaskaKit RoboBoard ESP32 | ESP32 | - | - | yes | - | - | Compact | 2 |
 | LilyGO T-CAN485 | ESP32 | - | - | yes | yes | yes | on request | on request |
+| M5Stack StamPLC | ESP32-S3 | - | - | yes | yes | yes | Standard | 2 |
+| Makerfabs 8-Channel Button Controller | ESP32 | - | - | yes | - | - | Compact | 2 |
+| Makerfabs 8-Channel Relay | ESP32 | - | yes | yes | - | - | Compact | 2 |
+| Makerfabs AC Dimmer for Home Assistant | ESP32 | - | - | yes | - | - | Compact | 2 |
+| Makerfabs DC Motor GA36Y-555 | ESP32 | - | - | yes | - | - | Compact | 2 |
+| Makerfabs Energy Meter | ESP32-S3 | - | - | yes | - | - | Standard | 2 |
+| Makerfabs Weather Station | ESP32 | - | - | yes | - | - | Compact | 2 |
+| Makerfabs WiFi AC Dimmer Switch | ESP32 | - | - | yes | - | - | Compact | 2 |
+| Olimex ESP32-DevKit-LiPo | ESP32 | - | - | yes | - | - | Compact | 2 |
 | Olimex ESP32-EVB | ESP32 | 240 x 320 | yes | yes | yes | - | Compact | 1 |
 | Olimex ESP32-GATEWAY | ESP32 | - | yes | yes | - | - | Compact | 2 |
+| Olimex ESP32-P4-DevKit | ESP32-P4 | - | yes | yes | - | - | Standard | 2 |
 | Olimex ESP32-PoE | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Olimex ESP32-PoE-ISO | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Olimex ESP32-PoE2 | ESP32 | - | yes | yes | - | - | Standard | 2 |
+| Olimex ESP32-S3-DevKit-LiPo | ESP32-S3 | - | - | yes | - | - | Standard | 2 |
 | Raspberry Pi | Linux | 1920 x 1080 | - | module | yes | yes | Linux | many |
 | S3 CAN setup | ESP32-S3 | - | - | yes | yes | - | Standard | 2 |
 | S3 SSD1963 setup | ESP32-S3 | 480 x 272 | - | yes | - | - | Standard | 1 |
