@@ -89,8 +89,8 @@ into variables.
 
 ![The servo screen: three axes side by side with enable, run, the setpoint, the actual velocity, the following error, the torque and the position, and one trend of the three velocities](img/example-reterminal-ecat-servo.webp){: .sb-center}
 
-The **servo screen** (the *Servos* door on the drive screen; the web
-page has the same) puts the three axes side by side: enable and run
+The **servo screen** (the *Servos* door on the drive screen; the
+browser shows the same screens as the glass) puts the three axes side by side: enable and run
 with a confirmation, the setpoint by keypad or slider, the actual
 velocity with a bar, the following error, the torque and the position
 straight from the drive's words, the error code - and one trend of the
