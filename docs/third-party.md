@@ -35,12 +35,13 @@ Everything that runs on the equipment.
 ## In the Linux runtime
 
 The Linux runtime carries everything above that applies to a headless
-device, and three components of its own.
+device, and four components of its own.
 
 | Component | Licence | What it does |
 |:---|:---:|:---|
 | open62541 | MPL 2.0 | the OPC UA server |
 | OpenSSL | Apache 2.0 | the certificates of the OPC UA endpoints |
+| OpenCV | Apache 2.0 | the camera picture and the image processing - with the libraries it carries (libjpeg-turbo, libpng, zlib, quirc; on 64-bit Arm also KleidiCV), each under its own permissive licence |
 | SOEM | GPL 2.0 with the linking exception | the EtherCAT master |
 
 !!! note "The two exceptions, and what they mean for you"
