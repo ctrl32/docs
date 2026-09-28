@@ -164,7 +164,7 @@ the catalog boards built on it.
 | LaskaKit ESPlan | ESP32 | - | yes | yes | - | yes | Compact | 2 |
 | LaskaKit RoboBoard ESP32 | ESP32 | - | - | yes | - | - | Compact | 2 |
 | LilyGO T-CAN485 | ESP32 | - | - | yes | yes | yes | on request | on request |
-| M5Stack StamPLC | ESP32-S3 | - | - | yes | yes | yes | Standard | 2 |
+| M5Stack StamPLC | ESP32-S3 | 240 x 135 | - | yes | yes | yes | Standard | 1 |
 | Makerfabs 8-Channel Button Controller | ESP32 | - | - | yes | - | - | Compact | 2 |
 | Makerfabs 8-Channel Relay | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Makerfabs AC Dimmer for Home Assistant | ESP32 | - | - | yes | - | - | Compact | 2 |

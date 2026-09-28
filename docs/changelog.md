@@ -16,6 +16,10 @@ capabilities, the first one practically never moves.
   inputs on pins 4-7 and 12-15 - beside the RS485 and CAN lines the board
   already had. The chip must answer its own ID before anything is
   written to it.
+- **The M5Stack StamPLC's display.** The 1.14-inch screen (240x135)
+  works like any board's glass: draw screens for it and they appear on
+  the device; its backlight, which sits on an I/O expander rather than
+  a pin, comes on by itself.
 
 ## 1.00.054
 
