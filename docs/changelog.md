@@ -30,7 +30,9 @@ capabilities, the first one practically never moves.
   objects and circles give a list the program picks from, or crops to -
   the check follows the part wherever it lies. Any number or yes/no
   setting of a block can come from a variable, read before every run -
-  a recipe changes the check. A program runs on a rising
+  a recipe changes the check. An **ST code** block takes a few
+  lines of ST inside the vision program for the calculation the blocks
+  do not have. A program runs on a rising
   edge of a variable (with BUSY and DONE for the rung that waits) or
   periodically, below the PLC. See [Vision](vision.md).
 - **Text variables on Linux devices.** A STRING variable holds a text

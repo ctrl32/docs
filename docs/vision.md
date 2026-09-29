@@ -82,6 +82,25 @@ Everything else - cropping, colour ranges, thresholds, filters,
 counting objects, turning pixels into millimetres - is there to build
 a check of your own.
 
+## A piece of ST
+
+When the blocks do not have the calculation you need, the **ST code**
+block takes a few lines of ST - the same language as the PLC program.
+Its inputs are `a`, `b`, `c`, `d` (numbers) and `p`, `q` (yes/no), its
+outputs `y1`..`y4` (numbers) and `r1`, `r2` (yes/no); a pin you do not
+connect reads 0. Locals go in `VAR ... END_VAR` at the start; loops and
+conditions work as in a program:
+
+```
+VAR i : INT; END_VAR
+y1 := a * 2.0 + b;
+r1 := a > 50.0 AND p;
+```
+
+The code is compiled the moment you leave the box - the window says
+*Compiles.* or names the line - and it runs on the device inside the
+vision program, on the device's own ST engine.
+
 ## Settings from variables
 
 Any number or yes/no setting of a block can come from a **variable**

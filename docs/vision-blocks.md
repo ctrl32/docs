@@ -273,6 +273,20 @@ Keeps the frame around one found object, with a margin - the next blocks look on
 | `index` | 0 .. 10000 | 0 |  | which object (0 = the first) |
 | `margin` | 0 .. 4096 | 10 | px | added around the object's frame |
 
+## Logic
+
+### ST code
+
+A few lines of ST - the same language as the PLC program - over the block's inputs a, b, c, d (numbers) and p, q (yes/no); it writes y1..y4 (numbers) and r1, r2 (yes/no). Locals in VAR ... END_VAR, loops and conditions as in a program.
+
+**In:** `a` (number), `b` (number), `c` (number), `d` (number), `p` (yes/no), `q` (yes/no)  
+**Out:** `y1` (number), `y2` (number), `y3` (number), `y4` (number), `r1` (yes/no), `r2` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `src` | text | "y1 := a + b;" |  | the ST statements (a |
+| `code` | text | (empty) |  | the compiled code (the editor fills it; never typed) |
+
 ## Measurements
 
 ### Brightness
@@ -382,7 +396,7 @@ Where is the edge? Walks across an area in one direction and reports the first p
 Reads a QR code or a barcode and checks it against the expected text.
 
 **In:** `src` (picture)  
-**Out:** `found` (yes/no), `match` (yes/no), `number` (number)
+**Out:** `found` (yes/no), `match` (yes/no), `number` (number), `text` (text)
 
 | Setting | Range | Default | Unit | Meaning |
 |:---|:---:|:---:|:---:|:---|
