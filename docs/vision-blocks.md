@@ -943,14 +943,14 @@ Where is the edge? Walks across an area in one direction and reports the first p
 
 ### Read code
 
-Reads a QR code or a barcode and checks it against the expected text.
+Reads a QR code, a barcode, a DataMatrix, a PDF417 or an Aztec code and checks it against the expected text.
 
 **In:** `src` (picture)  
-**Out:** `found` (yes/no), `match` (yes/no), `number` (number), `text` (text)
+**Out:** `found` (yes/no), `match` (yes/no), `number` (number), `text` (text), `format` (text)
 
 | Setting | Range | Default | Unit | Meaning |
 |:---|:---:|:---:|:---:|:---|
-| `kind` | qr / barcode | qr |  | what kind of code |
+| `kind` | qr / barcode / datamatrix / pdf417 / aztec / any | qr |  | what kind of code - barcode is any one-dimensional code (EAN |
 | `expect` | text | (empty) |  | the text the code must carry (empty = any code) |
 
 ### Match shape

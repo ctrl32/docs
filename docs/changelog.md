@@ -62,10 +62,18 @@ capabilities, the first one practically never moves.
   the number - it used to be cut silently.)
 - **The update dialog** shows the download's percent in the middle of
   its bar.
+- **Read code reads every code.** The block knows *datamatrix*,
+  *pdf417*, *aztec* and *any* beside *qr* and *barcode*, and *barcode*
+  now means every one-dimensional code — Code 128, Code 39, ITF,
+  Codabar and GS1 DataBar beside EAN and UPC; a new *format* output
+  says which kind was read. A small label at arm's length reads where
+  it did not before. See [Vision](vision.md).
 - **The reTerminal example reads codes.** Its new Codes screen shows
-  what a QR code and a barcode in front of the line's camera say — two
-  Read code blocks, their text in STRING variables, the number beside
-  it. See [the example](example-reterminal-ecat.md#reading-codes).
+  what a QR code, a barcode and a DataMatrix in front of the line's
+  camera say — three Read code blocks on a picture the operator tunes
+  with three sliders (brightness, contrast, sharpen), their text in
+  STRING variables. See
+  [the example](example-reterminal-ecat.md#reading-codes).
 - **32 vision programs** in a project (8 before), **256 blocks and 128
   results** in a program (64 and 32 before).
 - **A text setting from a STRING variable.** The expected text of Read

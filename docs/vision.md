@@ -78,7 +78,7 @@ Four blocks do a whole check on their own:
 | **Presence** | *present* (yes/no) and the *level* of brightness in an area | is the part in position, is the lens covered |
 | **Colour check** | *match* (yes/no) and the *share* of the area in the chosen colour | the right cap, the right label |
 | **Edge position** | *found* (yes/no) and the *position* of the first edge in an area, in pixels | where the material ends, a mark on a web |
-| **Read code** | *found*, *match* (the expected text), the code's *text* (into a STRING variable) and the code as a *number* when it is one | a QR code or a barcode on the part |
+| **Read code** | *found*, *match* (the expected text), the code's *text* (into a STRING variable), the code as a *number* when it is one, and the *format* that was read | a QR code, a barcode (EAN, UPC, Code 128, Code 39, ITF, Codabar, GS1 DataBar), a DataMatrix, a PDF417 or an Aztec code on the part — or *any* of them at once |
 
 Everything else - cropping, colour ranges, thresholds, filters,
 counting objects, turning pixels into millimetres - is there to build
