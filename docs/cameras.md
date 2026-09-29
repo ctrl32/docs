@@ -102,6 +102,16 @@ The device also serves the camera to anything else on the network:
 
 The number is the camera's position in the project: 0 is the first.
 
+### The picture after the filters
+
+The same element can show what a **vision block** makes instead of a
+camera: write the block as `program.block` in its text (the program's
+name, a dot, the block's id — `codes.shp`), and the element shows that
+block's picture, live, on the glass and in the browser. Put it beside
+the camera and the operator sees the raw picture and the one the
+readers get side by side while turning the settings — a filter that
+is too strong shows itself at once.
+
 ## The control comes first
 
 The camera runs **below the PLC**: its pictures are taken on their own

@@ -267,10 +267,14 @@ the QR's value as a number when it is one (an EAN-13 label reads as
 its thirteen digits — as text: thirteen digits do not fit a number
 exactly, so a barcode's value is its text).
 
-Under the readers sit three sliders — **Brightness, Contrast,
-Sharpen** — for the picture the readers get: a glossy label under a
-lamp wants less light, a soft picture more edge. They are variables
-the blocks read before every run, kept over a restart.
+The screen shows **two pictures**: the camera on the left and, on the
+right, what the readers get — the Sharpen block's picture, live (a
+camera element whose text names the block as `codes.shp`). Under them
+sit three sliders — **Brightness, Contrast, Sharpen** — for that
+prepared picture: a glossy label under a lamp wants less light, a soft
+picture more edge, and the right-hand picture shows the effect at
+once. They are variables the blocks read before every run, kept over
+a restart.
 
 ![The Codes screen: the camera's picture with a QR code and an EAN-13 label, the QR's text and the barcode's digits read off it, a lamp for each](img/example-reterminal-ecat-codes.webp){: .sb-center}
 

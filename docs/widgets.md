@@ -219,7 +219,7 @@ The ctrl32 mark, drawn as a crisp vector at whatever size the rect gives it. Col
 
 ## `camera`
 
-The live picture of one of the project's cameras. The text names the camera.
+The live picture of one of the project's cameras - the text names the camera. Or the picture a vision block makes, live, when the text names the block as program.block (the picture after a filter, what a reader sees): the operator watches the camera and the prepared picture side by side while turning the settings.
 
 (no properties of its own)
 

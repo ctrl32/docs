@@ -68,11 +68,15 @@ capabilities, the first one practically never moves.
   Codabar and GS1 DataBar beside EAN and UPC; a new *format* output
   says which kind was read. A small label at arm's length reads where
   it did not before. See [Vision](vision.md).
+- **A block's picture on a screen.** A camera element may name a vision
+  block as `program.block` and then shows that block's picture, live,
+  on the glass and in the browser — the camera and the picture after
+  the filters side by side. See [Cameras](cameras.md).
 - **The reTerminal example reads codes.** Its new Codes screen shows
   what a QR code, a barcode and a DataMatrix in front of the line's
   camera say — three Read code blocks on a picture the operator tunes
-  with three sliders (brightness, contrast, sharpen), their text in
-  STRING variables. See
+  with three sliders (brightness, contrast, sharpen) while watching it
+  beside the camera's, their text in STRING variables. See
   [the example](example-reterminal-ecat.md#reading-codes).
 - **32 vision programs** in a project (8 before), **256 blocks and 128
   results** in a program (64 and 32 before).
