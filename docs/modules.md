@@ -29,9 +29,9 @@ screens to a phone either way.
 | | Compact | Standard | Linux |
 |:---|:---|:---|:---|
 | Hardware | ESP32 without PSRAM | ESP32 with PSRAM, ESP32-S3, ESP32-P4, STM32 | Raspberry Pi, STM32MP1, any Linux computer |
-| Variables | 128 | 512 | 5120 |
-| Alarms | 32 | 128 | 1280 |
-| Program blocks | 128 | 512, 1024 headless | 5120 |
+| Variables | 128 | 512 | 20480 |
+| Alarms | 32 | 128 | 4096 |
+| Program blocks | 128 | 512, 1024 headless | 40960 |
 | Drive axes | 1 | 4 | 32 |
 | Screens | 32 | 32 | 320 |
 | Trend traces | 4 | 4, 8 on ESP32-S3 and ESP32-P4 | 8 |

@@ -50,6 +50,13 @@ capabilities, the first one practically never moves.
   ladder rung, a variable, a task or a recipe, each one Ctrl+Z away -
   and `vision_info` reads the cameras and the vision programs with
   their blocks, settings, links, results and test-picture values.
+- **The Linux runtime's limits, substantially larger:** 20480 variables
+  (5120), 4096 alarms, 1024 screens, 1024 elements on a screen, 40960
+  program blocks, 128 programs (32), 256 function-block instances in one
+  program (32), 64 axes, 32 trend traces, 16 browsers at once. The
+  panels keep their numbers. (A variable's name is a string of the
+  project file; the string limit that quietly held a Linux project to
+  about 1900 variables is gone.)
 - **32 vision programs** in a project (8 before), **256 blocks and 128
   results** in a program (64 and 32 before).
 - **A text setting from a STRING variable.** The expected text of Read
