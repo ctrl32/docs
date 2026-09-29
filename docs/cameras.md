@@ -5,10 +5,14 @@ A Linux device can show a **live camera picture** on its own screen
 device, add it to the project, drop a **camera** element on a screen -
 that is all. Nothing is programmed.
 
-!!! note "Linux devices only"
-    Cameras belong to the Linux runtime. The Toolbox offers the camera
-    element only when the project's target is a Linux device, and a
-    project for another board that carries one is refused at build.
+!!! note "64-bit Linux devices only"
+    Cameras belong to the Linux runtime on a processor that is up to
+    them: a **64-bit** device - the reTerminal, a Raspberry Pi 4 / 5, a
+    CM4 / CM5, a PC-class device. The STM32MP1 device (a pair of 32-bit
+    cores) is too slow for vision and its runtime has none. The Toolbox
+    offers the camera element only when the project's target is such a
+    device, and a project for another board that carries one is refused
+    at build.
 
 ## Which cameras
 

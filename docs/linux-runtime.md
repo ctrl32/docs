@@ -173,7 +173,10 @@ another board with a STRING variable is refused at build.
 
 A USB camera plugged into a Linux device shows its live picture on
 the device's screen and in the browser - a **camera** element on a
-screen, no programming. See [Cameras](cameras.md).
+screen, no programming - and a vision program reads what it sees. The
+64-bit devices only (the reTerminal, a Raspberry Pi 4 / 5, a PC-class
+device); the STM32MP1 device has no cameras. See [Cameras](cameras.md)
+and [Vision](vision.md).
 
 ## What the Linux runtime does not do (yet)
 

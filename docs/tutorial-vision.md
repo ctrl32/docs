@@ -11,7 +11,7 @@ code say**, and **where exactly does it lie**. Nothing is programmed -
 the check is drawn from blocks, every block has its own window, and the
 device computes exactly what the editor showed you.
 
-You need a Linux device with a USB camera plugged in (see
+You need a 64-bit Linux device (the reTerminal, a Raspberry Pi 4 / 5) with a USB camera plugged in (see
 [Cameras](cameras.md)). The device's own picture is best; to follow
 along without a camera, the editor takes any picture from a file.
 

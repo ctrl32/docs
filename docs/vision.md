@@ -9,10 +9,12 @@ A vision program is drawn, not written: a chain of blocks - the camera,
 what is done with its picture, what is measured - and every block has
 its own window with its settings and the picture it makes.
 
-!!! note "Linux devices only"
-    Vision runs on the Linux runtime, with a camera of the project (see
-    [Cameras](cameras.md)). A project for another board that carries a
-    vision program is refused at build.
+!!! note "64-bit Linux devices only"
+    Vision runs on the Linux runtime of a **64-bit** device - the
+    reTerminal, a Raspberry Pi 4 / 5, a CM4 / CM5, a PC-class device -
+    with a camera of the project (see [Cameras](cameras.md)). The
+    STM32MP1 device is too slow for it and has none. A project for
+    another board that carries a vision program is refused at build.
 
 ## Adding a vision program
 
