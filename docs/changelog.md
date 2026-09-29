@@ -44,6 +44,20 @@ capabilities, the first one practically never moves.
   [Vision, step by step](tutorial-vision.md).
 - **A camera's exposure, gain and white balance** can be fixed on its
   page - a check wants the same picture every time.
+- **77 vision blocks.** The palette grew by 36: smoothing that keeps
+  edges, contrast stretching and local contrast, gamma, white balance,
+  one colour channel, the adaptive threshold, top-hat / black-hat,
+  outline, fill holes, the distance map, gradient and Laplacian edges,
+  turn and shift by any angle, unroll a ring, halve, lens correction,
+  combine and mask pictures, filter objects by shape, object shape,
+  nearest object, corners, fill from a point, find by features (a
+  taught picture at any angle or distance), ArUco / AprilTag markers,
+  chessboard corners, a caliper, brightness statistics, a histogram,
+  sharpness, distance between points, compare with a taught area, and
+  match a taught shape. Every one with its own window and its test.
+- **Cameras and vision are for 64-bit Linux devices** - the reTerminal,
+  a Raspberry Pi 4 / 5, a PC-class device; the STM32MP1 device is too
+  slow for it and its runtime carries none.
 - **IP cameras.** A camera of a Linux device can be the MJPEG stream of
   a network camera (`http://.../stream.mjpg`) - the device reads the
   stream itself and the picture works everywhere a USB camera's does.

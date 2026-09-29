@@ -153,6 +153,61 @@ with *min score* saying how alike a place must be.
 The window of a block that finds objects shows each one framed and
 numbered on the picture it was found in (a match with its score).
 
+## The whole toolbox
+
+The palette holds 77 blocks, grouped the way a person thinks about a
+picture; every one is a row of the same table and has its window, and
+[Vision blocks](vision-blocks.md) lists them all with their settings.
+In short:
+
+- **Filters** - blur, Gaussian, median, *Smooth keep edges* (noise goes,
+  edges stay), *Stretch contrast* and *Local contrast* (a dull or unevenly
+  lit picture becomes a clear one), *Gamma*, *Sharpen*, *Difference* and
+  *Motion* between two pictures, *Combine pictures* (add, subtract, AND,
+  OR, the darker, the lighter, a blend) and *Mask* (a shape found earlier
+  cuts out what a later block may see).
+- **Colour** - grayscale, *One channel* (the red, the saturation, the
+  lightness ... as a gray picture), *Colour range*, *Threshold*, the
+  *Automatic* and the *Adaptive threshold* (each point against its own
+  neighbourhood - a shadow across the part does not matter), *White
+  balance* (a yellowish lamp stops shifting the colours), *Invert*.
+- **Shapes** - erode, dilate, open, close, *Top-hat* and *Black-hat*
+  (only the small bright or dark details), *Outline*, *Fill holes*, the
+  *Distance map*.
+- **Edges** - *Edges* (Canny), *Gradient* (Sobel, Scharr), *Laplacian*.
+- **Geometry** - crop, resize, *Halve*, rotate by quarters, *Turn and
+  shift* by any angle, flip, *Straighten* a rectangle seen at an angle,
+  *Unroll ring* (a label round a bottle, the teeth of a gear, a dial
+  become a straight strip), *Lens correction* (the barrel of a wide lens
+  taken out; the numbers come from a chessboard in front of the camera,
+  which *Find chessboard* finds).
+- **Finding objects** - *Find objects*, *Find circles*, *Find lines*,
+  *Find corners*, *Fill from point* (the whole part under a point,
+  whatever its outline), *Find pattern* (a taught picture where it lies),
+  *Find by features* (the taught picture even turned, nearer or farther -
+  a logo, a printed mark, a part at any angle), *Find markers* (ArUco and
+  AprilTag squares with a number - a cheap, exact way to know where a
+  fixture, a tray or a robot is), *Filter objects* (keep the ones that
+  look right by area, roundness, elongation, solidity), *Object shape*,
+  *Nearest object*, *Check objects*, *Pick object*, *Crop to object*.
+- **Measurements** - brightness, the share of white, *Brightness
+  statistics* (mean, darkest, brightest, spread), *Histogram*,
+  *Sharpness* (a camera knocked out of focus, a fogged lens), *Blobs*,
+  *Caliper* (every edge along a line - the width of a part, the gap
+  between two, the number of pins), *Distance* between two points,
+  *Compare with taught* (an area against the same area on a good part -
+  a missing print, a wrong label, a scratch), *Scale*, *Ruler*, *In
+  range*.
+- **Ready tools** - *Presence*, *Colour*, *Edge position*, *Read code*,
+  *Match shape* (is one of the found objects the taught shape, whatever
+  its size or turn).
+
+Every block that works with a **taught picture** - Find pattern, Find by
+features, Compare with taught, Match shape - is taught the same way: drag
+over the part on the block's picture. Compare with taught takes the
+dragged rectangle as its area at the same time. A block with a **line** -
+Ruler, Caliper - takes the line by a drag, too.
+
 ## When it runs
 
 - **On a rising edge** of a BOOL variable - the PLC way: the program
