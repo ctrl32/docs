@@ -126,7 +126,7 @@ the expected text of Read code, the labels of a model - comes from a
 **STRING** variable the same way: the lot code of a recipe is the code
 the camera must read.
 
-A project holds up to **8 vision programs**, a program up to **64
+A project holds up to **32 vision programs**, a program up to **64
 blocks** and **32 results**; the palette's 79 blocks are meant to be
 picked from, not stacked in one program.
 
