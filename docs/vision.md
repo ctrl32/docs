@@ -121,7 +121,14 @@ instead of being fixed: pick the variable in the small list beside the
 setting (*fixed* is the other choice). The device reads it **before
 every run**, kept inside the setting's range. A recipe or the PLC
 program then changes the check - another product, another area,
-another limit - without a new vision program.
+another limit - without a new vision program. A **text** setting -
+the expected text of Read code, the labels of a model - comes from a
+**STRING** variable the same way: the lot code of a recipe is the code
+the camera must read.
+
+A project holds up to **8 vision programs**, a program up to **64
+blocks** and **32 results**; the palette's 79 blocks are meant to be
+picked from, not stacked in one program.
 
 ## Finding objects
 
