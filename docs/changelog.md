@@ -35,6 +35,9 @@ capabilities, the first one practically never moves.
   do not have. A program runs on a rising
   edge of a variable (with BUSY and DONE for the rung that waits) or
   periodically, below the PLC. See [Vision](vision.md).
+- **IP cameras.** A camera of a Linux device can be the MJPEG stream of
+  a network camera (`http://.../stream.mjpg`) - the device reads the
+  stream itself and the picture works everywhere a USB camera's does.
 - **Text variables on Linux devices.** A STRING variable holds a text
   of up to 80 characters - what a camera read off a code, a product
   name: on the screens and in the browser as a value element, on OPC UA

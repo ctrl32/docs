@@ -20,6 +20,12 @@ costs the device almost nothing.
 
 A project carries up to **four** cameras.
 
+**IP cameras** work too: type the address of the camera's MJPEG stream
+(`http://192.168.1.50/stream.mjpg` - most network cameras offer one) in
+the camera's page. The device reads the stream itself; the stream
+decides the picture size and the rate. Only plain `http://` - the
+device does not do TLS.
+
 ## Adding a camera
 
 The camera is a device of the Linux target, and it has its own node in
@@ -87,4 +93,4 @@ variables. See [Vision](vision.md).
 
 ## What comes next
 
-Stereo cameras, the Raspberry Pi camera port and network cameras.
+Stereo cameras and the Raspberry Pi camera port.
