@@ -157,6 +157,47 @@ Removes specks and salt-and-pepper noise, keeps edges sharp.
 |:---|:---:|:---:|:---:|:---|
 | `size` | 1 .. 99 | 5 | px | size of the neighbourhood (odd) |
 
+### Equalize light
+
+Spreads the brightness over the whole range - a picture under uneven or weak light gets its contrast back before a threshold.
+
+**In:** `src` (picture)  
+**Out:** `out` (picture)
+
+### Sharpen
+
+Makes edges crisper - helps a code reader or an edge finder on a slightly soft picture.
+
+**In:** `src` (picture)  
+**Out:** `out` (picture)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `amount` | 1 .. 300 | 100 | % | how much |
+
+### Difference
+
+The difference of two pictures, pixel by pixel - a part against the empty belt, this picture against a good one. White where they differ after the threshold.
+
+**In:** `a` (picture), `b` (picture)  
+**Out:** `out` (picture), `share` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `level` | 1 .. 255 | 30 |  | a difference above this counts |
+
+### Motion
+
+Where the picture changed since the last run - a mask of what moved and how much of the picture it is. The first run after a start has nothing to compare and answers nothing moved.
+
+**In:** `src` (picture)  
+**Out:** `out` (picture), `share` (number), `moved` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `level` | 1 .. 255 | 25 |  | a change above this counts |
+| `min_share` | 0 .. 100 | 1 | % | this much of the picture must change to say moved |
+
 ## Shapes
 
 ### Erode
