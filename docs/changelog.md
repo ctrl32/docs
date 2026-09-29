@@ -50,6 +50,10 @@ capabilities, the first one practically never moves.
   ladder rung, a variable, a task or a recipe, each one Ctrl+Z away -
   and `vision_info` reads the cameras and the vision programs with
   their blocks, settings, links, results and test-picture values.
+- **RTSP cameras.** A network camera's H.264 stream (`rtsp://...`) is a
+  camera of the project; the device needs `ffmpeg` installed once.
+- **Lens calibration.** The *Lens correction* block fills its numbers
+  from a chessboard picture with one button.
 - **77 vision blocks.** The palette grew by 36: smoothing that keeps
   edges, contrast stretching and local contrast, gamma, white balance,
   one colour channel, the adaptive threshold, top-hat / black-hat,

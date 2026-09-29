@@ -142,6 +142,8 @@ Takes the barrel or pincushion of a wide lens out of the picture, so straight ed
 | `k2` | -5 .. 5 | 0 |  | radial distortion |
 | `p1` | -1 .. 1 | 0 |  | tangential distortion |
 | `p2` | -1 .. 1 | 0 |  | tangential distortion |
+| `board_cols` | 2 .. 30 | 9 |  | inner corners across of the chessboard the calibration is taken from (Calibrate on the block's picture) |
+| `board_rows` | 2 .. 30 | 6 |  | inner corners down of that chessboard |
 
 ## Colour
 
@@ -962,4 +964,44 @@ Is one of the found objects the taught shape, whatever its size or turn (Hu mome
 |:---|:---:|:---:|:---:|:---|
 | `pattern` | text | (empty) |  | the taught picture the outline is taken from (one of the project's pictures) |
 | `max_diff` | 0 .. 10 | 0.5 |  | how different the closest object's outline may be (0 = the same shape) |
+
+## Learned models
+
+### Classify (model)
+
+Runs a trained neural network (an ONNX model imported into the project) on the picture and says which of its classes it sees - a good part or a bad one, which of five products, a full or an empty tray. The labels are the model's classes in its order.
+
+**In:** `src` (picture)  
+**Out:** `found` (yes/no), `class` (number), `label` (text), `score` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `model` | text | (empty) |  | the model (an .onnx file imported into the project) |
+| `labels` | text | (empty) |  | the class names in the model's order, separated by commas (empty = the class number) |
+| `width` | 8 .. 2048 | 224 | px | the model's input width |
+| `height` | 8 .. 2048 | 224 | px | the model's input height |
+| `scale` | 0 .. 1 | 0.003922 |  | the input is multiplied by this (0.003922 = 1/255 for a model trained on 0..1) |
+| `mean` | 0 .. 255 | 0 |  | taken off every channel before scaling |
+| `swap_rb` | yes / no | yes |  | the model wants RGB (most do) rather than BGR |
+| `min_score` | 0 .. 100 | 50 | % | a class below this is not found |
+
+### Detect (model)
+
+Runs a trained detection network (an ONNX model imported into the project - YOLO, SSD) on the picture and gives every object it finds as a list with its class, score and place. For what a rule cannot describe - mixed parts, a scratch of any shape, a person in the cell.
+
+**In:** `src` (picture)  
+**Out:** `objects` (list of objects), `count` (number), `found` (yes/no), `class` (number), `label` (text), `score` (number), `x` (number), `y` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `model` | text | (empty) |  | the model (an .onnx file imported into the project) |
+| `labels` | text | (empty) |  | the class names in the model's order, separated by commas (empty = the class number) |
+| `width` | 8 .. 2048 | 640 | px | the model's input width |
+| `height` | 8 .. 2048 | 640 | px | the model's input height |
+| `scale` | 0 .. 1 | 0.003922 |  | the input is multiplied by this (0.003922 = 1/255 for a model trained on 0..1) |
+| `mean` | 0 .. 255 | 0 |  | taken off every channel before scaling |
+| `swap_rb` | yes / no | yes |  | the model wants RGB (most do) rather than BGR |
+| `min_score` | 0 .. 100 | 50 | % | a detection below this is dropped |
+| `overlap` | 0 .. 100 | 45 | % | two boxes overlapping more than this are one object |
+| `layout` | auto / ssd / yolov5 / yolov8 | auto |  | the model's output layout (auto reads it off the output's shape) |
 

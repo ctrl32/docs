@@ -179,8 +179,11 @@ In short:
   shift* by any angle, flip, *Straighten* a rectangle seen at an angle,
   *Unroll ring* (a label round a bottle, the teeth of a gear, a dial
   become a straight strip), *Lens correction* (the barrel of a wide lens
-  taken out; the numbers come from a chessboard in front of the camera,
-  which *Find chessboard* finds).
+  taken out - hold a chessboard in front of the camera, take a picture
+  and press **Calibrate from this picture** on the block; the eight
+  numbers fill in).
+- **Learned models** - *Classify (model)* and *Detect (model)*, a
+  trained ONNX network of the project (below).
 - **Finding objects** - *Find objects*, *Find circles*, *Find lines*,
   *Find corners*, *Fill from point* (the whole part under a point,
   whatever its outline), *Find pattern* (a taught picture where it lies),
@@ -201,6 +204,37 @@ In short:
 - **Ready tools** - *Presence*, *Colour*, *Edge position*, *Read code*,
   *Match shape* (is one of the found objects the taught shape, whatever
   its size or turn).
+
+## Learned models
+
+Everything above is a rule you can name: a shade, a shape, a mark. Some
+things have no rule - a scratch of any shape, a part that is "wrong" in
+a hundred ways, mixed products on one belt, a person in the cell. For
+those there are two blocks that run a **trained neural network**, an
+ONNX model you import into the project as a file:
+
+- **Classify (model)** says which of the model's classes the picture is
+  - good / bad, which of five products, full / empty - with the class,
+  its label and how sure the model is.
+- **Detect (model)** finds every object the network knows (YOLO or SSD
+  models) and gives them as a list with the class, the score and the
+  place, ready for Pick object, Nearest object and the rest.
+
+The model is not trained on the device. It is trained on a PC from
+pictures you collected (a few hundred good ones and bad ones are a
+start), or taken from a model zoo, and exported as ONNX. The block's
+settings say what the model expects - its input size, whether the
+picture goes in as 0..1, RGB or BGR - and the labels are its classes
+in order. On a Raspberry Pi 4 a small classifier takes tens of
+milliseconds, a small detector a few hundred: run it on a trigger, on
+a crop, not ten times a second on the whole picture.
+
+!!! note "The model's licence is yours"
+    OpenCV runs any ONNX model; the model file carries its own licence.
+    MobileNet, EfficientDet and models you train yourself are free to
+    ship; the Ultralytics YOLOv5 / v8 weights are AGPL, which a product
+    cannot carry without their commercial licence. Check before you
+    build a product on a downloaded model.
 
 Every block that works with a **taught picture** - Find pattern, Find by
 features, Compare with taught, Match shape - is taught the same way: drag

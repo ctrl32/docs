@@ -53,6 +53,15 @@ the tree: **Cameras**, right under the device.
 | Frames per second | how many pictures a second the camera delivers |
 | Stream | **MJPG** (recommended) or YUYV, for a camera that has no MJPG |
 
+**An RTSP camera.** Most network cameras stream H.264 over RTSP
+(`rtsp://user:password@192.168.1.50/stream1` - the path is the
+camera's, see its manual). Type the address as the device; the stream
+decides the size and the rate. The device decodes it with the FFmpeg
+libraries of its operating system, which are not installed with the
+runtime - run `sudo apt install ffmpeg` on the device once. Without
+them the camera says so on the device's console and every other camera
+of the project runs on. An MJPEG stream over http needs nothing.
+
 **Exposure and colour.** A check wants the same picture every time,
 and a camera's automatics give a different one each run - a part that
 was *present* at one exposure is gone at the next. Tick **Fixed
