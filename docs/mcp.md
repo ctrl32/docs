@@ -68,6 +68,7 @@ The reading tools cover the whole session, and they are read-only:
 | `online_read` | live values of named variables from the ONLINE session |
 | `diag_read` | the board's diagnostic buffer |
 | `deploy_status` | the upload's progress while a download runs |
+| `vision_info` | the cameras and the vision programs: every block with its settings, links and results, the desk check, the last test-picture values; `palette: true` adds the whole block table |
 
 ## What the assistant can change
 
@@ -79,6 +80,7 @@ no back door, no second path:
 | `edit_variable` | add or rename a variable | live in the editor, one Ctrl+Z away |
 | `edit_pou_source` | replace an ST program's source | undoable; the build checks it |
 | `online_write` | write ONE value to the running board | needs the *Allow live writes* consent; the program owns the value again next cycle |
+| `run_commands` | run editor commands in order - adding a camera or a vision block, wiring blocks, setting a value, a ladder rung, a variable, a program, a task, an axis, a CAN device, a recipe ... and undo | the **same operations your own clicks perform**, one per frame, each one Ctrl+Z away; the list stops at the first refused command and names it; saving, downloading and live writes are not in it - they have their own tools above with their own protection |
 
 Every change answers with what it changed, so the assistant's
 transcript reads like the editor's own edit history.

@@ -44,6 +44,12 @@ capabilities, the first one practically never moves.
   [Vision, step by step](tutorial-vision.md).
 - **A camera's exposure, gain and white balance** can be fixed on its
   page - a check wants the same picture every time.
+- **The assistant reaches everything.** The MCP server has two more
+  tools: `run_commands` runs editor commands in order - the same
+  operations your clicks perform, from a camera or a vision block to a
+  ladder rung, a variable, a task or a recipe, each one Ctrl+Z away -
+  and `vision_info` reads the cameras and the vision programs with
+  their blocks, settings, links, results and test-picture values.
 - **77 vision blocks.** The palette grew by 36: smoothing that keeps
   edges, contrast stretching and local contrast, gamma, white balance,
   one colour channel, the adaptive threshold, top-hat / black-hat,
