@@ -33,6 +33,10 @@ capabilities, the first one practically never moves.
   a recipe changes the check. A program runs on a rising
   edge of a variable (with BUSY and DONE for the rung that waits) or
   periodically, below the PLC. See [Vision](vision.md).
+- **Text variables on Linux devices.** A STRING variable holds a text
+  of up to 80 characters - what a camera read off a code, a product
+  name: on the screens and in the browser as a value element, on OPC UA
+  as a String node, on MQTT as text.
 - **The browser keeps up while it is open.** A browser showing a Linux
   device's screens no longer holds up a program download or the
   editor's device queries.

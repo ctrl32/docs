@@ -160,6 +160,15 @@ device](linux-setup.md)), never a pin: the editor's board card says
 so, and a project's CAN or RTU configuration is carried to the
 device unchanged.
 
+## Text variables
+
+A Linux device has **STRING** variables: a text of up to 80 characters
+- a lot number a camera read, a product name, a message. The screens
+show it in a **value** element, the browser too; OPC UA serves it as a
+String node (and takes a String back on a writable one), MQTT publishes
+it as text. The Linux runtime is the one that has them: a project for
+another board with a STRING variable is refused at build.
+
 ## Cameras
 
 A USB camera plugged into a Linux device shows its live picture on

@@ -76,7 +76,7 @@ Four blocks do a whole check on their own:
 | **Presence** | *present* (yes/no) and the *level* of brightness in an area | is the part in position, is the lens covered |
 | **Colour check** | *match* (yes/no) and the *share* of the area in the chosen colour | the right cap, the right label |
 | **Edge position** | *found* (yes/no) and the *position* of the first edge in an area, in pixels | where the material ends, a mark on a web |
-| **Read code** | *found*, *match* (the expected text) and the code as a *number* when it is one | a QR code or a barcode on the part |
+| **Read code** | *found*, *match* (the expected text), the code's *text* (into a STRING variable) and the code as a *number* when it is one | a QR code or a barcode on the part |
 
 Everything else - cropping, colour ranges, thresholds, filters,
 counting objects, turning pixels into millimetres - is there to build
@@ -123,7 +123,7 @@ results are written, and both go off at the next trigger.
 ## Results into variables
 
 Right-click a block and pick which of its outputs goes into which
-variable (a number or a BOOL). The results are written only after a
+variable (a number or a BOOL; a text result into a STRING variable). The results are written only after a
 run that succeeded - a program that could not look (no picture, the
 camera unplugged) writes nothing and says why on the device's console
 and in its diagnostic buffer.
