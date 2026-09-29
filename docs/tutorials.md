@@ -32,6 +32,10 @@ together across two real boards:
   J1939: the parameter groups it broadcasts taken from the library,
   the same control unit asked for its readings and its fault codes,
   and one rung that does the asking when a person presses.
+- [Vision, step by step](tutorial-vision.md) - a camera on a Linux
+  device answers whether the part is there, what its code says and
+  where it lies, from blocks with their own windows; the answers are
+  variables the program waits on.
 - [Two boards over Modbus](tutorial-modbus-pair.md) — a WiFi slave
   measuring temperatures, an ethernet master displaying and
   commanding them, and the same interlock written in all three

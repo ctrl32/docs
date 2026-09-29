@@ -39,7 +39,8 @@ capabilities, the first one practically never moves.
   lines of ST inside the vision program for the calculation the blocks
   do not have. A program runs on a rising
   edge of a variable (with BUSY and DONE for the rung that waits) or
-  periodically, below the PLC. See [Vision](vision.md).
+  periodically, below the PLC. See [Vision](vision.md) and
+  [Vision, step by step](tutorial-vision.md).
 - **IP cameras.** A camera of a Linux device can be the MJPEG stream of
   a network camera (`http://.../stream.mjpg`) - the device reads the
   stream itself and the picture works everywhere a USB camera's does.

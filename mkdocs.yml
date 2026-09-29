@@ -81,6 +81,7 @@ nav:
       - "EtherCAT, step by step": tutorial-ethercat.md
       - "The line shaft, step by step": tutorial-line-shaft.md
       - "A vehicle bus, step by step": tutorial-vehicle.md
+      - "Vision, step by step": tutorial-vision.md
       - Two boards over Modbus: tutorial-modbus-pair.md
       - Hot tank: three-zone-thermostat.md
       - Thermostat fed by Home Assistant: tutorial-ha-thermostat.md
