@@ -124,8 +124,14 @@ to right, or top to bottom - so *object 0* always means the same one.
   after it look only where the part really is, wherever it lies on
   the belt.
 
+**Find pattern** looks for a taught picture - a mark, a logo, the part
+seen from above - and gives the matches with their score. Teach it by
+**dragging over the part** on the block's picture: the cut-out becomes
+a picture of the project, and the block finds it wherever it appears,
+with *min score* saying how alike a place must be.
+
 The window of a block that finds objects shows each one framed and
-numbered on the picture it was found in.
+numbered on the picture it was found in (a match with its score).
 
 ## When it runs
 

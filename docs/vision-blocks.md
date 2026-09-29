@@ -250,12 +250,25 @@ Finds round things in the picture - holes, caps, bearings - as a list of objects
 | `roundness` | 1 .. 100 | 80 | % | how perfect a circle must be (lower finds more |
 | `sort` | largest / left_to_right / top_to_bottom | largest |  | which circle is number 0 |
 
+### Find pattern
+
+Finds where a taught picture - a mark, a logo, a part seen from above - appears, as a list of matches with their score. Teach it by dragging over the part on the block's picture.
+
+**In:** `src` (picture)  
+**Out:** `objects` (list of objects), `found` (yes/no), `x` (number), `y` (number), `score` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `pattern` | text | (empty) |  | the taught picture (a picture asset of the project) |
+| `min_score` | 1 .. 100 | 80 | % | how alike a place must be to count as a match |
+| `max_count` | 1 .. 50 | 1 |  | at most this many matches |
+
 ### Pick object
 
 Takes one object of a list - number 0 is the first after sorting - and gives its numbers.
 
 **In:** `objects` (list of objects)  
-**Out:** `found` (yes/no), `x` (number), `y` (number), `w` (number), `h` (number), `r` (number), `angle` (number), `area` (number)
+**Out:** `found` (yes/no), `x` (number), `y` (number), `w` (number), `h` (number), `r` (number), `angle` (number), `area` (number), `score` (number)
 
 | Setting | Range | Default | Unit | Meaning |
 |:---|:---:|:---:|:---:|:---|
