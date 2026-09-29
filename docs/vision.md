@@ -101,6 +101,17 @@ The code is compiled the moment you leave the box - the window says
 *Compiles.* or names the line - and it runs on the device inside the
 vision program, on the device's own ST engine.
 
+## Millimetres, not pixels
+
+A **Ruler** block turns the picture's pixels into millimetres: drag along
+a known length on its picture - the part's width, a printed mark - and
+type what it really is. Its *mm per px* goes into a **Scale** block's
+`factor_in`, and every pixel measurement wired through the Scale comes
+out in millimetres. A camera that looks at the belt from the side sees
+a rectangle at an angle: **Straighten** takes its four corners by four
+clicks on the picture and draws it straight, so the blocks after it
+measure a plane, not a perspective.
+
 ## Settings from variables
 
 Any number or yes/no setting of a block can come from a **variable**
@@ -123,6 +134,9 @@ to right, or top to bottom - so *object 0* always means the same one.
 - **Crop to object** keeps the frame around one object: the blocks
   after it look only where the part really is, wherever it lies on
   the belt.
+- **Find lines** gives the straight lines of an edge picture - the
+  edge of a sheet, a seam - each with its angle and its length, the
+  longest first.
 
 **Find pattern** looks for a taught picture - a mark, a logo, the part
 seen from above - and gives the matches with their score. Teach it by

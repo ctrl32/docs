@@ -56,6 +56,26 @@ Turns the picture by a quarter, a half or three quarters.
 |:---|:---:|:---:|:---:|:---|
 | `angle` | 90 / 180 / 270 | 90 |  | clockwise |
 
+### Straighten
+
+Takes a rectangle seen at an angle - a label, a plate, the belt from a camera on the side - and draws it straight. Teach the four corners by four clicks on the picture (top-left, top-right, bottom-right, bottom-left).
+
+**In:** `src` (picture)  
+**Out:** `out` (picture)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `x1` | 0 .. 8192 | 100 | px | top-left corner |
+| `y1` | 0 .. 8192 | 100 | px | top-left corner |
+| `x2` | 0 .. 8192 | 500 | px | top-right corner |
+| `y2` | 0 .. 8192 | 100 | px | top-right corner |
+| `x3` | 0 .. 8192 | 500 | px | bottom-right corner |
+| `y3` | 0 .. 8192 | 400 | px | bottom-right corner |
+| `x4` | 0 .. 8192 | 100 | px | bottom-left corner |
+| `y4` | 0 .. 8192 | 400 | px | bottom-left corner |
+| `out_w` | 8 .. 4096 | 400 | px | width of the straightened picture |
+| `out_h` | 8 .. 4096 | 300 | px | height of the straightened picture |
+
 ### Flip
 
 Mirrors the picture.
@@ -304,6 +324,19 @@ Finds where a taught picture - a mark, a logo, a part seen from above - appears,
 | `min_score` | 1 .. 100 | 80 | % | how alike a place must be to count as a match |
 | `max_count` | 1 .. 50 | 1 |  | at most this many matches |
 
+### Find lines
+
+Finds straight lines in an edge picture (after Edges or a threshold) - the edge of a sheet, a rule, a seam - as a list of objects; each carries its angle and its length, the longest first.
+
+**In:** `src` (picture)  
+**Out:** `objects` (list of objects), `count` (number), `angle` (number), `length` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `min_len` | 1 .. 8192 | 50 | px | shorter lines are not counted |
+| `max_gap` | 0 .. 500 | 10 | px | a break shorter than this is still one line |
+| `votes` | 1 .. 1000 | 50 |  | how many edge points a line needs |
+
 ### Pick object
 
 Takes one object of a list - number 0 is the first after sorting - and gives its numbers.
@@ -333,7 +366,7 @@ Keeps the frame around one found object, with a margin - the next blocks look on
 
 A few lines of ST - the same language as the PLC program - over the block's inputs a, b, c, d (numbers) and p, q (yes/no); it writes y1..y4 (numbers) and r1, r2 (yes/no). Locals in VAR ... END_VAR, loops and conditions as in a program.
 
-**In:** `a` (number), `b` (number), `c` (number), `d` (number), `p` (yes/no), `q` (yes/no)  
+**In:** `a` (number, optional), `b` (number, optional), `c` (number, optional), `d` (number, optional), `p` (yes/no, optional), `q` (yes/no, optional)  
 **Out:** `y1` (number), `y2` (number), `y3` (number), `y4` (number), `r1` (yes/no), `r2` (yes/no)
 
 | Setting | Range | Default | Unit | Meaning |
@@ -370,15 +403,30 @@ Counts the separate white areas of a black-and-white picture, and reports the la
 
 ### Scale
 
-Turns a number of pixels into millimetres (or any unit) - value x factor + offset.
+Turns a number of pixels into millimetres (or any unit) - value x factor + offset. Connect a Ruler's mm_per_px to `factor_in` and the factor is measured, not typed.
 
-**In:** `v` (number)  
+**In:** `v` (number), `factor_in` (number, optional)  
 **Out:** `value` (number)
 
 | Setting | Range | Default | Unit | Meaning |
 |:---|:---:|:---:|:---:|:---|
 | `factor` | -1000000 .. 1000000 | 1 |  | units per pixel |
 | `offset` | -1000000 .. 1000000 | 0 |  | added after the factor |
+
+### Ruler
+
+A known length in the picture - drag along it and type what it is in millimetres - gives the scale of the picture (mm per pixel) for the Scale block.
+
+**In:** `src` (picture)  
+**Out:** `mm_per_px` (number), `px` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `x1` | 0 .. 8192 | 100 | px | one end of the known length |
+| `y1` | 0 .. 8192 | 100 | px | one end of the known length |
+| `x2` | 0 .. 8192 | 300 | px | the other end |
+| `y2` | 0 .. 8192 | 100 | px | the other end |
+| `length` | 0.001 .. 100000 | 100 | mm | what the length really is |
 
 ### In range
 

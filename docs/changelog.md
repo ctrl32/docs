@@ -30,7 +30,10 @@ capabilities, the first one practically never moves.
   objects and circles give a list the program picks from, or crops to -
   the check follows the part wherever it lies. A pattern taught by a
   drag over the part is found wherever it appears, with its score. Equalize light, Sharpen, the Difference of two pictures and Motion
-  (what changed since the last look) join the filters. Any number or yes/no
+  (what changed since the last look) join the filters. A Ruler taught by a drag along a known length
+  gives millimetres per pixel to the Scale block, Straighten takes a
+  rectangle seen at an angle by four clicks, Find lines gives the edges
+  of a sheet with their angles. Any number or yes/no
   setting of a block can come from a variable, read before every run -
   a recipe changes the check. An **ST code** block takes a few
   lines of ST inside the vision program for the calculation the blocks
