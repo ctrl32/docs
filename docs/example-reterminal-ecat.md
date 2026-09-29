@@ -271,17 +271,23 @@ The screen shows **two pictures**: the camera on the left and, on the
 right, what the readers get — the Sharpen block's picture, live (a
 camera element whose text names the block as `codes.shp`). Under them
 sit three sliders — **Brightness, Contrast, Sharpen** — for that
-prepared picture: a glossy label under a lamp wants less light, a soft
-picture more edge, and the right-hand picture shows the effect at
-once. They are variables the blocks read before every run, kept over
-a restart.
+prepared picture, neutral by default (100, 0, 1 = the camera's own
+picture): a glossy label under a lamp wants less light, a soft picture
+a little more edge, and the right-hand picture shows the effect at
+once — a slider turned too far turns a dim scene into grain no reader
+can use. They are variables the blocks read before every run, kept
+over a restart.
 
 ![The Codes screen: the camera's picture with a QR code and an EAN-13 label, the QR's text and the barcode's digits read off it, a lamp for each](img/example-reterminal-ecat-codes.webp){: .sb-center}
 
-Behind it is a second vision program, `codes`: the camera, then
-**Gamma**, **Local contrast** and **Sharpen** with their settings
-bound to the sliders' variables (`gamma: "@code_gamma"`), and three
-**Read code** blocks on the prepared picture — one set to *qr*, one
+Behind it are two more vision programs. `prep` runs every 100 ms:
+the camera, then **Gamma**, **Stretch contrast** and **Sharpen** with
+their settings bound to the sliders' variables (`gamma: "@rd_gamma"`)
+— its Sharpen block is the right-hand picture. `codes` runs every
+400 ms with the same three blocks and three **Read code** blocks on
+the prepared picture (a reader takes a few hundred milliseconds; a
+preview at that pace would stutter, so it has its own program) — one
+set to *qr*, one
 to *barcode* (every one-dimensional code: EAN, UPC, Code 128, Code 39,
 ITF, Codabar, GS1 DataBar) and one to *datamatrix*. Their answers are
 variables — `qr_found`, `qr_text`, `qr_number`, `bar_found`,
