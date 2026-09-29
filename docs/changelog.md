@@ -53,10 +53,15 @@ capabilities, the first one practically never moves.
 - **The Linux runtime's limits, substantially larger:** 20480 variables
   (5120), 4096 alarms, 1024 screens, 1024 elements on a screen, 40960
   program blocks, 128 programs (32), 256 function-block instances in one
-  program (32), 64 axes, 32 trend traces, 16 browsers at once. The
-  panels keep their numbers. (A variable's name is a string of the
-  project file; the string limit that quietly held a Linux project to
-  about 1900 variables is gone.)
+  program (32), 64 axes, 32 trend traces, 16 browsers at once, 4 MB of
+  compiled program and 4 MB of instance data (64 kB and 256 kB per
+  program). The panels keep their numbers. (A variable's name is a
+  string of the project file; the string limit that quietly held a
+  Linux project to about 1900 variables is gone. A program whose
+  instance data would not fit its 256 kB is refused at the desk with
+  the number - it used to be cut silently.)
+- **The update dialog** shows the download's percent in the middle of
+  its bar.
 - **32 vision programs** in a project (8 before), **256 blocks and 128
   results** in a program (64 and 32 before).
 - **A text setting from a STRING variable.** The expected text of Read
