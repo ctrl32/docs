@@ -50,7 +50,8 @@ capabilities, the first one practically never moves.
   ladder rung, a variable, a task or a recipe, each one Ctrl+Z away -
   and `vision_info` reads the cameras and the vision programs with
   their blocks, settings, links, results and test-picture values.
-- **32 vision programs** in a project (8 before).
+- **32 vision programs** in a project (8 before), **256 blocks and 128
+  results** in a program (64 and 32 before).
 - **A text setting from a STRING variable.** The expected text of Read
   code (the lot of a recipe) and a model's labels can be read from a
   STRING variable before every run, like the numbers.
