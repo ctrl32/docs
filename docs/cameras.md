@@ -49,6 +49,17 @@ the tree: **Cameras**, right under the device.
 | Frames per second | how many pictures a second the camera delivers |
 | Stream | **MJPG** (recommended) or YUYV, for a camera that has no MJPG |
 
+**Exposure and colour.** A check wants the same picture every time,
+and a camera's automatics give a different one each run - a part that
+was *present* at one exposure is gone at the next. Tick **Fixed
+exposure**, **Fixed gain** or **Fixed white balance** and type the
+value; the device sets the camera when it opens it and says on its
+console what the camera took. Leave them off for a live picture that
+only people look at - the device then puts the camera back on its
+automatics when it opens it (a USB camera keeps a setting until it is
+unplugged, so a check project that ran before does not leave its
+exposure behind).
+
 **Take a picture** fetches one picture from the device and shows it on
 the page - the quickest check that the camera is plugged in, pointed
 the right way and in focus. It needs the device's address: go online,

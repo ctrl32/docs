@@ -42,6 +42,8 @@ capabilities, the first one practically never moves.
   edge of a variable (with BUSY and DONE for the rung that waits) or
   periodically, below the PLC. See [Vision](vision.md) and
   [Vision, step by step](tutorial-vision.md).
+- **A camera's exposure, gain and white balance** can be fixed on its
+  page - a check wants the same picture every time.
 - **IP cameras.** A camera of a Linux device can be the MJPEG stream of
   a network camera (`http://.../stream.mjpg`) - the device reads the
   stream itself and the picture works everywhere a USB camera's does.
