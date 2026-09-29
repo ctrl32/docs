@@ -13,23 +13,25 @@ stuttering board in a real setup. They are also the numbers for the datasheet.
 Every target is one of **three types**: with a display, headless, or
 the [Linux runtime](linux-runtime.md). A board with glass spends its
 RAM on rendering; a headless board spends the same RAM on a bigger
-program; a Linux device has gigabytes and carries ten times
+program; a Linux device has gigabytes and carries many times
 everything. You pick the type by picking the target — nothing to
 configure.
 
 | Limit | With display | Headless | Linux |
 |:---|:---:|:---:|:---:|
-| Variables | 512 | 512 | **5 120** |
-| Alarms | 128 | 128 | **1 280** |
-| Screens | 32 | 32 (WEBview) | **320** |
-| Widgets per screen | 64 | 64 | **256** |
-| LD/FBD blocks | 512 | **1024** | **5 120** |
-| Compiled program | 32 kB | **64 kB** | **320 kB** |
-| Instance data | 8 kB | **24 kB** | **240 kB** |
+| Variables | 512 | 512 | **20 480** |
+| Alarms | 128 | 128 | **4 096** |
+| Screens | 32 | 32 (WEBview) | **1 024** |
+| Widgets per screen | 64 | 64 | **1 024** |
+| Programs | 8 | 8 | **128** |
+| LD/FBD blocks | 512 | **1024** | **40 960** |
+| Compiled program | 32 kB | **64 kB** | **4 MB** (64 kB per program) |
+| Instance data | 8 kB | **24 kB** | **4 MB** (256 kB per program) |
+| Function block instances per program | 32 | 32 | **256** |
 | Trend curves (per chart) | 4 | 4 | 4 |
-| Trend curves (whole project) | 8 (classic ESP32: 4) | 8 (classic ESP32: 4) | 8 |
-| WEBview clients (ESP32; STM32F7: 1) | 2 | 2 | more |
-| Axes (drives) | 4 | 4 | **8** |
+| Trend curves (whole project) | 8 (classic ESP32: 4) | 8 (classic ESP32: 4) | **32** |
+| WEBview clients (ESP32; STM32F7: 1) | 2 | 2 | **16** |
+| Axes (drives) | 4 | 4 | **64** |
 | PLC tasks | 4 | 4 | 4 |
 
 **Vehicle buses.** A project that speaks

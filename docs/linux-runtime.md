@@ -26,12 +26,15 @@ the third column of the [limits table](limits.md):
 
 | | ESP32 / STM32 | Linux |
 |:---|:---:|:---:|
-| Variables | 512 | **5 120** |
-| Screens | 32 | **320** |
-| Widgets per screen | 64 | **256** |
-| Compiled program | 32–64 kB | **320 kB** |
-| Instance data | 8–24 kB | **240 kB** |
-| LD/FBD blocks | 512–1024 | **5 120** |
+| Variables | 512 | **20 480** |
+| Alarms | 128 | **4 096** |
+| Screens | 32 | **1 024** |
+| Widgets per screen | 64 | **1 024** |
+| Programs | 8 | **128** |
+| Compiled program | 32–64 kB | **4 MB** (64 kB per program) |
+| Instance data | 8–24 kB | **4 MB** (256 kB per program) |
+| LD/FBD blocks | 512–1024 | **40 960** |
+| Axes | 4 | **64** |
 
 And the glass is flexible: the Linux runtime **scales any authored
 resolution** onto its screen, rotation and aspect kept. The same
@@ -151,7 +154,7 @@ version 1.00.040 every Linux device also has **CAN** and **RS485**:
   page. (Selling a device as an EtherCAT master requires the
   EtherCAT Master License from the EtherCAT Technology Group (ETG);
   ctrl32 handles that for its own products.)
-- **Motion**: up to **32 axes** on a Linux device (the boards keep
+- **Motion**: up to **64 axes** on a Linux device (the boards keep
   four).
 
 The adapter is a **device name** in the runtime's settings file
