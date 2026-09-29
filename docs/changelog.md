@@ -33,7 +33,8 @@ capabilities, the first one practically never moves.
   (what changed since the last look) join the filters. A Ruler taught by a drag along a known length
   gives millimetres per pixel to the Scale block, Straighten takes a
   rectangle seen at an angle by four clicks, Find lines gives the edges
-  of a sheet with their angles. Any number or yes/no
+  of a sheet with their angles. Check objects says whether the found
+  objects are the right number and every one the right size. Any number or yes/no
   setting of a block can come from a variable, read before every run -
   a recipe changes the check. An **ST code** block takes a few
   lines of ST inside the vision program for the calculation the blocks

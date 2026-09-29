@@ -134,6 +134,10 @@ to right, or top to bottom - so *object 0* always means the same one.
 - **Crop to object** keeps the frame around one object: the blocks
   after it look only where the part really is, wherever it lies on
   the belt.
+- **Check objects** takes a list and says whether there are as many
+  as there should be and every one is the right size - parts on a
+  tray, holes in a plate, pills in a blister - with the count, the
+  number of bad ones and the smallest, largest and mean area.
 - **Find lines** gives the straight lines of an edge picture - the
   edge of a sheet, a seam - each with its angle and its length, the
   longest first.

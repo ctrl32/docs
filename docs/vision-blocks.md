@@ -337,6 +337,20 @@ Finds straight lines in an edge picture (after Edges or a threshold) - the edge 
 | `max_gap` | 0 .. 500 | 10 | px | a break shorter than this is still one line |
 | `votes` | 1 .. 1000 | 50 |  | how many edge points a line needs |
 
+### Check objects
+
+Are all the found objects right? Counts them and says yes when their number and every one's size (area) lie within the limits - parts on a tray, holes in a plate, pills in a blister.
+
+**In:** `objects` (list of objects)  
+**Out:** `ok` (yes/no), `count` (number), `bad` (number), `min_area` (number), `max_area` (number), `mean_area` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `count_min` | 0 .. 100000 | 1 |  | at least this many objects |
+| `count_max` | 0 .. 100000 | 100000 |  | at most this many objects |
+| `area_min` | 0 .. 100000000 | 0 | px² | an object smaller than this is bad |
+| `area_max` | 0 .. 100000000 | 100000000 | px² | an object larger than this is bad |
+
 ### Pick object
 
 Takes one object of a list - number 0 is the first after sorting - and gives its numbers.
