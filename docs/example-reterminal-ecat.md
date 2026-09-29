@@ -256,6 +256,32 @@ increments. The double inverter's second axis takes the same objects
 
 ---
 
+## Reading codes
+
+The **Codes** screen (a button on the camera screen's title row) reads
+a **QR code and a barcode** from the line's camera. Hold a code in
+front of the camera — a printed label, or a phone showing one — and
+the text appears within half a second, with a lamp for "found" and
+the code as a number when it is one (an EAN-13 label reads as its
+thirteen digits — as text: thirteen digits do not fit a number
+exactly, so a barcode's value is its text).
+
+![The Codes screen: the camera's picture with a QR code and an EAN-13 label, the QR's text and the barcode's digits read off it, a lamp for each](img/example-reterminal-ecat-codes.webp){: .sb-center}
+
+Behind it is a second vision program, `codes`, of three blocks: the
+camera and two **Read code** blocks on its picture, one set to *qr*
+and one to *barcode* (EAN and UPC). Their answers are variables —
+`qr_found`, `qr_text`, `qr_number`, `bar_found`, `bar_text` — so a
+rung can compare a lot number, a recipe can be
+picked by what the label says, and the browser shows the same text.
+The *text* of a code lands in a **STRING** variable, a kind only a
+Linux device has; the *expect* setting of a Read code block is empty
+here, so any code counts — put a text there and *match* says whether
+the code carries it.
+
+The program runs every 500 ms, on its own thread beside the PLC: a
+picture nobody had time to read is dropped, never a cycle.
+
 ## Worth copying
 
 - **A bus is a section, a drive is an axis.** The program never knows
