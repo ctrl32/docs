@@ -267,9 +267,12 @@ the QR's value as a number when it is one (an EAN-13 label reads as
 its thirteen digits — as text: thirteen digits do not fit a number
 exactly, so a barcode's value is its text).
 
-The screen shows **two pictures**: the camera on the left and, on the
-right, what the readers get — the Sharpen block's picture, live (a
-camera element whose text names the block as `codes.shp`). Under them
+The screen shows **two pictures**: the camera on the left, with a
+green frame marking the **reading area** — the middle of the picture,
+a Crop block the readers work on, so a code held elsewhere does not
+count and the search costs a quarter — and, on the right, that area
+as the readers get it, the Sharpen block's picture, live (a camera
+element whose text names the block as `prep.shp`). Under them
 sit three sliders — **Brightness, Contrast, Sharpen** — for that
 prepared picture, neutral by default (100, 0, 1 = the camera's own
 picture): a glossy label under a lamp wants less light, a soft picture
