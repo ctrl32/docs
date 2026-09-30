@@ -42,7 +42,8 @@ value on the page is real.
 
 ## 3. Is the part there?
 
-1. Click **Presence** in the list on the left - it lands on the graph.
+1. Click **Presence** in the Toolbox on the right (the *Ready tools*
+   group) - it lands on the graph.
 2. Drag from the camera's `out` (the dot on its right) to the presence
    block's `src`. The program is complete: the page says so.
 3. Double-click the block. Its window shows the picture; **drag over

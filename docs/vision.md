@@ -27,9 +27,18 @@ project's first camera.
 
 Click the program to open its page.
 
-![The Vision page: when the program runs, the test picture, the blocks and how they are connected](img/vision-page.webp){: .sb-center}
+![The Vision page: the blocks and how they are connected, the test picture's buttons above, the blocks to add in the Toolbox on the right](img/vision-page.webp){: .sb-center}
 
-- **Click a block** in the list on the left to add it.
+- **Click a block** in the Toolbox on the right to add it — the
+  groups fold and unfold like the ladder's.
+- **Settings...** opens the program's window: its name, when it runs
+  (on a rising edge of a variable, or every so many milliseconds),
+  BUSY and DONE, and the results — which output goes into which
+  variable. The page itself is the graph, with as much room as the
+  screen gives.
+
+![The program's window: when it runs, BUSY and DONE, the results into variables](img/vision-settings.webp){: .sb-center}
+
 - **Drag from an output** (the dots on the right of a block) **to an
   input** (the dots on the left) to connect them. A picture goes into a
   picture input, a number into a number input.
@@ -161,7 +170,7 @@ numbered on the picture it was found in (a match with its score).
 
 ## The whole toolbox
 
-The palette holds 77 blocks, grouped the way a person thinks about a
+The Toolbox holds 79 blocks, grouped the way a person thinks about a
 picture; every one is a row of the same table and has its window, and
 [Vision blocks](vision-blocks.md) lists them all with their settings.
 In short:
