@@ -723,6 +723,20 @@ Finds the inner corners of a chessboard in the picture - the pattern a lens cali
 | `cols` | 2 .. 30 | 9 |  | inner corners across |
 | `rows` | 2 .. 30 | 6 |  | inner corners down |
 
+### Colour of object
+
+The mean colour of every found object (its hue), and the ones inside a hue range kept - one pass sorts the red, green and blue cubes instead of one Colour range branch per colour.
+
+**In:** `objects` (list of objects), `src` (picture)  
+**Out:** `coloured` (list of objects), `kept` (list of objects), `count` (number), `hue` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `h_lo` | 0 .. 180 | 0 |  | the hue range's start (0..180 - red 0 |
+| `h_hi` | 0 .. 180 | 180 |  | the hue range's end |
+| `s_lo` | 0 .. 255 | 60 |  | greyer objects than this do not count |
+| `v_lo` | 0 .. 255 | 60 |  | darker objects than this do not count |
+
 ## Logic
 
 ### ST code
@@ -805,10 +819,10 @@ Yes when the number lies between the two limits (both included).
 
 ### Caliper
 
-Walks along a line and finds every edge on it - the width of a part, the gap between two, the number of pins. Teach the line by dragging it over the picture.
+Walks along a line and finds every edge on it - the width of a part, the gap between two, the number of pins, their pitch. Teach the line by dragging it over the picture; wire a scale (mm per pixel) and the width comes in millimetres too.
 
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `width` (number), `edges` (number), `first` (number), `last` (number)
+**In:** `src` (picture), `scale` (number, optional)  
+**Out:** `found` (yes/no), `width` (number), `edges` (number), `first` (number), `last` (number), `pitch` (number), `edges_out` (list of objects), `width_mm` (number), `pitch_mm` (number), `ok` (yes/no)
 
 | Setting | Range | Default | Unit | Meaning |
 |:---|:---:|:---:|:---:|:---|
@@ -818,6 +832,8 @@ Walks along a line and finds every edge on it - the width of a part, the gap bet
 | `y2` | 0 .. 8192 | 100 | px | the line's end |
 | `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is an edge |
 | `polarity` | any / dark_to_light / light_to_dark | any |  | which edges count |
+| `min` | 0 .. 100000 | 0 |  | the width must be at least this (0 = no limit) - in mm when a scale is wired |
+| `max` | 0 .. 100000 | 0 |  | the width must be at most this (0 = no limit) |
 
 ### Brightness statistics
 
@@ -887,6 +903,140 @@ Compares an area with the same area taught on a good part and says how much diff
 | `h` | 1 .. 8192 | 200 | px | height of the area |
 | `level` | 1 .. 255 | 40 |  | a point that differs by more than this counts |
 | `max_diff` | 0 .. 100 | 5 | % | the share of differing points that is still fine |
+
+### Fill level
+
+The first change of brightness down (or up) a window, averaged across its width - the level of a liquid in a bottle, of a powder in a jar - as pixels from the window's bottom edge and, with a scale, in millimetres; with a tolerance.
+
+**In:** `src` (picture), `scale` (number, optional)  
+**Out:** `found` (yes/no), `position` (number), `level` (number), `level_mm` (number), `ok` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `x` | 0 .. 8192 | 0 | px | left edge of the window |
+| `y` | 0 .. 8192 | 0 | px | top edge of the window |
+| `w` | 1 .. 8192 | 100 | px | width - the level is averaged across it |
+| `h` | 1 .. 8192 | 300 | px | height - the whole range the level may lie in |
+| `direction` | top_down / bottom_up | top_down |  | from which edge the search starts |
+| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is the surface |
+| `polarity` | any / dark_to_light / light_to_dark | any |  | which change counts |
+| `smooth` | 1 .. 31 | 5 | px | rows averaged before the search - a rough surface wants more |
+| `min` | 0 .. 100000 | 0 |  | the level must be at least this (0 = no limit) - mm with a scale |
+| `max` | 0 .. 100000 | 0 |  | the level must be at most this (0 = no limit) |
+
+### Circle (fit)
+
+An edge on every ray of a ring, a least squares circle through them without the stray points - the diameter and the centre of a hole, a shaft, a lid, with roundness and a tolerance.
+
+**In:** `src` (picture), `scale` (number, optional)  
+**Out:** `found` (yes/no), `x` (number), `y` (number), `diameter` (number), `diameter_mm` (number), `roundness` (number), `points` (number), `ok` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `cx` | 0 .. 8192 | 320 | px | the ring's centre - roughly where the circle is |
+| `cy` | 0 .. 8192 | 240 | px | the ring's centre |
+| `r_min` | 1 .. 8192 | 40 | px | the ring's inner radius |
+| `r_max` | 2 .. 8192 | 120 | px | the ring's outer radius |
+| `rays` | 3 .. 360 | 36 |  | how many rays look for the edge |
+| `direction` | out_in / in_out | out_in |  | the first edge from the outside (a part on a background) or from the inside (a hole) |
+| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is the edge |
+| `polarity` | any / dark_to_light / light_to_dark | any |  | which edges count |
+| `min` | 0 .. 100000 | 0 |  | the diameter must be at least this (0 = no limit) - mm with a scale |
+| `max` | 0 .. 100000 | 0 |  | the diameter must be at most this (0 = no limit) |
+
+### Line (fit)
+
+An edge on every scan across a window, a robust line through them - the angle of a part's edge, its position, its straightness, with a tolerance on the angle.
+
+**In:** `src` (picture)  
+**Out:** `found` (yes/no), `angle` (number), `offset` (number), `straightness` (number), `points` (number), `ok` (yes/no), `x1` (number), `y1` (number), `x2` (number), `y2` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `x` | 0 .. 8192 | 0 | px | left edge of the window |
+| `y` | 0 .. 8192 | 0 | px | top edge of the window |
+| `w` | 1 .. 8192 | 300 | px | width |
+| `h` | 1 .. 8192 | 200 | px | height |
+| `direction` | top_down / bottom_up / left_right / right_left | top_down |  | the scans run this way and take the first edge they meet |
+| `scans` | 2 .. 200 | 20 |  | how many scans across the window |
+| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is the edge |
+| `polarity` | any / dark_to_light / light_to_dark | any |  | which edges count |
+| `min` | -180 .. 180 | 0 |  | the angle must be at least this (min = max = 0 means no limit) |
+| `max` | -180 .. 180 | 0 |  | the angle must be at most this |
+
+### Angle
+
+The angle between two directions - two Line (fit) blocks, a Line (fit) and a fixed number - with a tolerance.
+
+**In:** `a` (number), `b` (number)  
+**Out:** `angle` (number), `ok` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `min` | 0 .. 180 | 0 |  | the angle must be at least this (min = max = 0 means no limit) |
+| `max` | 0 .. 180 | 0 |  | the angle must be at most this |
+
+### Distance of points
+
+The distance between two points that other blocks found - a circle's centre, a pattern's position, an edge from Pick object - in pixels and, with a scale, in millimetres; with a tolerance.
+
+**In:** `x1` (number), `y1` (number), `x2` (number), `y2` (number), `scale` (number, optional)  
+**Out:** `dist` (number), `dist_mm` (number), `dx` (number), `dy` (number), `ok` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `min` | 0 .. 100000 | 0 |  | the distance must be at least this (0 = no limit) - mm with a scale |
+| `max` | 0 .. 100000 | 0 |  | the distance must be at most this (0 = no limit) |
+
+### Part in place
+
+The largest dark (or light) object in a window, judged by where it sits and how big it is - a cap on a bottle, a seal in its seat, a label on its place.
+
+**In:** `src` (picture)  
+**Out:** `found` (yes/no), `cx` (number), `cy` (number), `cw` (number), `ch` (number), `dx` (number), `dy` (number), `ok` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `x` | 0 .. 8192 | 0 | px | left edge of the window |
+| `y` | 0 .. 8192 | 0 | px | top edge of the window |
+| `w` | 1 .. 8192 | 200 | px | width |
+| `h` | 1 .. 8192 | 200 | px | height |
+| `polarity` | dark / light | dark |  | the part is darker or lighter than the threshold |
+| `threshold` | 0 .. 255 | 127 |  | the brightness that separates the part from its background |
+| `min_area` | 0 .. 100000000 | 50 | px | a smaller blob is noise |
+| `max_area` | 0 .. 100000000 | 0 | px | a bigger blob is not the part (0 = no limit) |
+| `ex` | 0 .. 8192 | 0 | px | where the part's centre should be (0 with ey = the window's centre) |
+| `ey` | 0 .. 8192 | 0 | px | where the part's centre should be |
+| `pos_tol` | 0 .. 8192 | 20 | px | how far off the centre may sit |
+| `ew` | 0 .. 8192 | 0 | px | the width the part should have (0 = any) |
+| `eh` | 0 .. 8192 | 0 | px | the height the part should have (0 = any) |
+| `size_tol` | 0 .. 100 | 20 | % | how much the size may differ |
+
+### Laser line profile
+
+A line laser shines a line across the part, the camera sees it from an angle, and the line's bend is the height profile - the height of a step, the depth of a groove, the fill of an opaque jar. Teach the baseline on the empty plane; the height comes in millimetres once mm_per_px is set.
+
+**In:** `src` (picture)  
+**Out:** `found` (yes/no), `height` (number), `height_max` (number), `height_min` (number), `width` (number), `profile` (list of objects), `ok` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `x` | 0 .. 8192 | 0 | px | left edge of the window |
+| `y` | 0 .. 8192 | 0 | px | top edge of the window |
+| `w` | 1 .. 8192 | 640 | px | width |
+| `h` | 1 .. 8192 | 200 | px | height - the whole range the line may bend in |
+| `axis` | horizontal / vertical | horizontal |  | the line runs across the window (and bends up and down) or down it |
+| `channel` | red / green / gray | red |  | the colour the laser is brightest in |
+| `min_bright` | 1 .. 255 | 100 |  | a pixel darker than this is not the line |
+| `smooth` | 1 .. 31 | 5 | px | columns averaged along the line |
+| `base_a` | -8192 .. 8192 | 0 | px | the taught baseline - the line's row at the window's first column (Teach on the empty plane) |
+| `base_b` | -10 .. 10 | 0 |  | the taught baseline's slope |
+| `invert` | yes / no | no |  | the line moves DOWN when the part is higher (the laser sits on the other side) |
+| `mm_per_px` | 0 .. 100 | 0 |  | millimetres of height per pixel of shift - measured once with a block of known height (0 = answer in pixels) |
+| `min_height` | 0 .. 100000 | 1 |  | columns higher than this count into the width |
+| `step` | 1 .. 100 | 10 | px | every so many columns one profile object |
+| `min` | 0 .. 100000 | 0 |  | the height must be at least this (0 = no limit) |
+| `max` | 0 .. 100000 | 0 |  | the height must be at most this (0 = no limit) |
 
 ## Ready tools
 
@@ -1004,4 +1154,5 @@ Runs a trained detection network (an ONNX model imported into the project - YOLO
 | `min_score` | 0 .. 100 | 50 | % | a detection below this is dropped |
 | `overlap` | 0 .. 100 | 45 | % | two boxes overlapping more than this are one object |
 | `layout` | auto / ssd / yolov5 / yolov8 | auto |  | the model's output layout (auto reads it off the output's shape) |
+| `only` | text | (empty) |  | only detections with this label count (empty = every class) - `person` for a people counter |
 

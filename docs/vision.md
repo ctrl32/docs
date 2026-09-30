@@ -168,6 +168,39 @@ with *min score* saying how alike a place must be.
 The window of a block that finds objects shows each one framed and
 numbered on the picture it was found in (a match with its score).
 
+## Measuring
+
+The measuring blocks answer in pixels, and in millimetres as soon as a
+**scale** is wired into them (mm per pixel — from the Ruler, or from
+the Plane block once a board has been taught). Every one takes a
+**tolerance** — *min* and *max*, 0 = no limit — and answers *ok*: a
+value outside the pair is a failed check, never a fault.
+
+- **Fill level** — the first change of brightness down (or up) a
+  window, averaged across its width: the level of a liquid in a bottle,
+  of a powder in a jar, as pixels from the window's bottom edge.
+- **Circle (fit)** — an edge on every ray of a ring and a circle
+  through them without the stray points: diameter, centre, roundness.
+- **Line (fit)** — an edge on every scan across a window and a line
+  through them: angle, position, straightness. **Angle** — between two
+  such lines. **Distance of points** — between any two points other
+  blocks found.
+- **Caliper** — every edge along a line: width, count, pitch, each edge
+  as an object for the geometry blocks.
+- **Part in place** — the largest dark (or light) object in a window,
+  judged by where it sits and how big it is: a cap on a bottle, a seal
+  in its seat, a label on its place.
+- **Laser line profile** — a cheap line laser shines a line across the
+  part, the ordinary camera sees it from an angle, and the line's bend
+  is the height profile: the height of a step, the depth of a groove,
+  the fill of an opaque jar. Teach the baseline on the empty plane, set
+  the millimetres per pixel once with a block of known height, and the
+  block answers height, its extremes, the width of what stands up, and
+  the profile as objects.
+- **Colour of object** — the mean hue of every found object, and the
+  ones inside a hue range kept: red, green and blue cubes sorted in one
+  pass.
+
 ## The whole toolbox
 
 The Toolbox holds 79 blocks, grouped the way a person thinks about a
