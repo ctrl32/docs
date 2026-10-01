@@ -1,6 +1,6 @@
 ---
-image: img/measure-screen.webp
-image_alt: "The bottle screen: the camera with the three windows, the level, the cap, the label and the OK lamp"
+image: img/example-bottle-check-glass.webp
+image_alt: "The bottle screen on the reTerminal's glass: 70 mm in tolerance, the cap found, the label read, the OK lamp lit"
 ---
 
 # Bottle check — level, cap, label
@@ -16,7 +16,14 @@ answer a variable, and one rung of the PLC program that says OK.
 side — or nothing: the editor runs every program on the drawn bottle it
 ships, and the screen's lamps answer on the desk
 
-![The bottle screen](img/measure-screen.webp)
+![The bottle screen on the device](img/example-bottle-check-glass.webp)
+
+The screen as the device draws it, the drawn bottle in front of the
+camera: the level reads 70.0 mm and is in tolerance, the Fixture found
+the bottle's top where it was taught, the cap sits in place, the label's
+code reads `BTL-0815`, and the rung lights the lamp. The three programs
+take 9, 193 and 10 milliseconds on a reTerminal - the Fixture's search
+is the one that costs, and a Crop in front of it would halve it.
 
 ## The three programs
 

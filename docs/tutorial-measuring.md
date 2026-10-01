@@ -95,7 +95,12 @@ reads it. The screen of the example draws the three windows over the
 camera's picture, shows the Fill level block's own picture beside it,
 and the three results with their lamps.
 
-![The bottle screen](img/measure-screen.webp)
+![The bottle screen in the editor](img/measure-screen.webp)
+
+On the device the same screen fills in: the surface line in the Fill
+level's picture, the level in millimetres, the lamps, the label's text
+and the big OK — the [example's page](example-bottle-check.md) shows it
+as the reTerminal drew it.
 
 ## What to try next
 
