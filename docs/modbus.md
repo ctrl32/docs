@@ -164,7 +164,7 @@ the protocol address and the number from the manual.
 
 Automatically, in list order: `bool` → coils (0x) from 0, everything
 else → holding registers (4x) from 0, where `i32`/`u32`/`f32` take up
-**two registers**. The address goes into the pack **explicitly**, so
+**two registers** and the 64-bit kinds (`LINT`, `ULINT`, `LREAL`) **four**. The address goes into the pack **explicitly**, so
 reordering variables in the editor does not shift the map. The order in the
 list can be changed with the arrow — it is part of the configuration,
 not cosmetics.
@@ -177,8 +177,8 @@ MQTT: the board decides about a write, not whoever asks for it.
 
 Further deliberate decisions:
 
-- `FC6` (write single register) on a 32-bit value is **rejected** — a
-  half-written value is worse than a refusal.
+- `FC6` (write single register) on a 32-bit or a 64-bit value is
+  **rejected** — a half-written value is worse than a refusal.
 - `FC16` first validates the **whole** range and only then writes — a
   half-executed write would leave the equipment in an undefined state.
 - Reading a range that lies even partly outside the map returns an

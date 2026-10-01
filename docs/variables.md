@@ -96,10 +96,14 @@ half of two values.
 |:---|:---:|:---:|:---:|
 | 64-bit variables in a project | 64 | 64 | **2 048** |
 
-In this version a 64-bit variable is **internal**: the Modbus, OPC UA
-client, +7 and net32 sources, and a program reading or writing it, come
-with the next one - the editor says so at build, and the online watch
-shows the variable's change counter rather than its value until then.
+A 64-bit variable comes from a **Modbus** device like a 32-bit one -
+an energy meter's total in `fc: input` at its address - and takes **four
+registers**, with the same `word_order` rule (*big* = the highest word
+first, *little* = the lowest first); the device's slave serves it as four
+registers too, and writes it back with FC16 only. The OPC UA client, +7
+and net32 sources, and a program reading or writing it, come with the next
+version - the editor says so at build, and the online watch shows the
+variable's change counter rather than its value until then.
 
 !!! warning "A name must not be an ST keyword"
     Names like `NOT`, `AND`, `VAR`, `REAL`, `TIME` or `END_IF` become
