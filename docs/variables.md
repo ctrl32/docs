@@ -100,9 +100,15 @@ A 64-bit variable comes from a **Modbus** device like a 32-bit one -
 an energy meter's total in `fc: input` at its address - and takes **four
 registers**, with the same `word_order` rule (*big* = the highest word
 first, *little* = the lowest first); the device's slave serves it as four
-registers too, and writes it back with FC16 only. The OPC UA client, +7
-and net32 sources, and a program reading or writing it, come with the next
-version - the editor says so at build, and the online watch shows the
+registers too, and writes it back with FC16 only.
+
+A **program** reads a 64-bit variable as a `REAL` and writes one from a
+`REAL`. A `REAL` does not hold 64 bits, so the program sees about seven
+significant digits of the value (a counter of 1 234 567 890 Wh reads as
+1 234 567 936 in the program); the glass, the browser, MQTT, OPC UA and
+Modbus carry the whole value. A bit selector (`energy.3`) is refused on a
+64-bit variable. The OPC UA client, +7 and net32 sources come with the
+next version - the editor says so at build, and the online watch shows the
 variable's change counter rather than its value until then.
 
 !!! warning "A name must not be an ST keyword"

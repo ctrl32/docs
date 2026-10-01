@@ -16,8 +16,10 @@ capabilities, the first one practically never moves.
   shows it digit for digit, MQTT publishes it, a Linux device serves
   it over OPC UA as an Int64 / UInt64 / Double, and the Modbus master
   reads and writes it in **four registers** (the word order as for
-  32-bit values; the slave serves it the same way). The other sources
-  and a program's access come with the next version. See
+  32-bit values; the slave serves it the same way). A program reads a
+  64-bit variable as a `REAL` and writes one from a `REAL` - about seven
+  significant digits reach the program, the device and the buses carry
+  the whole value. The other sources come with the next version. See
   [Variables](variables.md#64-bit-values).
 - **A connection on the vision canvas is removed on its own.** A wire
   is a thing of its own now: click it and press Delete, right-click it

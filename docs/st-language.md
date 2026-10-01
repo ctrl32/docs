@@ -27,7 +27,11 @@ variable lists (VAR/RVAR) — variables behave as globals, case-insensitively.
 (milliseconds), `STRING(N)` (bounded text, 1..250 bytes, default 32).
 `INT` widens to `REAL` silently; `REAL` never narrows silently —
 write `TRUNC(x)` or `REAL_TO_INT(x)`. `INT` and `TIME` convert freely
-(a `TIME` is milliseconds).
+(a `TIME` is milliseconds). A 64-bit variable of the project (`LINT`,
+`ULINT`, `LREAL` - see [Variables](variables.md#64-bit-values)) reads as
+a `REAL` and takes a `REAL` on assignment: about seven significant digits
+of the value reach the program, the device keeps the whole value; it has
+no bit selector.
 
 **Statements**: assignment `:=`, `IF/ELSIF/ELSE`, `CASE` (values,
 lists, ranges `4..6`), `FOR/TO/BY`, `WHILE`, `REPEAT/UNTIL`, `EXIT`,
