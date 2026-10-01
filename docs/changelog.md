@@ -10,6 +10,14 @@ capabilities, the first one practically never moves.
 
 ## 1.00.057
 
+- **64-bit variables, on every device.** Three kinds more - `LINT`,
+  `ULINT` and `LREAL` - for an energy meter's counter, a totaliser, a
+  serial number. A value widget shows the whole number, the browser
+  shows it digit for digit, MQTT publishes it, a Linux device serves
+  it over OPC UA as an Int64 / UInt64 / Double. In this version the
+  variable is internal; the Modbus registers it is read from, the
+  other sources and a program's access come with the next one. See
+  [Variables](variables.md#64-bit-values).
 - **Every vision block has its own page.** The documentation's Vision
   section is a section of its own now: the editor's page with every
   field, button and gesture, the camera's page, and one page per block -

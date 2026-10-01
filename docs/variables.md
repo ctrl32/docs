@@ -72,12 +72,34 @@ recomputes on its own within a cycle or two.
 | Property | What it is for |
 |:---|:---|
 | **name** | the only thing you refer to it by; in ST it is an identifier |
-| **type** | `BOOL`, `I16`, `U16`, `I32`, `U32`, `REAL` (f32), `STRING`, `TIME` |
+| **type** | `BOOL`, `I16`, `U16`, `I32`, `U32`, `REAL` (f32), `STRING`, `TIME`, and the 64-bit kinds `LINT` (i64), `ULINT` (u64), `LREAL` (f64) |
 | **access** | `ro` / `rw` — for the browser and the operator, not for the logic |
 | **source** | where the value comes from (below) |
 | **gain / offset** | conversion to a physical quantity: `y = x · gain + offset` |
 | **unit, decimals** | how it is displayed |
 | **deadband** | from what change on it counts as a change |
+
+## 64-bit values
+
+An energy meter's Wh counter, a totaliser, a serial number: numbers a
+32-bit variable cannot hold. The three 64-bit kinds hold them on every
+device - `LINT` (a signed whole number), `ULINT` (an unsigned one) and
+`LREAL` (a double-precision real with the variable's *decimals*). A value
+widget shows the whole number, the browser shows it digit for digit
+(a JavaScript number would lose the low bits), MQTT publishes it as a
+number and the Linux device serves it as an Int64 / UInt64 / Double
+node over OPC UA. The device keeps the eight bytes beside the variable
+table, so the lock-free table stays what it is; a reader never sees
+half of two values.
+
+| | With display | Headless | Linux |
+|:---|:---:|:---:|:---:|
+| 64-bit variables in a project | 64 | 64 | **2 048** |
+
+In this version a 64-bit variable is **internal**: the Modbus, OPC UA
+client, +7 and net32 sources, and a program reading or writing it, come
+with the next one - the editor says so at build, and the online watch
+shows the variable's change counter rather than its value until then.
 
 !!! warning "A name must not be an ST keyword"
     Names like `NOT`, `AND`, `VAR`, `REAL`, `TIME` or `END_IF` become

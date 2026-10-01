@@ -20,6 +20,7 @@ configure.
 | Limit | With display | Headless | Linux |
 |:---|:---:|:---:|:---:|
 | Variables | 512 | 512 | **20 480** |
+| 64-bit variables (LINT, ULINT, LREAL) | 64 | 64 | **2 048** |
 | Alarms | 128 | 128 | **4 096** |
 | Screens | 32 | 32 (WEBview) | **1 024** |
 | Widgets per screen | 64 | 64 | **1 024** |
