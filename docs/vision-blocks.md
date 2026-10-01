@@ -2,7 +2,7 @@
 
 # Vision blocks
 
-**89 blocks, every one with its own page, its own window and its own picture.** The toolset of an industrial vision system - region of interest, filters, binarisation, morphology, blob analysis, template and feature matching, fiducial markers, calibration, calipers and gauges in millimetres, 1D/2D code reading, laser triangulation, trained neural networks - drawn as a chain of blocks on the [Vision](vision.md) page, no programming. Every block is a row of one table: the same table the editor builds the block's window from and the device runs, so what you set at your desk is what the device computes.
+**89 blocks, every one with its own page, its own window and its own picture.** The toolset of a machine vision system - region of interest, filters, binarisation, morphology, blob analysis, template and feature matching, fiducial markers, calibration, calipers and gauges in millimetres, 1D/2D code reading, laser triangulation, trained neural networks - drawn as a chain of blocks on the [Vision](vision.md) page, no programming. Every block is a row of one table: the same table the editor builds the block's window from and the device runs, so what you set at your desk is what the device computes.
 
 Every page says what the block does and when to use it, lists every input, output and setting with its range and default, and shows the block's window on a test picture. Areas are in pixels of the picture the block receives; a picture goes into a picture input, a number into a number input, a list of objects into a list input.
 
