@@ -82,6 +82,7 @@ nav:
       - "The line shaft, step by step": tutorial-line-shaft.md
       - "A vehicle bus, step by step": tutorial-vehicle.md
       - "Vision, step by step": tutorial-vision.md
+      - "Measuring, step by step: a bottle": tutorial-measuring.md
       - Two boards over Modbus: tutorial-modbus-pair.md
       - Hot tank: three-zone-thermostat.md
       - Thermostat fed by Home Assistant: tutorial-ha-thermostat.md
@@ -97,6 +98,7 @@ nav:
       - RS-485 system (reTerminal + two slaves): example-rs485.md
       - "reTerminal, a SIMATIC": example-reterminal-s7.md
       - "People counter (a learned model)": example-people-counter.md
+      - "Bottle check (level, cap, label)": example-bottle-check.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md

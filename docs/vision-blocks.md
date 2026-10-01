@@ -1188,6 +1188,6 @@ Runs a trained detection network (an ONNX model imported into the project - YOLO
 | `swap_rb` | yes / no | yes |  | the model wants RGB (most do) rather than BGR |
 | `min_score` | 0 .. 100 | 50 | % | a detection below this is dropped |
 | `overlap` | 0 .. 100 | 45 | % | two boxes overlapping more than this are one object |
-| `layout` | auto / ssd / yolov5 / yolov8 | auto |  | the model's output layout (auto reads it off the output's shape) |
+| `layout` | auto / ssd / yolov5 / yolov8 / yolox | auto |  | the model's output layout (auto reads it off the output's shape; a YOLOX export keeps its boxes in grid units and must be named - the shipped people counter is one) |
 | `only` | text | (empty) |  | only detections with this label count (empty = every class) - `person` for a people counter |
 

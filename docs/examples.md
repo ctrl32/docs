@@ -28,6 +28,7 @@ after an update.
 | [reTerminal, an RS-485 pair](example-rs485.md) | reTerminal + E10-1, inoCORE32-TM8.6, inoCORE32-TM1.1 | one Modbus RTU master and two slaves on one pair, an i550 on the master's CAN — a system project the editor deploys as one |
 | [reTerminal, a SIMATIC over +7](example-reterminal-s7.md) | Seeed reTerminal, 1280×720 | the same board as the panel of an S7-1200: a data block read live, one value written back, the PLC's clock bit as the link lamp |
 | [People counter](example-people-counter.md) | Seeed reTerminal + a USB camera, 1280×720 | a learned detection model inside the project counts the people in view twice a second — the detector's own picture on the screen, the count and a yes/no for the program |
+| [Bottle check](example-bottle-check.md) | Seeed reTerminal + a USB camera, 1280×720 | the three checks of a filling line: the fill level in millimetres with a tolerance, the cap in place wherever the bottle stopped (a Fixture), the label read and in place — and one rung that says OK |
 
 The four reTerminal rows are one board on four roads — CANopen,
 EtherCAT, an RS-485 pair and a SIMATIC over ethernet — and are worth

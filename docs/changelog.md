@@ -30,6 +30,12 @@ capabilities, the first one practically never moves.
   picture as a top view with a known number of pixels per millimetre.
   The laser profile's baseline is taught the same way, from the empty
   plane. See [Coordinates](vision.md#coordinates).
+- **The bottle example and a measuring tutorial.** The new
+  [Bottle check](example-bottle-check.md) example checks a bottle's fill
+  level in millimetres, its cap through a Fixture and its label with a
+  code, and [Measuring, step by step](tutorial-measuring.md) builds it
+  block by block — on the desk with the drawn bottle the editor ships,
+  no camera needed.
 - **A people counter with a shipped model.** The new
   [People counter](example-people-counter.md) example carries a small
   trained detection network inside the project (YOLOX-Nano, Apache 2.0)
