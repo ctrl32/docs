@@ -129,6 +129,29 @@ the bench's i700s hunted at low speed on the factory set of a motor with
 four times the inductance, and were steady to a few increments once
 their own row was written.
 
+### The drive's settings from its maker's tool
+
+A servo inverter of the i700 and i750 kind keeps no settings of its own:
+its motor data, its control loops, its limits live in the controller,
+which writes them into the drive at every start. On your line that
+controller is this device, so the settings belong in the project. Set the
+drive up once with the maker's tool (motor identification, autotuning,
+the oscilloscope — through the device's gateway, see below), save the
+drive's parameter file (a GDC file), and press **Import parameters
+(GDC)...** on the slave's *Start-up writes* tab. Every setting that
+differs from the drive's default becomes a start-up write — scaled and
+sized by the device's description — and the identity, the process-data
+mappings and the drive's own bookkeeping are left alone, those are the
+device's business. The status line says what came of the file: how many
+settings will be written, how many sat at their default, how many are
+read-only or texts.
+
+From then on a drive swapped for a spare comes up with the same settings
+at the next start, with nothing to do on the drive; import the file again
+after a change in the maker's tool. A file of another kind of drive is
+refused, and a drive the library has no description for cannot be
+imported, because the values could not be sized.
+
 ### A servo in cyclic position mode
 
 A servo inverter - the Lenze i700, i750 and i950 are the ones in the
