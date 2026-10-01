@@ -30,8 +30,15 @@ capabilities, the first one practically never moves.
   picture as a top view with a known number of pixels per millimetre.
   The laser profile's baseline is taught the same way, from the empty
   plane. See [Coordinates](vision.md#coordinates).
-- The **detector** block keeps only one class of object when asked
-  (*only*), so a counter of people counts people and not the chairs.
+- **A people counter with a shipped model.** The new
+  [People counter](example-people-counter.md) example carries a small
+  trained detection network inside the project (YOLOX-Nano, Apache 2.0)
+  and counts the people the camera sees; the **Detect (model)** block
+  reads that model's raw export (*layout* `yolox`) and keeps only one
+  class when asked (*only*), so a counter of people counts people and
+  not the chairs.
+- A project saved with an imported model keeps the model: the file is
+  written beside the project with its own extension.
 
 ## 1.00.055
 

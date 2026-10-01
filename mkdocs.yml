@@ -96,6 +96,7 @@ nav:
       - reTerminal, the drive on EtherCAT: example-reterminal-ecat.md
       - RS-485 system (reTerminal + two slaves): example-rs485.md
       - "reTerminal, a SIMATIC": example-reterminal-s7.md
+      - "People counter (a learned model)": example-people-counter.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md

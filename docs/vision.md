@@ -309,6 +309,14 @@ in order. On a Raspberry Pi 4 a small classifier takes tens of
 milliseconds, a small detector a few hundred: run it on a trigger, on
 a crop, not ten times a second on the whole picture.
 
+One model ships ready to use: the
+[People counter](example-people-counter.md) example carries YOLOX-Nano,
+a 3.6 MB network that knows 80 everyday classes (person, car, bottle,
+chair ...), with the block's settings already right for it — its raw
+export keeps the boxes in grid units, which is what the *yolox* layout
+decodes. Open the example, change *only* to the class you want, and the
+same block counts cars or bottles.
+
 !!! note "The model's licence is yours"
     OpenCV runs any ONNX model; the model file carries its own licence.
     MobileNet, EfficientDet and models you train yourself are free to
