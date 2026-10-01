@@ -8,6 +8,31 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.056
+
+- **Measuring with the camera.** New vision blocks for the checks a
+  packaging or a parts line asks for: **Fill level** (the liquid in a
+  bottle, the powder in a jar), **Circle (fit)** (a diameter, a centre,
+  roundness), **Line (fit)**, **Angle** and **Distance of points**,
+  **Part in place** (a cap on its bottle, a seal in its seat, a label
+  where it belongs), **Colour of object** (coloured parts sorted in one
+  pass) and the **Laser line profile** (a cheap line laser and the
+  ordinary camera measure a height, a step, a groove). Every measuring
+  block answers in pixels and, with a scale wired in, in millimetres;
+  every one takes a tolerance and answers *ok*. The **Caliper** answers
+  the pitch of its edges and hands every edge on as an object. See
+  [Measuring](vision.md#measuring).
+- **Coordinates.** A **Fixture** block finds the part by a picture
+  taught with one drag and shifts (and turns) every later picture so the
+  part sits where it was taught - the windows of the blocks after it
+  stay where they were drawn. A **Plane from a board** block is taught
+  once from a chessboard lying on the working plane and draws every
+  picture as a top view with a known number of pixels per millimetre.
+  The laser profile's baseline is taught the same way, from the empty
+  plane. See [Coordinates](vision.md#coordinates).
+- The **detector** block keeps only one class of object when asked
+  (*only*), so a counter of people counts people and not the chairs.
+
 ## 1.00.055
 
 - **Cameras on a Linux device.** Plug a USB camera into the device, add

@@ -121,7 +121,8 @@ type what it really is. Its *mm per px* goes into a **Scale** block's
 out in millimetres. A camera that looks at the belt from the side sees
 a rectangle at an angle: **Straighten** takes its four corners by four
 clicks on the picture and draws it straight, so the blocks after it
-measure a plane, not a perspective.
+measure a plane, not a perspective. A **Plane from a board** block does
+both at once from one chessboard (see [Coordinates](#coordinates)).
 
 ## Settings from variables
 
@@ -200,6 +201,37 @@ value outside the pair is a failed check, never a fault.
 - **Colour of object** — the mean hue of every found object, and the
   ones inside a hue range kept: red, green and blue cubes sorted in one
   pass.
+
+## Coordinates
+
+A part on a belt never lies exactly where it lay when the check was
+drawn. Two blocks of the **geometry** group take care of that, and every
+block after them keeps its windows where they were drawn.
+
+- **Fixture** — drag over the part on the block's picture once: the
+  block remembers the part's picture and where it was. On every later
+  picture it finds the part again and shifts the whole picture so the
+  part sits where it was taught — a window drawn on the cap finds the
+  cap wherever the bottle stopped. *max angle* lets the part lie
+  turned too (the block turns the picture back; 0 = the part never
+  turns, the quickest). It answers *found*, the shift and the turn it
+  undid, and how alike the part looked (*score*). A part it does not
+  find leaves the picture as it was, with *found* off.
+- **Plane from a board** — lay a chessboard flat on the working plane
+  (the belt, the table), set its inner corners and the size of a square,
+  and press *Teach the plane from this picture* on the block's window.
+  From then on the block draws every picture as a top view in which
+  one millimetre is a known number of pixels, whatever angle the
+  camera looks from. Its *mm per px* output feeds the **Scale** block
+  and the *scale* input of every measuring block, so a length, a
+  diameter or a level reads in millimetres without a ruler in the
+  picture. The origin is the board's top-left inner corner as the
+  camera sees it; *origin* says where that corner lands in the top
+  view. Teach it once; the mapping is saved with the project.
+
+The **Laser line profile** teaches the same way: with nothing under the
+laser, press *Teach the baseline from this picture* and the line on the
+empty plane becomes the zero every height is measured from.
 
 ## The whole toolbox
 

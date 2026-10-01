@@ -145,6 +145,41 @@ Takes the barrel or pincushion of a wide lens out of the picture, so straight ed
 | `board_cols` | 2 .. 30 | 9 |  | inner corners across of the chessboard the calibration is taken from (Calibrate on the block's picture) |
 | `board_rows` | 2 .. 30 | 6 |  | inner corners down of that chessboard |
 
+### Fixture
+
+Finds the part by a taught picture and shifts the whole picture so the part sits where it was when taught - every later block keeps its areas wherever the part lies on the belt. Teach by dragging over the part on the block's picture.
+
+**In:** `src` (picture)  
+**Out:** `out` (picture), `found` (yes/no), `dx` (number), `dy` (number), `angle` (number), `score` (number)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `pattern` | text | (empty) |  | the taught picture of the part (a picture asset of the project) |
+| `min_score` | 1 .. 100 | 70 | % | how alike the part must look to count as found |
+| `ref_x` | 0 .. 8192 | 0 | px | where the taught picture's centre was at the teach (set by the teach) |
+| `ref_y` | 0 .. 8192 | 0 | px | where the taught picture's centre was at the teach (set by the teach) |
+| `max_angle` | 0 .. 45 | 0 | deg | how far the part may lie turned (0 = it never turns - one match |
+| `angle_step` | 0.1 .. 10 | 1 | deg | the step of the turn search - a finer step costs time |
+
+### Plane from a board
+
+A chessboard lying on the working plane, seen once, teaches how the camera sees that plane - the block then straightens every picture to a top view with a known number of pixels per millimetre, so every measurement on it is millimetres. Teach with the button on the block's window.
+
+**In:** `src` (picture)  
+**Out:** `out` (picture), `mm_per_px` (number), `taught` (yes/no)
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `cols` | 2 .. 30 | 9 |  | the board's inner corners across |
+| `rows` | 2 .. 30 | 6 |  | the board's inner corners down |
+| `square_mm` | 0.1 .. 1000 | 10 | mm | one square of the board |
+| `px_per_mm` | 0.1 .. 100 | 4 |  | how many pixels one millimetre gets in the straightened picture |
+| `out_w` | 8 .. 4096 | 800 | px | the straightened picture's width |
+| `out_h` | 8 .. 4096 | 600 | px | the straightened picture's height |
+| `origin_x` | 0 .. 10000 | 20 | mm | where the board's first corner lands in the straightened picture |
+| `origin_y` | 0 .. 10000 | 20 | mm | where the board's first corner lands in the straightened picture |
+| `homography` | text | (empty) |  | the taught mapping - nine numbers (set by the teach) |
+
 ## Colour
 
 ### Grayscale
