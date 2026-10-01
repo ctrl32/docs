@@ -51,11 +51,14 @@ Click the program to open its page.
 
 ## Every block has its own window
 
-**Double-click a block** to open its window: every setting with its
-unit and what it means, the values the block produced, and **what the
-block shows** - its picture, or for a measuring block the picture it
-measured with its area framed: green when the answer is *yes*, red when
-it is *no*. Several windows can be open at once.
+**Double-click a block** to open its window - a dialog in the middle of
+the screen, the same size for every block: on the left every setting in
+a column with its unit (hold the mouse on a name to read what it means)
+and the variable that may feed it, under them the values the block
+produced; on the right, large, **what the block shows** - its picture,
+or for a measuring block the picture it measured with its area framed:
+green when the answer is *yes*, red when it is *no*. One window at a
+time; opening another block closes it.
 
 ![The window of a presence block: its area, its limits, its answer, and the part it found framed in green](img/vision-block.webp){: .sb-center}
 

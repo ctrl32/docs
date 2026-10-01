@@ -8,6 +8,13 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.00.057
+
+- **A vision block's window is a dialog.** It opens in the middle of the
+  screen, the same size for every block, the settings aligned in columns
+  on the left and the picture large on the right - the area is drawn and
+  the colour picked on that large picture.
+
 ## 1.00.056
 
 - **Measuring with the camera.** New vision blocks for the checks a
