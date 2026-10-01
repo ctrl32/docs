@@ -1,0 +1,53 @@
+<!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
+
+# Pick object
+
+**Finding objects** · in the trade: *blob result extraction* · in a project file: `pick`
+
+Takes one object of a list - number 0 is the first after sorting - and gives its numbers.
+
+![The window of the Pick object block: its settings on the left, its picture on the right](img/vb-pick.webp){: .sb-center}
+
+Takes one object out of a list and gives its numbers: the centre, the frame, the radius, the angle, the area, and the score when the list came from a finder that scores. `index` says which one - 0 is the first after the list's sorting, so a list sorted left to right makes "the leftmost part" index 0 whatever its size.
+
+Its outputs are the usual way an object's numbers reach a variable, a [Distance of points](vision-points_dist.md), a [Scale](vision-scale.md) or an [In range](vision-in_range.md). *found* is off when the list is shorter than the index, and the numbers are then 0.
+
+## Typical uses
+
+- one object's numbers into variables
+- the leftmost part's centre for a Distance of points
+- the largest part's size for a limit
+
+## Inputs
+
+| Input | Type | Meaning |
+|:---|:---:|:---|
+| `objects` | list of objects | the list to pick from |
+
+## Outputs
+
+| Output | Type | Meaning |
+|:---|:---:|:---|
+| `found` | yes/no | the list has an object at that index |
+| `x` | number | the object's centre, pixels from the left |
+| `y` | number | the object's centre, pixels from the top |
+| `w` | number | the width of the object's frame |
+| `h` | number | the height of the object's frame |
+| `r` | number | the object's radius (a circle, a marker) or half its larger side |
+| `angle` | number | the object's angle, in degrees |
+| `area` | number | the object's area, in pixels |
+| `score` | number | the finder's score for the object, in percent (0 for a finder that does not score) |
+
+A number or a yes/no output goes into a variable of the PLC program (right-click the block on the Vision page, *Result ... into*); a text output into a STRING variable; a picture or a list of objects into the next block.
+
+## Settings
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `index` | 0 .. 10000 | 0 |  | which object (0 = the first) |
+
+Every number and yes/no setting can be read from a **variable** before each run instead of being fixed - pick it in the list beside the setting (the variable column of [the block's window](vision.md#the-blocks-window)). A text setting takes a STRING variable the same way.
+
+---
+
+Every block: [Vision blocks](vision-blocks.md) · how a program is drawn and what its window shows: [Vision](vision.md) · the cameras: [Cameras](cameras.md)

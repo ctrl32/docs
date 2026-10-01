@@ -1,0 +1,46 @@
+<!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
+
+# Dilate
+
+**Shapes** · in the trade: *morphological dilation* · in a project file: `dilate`
+
+Grows white areas - closes small gaps.
+
+![The window of the Dilate block: its settings on the left, its picture on the right](img/vb-dilate.webp){: .sb-center}
+
+Grows every white area of a black-and-white picture by a brush of `size` pixels, `times` over. Small gaps close, a broken outline joins up, a thin line thickens into something [Find lines](vision-lines.md) can hold on to, and two parts that nearly touch become one - which is sometimes what you want (the printed letters of one word as one object) and sometimes not.
+
+Three pixels once is the usual dose. To close gaps without growing the shapes use [Close](vision-close.md).
+
+## Typical uses
+
+- small gaps closed in an outline
+- thin lines thickened for Find lines
+- the letters of a word joined into one object
+
+## Inputs
+
+| Input | Type | Meaning |
+|:---|:---:|:---|
+| `src` | picture | a black-and-white picture (white shapes on black) |
+
+## Outputs
+
+| Output | Type | Meaning |
+|:---|:---:|:---|
+| `out` | picture | the picture with the white areas grown |
+
+A number or a yes/no output goes into a variable of the PLC program (right-click the block on the Vision page, *Result ... into*); a text output into a STRING variable; a picture or a list of objects into the next block.
+
+## Settings
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `size` | 1 .. 51 | 3 | px | size of the brush |
+| `times` | 1 .. 20 | 1 |  | how many times |
+
+Every number and yes/no setting can be read from a **variable** before each run instead of being fixed - pick it in the list beside the setting (the variable column of [the block's window](vision.md#the-blocks-window)). A text setting takes a STRING variable the same way.
+
+---
+
+Every block: [Vision blocks](vision-blocks.md) · how a program is drawn and what its window shows: [Vision](vision.md) · the cameras: [Cameras](cameras.md)

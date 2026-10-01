@@ -37,21 +37,24 @@ the tree: **Cameras**, right under the device.
 
 ![The Cameras node under a Linux device, with one camera](img/camera-tree.webp){: .sb-center}
 
-1. **Scan the device** on its board page - the scan lists the cameras
-   plugged into it, by name.
-2. Right-click **Cameras** → **Add camera** and pick one of them. A
-   project with no scan yet gets the first camera, `/dev/video0`.
-3. Click the camera to open its page.
+1. **Scan the device** on its board page - the scan lists the cameras plugged into it, by name.
+2. Right-click **Cameras** → **Add camera** and pick one of them (one entry per camera the scan found; without a scan, the first camera `/dev/video0`). The new camera is named `cam1`, `cam2` ..., at 1280x720, 15 pictures a second, MJPG, and its page opens. A project holds up to four cameras; the entries grey out at the fourth.
+3. Click the camera to open its page; right-click it → **Remove camera** removes it (a screen element or a vision block that named it says so at build).
 
 ![The camera's page: name, camera, resolution, frames per second, stream](img/camera-page.webp){: .sb-center}
 
 | Field | What it does |
 |:---|:---|
-| Name | how the screens name the camera |
-| Camera | which camera of the device (the scanned ones are listed first) |
-| Resolution | the picture size the camera delivers |
-| Frames per second | how many pictures a second the camera delivers |
-| Stream | **MJPG** (recommended) or YUYV, for a camera that has no MJPG |
+| the camera list | which of the project's cameras the page shows and edits |
+| **Name** | how the screens and the vision programs name the camera - 1 to 32 characters, no space (Enter applies) |
+| **Camera** | which camera of the device: the ones a scan of the device reported, by name, then `/dev/video0` .. `/dev/video3` |
+| **IP camera** | the address of a network camera's stream instead of a USB camera - `http://...` for an MJPEG stream, `rtsp://user:password@...` for H.264 / H.265; it replaces the device and sets the stream to MJPG (Enter applies, or leaving the field) |
+| **Resolution** | the picture size, from the list the common cameras offer (640x480, 1280x720, 1600x1200, 1920x1080, 2560x1440) |
+| **width x height** | any other size, 160..4096 by 120..4096 - a UVC camera answers with the nearest mode it has |
+| **Frames per second** | how many pictures a second the camera delivers, 1..60 |
+| **Stream** | **MJPG** (recommended - the device passes the camera's own JPEG through untouched, the lightest load) or **YUYV**, for a camera that has no MJPG |
+
+Every field of the page is the same width, so the labels read in one column.
 
 **An RTSP camera.** Most network cameras stream H.264 over RTSP
 (`rtsp://user:password@192.168.1.50/stream1` - the path is the
@@ -62,23 +65,20 @@ runtime - run `sudo apt install ffmpeg` on the device once. Without
 them the camera says so on the device's console and every other camera
 of the project runs on. An MJPEG stream over http needs nothing.
 
-**Exposure and colour.** A check wants the same picture every time,
-and a camera's automatics give a different one each run - a part that
-was *present* at one exposure is gone at the next. Tick **Fixed
-exposure**, **Fixed gain** or **Fixed white balance** and type the
-value; the device sets the camera when it opens it and says on its
-console what the camera took. Leave them off for a live picture that
-only people look at - the device then puts the camera back on its
-automatics when it opens it (a USB camera keeps a setting until it is
-unplugged, so a check project that ran before does not leave its
-exposure behind).
+**Exposure and colour** - the section under the stream, for a USB camera (an IP camera brings its own):
+
+| Control | What it does |
+|:---|:---|
+| **Fixed exposure** | ticked: the exposure is typed (1..100000 in the camera's units - 100 µs steps on most USB cameras; 150 to start) and the camera's automatic exposure is off; unticked: the camera decides |
+| **Fixed gain** | ticked: the gain is typed (0..255); unticked: the camera decides |
+| **Fixed white balance** | ticked: the colour temperature is typed (1000..20000 K, 4600 to start); unticked: the camera decides |
+
+A check wants the same picture every time, and a camera's automatics give a different one each run - a part that was *present* at one exposure is gone at the next. Fix the three for a check; leave them off for a live picture that only people look at. The device sets the camera when it opens it and says on its console what the camera took; a USB camera keeps a setting until it is unplugged, so the device puts the camera back on its automatics when a project asks for them - a check project that ran before does not leave its exposure behind.
 
 **Take a picture** fetches one picture from the device and shows it on
 the page - the quickest check that the camera is plugged in, pointed
 the right way and in focus. It needs the device's address: go online,
 or enter the address for the network upload.
-
-A camera is removed with a right-click on it → **Remove camera**.
 
 ## The camera on a screen
 

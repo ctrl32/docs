@@ -1,0 +1,45 @@
+<!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
+
+# Gradient
+
+**Edges** · in the trade: *gradient magnitude (Sobel)* · in a project file: `sobel`
+
+How fast the brightness changes at every point (Sobel) - bright where there is an edge, black where the picture is flat. A softer edge picture than Edges, with the strength kept.
+
+![The window of the Gradient block: its settings on the left, its picture on the right](img/vb-sobel.webp){: .sb-center}
+
+Shows how fast the brightness changes at every point (the Sobel gradient): bright where there is an edge, black where the picture is flat, and the stronger the edge the brighter. Unlike [Edges](vision-canny.md) it does not decide what is an edge and what is not - it hands the strength on, so a threshold of your own can decide, or a [Caliper](vision-caliper.md) can find the strongest change along its line.
+
+`direction` keeps only the changes across the picture (x - vertical edges), down it (y - horizontal edges) or both. A larger `size` sees softer, wider edges and ignores fine texture.
+
+## Typical uses
+
+- edge strength handed on for your own threshold
+- vertical or horizontal edges only
+
+## Inputs
+
+| Input | Type | Meaning |
+|:---|:---:|:---|
+| `src` | picture | a gray or colour picture |
+
+## Outputs
+
+| Output | Type | Meaning |
+|:---|:---:|:---|
+| `out` | picture | the edge strength at every point, as a gray picture |
+
+A number or a yes/no output goes into a variable of the PLC program (right-click the block on the Vision page, *Result ... into*); a text output into a STRING variable; a picture or a list of objects into the next block.
+
+## Settings
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `direction` | both / x / y | both |  | edges across (x) |
+| `size` | 1 / 3 / 5 / 7 | 3 |  | the size of the kernel - larger sees softer edges |
+
+Every number and yes/no setting can be read from a **variable** before each run instead of being fixed - pick it in the list beside the setting (the variable column of [the block's window](vision.md#the-blocks-window)). A text setting takes a STRING variable the same way.
+
+---
+
+Every block: [Vision blocks](vision-blocks.md) · how a program is drawn and what its window shows: [Vision](vision.md) · the cameras: [Cameras](cameras.md)

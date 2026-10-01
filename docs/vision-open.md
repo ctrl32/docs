@@ -1,0 +1,44 @@
+<!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
+
+# Open
+
+**Shapes** · in the trade: *morphological opening* · in a project file: `open`
+
+Erode, then dilate - removes specks and keeps the size of large areas.
+
+![The window of the Open block: its settings on the left, its picture on the right](img/vb-open.webp){: .sb-center}
+
+An erode followed by a dilate with the same brush. Specks, thin lines and bridges thinner than the brush vanish in the erode and do not come back in the dilate, while the large shapes - shrunk and then grown by the same amount - keep their size and place. It is the one-step way to clean the background after a threshold before [Find objects](vision-contours.md) counts what is there.
+
+Choose `size` just above the largest speck you want gone; a brush larger than a detail of the part removes that detail too.
+
+## Typical uses
+
+- the background cleaned before Find objects
+- specks removed with the shapes kept their size
+
+## Inputs
+
+| Input | Type | Meaning |
+|:---|:---:|:---|
+| `src` | picture | a black-and-white picture |
+
+## Outputs
+
+| Output | Type | Meaning |
+|:---|:---:|:---|
+| `out` | picture | the picture without the small specks, the shapes their old size |
+
+A number or a yes/no output goes into a variable of the PLC program (right-click the block on the Vision page, *Result ... into*); a text output into a STRING variable; a picture or a list of objects into the next block.
+
+## Settings
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `size` | 1 .. 51 | 3 | px | size of the brush |
+
+Every number and yes/no setting can be read from a **variable** before each run instead of being fixed - pick it in the list beside the setting (the variable column of [the block's window](vision.md#the-blocks-window)). A text setting takes a STRING variable the same way.
+
+---
+
+Every block: [Vision blocks](vision-blocks.md) · how a program is drawn and what its window shows: [Vision](vision.md) · the cameras: [Cameras](cameras.md)

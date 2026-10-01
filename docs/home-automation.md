@@ -261,8 +261,6 @@ documentation, including [Intended use](intended-use.md).
 
 ---
 
-## 9. What it costs
-
 - **The hardware** is whatever an ESP32 board with the buses you need
   costs — usually less than one smart relay.
 

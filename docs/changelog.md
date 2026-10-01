@@ -10,6 +10,28 @@ capabilities, the first one practically never moves.
 
 ## 1.00.057
 
+- **Every vision block has its own page.** The documentation's Vision
+  section is a section of its own now: the editor's page with every
+  field, button and gesture, the camera's page, and one page per block -
+  what it does, when to use it, every input, output and setting with its
+  range and default, the block's window on a test picture and the block
+  as it stands on the canvas. The index of the 89 blocks names what the
+  trade calls each one.
+- **The camera's page is aligned.** Every field is the same width, so the
+  labels read in one column; width and height are one row and the stream
+  is a list like the other fields.
+- **The outputs of a block's window explain themselves.** Hold the mouse
+  on an output's name and it says what the value is.
+- **Every dialog opens in the centre with the frame.** The two
+  system-device dialogs (rename, delete) had neither; the editor's own
+  check now refuses a dialog without them.
+- An ONNX model shows as what it is in the Assets list.
+- **Find pattern and Fixture on a plain background.** A picture with an
+  area of one shade - a blank belt, a plain tray - could make both
+  blocks report the part in the picture's corner with a full score;
+  such areas are no match now. A camera's picture, with its noise,
+  never showed it; a drawn or an overexposed one did.
+
 - **A vision block's window is a dialog.** It opens in the middle of the
   screen, the same size for every block, the settings aligned in columns
   on the left and the picture large on the right - the area is drawn and

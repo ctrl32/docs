@@ -64,9 +64,101 @@ nav:
   - The Linux runtime:
       - The Linux runtime: linux-runtime.md
       - Setting up a device: linux-setup.md
-      - Cameras: cameras.md
+  - Vision:
       - Vision: vision.md
+      - Cameras: cameras.md
       - Vision blocks: vision-blocks.md
+      # vision-blocks: begin
+      - "Source: Camera": vision-camera.md
+      - "Geometry: Crop": vision-crop.md
+      - "Geometry: Resize": vision-resize.md
+      - "Geometry: Rotate": vision-rotate.md
+      - "Geometry: Straighten": vision-warp.md
+      - "Geometry: Flip": vision-flip.md
+      - "Geometry: Turn and shift": vision-affine.md
+      - "Geometry: Unroll ring": vision-polar.md
+      - "Geometry: Halve": vision-pyramid.md
+      - "Geometry: Lens correction": vision-undistort.md
+      - "Geometry: Fixture": vision-fixture.md
+      - "Geometry: Plane from a board": vision-world.md
+      - "Colour: Grayscale": vision-gray.md
+      - "Colour: Colour range": vision-hsv_range.md
+      - "Colour: Threshold": vision-threshold.md
+      - "Colour: Automatic threshold": vision-otsu.md
+      - "Colour: Invert": vision-invert.md
+      - "Colour: One channel": vision-channel.md
+      - "Colour: Adaptive threshold": vision-adaptive.md
+      - "Colour: White balance": vision-balance.md
+      - "Filters: Blur": vision-blur.md
+      - "Filters: Gaussian blur": vision-gauss.md
+      - "Filters: Median": vision-median.md
+      - "Filters: Equalize light": vision-equalize.md
+      - "Filters: Sharpen": vision-sharpen.md
+      - "Filters: Difference": vision-absdiff.md
+      - "Filters: Motion": vision-motion.md
+      - "Filters: Smooth, keep edges": vision-bilateral.md
+      - "Filters: Stretch contrast": vision-normalize.md
+      - "Filters: Gamma": vision-gamma.md
+      - "Filters: Local contrast": vision-clahe.md
+      - "Filters: Combine pictures": vision-combine.md
+      - "Filters: Mask": vision-mask.md
+      - "Shapes: Erode": vision-erode.md
+      - "Shapes: Dilate": vision-dilate.md
+      - "Shapes: Open": vision-open.md
+      - "Shapes: Close": vision-close.md
+      - "Shapes: Top-hat": vision-tophat.md
+      - "Shapes: Black-hat": vision-blackhat.md
+      - "Shapes: Outline": vision-gradient.md
+      - "Shapes: Fill holes": vision-fill_holes.md
+      - "Shapes: Distance map": vision-distance.md
+      - "Edges: Edges": vision-canny.md
+      - "Edges: Gradient": vision-sobel.md
+      - "Edges: Laplacian": vision-laplacian.md
+      - "Edges: Gradient (fine)": vision-scharr.md
+      - "Finding objects: Find objects": vision-contours.md
+      - "Finding objects: Find circles": vision-circles.md
+      - "Finding objects: Find pattern": vision-pattern.md
+      - "Finding objects: Find lines": vision-lines.md
+      - "Finding objects: Check objects": vision-objcheck.md
+      - "Finding objects: Pick object": vision-pick.md
+      - "Finding objects: Crop to object": vision-crop_object.md
+      - "Finding objects: Filter objects": vision-filter_objects.md
+      - "Finding objects: Object shape": vision-object_shape.md
+      - "Finding objects: Nearest object": vision-nearest.md
+      - "Finding objects: Find corners": vision-corners.md
+      - "Finding objects: Fill from point": vision-floodfill.md
+      - "Finding objects: Find by features": vision-features.md
+      - "Finding objects: Find markers": vision-aruco.md
+      - "Finding objects: Find chessboard": vision-chessboard.md
+      - "Finding objects: Colour of object": vision-object_colour.md
+      - "Logic: ST code": vision-st.md
+      - "Measurements: Brightness": vision-brightness.md
+      - "Measurements: White share": vision-white_ratio.md
+      - "Measurements: Count objects": vision-blobs.md
+      - "Measurements: Scale": vision-scale.md
+      - "Measurements: Ruler": vision-ruler.md
+      - "Measurements: In range": vision-in_range.md
+      - "Measurements: Caliper": vision-caliper.md
+      - "Measurements: Brightness statistics": vision-stats.md
+      - "Measurements: Sharpness": vision-sharpness.md
+      - "Measurements: Histogram": vision-histogram.md
+      - "Measurements: Distance": vision-dist.md
+      - "Measurements: Compare with taught": vision-golden.md
+      - "Measurements: Fill level": vision-level.md
+      - "Measurements: Circle (fit)": vision-circle_fit.md
+      - "Measurements: Line (fit)": vision-line_fit.md
+      - "Measurements: Angle": vision-angle.md
+      - "Measurements: Distance of points": vision-points_dist.md
+      - "Measurements: Part in place": vision-part_ok.md
+      - "Measurements: Laser line profile": vision-laser_line.md
+      - "Ready tools: Presence": vision-presence.md
+      - "Ready tools: Colour check": vision-colour.md
+      - "Ready tools: Edge position": vision-edge.md
+      - "Ready tools: Read code": vision-code.md
+      - "Ready tools: Match shape": vision-shape.md
+      - "Learned models: Classify (model)": vision-dnn_classify.md
+      - "Learned models: Detect (model)": vision-dnn_detect.md
+      # vision-blocks: end
   - Licensing: licensing.md
   - Why ctrl32 at home: home-automation.md
   - Start here:

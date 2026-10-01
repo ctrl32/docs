@@ -2,1192 +2,181 @@
 
 # Vision blocks
 
-Every block a vision program is drawn from, with its settings. The same list is the block palette of the editor's Vision page, and a block's settings window shows exactly these settings. How a program is put together: [Vision](vision.md).
+**89 blocks, every one with its own page, its own window and its own picture.** The toolset of an industrial vision system - region of interest, filters, binarisation, morphology, blob analysis, template and feature matching, fiducial markers, calibration, calipers and gauges in millimetres, 1D/2D code reading, laser triangulation, trained neural networks - drawn as a chain of blocks on the [Vision](vision.md) page, no programming. Every block is a row of one table: the same table the editor builds the block's window from and the device runs, so what you set at your desk is what the device computes.
 
-Areas are in pixels of the picture the block receives. A picture goes into a picture input, a number into a number input.
+Every page says what the block does and when to use it, lists every input, output and setting with its range and default, and shows the block's window on a test picture. Areas are in pixels of the picture the block receives; a picture goes into a picture input, a number into a number input, a list of objects into a list input.
+
+| Port type | What travels | Where it may go |
+|:---|:---|:---|
+| picture | a colour, gray or black-and-white picture | a picture input, a camera element on a screen |
+| number | a measurement or a count | a number input, a variable |
+| yes/no | a check's answer | a yes/no input, a BOOL variable |
+| list of objects | found things with their place, size, angle and area | a list input |
+| text | what a code says, a model's label | a text input, a STRING variable |
 
 ## Source
 
-### Camera
+Where the pictures come from.
 
-The latest picture of one of the project's cameras.
-
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `camera` | text | (empty) |  | the camera's name in the project |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Camera](vision-camera.md) | image acquisition | The latest picture of one of the project's cameras. |
 
 ## Geometry
 
-### Crop
+Cut, scale, turn and straighten the picture, and lock it to the part or to the working plane - so that every block after it looks at the right place, in millimetres.
 
-Keeps one rectangle of the picture - later blocks see only that area.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge |
-| `y` | 0 .. 8192 | 0 | px | top edge |
-| `w` | 1 .. 8192 | 320 | px | width |
-| `h` | 1 .. 8192 | 240 | px | height |
-
-### Resize
-
-Scales the picture - a smaller picture is analysed faster.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `scale` | 5 .. 400 | 50 | % | size of the result |
-
-### Rotate
-
-Turns the picture by a quarter, a half or three quarters.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `angle` | 90 / 180 / 270 | 90 |  | clockwise |
-
-### Straighten
-
-Takes a rectangle seen at an angle - a label, a plate, the belt from a camera on the side - and draws it straight. Teach the four corners by four clicks on the picture (top-left, top-right, bottom-right, bottom-left).
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x1` | 0 .. 8192 | 100 | px | top-left corner |
-| `y1` | 0 .. 8192 | 100 | px | top-left corner |
-| `x2` | 0 .. 8192 | 500 | px | top-right corner |
-| `y2` | 0 .. 8192 | 100 | px | top-right corner |
-| `x3` | 0 .. 8192 | 500 | px | bottom-right corner |
-| `y3` | 0 .. 8192 | 400 | px | bottom-right corner |
-| `x4` | 0 .. 8192 | 100 | px | bottom-left corner |
-| `y4` | 0 .. 8192 | 400 | px | bottom-left corner |
-| `out_w` | 8 .. 4096 | 400 | px | width of the straightened picture |
-| `out_h` | 8 .. 4096 | 300 | px | height of the straightened picture |
-
-### Flip
-
-Mirrors the picture.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `axis` | horizontal / vertical / both | horizontal |  | which way |
-
-### Turn and shift
-
-Turns the picture by any angle round its middle, scales it and shifts it - the part always lies the same way for the blocks after it.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `angle` | -360 .. 360 | 0 | deg | anticlockwise |
-| `scale` | 5 .. 400 | 100 | % | size of the result |
-| `dx` | -8192 .. 8192 | 0 | px | shift to the right |
-| `dy` | -8192 .. 8192 | 0 | px | shift down |
-
-### Unroll ring
-
-Unrolls a ring or a disc round a centre into a straight strip (left to right round the circle, the centre at the top) - a label round a bottle, the teeth of a gear, a dial.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `cx` | 0 .. 8192 | 320 | px | the centre |
-| `cy` | 0 .. 8192 | 240 | px | the centre |
-| `radius` | 1 .. 8192 | 200 | px | how far out from the centre is unrolled |
-
-### Halve
-
-Halves the picture once or several times with a proper blur first (an image pyramid) - a cleaner small picture than Resize for finding large things fast.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `levels` | 1 .. 4 | 1 |  | how many times it is halved |
-
-### Lens correction
-
-Takes the barrel or pincushion of a wide lens out of the picture, so straight edges are straight and a Ruler holds across the whole picture. The numbers come from a lens calibration (a chessboard in front of the camera).
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `fx` | 1 .. 100000 | 1000 | px | focal length across |
-| `fy` | 1 .. 100000 | 1000 | px | focal length down |
-| `cx` | 0 .. 8192 | 640 | px | the optical centre |
-| `cy` | 0 .. 8192 | 360 | px | the optical centre |
-| `k1` | -5 .. 5 | 0 |  | radial distortion |
-| `k2` | -5 .. 5 | 0 |  | radial distortion |
-| `p1` | -1 .. 1 | 0 |  | tangential distortion |
-| `p2` | -1 .. 1 | 0 |  | tangential distortion |
-| `board_cols` | 2 .. 30 | 9 |  | inner corners across of the chessboard the calibration is taken from (Calibrate on the block's picture) |
-| `board_rows` | 2 .. 30 | 6 |  | inner corners down of that chessboard |
-
-### Fixture
-
-Finds the part by a taught picture and shifts the whole picture so the part sits where it was when taught - every later block keeps its areas wherever the part lies on the belt. Teach by dragging over the part on the block's picture.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture), `found` (yes/no), `dx` (number), `dy` (number), `angle` (number), `score` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `pattern` | text | (empty) |  | the taught picture of the part (a picture asset of the project) |
-| `min_score` | 1 .. 100 | 70 | % | how alike the part must look to count as found |
-| `ref_x` | 0 .. 8192 | 0 | px | where the taught picture's centre was at the teach (set by the teach) |
-| `ref_y` | 0 .. 8192 | 0 | px | where the taught picture's centre was at the teach (set by the teach) |
-| `max_angle` | 0 .. 45 | 0 | deg | how far the part may lie turned (0 = it never turns - one match |
-| `angle_step` | 0.1 .. 10 | 1 | deg | the step of the turn search - a finer step costs time |
-
-### Plane from a board
-
-A chessboard lying on the working plane, seen once, teaches how the camera sees that plane - the block then straightens every picture to a top view with a known number of pixels per millimetre, so every measurement on it is millimetres. Teach with the button on the block's window.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture), `mm_per_px` (number), `taught` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `cols` | 2 .. 30 | 9 |  | the board's inner corners across |
-| `rows` | 2 .. 30 | 6 |  | the board's inner corners down |
-| `square_mm` | 0.1 .. 1000 | 10 | mm | one square of the board |
-| `px_per_mm` | 0.1 .. 100 | 4 |  | how many pixels one millimetre gets in the straightened picture |
-| `out_w` | 8 .. 4096 | 800 | px | the straightened picture's width |
-| `out_h` | 8 .. 4096 | 600 | px | the straightened picture's height |
-| `origin_x` | 0 .. 10000 | 20 | mm | where the board's first corner lands in the straightened picture |
-| `origin_y` | 0 .. 10000 | 20 | mm | where the board's first corner lands in the straightened picture |
-| `homography` | text | (empty) |  | the taught mapping - nine numbers (set by the teach) |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Crop](vision-crop.md) | region of interest (ROI) | Keeps one rectangle of the picture - later blocks see only that area. |
+| [Resize](vision-resize.md) | resampling, scaling | Scales the picture - a smaller picture is analysed faster. |
+| [Rotate](vision-rotate.md) | rotation by right angles | Turns the picture by a quarter, a half or three quarters. |
+| [Straighten](vision-warp.md) | perspective correction (homography) | Takes a rectangle seen at an angle - a label, a plate, the belt from a camera on the side - and draws it straight. Teach the four corners by four clicks on the picture (top-left, top-right, bottom-right, bottom-left). |
+| [Flip](vision-flip.md) | mirroring | Mirrors the picture. |
+| [Turn and shift](vision-affine.md) | affine transform (rotation, scale, translation) | Turns the picture by any angle round its middle, scales it and shifts it - the part always lies the same way for the blocks after it. |
+| [Unroll ring](vision-polar.md) | polar unwrap (log-polar transform) | Unrolls a ring or a disc round a centre into a straight strip (left to right round the circle, the centre at the top) - a label round a bottle, the teeth of a gear, a dial. |
+| [Halve](vision-pyramid.md) | image pyramid (pyrDown) | Halves the picture once or several times with a proper blur first (an image pyramid) - a cleaner small picture than Resize for finding large things fast. |
+| [Lens correction](vision-undistort.md) | intrinsic calibration, lens distortion correction | Takes the barrel or pincushion of a wide lens out of the picture, so straight edges are straight and a Ruler holds across the whole picture. The numbers come from a lens calibration (a chessboard in front of the camera). |
+| [Fixture](vision-fixture.md) | fixturing, part location, pattern-based alignment | Finds the part by a taught picture and shifts the whole picture so the part sits where it was when taught - every later block keeps its areas wherever the part lies on the belt. Teach by dragging over the part on the block's picture. |
+| [Plane from a board](vision-world.md) | camera-to-world calibration, plane rectification (homography) | A chessboard lying on the working plane, seen once, teaches how the camera sees that plane - the block then straightens every picture to a top view with a known number of pixels per millimetre, so every measurement on it is millimetres. Teach with the button on the block's window. |
 
 ## Colour
 
-### Grayscale
+From a colour picture to the gray picture or the black-and-white one the finders and the gauges work on.
 
-Turns a colour picture into shades of gray.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-### Colour range
-
-White where the colour is inside the range, black elsewhere. Hue runs 0..179 around the colour wheel (red at 0, green at 60, blue at 120).
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `h_lo` | 0 .. 179 | 0 |  | lowest hue |
-| `h_hi` | 0 .. 179 | 179 |  | highest hue (below the lowest wraps round red) |
-| `s_lo` | 0 .. 255 | 60 |  | lowest saturation |
-| `s_hi` | 0 .. 255 | 255 |  | highest saturation |
-| `v_lo` | 0 .. 255 | 40 |  | lowest brightness |
-| `v_hi` | 0 .. 255 | 255 |  | highest brightness |
-
-### Threshold
-
-White where the picture is brighter than the level, black elsewhere.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `level` | 0 .. 255 | 128 |  | brightness that splits black from white |
-| `invert` | yes / no | no |  | white where it is darker instead |
-
-### Automatic threshold
-
-Finds the level that best splits the picture into two, by itself (Otsu's method).
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `invert` | yes / no | no |  | white where it is darker instead |
-
-### Invert
-
-Black becomes white and white black.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-### One channel
-
-Takes one channel of the colour picture as a gray one - the red, the saturation, the lightness ... - the way to make a colour into something Threshold can cut.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `which` | blue / green / red / hue / saturation / value / lightness | value |  | which channel (hue is stretched to 0..255 round the colour wheel) |
-
-### Adaptive threshold
-
-Black and white by a level that follows the picture - each point is compared with its own neighbourhood, so uneven light or a shadow across the part does not matter.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `block` | 3 .. 255 | 11 | px | the neighbourhood (odd) |
-| `c` | -50 .. 50 | 2 |  | taken off the neighbourhood's mean before comparing |
-| `method` | gaussian / mean | gaussian |  | how the neighbourhood is averaged |
-| `invert` | yes / no | no |  | white where it is darker instead |
-
-### White balance
-
-Takes a colour cast out of the picture (the gray-world rule) - a yellowish lamp or a bluish window stops shifting the colours a Colour block reads.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `strength` | 0 .. 100 | 100 | % | how much of the cast is taken out |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Grayscale](vision-gray.md) | grayscale conversion | Turns a colour picture into shades of gray. |
+| [Colour range](vision-hsv_range.md) | HSV colour segmentation, colour thresholding | White where the colour is inside the range, black elsewhere. Hue runs 0..179 around the colour wheel (red at 0, green at 60, blue at 120). |
+| [Threshold](vision-threshold.md) | binarisation, fixed threshold | White where the picture is brighter than the level, black elsewhere. |
+| [Automatic threshold](vision-otsu.md) | automatic binarisation (Otsu's method) | Finds the level that best splits the picture into two, by itself (Otsu's method). |
+| [Invert](vision-invert.md) | image inversion | Black becomes white and white black. |
+| [One channel](vision-channel.md) | colour plane extraction | Takes one channel of the colour picture as a gray one - the red, the saturation, the lightness ... - the way to make a colour into something Threshold can cut. |
+| [Adaptive threshold](vision-adaptive.md) | adaptive (local) threshold | Black and white by a level that follows the picture - each point is compared with its own neighbourhood, so uneven light or a shadow across the part does not matter. |
+| [White balance](vision-balance.md) | white balance (gray-world) | Takes a colour cast out of the picture (the gray-world rule) - a yellowish lamp or a bluish window stops shifting the colours a Colour block reads. |
 
 ## Filters
 
-### Blur
+Noise out, contrast in, light evened - the picture made ready for a reliable threshold or reader.
 
-Averages each pixel with its neighbours - calms noise.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 99 | 5 | px | size of the neighbourhood |
-
-### Gaussian blur
-
-A softer blur that keeps edges better than the plain one.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 99 | 5 | px | size of the neighbourhood (odd) |
-
-### Median
-
-Removes specks and salt-and-pepper noise, keeps edges sharp.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 99 | 5 | px | size of the neighbourhood (odd) |
-
-### Equalize light
-
-Spreads the brightness over the whole range - a picture under uneven or weak light gets its contrast back before a threshold.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-### Sharpen
-
-Makes edges crisper - helps a code reader or an edge finder on a slightly soft picture.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `amount` | 1 .. 300 | 100 | % | how much |
-
-### Difference
-
-The difference of two pictures, pixel by pixel - a part against the empty belt, this picture against a good one. White where they differ after the threshold.
-
-**In:** `a` (picture), `b` (picture)  
-**Out:** `out` (picture), `share` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `level` | 1 .. 255 | 30 |  | a difference above this counts |
-
-### Motion
-
-Where the picture changed since the last run - a mask of what moved and how much of the picture it is. The first run after a start has nothing to compare and answers nothing moved.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture), `share` (number), `moved` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `level` | 1 .. 255 | 25 |  | a change above this counts |
-| `min_share` | 0 .. 100 | 1 | % | this much of the picture must change to say moved |
-
-### Smooth, keep edges
-
-Smooths noise inside areas and leaves the edges sharp (a bilateral filter) - a blur that does not wash the part into the belt.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `diameter` | 1 .. 15 | 7 | px | how far around each point is looked at |
-| `colour` | 1 .. 255 | 50 |  | how different a shade may be and still be smoothed together |
-| `space` | 1 .. 255 | 50 |  | how far a point still counts |
-
-### Stretch contrast
-
-Stretches the brightness so the darkest part of the picture becomes black and the brightest white - a dull picture becomes a clear one, whatever the light.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `low` | 0 .. 49 | 1 | % | share of the darkest points that count as black |
-| `high` | 0 .. 49 | 1 | % | share of the brightest points that count as white |
-
-### Gamma
-
-Brightens or darkens the middle shades without touching black and white (a gamma curve) - 100 leaves the picture as it is, less brightens, more darkens.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `gamma` | 10 .. 500 | 100 | % | 100 = unchanged; 50 = brighter middle; 200 = darker middle |
-
-### Local contrast
-
-Raises the contrast piece by piece (CLAHE), so a dark corner and a bright corner each get their detail back - better than Equalize on uneven light.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `clip` | 0.5 .. 40 | 2 |  | how far the contrast may be pushed (more = stronger |
-| `tiles` | 1 .. 32 | 8 |  | the picture is split into this many tiles each way |
-
-### Combine pictures
-
-Puts two pictures of the same size together - added, subtracted, the darker or the lighter of the two, a blend, or the black-and-white ones by AND / OR / XOR.
-
-**In:** `a` (picture), `b` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `mode` | add / subtract / and_ / or_ / xor_ / min / max / blend | add |  | how the two are put together (and_ / or_ / xor_ for black-and-white pictures) |
-| `share` | 0 .. 100 | 50 | % | the first picture's share in a blend |
-
-### Mask
-
-Keeps the picture where a black-and-white mask is white and blacks out the rest - a shape found earlier cuts out what a later block may see.
-
-**In:** `src` (picture), `mask` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `invert` | yes / no | no |  | keep where the mask is black instead |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Blur](vision-blur.md) | box filter (mean filter) | Averages each pixel with its neighbours - calms noise. |
+| [Gaussian blur](vision-gauss.md) | Gaussian filter | A softer blur that keeps edges better than the plain one. |
+| [Median](vision-median.md) | median filter | Removes specks and salt-and-pepper noise, keeps edges sharp. |
+| [Equalize light](vision-equalize.md) | histogram equalisation | Spreads the brightness over the whole range - a picture under uneven or weak light gets its contrast back before a threshold. |
+| [Sharpen](vision-sharpen.md) | unsharp masking | Makes edges crisper - helps a code reader or an edge finder on a slightly soft picture. |
+| [Difference](vision-absdiff.md) | image subtraction, frame differencing | The difference of two pictures, pixel by pixel - a part against the empty belt, this picture against a good one. White where they differ after the threshold. |
+| [Motion](vision-motion.md) | motion detection, frame differencing | Where the picture changed since the last run - a mask of what moved and how much of the picture it is. The first run after a start has nothing to compare and answers nothing moved. |
+| [Smooth, keep edges](vision-bilateral.md) | bilateral filter (edge-preserving smoothing) | Smooths noise inside areas and leaves the edges sharp (a bilateral filter) - a blur that does not wash the part into the belt. |
+| [Stretch contrast](vision-normalize.md) | contrast stretching, intensity normalisation | Stretches the brightness so the darkest part of the picture becomes black and the brightest white - a dull picture becomes a clear one, whatever the light. |
+| [Gamma](vision-gamma.md) | gamma correction | Brightens or darkens the middle shades without touching black and white (a gamma curve) - 100 leaves the picture as it is, less brightens, more darkens. |
+| [Local contrast](vision-clahe.md) | CLAHE (contrast limited adaptive histogram equalisation) | Raises the contrast piece by piece (CLAHE), so a dark corner and a bright corner each get their detail back - better than Equalize on uneven light. |
+| [Combine pictures](vision-combine.md) | image arithmetic, boolean image operations | Puts two pictures of the same size together - added, subtracted, the darker or the lighter of the two, a blend, or the black-and-white ones by AND / OR / XOR. |
+| [Mask](vision-mask.md) | masking | Keeps the picture where a black-and-white mask is white and blacks out the rest - a shape found earlier cuts out what a later block may see. |
 
 ## Shapes
 
-### Erode
+The shapes of a black-and-white picture cleaned, filled, outlined, separated.
 
-Shrinks white areas - removes thin lines and small specks.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 51 | 3 | px | size of the brush |
-| `times` | 1 .. 20 | 1 |  | how many times |
-
-### Dilate
-
-Grows white areas - closes small gaps.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 51 | 3 | px | size of the brush |
-| `times` | 1 .. 20 | 1 |  | how many times |
-
-### Open
-
-Erode, then dilate - removes specks and keeps the size of large areas.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 51 | 3 | px | size of the brush |
-
-### Close
-
-Dilate, then erode - fills small holes and keeps the size of large areas.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 51 | 3 | px | size of the brush |
-
-### Top-hat
-
-Keeps only the small bright details on a dark or uneven background (a top-hat) - scratches, bright marks, text on a dark plate.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 99 | 9 | px | a detail larger than this is background |
-| `shape` | rect / ellipse / cross | rect |  | the shape of the structuring element |
-
-### Black-hat
-
-Keeps only the small dark details on a bright or uneven background (a black-hat) - dust, dark marks, printed text on a bright label.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 99 | 9 | px | a detail larger than this is background |
-| `shape` | rect / ellipse / cross | rect |  | the shape of the structuring element |
-
-### Outline
-
-The outline of every shape in a black-and-white picture (the difference of a dilate and an erode) - a thin ring round each object.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 .. 99 | 3 | px | the thickness of the outline |
-| `shape` | rect / ellipse / cross | rect |  | the shape of the structuring element |
-
-### Fill holes
-
-Fills every hole inside the white shapes of a black-and-white picture - a ring becomes a disc, a part with a bore counts by its whole outline.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-### Distance map
-
-Every white point becomes as bright as it is far from the nearest black one - the middle of a thick shape shines, its rim stays dark; a way to find the widest place or to split touching parts.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Erode](vision-erode.md) | morphological erosion | Shrinks white areas - removes thin lines and small specks. |
+| [Dilate](vision-dilate.md) | morphological dilation | Grows white areas - closes small gaps. |
+| [Open](vision-open.md) | morphological opening | Erode, then dilate - removes specks and keeps the size of large areas. |
+| [Close](vision-close.md) | morphological closing | Dilate, then erode - fills small holes and keeps the size of large areas. |
+| [Top-hat](vision-tophat.md) | top-hat transform (white top-hat) | Keeps only the small bright details on a dark or uneven background (a top-hat) - scratches, bright marks, text on a dark plate. |
+| [Black-hat](vision-blackhat.md) | black-hat transform | Keeps only the small dark details on a bright or uneven background (a black-hat) - dust, dark marks, printed text on a bright label. |
+| [Outline](vision-gradient.md) | morphological gradient | The outline of every shape in a black-and-white picture (the difference of a dilate and an erode) - a thin ring round each object. |
+| [Fill holes](vision-fill_holes.md) | hole filling | Fills every hole inside the white shapes of a black-and-white picture - a ring becomes a disc, a part with a bore counts by its whole outline. |
+| [Distance map](vision-distance.md) | distance transform | Every white point becomes as bright as it is far from the nearest black one - the middle of a thick shape shines, its rim stays dark; a way to find the widest place or to split touching parts. |
 
 ## Edges
 
-### Edges
+Where the brightness changes: the edge pictures the line and circle finders work on.
 
-White on the edges of things, black elsewhere (Canny).
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `low` | 0 .. 1000 | 50 |  | weaker edges continue a strong one above this |
-| `high` | 0 .. 1000 | 150 |  | an edge starts above this |
-
-### Gradient
-
-How fast the brightness changes at every point (Sobel) - bright where there is an edge, black where the picture is flat. A softer edge picture than Edges, with the strength kept.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `direction` | both / x / y | both |  | edges across (x) |
-| `size` | 1 / 3 / 5 / 7 | 3 |  | the size of the kernel - larger sees softer edges |
-
-### Laplacian
-
-The second change of brightness (Laplacian) - lights up the fine detail and the edges in every direction at once; also what Sharpness measures.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `size` | 1 / 3 / 5 | 3 |  | the size of the kernel |
-
-### Gradient (fine)
-
-Like Gradient, with the Scharr kernel - more exact on the direction of thin edges.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `direction` | both / x / y | both |  | edges across (x) |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Edges](vision-canny.md) | edge detection (Canny) | White on the edges of things, black elsewhere (Canny). |
+| [Gradient](vision-sobel.md) | gradient magnitude (Sobel) | How fast the brightness changes at every point (Sobel) - bright where there is an edge, black where the picture is flat. A softer edge picture than Edges, with the strength kept. |
+| [Laplacian](vision-laplacian.md) | Laplacian operator | The second change of brightness (Laplacian) - lights up the fine detail and the edges in every direction at once; also what Sharpness measures. |
+| [Gradient (fine)](vision-scharr.md) | gradient (Scharr operator) | Like Gradient, with the Scharr kernel - more exact on the direction of thin edges. |
 
 ## Finding objects
 
-### Find objects
+Things located and listed - blobs, circles, lines, taught patterns, markers - with their place, size and shape.
 
-Finds the separate white areas of a black-and-white picture as a list of objects - each with its centre, frame, angle and area - sorted as chosen.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `count` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `min_area` | 1 .. 10000000 | 50 | px² | smaller areas are not objects |
-| `max_area` | 1 .. 100000000 | 100000000 | px² | larger areas are not objects |
-| `sort` | largest / left_to_right / top_to_bottom | largest |  | which object is number 0 |
-
-### Find circles
-
-Finds round things in the picture - holes, caps, bearings - as a list of objects with their centre and radius.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `count` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `min_r` | 1 .. 4096 | 10 | px | smallest radius |
-| `max_r` | 1 .. 4096 | 200 | px | largest radius |
-| `min_dist` | 1 .. 4096 | 20 | px | two centres closer than this are one circle |
-| `edge` | 1 .. 1000 | 300 |  | the contrast of the circle's edge |
-| `roundness` | 1 .. 100 | 80 | % | how perfect a circle must be (lower finds more |
-| `sort` | largest / left_to_right / top_to_bottom | largest |  | which circle is number 0 |
-
-### Find pattern
-
-Finds where a taught picture - a mark, a logo, a part seen from above - appears, as a list of matches with their score. Teach it by dragging over the part on the block's picture.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `found` (yes/no), `x` (number), `y` (number), `score` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `pattern` | text | (empty) |  | the taught picture (a picture asset of the project) |
-| `min_score` | 1 .. 100 | 80 | % | how alike a place must be to count as a match |
-| `max_count` | 1 .. 50 | 1 |  | at most this many matches |
-
-### Find lines
-
-Finds straight lines in an edge picture (after Edges or a threshold) - the edge of a sheet, a rule, a seam - as a list of objects; each carries its angle and its length, the longest first.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `count` (number), `angle` (number), `length` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `min_len` | 1 .. 8192 | 50 | px | shorter lines are not counted |
-| `max_gap` | 0 .. 500 | 10 | px | a break shorter than this is still one line |
-| `votes` | 1 .. 1000 | 50 |  | how many edge points a line needs |
-
-### Check objects
-
-Are all the found objects right? Counts them and says yes when their number and every one's size (area) lie within the limits - parts on a tray, holes in a plate, pills in a blister.
-
-**In:** `objects` (list of objects)  
-**Out:** `ok` (yes/no), `count` (number), `bad` (number), `min_area` (number), `max_area` (number), `mean_area` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `count_min` | 0 .. 100000 | 1 |  | at least this many objects |
-| `count_max` | 0 .. 100000 | 100000 |  | at most this many objects |
-| `area_min` | 0 .. 100000000 | 0 | px² | an object smaller than this is bad |
-| `area_max` | 0 .. 100000000 | 100000000 | px² | an object larger than this is bad |
-
-### Pick object
-
-Takes one object of a list - number 0 is the first after sorting - and gives its numbers.
-
-**In:** `objects` (list of objects)  
-**Out:** `found` (yes/no), `x` (number), `y` (number), `w` (number), `h` (number), `r` (number), `angle` (number), `area` (number), `score` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `index` | 0 .. 10000 | 0 |  | which object (0 = the first) |
-
-### Crop to object
-
-Keeps the frame around one found object, with a margin - the next blocks look only where the part really is, wherever it lies.
-
-**In:** `src` (picture), `objects` (list of objects)  
-**Out:** `out` (picture), `found` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `index` | 0 .. 10000 | 0 |  | which object (0 = the first) |
-| `margin` | 0 .. 4096 | 10 | px | added around the object's frame |
-
-### Filter objects
-
-Keeps only the objects of a list that look right - by area, by how round they are, by how elongated, by how solid (a ring or a C is not solid). The rest are dropped.
-
-**In:** `objects` (list of objects)  
-**Out:** `kept` (list of objects), `count` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `area_min` | 0 .. 100000000 | 0 | px² | smallest area kept |
-| `area_max` | 0 .. 100000000 | 100000000 | px² | largest area kept |
-| `round_min` | 0 .. 100 | 0 | % | least roundness kept (a disc is 100 |
-| `round_max` | 0 .. 100 | 100 | % | most roundness kept |
-| `aspect_max` | 1 .. 1000 | 1000 |  | longest side over shortest side |
-| `solid_min` | 0 .. 100 | 0 | % | least solidity kept (a filled shape is 100 |
-
-### Object shape
-
-Measures the shape of one object of a list - how round, how solid, how elongated, its turned frame and its angle. For checking a part is the right shape, not only there.
-
-**In:** `objects` (list of objects)  
-**Out:** `found` (yes/no), `roundness` (number), `solidity` (number), `aspect` (number), `perimeter` (number), `w` (number), `h` (number), `angle` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `index` | 0 .. 999 | 0 |  | which object of the list |
-
-### Nearest object
-
-Which object of a list lies closest to a point - the one under the gripper, the one at the mark.
-
-**In:** `objects` (list of objects)  
-**Out:** `found` (yes/no), `index` (number), `x` (number), `y` (number), `dist` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `px` | 0 .. 8192 | 320 | px | the point |
-| `py` | 0 .. 8192 | 240 | px | the point |
-
-### Find corners
-
-Finds the strong corners of the picture (Shi-Tomasi) as a list of points - the corners of a plate, the ends of a slot.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `count` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `max_count` | 1 .. 500 | 50 |  | at most this many corners |
-| `quality` | 1 .. 100 | 10 | % | a corner weaker than this share of the strongest is dropped |
-| `min_dist` | 1 .. 500 | 10 | px | two corners closer than this are one |
-
-### Fill from point
-
-Starts at a point and takes every neighbouring point of a similar shade - the whole part under the point becomes a white shape, whatever its outline.
-
-**In:** `src` (picture)  
-**Out:** `out` (picture), `area` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 320 | px | the starting point |
-| `y` | 0 .. 8192 | 240 | px | the starting point |
-| `tolerance` | 0 .. 255 | 20 |  | how different a neighbour's shade may be and still belong |
-
-### Find by features
-
-Finds a taught picture even when it is turned or nearer or farther from the camera (ORB feature matching) - a logo, a printed mark, a part at any angle. Teach it by dragging over the part on the block's picture.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `found` (yes/no), `x` (number), `y` (number), `angle` (number), `scale` (number), `matches` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `pattern` | text | (empty) |  | the taught picture (one of the project's pictures) |
-| `min_matches` | 4 .. 500 | 12 |  | at least this many matching features make a find |
-
-### Find markers
-
-Finds ArUco / AprilTag markers - printed squares with a code - and gives each one's number, place and angle. A cheap, exact way to know where a fixture, a tray or a robot is.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `count` (number), `id` (number), `x` (number), `y` (number), `angle` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `dictionary` | aruco_4x4_50 / aruco_5x5_100 / aruco_6x6_250 / aruco_7x7_50 / apriltag_36h11 | aruco_4x4_50 |  | the family the markers were printed from |
-
-### Find chessboard
-
-Finds the inner corners of a chessboard in the picture - the pattern a lens calibration and a camera-to-table check are done with.
-
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `objects` (list of objects), `count` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `cols` | 2 .. 30 | 9 |  | inner corners across |
-| `rows` | 2 .. 30 | 6 |  | inner corners down |
-
-### Colour of object
-
-The mean colour of every found object (its hue), and the ones inside a hue range kept - one pass sorts the red, green and blue cubes instead of one Colour range branch per colour.
-
-**In:** `objects` (list of objects), `src` (picture)  
-**Out:** `coloured` (list of objects), `kept` (list of objects), `count` (number), `hue` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `h_lo` | 0 .. 180 | 0 |  | the hue range's start (0..180 - red 0 |
-| `h_hi` | 0 .. 180 | 180 |  | the hue range's end |
-| `s_lo` | 0 .. 255 | 60 |  | greyer objects than this do not count |
-| `v_lo` | 0 .. 255 | 60 |  | darker objects than this do not count |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Find objects](vision-contours.md) | blob analysis, connected components, contour extraction | Finds the separate white areas of a black-and-white picture as a list of objects - each with its centre, frame, angle and area - sorted as chosen. |
+| [Find circles](vision-circles.md) | Hough circle transform | Finds round things in the picture - holes, caps, bearings - as a list of objects with their centre and radius. |
+| [Find pattern](vision-pattern.md) | template matching (normalised cross-correlation) | Finds where a taught picture - a mark, a logo, a part seen from above - appears, as a list of matches with their score. Teach it by dragging over the part on the block's picture. |
+| [Find lines](vision-lines.md) | Hough line transform | Finds straight lines in an edge picture (after Edges or a threshold) - the edge of a sheet, a rule, a seam - as a list of objects; each carries its angle and its length, the longest first. |
+| [Check objects](vision-objcheck.md) | count and size verification of blobs | Are all the found objects right? Counts them and says yes when their number and every one's size (area) lie within the limits - parts on a tray, holes in a plate, pills in a blister. |
+| [Pick object](vision-pick.md) | blob result extraction | Takes one object of a list - number 0 is the first after sorting - and gives its numbers. |
+| [Crop to object](vision-crop_object.md) | dynamic region of interest | Keeps the frame around one found object, with a margin - the next blocks look only where the part really is, wherever it lies. |
+| [Filter objects](vision-filter_objects.md) | blob filtering by shape features | Keeps only the objects of a list that look right - by area, by how round they are, by how elongated, by how solid (a ring or a C is not solid). The rest are dropped. |
+| [Object shape](vision-object_shape.md) | shape descriptors (blob features) | Measures the shape of one object of a list - how round, how solid, how elongated, its turned frame and its angle. For checking a part is the right shape, not only there. |
+| [Nearest object](vision-nearest.md) | nearest blob to a point | Which object of a list lies closest to a point - the one under the gripper, the one at the mark. |
+| [Find corners](vision-corners.md) | corner detection (Shi-Tomasi) | Finds the strong corners of the picture (Shi-Tomasi) as a list of points - the corners of a plate, the ends of a slot. |
+| [Fill from point](vision-floodfill.md) | region growing (flood fill) | Starts at a point and takes every neighbouring point of a similar shade - the whole part under the point becomes a white shape, whatever its outline. |
+| [Find by features](vision-features.md) | feature matching (ORB keypoints) | Finds a taught picture even when it is turned or nearer or farther from the camera (ORB feature matching) - a logo, a printed mark, a part at any angle. Teach it by dragging over the part on the block's picture. |
+| [Find markers](vision-aruco.md) | fiducial markers (ArUco, AprilTag) | Finds ArUco / AprilTag markers - printed squares with a code - and gives each one's number, place and angle. A cheap, exact way to know where a fixture, a tray or a robot is. |
+| [Find chessboard](vision-chessboard.md) | calibration target detection | Finds the inner corners of a chessboard in the picture - the pattern a lens calibration and a camera-to-table check are done with. |
+| [Colour of object](vision-object_colour.md) | blob colour classification | The mean colour of every found object (its hue), and the ones inside a hue range kept - one pass sorts the red, green and blue cubes instead of one Colour range branch per colour. |
 
 ## Logic
 
-### ST code
+A calculation of your own, in ST.
 
-A few lines of ST - the same language as the PLC program - over the block's inputs a, b, c, d (numbers) and p, q (yes/no); it writes y1..y4 (numbers) and r1, r2 (yes/no). Locals in VAR ... END_VAR, loops and conditions as in a program.
-
-**In:** `a` (number, optional), `b` (number, optional), `c` (number, optional), `d` (number, optional), `p` (yes/no, optional), `q` (yes/no, optional)  
-**Out:** `y1` (number), `y2` (number), `y3` (number), `y4` (number), `r1` (yes/no), `r2` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `src` | text | "y1 := a + b;" |  | the ST statements (a |
-| `code` | text | (empty) |  | the compiled code (the editor fills it; never typed) |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [ST code](vision-st.md) | scripting inside the vision program (IEC 61131-3 Structured Text) | A few lines of ST - the same language as the PLC program - over the block's inputs a, b, c, d (numbers) and p, q (yes/no); it writes y1..y4 (numbers) and r1, r2 (yes/no). Locals in VAR ... END_VAR, loops and conditions as in a program. |
 
 ## Measurements
 
-### Brightness
-
-The average brightness of the picture, 0 (black) to 255 (white).
-
-**In:** `src` (picture)  
-**Out:** `value` (number)
-
-### White share
-
-How much of the picture is white, in percent - use it after a threshold or a colour range.
-
-**In:** `src` (picture)  
-**Out:** `value` (number)
-
-### Count objects
-
-Counts the separate white areas of a black-and-white picture, and reports the largest one.
-
-**In:** `src` (picture)  
-**Out:** `count` (number), `x` (number), `y` (number), `area` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `min_area` | 1 .. 10000000 | 50 | px² | smaller areas are not counted |
-
-### Scale
-
-Turns a number of pixels into millimetres (or any unit) - value x factor + offset. Connect a Ruler's mm_per_px to `factor_in` and the factor is measured, not typed.
-
-**In:** `v` (number), `factor_in` (number, optional)  
-**Out:** `value` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `factor` | -1000000 .. 1000000 | 1 |  | units per pixel |
-| `offset` | -1000000 .. 1000000 | 0 |  | added after the factor |
-
-### Ruler
-
-A known length in the picture - drag along it and type what it is in millimetres - gives the scale of the picture (mm per pixel) for the Scale block.
-
-**In:** `src` (picture)  
-**Out:** `mm_per_px` (number), `px` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x1` | 0 .. 8192 | 100 | px | one end of the known length |
-| `y1` | 0 .. 8192 | 100 | px | one end of the known length |
-| `x2` | 0 .. 8192 | 300 | px | the other end |
-| `y2` | 0 .. 8192 | 100 | px | the other end |
-| `length` | 0.001 .. 100000 | 100 | mm | what the length really is |
-
-### In range
-
-Yes when the number lies between the two limits (both included).
-
-**In:** `v` (number)  
-**Out:** `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `min` | -1000000 .. 1000000 | 0 |  | lowest good value |
-| `max` | -1000000 .. 1000000 | 100 |  | highest good value |
-
-### Caliper
-
-Walks along a line and finds every edge on it - the width of a part, the gap between two, the number of pins, their pitch. Teach the line by dragging it over the picture; wire a scale (mm per pixel) and the width comes in millimetres too.
-
-**In:** `src` (picture), `scale` (number, optional)  
-**Out:** `found` (yes/no), `width` (number), `edges` (number), `first` (number), `last` (number), `pitch` (number), `edges_out` (list of objects), `width_mm` (number), `pitch_mm` (number), `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x1` | 0 .. 8192 | 100 | px | the line's start |
-| `y1` | 0 .. 8192 | 100 | px | the line's start |
-| `x2` | 0 .. 8192 | 400 | px | the line's end |
-| `y2` | 0 .. 8192 | 100 | px | the line's end |
-| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is an edge |
-| `polarity` | any / dark_to_light / light_to_dark | any |  | which edges count |
-| `min` | 0 .. 100000 | 0 |  | the width must be at least this (0 = no limit) - in mm when a scale is wired |
-| `max` | 0 .. 100000 | 0 |  | the width must be at most this (0 = no limit) |
-
-### Brightness statistics
-
-The mean, the darkest, the brightest and the spread of the brightness in an area - for a check that a lamp works, a surface is even, a print is there.
-
-**In:** `src` (picture)  
-**Out:** `mean` (number), `min` (number), `max` (number), `spread` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the area |
-| `y` | 0 .. 8192 | 0 | px | top edge of the area |
-| `w` | 1 .. 8192 | 200 | px | width of the area |
-| `h` | 1 .. 8192 | 200 | px | height of the area |
-
-### Sharpness
-
-How sharp the picture is in an area (the variance of the Laplacian) - a camera knocked out of focus, a lens fogged up, a print smudged. Yes when it is at least the limit.
-
-**In:** `src` (picture)  
-**Out:** `ok` (yes/no), `value` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the area |
-| `y` | 0 .. 8192 | 0 | px | top edge of the area |
-| `w` | 1 .. 8192 | 200 | px | width of the area |
-| `h` | 1 .. 8192 | 200 | px | height of the area |
-| `min` | 0 .. 1000000 | 100 |  | the sharpness that is still fine (read the value on a good picture |
-
-### Histogram
-
-How the shades are spread in an area - the most common shade, the share of dark points and of light ones.
-
-**In:** `src` (picture)  
-**Out:** `peak` (number), `dark` (number), `light` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the area |
-| `y` | 0 .. 8192 | 0 | px | top edge of the area |
-| `w` | 1 .. 8192 | 200 | px | width of the area |
-| `h` | 1 .. 8192 | 200 | px | height of the area |
-| `dark_below` | 0 .. 255 | 64 |  | a point darker than this is dark |
-| `light_above` | 0 .. 255 | 192 |  | a point brighter than this is light |
-
-### Distance
-
-The distance and the direction between two points given as numbers - from two Pick blocks, two markers, a corner and a hole.
-
-**In:** `x1` (number, optional), `y1` (number, optional), `x2` (number, optional), `y2` (number, optional)  
-**Out:** `dist` (number), `angle` (number), `dx` (number), `dy` (number)
-
-### Compare with taught
-
-Compares an area with the same area taught on a good part and says how much differs - a missing print, a wrong label, a scratch. Teach by dragging over the area on the block's picture.
-
-**In:** `src` (picture)  
-**Out:** `ok` (yes/no), `diff` (number), `out` (picture)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `pattern` | text | (empty) |  | the taught picture of the area (one of the project's pictures) |
-| `x` | 0 .. 8192 | 0 | px | left edge of the area |
-| `y` | 0 .. 8192 | 0 | px | top edge of the area |
-| `w` | 1 .. 8192 | 200 | px | width of the area |
-| `h` | 1 .. 8192 | 200 | px | height of the area |
-| `level` | 1 .. 255 | 40 |  | a point that differs by more than this counts |
-| `max_diff` | 0 .. 100 | 5 | % | the share of differing points that is still fine |
-
-### Fill level
-
-The first change of brightness down (or up) a window, averaged across its width - the level of a liquid in a bottle, of a powder in a jar - as pixels from the window's bottom edge and, with a scale, in millimetres; with a tolerance.
-
-**In:** `src` (picture), `scale` (number, optional)  
-**Out:** `found` (yes/no), `position` (number), `level` (number), `level_mm` (number), `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the window |
-| `y` | 0 .. 8192 | 0 | px | top edge of the window |
-| `w` | 1 .. 8192 | 100 | px | width - the level is averaged across it |
-| `h` | 1 .. 8192 | 300 | px | height - the whole range the level may lie in |
-| `direction` | top_down / bottom_up | top_down |  | from which edge the search starts |
-| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is the surface |
-| `polarity` | any / dark_to_light / light_to_dark | any |  | which change counts |
-| `smooth` | 1 .. 31 | 5 | px | rows averaged before the search - a rough surface wants more |
-| `min` | 0 .. 100000 | 0 |  | the level must be at least this (0 = no limit) - mm with a scale |
-| `max` | 0 .. 100000 | 0 |  | the level must be at most this (0 = no limit) |
-
-### Circle (fit)
-
-An edge on every ray of a ring, a least squares circle through them without the stray points - the diameter and the centre of a hole, a shaft, a lid, with roundness and a tolerance.
-
-**In:** `src` (picture), `scale` (number, optional)  
-**Out:** `found` (yes/no), `x` (number), `y` (number), `diameter` (number), `diameter_mm` (number), `roundness` (number), `points` (number), `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `cx` | 0 .. 8192 | 320 | px | the ring's centre - roughly where the circle is |
-| `cy` | 0 .. 8192 | 240 | px | the ring's centre |
-| `r_min` | 1 .. 8192 | 40 | px | the ring's inner radius |
-| `r_max` | 2 .. 8192 | 120 | px | the ring's outer radius |
-| `rays` | 3 .. 360 | 36 |  | how many rays look for the edge |
-| `direction` | out_in / in_out | out_in |  | the first edge from the outside (a part on a background) or from the inside (a hole) |
-| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is the edge |
-| `polarity` | any / dark_to_light / light_to_dark | any |  | which edges count |
-| `min` | 0 .. 100000 | 0 |  | the diameter must be at least this (0 = no limit) - mm with a scale |
-| `max` | 0 .. 100000 | 0 |  | the diameter must be at most this (0 = no limit) |
-
-### Line (fit)
-
-An edge on every scan across a window, a robust line through them - the angle of a part's edge, its position, its straightness, with a tolerance on the angle.
-
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `angle` (number), `offset` (number), `straightness` (number), `points` (number), `ok` (yes/no), `x1` (number), `y1` (number), `x2` (number), `y2` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the window |
-| `y` | 0 .. 8192 | 0 | px | top edge of the window |
-| `w` | 1 .. 8192 | 300 | px | width |
-| `h` | 1 .. 8192 | 200 | px | height |
-| `direction` | top_down / bottom_up / left_right / right_left | top_down |  | the scans run this way and take the first edge they meet |
-| `scans` | 2 .. 200 | 20 |  | how many scans across the window |
-| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is the edge |
-| `polarity` | any / dark_to_light / light_to_dark | any |  | which edges count |
-| `min` | -180 .. 180 | 0 |  | the angle must be at least this (min = max = 0 means no limit) |
-| `max` | -180 .. 180 | 0 |  | the angle must be at most this |
-
-### Angle
-
-The angle between two directions - two Line (fit) blocks, a Line (fit) and a fixed number - with a tolerance.
-
-**In:** `a` (number), `b` (number)  
-**Out:** `angle` (number), `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `min` | 0 .. 180 | 0 |  | the angle must be at least this (min = max = 0 means no limit) |
-| `max` | 0 .. 180 | 0 |  | the angle must be at most this |
-
-### Distance of points
-
-The distance between two points that other blocks found - a circle's centre, a pattern's position, an edge from Pick object - in pixels and, with a scale, in millimetres; with a tolerance.
-
-**In:** `x1` (number), `y1` (number), `x2` (number), `y2` (number), `scale` (number, optional)  
-**Out:** `dist` (number), `dist_mm` (number), `dx` (number), `dy` (number), `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `min` | 0 .. 100000 | 0 |  | the distance must be at least this (0 = no limit) - mm with a scale |
-| `max` | 0 .. 100000 | 0 |  | the distance must be at most this (0 = no limit) |
-
-### Part in place
-
-The largest dark (or light) object in a window, judged by where it sits and how big it is - a cap on a bottle, a seal in its seat, a label on its place.
-
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `cx` (number), `cy` (number), `cw` (number), `ch` (number), `dx` (number), `dy` (number), `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the window |
-| `y` | 0 .. 8192 | 0 | px | top edge of the window |
-| `w` | 1 .. 8192 | 200 | px | width |
-| `h` | 1 .. 8192 | 200 | px | height |
-| `polarity` | dark / light | dark |  | the part is darker or lighter than the threshold |
-| `threshold` | 0 .. 255 | 127 |  | the brightness that separates the part from its background |
-| `min_area` | 0 .. 100000000 | 50 | px | a smaller blob is noise |
-| `max_area` | 0 .. 100000000 | 0 | px | a bigger blob is not the part (0 = no limit) |
-| `ex` | 0 .. 8192 | 0 | px | where the part's centre should be (0 with ey = the window's centre) |
-| `ey` | 0 .. 8192 | 0 | px | where the part's centre should be |
-| `pos_tol` | 0 .. 8192 | 20 | px | how far off the centre may sit |
-| `ew` | 0 .. 8192 | 0 | px | the width the part should have (0 = any) |
-| `eh` | 0 .. 8192 | 0 | px | the height the part should have (0 = any) |
-| `size_tol` | 0 .. 100 | 20 | % | how much the size may differ |
-
-### Laser line profile
-
-A line laser shines a line across the part, the camera sees it from an angle, and the line's bend is the height profile - the height of a step, the depth of a groove, the fill of an opaque jar. Teach the baseline on the empty plane; the height comes in millimetres once mm_per_px is set.
-
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `height` (number), `height_max` (number), `height_min` (number), `width` (number), `profile` (list of objects), `ok` (yes/no)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the window |
-| `y` | 0 .. 8192 | 0 | px | top edge of the window |
-| `w` | 1 .. 8192 | 640 | px | width |
-| `h` | 1 .. 8192 | 200 | px | height - the whole range the line may bend in |
-| `axis` | horizontal / vertical | horizontal |  | the line runs across the window (and bends up and down) or down it |
-| `channel` | red / green / gray | red |  | the colour the laser is brightest in |
-| `min_bright` | 1 .. 255 | 100 |  | a pixel darker than this is not the line |
-| `smooth` | 1 .. 31 | 5 | px | columns averaged along the line |
-| `base_a` | -8192 .. 8192 | 0 | px | the taught baseline - the line's row at the window's first column (Teach on the empty plane) |
-| `base_b` | -10 .. 10 | 0 |  | the taught baseline's slope |
-| `invert` | yes / no | no |  | the line moves DOWN when the part is higher (the laser sits on the other side) |
-| `mm_per_px` | 0 .. 100 | 0 |  | millimetres of height per pixel of shift - measured once with a block of known height (0 = answer in pixels) |
-| `min_height` | 0 .. 100000 | 1 |  | columns higher than this count into the width |
-| `step` | 1 .. 100 | 10 | px | every so many columns one profile object |
-| `min` | 0 .. 100000 | 0 |  | the height must be at least this (0 = no limit) |
-| `max` | 0 .. 100000 | 0 |  | the height must be at most this (0 = no limit) |
+Numbers with a tolerance: levels, diameters, widths, angles, distances, brightness, sharpness - in pixels, and in millimetres with a scale.
+
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Brightness](vision-brightness.md) | mean intensity | The average brightness of the picture, 0 (black) to 255 (white). |
+| [White share](vision-white_ratio.md) | area fraction, pixel count | How much of the picture is white, in percent - use it after a threshold or a colour range. |
+| [Count objects](vision-blobs.md) | blob count, connected components | Counts the separate white areas of a black-and-white picture, and reports the largest one. |
+| [Scale](vision-scale.md) | pixel-to-unit conversion, calibration factor | Turns a number of pixels into millimetres (or any unit) - value x factor + offset. Connect a Ruler's mm_per_px to `factor_in` and the factor is measured, not typed. |
+| [Ruler](vision-ruler.md) | scale calibration, pixel size | A known length in the picture - drag along it and type what it is in millimetres - gives the scale of the picture (mm per pixel) for the Scale block. |
+| [In range](vision-in_range.md) | tolerance check, pass/fail | Yes when the number lies between the two limits (both included). |
+| [Caliper](vision-caliper.md) | caliper tool, edge pairs along a scan line | Walks along a line and finds every edge on it - the width of a part, the gap between two, the number of pins, their pitch. Teach the line by dragging it over the picture; wire a scale (mm per pixel) and the width comes in millimetres too. |
+| [Brightness statistics](vision-stats.md) | intensity statistics | The mean, the darkest, the brightest and the spread of the brightness in an area - for a check that a lamp works, a surface is even, a print is there. |
+| [Sharpness](vision-sharpness.md) | focus measure, variance of the Laplacian | How sharp the picture is in an area (the variance of the Laplacian) - a camera knocked out of focus, a lens fogged up, a print smudged. Yes when it is at least the limit. |
+| [Histogram](vision-histogram.md) | intensity histogram | How the shades are spread in an area - the most common shade, the share of dark points and of light ones. |
+| [Distance](vision-dist.md) | point-to-point distance and direction | The distance and the direction between two points given as numbers - from two Pick blocks, two markers, a corner and a hole. |
+| [Compare with taught](vision-golden.md) | golden template comparison, image subtraction | Compares an area with the same area taught on a good part and says how much differs - a missing print, a wrong label, a scratch. Teach by dragging over the area on the block's picture. |
+| [Fill level](vision-level.md) | edge-based level detection, fill height gauging | The first change of brightness down (or up) a window, averaged across its width - the level of a liquid in a bottle, of a powder in a jar - as pixels from the window's bottom edge and, with a scale, in millimetres; with a tolerance. |
+| [Circle (fit)](vision-circle_fit.md) | circle gauge, least-squares circle fit with outlier rejection | An edge on every ray of a ring, a least squares circle through them without the stray points - the diameter and the centre of a hole, a shaft, a lid, with roundness and a tolerance. |
+| [Line (fit)](vision-line_fit.md) | line gauge, robust line fit | An edge on every scan across a window, a robust line through them - the angle of a part's edge, its position, its straightness, with a tolerance on the angle. |
+| [Angle](vision-angle.md) | angle gauge | The angle between two directions - two Line (fit) blocks, a Line (fit) and a fixed number - with a tolerance. |
+| [Distance of points](vision-points_dist.md) | distance gauge | The distance between two points that other blocks found - a circle's centre, a pattern's position, an edge from Pick object - in pixels and, with a scale, in millimetres; with a tolerance. |
+| [Part in place](vision-part_ok.md) | position and size verification, presence of a feature | The largest dark (or light) object in a window, judged by where it sits and how big it is - a cap on a bottle, a seal in its seat, a label on its place. |
+| [Laser line profile](vision-laser_line.md) | laser triangulation, 2D profile sensor | A line laser shines a line across the part, the camera sees it from an angle, and the line's bend is the height profile - the height of a step, the depth of a groove, the fill of an opaque jar. Teach the baseline on the empty plane; the height comes in millimetres once mm_per_px is set. |
 
 ## Ready tools
 
-### Presence
+Whole checks in one block: presence, colour, an edge, a code, a shape.
 
-Is something there? Measures the brightness of an area and says yes when it lies between the two limits.
-
-**In:** `src` (picture)  
-**Out:** `present` (yes/no), `level` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the area |
-| `y` | 0 .. 8192 | 0 | px | top edge of the area |
-| `w` | 1 .. 8192 | 100 | px | width of the area |
-| `h` | 1 .. 8192 | 100 | px | height of the area |
-| `min` | 0 .. 255 | 0 |  | darkest brightness that means "present" |
-| `max` | 0 .. 255 | 100 |  | brightest brightness that means "present" |
-
-### Colour check
-
-Is the area the right colour? Counts the pixels of the area near the taught hue and says yes when enough of them are.
-
-**In:** `src` (picture)  
-**Out:** `match` (yes/no), `share` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the area |
-| `y` | 0 .. 8192 | 0 | px | top edge of the area |
-| `w` | 1 .. 8192 | 100 | px | width of the area |
-| `h` | 1 .. 8192 | 100 | px | height of the area |
-| `hue` | 0 .. 179 | 0 |  | the colour (red 0 |
-| `tolerance` | 1 .. 90 | 10 |  | how far from the hue still counts |
-| `sat_min` | 0 .. 255 | 60 |  | grays below this saturation never count |
-| `val_min` | 0 .. 255 | 40 |  | pixels darker than this never count |
-| `min_share` | 0 .. 100 | 50 | % | share of the area that must match |
-
-### Edge position
-
-Where is the edge? Walks across an area in one direction and reports the first place the brightness jumps.
-
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `position` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `x` | 0 .. 8192 | 0 | px | left edge of the area |
-| `y` | 0 .. 8192 | 0 | px | top edge of the area |
-| `w` | 1 .. 8192 | 200 | px | width of the area |
-| `h` | 1 .. 8192 | 20 | px | height of the area |
-| `direction` | left_to_right / right_to_left / top_to_bottom / bottom_to_top | left_to_right |  | which way to walk |
-| `contrast` | 1 .. 255 | 40 |  | the jump in brightness that is an edge |
-
-### Read code
-
-Reads a QR code, a barcode, a DataMatrix, a PDF417 or an Aztec code and checks it against the expected text.
-
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `match` (yes/no), `number` (number), `text` (text), `format` (text)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `kind` | qr / barcode / datamatrix / pdf417 / aztec / any | qr |  | what kind of code - barcode is any one-dimensional code (EAN |
-| `expect` | text | (empty) |  | the text the code must carry (empty = any code) |
-
-### Match shape
-
-Is one of the found objects the taught shape, whatever its size or turn (Hu moments)? Teach by dragging over a good part on the block's picture - its outline is the reference.
-
-**In:** `objects` (list of objects)  
-**Out:** `ok` (yes/no), `index` (number), `diff` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `pattern` | text | (empty) |  | the taught picture the outline is taken from (one of the project's pictures) |
-| `max_diff` | 0 .. 10 | 0.5 |  | how different the closest object's outline may be (0 = the same shape) |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Presence](vision-presence.md) | presence/absence check | Is something there? Measures the brightness of an area and says yes when it lies between the two limits. |
+| [Colour check](vision-colour.md) | colour verification, HSV hue match | Is the area the right colour? Counts the pixels of the area near the taught hue and says yes when enough of them are. |
+| [Edge position](vision-edge.md) | edge position, edge detection along a scan direction | Where is the edge? Walks across an area in one direction and reports the first place the brightness jumps. |
+| [Read code](vision-code.md) | 1D/2D code reading, symbology, module size | Reads a QR code, a barcode, a DataMatrix, a PDF417 or an Aztec code and checks it against the expected text. |
+| [Match shape](vision-shape.md) | shape matching, Hu moment invariants | Is one of the found objects the taught shape, whatever its size or turn (Hu moments)? Teach by dragging over a good part on the block's picture - its outline is the reference. |
 
 ## Learned models
 
-### Classify (model)
+A trained neural network of the project, for what no rule describes.
 
-Runs a trained neural network (an ONNX model imported into the project) on the picture and says which of its classes it sees - a good part or a bad one, which of five products, a full or an empty tray. The labels are the model's classes in its order.
-
-**In:** `src` (picture)  
-**Out:** `found` (yes/no), `class` (number), `label` (text), `score` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `model` | text | (empty) |  | the model (an .onnx file imported into the project) |
-| `labels` | text | (empty) |  | the class names in the model's order, separated by commas (empty = the class number) |
-| `width` | 8 .. 2048 | 224 | px | the model's input width |
-| `height` | 8 .. 2048 | 224 | px | the model's input height |
-| `scale` | 0 .. 1 | 0.003922 |  | the input is multiplied by this (0.003922 = 1/255 for a model trained on 0..1) |
-| `mean` | 0 .. 255 | 0 |  | taken off every channel before scaling |
-| `swap_rb` | yes / no | yes |  | the model wants RGB (most do) rather than BGR |
-| `min_score` | 0 .. 100 | 50 | % | a class below this is not found |
-
-### Detect (model)
-
-Runs a trained detection network (an ONNX model imported into the project - YOLO, SSD) on the picture and gives every object it finds as a list with its class, score and place. For what a rule cannot describe - mixed parts, a scratch of any shape, a person in the cell.
-
-**In:** `src` (picture)  
-**Out:** `objects` (list of objects), `count` (number), `found` (yes/no), `class` (number), `label` (text), `score` (number), `x` (number), `y` (number)
-
-| Setting | Range | Default | Unit | Meaning |
-|:---|:---:|:---:|:---:|:---|
-| `model` | text | (empty) |  | the model (an .onnx file imported into the project) |
-| `labels` | text | (empty) |  | the class names in the model's order, separated by commas (empty = the class number) |
-| `width` | 8 .. 2048 | 640 | px | the model's input width |
-| `height` | 8 .. 2048 | 640 | px | the model's input height |
-| `scale` | 0 .. 1 | 0.003922 |  | the input is multiplied by this (0.003922 = 1/255 for a model trained on 0..1) |
-| `mean` | 0 .. 255 | 0 |  | taken off every channel before scaling |
-| `swap_rb` | yes / no | yes |  | the model wants RGB (most do) rather than BGR |
-| `min_score` | 0 .. 100 | 50 | % | a detection below this is dropped |
-| `overlap` | 0 .. 100 | 45 | % | two boxes overlapping more than this are one object |
-| `layout` | auto / ssd / yolov5 / yolov8 / yolox | auto |  | the model's output layout (auto reads it off the output's shape; a YOLOX export keeps its boxes in grid units and must be named - the shipped people counter is one) |
-| `only` | text | (empty) |  | only detections with this label count (empty = every class) - `person` for a people counter |
+| Block | In the trade | What it does |
+|:---|:---|:---|
+| [Classify (model)](vision-dnn_classify.md) | deep learning inference, image classification, ONNX | Runs a trained neural network (an ONNX model imported into the project) on the picture and says which of its classes it sees - a good part or a bad one, which of five products, a full or an empty tray. The labels are the model's classes in its order. |
+| [Detect (model)](vision-dnn_detect.md) | deep learning inference, object detection, ONNX | Runs a trained detection network (an ONNX model imported into the project - YOLO, SSD) on the picture and gives every object it finds as a list with its class, score and place. For what a rule cannot describe - mixed parts, a scratch of any shape, a person in the cell. |
 
