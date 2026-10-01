@@ -19,6 +19,13 @@ capabilities, the first one practically never moves.
   32-bit values; the slave serves it the same way). The other sources
   and a program's access come with the next version. See
   [Variables](variables.md#64-bit-values).
+- **A connection on the vision canvas is removed on its own.** A wire
+  is a thing of its own now: click it and press Delete, right-click it
+  and pick **Remove connection**, or drag it off the input dot - drop it
+  on another input to move the connection, or let it go. Until now the
+  only road was a right-click on the input dot, which also opened the
+  block's menu, so a connection looked removable only with its block.
+  See [the canvas](vision.md#the-canvas).
 - **Every vision block has its own page.** The documentation's Vision
   section is a section of its own now: the editor's page with every
   field, button and gesture, the camera's page, and one page per block -

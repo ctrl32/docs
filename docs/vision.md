@@ -56,9 +56,12 @@ Every block is a box: its title and id in the header, the **inputs as dots on th
 | drag a block | moves it |
 | double-click a block | opens the [block's window](#the-blocks-window) |
 | drag from an output dot to an input dot | connects them - a picture into a picture input, a number into a number input, a list of objects into a list input, a text into a text input. A connection of two different types is refused (*These do not fit*), and so is one that would make a loop. Dropping on an input that is already fed replaces its connection |
+| click a wire | selects it (drawn thicker, in the selection colour); a click on the empty canvas unselects it |
+| right-click a wire | **Remove connection** |
+| drag a wire off its input dot | picks the wire up - drop it on another input to move the connection, or let it go anywhere and the connection is gone |
 | right-click an input dot | disconnects it |
 | right-click a block | the block's menu: **Settings** (the window), **Result ... into** (one entry per number, yes/no or text output - pick the variable it goes into), **Remove block** |
-| the Delete key | removes the selected block, its connections and its results |
+| the Delete key | removes the selected wire; with no wire selected, the selected block, its connections and its results |
 
 The wires are drawn orthogonally; a wire that runs backwards (an output used by a block drawn to the left of it) is routed under the blocks. The blocks run in the order of their connections, whatever their place on the canvas.
 
