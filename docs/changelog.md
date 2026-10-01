@@ -21,6 +21,12 @@ capabilities, the first one practically never moves.
   significant digits reach the program, the device and the buses carry
   the whole value. The other sources come with the next version. See
   [Variables](variables.md#64-bit-values).
+- **A vision block that cannot run no longer blanks the blocks after
+  it.** A *Mask* with no mask picture, a *Difference* with one wire, a
+  picture of the wrong kind: the block's own outputs stay empty and its
+  window says why, the blocks that do not depend on it keep their
+  pictures. Until now every block after the failing one lost its output,
+  whatever branch it was on.
 - **A connection on the vision canvas is removed on its own.** A wire
   is a thing of its own now: click it and press Delete, right-click it
   and pick **Remove connection**, or drag it off the input dot - drop it
