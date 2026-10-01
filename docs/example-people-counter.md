@@ -42,7 +42,7 @@ same way — see [Learned models](vision.md#learned-models) for what the
 block needs to know about it, and the note there about models whose
 licence a product cannot carry.
 
-On a reTerminal the model takes a few hundred milliseconds per picture:
+On a reTerminal the model takes about 180 milliseconds per picture:
 twice a second on the whole frame is the right pace for a doorway, and
 a **Crop** in front of the block makes it faster when only one part of
 the view matters.
