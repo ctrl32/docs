@@ -20,7 +20,11 @@ That layer is **J1939**, and three worlds speak it:
 | Boats | **NMEA 2000 compatible** | its own transport for long messages, its own parameter groups |
 | Tractors and implements | **ISOBUS** | industry group 2 in the name, the implement's own parameter groups |
 
-ctrl32 speaks all three, because underneath they are one layer.
+ctrl32 speaks all three, because underneath they are one layer. In the
+devices tree the network's icon follows the **industry group** of the
+panel's NAME: an engine for a vehicle, a tractor for ISOBUS (group 2), a
+ship for a boat (group 4, marine) - set the group on the network's page
+and the icon follows.
 
 ![The devices tree: under the CAN bus, J1939 with our node, the engine ECU with its parameter groups, and the diagnostics beside it](img/vehicle-tree.webp){: .sb-center}
 

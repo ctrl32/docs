@@ -20,8 +20,9 @@ has never seen this ctrl32 version:
    empty on purpose; nothing is written until you choose one.
 3. Open the board tab (click the board in the tree) and press **Flash
    runtime**. The dialog names the runtime it will write and its version,
-   which must be the editor's own; *Flash runtime* writes it, reads it
-   back and verifies it. Tens of seconds.
+   which must be of the editor's **line** (the first two numbers of the
+   version - see [Versions](#versions-lines-and-builds) below); *Flash
+   runtime* writes it, reads it back and verifies it. Tens of seconds.
 4. Press :ti-download: in the toolbar, or `F5`. The project builds, goes
    into the inactive slot, is verified, and the board switches to it and
    restarts. Seconds.
@@ -163,6 +164,23 @@ The pack contains everything the board needs, in one file:
 
 The board parses nothing out of it — it maps it from flash and reads it
 directly. Loading a screen takes less than a millisecond.
+
+## Versions: lines and builds
+
+A ctrl32 version reads `X.YY.ZZZ`. The first two numbers are the
+**line** - the generation of the runtime every board and Linux device
+runs; the last three are the **editor build** inside that line. A line
+opens with its `.000` release, and that is when the runtimes change: a
+board on line `1.01` runs `1.01.000` and keeps it through every editor
+release of the line (`1.01.001`, `1.01.002` ...). An editor and a device
+work together when their lines are equal - the device's page in the
+editor and *Flash runtime* say so in those words, and a device whose line
+is older is flashed once, at the next line.
+
+What that means for you: an editor update inside a line changes nothing
+on your boards, and the runtime you flash is always the line's - there is
+one runtime per line, not one per editor build. A new line is a release
+note you can see: its number ends in `.000`.
 
 ## Licence
 
