@@ -107,9 +107,10 @@ A **program** reads a 64-bit variable as a `REAL` and writes one from a
 significant digits of the value (a counter of 1 234 567 890 Wh reads as
 1 234 567 936 in the program); the glass, the browser, MQTT, OPC UA and
 Modbus carry the whole value. A bit selector (`energy.3`) is refused on a
-64-bit variable. The OPC UA client, +7 and net32 sources come with the
-next version - the editor says so at build, and the online watch shows the
-variable's change counter rather than its value until then.
+64-bit variable. ONLINE, the editor shows the whole value - on a value
+widget, at a ladder contact or an FBD pin - the way the device holds it.
+The OPC UA client, +7 and net32 sources come with the next version; the
+editor says so at build.
 
 !!! warning "A name must not be an ST keyword"
     Names like `NOT`, `AND`, `VAR`, `REAL`, `TIME` or `END_IF` become

@@ -19,8 +19,9 @@ capabilities, the first one practically never moves.
   32-bit values; the slave serves it the same way). A program reads a
   64-bit variable as a `REAL` and writes one from a `REAL` - about seven
   significant digits reach the program, the device and the buses carry
-  the whole value. The other sources come with the next version. See
-  [Variables](variables.md#64-bit-values).
+  the whole value - and ONLINE the editor shows that whole value on a
+  widget, a ladder contact or an FBD pin. The other sources come with the
+  next version. See [Variables](variables.md#64-bit-values).
 - **The vehicle network's icon says what the vehicle is.** The industry
   group of the panel's NAME decides: an engine for a vehicle, a tractor
   for ISOBUS, a ship for a boat. And the editor no longer draws frames
