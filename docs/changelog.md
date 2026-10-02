@@ -24,7 +24,8 @@ way.
   variable is published and subscribed like any other (it takes two of
   a device's wire slots). An **input** widget on one shows every digit
   and the keypad takes every digit back - on the glass and in the
-  browser. See [Variables](variables.md#64-bit-values).
+  browser. A 64-bit variable in the retain list survives a restart
+  whole, on every device. See [Variables](variables.md#64-bit-values).
 - **The vehicle network's icon says what the vehicle is.** The industry
   group of the panel's NAME decides: an engine for a vehicle, a tractor
   for ISOBUS, a ship for a boat.

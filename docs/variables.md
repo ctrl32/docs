@@ -122,6 +122,11 @@ An **input** widget on a 64-bit variable shows every digit, and the
 keypad takes every digit back - whole numbers for LInt and ULInt, any
 number for LReal - on the glass and in the browser alike.
 
+A 64-bit variable in the **retain** list survives a restart like any
+other retentive variable: all eight bytes, on every device (it takes
+two of the retentive store's 64 words). A **force** holds a 32-bit
+word, so a 64-bit variable cannot be forced; write it instead.
+
 !!! warning "A name must not be an ST keyword"
     Names like `NOT`, `AND`, `VAR`, `REAL`, `TIME` or `END_IF` become
     something else in the generated program. The editor refuses them at
