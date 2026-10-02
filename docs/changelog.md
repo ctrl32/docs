@@ -8,6 +8,36 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.000
+
+The first number after the dot is the **runtime line**: every device
+runtime of a line carries the same number, and an editor build inside
+the line (the last three digits) ships without new runtimes. A new line
+means the devices get a runtime update; the editor offers it the usual
+way.
+
+- **64-bit variables everywhere a value travels.** ONLINE the editor
+  shows the whole value on a widget, a ladder contact or an FBD pin. On
+  a Linux device the **OPC UA client** reads one from an Int64, UInt64
+  or Double node; over **+7** it is the S7-1200/1500's LInt, ULInt or
+  LReal, eight bytes read and written whole; over **net32** a 64-bit
+  variable is published and subscribed like any other (it takes two of
+  a device's wire slots). An **input** widget on one shows every digit
+  and the keypad takes every digit back - on the glass and in the
+  browser. See [Variables](variables.md#64-bit-values).
+- **The vehicle network's icon says what the vehicle is.** The industry
+  group of the panel's NAME decides: an engine for a vehicle, a tractor
+  for ISOBUS, a ship for a boat.
+- **An idle editor no longer takes the graphics card.** The editor drew
+  frames back to back when nothing moved; it waits for your next click
+  now.
+- **About says what ctrl32 is** - the panel, the logic, the buses, the
+  browser - instead of a build note.
+- The installer's last page speaks the language you chose for the
+  installation.
+- Should the editor ever report an internal drawing error, it also
+  writes it to a file beside its settings - the one file to send us.
+
 ## 1.00.057
 
 - **64-bit variables, on every device.** Three kinds more - `LINT`,
@@ -19,17 +49,7 @@ capabilities, the first one practically never moves.
   32-bit values; the slave serves it the same way). A program reads a
   64-bit variable as a `REAL` and writes one from a `REAL` - about seven
   significant digits reach the program, the device and the buses carry
-  the whole value - and ONLINE the editor shows that whole value on a
-  widget, a ladder contact or an FBD pin. On a Linux device the OPC UA
-  client reads one from an Int64, UInt64 or Double node; over +7 it is
-  the S7-1200/1500's LInt, ULInt or LReal, eight bytes read and written
-  whole. The net32 source comes with the next version. See
-  [Variables](variables.md#64-bit-values).
-- **The vehicle network's icon says what the vehicle is.** The industry
-  group of the panel's NAME decides: an engine for a vehicle, a tractor
-  for ISOBUS, a ship for a boat. And the editor no longer draws frames
-  back to back when nothing moves - an idle editor took most of a
-  graphics card; it waits for your next click now.
+  the whole value. See [Variables](variables.md#64-bit-values).
 - **A vision block that cannot run no longer blanks the blocks after
   it.** A *Mask* with no mask picture, a *Difference* with one wire, a
   picture of the wrong kind: the block's own outputs stay empty and its

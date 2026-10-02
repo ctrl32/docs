@@ -139,8 +139,11 @@ when the project builds, with the reason spelled out.
   pair. When you add a published variable on the owner, update the
   subscriber's remote list too — until then the subscriber shows
   *bad* instead of guessing.
-- Shared variables are 32-bit values (bool, integers, real). Strings
-  stay local.
+- Shared variables are bool, the integers, real and the 64-bit kinds
+  (LInt, ULInt, LReal). A 64-bit variable takes two of the 64 wire
+  slots a device publishes, and it sits on an even slot so one CAN
+  frame carries it whole - the editor counts the slots for you.
+  Strings stay local.
 - net32 connects **ctrl32 devices** to each other. To talk to a
   foreign PLC use [Modbus](modbus.md) or [+7](plus7.md); to feed a
   SCADA or a home dashboard use MQTT or the OPC UA server.

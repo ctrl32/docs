@@ -113,8 +113,14 @@ On a Linux device the **OPC UA client** reads a 64-bit variable from an
 Int64, UInt64 or Double node exactly (a narrower node arrives as a
 number). Over **+7** a 64-bit variable is the S7-1200/1500's `LInt`,
 `ULInt` or `LReal` - eight bytes in the data block, read and written
-whole. The net32 source comes with the next version; the editor says so
-at build.
+whole. Over **net32** it is published and subscribed like any other
+variable; it takes two of a device's wire slots (see
+[net32](net32.md)). A CANopen, gpio, peripheral or ADC source carries
+32 bits and is refused at build.
+
+An **input** widget on a 64-bit variable shows every digit, and the
+keypad takes every digit back - whole numbers for LInt and ULInt, any
+number for LReal - on the glass and in the browser alike.
 
 !!! warning "A name must not be an ST keyword"
     Names like `NOT`, `AND`, `VAR`, `REAL`, `TIME` or `END_IF` become
