@@ -111,8 +111,10 @@ Modbus carry the whole value. A bit selector (`energy.3`) is refused on a
 widget, at a ladder contact or an FBD pin - the way the device holds it.
 On a Linux device the **OPC UA client** reads a 64-bit variable from an
 Int64, UInt64 or Double node exactly (a narrower node arrives as a
-number). The +7 and net32 sources come with the next version; the editor
-says so at build.
+number). Over **+7** a 64-bit variable is the S7-1200/1500's `LInt`,
+`ULInt` or `LReal` - eight bytes in the data block, read and written
+whole. The net32 source comes with the next version; the editor says so
+at build.
 
 !!! warning "A name must not be an ST keyword"
     Names like `NOT`, `AND`, `VAR`, `REAL`, `TIME` or `END_IF` become
