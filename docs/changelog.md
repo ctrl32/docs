@@ -8,6 +8,17 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.004
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **Flash runtime on a Linux device finds its runtime.** 1.01.003 added
+  the button; an installed editor then answered "none for this board",
+  because it looked for the Linux runtime under the name the checkout
+  uses and the installer lays it under another. Both spellings are found
+  now, and the release check runs in the installed layout.
+
 ## 1.01.003
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
