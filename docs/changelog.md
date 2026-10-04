@@ -8,6 +8,23 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.001
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **The update check says what it found.** Help now shows the result of
+  the last check under *Check for updates* - the latest version
+  confirmed, no connection to www.ctrl32.com (with the error number), a
+  bad answer - and the same line lands in `update_check.txt` beside the
+  editor's settings, the file to send us when "no new version" looks
+  wrong. *Check for updates* runs even when the automatic check is
+  switched off in Settings.
+- **The context menu of a second CAN bus on a Linux device** offered
+  *Add CAN device* and *Add Axis* twice, which made the editor show a
+  "message from Dear ImGui" and close the menu before *Add J1939* could
+  be clicked. Each action is in the menu once now.
+
 ## 1.01.000
 
 The first number after the dot is the **runtime line**: every device
