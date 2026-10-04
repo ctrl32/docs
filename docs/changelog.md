@@ -8,7 +8,7 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
-## 1.01.004
+## 1.01.005
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
 runtime.
