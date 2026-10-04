@@ -8,6 +8,18 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.006
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **The EtherCAT axis window is the CANopen one.** It showed an SPI chip
+  select that belongs to the stepper chips and hid the positioning
+  section; now it carries the slave position, *Open device (PDO
+  mapping)* - the slave's window on its PDO tab, where the mapping, the
+  start-up writes and the signals live - and the positioning section
+  like a CANopen axis.
+
 ## 1.01.005
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
