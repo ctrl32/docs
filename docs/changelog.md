@@ -8,6 +8,23 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.002
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **J1939 and the diagnostics on any CAN bus that has no CANopen
+  device.** The menu of a CAN bus used to grey *Add J1939* and *Add
+  diagnostics* whenever the project had the CANopen master role, and
+  every further bus of a Linux device counted as a CANopen bus by
+  itself - so a device with three buses and no CANopen device could put
+  a vehicle network nowhere. The rule is now the one the build applies:
+  one bus, one higher layer. A bus that carries a CANopen device refuses
+  J1939 and the diagnostics, a bus that carries a vehicle network
+  refuses *Add CAN device* and *Add Axis*; the greyed item says why. The
+  CANopen role can be removed while no CANopen device or CAN axis is
+  left, whatever the number of buses.
+
 ## 1.01.001
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
