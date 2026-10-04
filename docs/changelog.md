@@ -8,6 +8,21 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.003
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **Flash runtime on a Linux device.** The board page of a Linux device
+  (reTerminal, Raspberry Pi, the DK2) now carries the *Flash runtime*
+  button like every other board; it was missing, so a Linux device
+  could not take a new runtime from the editor at all. The runtime
+  travels over the network: the device's address goes into the port
+  field, the device checks the new binary before it switches and falls
+  back by itself if the new one does not come up.
+- **The devices tree of a Linux device with two network ports** no
+  longer raises an error window over its adapter rows.
+
 ## 1.01.002
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
