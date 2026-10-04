@@ -20,6 +20,15 @@ runtime.
   editor's settings, the file to send us when "no new version" looks
   wrong. *Check for updates* runs even when the automatic check is
   switched off in Settings.
+- **The update window is a dialog** in the centre like every other, its
+  middle button reads *Download page*, and the digits on the progress
+  bar stay readable as the bar passes under them.
+- **Only projects in the examples.** The installed Examples and
+  Tutorials folders carry `.prj32` files and nothing else - the
+  internal test files that travelled with them until now are gone, and
+  the editor no longer copies them into your Documents folder. A copy an
+  earlier version left under Documents\ctrl32\examples is yours to
+  delete.
 - **The context menu of a second CAN bus on a Linux device** offered
   *Add CAN device* and *Add Axis* twice, which made the editor show a
   "message from Dear ImGui" and close the menu before *Add J1939* could
