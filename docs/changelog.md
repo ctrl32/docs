@@ -8,6 +8,17 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.007
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **A Linux device typed without a port.** The network roads - the
+  deploy to a device and *Flash runtime* - took an address without a
+  port as port 80, and a Linux device answers on 8080: the deploy and
+  the runtime update stopped at "asking /devinfo" with nothing more. A
+  Linux device is 8080 unless the address says otherwise.
+
 ## 1.01.006
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
