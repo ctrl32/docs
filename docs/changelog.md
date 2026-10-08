@@ -8,6 +8,17 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.009
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **Digital inputs and outputs on a module.** The pin list of a GPIO
+  variable was empty on every module target (ESP32-S3, ESP32 and the
+  rest): a module lists no pins of its own. It now offers every usable
+  GPIO of the chip, leaving out the lines the module's flash and PSRAM
+  take, and for an output (access rw) the pins that can only read.
+
 ## 1.01.008
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
