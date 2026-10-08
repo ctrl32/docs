@@ -13,6 +13,16 @@ capabilities, the first one practically never moves.
 An editor build inside line 1.01 - the devices keep their 1.01.000
 runtime.
 
+- **Every Espressif module checked against its datasheet.** Each module
+  now knows exactly which GPIOs it brings out to its pads and which its
+  own flash and PSRAM take: an ESP32-S3 has no GPIO 22-25, the octal-PSRAM
+  S3 modules give 35-37 to the memory, a WROVER gives 16 and 17 to its
+  PSRAM, an ESP32-MINI-1 brings out 9, 10, 37 and 38 but not 16 and 17,
+  a PICO-V3-ZERO brings out five pins. The pin lists offer only those,
+  and the build refuses a pin that is not there, or an output on a pin
+  that can only read.
+- **Analog inputs on a module.** The pin list of an ADC input offers the
+  ADC1 pins the device reads (GPIO 1-10 on an S3, 32-39 on an ESP32).
 - **Digital inputs and outputs on a module.** The pin list of a GPIO
   variable was empty on every module target (ESP32-S3, ESP32 and the
   rest): a module lists no pins of its own. It now offers every usable
