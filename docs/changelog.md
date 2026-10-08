@@ -8,6 +8,23 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.01.010
+
+An editor build inside line 1.01 - the devices keep their 1.01.000
+runtime.
+
+- **Properties in sections.** The Properties panel shows a list of
+  sections on the left and the chosen section's fields on the right, with
+  a short summary beside each section. A variable has General, I/O source,
+  Sensor (on an analog input), Scaling and Use - where the variable is
+  read, on screens, in alarms, in blocks and in ST. A widget, an FBD block
+  (Block, Inputs, Parameters, Outputs) and a ladder contact or coil use the
+  same panel. The section picked last stays picked for the next object of
+  the same kind.
+- **A converter channel in Properties.** Click a channel of an ADS1115,
+  ADS1118 or another converter on its page: Properties shows Channel,
+  Sensor and Scaling - the same sensor card the variable has.
+
 ## 1.01.009
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
