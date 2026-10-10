@@ -141,6 +141,28 @@ specification itself is published on [its own pages](https://www.ctrl32.com/docs
 
 ---
 
+## Sleeping on batteries
+
+A node that lives on a battery sleeps between its reports. **Sleep
+period** on the Application page says how long: 0 means never (a node
+on a supply), otherwise 10 to 1020 seconds. The node wakes on the
+timer and on any of its own digital inputs changing, debounces the
+inputs, publishes its variables, hears what the main device has for
+it, runs its reflexes, and sleeps again. Its outputs keep their levels
+through the sleep.
+
+The main device knows. A command sent to a sleeping node - a switch
+pressed on a screen - is kept and delivered in the node's next window;
+a node is reported absent only when two of its periods pass in
+silence, not before. At a five-minute period a node reports a year on
+two AA cells; a node that wakes every ten seconds spends most of its
+charge on the radio.
+
+A stepCAN module never sleeps - the rack powers it and expects its
+heartbeat - and the field is greyed out on one.
+
+---
+
 ## Loading and updating
 
 The first time, the node is loaded over USB — the chip's own USB port,
