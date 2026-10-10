@@ -81,10 +81,6 @@ timeout of 3 seconds makes the node see its main device come and go at
 every poll, and the safe state and the "only without the main device"
 rows run in between.
 
-The main device is seen through its own traffic: a net32 datagram, a
-Modbus request, an MQTT command, a frame from the head of a stepCAN
-rack — whichever the node uses.
-
 ---
 
 ## The reflex table
