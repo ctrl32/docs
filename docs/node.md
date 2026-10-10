@@ -73,6 +73,14 @@ goes to that state once, and the reflexes marked "only without the main
 device" start acting. When the main device speaks again, it owns the
 outputs again.
 
+Any traffic of the main device counts - a net32 frame, a Modbus request
+(a read as much as a write), an MQTT command, a frame from the head of
+a stepCAN rack. Set the timeout longer than the main device's polling
+period: a Modbus master that reads the node every 5 seconds against a
+timeout of 3 seconds makes the node see its main device come and go at
+every poll, and the safe state and the "only without the main device"
+rows run in between.
+
 The main device is seen through its own traffic: a net32 datagram, a
 Modbus request, an MQTT command, a frame from the head of a stepCAN
 rack — whichever the node uses.
@@ -160,6 +168,10 @@ charge on the radio.
 
 A stepCAN module never sleeps - the rack powers it and expects its
 heartbeat - and the field is greyed out on one.
+
+A sleeping node is reachable only in its window, so a new project or a
+runtime over Wi-Fi reaches it the way a command does - at its next
+wake; the first load over USB happens before the node ever sleeps.
 
 ---
 
