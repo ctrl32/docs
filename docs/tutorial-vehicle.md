@@ -37,7 +37,7 @@ a truck; marine and agricultural equipment does too, and 500 kbit/s
 appears on newer designs. Get it wrong and nothing arrives at all —
 there is no negotiation.
 
-Set the interface and its rate in *Tools › Prepare a Linux device*
+Set the interface and its rate in *Online › Prepare a Linux device*
 (the buses of the device). The project's CAN node says which interface
 it uses, and the runtime brings it up itself.
 

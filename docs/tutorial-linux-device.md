@@ -40,7 +40,7 @@ here is final; every one of them can be added later from the tree.
 
 ## 2. Tell the editor where the device is
 
-Open **Tools › Prepare a Linux device**. Type the device's address,
+Open **Online › Prepare a Linux device**. Type the device's address,
 the user name and the password you set when you wrote the card, and
 say which device it is.
 

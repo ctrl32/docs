@@ -42,7 +42,7 @@ else answers when spoken to.
 ## 2. Give the device its port
 
 On a Linux device the port is not a pin of a board — it is a name in
-the device's own settings. *Tools › Prepare a Linux device* writes it;
+the device's own settings. *Online › Prepare a Linux device* writes it;
 pick the expansion board and the port comes with it. On the
 reTerminal E10-1 that is `ttyS0`, and the same window frees it from
 the login console, which would otherwise share the line with your

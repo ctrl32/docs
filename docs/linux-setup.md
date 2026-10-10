@@ -178,7 +178,7 @@ adapter has no such conflict.
 #### The operating system, from the editor
 
 Everything a Linux device needs beyond the project is set from the
-editor — *Tools* → *Prepare a Linux device*, then **Look at the
+editor — *Online* → *Prepare a Linux device*, then **Look at the
 device**. Under the device's summary the editor shows what it can set
 on the device itself:
 

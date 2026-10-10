@@ -25,7 +25,7 @@ network port to a running axis, one step at a time.
 ## 1. Give the master a port of its own
 
 An EtherCAT master owns its interface: it sends raw frames on it and
-no IP address lives there. Pick the port in *Tools › Prepare a Linux
+no IP address lives there. Pick the port in *Online › Prepare a Linux
 device* (or in *Buses of this device*) — on the reTerminal E10-1 that
 is `eth1`, the port the expansion adds.
 
