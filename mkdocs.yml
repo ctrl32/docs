@@ -61,6 +61,7 @@ nav:
   - Intended use: intended-use.md
   - Supported hardware: hardware.md
   - Hardware catalog: modules.md
+  - The node (ESP32-C3 / C6): node.md
   - The Linux runtime:
       - The Linux runtime: linux-runtime.md
       - Setting up a device: linux-setup.md
