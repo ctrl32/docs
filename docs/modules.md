@@ -188,6 +188,7 @@ the catalog boards built on it.
 | SparkFun Thing Plus ESP32 | ESP32 | - | - | yes | yes | yes | on request | on request |
 | ST 32F746GDISCOVERY | STM32F746 | 480 x 272 | yes | - | - | - | Standard | 2 |
 | ST STM32MP157C-DK2 | Linux | 480 x 800 | - | module | yes | yes | Linux | many |
+| stepCAN C6 module (reference) | esp32c6 | - | - | yes | yes | - | Compact | 2 |
 | stepHMI32.4 | ESP32-S3 | 480 x 272 | - | yes | yes | yes | Standard | 2 |
 | stepHMI32.5 | ESP32-S3 | 480 x 272 | - | yes | yes | yes | Standard | 2 |
 | stepHMI32.7 | ESP32-S3 | 800 x 480 | - | yes | yes | yes | on request | on request |
