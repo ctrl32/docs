@@ -8,6 +8,44 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.02.000
+
+A new line: every runtime is rebuilt and the devices take 1.02.000 over
+the network or over USB (Upload runtime); a device nobody updates keeps
+running its program.
+
+- **The ladder editor, reworked.** Networks on a grid, each with its
+  number, its comment line and a fold arrow; a cursor you drive with the
+  arrows and the function keys (F2/F3 a contact, F7 a coil, F8 a branch,
+  Enter the sheet, Tab the next open operand); an operand typed straight
+  into its red `??.?` with the list of fitting variables under it; the
+  right button opens the menu, a double-click the sheet; tiles and
+  elements dragged onto a cell; Ctrl + wheel zooms. A branch may stand
+  anywhere and a lower row may end in a coil of its own or carry a block.
+  New elements: the **compare contact** (`level > 10`, typed or picked),
+  the **jump** to a later network and the **return**. **Where used** on
+  any operand lists every place of its variable and jumps there. The
+  **Messages** tab under the canvas keeps what the editor said, errors in
+  red, a double-click goes to the network; the **Terminal** tab beside it
+  is the device's console. The page: [Ladder](ladder.md).
+- **The node - an ESP32-C3 or ESP32-C6 as remote I/O.** A module with
+  no program of its own: its inputs and outputs are variables the main
+  device owns through net32, with a table of reflexes that act when the
+  main device is away, a safe state, a WEBview page, Modbus and MQTT
+  transports, deep sleep on batteries. Every C3 and C6 module of the
+  catalog runs the node image; the New project wizard offers it. The
+  page: [The node](node.md).
+- **A Linux device's board page** carries *Prepare this device* beside
+  *Flash runtime*, with that device already chosen.
+- Help › About names the graphics renderer and the frame time, and the
+  editor warns when it runs without acceleration (a slow notebook is
+  recognisable at once).
+- Smaller: the Toolbox's duplicate group of in-network blocks is gone
+  (a block the power can flow through lands in the network from its own
+  group); a comment of a network sits under its header; the Flash
+  runtime dialog, the devkit and module pin pickers from the first
+  testing round of 1.01.010.
+
 ## 1.01.010
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
