@@ -69,11 +69,19 @@ different mode and the two never mix.
 
 ## The mouse on the screen canvas
 
-The canvas is **1 : 1** — the pixels you drag are the panel's
-pixels; there is no zoom to lie about sizes.
+At **100 %** the canvas is **1 : 1** — the pixels you drag are the
+panel's pixels. The mouse wheel over the picture zooms it in and out
+around the pointer, from 25 % to 400 %; at 200, 300 and 400 % every
+panel pixel is drawn as a square block, so what you see is still the
+panel's picture, only larger. The bar above the canvas shows the
+current percentage (pick one there, or **Fit** for the largest step
+that fits the window), and a picture bigger than the window pans with
+the scrollbars. The zoom is a view setting: it changes nothing in the
+project.
 
 | Gesture | Action |
 |:---|:---|
+| wheel over the picture | zoom in / out around the pointer |
 | click | select a widget — the inspector follows |
 | drag a widget | move it |
 | drag the corner grip | resize (the primary selection carries the grip) |
