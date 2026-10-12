@@ -28,6 +28,12 @@ running its program.
   **Messages** tab under the canvas keeps what the editor said, errors in
   red, a double-click goes to the network; the **Terminal** tab beside it
   is the device's console. The page: [Ladder](ladder.md).
+- **The screen canvas zooms.** The mouse wheel over an HMI or WEB
+  screen zooms it from 25 to 400 % around the pointer; at 200, 300 and
+  400 % every panel pixel is a square block, so the picture stays the
+  panel's. The bar above the canvas shows the percentage and offers
+  *Fit*; a picture larger than the window pans with the scrollbars.
+  The page: [Controls and shortcuts](editor-controls.md).
 - **The node - an ESP32-C3 or ESP32-C6 as remote I/O.** A module with
   no program of its own: its inputs and outputs are variables the main
   device owns through net32, with a table of reflexes that act when the
