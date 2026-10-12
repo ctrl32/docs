@@ -8,6 +8,21 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.02.001
+
+An editor release inside line 1.02: the devices keep the runtime they
+have.
+
+- **The wheel over the screen canvas zooms in every window layout.** On
+  some computers it stayed silent while every other panel scrolled. If
+  it ever stays silent again, the editor keeps a note of what it saw in
+  `canvas_wheel.txt` beside its settings (the ctrl32 folder in the
+  user's local application data) - send it to us.
+- **The canvas bar fits a narrow window.** When its tools do not fit the
+  width, they continue on a second row instead of being cut off at the
+  right edge, so the zoom percentage and *Fit* are always in reach. The
+  bar carries no status text any more.
+
 ## 1.02.000
 
 A new line: every runtime is rebuilt and the devices take 1.02.000 over
