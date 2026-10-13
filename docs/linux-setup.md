@@ -200,6 +200,33 @@ on the device itself:
 - the **device name**
 - the **network**: an interface, then *leave as it is*, *automatic
   address (DHCP)* or a *fixed address* with prefix, gateway and DNS
+- **Buses on the header** - SPI, I2C and the UART as ticks (their pins
+  are the processor's: SPI on GPIO 7-11, I2C on GPIO 2/3, the UART on
+  GPIO 14/15), and up to two **CAN controllers on SPI0**: the chip
+  (MCP2515, or MCP2517FD/MCP2518FD), its chip select (CE0 on GPIO 8 or
+  CE1 on GPIO 7), its interrupt pin among the header's free GPIOs and
+  its crystal. The ticks start as the device's boot configuration says;
+  a tick adds its line, an untick removes it, and the device restarts.
+  The controller then appears as `can0` in the scan on the device's bus
+  page, where the project picks it
+- **Real-time kernel for EtherCAT** - one tick, for a bus cycle under a
+  millisecond. The editor installs the distribution's real-time kernel
+  for the device's processor (and its headers where a display driver has
+  to be rebuilt for it), boots it with the last processor core kept for
+  the bus, and gives the runtime the setting that pins its bus thread to
+  that core. The standard kernel stays on the card and
+  `config.txt.bak-prert` beside the boot configuration is the way back.
+  A device that already runs it says so in place of the tick; a device
+  whose package source offers no real-time kernel, or whose boot
+  configuration the editor does not know, is refused in words
+
+The same section is on the **board page** of a Linux device, under what
+the scan found: a login for the device and *Look at the device*, then
+tick and *Apply*. Prepare is for a device that has nothing yet; the board
+page is for the one the project runs on. Prepare itself is a page beside
+the project's own, not a window in the way - the project stays at hand
+while a device installs or restarts, and every line the work prints goes
+to Messages as well.
 
 The editor lists what pressing **Apply** will do, step by step, and
 says beforehand when the device will restart (only a boot setting

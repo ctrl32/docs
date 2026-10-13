@@ -8,6 +8,50 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.03.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](deploy.md)), and the editor
+grows the round below.
+
+- **A disconnected CAN bus costs the program nothing.** A panel whose
+  program uses no CAN device never transmits on the bus, so it cannot go
+  bus-off. A bus that is configured but unplugged is said once in the
+  diagnostic buffer ("CAN: bus down ... nobody answers"), tried again
+  every ten seconds and said once more when it answers; the program runs
+  on and the axes read offline meanwhile. The system variable
+  `SYS.CAN_FAULT` is "a bus-off being handled or the bus down".
+- **The editor no longer freezes on a device address nobody answers.** A
+  connection gives up after 1.5 s and says what to look at (another
+  network, the device off, the console busy); an address that did not
+  answer is left alone for ten seconds before the next try.
+- **Buses on the header and the real-time kernel from the editor.** The
+  *Operating system* section of a Linux device switches SPI, I2C and the
+  UART on and off, puts a CAN controller on SPI0 (the chip, its chip
+  select, its interrupt pin and its crystal) and installs the
+  distribution's real-time kernel with a core kept for EtherCAT. The same
+  section sits on the device's board page -
+  [Setting up a Linux device](linux-setup.md#the-operating-system-from-the-editor).
+- **Prepare a Linux device is a page**, not a window in the way: the
+  project stays at hand while a device installs or restarts, and every
+  line the work prints goes to Messages as well.
+- **The Terminal is a console for a Linux device.** Type the device's
+  address into the Terminal's port field and the tab is its shell: the
+  editor's key logs in on a device the editor prepared, a user name and
+  password where it did not - [Online](online.md#the-serial-console-keeps-working).
+- **Messages comes to the front by itself** whenever a line is pushed to
+  it, and the Terminal and Messages tabs land beside Properties even with
+  a window layout from an older version.
+- **Download to device.** The dialog is a statement; a Linux device offers
+  the network road only, there is no USB road to it.
+- **Find devices fits the screen.** The dialog's width follows its table
+  up to the screen, the address column is bounded and *Use* is always in
+  reach.
+- **An unbound output of a ladder box is blank** - the pin and its name
+  stay, no red marks; ONLINE paints the live value above a bound output
+  as before.
+- **The browser's gauge** starts its arc where the panel's does.
+
 ## 1.02.001
 
 An editor release inside line 1.02: the devices keep the runtime they

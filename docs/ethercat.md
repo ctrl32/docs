@@ -260,14 +260,15 @@ run:
 - **The device below the runtime.** A cycle under a millisecond needs a
   network port wired straight to the processor (not a USB adapter), a
   real-time kernel and a core kept free for the bus. On a Raspberry Pi
-  that is the `-rt` kernel image the distribution ships, the kernel line
-  extended with `isolcpus=3 nohz_full=3 rcu_nocbs=3 irqaffinity=0-2`
-  (core 3 is then the bus's alone), and the drop-in `ctrl32run-rt.conf`
-  from the runtime bundle copied to
-  `/etc/systemd/system/ctrl32run.service.d/` - it names that core, the
-  runtime pins its cycle thread to it, and the interrupt mover installed
-  with the runtime brings the port's interrupts along once the link is
-  up. Measured with an i550 on the reTerminal's own port: 250 µs and
+  the editor does this for you: the *Real-time kernel for EtherCAT* tick
+  in the device's *Operating system* section
+  ([Setting up a Linux device](linux-setup.md#the-operating-system-from-the-editor))
+  installs the `-rt` kernel image the distribution ships, extends the
+  kernel line with `isolcpus`, `nohz_full`, `rcu_nocbs` and `irqaffinity`
+  so that the last core is the bus's alone, and gives the runtime the
+  drop-in that pins its cycle thread to that core; the interrupt mover
+  installed with the runtime brings the port's interrupts along once the
+  link is up. Measured with an i550 on the reTerminal's own port: 250 µs and
   200 µs run without a lost frame and the worst wake-up lateness stays
   under 15 µs; over a USB adapter the same line carries 1 ms and loses
   frames at 250 µs. The EtherCAT state on the device page carries the

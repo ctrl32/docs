@@ -133,6 +133,14 @@ drains, and typing works too (the worker does the writing). The diagnostic
 pages — CAN dump, modem status, the diagnostic buffer — go the same way, so
 they answer while you are online instead of reporting "no reply".
 
+**A Linux device's own shell.** With the device's address typed into the
+Terminal's port field instead of a COM port, the tab is the device's shell
+over ssh: the editor's key logs in on a device the editor prepared,
+otherwise the user name and password fields beside the address take a
+login (the password is never stored). What you type goes to the shell,
+what it answers comes back into the same window, and the prompt is the
+live last line - nothing else has to be opened to work on the device.
+
 ## Writing values (force)
 
 The board can hold a value against the program — for checking wiring or

@@ -38,8 +38,10 @@ Ethernet or WiFi:
 1. Type the board's address into the port picker — an IP, or the
    `name.local` the project gave it. [Finding your boards](find-devices.md)
    lists what answers on the network.
-2. :ti-download: as before. The dialog shows *Network* as the target; the
-   same slot-and-verify road, over the board's own web server.
+2. :ti-download: as before. The *Download to device* dialog shows
+   *Network* as the target; the same slot-and-verify road, over the
+   board's own web server. A Linux device is reached this way only - its
+   dialog offers no USB road.
 3. A **runtime** can travel the same road on the 8 and 16 MB boards:
    *Flash runtime* with the address in the port picker writes the new
    runtime into the inactive application slot, the board restarts into

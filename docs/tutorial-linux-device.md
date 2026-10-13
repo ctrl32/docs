@@ -44,7 +44,7 @@ Open **Online › Prepare a Linux device**. Type the device's address,
 the user name and the password you set when you wrote the card, and
 say which device it is.
 
-![The Prepare a Linux device window before anything has been looked at](img/lx-prepare-open.webp){: .sb-center}
+![The Prepare a Linux device page before anything has been looked at](img/lx-prepare-open.webp){: .sb-center}
 
 Leave **Do not ask for the password again** ticked. The editor puts
 its own key on the device the first time, and later visits need the
@@ -58,7 +58,7 @@ Press **Look at the device**. Nothing is changed by looking: the
 editor logs in, reads what the device is, and says what it found and
 what it intends to do.
 
-![The window after a look: what the device is, and the list of steps Prepare will take](img/lx-prepare-plan.webp){: .sb-center}
+![The page after a look: what the device is, and the list of steps Prepare will take](img/lx-prepare-plan.webp){: .sb-center}
 
 The list is the whole plan — the runtime copied over, unpacked,
 installed with its own account and permissions, given the device's
@@ -71,10 +71,12 @@ there.
 ## 4. The operating system, if the device needs it
 
 Under the plan sits **Operating system of this device** — the settings
-a project cannot carry because they belong to the machine, not to the
-program.
+a project cannot carry because they belong to the device, not to the
+program. The page is a tab beside the project's own, so the project
+stays at hand while a device installs or restarts, and every line the
+work prints goes to Messages as well.
 
-![The Operating system section: the expansion preset, the serial console, the device name and the network](img/lx-prepare-sys.webp){: .sb-center}
+![The Operating system section: the expansion preset, the serial console, the buses on the header, the real-time kernel, the device name and the network](img/lx-prepare-sys.webp){: .sb-center}
 
 - **Expansion board** — pick it and the boot lines it needs are added
   for you. The reTerminal E10-1 brings its CAN interface, its RS-485
@@ -84,8 +86,16 @@ program.
   RS-485 line for it.
 - **Load the I2C driver at every start** — needed when the project
   reads chips over I2C.
+- **Buses on the header** — SPI, I2C and the UART as ticks, and a CAN
+  controller on SPI0 with its chip select, interrupt pin and crystal;
+  each is a line of the boot configuration the editor adds or removes
+  for you ([Setting up a Linux device](linux-setup.md#the-operating-system-from-the-editor)
+  has the pins).
+- **Real-time kernel for EtherCAT** — one tick for a bus cycle under a
+  millisecond: the distribution's real-time kernel, a core kept for the
+  bus, the runtime pinned to it.
 - **Device name** and **Network** — a fixed address instead of
-  whatever DHCP offers, which is what a machine on a shop floor wants.
+  whatever DHCP offers, which is what equipment on a shop floor wants.
 
 Each ticked line becomes one step. The device restarts only when a
 boot setting changed, and the window says so before you press
