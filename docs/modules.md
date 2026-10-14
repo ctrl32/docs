@@ -119,7 +119,7 @@ the catalog boards built on it.
 | ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | Standard | LaskaKit ESP32-S3-DEVKit, S3 CAN setup, S3 SSD1963 setup |  |
 | ESP32-S3-WROOM-1-N16R16VA | 16 MB (quad) | 16 MB (octal) | Standard |  |  |
 | ESP32-S3-WROOM-1-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only |
-| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | Standard | ESP32-S3-DevKitC-1 (N16R8), Makerfabs Energy Meter, inoHMI32, inoHMI43, stepHMI32.4, stepHMI32.5 |  |
+| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | Standard | ESP32-S3-DevKitC-1 (N16R8), MaTouch Lite ESP32-S3 3.95", Makerfabs Energy Meter, inoHMI32, inoHMI43, stepHMI32.4, stepHMI32.5 |  |
 | ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | Standard | M5Stack StamPLC, S3-DevKitC-1 WEBview setup |  |
 | ESP32-S3-WROOM-1-N8R2 | 8 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only |
 | ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | Standard | Olimex ESP32-S3-DevKit-LiPo |  |
@@ -135,7 +135,7 @@ the catalog boards built on it.
 
 | Module | Flash | PSRAM | Size | Boards on it | Note |
 |:---|:---|:---|:---|:---|:---|
-| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Standard | ESP32-P4-NANO, Olimex ESP32-P4-DevKit |  |
+| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Standard | ESP32-P4-NANO, MaTouch ESP32-P4 7", Olimex ESP32-P4-DevKit |  |
 
 ## Boards
 
@@ -172,6 +172,8 @@ the catalog boards built on it.
 | Makerfabs Energy Meter | ESP32-S3 | - | - | yes | - | - | Standard | 2 |
 | Makerfabs Weather Station | ESP32 | - | - | yes | - | - | Compact | 2 |
 | Makerfabs WiFi AC Dimmer Switch | ESP32 | - | - | yes | - | - | Compact | 2 |
+| MaTouch ESP32-P4 7" | ESP32-P4 | 1024 x 600 | yes | yes | yes | yes | Standard | 2 |
+| MaTouch Lite ESP32-S3 3.95" | ESP32-S3 | 320 x 480 | - | yes | yes | yes | Standard | 2 |
 | Olimex ESP32-DevKit-LiPo | ESP32 | - | - | yes | - | - | Compact | 2 |
 | Olimex ESP32-EVB | ESP32 | 240 x 320 | yes | yes | yes | - | Compact | 1 |
 | Olimex ESP32-GATEWAY | ESP32 | - | yes | yes | - | - | Compact | 2 |

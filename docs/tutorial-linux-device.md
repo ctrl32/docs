@@ -76,7 +76,7 @@ program. The page is a tab beside the project's own, so the project
 stays at hand while a device installs or restarts, and every line the
 work prints goes to Messages as well.
 
-![The Operating system section: the expansion preset, the serial console, the buses on the header, the real-time kernel, the device name and the network](img/lx-prepare-sys.webp){: .sb-center}
+![The Operating system section: the serial console, the buses on the header, three controllers on SPI, the real-time kernel, the device name](img/lx-prepare-sys.webp){: .sb-center}
 
 - **Expansion board** — pick it and the boot lines it needs are added
   for you. The reTerminal E10-1 brings its CAN interface, its RS-485
@@ -86,11 +86,13 @@ work prints goes to Messages as well.
   RS-485 line for it.
 - **Load the I2C driver at every start** — needed when the project
   reads chips over I2C.
-- **Buses on the header** — SPI, I2C and the UART as ticks, and a CAN
-  controller on SPI0 with its chip select, interrupt pin and crystal;
-  each is a line of the boot configuration the editor adds or removes
-  for you ([Setting up a Linux device](linux-setup.md#the-operating-system-from-the-editor)
-  has the pins).
+- **Buses on the header** — SPI, I2C and the UART as ticks; each is a
+  line of the boot configuration the editor adds or removes for you.
+- **CAN and serial controllers on SPI** — a list, any mix: each row a
+  chip, its SPI bus and chip select, its chip-select pin, interrupt pin
+  and crystal; the editor counts how many more fit
+  ([Setting up a Linux device](linux-setup.md#the-operating-system-from-the-editor)
+  has the details).
 - **Real-time kernel for EtherCAT** — one tick for a bus cycle under a
   millisecond: the distribution's real-time kernel, a core kept for the
   bus, the runtime pinned to it.

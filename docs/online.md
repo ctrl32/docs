@@ -141,6 +141,12 @@ login (the password is never stored). What you type goes to the shell,
 what it answers comes back into the same window, and the prompt is the
 live last line - nothing else has to be opened to work on the device.
 
+**This PC's command prompt.** With `cmd` in the port field, or no port
+chosen at all, the tab is the command prompt of this computer: Enter runs
+a line, the arrow keys up and down bring earlier lines back, and `Ctrl+C`
+(with no text selected) or the **^C** button stops what runs - the same
+keys work in a Linux device's shell.
+
 ## Writing values (force)
 
 The board can hold a value against the program — for checking wiring or

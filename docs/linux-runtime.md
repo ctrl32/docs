@@ -50,13 +50,32 @@ panel it stays exactly as it always was.
 
 ---
 
-## The device's network, from the editor
+## The device, from the editor
 
-On the board page, a Linux target's **Device network** section talks
-to the *running* device: join a WiFi network, switch the ethernet
-between DHCP and a static address. The device applies it through its
-own network manager and its answer shows right there — including a
-refusal, when it has no manager to apply with.
+On the board page of a Linux target the device has its own part: its
+address, a login for its operating system, and **Read from the device**,
+which asks the device what it has and what it uses now. Below it, one tab
+per subject - every tab starts from the device's own values, and its
+**Write** changes only that tab's settings:
+
+![The Linux device on the board page: the header with Read from the device, the Buses and chips tab started from what the device uses](img/lx-device-buses.webp){: .sb-center}
+
+- **Network** - join a WiFi network, switch the ethernet between DHCP
+  and a static address; the device applies it through its own network
+  manager and answers right there.
+- **Buses and chips** - which serial port is each RS-485 line, which
+  interface each CAN bus, the EtherCAT port, the I2C bus and the SPI
+  chip selects of the project's chips; the lists offer only what the
+  device really has.
+- **Display** - how the glass is mounted (the turn) and pixel-exact
+  drawing.
+- **Operating system** - the settings that need the device's
+  administrator login: the buses on the header, CAN and serial
+  controllers on SPI, the real-time kernel for EtherCAT, the serial
+  console, the device name ([Setting up a Linux
+  device](linux-setup.md#the-operating-system-from-the-editor)).
+- **Clock and power** - the time zone, network time, setting the clock,
+  and the device's supply.
 
 ---
 

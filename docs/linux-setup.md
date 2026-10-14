@@ -201,14 +201,26 @@ on the device itself:
 - the **network**: an interface, then *leave as it is*, *automatic
   address (DHCP)* or a *fixed address* with prefix, gateway and DNS
 - **Buses on the header** - SPI, I2C and the UART as ticks (their pins
-  are the processor's: SPI on GPIO 7-11, I2C on GPIO 2/3, the UART on
-  GPIO 14/15), and up to two **CAN controllers on SPI0**: the chip
-  (MCP2515, or MCP2517FD/MCP2518FD), its chip select (CE0 on GPIO 8 or
-  CE1 on GPIO 7), its interrupt pin among the header's free GPIOs and
-  its crystal. The ticks start as the device's boot configuration says;
-  a tick adds its line, an untick removes it, and the device restarts.
-  The controller then appears as `can0` in the scan on the device's bus
-  page, where the project picks it
+  are the processor's: SPI0 on GPIO 7-11, I2C on GPIO 2/3, the UART on
+  GPIO 14/15). The ticks start as the device's boot configuration says;
+  a tick adds its line, an untick removes it, and the device restarts
+- **CAN and serial controllers on SPI** - a list: **+ Add controller**
+  takes the next free chip select, and any mix fits - four CAN
+  controllers, two CAN and two serial, and so on. Each row picks the chip
+  (MCP2515, MCP2517FD/MCP2518FD, SC16IS750 with one serial port or
+  SC16IS752 with two), the SPI bus and chip select (SPI0 and SPI1 on a
+  Raspberry Pi 3; SPI0, SPI1 and SPI3 to SPI6 on a Pi 4 or a CM4), the
+  **chip-select pin** (the bus's own or any GPIO of the header), the
+  interrupt pin and the crystal. The editor counts how many more fit on
+  this device: a bus whose pins I2C, the UART or another bus already use
+  drops out, and a chip select an expansion board holds (the reTerminal
+  E10-1's own CAN controller) shows as taken. Two functions on one pin,
+  or a chip whose driver the device's kernel lacks, are refused in words
+  before anything is written. After the restart every CAN controller is
+  a CAN interface (`can0`, `can1`, ...) and every serial controller one or
+  two serial ports, ready to pick in the **Buses and chips** tab of the
+  device's board page. A device with CAN of its own on the board (the
+  STM32MP1) uses that one
 - **Real-time kernel for EtherCAT** - one tick, for a bus cycle under a
   millisecond. The editor installs the distribution's real-time kernel
   for the device's processor (and its headers where a display driver has

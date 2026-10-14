@@ -8,6 +8,60 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.04.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](deploy.md)), and the editor
+grows the round below.
+
+- **Two Makerfabs MaTouch panels join the hardware catalog**
+  ([Supported hardware](modules.md)): the **MaTouch ESP32-P4 7"** - a
+  1024 x 600 MIPI-DSI glass with capacitive touch, ethernet and WiFi 6 -
+  and the **MaTouch Lite ESP32-S3 3.95"** - a 480 x 320 SPI glass with
+  resistive touch. Each comes with its example project, and every bus
+  (I2C, SPI, serial, CAN, RS-485) is wired on the pins of its connectors;
+  a pin the panel itself uses is refused with its name.
+- **A capacitive touch controller configured for another resolution than
+  its glass** is scaled into the glass, so a touch lands under the finger
+  on the whole screen.
+- **The panel as CANopen master sends its own heartbeat** when the bus
+  page asks for it (node-ID and period in ms). A drive set to watch it
+  stops with a fault when the panel goes silent, instead of running on
+  with the last command.
+- **A CANopen device with a fixed PDO layout** - a safety controller's
+  fieldbus module, many I/O modules - is marked in its window ("The device
+  has a fixed PDO layout"): the panel only reads its frames and writes no
+  mapping, so the cyclic traffic of the other devices on the bus goes on.
+- **The Parker AC30 CANopen EDS files** are in the device library.
+- **ONLINE with a project that has no variables** works; before, it said
+  "the panel runs a different program" however often it was downloaded.
+- **ONLINE, a normally closed contact that does not conduct** draws its
+  slash dashed like its bars.
+- **The Messages pane sorts what the editor says** into errors (red),
+  warnings (orange) and information, with a switch and a count for each:
+  a refusal such as "A VAR with that name already exists" is a warning.
+- **The chips soldered on a board** show in the tree under the name they
+  get in the project, without a note behind them; a tooltip says a click
+  adds them, and why the on-board memory is grey.
+- **The ladder bar's P, N, S and R** sit in the middle of their buttons.
+- **A Linux device's page is in tabs** - Network, Buses and chips,
+  Display, Operating system, Clock and power - under one header with the
+  device's address, a login and **Read from the device**. Every tab
+  starts from what the device uses now and writes only its own settings;
+  before, writing the buses from an untouched page cleared them on the
+  device ([The Linux runtime](linux-runtime.md#the-device-from-the-editor)).
+- **CAN and serial controllers on SPI as a list** - any mix of MCP2515,
+  MCP2517/2518 and SC16IS750/752 on every SPI bus the device has, each
+  with its own chip-select pin; the editor counts how many more fit and
+  sets them up on the device
+  ([Setting up a Linux device](linux-setup.md#the-operating-system-from-the-editor)).
+- **The Terminal is this PC's command prompt** too: `cmd`, or no port,
+  in its port field; the arrow keys bring earlier lines back and Ctrl+C
+  stops what runs. The Terminal and Messages tabs sit beside Properties
+  at every start.
+- **An unbound output of a block inside a ladder rung** (the elapsed time
+  of a TON) is blank now, like the outputs of a block on its own rung.
+
 ## 1.03.000
 
 A new line: every device takes a new runtime (over the network or over
