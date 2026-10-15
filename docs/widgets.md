@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **53** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **54** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -289,6 +289,224 @@ One part of a chart (a node, a link, a column, a slice) - written by the build f
 | `tag` | variable |  |
 | `color` | color |  |
 | `label` | str |  |
+
+## `checkbox`
+
+A box with a tick and a label beside it. A tap toggles the variable - a BOOL, or one bit of an integer with `bit`. The accent fills the ticked box.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `text` | str |  |
+| `bit` | i16 | `-1` |
+| `font` | font_ref |  |
+
+## `dropdown`
+
+The selected option in a box with an arrow. A tap opens the list over the screen; a pick writes the option's NUMBER (0 = the first line) into the variable. `options` is one option per line.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `options` | str |  |
+| `font` | font_ref |  |
+
+## `roller`
+
+A drum of options; the middle row is the value. Drag it, or tap above or below the middle, and the option's NUMBER is written into the variable. `rows` is how many rows are shown (odd, 3 to 9).
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `options` | str |  |
+| `rows` | i16 | `3` |
+| `font` | font_ref |  |
+
+## `spinbox`
+
+The value between a minus and a plus button: each tap moves it by `step` within `min` and `max`; a tap on the number opens the keypad.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `min` | f32 | `0.0` |
+| `max` | f32 | `100.0` |
+| `step` | f32 | `1.0` |
+| `font` | font_ref |  |
+
+## `button_matrix`
+
+A grid of buttons of which one is selected - a segmented control (Auto / Manual / Off). A tap writes the button's NUMBER into the variable; the selected one is drawn in the accent. `buttons` is one caption per line, `columns` how many sit in a row (0 = all in one row).
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `buttons` | str |  |
+| `columns` | i16 | `0` |
+| `font` | font_ref |  |
+
+## `arc`
+
+A round knob: the track, the value as an arc in the accent and a handle at its end. Dragging along the arc writes the value between `min` and `max`; the number sits in the middle.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `min` | f32 | `0.0` |
+| `max` | f32 | `100.0` |
+| `start_angle` | i16 | `135` |
+| `sweep` | i16 | `270` |
+| `thickness` | i16 | `0` |
+| `show_value` | bool | `True` |
+| `font` | font_ref |  |
+
+## `table`
+
+Rows of cells. Each row is its `cells` text, the cells separated by a vertical bar; a row with a variable shows its value with the unit as its last cell. `header` (cells separated the same way) is the first row, drawn in the accent.
+
+| Property | Type | Default |
+|---|---|---|
+| `header` | str |  |
+| `rows` | list |  |
+| `font` | font_ref |  |
+
+## `scale`
+
+A straight scale from `min` to `max` with `major` numbered ticks and `minor` ticks between each pair. With a variable a pointer in the accent shows where its value sits.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `min` | f32 | `0.0` |
+| `max` | f32 | `100.0` |
+| `major` | i16 | `5` |
+| `minor` | i16 | `4` |
+| `orientation` | one of `horizontal` / `vertical` | `horizontal` |
+| `font` | font_ref |  |
+
+## `spinner`
+
+A turning arc that says "wait". With a variable it turns only while the variable is true and is empty otherwise. `period_ms` is one turn.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `period_ms` | i16 | `1000` |
+| `thickness` | i16 | `0` |
+
+## `anim_image`
+
+A picture made of `frames` (images of the project). Without a variable it shows them one after another, `period_ms` each; with a variable the variable's value picks the frame (0 = the first) - a motor drawn stopped, running or faulted.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `frames` | list |  |
+| `period_ms` | i16 | `500` |
+
+## `line`
+
+A line through `points` (x, y pairs in the widget's own frame), in the fg colour, `width` px wide; `closed` joins the last point to the first.
+
+| Property | Type | Default |
+|---|---|---|
+| `points` | list |  |
+| `width` | i16 | `2` |
+| `closed` | bool | `False` |
+
+## `shape`
+
+A rectangle (with `radius` corners) or an ellipse that fills the widget: filled with bg when `fill` is on, outlined in fg `border_width` px wide.
+
+| Property | Type | Default |
+|---|---|---|
+| `shape` | one of `rect` / `ellipse` | `rect` |
+| `fill` | bool | `True` |
+| `border_width` | i16 | `1` |
+| `radius` | i16 | `0` |
+
+## `qrcode`
+
+A QR code of `text` (a web address, a WiFi login, a manual's link), as large as the widget allows, fg on bg.
+
+| Property | Type | Default |
+|---|---|---|
+| `text` | str |  |
+
+## `scatter`
+
+Points of recent pairs: x is the widget's variable, y each series' variable, sampled together every `sample_ms`; the last `points` pairs are shown. `x_min`/`x_max` and `min`/`max` are the two axes.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `series` | list |  |
+| `x_min` | f32 | `0.0` |
+| `x_max` | f32 | `100.0` |
+| `min` | f32 | `0.0` |
+| `max` | f32 | `100.0` |
+| `sample_ms` | i32 | `1000` |
+| `points` | i16 | `60` |
+
+## `tileview`
+
+Pages (its children) switched by a swipe to the left or right, with dots under them. With a variable the variable holds the page number - a swipe writes it, a program can turn the page.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `active` | i16 | `0` |
+
+## `window`
+
+A body with a title bar (`text`, the accent). Its children sit under the bar. With a variable the bar carries an X that writes the variable false - give the window `visible_if` the same variable and the X closes it.
+
+| Property | Type | Default |
+|---|---|---|
+| `text` | str |  |
+| `tag` | variable |  |
+| `bar_height` | i16 | `32` |
+| `font` | font_ref |  |
+
+## `menu`
+
+Rows, each with an optional icon. A row with a `target` opens that screen; a row with a `value` writes it into the menu's variable and is drawn selected while the variable holds it.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `items` | list |  |
+| `row_height` | i16 | `40` |
+| `font` | font_ref |  |
+
+## `calendar`
+
+A month. The variable is a date written as YYYYMMDD (20261015); its day is drawn in the accent, a tap on another day writes it, the arrows in the header change the month shown.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `font` | font_ref |  |
+
+## `textarea`
+
+Text over several lines, wrapped at the widget's width (a new line in the text starts a new line). With a text (STRING) variable - a Linux device - it shows the variable, and with `editable` a tap opens the keyboard.
+
+| Property | Type | Default |
+|---|---|---|
+| `text` | str |  |
+| `tag` | variable |  |
+| `editable` | bool | `False` |
+| `align` | one of `left` / `center` / `right` | `left` |
+| `font` | font_ref |  |
+
+## `rich_text`
+
+One paragraph made of `spans`, each with its own colour and font - a word in red, a value in a larger face; a span with a variable shows its live value with the unit. The spans flow on and wrap at the widget's width.
+
+| Property | Type | Default |
+|---|---|---|
+| `spans` | list |  |
 
 ---
 
