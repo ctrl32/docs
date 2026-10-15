@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **52** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **53** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -222,6 +222,70 @@ The ctrl32 mark, drawn as a crisp vector at whatever size the rect gives it. Col
 The live picture of one of the project's cameras - the text names the camera. Or the picture a vision block makes, live, when the text names the block as program.block (the picture after a filter, what a reader sees): the operator watches the camera and the prepared picture side by side while turning the settings.
 
 (no properties of its own)
+
+## `energy_flow`
+
+Circles with an icon, a value and a name, joined by lines along which dots run in the direction the energy flows - solar, grid, battery and the house in one picture. Each node shows its own variable; each link has a variable whose sign says the direction (positive = from `from` to `to`) and whose size sets the speed; a link at zero stands still and dims. `max` is the value at which the dots run fastest.
+
+| Property | Type | Default |
+|---|---|---|
+| `nodes` | list |  |
+| `links` | list |  |
+| `max` | f32 | `10.0` |
+| `font` | font_ref |  |
+
+## `bar_chart`
+
+Columns. Either one column per variable of `series` (the rooms' temperatures, three phases, the consumers of a house), each in its own colour with its label under it, or - with `history` - the last samples of the widget's own variable, one column per `sample_ms` (each hour's energy today). The scale runs from `min` to `max`; the value is printed over each column when there is room.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `series` | list |  |
+| `history` | bool | `False` |
+| `sample_ms` | i32 | `3600000` |
+| `bars` | i16 | `24` |
+| `min` | f32 | `0.0` |
+| `max` | f32 | `100.0` |
+| `show_value` | bool | `True` |
+| `font` | font_ref |  |
+
+## `donut`
+
+A ring. With a variable alone it fills from `min` to `max` (a battery's charge, a self-sufficiency in %) and prints the value in the middle; with `series` the ring is cut into slices in the ratio of their variables (what the house's power goes into), each in its colour. `thickness` is the ring's width in px (0 = a quarter of the radius).
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `series` | list |  |
+| `min` | f32 | `0.0` |
+| `max` | f32 | `100.0` |
+| `thickness` | i16 | `0` |
+| `show_value` | bool | `True` |
+| `font` | font_ref |  |
+
+## `sparkline`
+
+A small curve of one variable's recent history - no axes, no grid - to sit in a card beside the number. It scales itself to what it shows unless `min` and `max` are given; `fill` shades the area under the curve.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `timespan_s` | i32 | `3600` |
+| `sample_ms` | i32 | `30000` |
+| `min` | f32 |  |
+| `max` | f32 |  |
+| `fill` | bool | `True` |
+
+## `chart_item`
+
+One part of a chart (a node, a link, a column, a slice) - written by the build from the chart's own lists, never by hand.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `color` | color |  |
+| `label` | str |  |
 
 ---
 
