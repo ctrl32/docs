@@ -26,9 +26,12 @@ Schema version: **53** — the vocabulary of the project file. The compiled pack
 
 ## `panel`
 
+A card that groups widgets: its fill (bg), its border (fg) and its corner radius. With `opacity` between 1 and 99 the card is translucent - the picture under it shows through (a glass card over a photograph); 0 or 100 is the solid card.
+
 | Property | Type | Default |
 |---|---|---|
 | `radius` | i16 | `0` |
+| `opacity` | i16 | `0` |
 
 ## `list`
 
