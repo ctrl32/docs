@@ -15,6 +15,32 @@ other.
 
 ---
 
+## The widget library
+
+Every screen is built from the same widgets, sorted in the editor's
+Toolbox into six groups — basic, controls, indicators, charts, layout and
+text. Each family has its page:
+
+| | |
+|:---|:---|
+| [Controls](widgets-controls.md) | buttons, switches, sliders, inputs, checkboxes, dropdowns, rollers, spinboxes, button matrices, arcs, calendars, menus |
+| [Indicators](widgets-indicators.md) | lamps, bars, gauges, tables, scales, spinners, QR codes |
+| [Text and values](widgets-text.md) | labels, values, text areas, rich text |
+| [Charts](widgets-charts.md) | energy flow, columns, rings, sparklines, scatter |
+| [Trends and alarms](widgets-data.md) | trends and the alarm table |
+| [Containers](widgets-containers.md) | panels, lists, tabs, popups, tileviews, windows |
+| [Images and icons](widgets-graphics.md) | images, icons, lines, shapes, animated images |
+
+The home dashboard of the net32 showcase carries the newer widgets on two
+screens of its own — the controls and the display widgets, every one
+wired to a live value of the house:
+
+![The controls screen: checkboxes, a dropdown, a roller, a spinbox, an arc, a button matrix, a menu, a calendar, a tileview and a window](img/wl-controls.webp){: .sb-center}
+
+![The display screen: a table, scales, spinners, an animated fan, lines and shapes, a scatter, a QR code, a text area and rich text](img/wl-display.webp){: .sb-center}
+
+---
+
 ## The screens are data
 
 This is the idea the whole product rests on. Screens are not compiled

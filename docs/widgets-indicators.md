@@ -1,7 +1,8 @@
 # Indicators
 
-Three widgets that show a value without letting anyone change it: a lamp,
-a bar and a gauge.
+The widgets that show a value without letting anyone change it: a lamp,
+a bar and a gauge, and beside them a table, a scale, a spinner and a QR
+code.
 
 They are what somebody reads from across the room, so the question with
 each is not "does it show the value" but "can it be understood in half a
@@ -103,6 +104,102 @@ reads best. The dial in the i550 example does exactly that.
 The default 135° start with a 270° sweep is the familiar shape — bottom
 left, round the top, bottom right. Changing them gives you a half dial
 (start 180, sweep 180) or a quarter.
+
+---
+
+## `table`
+
+![A table of five places with their live values](img/wl-table.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `header` | text | | the first row, cells separated by `\|` |
+| `rows` | list | | the rows |
+| `font` | font | | how the cells are drawn |
+
+Rows of cells, the header drawn in the accent. A row is its `cells` —
+one text with the cells separated by a vertical bar, or a list — and a
+row with a variable shows the variable's live value **with its unit** as
+its last cell, right-aligned like numbers in a printed table.
+
+| Row key | Meaning |
+|:---|:---|
+| `cells` | the row's fixed cells |
+| `tag` | a variable whose value is the last cell |
+
+Several values that belong together — the rooms of a house, the axes of
+a gantry, the zones of an oven — read faster as a table than as the same
+number of separate value widgets, and cost one widget instead of ten.
+
+```yaml
+- type: table
+  rect: [40, 100, 468, 224]
+  header: "Place|Value"
+  rows:
+    - { cells: "Zone A", tag: temp_a }
+    - { cells: "Outside", tag: out_temp }
+    - { cells: [Note, "steady"] }
+```
+
+---
+
+## `scale`
+
+![A horizontal scale of the house power and an upright one of a zone temperature](img/wl-scale.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `tag` | variable | | where the pointer sits |
+| `min`, `max` | number | 0, 100 | the range |
+| `major` | number | 5 | numbered ticks |
+| `minor` | number | 4 | ticks between two numbered ones |
+| `orientation` | `horizontal` / `vertical` | horizontal | how it lies |
+| `font` | font | | how the numbers are drawn |
+
+A straight scale with numbered and small ticks. With a variable a
+pointer in the accent shows where the value sits on it.
+
+A scale is what a [`bar`](#bar) is missing when the position matters
+more than the fill: a pressure against its working range, a level
+against its marks. Laid upright beside a tank picture, it reads like the
+sight glass on the real one.
+
+---
+
+## `spinner`
+
+![Two spinners: one driven by a variable, one always turning](img/wl-spinner.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `tag` | variable | | turns only while it is true |
+| `period_ms` | ms | 1000 | one turn |
+| `thickness` | px | 0 | the arc's width; 0 = from the size |
+
+A turning arc that says *wait* or *busy*. With a variable it turns only
+while the variable is true and shows just its track otherwise — a homing
+run, a recipe being written, a drive ramping up.
+
+---
+
+## `qrcode`
+
+![A QR code of the board's own web address](img/wl-qrcode.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `text` | text | | what the code carries |
+
+A QR code of `text`, as large as the widget allows, drawn in fg on bg —
+keep them dark on light, the way every phone camera expects.
+
+The obvious use is the board's own address: a phone pointed at the
+panel opens the same screens in its browser. A link to the manual, a
+service form or the WiFi login of a guest network are the others.
+
+```yaml
+- { type: qrcode, rect: [872, 396, 150, 150], text: "http://192.168.0.172/" }
+```
 
 ---
 

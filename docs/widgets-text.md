@@ -1,6 +1,7 @@
 # Text and values
 
-Two widgets: one draws fixed text, the other draws a number that changes.
+Four widgets: one draws fixed text, one a number that changes, one a
+paragraph that wraps and one a sentence of mixed colours and live values.
 
 Between them they carry most of what a screen actually says, and the
 number widget is the fastest thing on any screen to read — worth
@@ -62,6 +63,72 @@ hard one. Together they give a warning stage and an action stage.
     readable from a distance and instantly tells the reader what this
     screen is *about*. Five numbers of the same size is a screen with no
     subject.
+
+---
+
+## `textarea`
+
+![A text area wrapping a paragraph at its own width](img/wl-textarea.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `text` | text | | what it shows |
+| `tag` | variable | | a text (`STRING`) variable to show instead |
+| `editable` | yes/no | no | a tap opens the keyboard |
+| `align` | `left` / `center` / `right` | left | how each line sits |
+| `font` | font | | how the text is drawn |
+
+Text over several lines, **wrapped at the widget's width** — a word that
+does not fit starts the next line, and a new line in the text starts a
+new line on the screen. An instruction next to a control, a note on a
+service page, a paragraph a [`label`](#label) would cut off.
+
+On a Linux device it can show a text (`STRING`) variable instead of its
+fixed text, and with `editable` a tap opens the keyboard: a note the
+shift leaves for the next one, a batch comment, a reason for a stop.
+
+```yaml
+- type: textarea
+  rect: [1036, 396, 204, 150]
+  text: "Scan the code: the same dashboard opens in the browser."
+```
+
+---
+
+## `rich_text`
+
+![One paragraph mixing words with two live values in a larger face](img/wl-rich_text.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `spans` | list | | the pieces of the paragraph |
+
+One paragraph made of **spans**, each with its own colour and font — a
+word in red, a value in a large face — flowing on and wrapping at the
+widget's width. A span with a variable shows its live value with the
+unit.
+
+| Span key | Meaning |
+|:---|:---|
+| `text` | the span's words |
+| `tag` | a variable whose value follows the words |
+| `color` | its colour |
+| `font` | its font |
+
+The spans join exactly as written: put the space between two spans
+where you want one. A value in the large numeric face carries its unit
+in the medium face beside it, the way the [`value`](#value) widget sets
+it.
+
+```yaml
+- type: rich_text
+  rect: [872, 566, 368, 124]
+  spans:
+    - { text: "Zone A is ", color: 0xF7BF, font: 1 }
+    - { text: "", tag: temp_a, color: 0xFD84, font: 2 }
+    - { text: " and the house takes ", color: 0x8CB5, font: 1 }
+    - { text: "", tag: house_power, color: 0x055E, font: 2 }
+```
 
 ---
 

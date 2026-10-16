@@ -1,7 +1,7 @@
 # Containers
 
-Four widgets that hold other widgets: a panel, a list, a set of tabs and
-a popup.
+Six widgets that hold other widgets: a panel, a list, a set of tabs, a
+popup, a tileview of swiped pages and a window.
 
 Containers do not show data. They give a screen structure — and structure
 is what makes the difference between a screen somebody reads and a screen
@@ -98,6 +98,81 @@ a sequence can start.
     a finger that is already moving — and the press lands on the popup
     instead of the button. For anything raised automatically, make the
     dismiss button somewhere a finger is unlikely to already be.
+
+---
+
+## `tileview`
+
+![A tileview on its first page of three, the dots underneath](img/wl-tileview.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `tag` | variable | | the number of the page shown |
+| `active` | number | 0 | the page shown first, without a variable |
+
+Pages — its children — switched by a **swipe** to the left or right,
+with a dot for each page underneath. On a phone this is the most natural
+way through a handful of similar pages: one zone per page, one pump per
+page.
+
+With a variable, the variable **is** the page number: a swipe writes it,
+and the logic or another widget can turn the page — a fault on pump 3
+can bring pump 3's page forward on its own.
+
+Every child is one page, laid out in the tileview's own frame. Make each
+page a [`panel`](#panel) and put the page's widgets inside it:
+
+```yaml
+- type: tileview
+  rect: [872, 396, 368, 140]
+  tag: page
+  children:
+    - type: panel
+      rect: [0, 0, 368, 140]
+      children:
+        - { type: value, rect: [16, 50, 300, 60], tag: temp_a }
+    - type: panel
+      rect: [0, 0, 368, 140]
+      children:
+        - { type: value, rect: [16, 50, 300, 60], tag: temp_b }
+```
+
+---
+
+## `window`
+
+![A window with its title bar and the X that closes it](img/wl-window.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `text` | text | | the title in the bar |
+| `tag` | variable | | written FALSE by the X |
+| `bar_height` | px | 32 | the height of the title bar |
+| `font` | font | | how the title is drawn |
+
+A body with a title bar in the accent. Its children sit under the bar,
+in the window's own frame.
+
+With a variable the bar carries an **X**, and the X writes the variable
+false. Give the window `visible_if` with the same variable and the X
+closes it; anything that sets the variable true again — a button, a
+checkbox, the logic reacting to an event — opens it.
+
+```yaml
+- type: window
+  rect: [872, 548, 368, 146]
+  text: "Window"
+  tag: win_open
+  visible_if: win_open
+  children:
+    - { type: label, rect: [12, 48, 340, 22], text: "X closes me" }
+```
+
+!!! tip "A window or a popup?"
+    A [`popup`](#popup) belongs to a moment — a question, a confirmation —
+    and covers the screen. A window is part of the screen: a detail
+    that can be put away and brought back, while everything around it
+    stays usable.
 
 ---
 
