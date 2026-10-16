@@ -18,6 +18,7 @@ remembering before reaching for a gauge.
 | `text` | text | | what it says |
 | `font` | font | | which face and size |
 | `align` | `left` / `center` / `right` | left | within its rectangle |
+| `valign` | `top` / `center` / `bottom` | top | where the line sits in the rectangle's height |
 
 Fixed text: a heading, a unit, a name beside a lamp, an instruction.
 
@@ -26,6 +27,10 @@ right against a column of values aligned left reads as a table, and the
 eye follows it without effort. The same labels aligned left produce a
 ragged gap between name and number that the reader has to cross every
 time.
+
+**A label beside a value.** A value always sits in the middle of its
+rectangle's height. Give the label next to it `valign: center` and the
+same height, and the two lines stand on one baseline.
 
 !!! warning "Check your language's accented characters early"
     A font baked without the right character range drops accents

@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **54** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **55** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -59,6 +59,7 @@ A card that groups widgets: its fill (bg), its border (fg) and its corner radius
 | `text` | str |  |
 | `font` | font_ref |  |
 | `align` | one of `left` / `center` / `right` | `left` |
+| `valign` | one of `top` / `center` / `bottom` | `top` |
 
 ## `value`
 
