@@ -119,8 +119,8 @@ the catalog boards built on it.
 | ESP32-S3-WROOM-1-N16 | 16 MB (quad) | - | Standard | LaskaKit ESP32-S3-DEVKit, S3 CAN setup, S3 SSD1963 setup |  |
 | ESP32-S3-WROOM-1-N16R16VA | 16 MB (quad) | 16 MB (octal) | Standard |  |  |
 | ESP32-S3-WROOM-1-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only |
-| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | Standard | ESP32-S3-DevKitC-1 (N16R8), MaTouch Lite ESP32-S3 3.95", Makerfabs Energy Meter, inoHMI32, inoHMI43, stepHMI32.4, stepHMI32.5 |  |
-| ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | Standard | M5Stack StamPLC, S3-DevKitC-1 WEBview setup |  |
+| ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | Standard | ESP32-S3-DevKitC-1 (N16R8), MaTouch Lite ESP32-S3 3.95", Makerfabs Energy Meter, Waveshare ESP32-S3 Knob 1.8", inoHMI32, inoHMI43, stepHMI32.4, stepHMI32.5 |  |
+| ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | Standard | M5Stack Dial, M5Stack StamPLC, S3-DevKitC-1 WEBview setup |  |
 | ESP32-S3-WROOM-1-N8R2 | 8 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only |
 | ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | Standard | Olimex ESP32-S3-DevKit-LiPo |  |
 | ESP32-S3-WROOM-1U-N16 | 16 MB (quad) | - | Standard |  | external antenna |
@@ -164,6 +164,7 @@ the catalog boards built on it.
 | LaskaKit ESPlan | ESP32 | - | yes | yes | - | yes | Compact | 2 |
 | LaskaKit RoboBoard ESP32 | ESP32 | - | - | yes | - | - | Compact | 2 |
 | LilyGO T-CAN485 | ESP32 | - | - | yes | yes | yes | on request | on request |
+| M5Stack Dial | ESP32-S3 | 240 x 240 | - | yes | - | - | Standard | 1 |
 | M5Stack StamPLC | ESP32-S3 | 240 x 135 | - | yes | yes | yes | Standard | 1 |
 | Makerfabs 8-Channel Button Controller | ESP32 | - | - | yes | - | - | Compact | 2 |
 | Makerfabs 8-Channel Relay | ESP32 | - | yes | yes | - | - | Compact | 2 |
@@ -196,6 +197,7 @@ the catalog boards built on it.
 | stepHMI32.7 | ESP32-S3 | 800 x 480 | - | yes | yes | yes | on request | on request |
 | T-Display setup | ESP32 | 240 x 135 | - | yes | - | - | Compact | 1 |
 | TTGO T-Display | ESP32 | 240 x 135 | - | yes | yes | yes | on request | on request |
+| Waveshare ESP32-S3 Knob 1.8" | ESP32-S3 | 360 x 360 | - | yes | - | - | Standard | 2 |
 
 Your own board: choose the module it carries, assign the pins, and the
 editor validates the wiring against the module's rules before anything is

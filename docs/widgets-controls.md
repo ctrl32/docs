@@ -374,6 +374,92 @@ two things:
 
 ---
 
+## `wheel`
+
+![A wheel of four icons on a round glass, the selected one at the top with its caption in the centre](img/wl-wheel.webp){: .sb-center}
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `tag` | variable | | the selected item's value, written as the ring turns |
+| `items` | list | | the icons on the ring (the `menu`'s rows) |
+| `icon_size` | px | 40 | the size of one icon |
+| `font` | font | | the caption in the centre |
+
+A ring of icons with their captions — the home screen of a round glass
+with a knob. The **selected item sits at the top**, the ring turns to
+bring the next one there, and the selected item's caption is drawn in the
+centre. The items are the menu's rows: a `text`, an `icon`, a `target`
+screen and an optional `value`.
+
+Three gestures, the same on the glass and in the browser:
+
+- **turning** the knob, dragging a finger along the ring or tapping an
+  icon **selects** — the item's `value` (its position when it has none)
+  is written to the variable at once, so the program sees the selection
+  live;
+- **pressing** the knob, tapping the centre or tapping the selected icon
+  a second time **activates** — an item with a `target` opens that
+  screen.
+
+Four to eight items read well; sixteen is the limit. The wheel takes the
+knob's turns directly while it has the focus — it is the thing being
+turned.
+
+```yaml
+- type: wheel
+  rect: [0, 0, 240, 240]
+  tag: page
+  icon_size: 40
+  items:
+    - { text: "Heating", icon: flame, target: heating }
+    - { text: "Light", icon: bulb, target: light }
+    - { text: "Fan", icon: propeller, target: fan }
+    - { text: "Setup", icon: settings, target: setup }
+```
+
+---
+
+## The knob
+
+A panel with an encoder around its glass is driven without a finger. The
+project names the encoder (one of its `encoders:`) and, when the encoder
+has one, its push button — a BOOL variable:
+
+```yaml
+encoders:
+  - { name: knob, a: 40, b: 41, mode: x4, position_tag: knob_pos }
+knob: { encoder: knob, button: knob_btn, steps: 4 }
+```
+
+From then on the glass behaves the way an encoder-driven interface is
+expected to:
+
+- a **turn moves the focus** between the screen's controls in drawing
+  order, wrapping at the end — the focused control wears a ring in its
+  accent colour;
+- a **press on a button**, a switch, a checkbox or a navigation button
+  acts, exactly as a tap would;
+- a **press on a value widget** — a slider, an arc, a roller, a spinbox,
+  a dropdown, a menu, a tileview, a calendar — enters **edit**: the ring
+  becomes solid and a turn changes the value (a slider or an arc walks
+  its range in fifty steps, a spinbox by its step, a list by one
+  option); a second press leaves edit;
+- a **long press** leaves edit, or, with nothing in edit, opens the
+  project's first screen — the way home;
+- a `wheel` takes the turns itself and a press activates its selected
+  item.
+
+A screen with a single control starts with it focused, so a page that is
+one arc turns at once. A tap on the glass moves the focus to what it
+touched; touch and knob live together. `steps` is the number of encoder
+counts per detent (4 = one quadrature cycle), `invert` turns the
+direction round.
+
+The browser follows the same rules from the keyboard: the arrow keys
+turn, Enter presses, Escape is the long press.
+
+---
+
 ## What controls do not do
 
 A control never acts directly on an output. It writes a variable; the

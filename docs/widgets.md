@@ -2,7 +2,7 @@
 
 # Widgets
 
-Schema version: **55** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **56** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -22,6 +22,7 @@ Schema version: **55** — the vocabulary of the project file. The compiled pack
 | `children` | list |  |
 | `state` | map — see [States and motion](states-motion.md) |  |
 | `move` | map — see [States and motion](states-motion.md) |  |
+| `rotate` | map |  |
 | `animations` | list — event-bound animations |  |
 
 ## `panel`
@@ -508,6 +509,17 @@ One paragraph made of `spans`, each with its own colour and font - a word in red
 | Property | Type | Default |
 |---|---|---|
 | `spans` | list |  |
+
+## `wheel`
+
+A ring of icons with their captions - the home screen of a round glass with a knob. The SELECTED item sits at 12 o'clock and the ring turns to bring the next one there: a knob turn, a drag along the ring or a tap on an icon selects, and the item's `value` (its index when it has none) is written to the variable at once; the selected item's caption is drawn in the centre. A knob press, a tap on the centre or a second tap on the selected icon ACTIVATES it: an item with a `target` opens that screen.
+
+| Property | Type | Default |
+|---|---|---|
+| `tag` | variable |  |
+| `items` | list |  |
+| `icon_size` | i16 | `40` |
+| `font` | font_ref |  |
 
 ---
 
