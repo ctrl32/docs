@@ -8,6 +8,74 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.05.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](deploy.md)) before it accepts a
+project saved by this editor, and the editor grows the round below.
+
+- **Twenty new widgets** complete the visualization library
+  ([Visualisation](visualisation.md)): checkbox, dropdown, roller,
+  spinbox and button matrix, an arc, a calendar and a menu on
+  [Controls](widgets-controls.md); a tile view and a window on
+  [Containers](widgets-containers.md); a table, a scale, a spinner and a
+  QR code on [Indicators](widgets-indicators.md); a line, a shape and an
+  animated image on [Images and icons](widgets-graphics.md); a text area
+  and rich text on [Text and values](widgets-text.md). Every one is
+  pictured on its page and works the same on the glass and in WEBview.
+- **Charts as widgets** ([Charts](widgets-charts.md)): an energy flow, a
+  bar chart, a donut, a sparkline and a scatter plot - and a **panel can
+  be translucent** (its opacity), so a card lets a photograph show through.
+- **The Toolbox is in groups** - Basic, Controls, Indicators, Charts,
+  Layout, Text - open at the start; a click folds one. The Hierarchy shows
+  a widget's text of several lines on one row.
+- **Turning and circling**
+  ([Images and icons](widgets-graphics.md#turning-and-circling)): an icon,
+  an image, a shape or a line turns to the angle a variable gives or spins
+  at a speed (a propeller at the fan's rpm), and a moving widget can run
+  on a circle - a marker round a dial.
+- **The wheel and the knob** ([Controls](widgets-controls.md#wheel)): a
+  ring of icons for a round screen, the chosen one at the top; and a
+  rotary encoder with a push button drives the whole screen - a turn moves
+  the highlight from control to control, a press presses a button or
+  opens a value for editing, a long press goes home. In WEBview the arrow
+  keys, Enter and Escape do the same.
+- **Round screens**: a panel whose glass is round is drawn round in the
+  editor and in WEBview. Two round knob panels join the hardware catalog
+  ([Supported hardware](modules.md)) - the **M5Stack Dial** and the
+  **Waveshare ESP32-S3 Knob 1.8"** - with a knob example project; their
+  pin maps come from the manufacturers' documentation and wait for a
+  bench check.
+- **A label aligns vertically** too (top, centre, bottom), and a style
+  picks its font by the font's name.
+- **Very large digits** (a clock of 96 px) draw on every panel; a panel
+  with little memory used to restart on the first such screen.
+- **A button or a switch on a variable that is not a BOOL** is refused at
+  the desk unless it names a bit, instead of doing nothing on the panel.
+- **The clocks**: a leading zero sits level with the digits.
+- **The MaTouch Lite's colours** are true now (the panel's gamma tables
+  travel with the project).
+- **The capacitive touch of an ESP32-P4 panel recovers on its own** when
+  its controller stops answering mid-run - it is found again, reset if
+  need be, and the diagnostic buffer says what happened; before, only a
+  restart brought the touch back.
+- **The STM32 panel watches its own picture loop**: a stall restarts the
+  panel after sixteen seconds and the next start says why (`wdt=` in the
+  device information, the place of the stall in the diagnostic buffer).
+- **A CANopen node that boots after the panel, reboots or drops to
+  pre-operational** is configured again and started; before, a fieldbus
+  module that came up late stayed pre-operational until the panel was
+  restarted ([CANopen](canopen.md)).
+- **Save and Save as** always write a `.prj32` named after the project in
+  its own folder, and a name with diacritics lands on disk as typed.
+- **Find devices: Use on a network row** puts the device's address into
+  the port box.
+- **Three example projects**: a house dashboard on the MaTouch ESP32-P4
+  7" (heating, climate, lights, energy and weather on photographs with
+  glass cards), a weather station on the MaTouch Lite ESP32-S3 3.95" with
+  a [node's](node.md) BME280 as its outdoor sensor, and the knob example
+  for the M5Stack Dial.
+
 ## 1.04.000
 
 A new line: every device takes a new runtime (over the network or over
