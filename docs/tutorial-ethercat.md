@@ -102,8 +102,8 @@ control, and the variables the blocks bind to.
 
 ![The axis wizard: the bus, the device from the library and the axis it will make](img/axis-wizard.webp){: .sb-center}
 
-From there the program is ordinary: `MC_POWER` to enable,
-`MC_MOVEVELOCITY` for a speed, the status word's bits for the lamps.
+From there the program is ordinary: `MC_Power` to enable,
+`MC_MoveVelocity` for a speed, the status word's bits for the lamps.
 
 ---
 

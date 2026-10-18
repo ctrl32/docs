@@ -34,7 +34,7 @@ END_PROGRAM
 <!-- /blk -->
 
 The CiA 402 state machine on its own. This is what
-[MC_POWER](blocks-motion.md#mc_power) uses underneath, exposed for when
+[MC_Power](blocks-motion.md#mc_power) uses underneath, exposed for when
 you want to build something the MC_ blocks do not cover.
 
 A CiA 402 drive is not controlled by writing a speed. There is a state

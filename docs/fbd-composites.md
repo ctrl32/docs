@@ -77,12 +77,12 @@ and carries the backend and its parameters:
 Blocks bound to an axis (they have an axis selector in the top bar of
 the diagram):
 
-- `MC_POWER` — switch the axis on (Status = axis in operation)
-- `MC_MOVEVELOCITY` — velocity; it also accepts a change of the
+- `MC_Power` — switch the axis on (Status = axis in operation)
+- `MC_MoveVelocity` — velocity; it also accepts a change of the
   setpoint while running
-- `MC_STOP` — controlled stop along the decel ramp
-- `MC_RESET`, `MC_READACTVEL`, `MC_READSTATUS`
-- positioning `MC_MOVEABS/MOVEREL/HOME/READACTPOS` (for the SPI
+- `MC_Stop` — controlled stop along the decel ramp
+- `MC_Reset`, `MC_ReadActualVelocity`, `MC_ReadStatus`
+- positioning `MC_MoveAbsolute/MOVEREL/HOME/READACTPOS` (for the SPI
   stepper backends POWERSTEP01 / TMC5160)
 - `CO_CIA402` — the core of the state machine (a building block for
   composites)
@@ -102,7 +102,7 @@ the diagram):
                       axis1 (CANopen node …)
 ```
 
-Inside: `MC_POWER` + `MC_MOVEVELOCITY` + `MC_READACTVEL`. STOP = dropping
+Inside: `MC_Power` + `MC_MoveVelocity` + `MC_ReadActualVelocity`. STOP = dropping
 Enable → the drive coasts down along its own decel ramp and disables
 itself. Read the diagnostics (current, torque, DC link, frequency …)
 with **CANopen data variables** and `gain` scaling (for example ‰ → A); no

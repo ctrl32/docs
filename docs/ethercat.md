@@ -110,8 +110,8 @@ nothing in between needs code.
 ## A drive on the line
 
 A CiA 402 drive is an **axis**, and the motion blocks command it the
-same way whether it sits on CANopen or on EtherCAT — `MC_POWER`,
-`MC_MOVEVELOCITY` and the rest do not know the difference. The axis
+same way whether it sits on CANopen or on EtherCAT — `MC_Power`,
+`MC_MoveVelocity` and the rest do not know the difference. The axis
 wizard makes the whole thing in one step: the slave from its
 description, the axis on its position, the start-up writes that put
 the drive in velocity mode under network control, and the variables
@@ -161,12 +161,12 @@ cycle it ramps the velocity the program asked for, integrates it into a
 32-bit position setpoint and sends it with the velocity as feed-forward;
 the drive's own position loop follows and reports its actual position
 and velocity back. The program does not see the difference: the same
-`MC_POWER` and `MC_MOVEVELOCITY` command a servo and a frequency
+`MC_Power` and `MC_MoveVelocity` command a servo and a frequency
 inverter, and `CO_RAMPTIME` sets the ramp the setpoint follows.
 
 *Add from library* recognises a servo by its description and lays it
 out: the csp pair of process data objects travels, and beside it the
-**torque limits** object when the device has one (`MC_SETTORQUELIMIT`
+**torque limits** object when the device has one (`MC_SetTorqueLimit`
 holds the limits on the drive through it; while no block does, the
 device writes the limits the drive had at its configuration every
 cycle - an object a drive takes from the image every cycle can never be
@@ -175,17 +175,21 @@ vendor also assigns stays off. The assignment is declared among the
 start-up writes, and the slave's window shows the mode *cyclic position
 (csp)* with the byte offsets of the 32-bit words - the target position,
 the actual position, the actual velocity, the velocity offset, the
-torque offset (the acceleration feed-forward `MC_TORQUEFF` writes),
+torque offset (the acceleration feed-forward `MC_TorqueFF` writes),
 the torque limits, the actual torque, and the mode inside the receive
 object, which such a drive wants every cycle. A servo can be declared
 in **cyclic torque** mode (cst) instead: its setpoint is then the target
-torque `MC_TORQUECONTROL` commands and the window names the speed
+torque `MC_TorqueControl` commands and the window names the speed
 limits the drive holds it under - the cst pair of objects replaces the
 csp pair (the i700 excludes the one when the other is assigned). Two numbers describe the
 drive's units: the increments of one motor revolution (65536 on these
 drives) and the velocity units per rpm (Lenze counts 2^31-1 for
 480 000 rpm; the description's dictionary carries the figure, and a
-drive without a dictionary takes the vendor's known unit). A **double
+drive without a dictionary takes the vendor's known unit). The axis's
+own window then says what the program speaks: `units_per_rev` (65536 =
+the positions ARE the increments) and the time base of velocities -
+`rpm` on such a servo, so the phases are increments and every speed on a
+screen is rpm (see [Motion blocks](blocks-motion.md)). A **double
 inverter** carries two axes in one slave: the window names where axis
 B's words begin, and an axis on it picks *A* or *B*.
 
@@ -194,11 +198,11 @@ B's words begin, and an axis on it picks *A* or *B*.
 A line shaft needs a master, and the master need not be a drive. *Add
 virtual master axis* on the EtherCAT node makes an axis with nothing
 behind it: the program powers it and commands it like any axis
-(`MC_POWER`, `MC_MOVEVELOCITY`, `CO_RAMPTIME`, `MC_MOVEABS`), the device
+(`MC_Power`, `MC_MoveVelocity`, `CO_RAMPTIME`, `MC_MoveAbsolute`), the device
 runs its profile every bus cycle, and every follower geared to it with
-`MC_GEARIN` sees the commanded position of the same cycle - the line's
+`MC_GearIn` sees the commanded position of the same cycle - the line's
 one clock. A drum that only takes a speed follows its velocity
-(`MC_READACTVEL`); a drum that must be in register is geared to it in
+(`MC_ReadActualVelocity`); a drum that must be in register is geared to it in
 position like the plates. The axis's window has one more choice: a
 **source** variable - a 32-bit integer counter, such as the drum's
 encoder on the drive's input B mapped as a process-data signal - and

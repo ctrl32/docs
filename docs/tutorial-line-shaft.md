@@ -59,8 +59,8 @@ spare drive swapped into the line gets its set at the next start.
 ## 3. The master lives its own life
 
 The drum of a press is a drive that gets a velocity and a ramp and
-nothing more. `servo1` plays the drum: `MC_POWER`, `CO_RAMPTIME` for
-its ramp and `MC_MOVEVELOCITY` with the operator's setpoint.
+nothing more. `servo1` plays the drum: `MC_Power`, `CO_RAMPTIME` for
+its ramp and `MC_MoveVelocity` with the operator's setpoint.
 
 What the followers gear to is not the drum's setpoint but its
 **measured position** — on a press the encoder on the drum, here
@@ -78,23 +78,29 @@ for a line where the drum too is geared in position.
 
 ## 4. The followers in gear
 
-Each follower gears to the virtual master with `MC_GEARINPOS`: a
-rational ratio (`RatioNum`/`RatioDen`) and a defined relation of the
-two positions — when the master stands at `MasterSync` the follower
-stands at `SlaveSync`, in increments. In the example's program:
+Each follower gears to the virtual master with `MC_GearInPos`: a
+rational ratio (`RatioNumerator`/`RatioDenominator`, whole numbers) and
+a defined relation of the two positions — when the master stands at
+`MasterSyncPosition` the follower stands at `SlaveSyncPosition`, in the
+axes' units. In the example's program (the ratio comes from REAL
+setpoints on a screen, so it is named as a whole number):
 
 ```st
 gi2v(AXIS := 2, Execute := line_on AND line_src, Delay := line_tau2 / 1000.0,
-     MasterSync := 0.0, SlaveSync := ph2,
-     Master := 4, RatioNum := r2_num, RatioDen := r2_den, Velocity := 20000.0);
+     MasterSyncPosition := 0.0, SlaveSyncPosition := ph2,
+     Master := 4, RatioNumerator := REAL_TO_INT(r2_num),
+     RatioDenominator := REAL_TO_INT(r2_den), Velocity := 18.0);
 s2_insync := gi2v.InSync;
 s2_reg    := gi2v.Register;
 ```
 
+The example's servo axes count increments (`units_per_rev` 65536) and
+speak rpm (`velocity_per: rpm`), so the phases are plain increments and
+every velocity on a screen is rpm - the way a servo's own tools show them.
 At gear-in the follower moves the shortest way into the relation at
-`Velocity` increments per second, then follows the master's measured
-position every bus cycle with the velocity feed-forward. While
-`Execute` holds, a changed `SlaveSync` is a further move — the
+`Velocity` (18 rpm here), then follows the master's
+measured position every bus cycle with the velocity feed-forward. While
+`Execute` holds, a changed `SlaveSyncPosition` is a further move — the
 operator's register trim — and a changed ratio is applied the moment
 the line stands still. `InSync` is in gear and in the relation;
 `Register` is the follower's actual position against the master's
@@ -159,7 +165,7 @@ the numbers back and the gear-in was in sync at once, with no movement.
 ## 7. The feed-forward
 
 A position loop produces the torque a ramp needs by falling behind
-first. `MC_TORQUEFF` hands the drive that torque up front: a gain times
+first. `MC_TorqueFF` hands the drive that torque up front: a gain times
 the acceleration the setpoint asks for, written as the drive's torque
 offset every cycle. The line screen has one gain for both followers.
 On a bare motor the inertia torque is under a per cent even at a hard
@@ -189,8 +195,8 @@ overshoots.
 
 - [EtherCAT](ethercat.md) — the reference: the device window tab by
   tab, the cyclic position mode, the virtual master.
-- [Motion blocks](blocks-motion.md) — `MC_GEARIN`, `MC_GEARINPOS`,
-  `MC_PHASING`, the torque blocks and the feed-forward.
+- [Motion blocks](blocks-motion.md) — `MC_GearIn`, `MC_GearInPos`,
+  `MC_PhasingAbsolute`, the torque blocks and the feed-forward.
 - [Recipes](recipes.md) — where the sets live and what a load does.
 - [reTerminal, the drive on EtherCAT](example-reterminal-ecat.md) —
   the project this page walks, with the bench's measurements.

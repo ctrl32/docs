@@ -110,9 +110,9 @@ rd1(AXIS := 1, Enable := TRUE);
 s1_act := rd1.Velocity;
 ```
 
-`MC_POWER` enables the drive, `MC_MOVEVELOCITY` sets the velocity - the
+`MC_Power` enables the drive, `MC_MoveVelocity` sets the velocity - the
 device ramps it and integrates it into the setpoint the drive follows -
-and `MC_READACTVEL` reads the actual velocity back. The variables
+and `MC_ReadActualVelocity` reads the actual velocity back. The variables
 `s1_en`, `s1_go` and `s1_rpm` are what the servo screen's buttons and
 slider write; the program is there to be copied.
 
@@ -123,7 +123,7 @@ slider write; the program is there to be copied.
 ![The line-shaft screen: the master's run and ramp, the gear switch, the compensated delay, the two registers live and at their peaks, and their trend](img/example-reterminal-ecat-line.webp){: .sb-center}
 
 The same program gears the double's two axes to the single with
-`MC_GEARIN` - ratio 1:1, the master's measured position every bus
+`MC_GearIn` - ratio 1:1, the master's measured position every bus
 cycle - and reads each follower's **register** (its actual position
 against the master's, in increments; 65536 = one revolution) into a
 variable, with a peak the RESET PEAKS button clears. `CO_RAMPTIME`
@@ -218,7 +218,7 @@ The example keeps them as a **recipe** named `job` (the *Jobs* screen,
 on the glass and in the browser): the master's setpoint, the two
 followers' ratios as numerator and denominator, and their phases in
 increments of the follower's revolution. The followers gear to the
-virtual master through `MC_GEARINPOS` with the job's ratio and phase:
+virtual master through `MC_GearInPos` with the job's ratio and phase:
 at gear-in each follower moves the shortest way into "master at 0,
 follower at its phase", a phase edited on the screen while the line
 runs is a smooth move to the new relation (the register trim), a ratio
@@ -230,7 +230,7 @@ the drives' positions are absolute, nothing has to be homed. *Load*,
 say when a follower is in its relation.
 
 The line screen's *acc FF gain* field is the followers' acceleration
-feed-forward (`MC_TORQUEFF`, one gain for both, 0 = off) and the two
+feed-forward (`MC_TorqueFF`, one gain for both, 0 = off) and the two
 *offset* values show the torque offset each follower writes to its
 drive. On the bench the field stays at 0: a bare motor's inertia
 torque is under a per cent even at 25 revolutions per second squared,
@@ -311,7 +311,7 @@ picture nobody had time to read is dropped, never a cycle.
 ## Worth copying
 
 - **A bus is a section, a drive is an axis.** The program never knows
-  which bus its axis rides; `MC_POWER` and `MC_MOVEVELOCITY` inside
+  which bus its axis rides; `MC_Power` and `MC_MoveVelocity` inside
   `DRIVE_i550` are the same blocks over CANopen and over EtherCAT - and
   the same blocks command a servo in csp.
 - **Signals, not code.** A byte range of a slave's image, a variable,

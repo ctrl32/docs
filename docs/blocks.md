@@ -19,7 +19,7 @@ them.
 | [Comparison](blocks-compare.md) | GT, GE, LT, LE, EQ, SEL | decisions on numbers |
 | [Signal handling](blocks-signal.md) | SCALE, LIMIT, HYST, RAMP, PT1 | turning a raw value into a usable one |
 | [Equipment blocks](blocks-equipment.md) | MOTOR, VALVE, PID | starters, valves and a controller, ready made |
-| [Motion](blocks-motion.md) | MC_POWER, MC_MOVEVELOCITY, MC_MOVEABS, … | driving an axis |
+| [Motion](blocks-motion.md) | MC_Power, MC_MoveVelocity, MC_MoveAbsolute, … | driving an axis |
 | [CANopen](blocks-can.md) | CO_CIA402, CO_SDOWRITE, CO_SDOREAD, CO_RAMPTIME | talking to a drive directly |
 | [Services](blocks-services.md) | IR_SEND, SMS_SEND, GSM_INFO | infrared, SMS, modem state |
 | [Home automation](blocks-home.md) | PUSHBUTTON, TOGGLE, STAIRLIGHT, DIMMER, BLINDS, THERMOSTAT, DAYTIME, ASTRO, SCHEDULE, SCENE, GATE, VENT, … | a house: wall buttons, lights, blinds, rooms, the clock and the sun |

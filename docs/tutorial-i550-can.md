@@ -164,11 +164,11 @@ wizard's variables:
 ![The five rungs](img/i550-ladder.webp){: .sb-center}
 
 ```
-1  |--[ enable ]--[ MC_POWER ]------------------( ready )--|      Error -> fault
-2  |--[ run ]--[ MC_MOVEVELOCITY  Velocity=speed ]--( running )--|
-3  |--[ stop ]--[ MC_STOP ]--------------------( stopped )--|
-4  |--[ reset ]--[ MC_RESET ]------------------( cleared )--|
-5  |----[ MC_READACTVEL ]---->                                    Velocity -> velocity
+1  |--[ enable ]--[ MC_Power ]------------------( ready )--|      Error -> fault
+2  |--[ run ]--[ MC_MoveVelocity  Velocity=speed ]--( running )--|
+3  |--[ stop ]--[ MC_Stop ]--------------------( stopped )--|
+4  |--[ reset ]--[ MC_Reset ]------------------( cleared )--|
+5  |----[ MC_ReadActualVelocity ]---->                                    Velocity -> velocity
 ```
 
 For each rung: *+ Rung*, a contact bound to the variable, then the block
@@ -178,14 +178,14 @@ other pins are bound in the block's sheet or in **Properties**:
 
 | Block | Pins to bind | What it does |
 |:---|:---|:---|
-| `MC_POWER` | `Error` → `fault` | enables the drive while `enable` is TRUE; `ready` = the drive reports it is enabled |
-| `MC_MOVEVELOCITY` | `Velocity` ← `speed`; `Direction` stays `0` | runs at the setpoint while `run` is TRUE; `running` = the drive is at speed |
-| `MC_STOP` | — | a controlled stop along the drive's deceleration ramp |
-| `MC_RESET` | — | acknowledges a drive fault |
-| `MC_READACTVEL` | `Velocity` → `velocity` | the measured speed, every cycle |
+| `MC_Power` | `Error` → `fault` | enables the drive while `enable` is TRUE; `ready` = the drive reports it is enabled |
+| `MC_MoveVelocity` | `Velocity` ← `speed`; `Direction` stays at its default (`mcPositiveDirection`) | runs at the setpoint while `run` is TRUE; `running` = the drive is at speed |
+| `MC_Stop` | — | a controlled stop along the drive's deceleration ramp |
+| `MC_Reset` | — | acknowledges a drive fault |
+| `MC_ReadActualVelocity` | `Velocity` → `velocity` | the measured speed, every cycle |
 
 Two variables are not from the wizard: `stopped` and `cleared`, the
-`Done` outputs of `MC_STOP` and `MC_RESET`. A rung wants a result; add
+`Done` outputs of `MC_Stop` and `MC_Reset`. A rung wants a result; add
 them in `VAR` as `BOOL` before drawing rungs 3 and 4.
 
 Every motion block names its axis. With one axis in the project it is

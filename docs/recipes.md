@@ -68,7 +68,7 @@ A program download keeps the sets. The device page shows `rc=<definitions>,<sets
 
 A recipe is also how a line shaft carries its jobs: the speed, the ratio
 of every follower and its phase are members of one definition, the
-followers gear in through `MC_GEARINPOS` with those numbers, and a job
+followers gear in through `MC_GearInPos` with those numbers, and a job
 loaded at standstill re-gears and re-phases the line (the reTerminal
 EtherCAT example's *Jobs* screen).
 
