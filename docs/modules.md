@@ -32,9 +32,9 @@ screens to a phone either way.
 | Variables | 128 | 512 | 20480 |
 | Alarms | 32 | 128 | 4096 |
 | Program blocks | 128 | 512, 1024 headless | 40960 |
-| Drive axes | 1 | 4 | 32 |
-| Screens | 32 | 32 | 320 |
-| Trend traces | 4 | 4, 8 on ESP32-S3 and ESP32-P4 | 8 |
+| Drive axes | 1 | 4 | 64 |
+| Screens | 32 | 32 | 1024 |
+| Trend traces | 4 | 4, 8 on ESP32-S3 and ESP32-P4 | 32 |
 | Phone viewers at once | 1 with a display, 2 headless | 2 | many |
 | Network | Ethernet, WiFi when memory allows | Ethernet and WiFi | Ethernet and WiFi |
 | Recipes | 4 definitions, 8 sets each | 8 definitions, 64 sets each | 8 definitions, 64 sets each |

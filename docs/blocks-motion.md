@@ -255,6 +255,97 @@ END_PROGRAM
 
 <!-- /blk -->
 
+<!-- blk:MC_Power -->
+**MC_Power**
+
+![MC_Power on a rung](img/blk-mcpow-ld.webp)
+
+```iecst
+PROGRAM MC_Power_ST
+VAR mcpow : MC_Power; END_VAR
+  mcpow(AXIS := 0, Enable := mcpow_enable,
+        Enable_Positive := mcpow_enable_positive,
+        Enable_Negative := mcpow_enable_negative);
+  mcpow_status_st := mcpow.Status;
+  mcpow_valid_st := mcpow.Valid;
+  mcpow_error_st := mcpow.Error;
+  mcpow_errorid_st := mcpow.ErrorID;
+END_PROGRAM
+```
+
+![MC_Power on the WEBview screen](img/blk-mcpow-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_Reset -->
+**MC_Reset**
+
+![MC_Reset on a rung](img/blk-mcrst-ld.webp)
+
+```iecst
+PROGRAM MC_Reset_ST
+VAR mcrst : MC_Reset; END_VAR
+  mcrst(AXIS := 0, Execute := mcrst_execute);
+  mcrst_done_st := mcrst.Done;
+  mcrst_busy_st := mcrst.Busy;
+  mcrst_error_st := mcrst.Error;
+  mcrst_errorid_st := mcrst.ErrorID;
+END_PROGRAM
+```
+
+![MC_Reset on the WEBview screen](img/blk-mcrst-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadStatus -->
+**MC_ReadStatus**
+
+![MC_ReadStatus on a rung](img/blk-mcstat-ld.webp)
+
+```iecst
+PROGRAM MC_ReadStatus_ST
+VAR mcstat : MC_ReadStatus; END_VAR
+  mcstat(AXIS := 0, Enable := mcstat_enable);
+  mcstat_valid_st := mcstat.Valid;
+  mcstat_busy_st := mcstat.Busy;
+  mcstat_error_st := mcstat.Error;
+  mcstat_errorid_st := mcstat.ErrorID;
+  mcstat_errorstop_st := mcstat.ErrorStop;
+  mcstat_disabled_st := mcstat.Disabled;
+  mcstat_stopping_st := mcstat.Stopping;
+  mcstat_homing_st := mcstat.Homing;
+  mcstat_standstill_st := mcstat.Standstill;
+  mcstat_discretemotion_st := mcstat.DiscreteMotion;
+  mcstat_continuousmotion_st := mcstat.ContinuousMotion;
+  mcstat_synchronizedmotion_st := mcstat.SynchronizedMotion;
+END_PROGRAM
+```
+
+![MC_ReadStatus on the WEBview screen](img/blk-mcstat-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadAxisError -->
+**MC_ReadAxisError**
+
+![MC_ReadAxisError on a rung](img/blk-mcrerr-ld.webp)
+
+```iecst
+PROGRAM MC_ReadAxisError_ST
+VAR mcrerr : MC_ReadAxisError; END_VAR
+  mcrerr(AXIS := 0, Enable := mcrerr_enable);
+  mcrerr_valid_st := mcrerr.Valid;
+  mcrerr_busy_st := mcrerr.Busy;
+  mcrerr_error_st := mcrerr.Error;
+  mcrerr_errorid_st := mcrerr.ErrorID;
+  mcrerr_axiserrorid_st := mcrerr.AxisErrorID;
+END_PROGRAM
+```
+
+![MC_ReadAxisError on the WEBview screen](img/blk-mcrerr-web.webp)
+
+<!-- /blk -->
+
 ---
 
 ## Making it move
@@ -363,6 +454,233 @@ Moves the coordinate system, not the axis.
 | `Enable` | input, bool | |
 | `VelFactor`, `AccFactor`, `JerkFactor` | parameters (1.0) | 0 to 1: the factor every running and coming command is scaled by |
 | `Enabled`, `Busy`, `Error`, `ErrorID` | outputs | |
+
+<!-- blk:MC_MoveVelocity -->
+**MC_MoveVelocity**
+
+![MC_MoveVelocity on a rung](img/blk-mcvel-ld.webp)
+
+```iecst
+PROGRAM MC_MoveVelocity_ST
+VAR mcvel : MC_MoveVelocity; END_VAR
+  mcvel(AXIS := 0, Execute := mcvel_execute,
+        Velocity := mcvel_velocity,
+        ContinuousUpdate := mcvel_continuousupdate,
+        Acceleration := mcvel_acceleration,
+        Deceleration := mcvel_deceleration, Jerk := mcvel_jerk,
+        Direction := mcvel_direction,
+        BufferMode := mcvel_buffermode);
+  mcvel_invelocity_st := mcvel.InVelocity;
+  mcvel_busy_st := mcvel.Busy;
+  mcvel_active_st := mcvel.Active;
+  mcvel_commandaborted_st := mcvel.CommandAborted;
+  mcvel_error_st := mcvel.Error;
+  mcvel_errorid_st := mcvel.ErrorID;
+END_PROGRAM
+```
+
+![MC_MoveVelocity on the WEBview screen](img/blk-mcvel-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_Halt -->
+**MC_Halt**
+
+![MC_Halt on a rung](img/blk-mchlt-ld.webp)
+
+```iecst
+PROGRAM MC_Halt_ST
+VAR mchlt : MC_Halt; END_VAR
+  mchlt(AXIS := 0, Execute := mchlt_execute,
+        Deceleration := mchlt_deceleration, Jerk := mchlt_jerk,
+        BufferMode := mchlt_buffermode);
+  mchlt_done_st := mchlt.Done;
+  mchlt_busy_st := mchlt.Busy;
+  mchlt_active_st := mchlt.Active;
+  mchlt_commandaborted_st := mchlt.CommandAborted;
+  mchlt_error_st := mchlt.Error;
+  mchlt_errorid_st := mchlt.ErrorID;
+END_PROGRAM
+```
+
+![MC_Halt on the WEBview screen](img/blk-mchlt-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_Stop -->
+**MC_Stop**
+
+![MC_Stop on a rung](img/blk-mcstop-ld.webp)
+
+```iecst
+PROGRAM MC_Stop_ST
+VAR mcstop : MC_Stop; END_VAR
+  mcstop(AXIS := 0, Execute := mcstop_execute,
+         Deceleration := mcstop_deceleration,
+         Jerk := mcstop_jerk);
+  mcstop_done_st := mcstop.Done;
+  mcstop_busy_st := mcstop.Busy;
+  mcstop_active_st := mcstop.Active;
+  mcstop_commandaborted_st := mcstop.CommandAborted;
+  mcstop_error_st := mcstop.Error;
+  mcstop_errorid_st := mcstop.ErrorID;
+END_PROGRAM
+```
+
+![MC_Stop on the WEBview screen](img/blk-mcstop-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_MoveAbsolute -->
+**MC_MoveAbsolute**
+
+![MC_MoveAbsolute on a rung](img/blk-mcabs-ld.webp)
+
+```iecst
+PROGRAM MC_MoveAbsolute_ST
+VAR mcabs : MC_MoveAbsolute; END_VAR
+  mcabs(AXIS := 0, Execute := mcabs_execute,
+        Position := mcabs_position, Velocity := mcabs_velocity,
+        ContinuousUpdate := mcabs_continuousupdate,
+        Acceleration := mcabs_acceleration,
+        Deceleration := mcabs_deceleration, Jerk := mcabs_jerk,
+        Direction := mcabs_direction,
+        BufferMode := mcabs_buffermode);
+  mcabs_done_st := mcabs.Done;
+  mcabs_busy_st := mcabs.Busy;
+  mcabs_active_st := mcabs.Active;
+  mcabs_commandaborted_st := mcabs.CommandAborted;
+  mcabs_error_st := mcabs.Error;
+  mcabs_errorid_st := mcabs.ErrorID;
+END_PROGRAM
+```
+
+![MC_MoveAbsolute on the WEBview screen](img/blk-mcabs-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_MoveRelative -->
+**MC_MoveRelative**
+
+![MC_MoveRelative on a rung](img/blk-mcrel-ld.webp)
+
+```iecst
+PROGRAM MC_MoveRelative_ST
+VAR mcrel : MC_MoveRelative; END_VAR
+  mcrel(AXIS := 0, Execute := mcrel_execute,
+        Distance := mcrel_distance, Velocity := mcrel_velocity,
+        ContinuousUpdate := mcrel_continuousupdate,
+        Acceleration := mcrel_acceleration,
+        Deceleration := mcrel_deceleration, Jerk := mcrel_jerk,
+        BufferMode := mcrel_buffermode);
+  mcrel_done_st := mcrel.Done;
+  mcrel_busy_st := mcrel.Busy;
+  mcrel_active_st := mcrel.Active;
+  mcrel_commandaborted_st := mcrel.CommandAborted;
+  mcrel_error_st := mcrel.Error;
+  mcrel_errorid_st := mcrel.ErrorID;
+END_PROGRAM
+```
+
+![MC_MoveRelative on the WEBview screen](img/blk-mcrel-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_MoveAdditive -->
+**MC_MoveAdditive**
+
+![MC_MoveAdditive on a rung](img/blk-mcadd-ld.webp)
+
+```iecst
+PROGRAM MC_MoveAdditive_ST
+VAR mcadd : MC_MoveAdditive; END_VAR
+  mcadd(AXIS := 0, Execute := mcadd_execute,
+        Distance := mcadd_distance, Velocity := mcadd_velocity,
+        ContinuousUpdate := mcadd_continuousupdate,
+        Acceleration := mcadd_acceleration,
+        Deceleration := mcadd_deceleration, Jerk := mcadd_jerk,
+        BufferMode := mcadd_buffermode);
+  mcadd_done_st := mcadd.Done;
+  mcadd_busy_st := mcadd.Busy;
+  mcadd_active_st := mcadd.Active;
+  mcadd_commandaborted_st := mcadd.CommandAborted;
+  mcadd_error_st := mcadd.Error;
+  mcadd_errorid_st := mcadd.ErrorID;
+END_PROGRAM
+```
+
+![MC_MoveAdditive on the WEBview screen](img/blk-mcadd-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_Home -->
+**MC_Home**
+
+![MC_Home on a rung](img/blk-mchome-ld.webp)
+
+```iecst
+PROGRAM MC_Home_ST
+VAR mchome : MC_Home; END_VAR
+  mchome(AXIS := 0, Execute := mchome_execute,
+         Position := mchome_position,
+         BufferMode := mchome_buffermode);
+  mchome_done_st := mchome.Done;
+  mchome_busy_st := mchome.Busy;
+  mchome_active_st := mchome.Active;
+  mchome_commandaborted_st := mchome.CommandAborted;
+  mchome_error_st := mchome.Error;
+  mchome_errorid_st := mchome.ErrorID;
+END_PROGRAM
+```
+
+![MC_Home on the WEBview screen](img/blk-mchome-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_SetPosition -->
+**MC_SetPosition**
+
+![MC_SetPosition on a rung](img/blk-mcspos-ld.webp)
+
+```iecst
+PROGRAM MC_SetPosition_ST
+VAR mcspos : MC_SetPosition; END_VAR
+  mcspos(AXIS := 0, Execute := mcspos_execute,
+         Position := mcspos_position, Mode := mcspos_mode,
+         ExecutionMode := mcspos_executionmode);
+  mcspos_done_st := mcspos.Done;
+  mcspos_busy_st := mcspos.Busy;
+  mcspos_error_st := mcspos.Error;
+  mcspos_errorid_st := mcspos.ErrorID;
+END_PROGRAM
+```
+
+![MC_SetPosition on the WEBview screen](img/blk-mcspos-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_SetOverride -->
+**MC_SetOverride**
+
+![MC_SetOverride on a rung](img/blk-mcovr-ld.webp)
+
+```iecst
+PROGRAM MC_SetOverride_ST
+VAR mcovr : MC_SetOverride; END_VAR
+  mcovr(AXIS := 0, Enable := mcovr_enable,
+        VelFactor := mcovr_velfactor,
+        AccFactor := mcovr_accfactor,
+        JerkFactor := mcovr_jerkfactor);
+  mcovr_enabled_st := mcovr.Enabled;
+  mcovr_busy_st := mcovr.Busy;
+  mcovr_error_st := mcovr.Error;
+  mcovr_errorid_st := mcovr.ErrorID;
+END_PROGRAM
+```
+
+![MC_SetOverride on the WEBview screen](img/blk-mcovr-web.webp)
+
+<!-- /blk -->
 
 <!-- blk:MC_MoveVelocity -->
 **MC_MoveVelocity**
@@ -817,6 +1135,214 @@ END_PROGRAM
 
 <!-- /blk -->
 
+<!-- blk:MC_ReadActualPosition -->
+**MC_ReadActualPosition**
+
+![MC_ReadActualPosition on a rung](img/blk-mcrpos-ld.webp)
+
+```iecst
+PROGRAM MC_ReadActualPosition_ST
+VAR mcrpos : MC_ReadActualPosition; END_VAR
+  mcrpos(AXIS := 0, Enable := mcrpos_enable);
+  mcrpos_valid_st := mcrpos.Valid;
+  mcrpos_busy_st := mcrpos.Busy;
+  mcrpos_error_st := mcrpos.Error;
+  mcrpos_errorid_st := mcrpos.ErrorID;
+  mcrpos_position_st := mcrpos.Position;
+END_PROGRAM
+```
+
+![MC_ReadActualPosition on the WEBview screen](img/blk-mcrpos-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadActualVelocity -->
+**MC_ReadActualVelocity**
+
+![MC_ReadActualVelocity on a rung](img/blk-mcrvel-ld.webp)
+
+```iecst
+PROGRAM MC_ReadActualVelocity_ST
+VAR mcrvel : MC_ReadActualVelocity; END_VAR
+  mcrvel(AXIS := 0, Enable := mcrvel_enable);
+  mcrvel_valid_st := mcrvel.Valid;
+  mcrvel_busy_st := mcrvel.Busy;
+  mcrvel_error_st := mcrvel.Error;
+  mcrvel_errorid_st := mcrvel.ErrorID;
+  mcrvel_velocity_st := mcrvel.Velocity;
+END_PROGRAM
+```
+
+![MC_ReadActualVelocity on the WEBview screen](img/blk-mcrvel-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadActualTorque -->
+**MC_ReadActualTorque**
+
+![MC_ReadActualTorque on a rung](img/blk-mcrtrq-ld.webp)
+
+```iecst
+PROGRAM MC_ReadActualTorque_ST
+VAR mcrtrq : MC_ReadActualTorque; END_VAR
+  mcrtrq(AXIS := 0, Enable := mcrtrq_enable);
+  mcrtrq_valid_st := mcrtrq.Valid;
+  mcrtrq_busy_st := mcrtrq.Busy;
+  mcrtrq_error_st := mcrtrq.Error;
+  mcrtrq_errorid_st := mcrtrq.ErrorID;
+  mcrtrq_torque_st := mcrtrq.Torque;
+END_PROGRAM
+```
+
+![MC_ReadActualTorque on the WEBview screen](img/blk-mcrtrq-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadMotionState -->
+**MC_ReadMotionState**
+
+![MC_ReadMotionState on a rung](img/blk-mcrms-ld.webp)
+
+```iecst
+PROGRAM MC_ReadMotionState_ST
+VAR mcrms : MC_ReadMotionState; END_VAR
+  mcrms(AXIS := 0, Enable := mcrms_enable,
+        Source := mcrms_source);
+  mcrms_valid_st := mcrms.Valid;
+  mcrms_busy_st := mcrms.Busy;
+  mcrms_error_st := mcrms.Error;
+  mcrms_errorid_st := mcrms.ErrorID;
+  mcrms_constantvelocity_st := mcrms.ConstantVelocity;
+  mcrms_accelerating_st := mcrms.Accelerating;
+  mcrms_decelerating_st := mcrms.Decelerating;
+  mcrms_directionpositive_st := mcrms.DirectionPositive;
+  mcrms_directionnegative_st := mcrms.DirectionNegative;
+END_PROGRAM
+```
+
+![MC_ReadMotionState on the WEBview screen](img/blk-mcrms-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadAxisInfo -->
+**MC_ReadAxisInfo**
+
+![MC_ReadAxisInfo on a rung](img/blk-mcrai-ld.webp)
+
+```iecst
+PROGRAM MC_ReadAxisInfo_ST
+VAR mcrai : MC_ReadAxisInfo; END_VAR
+  mcrai(AXIS := 0, Enable := mcrai_enable);
+  mcrai_valid_st := mcrai.Valid;
+  mcrai_busy_st := mcrai.Busy;
+  mcrai_error_st := mcrai.Error;
+  mcrai_errorid_st := mcrai.ErrorID;
+  mcrai_homeabsswitch_st := mcrai.HomeAbsSwitch;
+  mcrai_limitswitchpos_st := mcrai.LimitSwitchPos;
+  mcrai_limitswitchneg_st := mcrai.LimitSwitchNeg;
+  mcrai_simulation_st := mcrai.Simulation;
+  mcrai_communicationready_st := mcrai.CommunicationReady;
+  mcrai_readyforpoweron_st := mcrai.ReadyForPowerOn;
+  mcrai_poweron_st := mcrai.PowerOn;
+  mcrai_ishomed_st := mcrai.IsHomed;
+  mcrai_axiswarning_st := mcrai.AxisWarning;
+END_PROGRAM
+```
+
+![MC_ReadAxisInfo on the WEBview screen](img/blk-mcrai-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadParameter -->
+**MC_ReadParameter**
+
+![MC_ReadParameter on a rung](img/blk-mcrpar-ld.webp)
+
+```iecst
+PROGRAM MC_ReadParameter_ST
+VAR mcrpar : MC_ReadParameter; END_VAR
+  mcrpar(AXIS := 0, Enable := mcrpar_enable,
+         ParameterNumber := mcrpar_parameternumber);
+  mcrpar_valid_st := mcrpar.Valid;
+  mcrpar_busy_st := mcrpar.Busy;
+  mcrpar_error_st := mcrpar.Error;
+  mcrpar_errorid_st := mcrpar.ErrorID;
+  mcrpar_value_st := mcrpar.Value;
+END_PROGRAM
+```
+
+![MC_ReadParameter on the WEBview screen](img/blk-mcrpar-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadBoolParameter -->
+**MC_ReadBoolParameter**
+
+![MC_ReadBoolParameter on a rung](img/blk-mcrbpar-ld.webp)
+
+```iecst
+PROGRAM MC_ReadBoolParameter_ST
+VAR mcrbpar : MC_ReadBoolParameter; END_VAR
+  mcrbpar(AXIS := 0, Enable := mcrbpar_enable,
+          ParameterNumber := mcrbpar_parameternumber);
+  mcrbpar_valid_st := mcrbpar.Valid;
+  mcrbpar_busy_st := mcrbpar.Busy;
+  mcrbpar_error_st := mcrbpar.Error;
+  mcrbpar_errorid_st := mcrbpar.ErrorID;
+  mcrbpar_value_st := mcrbpar.Value;
+END_PROGRAM
+```
+
+![MC_ReadBoolParameter on the WEBview screen](img/blk-mcrbpar-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_WriteParameter -->
+**MC_WriteParameter**
+
+![MC_WriteParameter on a rung](img/blk-mcwpar-ld.webp)
+
+```iecst
+PROGRAM MC_WriteParameter_ST
+VAR mcwpar : MC_WriteParameter; END_VAR
+  mcwpar(AXIS := 0, Execute := mcwpar_execute,
+         Value := mcwpar_value,
+         ParameterNumber := mcwpar_parameternumber,
+         ExecutionMode := mcwpar_executionmode);
+  mcwpar_done_st := mcwpar.Done;
+  mcwpar_busy_st := mcwpar.Busy;
+  mcwpar_error_st := mcwpar.Error;
+  mcwpar_errorid_st := mcwpar.ErrorID;
+END_PROGRAM
+```
+
+![MC_WriteParameter on the WEBview screen](img/blk-mcwpar-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_WriteBoolParameter -->
+**MC_WriteBoolParameter**
+
+![MC_WriteBoolParameter on a rung](img/blk-mcwbpar-ld.webp)
+
+```iecst
+PROGRAM MC_WriteBoolParameter_ST
+VAR mcwbpar : MC_WriteBoolParameter; END_VAR
+  mcwbpar(AXIS := 0, Execute := mcwbpar_execute,
+          Value := mcwbpar_value,
+          ParameterNumber := mcwbpar_parameternumber,
+          ExecutionMode := mcwbpar_executionmode);
+  mcwbpar_done_st := mcwbpar.Done;
+  mcwbpar_busy_st := mcwbpar.Busy;
+  mcwbpar_error_st := mcwbpar.Error;
+  mcwbpar_errorid_st := mcwbpar.ErrorID;
+END_PROGRAM
+```
+
+![MC_WriteBoolParameter on the WEBview screen](img/blk-mcwbpar-web.webp)
+
+<!-- /blk -->
+
 Every reader takes `Enable` and answers `Valid`, `Busy`, `Error`,
 `ErrorID` and its value. **`Valid` is the pin that matters.** It goes
 FALSE when the value is stale - the drive has stopped answering, the bus
@@ -832,6 +1358,117 @@ position on `Valid`.
 travel to `Position` / by `Distance` and **arrive at `EndVelocity`**
 instead of standing still - the entry of a conveyor section at line
 speed; `InEndVelocity` once the end velocity is reached at the target.
+
+<!-- blk:MC_MoveContinuousAbsolute -->
+**MC_MoveContinuousAbsolute**
+
+![MC_MoveContinuousAbsolute on a rung](img/blk-mccabs-ld.webp)
+
+```iecst
+PROGRAM MC_MoveContinuousAbsolute_ST
+VAR mccabs : MC_MoveContinuousAbsolute; END_VAR
+  mccabs(AXIS := 0, Execute := mccabs_execute,
+         Position := mccabs_position,
+         EndVelocity := mccabs_endvelocity,
+         Velocity := mccabs_velocity,
+         ContinuousUpdate := mccabs_continuousupdate,
+         Acceleration := mccabs_acceleration,
+         Deceleration := mccabs_deceleration,
+         Jerk := mccabs_jerk, Direction := mccabs_direction,
+         BufferMode := mccabs_buffermode);
+  mccabs_inendvelocity_st := mccabs.InEndVelocity;
+  mccabs_busy_st := mccabs.Busy;
+  mccabs_active_st := mccabs.Active;
+  mccabs_commandaborted_st := mccabs.CommandAborted;
+  mccabs_error_st := mccabs.Error;
+  mccabs_errorid_st := mccabs.ErrorID;
+END_PROGRAM
+```
+
+![MC_MoveContinuousAbsolute on the WEBview screen](img/blk-mccabs-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_MoveContinuousRelative -->
+**MC_MoveContinuousRelative**
+
+![MC_MoveContinuousRelative on a rung](img/blk-mccrel-ld.webp)
+
+```iecst
+PROGRAM MC_MoveContinuousRelative_ST
+VAR mccrel : MC_MoveContinuousRelative; END_VAR
+  mccrel(AXIS := 0, Execute := mccrel_execute,
+         Distance := mccrel_distance,
+         EndVelocity := mccrel_endvelocity,
+         Velocity := mccrel_velocity,
+         ContinuousUpdate := mccrel_continuousupdate,
+         Acceleration := mccrel_acceleration,
+         Deceleration := mccrel_deceleration,
+         Jerk := mccrel_jerk, BufferMode := mccrel_buffermode);
+  mccrel_inendvelocity_st := mccrel.InEndVelocity;
+  mccrel_busy_st := mccrel.Busy;
+  mccrel_active_st := mccrel.Active;
+  mccrel_commandaborted_st := mccrel.CommandAborted;
+  mccrel_error_st := mccrel.Error;
+  mccrel_errorid_st := mccrel.ErrorID;
+END_PROGRAM
+```
+
+![MC_MoveContinuousRelative on the WEBview screen](img/blk-mccrel-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_MoveSuperimposed -->
+**MC_MoveSuperimposed**
+
+![MC_MoveSuperimposed on a rung](img/blk-mcsup-ld.webp)
+
+```iecst
+PROGRAM MC_MoveSuperimposed_ST
+VAR mcsup : MC_MoveSuperimposed; END_VAR
+  mcsup(AXIS := 0, Execute := mcsup_execute,
+        Distance := mcsup_distance,
+        VelocityDiff := mcsup_velocitydiff,
+        ContinuousUpdate := mcsup_continuousupdate,
+        Acceleration := mcsup_acceleration,
+        Deceleration := mcsup_deceleration, Jerk := mcsup_jerk);
+  mcsup_done_st := mcsup.Done;
+  mcsup_busy_st := mcsup.Busy;
+  mcsup_active_st := mcsup.Active;
+  mcsup_commandaborted_st := mcsup.CommandAborted;
+  mcsup_error_st := mcsup.Error;
+  mcsup_errorid_st := mcsup.ErrorID;
+  mcsup_covereddistance_st := mcsup.CoveredDistance;
+END_PROGRAM
+```
+
+![MC_MoveSuperimposed on the WEBview screen](img/blk-mcsup-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_HaltSuperimposed -->
+**MC_HaltSuperimposed**
+
+![MC_HaltSuperimposed on a rung](img/blk-mchlts-ld.webp)
+
+```iecst
+PROGRAM MC_HaltSuperimposed_ST
+VAR mchlts : MC_HaltSuperimposed; END_VAR
+  mchlts(AXIS := 0, Execute := mchlts_execute,
+         Deceleration := mchlts_deceleration,
+         Jerk := mchlts_jerk);
+  mchlts_done_st := mchlts.Done;
+  mchlts_busy_st := mchlts.Busy;
+  mchlts_active_st := mchlts.Active;
+  mchlts_commandaborted_st := mchlts.CommandAborted;
+  mchlts_error_st := mchlts.Error;
+  mchlts_errorid_st := mchlts.ErrorID;
+END_PROGRAM
+```
+
+![MC_HaltSuperimposed on the WEBview screen](img/blk-mchlts-web.webp)
+
+<!-- /blk -->
 
 <!-- blk:MC_MoveContinuousAbsolute -->
 **MC_MoveContinuousAbsolute**
@@ -960,6 +1597,169 @@ or acceleration the axis follows from `Execute`: `MC_PositionProfile`,
 (`TimePosition`, `TimeVelocity`, `TimeAcceleration` - the project's
 tables), take `ArraySize` points (0 = all), stretch time by `TimeScale`
 and the value by its scale, shift it by `Offset`.
+
+<!-- blk:MC_PositionProfile -->
+**MC_PositionProfile**
+
+![MC_PositionProfile on a rung](img/blk-mcppro-ld.webp)
+
+```iecst
+PROGRAM MC_PositionProfile_ST
+VAR mcppro : MC_PositionProfile; END_VAR
+  mcppro(AXIS := 0, Execute := mcppro_execute,
+         TimePosition := mcppro_timeposition,
+         ArraySize := mcppro_arraysize,
+         TimeScale := mcppro_timescale,
+         PositionScale := mcppro_positionscale,
+         Offset := mcppro_offset,
+         BufferMode := mcppro_buffermode);
+  mcppro_done_st := mcppro.Done;
+  mcppro_busy_st := mcppro.Busy;
+  mcppro_active_st := mcppro.Active;
+  mcppro_commandaborted_st := mcppro.CommandAborted;
+  mcppro_error_st := mcppro.Error;
+  mcppro_errorid_st := mcppro.ErrorID;
+END_PROGRAM
+```
+
+![MC_PositionProfile on the WEBview screen](img/blk-mcppro-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_VelocityProfile -->
+**MC_VelocityProfile**
+
+![MC_VelocityProfile on a rung](img/blk-mcvpro-ld.webp)
+
+```iecst
+PROGRAM MC_VelocityProfile_ST
+VAR mcvpro : MC_VelocityProfile; END_VAR
+  mcvpro(AXIS := 0, Execute := mcvpro_execute,
+         TimeVelocity := mcvpro_timevelocity,
+         ArraySize := mcvpro_arraysize,
+         TimeScale := mcvpro_timescale,
+         VelocityScale := mcvpro_velocityscale,
+         Offset := mcvpro_offset,
+         BufferMode := mcvpro_buffermode);
+  mcvpro_done_st := mcvpro.Done;
+  mcvpro_busy_st := mcvpro.Busy;
+  mcvpro_active_st := mcvpro.Active;
+  mcvpro_commandaborted_st := mcvpro.CommandAborted;
+  mcvpro_error_st := mcvpro.Error;
+  mcvpro_errorid_st := mcvpro.ErrorID;
+END_PROGRAM
+```
+
+![MC_VelocityProfile on the WEBview screen](img/blk-mcvpro-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_AccelerationProfile -->
+**MC_AccelerationProfile**
+
+![MC_AccelerationProfile on a rung](img/blk-mcapro-ld.webp)
+
+```iecst
+PROGRAM MC_AccelerationProfile_ST
+VAR mcapro : MC_AccelerationProfile; END_VAR
+  mcapro(AXIS := 0, Execute := mcapro_execute,
+         TimeAcceleration := mcapro_timeacceleration,
+         ArraySize := mcapro_arraysize,
+         TimeScale := mcapro_timescale,
+         AccelerationScale := mcapro_accelerationscale,
+         Offset := mcapro_offset,
+         BufferMode := mcapro_buffermode);
+  mcapro_done_st := mcapro.Done;
+  mcapro_busy_st := mcapro.Busy;
+  mcapro_active_st := mcapro.Active;
+  mcapro_commandaborted_st := mcapro.CommandAborted;
+  mcapro_error_st := mcapro.Error;
+  mcapro_errorid_st := mcapro.ErrorID;
+END_PROGRAM
+```
+
+![MC_AccelerationProfile on the WEBview screen](img/blk-mcapro-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_CamTableSelect -->
+**MC_CamTableSelect**
+
+![MC_CamTableSelect on a rung](img/blk-mccts-ld.webp)
+
+```iecst
+PROGRAM MC_CamTableSelect_ST
+VAR mccts : MC_CamTableSelect; END_VAR
+  mccts(AXIS := 0, Execute := mccts_execute,
+        Master := mccts_master, CamTable := mccts_camtable,
+        Periodic := mccts_periodic,
+        MasterAbsolute := mccts_masterabsolute,
+        SlaveAbsolute := mccts_slaveabsolute);
+  mccts_done_st := mccts.Done;
+  mccts_busy_st := mccts.Busy;
+  mccts_error_st := mccts.Error;
+  mccts_errorid_st := mccts.ErrorID;
+  mccts_camtableid_st := mccts.CamTableID;
+END_PROGRAM
+```
+
+![MC_CamTableSelect on the WEBview screen](img/blk-mccts-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_CamIn -->
+**MC_CamIn**
+
+![MC_CamIn on a rung](img/blk-mccami-ld.webp)
+
+```iecst
+PROGRAM MC_CamIn_ST
+VAR mccami : MC_CamIn; END_VAR
+  mccami(AXIS := 2, Execute := mccami_execute,
+         MasterOffset := mccami_masteroffset,
+         SlaveOffset := mccami_slaveoffset,
+         CamTableID := mccami_camtableid,
+         Master := mccami_master,
+         ContinuousUpdate := mccami_continuousupdate,
+         MasterScaling := mccami_masterscaling,
+         SlaveScaling := mccami_slavescaling,
+         StartMode := mccami_startmode,
+         MasterStartDistance := mccami_masterstartdistance,
+         MasterSyncPosition := mccami_mastersyncposition,
+         BufferMode := mccami_buffermode);
+  mccami_insync_st := mccami.InSync;
+  mccami_busy_st := mccami.Busy;
+  mccami_active_st := mccami.Active;
+  mccami_commandaborted_st := mccami.CommandAborted;
+  mccami_error_st := mccami.Error;
+  mccami_errorid_st := mccami.ErrorID;
+  mccami_endofprofile_st := mccami.EndOfProfile;
+END_PROGRAM
+```
+
+![MC_CamIn on the WEBview screen](img/blk-mccami-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_CamOut -->
+**MC_CamOut**
+
+![MC_CamOut on a rung](img/blk-mccamo-ld.webp)
+
+```iecst
+PROGRAM MC_CamOut_ST
+VAR mccamo : MC_CamOut; END_VAR
+  mccamo(AXIS := 2, Execute := mccamo_execute);
+  mccamo_done_st := mccamo.Done;
+  mccamo_busy_st := mccamo.Busy;
+  mccamo_error_st := mccamo.Error;
+  mccamo_errorid_st := mccamo.ErrorID;
+END_PROGRAM
+```
+
+![MC_CamOut on the WEBview screen](img/blk-mccamo-web.webp)
+
+<!-- /blk -->
 
 <!-- blk:MC_PositionProfile -->
 **MC_PositionProfile**
@@ -1328,6 +2128,180 @@ END_PROGRAM
 
 <!-- /blk -->
 
+<!-- blk:MC_GearIn -->
+**MC_GearIn**
+
+![MC_GearIn on a rung](img/blk-mcgin-ld.webp)
+
+```iecst
+PROGRAM MC_GearIn_ST
+VAR mcgin : MC_GearIn; END_VAR
+  mcgin(AXIS := 2, Execute := mcgin_execute,
+        Master := mcgin_master,
+        ContinuousUpdate := mcgin_continuousupdate,
+        RatioNumerator := mcgin_rationumerator,
+        RatioDenominator := mcgin_ratiodenominator,
+        MasterValueSource := mcgin_mastervaluesource,
+        Acceleration := mcgin_acceleration,
+        Deceleration := mcgin_deceleration, Jerk := mcgin_jerk,
+        BufferMode := mcgin_buffermode, Delay := mcgin_delay);
+  mcgin_ingear_st := mcgin.InGear;
+  mcgin_busy_st := mcgin.Busy;
+  mcgin_active_st := mcgin.Active;
+  mcgin_commandaborted_st := mcgin.CommandAborted;
+  mcgin_error_st := mcgin.Error;
+  mcgin_errorid_st := mcgin.ErrorID;
+  mcgin_register_st := mcgin.Register;
+END_PROGRAM
+```
+
+![MC_GearIn on the WEBview screen](img/blk-mcgin-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_GearOut -->
+**MC_GearOut**
+
+![MC_GearOut on a rung](img/blk-mcgout-ld.webp)
+
+```iecst
+PROGRAM MC_GearOut_ST
+VAR mcgout : MC_GearOut; END_VAR
+  mcgout(AXIS := 2, Execute := mcgout_execute);
+  mcgout_done_st := mcgout.Done;
+  mcgout_busy_st := mcgout.Busy;
+  mcgout_error_st := mcgout.Error;
+  mcgout_errorid_st := mcgout.ErrorID;
+END_PROGRAM
+```
+
+![MC_GearOut on the WEBview screen](img/blk-mcgout-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_GearInPos -->
+**MC_GearInPos**
+
+![MC_GearInPos on a rung](img/blk-mcgip-ld.webp)
+
+```iecst
+PROGRAM MC_GearInPos_ST
+VAR mcgip : MC_GearInPos; END_VAR
+  mcgip(AXIS := 2, Execute := mcgip_execute,
+        MasterSyncPosition := mcgip_mastersyncposition,
+        SlaveSyncPosition := mcgip_slavesyncposition,
+        Velocity := mcgip_velocity, Master := mcgip_master,
+        RatioNumerator := mcgip_rationumerator,
+        RatioDenominator := mcgip_ratiodenominator,
+        MasterValueSource := mcgip_mastervaluesource,
+        SyncMode := mcgip_syncmode,
+        MasterStartDistance := mcgip_masterstartdistance,
+        Acceleration := mcgip_acceleration,
+        Deceleration := mcgip_deceleration, Jerk := mcgip_jerk,
+        BufferMode := mcgip_buffermode, Delay := mcgip_delay);
+  mcgip_startsync_st := mcgip.StartSync;
+  mcgip_insync_st := mcgip.InSync;
+  mcgip_busy_st := mcgip.Busy;
+  mcgip_active_st := mcgip.Active;
+  mcgip_commandaborted_st := mcgip.CommandAborted;
+  mcgip_error_st := mcgip.Error;
+  mcgip_errorid_st := mcgip.ErrorID;
+  mcgip_register_st := mcgip.Register;
+END_PROGRAM
+```
+
+![MC_GearInPos on the WEBview screen](img/blk-mcgip-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_PhasingAbsolute -->
+**MC_PhasingAbsolute**
+
+![MC_PhasingAbsolute on a rung](img/blk-mcpha-ld.webp)
+
+```iecst
+PROGRAM MC_PhasingAbsolute_ST
+VAR mcpha : MC_PhasingAbsolute; END_VAR
+  mcpha(AXIS := 2, Execute := mcpha_execute,
+        PhaseShift := mcpha_phaseshift,
+        Velocity := mcpha_velocity,
+        ContinuousUpdate := mcpha_continuousupdate,
+        Acceleration := mcpha_acceleration,
+        Deceleration := mcpha_deceleration, Jerk := mcpha_jerk,
+        BufferMode := mcpha_buffermode);
+  mcpha_done_st := mcpha.Done;
+  mcpha_busy_st := mcpha.Busy;
+  mcpha_active_st := mcpha.Active;
+  mcpha_commandaborted_st := mcpha.CommandAborted;
+  mcpha_error_st := mcpha.Error;
+  mcpha_errorid_st := mcpha.ErrorID;
+END_PROGRAM
+```
+
+![MC_PhasingAbsolute on the WEBview screen](img/blk-mcpha-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_PhasingRelative -->
+**MC_PhasingRelative**
+
+![MC_PhasingRelative on a rung](img/blk-mcphr-ld.webp)
+
+```iecst
+PROGRAM MC_PhasingRelative_ST
+VAR mcphr : MC_PhasingRelative; END_VAR
+  mcphr(AXIS := 2, Execute := mcphr_execute,
+        PhaseShift := mcphr_phaseshift,
+        Velocity := mcphr_velocity,
+        ContinuousUpdate := mcphr_continuousupdate,
+        Acceleration := mcphr_acceleration,
+        Deceleration := mcphr_deceleration, Jerk := mcphr_jerk,
+        BufferMode := mcphr_buffermode);
+  mcphr_done_st := mcphr.Done;
+  mcphr_busy_st := mcphr.Busy;
+  mcphr_active_st := mcphr.Active;
+  mcphr_commandaborted_st := mcphr.CommandAborted;
+  mcphr_error_st := mcphr.Error;
+  mcphr_errorid_st := mcphr.ErrorID;
+END_PROGRAM
+```
+
+![MC_PhasingRelative on the WEBview screen](img/blk-mcphr-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_CombineAxes -->
+**MC_CombineAxes**
+
+![MC_CombineAxes on a rung](img/blk-mccomb-ld.webp)
+
+```iecst
+PROGRAM MC_CombineAxes_ST
+VAR mccomb : MC_CombineAxes; END_VAR
+  mccomb(AXIS := 2, Execute := mccomb_execute,
+         Master1 := mccomb_master1, Master2 := mccomb_master2,
+         ContinuousUpdate := mccomb_continuousupdate,
+         CombineMode := mccomb_combinemode,
+         GearRatioNumeratorM1 := mccomb_gearrationumeratorm1,
+         GearRatioDenominatorM1 := mccomb_gearratiodenominatorm1,
+         GearRatioNumeratorM2 := mccomb_gearrationumeratorm2,
+         GearRatioDenominatorM2 := mccomb_gearratiodenominatorm2,
+         MasterValueSourceM1 := mccomb_mastervaluesourcem1,
+         MasterValueSourceM2 := mccomb_mastervaluesourcem2,
+         BufferMode := mccomb_buffermode);
+  mccomb_insync_st := mccomb.InSync;
+  mccomb_busy_st := mccomb.Busy;
+  mccomb_active_st := mccomb.Active;
+  mccomb_commandaborted_st := mccomb.CommandAborted;
+  mccomb_error_st := mccomb.Error;
+  mccomb_errorid_st := mccomb.ErrorID;
+END_PROGRAM
+```
+
+![MC_CombineAxes on the WEBview screen](img/blk-mccomb-web.webp)
+
+<!-- /blk -->
+
 A line shaft is one axis following another: the plate cylinders of a
 press follow the drum, a slitter follows the web, a labeller follows the
 conveyor. `MC_GearIn` couples the block's axis to the axis `Master` at
@@ -1465,6 +2439,80 @@ END_PROGRAM
 
 <!-- /blk -->
 
+<!-- blk:MC_SetTorqueLimit -->
+**MC_SetTorqueLimit**
+
+![MC_SetTorqueLimit on a rung](img/blk-mctlim-ld.webp)
+
+```iecst
+PROGRAM MC_SetTorqueLimit_ST
+VAR mctlim : MC_SetTorqueLimit; END_VAR
+  mctlim(AXIS := 0, Enable := mctlim_enable,
+         PosLimit := mctlim_poslimit,
+         NegLimit := mctlim_neglimit);
+  mctlim_enabled_st := mctlim.Enabled;
+  mctlim_busy_st := mctlim.Busy;
+  mctlim_error_st := mctlim.Error;
+  mctlim_errorid_st := mctlim.ErrorID;
+END_PROGRAM
+```
+
+![MC_SetTorqueLimit on the WEBview screen](img/blk-mctlim-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_TorqueControl -->
+**MC_TorqueControl**
+
+![MC_TorqueControl on a rung](img/blk-mctrq-ld.webp)
+
+```iecst
+PROGRAM MC_TorqueControl_ST
+VAR mctrq : MC_TorqueControl; END_VAR
+  mctrq(AXIS := 0, Execute := mctrq_execute,
+        Torque := mctrq_torque,
+        ContinuousUpdate := mctrq_continuousupdate,
+        TorqueRamp := mctrq_torqueramp,
+        Velocity := mctrq_velocity,
+        Acceleration := mctrq_acceleration,
+        Deceleration := mctrq_deceleration, Jerk := mctrq_jerk,
+        Direction := mctrq_direction,
+        BufferMode := mctrq_buffermode);
+  mctrq_intorque_st := mctrq.InTorque;
+  mctrq_busy_st := mctrq.Busy;
+  mctrq_active_st := mctrq.Active;
+  mctrq_commandaborted_st := mctrq.CommandAborted;
+  mctrq_error_st := mctrq.Error;
+  mctrq_errorid_st := mctrq.ErrorID;
+END_PROGRAM
+```
+
+![MC_TorqueControl on the WEBview screen](img/blk-mctrq-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_TorqueFF -->
+**MC_TorqueFF**
+
+![MC_TorqueFF on a rung](img/blk-mctff-ld.webp)
+
+```iecst
+PROGRAM MC_TorqueFF_ST
+VAR mctff : MC_TorqueFF; END_VAR
+  mctff(AXIS := 0, Enable := mctff_enable,
+        AccGain := mctff_accgain);
+  mctff_enabled_st := mctff.Enabled;
+  mctff_busy_st := mctff.Busy;
+  mctff_error_st := mctff.Error;
+  mctff_errorid_st := mctff.ErrorID;
+  mctff_torque_st := mctff.Torque;
+END_PROGRAM
+```
+
+![MC_TorqueFF on the WEBview screen](img/blk-mctff-web.webp)
+
+<!-- /blk -->
+
 A servo's torque is a number the program can hold. `MC_SetTorqueLimit`
 (our extension) writes the positive and the negative torque limit (per
 cent of the motor's rated torque) to the drive **every bus cycle** while
@@ -1510,6 +2558,145 @@ falling) - at once, or only inside the window `FirstPosition` to
 `LastPosition` (`WindowOnly`); `RecordedPosition` and `Done` when it
 fired, `MC_AbortTrigger` disarms it. The drive's cyclic set has to carry
 its touch-probe words.
+
+<!-- blk:MC_TouchProbe -->
+**MC_TouchProbe**
+
+![MC_TouchProbe on a rung](img/blk-mcprb-ld.webp)
+
+```iecst
+PROGRAM MC_TouchProbe_ST
+VAR mcprb : MC_TouchProbe; END_VAR
+  mcprb(AXIS := 0, Execute := mcprb_execute,
+        FirstPosition := mcprb_firstposition,
+        LastPosition := mcprb_lastposition,
+        TriggerInput := mcprb_triggerinput,
+        WindowOnly := mcprb_windowonly);
+  mcprb_done_st := mcprb.Done;
+  mcprb_busy_st := mcprb.Busy;
+  mcprb_error_st := mcprb.Error;
+  mcprb_errorid_st := mcprb.ErrorID;
+  mcprb_recordedposition_st := mcprb.RecordedPosition;
+  mcprb_commandaborted_st := mcprb.CommandAborted;
+END_PROGRAM
+```
+
+![MC_TouchProbe on the WEBview screen](img/blk-mcprb-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_AbortTrigger -->
+**MC_AbortTrigger**
+
+![MC_AbortTrigger on a rung](img/blk-mcprbx-ld.webp)
+
+```iecst
+PROGRAM MC_AbortTrigger_ST
+VAR mcprbx : MC_AbortTrigger; END_VAR
+  mcprbx(AXIS := 0, Execute := mcprbx_execute,
+         TriggerInput := mcprbx_triggerinput);
+  mcprbx_done_st := mcprbx.Done;
+  mcprbx_busy_st := mcprbx.Busy;
+  mcprbx_error_st := mcprbx.Error;
+  mcprbx_errorid_st := mcprbx.ErrorID;
+END_PROGRAM
+```
+
+![MC_AbortTrigger on the WEBview screen](img/blk-mcprbx-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_DigitalCamSwitch -->
+**MC_DigitalCamSwitch**
+
+![MC_DigitalCamSwitch on a rung](img/blk-mccsw-ld.webp)
+
+```iecst
+PROGRAM MC_DigitalCamSwitch_ST
+VAR mccsw : MC_DigitalCamSwitch; END_VAR
+  mccsw(AXIS := 0, Enable := mccsw_enable,
+        Switches := mccsw_switches,
+        EnableMask := mccsw_enablemask,
+        ValueSource := mccsw_valuesource);
+  mccsw_inoperation_st := mccsw.InOperation;
+  mccsw_busy_st := mccsw.Busy;
+  mccsw_error_st := mccsw.Error;
+  mccsw_errorid_st := mccsw.ErrorID;
+  mccsw_outputs_st := mccsw.Outputs;
+END_PROGRAM
+```
+
+![MC_DigitalCamSwitch on the WEBview screen](img/blk-mccsw-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadDigitalInput -->
+**MC_ReadDigitalInput**
+
+![MC_ReadDigitalInput on a rung](img/blk-mcrdi-ld.webp)
+
+```iecst
+PROGRAM MC_ReadDigitalInput_ST
+VAR mcrdi : MC_ReadDigitalInput; END_VAR
+  mcrdi(AXIS := 0, Enable := mcrdi_enable, Input := mcrdi_input,
+        InputNumber := mcrdi_inputnumber);
+  mcrdi_valid_st := mcrdi.Valid;
+  mcrdi_busy_st := mcrdi.Busy;
+  mcrdi_error_st := mcrdi.Error;
+  mcrdi_errorid_st := mcrdi.ErrorID;
+  mcrdi_value_st := mcrdi.Value;
+END_PROGRAM
+```
+
+![MC_ReadDigitalInput on the WEBview screen](img/blk-mcrdi-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_ReadDigitalOutput -->
+**MC_ReadDigitalOutput**
+
+![MC_ReadDigitalOutput on a rung](img/blk-mcrdo-ld.webp)
+
+```iecst
+PROGRAM MC_ReadDigitalOutput_ST
+VAR mcrdo : MC_ReadDigitalOutput; END_VAR
+  mcrdo(AXIS := 0, Enable := mcrdo_enable,
+        Output := mcrdo_output,
+        OutputNumber := mcrdo_outputnumber);
+  mcrdo_valid_st := mcrdo.Valid;
+  mcrdo_busy_st := mcrdo.Busy;
+  mcrdo_error_st := mcrdo.Error;
+  mcrdo_errorid_st := mcrdo.ErrorID;
+  mcrdo_value_st := mcrdo.Value;
+END_PROGRAM
+```
+
+![MC_ReadDigitalOutput on the WEBview screen](img/blk-mcrdo-web.webp)
+
+<!-- /blk -->
+
+<!-- blk:MC_WriteDigitalOutput -->
+**MC_WriteDigitalOutput**
+
+![MC_WriteDigitalOutput on a rung](img/blk-mcwdo-ld.webp)
+
+```iecst
+PROGRAM MC_WriteDigitalOutput_ST
+VAR mcwdo : MC_WriteDigitalOutput; END_VAR
+  mcwdo(AXIS := 0, Execute := mcwdo_execute,
+        Value := mcwdo_value, Output := mcwdo_output,
+        OutputNumber := mcwdo_outputnumber,
+        ExecutionMode := mcwdo_executionmode);
+  mcwdo_done_st := mcwdo.Done;
+  mcwdo_busy_st := mcwdo.Busy;
+  mcwdo_error_st := mcwdo.Error;
+  mcwdo_errorid_st := mcwdo.ErrorID;
+END_PROGRAM
+```
+
+![MC_WriteDigitalOutput on the WEBview screen](img/blk-mcwdo-web.webp)
+
+<!-- /blk -->
 
 <!-- blk:MC_TouchProbe -->
 **MC_TouchProbe**
