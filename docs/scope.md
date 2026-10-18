@@ -122,6 +122,7 @@ to a measurement from something else.
 |:---|:---|
 | *not online — the scope records IN the board* | there is no connection; this is not a PC-side recorder |
 | *the board runs a different program* | the same rule as everywhere: values travel by index, and under a different program they would be values under the wrong names |
+| the Arm button is grey | no signals picked yet |
 
 If a recording comes back empty, the trigger never fired — check the
 source and the level, or use *now* to see what the signals are doing at

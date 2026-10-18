@@ -49,6 +49,11 @@ the extension, so double-clicking a `.hdw32` opens the import too.
 The project's own package format is described on
 [Project format](project-format.md).
 
+Nobody ships hardware across half the world to get it supported: the
+description is the board. An imported board reports its module's
+identity; a registered identity of its own is granted against a
+submission (schematic, pin assignment, photo, description) — and that is also the path into the public catalog.
+
 ---
 
 ## Which processor

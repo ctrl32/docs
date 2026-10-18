@@ -42,6 +42,7 @@ fraction of the established engineering systems.
 | Part | What it does |
 |:---|:---|
 | **Runtime (firmware)** | runs on ESP32 and STM32 boards, draws [HMIview](hmiview.md) on a touch display, reads Modbus and CAN, executes the logic |
+| **Linux runtime** | the same engines on a Raspberry Pi or an industrial Linux device — ten-times limits, OPC UA |
 | **ctrl32 Editor** | an installed desktop application — you draw screens, define variables, write the program and download it |
 | **WEBview** | the same visualisation in a browser, served straight from the device |
 | **net32** | many ctrl32 devices sharing variables as one system — one project, one Deploy |
@@ -58,6 +59,12 @@ That is also why the editor shows exactly what the board will: both draw
 the same data with the same code.
 
 ## An assistant that works inside the editor
+
+The editor can open a door for an AI assistant on your computer: any
+client that speaks MCP joins the running session, reads the project,
+edits it and deploys it — with your consent
+switch. Nothing in this segment offers that. See [The AI assistant
+(MCP)](mcp.md).
 
 ## What it really handles
 

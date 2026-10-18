@@ -127,8 +127,6 @@ compiled program matches the one in the board **byte for byte**. It writes
 the state into the status bar; the usual cause is that the board holds a
 different build.
 
-### ONLINE and Deploy are locked
-
 ## The editor
 
 ### A new project will not take a rung

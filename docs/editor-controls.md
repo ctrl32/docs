@@ -47,6 +47,7 @@ inside a name edits the name, not the screen.
 | **Debug** | Pause and single-cycle Step — enabled while a simulation runs |
 | **Tools** | Device library (the Modbus, CAN EDS and EtherCAT ESI catalogues) |
 | **Window** | Close all tabs, Reset layout — the cure for a panel dragged somewhere unrecoverable |
+| **Help** | Updates (check now / automatic), About |
 
 ## The toolbar, left to right
 

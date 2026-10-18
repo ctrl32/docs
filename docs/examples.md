@@ -114,6 +114,7 @@ project, not a different tool.
 
 ## Using one as a starting point
 
+1. Open it and **Save As** under your own name.
 2. Change the **target board** in the project settings to yours.
 3. Delete the screens you do not want. Nothing else breaks — a screen is
    only referenced by the `nav` buttons pointing at it.

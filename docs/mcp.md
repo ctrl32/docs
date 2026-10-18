@@ -79,6 +79,8 @@ no back door, no second path:
 |:---|:---|:---|
 | `edit_variable` | add or rename a variable | live in the editor, one Ctrl+Z away |
 | `edit_pou_source` | replace an ST program's source | undoable; the build checks it |
+| `save_project` | save to the current file | the **same as the Save button** |
+| `deploy` | build and download to a board | the **same as the Deploy button** |
 | `online_write` | write ONE value to the running board | needs the *Allow live writes* consent; the program owns the value again next cycle |
 | `run_commands` | run editor commands in order - adding a camera or a vision block, wiring blocks, setting a value, a ladder rung, a variable, a program, a task, an axis, a CAN device, a recipe ... and undo | the **same operations your own clicks perform**, one per frame, each one Ctrl+Z away; the list stops at the first refused command and names it; saving, downloading and live writes are not in it - they have their own tools above with their own protection |
 
@@ -97,6 +99,9 @@ tool for a person standing at the equipment, and it stays that way.
   opened to the network — there is deliberately no such option.
 - **A fresh secret each start.** Every request must carry the session
   token; *New token* revokes all of them instantly.
+- **Your editor, not the assistant's.** Saving and downloading behave
+  exactly like the Save and Deploy buttons — the assistant can do
+  nothing you could not do yourself.
 - **Writing to a running board needs your consent**, and the consent
   dies with the session.
 - **The assistant is a guest.** It never switches the screen you are

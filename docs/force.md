@@ -69,6 +69,7 @@ all* — which is never disabled while anything is held.
 |:---|:---:|
 | Forced variables at once | 8 |
 | Longest timeout | 1 hour |
+| Requires | ONLINE, and the same program in editor and board |
 
 Eight is deliberate. Somebody who needs to force nine things at once is
 not commissioning any more, they are rewriting the program — and that

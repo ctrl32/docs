@@ -41,6 +41,10 @@ screens to a phone either way.
 | Secure MQTT (TLS) | - | ESP32-S3, ESP32-P4, STM32 | yes |
 | OPC UA, EtherCAT master, several CAN and RS485 lines | - | - | yes |
 
+A Compact device is the cheapest way onto a small piece of equipment or a
+gateway; a Standard device is the reference for a panel; the Linux runtime
+takes the large plants.
+
 ## Chips
 
 | Chip | Speed | Wireless | Ethernet | CAN | Displays | Size |

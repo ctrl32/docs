@@ -32,6 +32,10 @@ service, the settings file — is identical on all of them.
       runtime, its service file and `ctrl32run.default.example`, the
       settings file with every bus variable explained.
 
+    Everything is version-matched to the editor.
+    Everything else on this page is standard, freely available
+    software.
+
 ---
 
 ## Seeed reTerminal (Raspberry Pi CM4)

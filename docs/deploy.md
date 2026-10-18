@@ -184,5 +184,3 @@ on your boards, and the runtime you flash is always the line's - there is
 one runtime per line, not one per editor build. A new line is a release
 note you can see: its number ends in `.000`.
 
-## Licence
-

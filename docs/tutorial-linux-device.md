@@ -21,6 +21,8 @@ need, is [Setting up a Linux device](linux-setup.md).
 - A fresh **Raspberry Pi OS** on its card, with SSH enabled and a user
   you know the password of. The Raspberry Pi Imager asks for both
   while it writes the card.
+- The ctrl32 editor. The runtime comes with it; there is nothing else
+  to download.
 
 ---
 

@@ -165,11 +165,10 @@ can make edits that appear live in the editor, each one undoable with
 Ctrl+Z. It starts from *Tools → MCP server*, it is off by default,
 and it never leaves this computer.
 
-## Licence
+The whole story — starting it, every tool it gets, and the safety rules — is on its own page:
+[The AI assistant (MCP server)](mcp.md).
 
-- what is paid is **ESP32 and STM32** work leaving the editor: saving
-  such a project, and talking to such a board — download and online
-  alike.
+## Licence
 
 ## Updates
 
@@ -177,6 +176,18 @@ and it never leaves this computer.
 tells you whether a newer version exists; with *Check on start* ticked
 the editor does this quietly every time it starts. Without internet
 nothing happens and nothing is shown.
+
+That request tells us how many installations there are. It carries three
+things: a random number the editor draws for itself the first time it
+runs, the version, and the interface language. The random number is not
+derived from your computer or your name, and nothing about
+your projects is sent.
+
+**When a newer version exists the editor says so by itself.** The update
+dialog opens on the next start, whoever you are - knowing that a new
+version is out is not a privilege.
+*Later* closes it for this run, and *Help -> New version* opens it again
+whenever you want it.
 
 The switch is in *Tools -> Settings*, under **Updates**. Turned off, the
 editor never reaches the network on its own and asks for nothing at all.

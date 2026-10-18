@@ -8,6 +8,8 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## ctrl32 is free (19 October 2026)
+
 ## 1.05.000
 
 A new line: every device takes a new runtime (over the network or over
