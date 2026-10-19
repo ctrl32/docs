@@ -193,6 +193,7 @@ nav:
       - "People counter (a learned model)": example-people-counter.md
       - "Bottle check (level, cap, label)": example-bottle-check.md
       - "Car cockpit (a J1939 instrument cluster)": example-car-cockpit.md
+      - "Flexo press (a SIMATIC over +7)": example-flexo-simatic.md
   - Editor:
       - Editor: editor-overview.md
       - Layout and how to work in it: editor.md

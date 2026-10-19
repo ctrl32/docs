@@ -28,16 +28,27 @@ and the limits a driver cares about are parameters kept on the panel.
 
 ![The cockpit: the speed and rpm gauges with their scales, the gear in the middle, fuel and coolant bars, the battery, the odometer and the trip, the clock, the turn signals and the row of lamps](img/cockpit-main.webp){: .sb-center}
 
-**The cluster.** Two gauges with their scales and the redline, the gear
-in the middle (N, R or the number), fuel and coolant as bars with their
-numbers, the battery voltage, the odometer, the trip, the clock from the
-panel's own time and the turn signals. Along the bottom twelve lamps:
-engine (MIL), stop, warning, oil pressure, battery, coolant, fuel,
-parking brake, ABS, belt, door and the high beam — each lit in its own
-colour while its variable is true and dim otherwise. The scales, the
+**The cluster.** Two gauges with their coloured scales and the redline,
+tapered needles and large readouts, the gear in the middle (N, R or the
+number), fuel and coolant as bars with their numbers, the battery
+voltage, the odometer, the trip, the clock from the panel's own time and
+the turn signals. Along the bottom twelve lamps: engine (MIL), stop,
+warning, oil pressure, battery, coolant, fuel, parking brake, ABS, belt,
+door and the high beam — each lit in its own colour while its variable
+is true and dim otherwise. The scales, the
 bezels, the words and the dim icons are one background picture per
 screen; only the live parts draw over it (the same way as the [house
 dashboard](examples.md)).
+
+![The Engine screen: six round instruments with needles — the temperatures of the engine oil, the transmission oil and the coolant, the pressures of the oil, the fuel and the boost](img/cockpit-engine.webp){: .sb-center}
+
+**Engine.** Six round instruments the way a cabin shows them: the
+temperature of the engine oil, of the transmission oil and of the
+coolant; the oil pressure, the fuel delivery pressure and the boost.
+Each face carries its green, amber and red bands, and the needle is a
+`line` widget **turned by the value** (`rotate:` from −135° at the
+minimum to +135° at the maximum), with the number underneath. The
+values come out of ET1, EFL/P1, TRF1 and IC1.
 
 ![The Communication screen: the J1939 node and its three control units with their lamps, the DM1 lamps, the fault code, and the table of every signal with its group](img/cockpit-bus.webp){: .sb-center}
 
@@ -99,13 +110,26 @@ interval.
 
 ## Worth copying
 
-- **A warning lamp as two icons.** An icon has no state of its own, so
-  the lit and the dim one share a spot, each shown by a variable — the
-  program keeps the negation (`l_oil_n`) for the dim one.
+- **A warning lamp from one icon.** An icon's colour is its text colour,
+  so a state that paints `fg` lights it: `state: { var: l_oil,
+  true_color: "#E83A3A", false_color: "#343A46", paint: fg }` — one
+  widget per lamp, no logic behind it.
+- **A needle with a shape.** The gauge's own needle is a thin line; with
+  `needle: false` and `show_value: false` the gauge keeps the arc and the
+  cluster draws its own: three `line` widgets of falling width in one
+  square rect centred on the hub, all with the same `rotate:`, and a
+  `shape` ellipse as the hub; the number is a `value` in a 84 px digit
+  face. A screen holds 64 widgets and a line is three of them (the line
+  and its two points) — the six small dials take one segment each.
 - **The scale outside the gauge.** The gauge draws the arc, the needle
-  and the number; the numbers around it are part of the background
-  picture, placed with the gauge's own geometry (135° plus 270° of
-  sweep, clockwise) so the needle points at them.
+  and the number; the coloured bands and the numbers around it are part
+  of the background picture, placed with the gauge's own geometry (135°
+  plus 270° of sweep, clockwise) so the needle points at them.
+- **A round instrument from a line.** A `line` widget whose rect is
+  centred on the dial and whose points run from just below the centre to
+  the tip, with `rotate: { var, min, max, from: -135, to: 135 }`, is a
+  needle on any face you draw; a small `shape` ellipse over the centre is
+  the hub.
 - **A keypad for a big number.** The service interval is an `input`
   (a tap opens the keypad); the others are spinboxes — a spinbox step
   stops at a few hundred.

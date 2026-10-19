@@ -51,7 +51,8 @@ this editor.
   session only after three seconds of silence, not after one missed poll.
 - **A car cockpit example** ([Car cockpit](example-car-cockpit.md)): an
   instrument cluster on the MaTouch ESP32-P4 7" on a J1939 vehicle bus -
-  the gauges and lamps, the control units and every signal they send, the
+  the gauges and lamps, six round instruments with needles for the oils
+  and the pressures, the control units and every signal they send, the
   engine's fault code in words, the driver's parameters, and a drive cycle
   that runs it all without a vehicle.
 
