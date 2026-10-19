@@ -10,6 +10,46 @@ capabilities, the first one practically never moves.
 
 ## ctrl32 is free (19 October 2026)
 
+## 1.06.000
+
+The first release of free ctrl32 (see above) - and a new line: every
+device takes a new runtime (over the network or over USB, as always -
+[Download to the board](deploy.md)) before it accepts a project saved by
+this editor.
+
+- **PLCopen Motion Control Part 1, whole and exact** ([Motion
+  blocks](blocks-motion.md)): every block of the specification with its
+  names, inputs, outputs and the standard `ErrorID` table; the axis state
+  machine, buffer modes and blending, override, the parameter numbers; a
+  Linux device runs the whole library, a panel the part a frequency drive
+  needs. The old block names stay as aliases - a saved project opens and
+  builds as it did.
+- **Cams, profiles and cam switches** on a Linux device: the new **Motion**
+  item of the device tree opens a page where the tables are made - a cam
+  (master position to slave position, periodic or not), a profile (time to
+  position, velocity or acceleration) and a cam switch table (tracks of an
+  output over a position range, with lead and lag). A block names its table
+  by number within its kind. See [the Motion
+  page](blocks-motion.md#the-motion-page).
+- **An axis counts in revolutions per minute** when its project says so
+  (`velocity_per: rpm`): positions in increments, speeds in rpm - the shape
+  every drive project was written in.
+- **Every output of a block in Ladder**: `Active`, `CommandAborted`, `Error`
+  and `ErrorID` of a motion block can be bound on the rung like `Done` and
+  `Busy` (a box used to show two outputs only).
+- **A new row in the VAR table is a BOOL** - the type most variables of a
+  control program are; before, it was a REAL and had to be changed on
+  every row.
+- **The variable picker says why**: a variable the pin cannot take (a REAL
+  on a contact, a BOOL on a numeric pin) is listed greyed with the reason,
+  and a name the language does not take (a diacritic, a space, a digit
+  first) is said under the field and in the status bar instead of "name
+  taken" or silence.
+- **A freshly placed chart shows a sample** of its shape on the editor
+  canvas (offline a chart used to be an empty frame).
+- **ONLINE over WiFi holds through a slow hop**: the editor ends the online
+  session only after three seconds of silence, not after one missed poll.
+
 ## 1.05.000
 
 A new line: every device takes a new runtime (over the network or over

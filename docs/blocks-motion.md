@@ -1589,6 +1589,37 @@ superimposed part alone.
 
 ---
 
+## The Motion page
+
+**Linux.** The tables the motion blocks read are made on the **Motion**
+page of a Linux device: right-click **Motion** in the device tree (it sits
+beside Cameras and Vision) or use the buttons on the page.
+
+![The Motion page with a cam table](img/motion-page.webp)
+
+Three kinds of table live there, each in its own list:
+
+| Kind | What it holds | How a block names it |
+|---|---|---|
+| **Cam** | master position to slave position, one point per line; **Periodic** makes the cam repeat every master turn | `CamTable 0`, `CamTable 1`, ... in `MC_CamTableSelect` |
+| **Profile** | time in seconds to position, velocity or acceleration | `TimePosition 0`, `TimeVelocity 0`, `TimeAcceleration 0` in the profile blocks |
+| **Cam switch table** | tracks: an output (1 to 32), the first and the last position it is on, an on lead and an off lag in milliseconds | `Switches 0` in `MC_DigitalCamSwitch` |
+
+A table has a **Name** (one word of up to 31 characters, not taken by
+another table of the kind) and the number the blocks use is its place in
+its list - the first cam is 0. **Points** are typed one per line, x and y,
+with x going up, two to 256 of them; **Apply points** checks and takes
+them, and a line the page cannot read is named under the field. The
+tracks of a switch table are a table of their own: **Add track**, edit the
+cells, **Remove track**.
+
+**Remove table** takes a table out; a block that named it answers
+`ErrorID` 16 (the table is missing or wrong) until another table takes its
+number. The tables travel in the project and with it to the device; a
+device of another kind than Linux refuses them at the build.
+
+---
+
 ## Profiles and cams
 
 **Linux.** A **profile** is a table of time against position, velocity
