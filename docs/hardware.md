@@ -156,6 +156,12 @@ These are complete devices — enclosure, display, touch, terminals:
 | **stepHMI32** | boards in several sizes, 480×272 class |
 | **Waveshare P4-NANO** | 10.1" on the ESP32-P4 |
 
+!!! note "The hardware is not ours"
+    ctrl32 is software only. The boards above are made and sold by their
+    respective manufacturers; what we supply is the runtime that turns
+    one into a programmable HMI. Ask
+    the hardware vendor about hardware, and us about the software.
+
 ---
 
 ## Every board has an identity

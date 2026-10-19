@@ -170,6 +170,8 @@ The whole story — starting it, every tool it gets, and the safety rules — is
 
 ## Licence
 
+The terms are on the [Licensing](licensing.md) page.
+
 ## Updates
 
 *Help -> Check for updates* reads a small signed notice from our web and

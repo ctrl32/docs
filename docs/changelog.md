@@ -8,11 +8,9 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
-## ctrl32 is free (19 October 2026)
-
 ## 1.06.000
 
-The first release of free ctrl32 (see above) - and a new line: every
+A new line: every
 device takes a new runtime (over the network or over USB, as always -
 [Download to the board](deploy.md)) before it accepts a project saved by
 this editor.
@@ -328,6 +326,11 @@ runtime.
 An editor build inside line 1.01 - the devices keep their 1.01.000
 runtime.
 
+- **ONLINE on a Linux device.** The program sent to a Linux device and
+  the copy ONLINE compares with were built two different ways, so ONLINE
+  always reported "a different program" and asked to deploy again. Both
+  are built the same way now.
+
 ## 1.01.007
 
 An editor build inside line 1.01 - the devices keep their 1.01.000
@@ -356,6 +359,11 @@ runtime.
 An editor build inside line 1.01 - the devices keep their 1.01.000
 runtime.
 
+- **The new-version window at start works.** The check for a new
+  version and the window it opens were
+  tied to a condition no editor started from the Start menu ever met,
+  so they ran only from *Check for updates* in Help. They run at every
+  start now; a scripted or bounded run still never reaches the network.
 - **Flash runtime on a Linux device finds its runtime.** 1.01.003 added
   the button; an installed editor then answered "none for this board",
   because it looked for the Linux runtime under the name the checkout
@@ -960,6 +968,10 @@ way.
   the RS-485 pair with two slaves, the device's UPS and sensors, and
   the alarms — on the glass and on a phone. The page:
   [reTerminal](example-reterminal.md).
+- **The editor says when a new version is out, by itself.** The check
+  ran at every start already, but the answer only sat in the Help menu,
+  so an editor could run old for months without ever hearing about a
+  new version. Now the window opens on the next start.
 - **Settings.** *Tools -> Settings* holds the three things a person
   actually changes - the language, the theme, and whether the editor
   looks for a new version and says so. Turned off, the editor never
@@ -1158,6 +1170,8 @@ way.
   cycle time and overruns (`SYS.CYCLE3_US` … `SYS.OVERRUNS4`), the
   Diagnostics page shows every task and the Resources page lists the
   programs of each.
+- **The update dialog opens by itself.** The editor checks at start and
+  offers the new version with one *Install now* button.
 - **Room on 4 MB devices.** The two 4 MB display runtimes are compiled
   for size and no longer carry the largest built-in font; a project that
   draws with the 36 px face carries it in its own pack. See
