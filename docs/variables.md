@@ -350,7 +350,7 @@ the same cycle, compute them in the logic and write the result.
 
 ## Limit
 
-**512 variables** (a Linux device: 5 120; an ESP32 without PSRAM, the
+**512 variables** (an ESP32-P4 board: 4 096; a Linux device: 20 480; an ESP32 without PSRAM, the
 LITE class: 128 — the full table by board type is in
 [Performance and limits](limits.md)). In practice this is
 the first thing to run out — before blocks, before compilation. The

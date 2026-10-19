@@ -50,7 +50,7 @@ tags:
 | Limit | Value | Why |
 |:---|:---:|:---|
 | Distinct TCP targets (IP:port) per project | **4** | ~6–8 kB of RAM per connection on the ESP32-S3 |
-| Variables in total | 512 | product limit |
+| Variables in total | 512 (an ESP32-P4 board 4 096, a Linux device 20 480) | product limit |
 
 - Variables on the **same IP:port share a single connection** — 20 variables from
   one energy meter is still just 1 target. Different `unit` values on

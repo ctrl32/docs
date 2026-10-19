@@ -229,6 +229,55 @@ nav:
       - Signal handling: blocks-signal.md
       - Equipment blocks: blocks-equipment.md
       - Motion: blocks-motion.md
+      # motion-blocks: begin
+      - "Motion, turning the axis on: MC_Power": mc-power.md
+      - "Motion, turning the axis on: MC_Reset": mc-reset.md
+      - "Motion, turning the axis on: MC_ReadStatus": mc-readstatus.md
+      - "Motion, turning the axis on: MC_ReadAxisError": mc-readaxiserror.md
+      - "Motion, making it move: MC_MoveVelocity": mc-movevelocity.md
+      - "Motion, making it move: MC_Halt": mc-halt.md
+      - "Motion, making it move: MC_Stop": mc-stop.md
+      - "Motion, making it move: MC_MoveAbsolute": mc-moveabsolute.md
+      - "Motion, making it move: MC_MoveRelative": mc-moverelative.md
+      - "Motion, making it move: MC_MoveAdditive": mc-moveadditive.md
+      - "Motion, making it move: MC_Home": mc-home.md
+      - "Motion, making it move: MC_SetPosition": mc-setposition.md
+      - "Motion, making it move: MC_SetOverride": mc-setoverride.md
+      - "Motion, reading the axis: MC_ReadActualPosition": mc-readactualposition.md
+      - "Motion, reading the axis: MC_ReadActualVelocity": mc-readactualvelocity.md
+      - "Motion, reading the axis: MC_ReadActualTorque": mc-readactualtorque.md
+      - "Motion, reading the axis: MC_ReadMotionState": mc-readmotionstate.md
+      - "Motion, reading the axis: MC_ReadAxisInfo": mc-readaxisinfo.md
+      - "Motion, reading the axis: MC_ReadParameter": mc-readparameter.md
+      - "Motion, reading the axis: MC_ReadBoolParameter": mc-readboolparameter.md
+      - "Motion, reading the axis: MC_WriteParameter": mc-writeparameter.md
+      - "Motion, reading the axis: MC_WriteBoolParameter": mc-writeboolparameter.md
+      - "Motion, continuous and superimposed motion: MC_MoveContinuousAbsolute": mc-movecontinuousabsolute.md
+      - "Motion, continuous and superimposed motion: MC_MoveContinuousRelative": mc-movecontinuousrelative.md
+      - "Motion, continuous and superimposed motion: MC_MoveSuperimposed": mc-movesuperimposed.md
+      - "Motion, continuous and superimposed motion: MC_HaltSuperimposed": mc-haltsuperimposed.md
+      - "Motion, profiles and cams: MC_PositionProfile": mc-positionprofile.md
+      - "Motion, profiles and cams: MC_VelocityProfile": mc-velocityprofile.md
+      - "Motion, profiles and cams: MC_AccelerationProfile": mc-accelerationprofile.md
+      - "Motion, profiles and cams: MC_CamTableSelect": mc-camtableselect.md
+      - "Motion, profiles and cams: MC_CamIn": mc-camin.md
+      - "Motion, profiles and cams: MC_CamOut": mc-camout.md
+      - "Motion, the line shaft: MC_GearIn": mc-gearin.md
+      - "Motion, the line shaft: MC_GearOut": mc-gearout.md
+      - "Motion, the line shaft: MC_GearInPos": mc-gearinpos.md
+      - "Motion, the line shaft: MC_PhasingAbsolute": mc-phasingabsolute.md
+      - "Motion, the line shaft: MC_PhasingRelative": mc-phasingrelative.md
+      - "Motion, the line shaft: MC_CombineAxes": mc-combineaxes.md
+      - "Motion, torque: MC_SetTorqueLimit": mc-settorquelimit.md
+      - "Motion, torque: MC_TorqueControl": mc-torquecontrol.md
+      - "Motion, torque: MC_TorqueFF": mc-torqueff.md
+      - "Motion, probes and digital words: MC_TouchProbe": mc-touchprobe.md
+      - "Motion, probes and digital words: MC_AbortTrigger": mc-aborttrigger.md
+      - "Motion, probes and digital words: MC_DigitalCamSwitch": mc-digitalcamswitch.md
+      - "Motion, probes and digital words: MC_ReadDigitalInput": mc-readdigitalinput.md
+      - "Motion, probes and digital words: MC_ReadDigitalOutput": mc-readdigitaloutput.md
+      - "Motion, probes and digital words: MC_WriteDigitalOutput": mc-writedigitaloutput.md
+      # motion-blocks: end
       - CANopen blocks: blocks-can.md
       - Services: blocks-services.md
       - Home automation: blocks-home.md

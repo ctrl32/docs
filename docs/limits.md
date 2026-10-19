@@ -35,6 +35,12 @@ configure.
 | Axes (drives) | 4 | 4 | **64** |
 | PLC tasks | 4 | 4 | 4 |
 
+**ESP32-P4 boards.** Their 32 MB of PSRAM carry a bigger table: every
+ESP32-P4 board, with a display or headless, holds **4 096 variables**,
+**512 alarms** and **256 widgets per screen**. Everything else on it is
+the number of its type above. The editor knows it from the board you
+pick — nothing to configure.
+
 **Vehicle buses.** A project that speaks
 [J1939](vehicle-buses.md) — on a truck, a boat or a tractor — holds:
 

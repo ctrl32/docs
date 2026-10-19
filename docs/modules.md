@@ -24,26 +24,28 @@ screens to a phone either way.
 - **Diagnostics you can read** - cycle time, memory, bus and drive health on
   the device page and in the editor
 
-## Three sizes
+## Four sizes
 
-| | Compact | Standard | Linux |
-|:---|:---|:---|:---|
-| Hardware | ESP32 without PSRAM | ESP32 with PSRAM, ESP32-S3, ESP32-P4, STM32 | Raspberry Pi, STM32MP1, any Linux computer |
-| Variables | 128 | 512 | 20480 |
-| Alarms | 32 | 128 | 4096 |
-| Program blocks | 128 | 512, 1024 headless | 40960 |
-| Drive axes | 1 | 4 | 64 |
-| Screens | 32 | 32 | 1024 |
-| Trend traces | 4 | 4, 8 on ESP32-S3 and ESP32-P4 | 32 |
-| Phone viewers at once | 1 with a display, 2 headless | 2 | many |
-| Network | Ethernet, WiFi when memory allows | Ethernet and WiFi | Ethernet and WiFi |
-| Recipes | 4 definitions, 8 sets each | 8 definitions, 64 sets each | 8 definitions, 64 sets each |
-| Secure MQTT (TLS) | - | ESP32-S3, ESP32-P4, STM32 | yes |
-| OPC UA, EtherCAT master, several CAN and RS485 lines | - | - | yes |
+| | Compact | Standard | Large | Linux |
+|:---|:---|:---|:---|:---|
+| Hardware | ESP32 without PSRAM | ESP32 with PSRAM, ESP32-S3, STM32 | ESP32-P4 | Raspberry Pi, STM32MP1, any Linux computer |
+| Variables | 128 | 512 | 4096 | 20480 |
+| Alarms | 32 | 128 | 512 | 4096 |
+| Widgets per screen | 64 | 64 | 256 | 1024 |
+| Program blocks | 128 | 512, 1024 headless | 512, 1024 headless | 40960 |
+| Drive axes | 1 | 4 | 4 | 64 |
+| Screens | 32 | 32 | 32 | 1024 |
+| Trend traces | 4 | 4, 8 on ESP32-S3 | 8 | 32 |
+| Phone viewers at once | 1 with a display, 2 headless | 2 | 2 | many |
+| Network | Ethernet, WiFi when memory allows | Ethernet and WiFi | Ethernet and WiFi | Ethernet and WiFi |
+| Recipes | 4 definitions, 8 sets each | 8 definitions, 64 sets each | 8 definitions, 64 sets each | 8 definitions, 64 sets each |
+| Secure MQTT (TLS) | - | ESP32-S3, STM32 | yes | yes |
+| OPC UA, EtherCAT master, several CAN and RS485 lines | - | - | - | yes |
 
 A Compact device is the cheapest way onto a small piece of equipment or a
-gateway; a Standard device is the reference for a panel; the Linux runtime
-takes the large plants.
+gateway; a Standard device is the reference for a panel; a Large device (the
+ESP32-P4) carries the big screens and tables of a 7-inch panel; the Linux
+runtime takes the large plants.
 
 ## Chips
 
@@ -52,7 +54,7 @@ takes the large plants.
 | ESP32 | 2 x 240 MHz | WiFi, Bluetooth | yes | 1 | SPI panels | Compact, Standard with PSRAM |
 | ESP32-PICO-V3-02 | 2 x 240 MHz | WiFi, Bluetooth | yes | 1 | headless | Standard |
 | ESP32-S3 | 2 x 240 MHz | WiFi, Bluetooth LE | over SPI | 1 | parallel and RGB panels up to 800x480 | Standard, the reference |
-| ESP32-P4 | 2 x 400 MHz | with a companion chip | yes | 3 | MIPI DSI and RGB panels | Standard, the fastest |
+| ESP32-P4 | 2 x 400 MHz | with a companion chip | yes | 3 | MIPI DSI and RGB panels | Large, the fastest |
 | STM32F746 | 216 MHz | - | yes | 2 | LTDC panels | Standard |
 | STM32MP157 | 2 x 650 MHz | module | yes | 2 | LTDC, DSI | Linux |
 | Raspberry Pi CM4, 4, 5 | 4 cores | WiFi, Bluetooth LE | yes | over SPI or USB | HDMI, DSI | Linux |
@@ -139,7 +141,7 @@ the catalog boards built on it.
 
 | Module | Flash | PSRAM | Size | Boards on it | Note |
 |:---|:---|:---|:---|:---|:---|
-| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Standard | ESP32-P4-NANO, MaTouch ESP32-P4 7", Olimex ESP32-P4-DevKit |  |
+| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Large | ESP32-P4-NANO, MaTouch ESP32-P4 7", Olimex ESP32-P4-DevKit |  |
 
 ## Boards
 
@@ -148,7 +150,7 @@ the catalog boards built on it.
 | Adafruit HUZZAH32 Feather | ESP32 | - | - | yes | yes | yes | on request | on request |
 | DevKitC WEBview setup | ESP32 | - | - | yes | - | - | Compact | 2 |
 | ESP32-DevKitC V4 | ESP32 | - | - | yes | yes | yes | on request | on request |
-| ESP32-P4-NANO | ESP32-P4 | 800 x 1280 | yes | yes | - | - | Standard | 2 |
+| ESP32-P4-NANO | ESP32-P4 | 800 x 1280 | yes | yes | - | - | Large | 2 |
 | ESP32-S3-DevKitC-1 (N16R8) | ESP32-S3 | - | - | yes | yes | yes | on request | on request |
 | inoCORE32-TM1.0 | ESP32-PICO-V3 | - | yes | yes | yes | yes | Standard | 2 |
 | inoCORE32-TM1.1 | ESP32-PICO-V3 | - | yes | yes | yes | yes | Standard | 2 |
@@ -177,12 +179,12 @@ the catalog boards built on it.
 | Makerfabs Energy Meter | ESP32-S3 | - | - | yes | - | - | Standard | 2 |
 | Makerfabs Weather Station | ESP32 | - | - | yes | - | - | Compact | 2 |
 | Makerfabs WiFi AC Dimmer Switch | ESP32 | - | - | yes | - | - | Compact | 2 |
-| MaTouch ESP32-P4 7" | ESP32-P4 | 1024 x 600 | yes | yes | yes | yes | Standard | 2 |
+| MaTouch ESP32-P4 7" | ESP32-P4 | 1024 x 600 | yes | yes | yes | yes | Large | 2 |
 | MaTouch Lite ESP32-S3 3.95" | ESP32-S3 | 320 x 480 | - | yes | yes | yes | Standard | 2 |
 | Olimex ESP32-DevKit-LiPo | ESP32 | - | - | yes | - | - | Compact | 2 |
 | Olimex ESP32-EVB | ESP32 | 240 x 320 | yes | yes | yes | - | Compact | 1 |
 | Olimex ESP32-GATEWAY | ESP32 | - | yes | yes | - | - | Compact | 2 |
-| Olimex ESP32-P4-DevKit | ESP32-P4 | - | yes | yes | - | - | Standard | 2 |
+| Olimex ESP32-P4-DevKit | ESP32-P4 | - | yes | yes | - | - | Large | 2 |
 | Olimex ESP32-PoE | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Olimex ESP32-PoE-ISO | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Olimex ESP32-PoE2 | ESP32 | - | yes | yes | - | - | Standard | 2 |

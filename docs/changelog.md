@@ -55,6 +55,10 @@ this editor.
   and the pressures, the control units and every signal they send, the
   engine's fault code in words, the driver's parameters, and a drive cycle
   that runs it all without a vehicle.
+- **ESP32-P4 boards hold more**: 4 096 variables, 512 alarms and 256
+  widgets per screen on every ESP32-P4 board, with a display or headless
+  ([Performance and limits](limits.md)). The tables live in the module's
+  PSRAM; the editor applies the numbers when you pick the board.
 
 ## 1.05.000
 
