@@ -54,7 +54,7 @@ runtime takes the large plants.
 | ESP32 | 2 x 240 MHz | WiFi, Bluetooth | yes | 1 | SPI panels | Compact, Standard with PSRAM |
 | ESP32-PICO-V3-02 | 2 x 240 MHz | WiFi, Bluetooth | yes | 1 | headless | Standard |
 | ESP32-S3 | 2 x 240 MHz | WiFi, Bluetooth LE | over SPI | 1 | parallel and RGB panels up to 800x480 | Standard, the reference |
-| ESP32-P4 | 2 x 400 MHz | with a companion chip | yes | 3 | MIPI DSI and RGB panels | Large, the fastest |
+| ESP32-P4 | 2 x 400 MHz | with a companion chip | yes | 1 | MIPI DSI and RGB panels | Large, the fastest |
 | STM32F746 | 216 MHz | - | yes | 2 | LTDC panels | Standard |
 | STM32MP157 | 2 x 650 MHz | module | yes | 2 | LTDC, DSI | Linux |
 | Raspberry Pi CM4, 4, 5 | 4 cores | WiFi, Bluetooth LE | yes | over SPI or USB | HDMI, DSI | Linux |

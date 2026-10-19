@@ -31,8 +31,8 @@ Every ESP32-C3 and ESP32-C6 module of the
 families in all their memory variants. The node image is one build per
 chip and flash size; a module of the same size runs the same image.
 
-The C6 is the richer chip: two CAN controllers, Wi-Fi 6 and the radio a
-future Thread network will want. The C3 is the cheaper one for a box
+The C6 is the richer chip: Wi-Fi 6 and the radio a future Thread network
+will want; both carry one CAN controller, as every ESP32 does. The C3 is the cheaper one for a box
 with a handful of switches.
 
 ---
