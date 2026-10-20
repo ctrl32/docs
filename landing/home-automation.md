@@ -12,7 +12,7 @@ Home Assistant is an excellent brain; it was never meant to be the reflexes. ctr
 - Home Assistant users whose pump, valve, heater or blinds must not depend on a server, a Wi-Fi access point or the internet
 - Electricians and makers who already know ladder, function blocks or structured text
 - Anyone wiring sensors and I/O around a house who wants fieldbuses on the board
-- Builders who want PLC discipline at hobby-hardware cost
+- Builders who want PLC discipline in their own house
 
 ## What you get
 - **A real cycle**: the logic runs on a fixed period (10 ms is the usual) - reads inputs into a snapshot, decides, writes outputs; it never waits for the network or for an automation to fire
@@ -51,7 +51,7 @@ Why it matters: the evening the hub updates, a container restarts or the access 
 | Wrong module in a slot | discovered eventually, by behaviour | the head station sees the mismatch |
 | Commissioning | a tool and a list | power up |
 
-The usual alternatives each cost something: a device per point on Wi-Fi (the interlock now depends on the access point), a cable per signal to a central rack (the copper and labour dwarf the electronics), a fieldbus with addressed modules (every module must be told who it is, and a replacement needs somebody to remember the setting).
+The usual alternatives each cost something: a device per point on Wi-Fi (the interlock now depends on the access point), a cable per signal to a central rack (a cable to the rack for every signal), a fieldbus with addressed modules (every module must be told who it is, and a replacement needs somebody to remember the setting).
 
 ## Compared
 | | Cloud relays and plugs | Per-device firmware configured in files | Everything in the hub's automations | An industrial controller with its vendor's editor | **ctrl32 on an ESP32** |
@@ -61,8 +61,7 @@ The usual alternatives each cost something: a device per point on Wi-Fi (the int
 | Works with the **hub** down | no | partly | **no** | yes | **yes** |
 | How you write the logic | a phone app | text files | a visual automation editor | ladder / FBD / ST | **ladder, FBD or ST** |
 | Fieldbuses (Modbus, CAN) | rarely | some | via add-ons | yes | **yes, on the board** |
-| A local screen | no | no | a tablet on the hub | yes, expensive | **yes, glass and browser** |
-| Cost per controlled point | low | very low | low | high | **very low** |
+| A local screen | no | no | a tablet on the hub | yes | **yes, glass and browser** |
 | What you own afterwards | an account | a config file | automations | a project | **a project, and the file format** |
 
 Two honest notes: a per-device firmware with simple rules is excellent for a lamp - if all you need is a lamp, use it. And an industrial controller is the right answer when a certificate is required.
@@ -93,7 +92,6 @@ Two honest notes: a per-device firmware with simple rules is excellent for a lam
 - Benchmark: classic ESP32 at 240 MHz, with Ethernet, a Wi-Fi access point, CAN and a 40-screen visualisation beside it - 400 logic blocks = 515 µs, about 5 % of a 10 ms cycle
 - Degradation order: logic > communication > graphics
 - What each bus reaches: Wi-Fi/Ethernet - the hub, the broker, a phone browser; RS-485 - energy meters, I/O modules, thermostats, inverters; CAN - batteries, hybrid inverters, chargers and wallboxes; I²C / SPI / 1-Wire - temperature, pressure, light, air quality, expanders; touch display - a wall panel that works with the internet off
-- Hardware: a board with two fieldbuses and a screen costs less than a single smart relay from a catalogue
 - House block library: twenty blocks, written in ST
 - Shipped tutorials: a thermostat fed by Home Assistant, and lights from the glass (switches and dims real Zigbee lamps through HA with the true state reported back)
 - stepCAN: one Cat5e cable carries the CAN network past every module, beside it a one-way "you are next" chain; at power-up the head station hands out CANopen node-IDs in strict physical order - 64 modules in under a second; 64 modules per segment, 500 kbit/s, up to 30 m of bus, RJ45 in the CANopen connector standard, DIN-rail backplane or scattered around a building (or both on one segment); CANopen CiA 301, 305 and 401 underneath, I/O arrives as variables in the cycle

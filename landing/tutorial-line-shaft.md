@@ -62,7 +62,7 @@ A drum on its own velocity, servo cylinders geared to its measured position at a
 - A register peak at the start of a ramp is the drive's loop taking up the breakaway; the drive's position controller gain is the lever
 - Device page: `ecat=` with master up and every slave operational; a working-counter error is a slave gone
 - Related blocks: `MC_GearIn`, `MC_GearInPos`, `MC_PhasingAbsolute`, the torque blocks
-- Trademark line: EtherCAT® is a registered trademark and patented technology of Beckhoff Automation GmbH, Germany (keep the original notice wording on the web page)
+- The trademark notice, word for word, on the page: *EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*
 
 ## Call to action
 Download the editor and open `examples\reterminal_ecat_example.prj32`.

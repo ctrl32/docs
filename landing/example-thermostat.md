@@ -12,7 +12,7 @@ Ladder logic with hysteresis, an operator screen, a manual mode, a trend, alarms
 - Anyone starting a first project - this is the shape most first projects turn out to be
 - Integrators who want a ready template for a simple on/off control loop
 - Commissioning engineers who value a manual screen beside the automatic one
-- Anyone evaluating ctrl32 on a low-cost ESP32 board without hardware on the bench
+- Anyone evaluating ctrl32 on an ESP32 board without hardware on the bench
 
 ## What you get
 - A wall thermostat on a 2.8" portrait screen driving the two relays the board has

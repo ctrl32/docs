@@ -56,7 +56,7 @@ Run a CiA 402 drive over EtherCAT from a Linux device: import the vendor's descr
 - START from the screen has a confirmation
 - Bench: a 0.37 kW motor at 300 rpm drawing 0.48 A at 20 Hz, DC link 319 V - all as variables
 - Safety: stopping over EtherCAT is not a safety function; the emergency stop belongs on the drive's STO terminals, hard-wired
-- Trademark line: EtherCAT® is a registered trademark and patented technology of Beckhoff Automation GmbH, Germany (keep the original notice wording on the web page)
+- The trademark notice, word for word, on the page: *EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*
 
 ## Call to action
 Download the editor and open `examples\reterminal_ecat_example.prj32`.

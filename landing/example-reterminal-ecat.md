@@ -83,7 +83,7 @@ Move a drive from CANopen to EtherCAT with a few lines, run three servo axes in 
 - An EAN-13 value is read as its thirteen digits, as text
 - Note: the original page gives `codes` as every 400 ms in one place and "the program runs every 500 ms" in another - check before publishing
 - A barcode reads when it is about a fifth of the picture wide or more; vision runs on its own thread beside the PLC - an unread picture is dropped, never a cycle
-- EtherCAT® trademark notice of Beckhoff Automation GmbH, Germany, must appear on the page (wording as on the original page)
+- The trademark notice, word for word, on the page: *EtherCAT® is a registered trademark and patented technology, licensed by Beckhoff Automation GmbH, Germany.*
 
 ## Call to action
 Download the ctrl32 editor and open the shipped project `examples\reterminal_ecat_example.prj32` - and `reterminal_ecat_4x.prj32` for four drives. A step-by-step tutorial, "The line shaft, step by step", walks from the first servo to the jobs.

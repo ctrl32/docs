@@ -11,7 +11,7 @@ Enable, run at a setpoint, stop, reset a fault and read the actual speed from a 
 ## Who it is for
 - Builders of conveyors, pumps and fans driven by frequency inverters
 - Integrators commissioning Lenze i550 drives over CANopen
-- PLC programmers who know PLCopen motion blocks and want them on a low-cost panel
+- PLC programmers who know PLCopen motion blocks and want them on a panel
 
 ## What you get
 - A step-by-step bench procedure: wiring, DIP switches, project, wizard, program, screen, start
