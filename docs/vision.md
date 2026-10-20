@@ -5,9 +5,9 @@ image_alt: The Vision page of the editor with a program of blocks and the Toolbo
 
 # Vision
 
-**Machine vision: a camera that checks, measures and reads - set up at your desk, without a line of code.** A Linux device with an ordinary USB camera becomes a vision station: is the part there, is it the right colour, where is its edge, how high is the fill, how wide is the part, what does its code say, is a person in the cell. The answers are variables of the PLC program, and the screens, Modbus, OPC UA and MQTT use them like any other.
+**A camera that checks, measures and reads - set up at your desk, without a line of code.** A Linux device with an ordinary USB camera becomes a vision station: is the part there, is it the right colour, where is its edge, how high is the fill, how wide is the part, what does its code say, is a person in the cell. The answers are variables of the PLC program, and the screens, Modbus, OPC UA and MQTT use them like any other.
 
-A vision program is **drawn**: a chain of blocks - the camera, what is done with its picture, what is measured - connected on the Vision page. There are [89 blocks](vision-blocks.md), the toolset of a machine vision system: regions of interest, filters and thresholds, morphology, blob analysis, pattern and feature matching, markers, calibration, calipers and gauges in millimetres, 1D and 2D codes, laser triangulation, trained neural networks. **Every block has its own window** with its settings and the picture it makes, and every block has [its own page](vision-blocks.md) in this documentation.
+A vision program is **drawn**: a chain of blocks - the camera, what is done with its picture, what is measured - connected on the Vision page. There are [89 blocks](vision-blocks.md), the toolset of an industrial vision system: regions of interest, filters and thresholds, morphology, blob analysis, pattern and feature matching, markers, calibration, calipers and gauges in millimetres, 1D and 2D codes, laser triangulation, trained neural networks. **Every block has its own window** with its settings and the picture it makes, and every block has [its own page](vision-blocks.md) in this documentation.
 
 What makes it reliable is one rule: the editor runs the program on a test picture with **its own copy of the device's vision engine**. What the windows show at your desk is what the device computes on the line; change a setting and every picture and value follows at once. Online, the same windows show the device's own run.
 
@@ -67,7 +67,7 @@ The wires are drawn orthogonally; a wire that runs backwards (an output used by 
 
 ### The Toolbox
 
-While the Vision page is in front, the **Toolbox** panel on the right lists every block in eleven groups - Source, Geometry, Colour, Filters, Shapes, Edges, Finding objects, Logic, Measurements, Ready tools, Learned models - the groups of the [block index](vision-blocks.md). The groups fold and unfold like the ladder's; hold the mouse on a block to read what it does. **A click adds the block** to the program at the right of the canvas, below the lowest block, with the next free id (`n1`, `n2` ...), and selects it. Connect it, set it, and the test picture runs through it at once.
+While the Vision page is in front, the **Toolbox** panel on the right lists every block in eleven groups - Source, Geometry, Colour, Filters, Shapes, Edges, Finding objects, Logic, Measurements, Ready tools, Learned models - the groups of the [block index](vision-blocks.md). The groups fold and unfold like the ladder's; hold the mouse on a block to read what it does. **A click adds the block** to the program at the right of the canvas, below the lowest block, with the next unused id (`n1`, `n2` ...), and selects it. Connect it, set it, and the test picture runs through it at once.
 
 ## The program's window
 
@@ -103,6 +103,7 @@ Results are written only after a run that **succeeded**: a program that could no
 | the **settings table** - *name* | every setting of the block, with its unit after it; hold the mouse on the name to read what the setting means |
 | the settings table - *value* | the value: a number field (typed, kept inside the setting's range - a value outside it is ignored), a tick for a yes/no, a list for a choice, a text; a hue setting shows a swatch of its colour; a `pattern` setting lists the taught pictures of the project and says *(not taught yet)* before the first teach; a `model` setting lists the ONNX files of the project; the Camera block's `camera` lists the project's cameras |
 | the settings table - *variable* | **fixed**, or a **variable** the device reads into the setting **before every run**, kept inside the range: a recipe or the PLC program then changes the check - another product, another area, another limit - without a new vision program. A number or yes/no setting takes a number or BOOL variable, a text setting (the expected text of Read code, the labels of a model) a STRING variable. Not every setting is bindable: a taught picture, a model, a camera and a choice are fixed |
+| **Import model...** | a button of the two model blocks: an `.onnx` file (at most 64 MB) becomes a file of the project and the block's `model` names it - the model's own terms are yours to check |
 | **Calibrate from this picture** | a button of Lens correction: finds the chessboard in the test picture and fills the lens numbers in |
 | **Teach the plane from this picture** | a button of Plane from a board: the chessboard on the working plane becomes the mapping to millimetres |
 | **Teach the baseline from this picture** | a button of Laser line profile: the laser line on the empty plane becomes the zero of every height |
@@ -132,6 +133,8 @@ Build a check from pictures of real parts: take ten good ones and ten bad ones w
 
 **Online**, the windows show the device's own run instead: its picture of every block, its values, and the program's line on the page (how many runs, errors, milliseconds). Teaching is a desk gesture - teach on a test picture, then download.
 
+**One camera, several programs.** Every program begins with its own Camera block, and any number of them may name the same camera: one program per question - the fill level, the cap, the label - each with its own trigger or period, its own results and its own time on the page. A program that fails does not stop the others, and a slow one (a pattern search, a model) does not hold up a fast one.
+
 ## Measuring
 
 Every measuring block answers in pixels, and in millimetres as soon as a **scale** (millimetres per pixel) is wired into its `scale` input:
@@ -143,13 +146,69 @@ Every measuring block answers in pixels, and in millimetres as soon as a **scale
 
 Every gauge takes a **tolerance** - `min` and `max`, 0 = no limit - and answers *ok*: a value outside the pair is a failed check, never a fault.
 
+**Millimetres with a Ruler**, the usual order:
+
+1. Connect a [Ruler](vision-ruler.md) to the picture the gauges measure on (the camera's, or a Fixture's `out`).
+2. In its window drag along a length you know - the part's body, a mark, a rule laid on the belt - and type its real length in `length`. The block answers `mm_per_px`: a body 320 px wide that is 80 mm reads 0.25.
+3. Wire `mm_per_px` into the `scale` input of every gauge. Their `_mm` outputs and their `min` / `max` are now in millimetres; a gauge with nothing on `scale` answers in pixels.
+
+A tolerance is easiest typed from a good part: read the gauge's value on a good test picture, then set `min` and `max` around it. Bound to a variable (the variable column of the block's window), a recipe sets the tolerance per product without a new vision program.
+
+**A level is a jump of brightness.** The [Fill level](vision-level.md) block averages every row across its window and stops at the first jump at least `contrast` big (40 suits most liquids) - drag the window over the straight part of the vessel only, and set `polarity` to the one change the surface makes (*light to dark* for a dark liquid under a light headspace), so that a label's edge further down cannot be taken for the surface. `position` counts from the edge the search starts at, `level` from the opposite edge - the fill height a specification states.
+
 ## Coordinates
 
-A part on a belt never lies exactly where it lay when the check was drawn. The [Fixture](vision-fixture.md) block, taught once by a drag over the part, finds the part on every later picture and shifts (and turns) the whole picture back so that the part sits where it was taught - every block after it keeps its areas. The [Plane from a board](vision-world.md) block does the same for the working plane: after it, a point of the picture is a point of the plane in millimetres.
+A part on a belt never lies exactly where it lay when the check was drawn. The [Fixture](vision-fixture.md) block, taught once by a drag over the part, finds the part on every later picture and shifts (and turns) the whole picture back so that the part sits where it was taught - every block after it keeps its areas.
+
+The rules of a fixtured program:
+
+- **Connect the measuring blocks to the Fixture's `out`, not to the camera.** A block fed straight from the camera keeps its window on the camera, and the part walks out of it.
+- **Teach the Fixture on something with edges** that is always there and always looks the same - the top of a bottle with its neck and shoulder, a corner of a part. A drag over one flat shade has no detail to find, and the block says the taught picture has no detail.
+- **A part that is not found** leaves the picture unshifted and `found` off; the blocks after it still run. Hand `found` to a variable and let the PLC program tell "no part" from "a bad part".
+- **A part that may lie turned** needs `max_angle` above 0. Every degree of the search costs time; leave it at 0 when the part never turns.
+- **`dx`, `dy` and `angle`** say how far the part had moved and turned - into variables, they show a feeder drifting long before a check fails.
+
+After a Fixture, a [Part in place](vision-part_ok.md) window drawn on a feature (a cap, a seal, a label) judges the feature itself: `found` off = the feature is missing; `found` on with `ok` off = it is there but off its place or the wrong size, and its `dx` / `dy` say which way it slid.
+
+The [Plane from a board](vision-world.md) block fixes the working plane in the same way: after it, a point of the picture is a point of the plane in millimetres.
 
 ## Finding objects
 
 Some blocks give a **list of objects** rather than a number - [Find objects](vision-contours.md) (the separate white areas of a black-and-white picture), [Find circles](vision-circles.md), [Find lines](vision-lines.md), [Find corners](vision-corners.md), [Find markers](vision-aruco.md), [Find pattern](vision-pattern.md), [Detect (model)](vision-dnn_detect.md). Every object has its centre, its frame, a radius, an angle and an area, and the list is sorted - the largest first, or left to right, or top to bottom - so *object 0* always means the same one. [Pick object](vision-pick.md) gives one object's numbers, [Check objects](vision-objcheck.md) judges the whole list, [Filter objects](vision-filter_objects.md) keeps the ones that look right, [Crop to object](vision-crop_object.md) looks only where the part really is.
+
+## Reading codes
+
+[Read code](vision-code.md) reads a **QR code**, a **barcode** (every
+one-dimensional code: EAN, UPC, Code 128, Code 39, ITF, Codabar, GS1
+DataBar), a **DataMatrix**, *pdf417* or *aztec*; *any* reads every kind at
+once and its *format* output names the kind it read. One block per kind
+is the faster road when the kinds are known.
+
+- **The reading area.** Put a [Crop](vision-crop.md) in front of the
+  reader: a code outside the area does not count, and a quarter of the
+  picture costs a quarter of the search.
+- **The picture the reader gets.** [Gamma](vision-gamma.md),
+  [Stretch contrast](vision-normalize.md) and [Sharpen](vision-sharpen.md)
+  before the reader help a glossy label under a lamp or a soft picture.
+  Bind their settings to variables and put sliders for them on a screen:
+  the operator sets them while watching that picture, and the values are
+  kept over a restart. Neutral is gamma 100, contrast 0, sharpen 1.
+- **Two programs.** A reader takes a few hundred milliseconds. A preview
+  of the prepared picture at that pace stutters, so the preview gets its
+  own program (every 100 ms) and the readers theirs (every 400-500 ms).
+  A screen camera element whose text names a block (`prep.shp`) shows that
+  block's picture live.
+- **The answers are variables**: found, the text, the kind, the value as
+  a number when the code is one. The text of a code lands in a **STRING**
+  variable, a kind only a Linux device has. A barcode's value is its
+  text: thirteen digits of an EAN-13 do not fit a number exactly.
+- **expect** empty reads any code; a text in *expect* makes *match* say
+  whether the code carries it - a lot number, a product.
+- **Size and light.** A barcode reads when it is about a fifth of the
+  picture wide or more. Bring a small label close, keep it flat and out
+  of the glare.
+
+![Reading codes: the camera's picture with a QR code and an EAN-13 label, the texts read off it](img/example-reterminal-ecat-codes.webp){: .sb-center}
 
 ## A piece of ST
 
@@ -157,16 +216,52 @@ When the blocks do not have the calculation you need, the [ST code](vision-st.md
 
 ## Learned models
 
-For the things no rule describes - a scratch of any shape, a part that is "wrong" in a hundred ways, mixed products, a person in the cell - [Classify (model)](vision-dnn_classify.md) and [Detect (model)](vision-dnn_detect.md) run a **trained neural network**, an ONNX model imported into the project with the window's **Import model...** button. The model is trained on a PC from pictures you collected, or taken from a model zoo; one ships ready to use in the [People counter](example-people-counter.md) example. The model file carries its own licence - check it before you build a product on a downloaded one.
+For the things no rule describes - a scratch of any shape, a part that is "wrong" in a hundred ways, mixed products, a person in the cell - [Classify (model)](vision-dnn_classify.md) and [Detect (model)](vision-dnn_detect.md) run a **trained neural network**, an ONNX model imported into the project with the window's **Import model...** button. The model is trained on a PC from pictures you collected, or taken from a model zoo; it is never trained on the device.
+
+**Adding a model:**
+
+1. Add the block, open its window and press **Import model...**: the `.onnx` file (at most 64 MB) becomes a file of the project, carried in the project file like a picture, and `model` names it. The deploy takes it to the device with the program - nothing is downloaded on the device.
+2. Describe the model's input from its own documentation: `width` and `height` (416 x 416 for a small YOLOX, 640 x 640 for most YOLO exports), `scale` and `mean` (a model trained on 0..1 wants `scale` 0.003922 = 1/255; a model that wants the raw picture 0..255 wants `scale` 1, `mean` 0), `swap_rb` (on for RGB, off for a model that takes BGR as it comes).
+3. For a detector set `layout`: *auto* reads SSD and the YOLO families off the output's shape, a YOLOX export keeps its boxes in grid units and must be named *yolox*.
+4. Type `labels` - the class names **in the model's own order**, separated by commas - so that `label` and `only` speak names instead of numbers. `only` keeps one class (`person`, `car`, `bottle`): the count and the best match then speak of that class alone.
+5. Open a test picture: the window frames every detection with its score. No frame at all on a picture where something is plainly there usually means the input is described wrongly - try the other `scale` / `swap_rb` before anything else.
+
+**What it costs.** A model is the heaviest block there is. A small detector (YOLOX-Nano, 3.6 MB, the 80 everyday classes of the COCO set) takes about **180 ms per picture** on a reTerminal (a Raspberry Pi CM4) on the whole frame: twice a second is the right pace, and a [Crop](vision-crop.md) in front of the block makes it faster when only part of the view matters. Run a model on a trigger or every half second to a second, never ten times a second.
+
+**Its terms.** A model you download comes with its own terms, and they are part of the decision: some published detection models are offered only under terms that do not allow them inside a closed product. Read them before you build a product on one; a model released under permissive terms (Apache 2.0, MIT), or one you trained yourself, goes in the same way.
 
 ## The control comes first
 
 A vision program runs on the device **below the PLC**, on its own thread, away from the core the cycle and the EtherCAT line use. When the device is busy, a picture waits - the cycle never does. A camera that stops giving pictures is a failed run, never a check on an old picture. The device's console and its diagnostic buffer say what a failed run lacked.
 
+## Speed
+
+The page says how long the whole program took on the PC; the online line says what the device takes. Most blocks cost a few milliseconds - a program of a Ruler and a Fill level, or of a Crop, a Read code and a Part in place, runs in about 10 ms on a reTerminal. Three kinds of block cost the rest:
+
+- **searches for a taught picture** - [Fixture](vision-fixture.md), [Find pattern](vision-pattern.md), [Find by features](vision-features.md): a Fixture searching the whole frame of a reTerminal takes about 200 ms, and more with every degree of `max_angle`;
+- **[Read code](vision-code.md)**, which searches the whole picture it receives;
+- **[learned models](#learned-models)**.
+
+The cure is the same for all three: a [Crop](vision-crop.md) in front of them, to the area where the part (or the code) can be - the smaller the area, the shorter the search (half the area, about half the time). Then match the program's period to what it costs: a program that takes 200 ms cannot run every 100 ms.
+
+## When a reading is wrong
+
+| What you see | What to do |
+|:---|:---|
+| the page says *Not complete* | it names the block and the input; the input is drawn red on the canvas - connect it |
+| a block's window says the taught picture has no detail | the drag covered one flat shade - drag again over the part **with its edges** |
+| the device's picture is darker or brighter than the one at the desk | the camera's automatics: fix the exposure, the gain and the white balance on the camera's page ([Exposure and colour](cameras.md#adding-a-camera)) - a check wants the same picture every time. A lamp helps a camera more than any block does |
+| a check passes and fails on the same part | the same: fixed exposure first, then limits set from ten good and ten bad pictures (see [Test pictures](#test-pictures-and-the-desk-run)) |
+| a window drawn on a feature misses it when the part stops elsewhere | put a [Fixture](#coordinates) in front and connect the block to the Fixture's `out` |
+| the Fixture's `found` is off on good parts | lower `min_score` a little, or teach again on a part with more edges; a part that lies turned needs `max_angle` |
+| a Fill level reads a label's edge instead of the surface | set `polarity` to the change the surface makes and shrink the window to the vessel's straight part |
+| a value in pixels where millimetres were wanted | nothing is wired into the block's `scale` input - see [Measuring](#measuring) |
+| a code is not read | the code's smallest element must be at least two pixels wide, better three, and in focus - move the camera closer or change the lens; a Crop to the label helps |
+| a model frames nothing | the model's input is described wrongly - `scale`, `mean`, `swap_rb`, `layout` (see [Learned models](#learned-models)) |
+| the program is slow, or its online time is longer than its period | see [Speed](#speed) |
+| the results never change in the PLC program | a run that failed writes nothing: the online line counts the errors, the device's console and diagnostic buffer say why (no picture, the camera unplugged) |
+
 ## Where to go next
 
 - [Vision blocks](vision-blocks.md) - every block, its own page.
 - [Cameras](cameras.md) - the camera's page, every field.
-- [Vision, step by step](tutorial-vision.md) - the first program: presence and a code.
-- [Measuring, step by step: a bottle](tutorial-measuring.md) - a fill level and a cap, in millimetres, with a Fixture.
-- [Bottle check](example-bottle-check.md) and [People counter](example-people-counter.md) - two shipped projects.

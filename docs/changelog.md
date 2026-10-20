@@ -62,12 +62,18 @@ this editor.
   canvas (offline a chart used to be an empty frame).
 - **ONLINE over WiFi holds through a slow hop**: the editor ends the online
   session only after three seconds of silence, not after one missed poll.
-- **A car cockpit example** ([Car cockpit](example-car-cockpit.md)): an
+- **A car cockpit example** (Car cockpit): an
   instrument cluster on the MaTouch ESP32-P4 7" on a J1939 vehicle bus -
   the gauges and lamps, six round instruments with needles for the oils
   and the pressures, the control units and every signal they send, the
   engine's fault code in words, the driver's parameters, and a drive cycle
   that runs it all without a vehicle.
+- **A flexo press example** (Flexo press): the
+  operator panel of an eight-colour press whose control is a SIMATIC, over
+  +7 - the press as its own drawing with the web moving on it, the eight
+  print sections, the register, the heating, the job as a recipe, the
+  alarms and the PLC link, in a light industrial look; a demo runs the
+  press on the panel.
 - **ESP32-P4 boards hold more**: 4 096 variables, 512 alarms and 256
   widgets per screen on every ESP32-P4 board, with a display or headless
   ([Performance and limits](limits.md)). The tables live in the module's
@@ -549,13 +555,19 @@ way.
   The laser profile's baseline is taught the same way, from the empty
   plane. See [Coordinates](vision.md#coordinates).
 - **The bottle example and a measuring tutorial.** The new
-  [Bottle check](example-bottle-check.md) example checks a bottle's fill
+  Bottle check example checks a bottle's fill
   level in millimetres, its cap through a Fixture and its label with a
-  code, and [Measuring, step by step](tutorial-measuring.md) builds it
+  code, and Measuring, step by step builds it
   block by block — on the desk with the drawn bottle the editor ships,
   no camera needed.
+- **A drive's settings from its maker's tool.** The parameter file the
+  drive maker's tool saves (GDC) becomes the EtherCAT slave's start-up
+  writes with one button — every setting off the drive's default, scaled
+  and sized by the device's description; a servo that keeps no settings
+  of its own comes up set at every start, and a spare drive with it. See
+  [EtherCAT](ethercat.md#the-drives-settings-from-its-makers-tool).
 - **A people counter with a shipped model.** The new
-  [People counter](example-people-counter.md) example carries a small
+  People counter example carries a small
   trained detection network inside the project (YOLOX-Nano, Apache 2.0)
   and counts the people the camera sees; the **Detect (model)** block
   reads that model's raw export (*layout* `yolox`) and keeps only one
@@ -597,7 +609,7 @@ way.
   do not have. A program runs on a rising
   edge of a variable (with BUSY and DONE for the rung that waits) or
   periodically, below the PLC. See [Vision](vision.md) and
-  [Vision, step by step](tutorial-vision.md).
+  Vision, step by step.
 - **A camera's exposure, gain and white balance** can be fixed on its
   page - a check wants the same picture every time.
 - **The assistant reaches everything.** The MCP server has two more
@@ -633,7 +645,7 @@ way.
   camera say — three Read code blocks on a picture the operator tunes
   with three sliders (brightness, contrast, sharpen) while watching it
   beside the camera's, their text in STRING variables. See
-  [the example](example-reterminal-ecat.md#reading-codes).
+  the example.
 - **32 vision programs** in a project (8 before), **256 blocks and 128
   results** in a program (64 and 32 before).
 - **A text setting from a STRING variable.** The expected text of Read
@@ -641,6 +653,11 @@ way.
   STRING variable before every run, like the numbers.
 - **Any camera size.** The camera page takes a width and a height
   beside the presets.
+- **Learned models.** Two more vision blocks run a trained neural
+  network (an ONNX file imported into the project): *Classify (model)*
+  says which class the picture is, *Detect (model)* finds every object a
+  YOLO or SSD network knows. The model's licence is the customer's to
+  check.
 - **RTSP cameras.** A network camera's H.264 stream (`rtsp://...`) is a
   camera of the project; the device needs `ffmpeg` installed once.
 - **Lens calibration.** The *Lens correction* block fills its numbers
@@ -982,7 +999,7 @@ way.
   torque, DC link, frequency, error code, the CiA 402 lamps, a trend),
   the RS-485 pair with two slaves, the device's UPS and sensors, and
   the alarms — on the glass and on a phone. The page:
-  [reTerminal](example-reterminal.md).
+  reTerminal.
 - **The editor says when a new version is out, by itself.** The check
   ran at every start already, but the answer only sat in the Help menu,
   so an editor could run old for months without ever hearing about a
@@ -998,7 +1015,7 @@ way.
   addresses beside the values, one INT typed back, the PLC's clock bit
   as the link lamp and the panel's own counter beside it, so a stopped
   controller cannot be mistaken for a stopped panel. The page:
-  [reTerminal — the panel of a SIMATIC](example-reterminal-s7.md).
+  reTerminal — the panel of a SIMATIC.
 - **The STM32F746 showcase in daylight, with a SIMATIC on it.** The
   example starts in the light theme and its screens were relit — an
   unlit lamp, a track and a field used to be drawn black, which nobody
@@ -1006,7 +1023,7 @@ way.
   of an S7-1200 read live with one value written back, and a trend
   carrying the board's own value beside the controller's with the
   alarm list under them. The page:
-  [Showcase — STM32F746 Discovery](example-showcase.md).
+  Showcase — STM32F746 Discovery.
 - **A value typed into a +7 variable always reaches the PLC.** A change
   made while the client was inside its cycle could be undone by that
   cycle's own read, and the write then never left — about two in every
@@ -1024,7 +1041,7 @@ way.
   EtherCAT slave on the E10-1's second network port: the axis names
   the EtherCAT backend, an `ethercat:` section describes the slave and
   its signals, the rest is untouched. The page:
-  [reTerminal, drive on EtherCAT](example-reterminal-ecat.md).
+  reTerminal, drive on EtherCAT.
 - **EtherCAT master: the PDO assignment written to the slave.** A
   slave that expects its master to write the PDO assignment (the
   Lenze i550 raised "PDO mapping error" and sent zeros) gets it at
@@ -1051,7 +1068,7 @@ way.
   and the CANopen master of an i550 on the E10-1's CAN. The master's
   screen shows every slave, writes their setpoints and starts their
   machines; each slave keeps its own program. One project, deployed as
-  one. The page: [RS-485 system](example-rs485.md).
+  one. The page: RS-485 system.
 - **RS-485 direction from GPIO lines.** A Linux device whose serial
   port has no RTS on the wire (the reTerminal E10-1) drives its
   transceiver from the GPIO lines the board wires — the editor writes
@@ -1165,7 +1182,7 @@ way.
   verified, a runtime that does not confirm itself is put back at the
   next start. Type the board's address instead of a COM port in *Flash
   runtime*; the one-time move onto this layout is a *Flash runtime* over
-  the ST-LINK, which writes both parts. See [Quick start](quickstart.md).
+  the ST-LINK, which writes both parts. See Quick start.
 - **The F7 console says what happened.** A fault reports where it
   happened and restarts the board; lines printed by several parts of
   the runtime at once no longer garble each other.
@@ -1299,10 +1316,10 @@ way.
 
 ## 1.00.042
 
-- **Step by step.** Four procedures with pictures: [a new project](tutorial.md)
+- **Step by step.** Four procedures with pictures: a new project
   through the wizard, [your own function block](own-block.md), [downloading
-  a program](deploy.md) over USB and over the network, and [a drive over
-  CAN](tutorial-i550-can.md) from the wiring and the DIP switches to the
+  a program](deploy.md) over USB and over the network, and a drive over
+  CAN from the wiring and the DIP switches to the
   first turn of the motor. The three projects they build ship as tutorials
   (`first_light`, `own_block`, `i550_axis`). Every screenshot in the
   documentation is regenerated from this version.
@@ -1384,7 +1401,7 @@ way.
   browse elsewhere), the board or the processor module, and what the
   project does — visualization, WEBview, ladder or ST, CAN, Modbus,
   MQTT, net32 — and creates the whole project from those ticks. See
-  [Quick start](quickstart.md#3-your-own-project).
+  Quick start.
 - **Your own board with a display.** A project on a module declares its
   glass on the board tab: the catalog board with the same display
   controller, the size as mounted, the display and touch pins. The

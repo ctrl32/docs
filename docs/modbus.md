@@ -4,8 +4,7 @@
     Registers, function codes, why `40001` and address 0 are the same
     thing — the protocol has its own page:
     [What Modbus is](modbus-basics.md). This page is the
-    configuration reference, and a complete two-board worked example
-    is [Two boards over Modbus](tutorial-modbus-pair.md).
+    configuration reference.
 
 The board is a Modbus **master** — it cyclically reads (and writes) the
 registers of the connected devices into the variable table. Two transports
@@ -29,13 +28,81 @@ optionally `transport: tcp` + `ip` + `port`.
 
 - Without `transport` (or with `transport: rtu`) the variable goes over
   RS485 — the behaviour of older projects does not change.
-- `f32`/`u32` variables are read from **two** registers. The word order
+- `f32`, `u32`, `i32` and `TIME` variables are read from **two**
+  registers, and the pair travels in one request. The word order
   differs from vendor to vendor and is the most common source of
   nonsensical values — when importing from the catalog it is set
-  correctly for you.
+  correctly for you. A wrong order gives values that are wildly wrong
+  rather than slightly wrong, which is how you recognise it.
 - Scaling: `value = raw × gain + offset`. Analog variables need a
   **deadband** — without one a noisy value repaints the screen for
   nothing.
+
+### Writing to a device
+
+A variable that has a Modbus source **and** `access: rw` is a
+*write-through* variable: when the program, a screen field or a
+WEBview page changes it, the board writes the new value to the
+device — a coil write for a `bool`, a register write for a number
+(both registers in one request for a 32-bit value). A variable
+without `access: rw` only displays what the device holds.
+
+- **The master reads before it writes.** At start-up the device is
+  the source of truth: a setpoint kept in the device is read first and
+  never overwritten by the board's boot value.
+- **Writes go out on change**, not on every poll.
+- **The cyclic read keeps it honest.** If the device refuses or
+  overrides a written value, the next read brings the device's value
+  back into the variable, so a screen does not keep showing a number
+  the device did not accept.
+
+```yaml
+tags:
+  - name: cmd_a                     # written TO the device on change
+    datatype: bool
+    access: rw
+    source: { modbus: { transport: tcp, ip: 192.168.0.233, unit: 1,
+                        fc: coil, address: 0 } }
+  - name: heat_a                    # read only: what the device really does
+    datatype: bool
+    source: { modbus: { transport: tcp, ip: 192.168.0.233, unit: 1,
+                        fc: coil, address: 3 } }
+```
+
+## The RS485 line
+
+Modbus RTU runs on the board's RS485 line. In the device tree:
+
+1. Click the **RS485** node and set what the devices on the pair use:
+   **baud rate**, **parity** and **stop bits** — every device on one
+   pair must agree on all three. The **timeout** is how long the
+   master waits for an answer before it counts the device as silent.
+2. Right-click **RS485** → add **Modbus RTU master**. The tree grows a
+   node for it; every device you add hangs under it.
+3. Add one device per slave and give it the **unit address** the
+   slave answers to — the address set on the slave itself (a DIP
+   switch or its own menu). Two devices on one pair never share a
+   unit.
+
+![The line's parameters: baud, parity, stop bits, timeout](img/rs485-page.webp){: .sb-center}
+
+![The Modbus RTU master page: the line it uses and the devices on it](img/rtu-master-page.webp){: .sb-center}
+
+A further slave is simply more variables naming its `unit`; nothing
+else changes.
+
+**On a Linux device** the serial port is not a pin of a board but a
+setting of the device, and so is the way its RS485 transceiver is
+driven. *Online › Prepare a Linux device* writes them: pick the
+expansion board and its port comes with it. The same window releases the
+port from the login console — a login shell on the same serial port
+takes the line away from your devices. Because the port lives in the
+device, the same project runs unchanged on a built-in RS485 port or a
+USB adapter. See [Buses on a Linux device](linux-runtime.md#buses-on-a-linux-device).
+
+**One line, one role.** A serial line belongs either to the master or
+to the slave. A board can master one line and answer as a slave on
+another, but never both on the same pair.
 
 ```yaml
 tags:
@@ -65,6 +132,34 @@ tags:
   targets keeps running.
 - The poller runs outside the PLC cycle — a slow or unreachable Modbus
   device **never extends the logic cycle**.
+- The master reports on the device console and in the diagnostic
+  buffer what it found and what it did not; a unit that never answers
+  is named there with its address.
+
+### Supervising the link
+
+- **`SYS.MB_OK`** (BOOL) is true while every polled Modbus device
+  answers — bind a lamp to it, or use it in the program. When one
+  device drops out it goes false, and the other devices keep being
+  polled. See [Variables](variables.md).
+- Because a lost device leaves its variables at their **last value**,
+  a program that must react to a dead link uses a **heartbeat**: one
+  side toggles a bit (a coil or a register) once a second, the other
+  side retriggers a timer on each change. When the timer runs out the
+  link is dead — the side at the process drops its outputs to a safe
+  state on its own, the panel shows a banner. A lamp bound to the
+  heartbeat is itself the proof that data flows: blinking, it does;
+  frozen, it does not.
+
+### Modbus TCP addressing
+
+- The master addresses a TCP device **by its IP address**. A device
+  that takes its address from DHCP needs a **DHCP reservation** on the
+  router — a changed lease, typically after a router restart,
+  silently breaks the link.
+- When two boards talk over one board's **own access point**, let the
+  slave host it: the access-point side of the network is always
+  `192.168.4.1`, so the address the master polls can never go stale.
 
 ## Catalog of Modbus devices
 
@@ -169,6 +264,20 @@ reordering variables in the editor does not shift the map. The order in the
 list can be changed with the arrow — it is part of the configuration,
 not cosmetics.
 
+### Designing the map
+
+- **The board at the process owns its outputs.** Expose a writable
+  *command* (a coil) for the master, let the slave's own program
+  decide whether the real output follows (interlocks, a sensor
+  check), and expose the **real output** read-only beside it. The
+  master can show "what I asked" and "what is happening" side by
+  side; the gap between them is the interlock speaking, and the slave
+  keeps its interlocks when the link dies.
+- Mark `writable` only what the master is meant to change — the map
+  itself then enforces who owns what.
+- There is no separate register map to maintain: the order of the
+  list **is** the map.
+
 ### A write is a command
 
 A variable without `writable` ticked answers a write with **exception
@@ -210,3 +319,19 @@ without permission.
 | Address off by one | the vendor documentation counts from 1 or uses the 3xxxx notation — in ctrl32 the address is always the 0-based protocol address |
 | Device does not answer over RTU | check the baud rate/parity, the A/B wires and the termination |
 | TCP target behind NAT or in another segment | the board and the device belong on the same (separate) equipment network |
+| No values from a TCP device, or the link stops after a router restart | the device's IP changed — check it with the [device scanner](find-devices.md) and give the device a DHCP reservation |
+| A written value does not stick | the device refused or overrode it, and the cyclic read brought its value back — check the device's own logic or interlock |
+
+### Bringing up an RS485 line
+
+Check in this order:
+
+| # | Check | Symptom when wrong |
+|:---:|:---|:---|
+| 1 | **A and B swapped** — the commonest fault | silence, not errors |
+| 2 | **The unit address** — two slaves with the same unit | they answer together and the master sees noise |
+| 3 | **Baud rate, parity, stop bits** — all three, on every device | silence or garbage |
+| 4 | **Termination** — 120 ohm at the two ends, nowhere else | works at low baud rates, fails at higher ones |
+| 5 | **A login console on the port** (Linux device) | the line is taken — release it in *Prepare a Linux device* |
+
+Wiring and timing are explained on [What Modbus is](modbus-basics.md#wiring-an-rs485-pair).

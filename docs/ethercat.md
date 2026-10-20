@@ -23,6 +23,21 @@ protection you would otherwise get from a careful label.
 
 ---
 
+## The port and the cable
+
+The master **owns its network interface**: it sends raw frames on it,
+and no IP address lives there. Pick the port in *Online › Prepare a
+Linux device* or in *Buses of this device*; it is stored in the
+device's settings as `ecat=<interface>` (for instance `ecat=eth1`, the
+second port of a reTerminal E10-1).
+
+The line runs from the master into the first device's **IN** socket,
+out of its **OUT** and into the next device's IN; the last device's OUT
+stays empty. A cable in an OUT socket where an IN belongs is the
+commonest reason for a line on which no slave answers.
+
+---
+
 ## The device comes from its description
 
 Every vendor ships an **ESI file** — an XML description of the device:
@@ -45,6 +60,14 @@ name plate - a drive answers the scan with its own code and revision).
 ## The device's window
 
 ![The tree of a Linux device: the network adapters under Ethernet, and the EtherCAT master under the one it owns](img/ecat-tree.webp){: .sb-center}
+
+The line is added in the tree under **Ethernet** (*EtherCAT*), and its
+page is the master's: the cycle and the slaves in the order they are
+wired. A Linux device usually has two network ports, so *Ethernet*
+shows one row per adapter and the master hangs under the one it owns -
+the port with no address. The adapters appear once the editor has
+looked at the device; until then the master sits under *Ethernet*
+itself.
 
 Double-click a slave and it opens with the same tabs a CAN device has:
 
@@ -95,6 +118,23 @@ accepts. A drive that receives them in the wrong order answers with a
 mapping error and sends zeros — and looks, from the outside, exactly
 like a broken device.
 
+The order a device accepts is the CoE one: the assignment object
+(`0x1C13` for what the device sends, `0x1C12` for what it takes) set to
+count 0 first, then the mapping object (sub 0 = 0, the entries, sub 0 =
+the count), and only then the assignment with its objects. Write a
+mapping entry in the notation the dictionary uses - hex, `0x60780010`
+for index 0x6078, sub 0, 16 bits; a word converted to decimal by hand is
+easily one digit off, and a drive takes the mapping and refuses the
+assignment with nothing saying why.
+
+**Declare both assignments among the start-up writes**, the receive
+side as well as the send side, even where the device's default would
+do. A drive switched off and on while the master was configuring it can
+come back with an empty assignment; with both declared it is set right
+at the next start instead of refusing every output image (the bus then
+never reaches OPERATIONAL and the device reports an invalid output
+configuration).
+
 ---
 
 ## Which byte is which variable
@@ -115,10 +155,22 @@ same way whether it sits on CANopen or on EtherCAT — `MC_Power`,
 wizard makes the whole thing in one step: the slave from its
 description, the axis on its position, the start-up writes that put
 the drive in velocity mode under network control, and the variables
-the blocks bind to.
+the blocks bind to. It is in the tree under *Motion › add axis*, with
+**EtherCAT** chosen as the bus and the device picked from the library.
+An axis on EtherCAT names its slave by the slave's **position on the
+line** (1 = the first device after the master), where a CANopen axis
+names a node-ID.
 
 What a drive needs beyond that is its **motor data**. A frequency
-inverter keeps them itself; a servo inverter such as the i700 or the
+inverter keeps them itself - pole pairs, rated speed, rated current,
+the voltage curve - and a drive that has never met its motor runs the
+factory values: the first start ends in an over-current trip. Set them
+in the drive, by its keypad or its maker's tool, before the first
+start. This catches people out when a drive's **network module is
+replaced**: on drives of the i550 kind the parameter set lives in the
+module, so the drive looks identical and knows nothing about the motor.
+
+A servo inverter such as the i700 or the
 i750 keeps nothing at power-off and expects its controller to write
 them at every start - so the motor's catalogue row (resistance,
 inductance, rated speed, frequency, power, voltage, the back-EMF
@@ -127,7 +179,30 @@ for it are **start-up writes of the slave**. A drive run on the factory
 motor data turns, but its current loop is tuned for another winding:
 the bench's i700s hunted at low speed on the factory set of a motor with
 four times the inductance, and were steady to a few increments once
-their own row was written.
+their own row was written. A servo that hunts is judged from the
+innermost loop out: the current controller's gain scales with the
+motor's inductance (the reset time, L/R, stays), and no speed- or
+position-loop setting cures a current loop tuned for another winding.
+On a double inverter the second axis takes the same objects **0x800
+higher**. For another motor, its catalogue row replaces these writes.
+
+**The rated mains voltage is a start-up write too.** The Lenze servo
+inverters default to a 400 V supply (`0x2540:1 = 1`) and forget the
+setting at power-off. Fed single-phase from 230 V, the DC link (about
+315 V) then sits above the undervoltage error threshold and below the
+reset threshold: the drive reaches OPERATIONAL, reads healthy, `0x2540:8`
+("DC link voltage critical") is 1, and every enable answers the error
+**0x3220** (DC-link undervoltage). Write `0x2540:1 = 0` (230 V) at every
+start on such a supply; on a 400 V supply leave it out. A drive that will
+not enable is read at `0x2540` and `0x6079` (the DC link) before its
+motor is blamed.
+
+**Tune against a trend.** A screen with the actual velocities of the
+axes on one trend at a short sample time (50 ms) shows what the loops
+do: a well-tuned axis draws a flat line, one whose loop hunts draws a
+band. The current, speed and position controller settings are start-up
+writes of the slave, so a setting found on the bench is written at
+every start.
 
 ### The drive's settings from its maker's tool
 
@@ -191,7 +266,11 @@ the positions ARE the increments) and the time base of velocities -
 `rpm` on such a servo, so the phases are increments and every speed on a
 screen is rpm (see [Motion blocks](blocks-motion.md)). A **double
 inverter** carries two axes in one slave: the window names where axis
-B's words begin, and an axis on it picks *A* or *B*.
+B's words begin, and an axis on it picks *A* or *B*. On the i700 double
+an axis takes 17 bytes and sends 21 (the target position, the velocity
+feed-forward and the mode in; the actual velocity and the actual
+position among what comes back), so axis B's words start 17 bytes into
+the output image and 21 into the input image.
 
 ### A virtual master
 
@@ -208,7 +287,12 @@ position like the plates. The axis's window has one more choice: a
 encoder on the drive's input B mapped as a process-data signal - and
 the virtual master is then the measured drum, with the counter's
 increments per revolution named beside it; the followers compensate
-the chain delay as they do behind a servo master. A Linux device only:
+the chain delay as they do behind a servo master. Following the measured
+drum adds nothing to the register - the counter is the same word a
+direct master reads - and the followers stay locked to it through every
+stop; a drum that follows a velocity only drifts against its followers
+with every stop (thousands of increments at a few hundred rpm), which is
+why a drum that has to stay in register is measured. A Linux device only:
 the EtherCAT master steps it.
 
 A servo in csp needs the **distributed clock** (below): its position
@@ -216,6 +300,26 @@ loop expects the setpoint at a fixed phase of its own cycle. While the
 axis is off, faulted or the slave is away, the setpoint follows the
 actual position, so enabling never jumps and a drive that comes back
 starts from where it stands.
+
+---
+
+## Bringing the line up
+
+Deploy, and read the device's log. A healthy line says, in order: the
+interface is up, the slaves found and what they are, the mapping
+written, the images mapped, the axis bound, the cycle running. The
+device page's EtherCAT state (`ecat=`) then shows the master up and
+every slave operational.
+
+| The log says | What it means |
+|:---|:---|
+| *no slave answers* | the cable is in the wrong socket (OUT where IN belongs), or the port named in the device's settings is not the one the cable is in |
+| *another device at that position* | the vendor or product code of the device at that position does not match the project's; compare them on the Device tab |
+| *SDO rejected* | the device refused a start-up write; the line that follows gives its reason in the device's own words |
+| *the bus did not reach OPERATIONAL* | usually the mapping or the assignment: a device that receives one it cannot do says so and sends zeros (see *Process data* above) |
+
+A slave that drops out shows as a working-counter error in the bus
+counters of the device page.
 
 ---
 
@@ -242,8 +346,6 @@ any other bus.
 
 ## Where to go next
 
-- [reTerminal, the drive on EtherCAT](example-reterminal-ecat.md) — the
-  example this page's pictures come from.
 - [CANopen](canopen.md) — the same drive on the other bus.
 - [Motion blocks](blocks-motion.md) — what commands an axis.
 

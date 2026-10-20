@@ -12,8 +12,9 @@ screen you design is — pixel for pixel — the screen the board shows.
 - [The project file](project-format.md) — what a project is on disk, and
   why that means you can put it in version control
 
-**New to it?** [Your first project](tutorial.md) builds one from an empty
-file in half an hour, with no hardware needed until the last step.
+**New to it?** The first project on a device, step by step:
+[Raspberry Pi](setup-raspberry-pi.md), [ESP32](setup-esp32.md),
+[STM32](setup-stm32.md).
 
 ![The main layout: devices left, documents center, toolbox and elements right, properties below](img/editor-layout.webp){: .sb-center}
 

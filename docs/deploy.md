@@ -14,8 +14,7 @@ has never seen this ctrl32 version:
 ![The toolbar: the port picker and the download button](img/deploy-toolbar.webp){: .sb-center}
 
 1. Connect the board with a USB cable. Windows needs the bridge driver of
-   the board's USB chip once; [A board from zero](first-run.md) says
-   which.
+   the board's USB chip once; [ESP32](setup-esp32.md) says which.
 2. Pick the board's port in the toolbar's **port picker**. It starts
    empty on purpose; nothing is written until you choose one.
 3. Open the board tab (click the board in the tree) and press **Flash

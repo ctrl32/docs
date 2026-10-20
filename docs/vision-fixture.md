@@ -12,7 +12,7 @@ Makes every later block independent of where the part lies. Taught once by a dra
 
 `min_score` says how alike the part must look to count as found; a part the block does not find leaves the picture as it is and answers *found* off - the blocks after it still run, so a program can tell "no part" from "a bad part". `max_angle` lets the part lie turned: the block tries the taught picture at every `angle_step` from -max_angle to +max_angle and keeps the best, which costs time in proportion - leave it at 0 when the part never turns.
 
-The window shows the picture after the shift with the taught part framed and the score; *dx*, *dy* and *angle* say what was undone. See the [measuring tutorial](tutorial-measuring.md) for the bottle that stops anywhere on the belt.
+The window shows the picture after the shift with the taught part framed and the score; *dx*, *dy* and *angle* say what was undone.
 
 ## Typical uses
 
@@ -58,7 +58,7 @@ Every number and yes/no setting can be read from a **variable** before each run 
 
 ## Used in
 
-- [Bottle check](example-bottle-check.md)
+- Bottle check - a shipped example project
 
 ---
 

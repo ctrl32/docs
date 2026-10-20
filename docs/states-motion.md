@@ -89,8 +89,8 @@ That pair is the canonical use: in manual mode the switch exists, in
 automatic a badge stands in its place — and nobody flips a heater
 that is not there. The browser evaluates the same records, so the
 phone shows and hides exactly with the glass. `visible_if` and
-`state:` cannot share one widget; the [Hot tank](three-zone-thermostat.md)
-shows the pattern at full scale.
+`state:` cannot share one widget - put the two on two widgets at the
+same place.
 
 ---
 
@@ -169,6 +169,13 @@ widget, no logic.
   driving variable really changes — a noisy value with no
   [deadband](variables.md) repaints for nothing, on the glass and over
   the network alike.
+- **One alarm, two ways to notice it.** A lamp with `alarm_ref:` and
+  the alarm table read the same alarm definition; nothing is declared
+  twice.
+- **Several writers, one word.** Lamps on bits of one integer may be
+  driven by different writers at once — the program on two bits, a
+  `switch` with `bit:` on a third. A bit write never undoes another
+  (see [Bits of a word](variables.md#bits-of-a-word)).
 - **The browser matches the glass.** WEBview evaluates the same
   states and the same paths from the same project — what moves on the
   display moves in the browser.

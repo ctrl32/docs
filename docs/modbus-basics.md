@@ -189,6 +189,28 @@ Two details that matter in practice:
   device behind the gateway you mean — the gateway's IP plus the
   drive's unit ID.
 
+### Wiring an RS485 pair
+
+| Rule | Why |
+|:---|:---|
+| A to A, B to B on every device | swapped wires give silence, not errors |
+| a common reference — ground, or the cable's shield at one end | keeps the two ends of a long cable at the same potential; without it a pair works on a bench and fails in a plant |
+| 120 ohm termination across A and B at the **first and last** device, nowhere else | termination in the middle of a line is the most common cause of a bus that works at 9600 baud and fails at 115200 |
+| exactly one master on the pair | Modbus RTU has one device that asks; everyone else answers when spoken to |
+
+### RTU timing: the 3.5-character silence
+
+Modbus RTU has no start or end character. A frame ends when the line
+goes quiet for the time of **3.5 characters** at the line's baud rate.
+Every ctrl32 device waits that silence before it speaks and uses it to
+close a frame it receives.
+
+It matters when a master polls several slaves: every device on the
+pair hears every answer, and a request sent too soon after one is
+glued to it. When several ctrl32 devices share a pair, keep them all
+on a current version — the timing rule is what makes a busy pair
+reliable.
+
 ---
 
 ## Where next
@@ -196,5 +218,4 @@ Two details that matter in practice:
 | | |
 |:---|:---|
 | [Modbus](modbus.md) | configuring master and slave in a project — variables, the catalog, limits |
-| [Two boards over Modbus](tutorial-modbus-pair.md) | a complete worked pair: WiFi slave, ethernet master |
 | [Finding your boards](find-devices.md) | the scanner that locates the boards to talk to |

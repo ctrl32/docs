@@ -105,10 +105,164 @@ the editor and HA follows on the next download.
 | entities are there but greyed out | the board is `offline` — the broker has not heard from it |
 | a value never updates | is that variable's **publish** ticked? |
 | HA cannot change a value | the **write** checkbox, and the variable must be `rw` |
+| `mqtt: skipped (memory tier…)` in the boot log | a classic ESP32 without PSRAM with WEBview on — see *Memory on a classic ESP32* below |
+| an automation runs, the board's value never moves | the entity id in the automation, and whether the source entity is `unavailable` |
+| a command flips, the real device ignores it | the command automation's target; try the device from HA directly |
+| the device changes, the lamp on the glass does not | the feedback automation — the lamp watches the feedback variable, never the command |
 
 An MQTT client such as MQTT Explorer, pointed at the broker, settles most
 of these in a minute: you see the topics, the values and the retained
 configuration exactly as the board sent them.
+
+---
+
+## Memory on a classic ESP32
+
+A classic ESP32 without PSRAM cannot hold the WEBview server and the
+MQTT client in its internal RAM together: the memory tiers skip MQTT
+at start-up and the boot log says `mqtt: skipped (memory tier…)`.
+When Home Assistant is the remote view anyway, untick **WEBview on**
+on the WEBview page and the server's memory pays for the MQTT client.
+Boards with PSRAM run both.
+
+---
+
+## Feeding the board from Home Assistant
+
+The board's writable variables are `number` and `switch` entities, so
+anything Home Assistant knows — a radio sensor, a light's real state,
+the time of day — reaches the board through an ordinary automation
+(Settings › Automations, or `automations.yaml`). Copy the exact entity
+ids from the board's device in Home Assistant; they are built from
+the board's name and the variable's name.
+
+**A value into a number.** Every change of the source, plus a refresh
+every few minutes, written into the board — with a guard, because a
+battery sensor reports `unavailable` while it sleeps and writing that
+into a number fails:
+
+```yaml
+alias: <board> - <value> from <source>
+trigger:
+  - platform: state
+    entity_id: sensor.<source>
+  - platform: time_pattern
+    minutes: "/5"
+condition:
+  - condition: numeric_state
+    entity_id: sensor.<source>
+    above: -40          # the range a sane reading lies in
+    below: 80
+action:
+  - service: number.set_value
+    target:
+      entity_id: number.<board>_<variable>
+    data:
+      value: "{{ states('sensor.<source>') | float }}"
+mode: single
+```
+
+**A heartbeat.** One toggle a minute on a `bool` variable with
+**write** ticked — the board's watchdog (below) listens for it:
+
+```yaml
+alias: <board> - heartbeat
+trigger:
+  - platform: time_pattern
+    minutes: "/1"
+action:
+  - service: switch.toggle
+    target:
+      entity_id: switch.<board>_<beat variable>
+mode: single
+```
+
+**A command and its feedback.** To drive something Home Assistant owns
+(a light, a plug) from the glass, use **two variables**: the command
+the glass sets, and the feedback Home Assistant writes back from the
+real device. Two automations per device — the command one drives it:
+
+```yaml
+alias: <board> - <device> command
+trigger:
+  - platform: state
+    entity_id: switch.<board>_<command variable>
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: switch.<board>_<command variable>
+            state: "on"
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.<device>
+    default:
+      - service: light.turn_off
+        target:
+          entity_id: light.<device>
+mode: restart
+```
+
+— and the feedback one reports what the device really does:
+
+```yaml
+alias: <board> - <device> actual state
+trigger:
+  - platform: state
+    entity_id: light.<device>
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: light.<device>
+            state: "on"
+        sequence:
+          - service: switch.turn_on
+            target:
+              entity_id: switch.<board>_<feedback variable>
+    default:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.<board>_<feedback variable>
+mode: restart
+```
+
+A dimmer adds a second trigger on its `number` entity and
+`brightness_pct: "{{ states('number.<board>_<level variable>') | int }}"`
+under `data:` of `light.turn_on`. The glass then shows what was
+**asked** (the switch) and what **is** (the lamp beside it); turn the
+light off from a phone and the lamp goes dark while the switch still
+shows the last request. A summary lamp ("any light on") is built from
+the feedback variables, never from the commands.
+
+### What gets the write checkbox
+
+| Variable | write | Why |
+|:---|:---:|:---|
+| a value Home Assistant feeds in (a reading, a heartbeat, a feedback) | yes | Home Assistant writes it |
+| a setpoint or a mode the person may also change from Home Assistant | yes | both sides move the same variable, so they stay in step |
+| a physical output (a relay), a verdict the logic computes | no | the outside world watches it, never drives it |
+
+### A watchdog on remote data
+
+A value that arrives over WiFi, a broker and a radio can stop without
+a word — it simply stays at its last number. Logic that acts on it
+gets a watchdog:
+
+1. an `R_TRIG` and an `F_TRIG` on the heartbeat variable make one
+   pulse per edge;
+2. the pulse feeds a `TOF` with `PT` of three heartbeats (three
+   minutes for a one-minute beat); its `Q` is the verdict "the remote
+   data is fresh";
+3. the verdict gates only the **automatic** branch of the logic — the
+   output goes to its safe state, a banner (`visible_if` on the
+   inverted verdict) and an alarm say why, and manual operation from
+   the glass keeps working without the network.
+
+Compare a remote reading with a hysteresis comparator (`HYST`), not a
+bare comparison — a value that wanders around the setpoint would
+chatter an output.
 
 ---
 

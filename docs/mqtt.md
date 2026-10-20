@@ -24,8 +24,6 @@ historian: it sends the current state, the server keeps the history.
 4. *Apply* → *Download to board*. The configuration is part of the pack —
    changing the broker or the variable list **does not require new firmware**.
 
-MQTT is part of every version, the free one included.
-
 | Field | Meaning |
 |:---|:---|
 | broker | IP address or hostname (e.g. `192.168.0.10`) |
@@ -85,6 +83,14 @@ the topic `.../rpc/response/<id>`.
 - The token and password are stored in the project pack in plain text.
 - Published variable limit: **64**. The editor will not allow more.
 - One broker per board.
+- **A classic ESP32 without PSRAM** cannot hold the WEBview server and
+  the MQTT client in its internal RAM together: the memory tiers skip
+  MQTT at start-up and the boot log says `mqtt: skipped (memory
+  tier…)`. Untick *WEBview on* when MQTT is the remote view; a board
+  with PSRAM runs both.
+- Give **write** only to what the outside world feeds in (readings,
+  setpoints, modes). A physical output and a value the logic computes
+  stay read-only — watched from outside, never driven.
 
 ## Encrypted connection (TLS)
 
@@ -152,7 +158,7 @@ change — the message format is the same.
 
 ## ctrl32 telemetry (telemetry.digital)
 
-[ctrl32 telemetry](https://telemetry.digital) is the free data platform
+[ctrl32 telemetry](https://telemetry.digital) is the data platform
 from the same author: measurements from devices, PLCs and gateways,
 stored as verifiable records, with alarms, reports and a remote device
 console. A ctrl32 device talks to it in its own *Publish mode*:
@@ -277,7 +283,7 @@ measurement: with an unreachable broker the cycle runs at 24 µs with
 zero overruns. That is why nothing on it stops while HA is
 being updated.
 
-The price of MQTT is roughly **12 kB of RAM** — and only when it is
+The cost of MQTT is roughly **12 kB of RAM** — and only when it is
 enabled in the project.
 
 ### Ghosts after a project change
@@ -297,3 +303,5 @@ mosquitto_pub -h <broker> -t ctrl32/boilerroom/old_tag -r -n
 | Values arrive rarely | that is by design — only changes are sent; check the variable deadband |
 | A command from the dashboard does nothing | the variable must be published **and** have rw access |
 | Broker behind NAT or on the internet | not supported without TLS — the broker belongs on the equipment network |
+| `mqtt: skipped (memory tier…)` in the boot log | a classic ESP32 without PSRAM with WEBview on — untick *WEBview on* |
+| The board never connects | the boot log's `mqtt:` lines — the broker address, then the credentials |

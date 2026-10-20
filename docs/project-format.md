@@ -52,7 +52,9 @@ The sections, in the order they usually appear:
 | `assets` | fonts and images |
 
 Peripherals, buses and services appear under their own keys as the
-project uses them.
+project uses them — `can_devices`, for example, holds the CANopen
+devices and the PDO mapping that says which of their objects travel
+each cycle.
 
 One naming note: what the editor calls a *variable* is written in the
 file under the key `tag` (and the section `tags:`) — the historical
@@ -174,7 +176,10 @@ A project is **one file**: a `.prj32` package holding the versioned
 YAML plus its assets, with its own icon — double-click opens the
 editor, and it travels whole: to a colleague, to a customer, into an
 archive. The editor opens and saves **`.prj32` only**; every example
-and tutorial ships in the same form.
+and tutorial ships in the same form. A new project is written to
+`<location>\<name>\<name>.prj32` — its own folder, named after the
+project (the New project wizard's default location is
+`Documents\ctrl32\projects`).
 
 Nothing about the format changes inside the package: it is the same
 YAML described on this page, versioned and migrated the same way. The

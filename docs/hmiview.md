@@ -33,6 +33,25 @@ not find it in a hurry.
 
 ---
 
+## Placing a widget
+
+Open a screen under **HMIview** in the tree: the Toolbox on the right
+lists the widgets. A click on one adds it into the selection; drag it
+where it belongs and bind it in **Properties**. A widget holds no value
+of its own — its variable field names the variable it shows or writes:
+
+| Widget | Bound to | Typical settings |
+|:---|:---|:---|
+| **button** | a BOOL with access `rw` | text; `mode` `momentary` (TRUE while held), `toggle`, `set` or `reset`; `confirm: true` for a command that moves something |
+| **led** | a BOOL, or one bit of an integer | a [state](states-motion.md) colour set |
+| **input** | a number or a `TIME` with access `rw` | `min` and `max` in the variable's unit |
+| **value** | any variable | unit and decimals come from the variable |
+| **label** | — | its text |
+
+A variable the program alone writes (no `rw`) cannot be written from a
+screen. The complete list of widgets and properties is the
+[Property reference](widgets.md).
+
 ## The resolution
 
 Clicking **HMIview** in the device tree opens its settings page. On a
@@ -152,7 +171,7 @@ forever.
 Set a deadband on every analog variable. It is the single most effective thing
 you can do for a screen's responsiveness. See [Variables](variables.md).
 
-!!! note "Flat colours are nearly free; gradients are not"
+!!! note "Flat colours cost almost nothing; gradients do not"
     Filled areas, text and lines cost almost nothing. Gradients, shadows
     and anti-aliased rounded corners are expensive to compute. Use them
     where they earn their place — a header, a title bar — and not
@@ -171,6 +190,29 @@ stutter while the program is doing something demanding — control never
 waits for a picture.
 
 ---
+
+## Patterns that work
+
+- **Interlocks belong in the logic, not on the screen.** A manual
+  command that may act only while automatic mode is off is gated in
+  the program, so it holds however the value is written — from the
+  glass, the browser or a bus.
+- **Setpoint buttons through a rising edge.** A `+` button wired through
+  `R_TRIG` into an addition steps once per press; holding the button
+  does not run the setpoint away.
+- **A heartbeat.** One `BLINK` on a spare output or a lamp: anybody at
+  the equipment sees that the program runs, without a laptop.
+- **A test line of your own language.** One label with the accented
+  letters your language needs, on a screen you keep, proves the font
+  carries them — at your desk, not in front of a customer.
+- **A link lamp beside a life counter** (or beside a bit of the other
+  controller's clock byte): together they say which of the two sides
+  stopped.
+- **The other controller's address in the label** (`DB120.DBW4`) costs
+  nothing and doubles the screen as the map between the two sides.
+- **Trends are recorded in the device**, whether or not anybody is
+  watching; put the current values under the chart, where they can be
+  read without interpreting the lines.
 
 ## The board with no screen
 

@@ -50,7 +50,7 @@ Every number and yes/no setting can be read from a **variable** before each run 
 
 ## Used in
 
-- [Bottle check](example-bottle-check.md)
+- Bottle check - a shipped example project
 
 ---
 

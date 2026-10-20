@@ -53,8 +53,7 @@ Exactly two causes, and both live on the PC, not the board: the USB
 bridge's **driver is missing** (Device Manager shows an unknown
 device — a hall notebook without internet cannot fetch it), or the
 cable is a **charging cable** that carries power and no data. The
-driver table and the habit of carrying both are in
-[A board from zero](first-run.md).
+driver table is on [ESP32](setup-esp32.md).
 
 ### Flash runtime is red: "does not match the editor"
 

@@ -6,12 +6,11 @@ nothing assumed. At the end the device boots straight into your
 visualisation, serves its WEBview and OPC UA, and appears in the
 editor's [scanner](find-devices.md) like any other board.
 
-!!! tip "In a hurry? There is a walk-through"
-    [From a blank device to a running one](tutorial-linux-device.md)
-    does the whole thing from the editor, with pictures, for a
-    Raspberry Pi or a reTerminal. This page is the reference behind
-    it: every device, every setting, and the roads that walk-through
-    does not take.
+!!! tip "The road from the editor"
+    [Raspberry Pi](setup-raspberry-pi.md) does the whole thing from
+    the editor, with pictures, for a Raspberry Pi or a reTerminal. This
+    page is the reference behind it: every device, every setting, and
+    the manual road.
 
 Three devices are in the catalogue — the reTerminal, the DK2 and
 **any 64-bit Raspberry Pi** — and they differ only in how the
@@ -35,6 +34,47 @@ service, the settings file — is identical on all of them.
     Everything is version-matched to the editor.
     Everything else on this page is standard, freely available
     software.
+
+---
+
+## Prepare a Linux device (the editor's road)
+
+For a Raspberry Pi or a reTerminal with a fresh **Raspberry Pi OS** on
+its card (SSH enabled and a user with a password, both set in the
+Raspberry Pi Imager), the editor installs the runtime itself:
+*Online* → *Prepare a Linux device*. The page opens as a tab beside the
+project's own, so the project stays at hand while a device installs or
+restarts, and every line the work prints goes to Messages as well.
+
+![The Prepare a Linux device page before anything has been looked at](img/lx-prepare-open.webp){: .sb-center}
+
+| Field / button | What it does |
+|:---|:---|
+| **Address**, **User**, **Password** | how the editor logs in; the password is the one set when the card was written |
+| **Device** | which device it is (reTerminal or Raspberry Pi) — it sets the identity the runtime gets |
+| **Do not ask for the password again** | ticked by default: the editor puts its own key on the device the first time, later visits need the address alone. The password is used once and never stored |
+| **Look at the device** | logs in and reads what the device is; **changes nothing**. The page then shows what it found and the plan |
+| **Operating system of this device** | the device's own settings, below — each ticked line becomes one step of the plan |
+| **Prepare it** | works through the plan and reports each step as it lands |
+
+![The page after a look: what the device is, and the list of steps Prepare will take](img/lx-prepare-plan.webp){: .sb-center}
+
+The plan is the whole of what Prepare does: the runtime copied over and
+unpacked, installed with its own account and permissions, given the
+device's identity, started by the system at every boot, and waited for
+until it answers. A device that already runs ctrl32 is told so; from
+there the network road takes over. After Prepare the device needs no
+password: programs and runtime updates go over the network.
+
+The runtime update dialog shows the device, the runtime it runs and the
+one the editor has:
+
+![Upload runtime: the device, its current version and the one the editor has](img/lx-runtime-dlg.webp){: .sb-center}
+
+The board card in the tree shows what the device told the editor about
+itself — its buses, its interfaces, its screen:
+
+![The board card of a Linux device](img/lx-board-card.webp){: .sb-center}
 
 ---
 
@@ -313,7 +353,7 @@ interface must exist before the runtime can open it.
 
 The DK2 has no card slot workflow of its own — ST's **OpenSTLinux
 Starter Package** is written to the SD card through the USB-DFU port
-with **STM32CubeProgrammer** (both are free downloads from ST; the
+with **STM32CubeProgrammer** (both are downloads from ST; the
 Starter Package page documents the boot-switch positions and the
 flashing steps).
 

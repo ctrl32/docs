@@ -25,6 +25,35 @@ The grouping in VAR lists is for you, not for the program: a variable in
 `VAR_Heating` is reached by name exactly like any other. Split them when
 a single list stops being something you can scan.
 
+### Declaring variables
+
+Open a VAR list from the tree. Its variables are a declaration in the
+PLCopen shape, typed as text:
+
+```
+VAR_GLOBAL
+    button : BOOL  { access := rw };
+    light  : BOOL;
+    delay  : TIME := T#10s { access := rw };
+END_VAR
+```
+
+![Variables declared in VAR](img/first-variables.webp){: .sb-center}
+
+- `:= value` is the initial value; `{ access := rw }` lets a screen, the
+  browser or a bus write the variable, without it the variable is
+  written by the program only.
+- *Apply* (`Ctrl+Enter`) takes the text into the project. Text that is
+  applied when you leave the window and is refused says why in the
+  status bar.
+- A new variable starts with the source **internal** — board memory
+  only. Binding it to a real input or a bus is one field, see
+  [Where the value comes from](#where-the-value-comes-from).
+
+!!! tip "Name a variable for what it is, not where it is"
+    `light` survives being moved to another output; `gpio32` does not,
+    and in a year nobody remembers which pin was which.
+
 ### Retain is membership, not a checkbox
 
 This is the part worth reading twice. **A variable is retained because
@@ -231,7 +260,7 @@ simply write it, `x := SYS.UPTIME_S;`, and the build adds it for you.
 | `SYS.INPUT_VOLTAGE` | REAL | the supply at the charger's input, in volts (the 12 V jack or PoE) |
 | `SYS.ACCEL_X`, `SYS.ACCEL_Y`, `SYS.ACCEL_Z` | REAL | the device's accelerometer, in g (a reTerminal lying flat reads about -1 on Z) |
 | `SYS.TILT` | REAL | degrees between the device's face and level — 0 lying flat, 90 standing upright |
-| `SYS.SHOCK_G` | REAL | the largest acceleration seen in the last two seconds, in g — a knock, a drop, a machine that vibrates |
+| `SYS.SHOCK_G` | REAL | the largest acceleration seen in the last two seconds, in g — a knock, a drop, equipment that vibrates |
 | `SYS.LIGHT` | REAL | the device's light sensor, in lux; -1 where there is none |
 
 A fact a device does not have reads FALSE or 0 there; nothing is ever
@@ -269,6 +298,13 @@ the glass, whatever the interval says.
     CANopen objects read over **SDO** are slow and do not belong in the
     cycle — they are for parameterisation at startup. What belongs in the
     cycle is **PDO**. See [CANopen](canopen.md).
+
+    A drive's diagnostics — current, torque, DC link voltage, output
+    frequency, error code — are plain variables with a `canopen` source
+    and a `gain`; the PDO mapping of the CAN device decides which objects
+    travel each cycle, and a screen only names the variables. One bit of
+    the statusword (`drive_sw.3`) is a lamp or an alarm condition with
+    no further logic.
 
 ---
 

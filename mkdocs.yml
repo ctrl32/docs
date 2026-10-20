@@ -58,13 +58,105 @@ plugins:
 
 nav:
   - What ctrl32 is: index.md
-  - Intended use: intended-use.md
-  - Supported hardware: hardware.md
-  - Hardware catalog: modules.md
-  - The node (ESP32-C3 / C6): node.md
-  - The Linux runtime:
+  - Getting started:
+      - Getting started: getting-started.md
+      - Raspberry Pi: setup-raspberry-pi.md
+      - ESP32: setup-esp32.md
+      - STM32: setup-stm32.md
+  - Hardware:
+      - Hardware: hardware.md
+      - Hardware catalog: modules.md
+      - The node (ESP32-C3 / C6): node.md
       - The Linux runtime: linux-runtime.md
-      - Setting up a device: linux-setup.md
+      - Setting up a Linux device: linux-setup.md
+  - Editor:
+      - Editor: editor-overview.md
+      - Layout and how to work in it: editor.md
+      - Controls and shortcuts: editor-controls.md
+      - Variables: variables.md
+      - The project file: project-format.md
+      - The AI assistant (MCP): mcp.md
+  - Visualisation:
+      - Visualisation: visualisation.md
+      - HMIview — the panel screen: hmiview.md
+      - WEBview — in a browser: webview.md
+      - States and motion: states-motion.md
+      - Containers: widgets-containers.md
+      - Text and values: widgets-text.md
+      - Controls: widgets-controls.md
+      - Indicators: widgets-indicators.md
+      - Images and icons: widgets-graphics.md
+      - Trends and alarms: widgets-data.md
+      - Charts: widgets-charts.md
+      - Property reference: widgets.md
+  - Programming:
+      - Programming: programming.md
+      - Ladder (LD): ladder.md
+      - Function block diagram (FBD): fbd-composites.md
+      - Your own function block: own-block.md
+      - Structured Text (ST): st-language.md
+  - Function blocks:
+      - Function blocks: blocks.md
+      - Timers: blocks-timers.md
+      - Counters: blocks-counters.md
+      - Boolean: blocks-boolean.md
+      - Maths: blocks-math.md
+      - Comparison: blocks-compare.md
+      - Signal handling: blocks-signal.md
+      - Equipment blocks: blocks-equipment.md
+      - Motion: blocks-motion.md
+      # motion-blocks: begin
+      - "Motion, turning the axis on: MC_Power": mc-power.md
+      - "Motion, turning the axis on: MC_Reset": mc-reset.md
+      - "Motion, turning the axis on: MC_ReadStatus": mc-readstatus.md
+      - "Motion, turning the axis on: MC_ReadAxisError": mc-readaxiserror.md
+      - "Motion, making it move: MC_MoveVelocity": mc-movevelocity.md
+      - "Motion, making it move: MC_Halt": mc-halt.md
+      - "Motion, making it move: MC_Stop": mc-stop.md
+      - "Motion, making it move: MC_MoveAbsolute": mc-moveabsolute.md
+      - "Motion, making it move: MC_MoveRelative": mc-moverelative.md
+      - "Motion, making it move: MC_MoveAdditive": mc-moveadditive.md
+      - "Motion, making it move: MC_Home": mc-home.md
+      - "Motion, making it move: MC_SetPosition": mc-setposition.md
+      - "Motion, making it move: MC_SetOverride": mc-setoverride.md
+      - "Motion, reading the axis: MC_ReadActualPosition": mc-readactualposition.md
+      - "Motion, reading the axis: MC_ReadActualVelocity": mc-readactualvelocity.md
+      - "Motion, reading the axis: MC_ReadActualTorque": mc-readactualtorque.md
+      - "Motion, reading the axis: MC_ReadMotionState": mc-readmotionstate.md
+      - "Motion, reading the axis: MC_ReadAxisInfo": mc-readaxisinfo.md
+      - "Motion, reading the axis: MC_ReadParameter": mc-readparameter.md
+      - "Motion, reading the axis: MC_ReadBoolParameter": mc-readboolparameter.md
+      - "Motion, reading the axis: MC_WriteParameter": mc-writeparameter.md
+      - "Motion, reading the axis: MC_WriteBoolParameter": mc-writeboolparameter.md
+      - "Motion, continuous and superimposed motion: MC_MoveContinuousAbsolute": mc-movecontinuousabsolute.md
+      - "Motion, continuous and superimposed motion: MC_MoveContinuousRelative": mc-movecontinuousrelative.md
+      - "Motion, continuous and superimposed motion: MC_MoveSuperimposed": mc-movesuperimposed.md
+      - "Motion, continuous and superimposed motion: MC_HaltSuperimposed": mc-haltsuperimposed.md
+      - "Motion, profiles and cams: MC_PositionProfile": mc-positionprofile.md
+      - "Motion, profiles and cams: MC_VelocityProfile": mc-velocityprofile.md
+      - "Motion, profiles and cams: MC_AccelerationProfile": mc-accelerationprofile.md
+      - "Motion, profiles and cams: MC_CamTableSelect": mc-camtableselect.md
+      - "Motion, profiles and cams: MC_CamIn": mc-camin.md
+      - "Motion, profiles and cams: MC_CamOut": mc-camout.md
+      - "Motion, the line shaft: MC_GearIn": mc-gearin.md
+      - "Motion, the line shaft: MC_GearOut": mc-gearout.md
+      - "Motion, the line shaft: MC_GearInPos": mc-gearinpos.md
+      - "Motion, the line shaft: MC_PhasingAbsolute": mc-phasingabsolute.md
+      - "Motion, the line shaft: MC_PhasingRelative": mc-phasingrelative.md
+      - "Motion, the line shaft: MC_CombineAxes": mc-combineaxes.md
+      - "Motion, torque: MC_SetTorqueLimit": mc-settorquelimit.md
+      - "Motion, torque: MC_TorqueControl": mc-torquecontrol.md
+      - "Motion, torque: MC_TorqueFF": mc-torqueff.md
+      - "Motion, probes and digital words: MC_TouchProbe": mc-touchprobe.md
+      - "Motion, probes and digital words: MC_AbortTrigger": mc-aborttrigger.md
+      - "Motion, probes and digital words: MC_DigitalCamSwitch": mc-digitalcamswitch.md
+      - "Motion, probes and digital words: MC_ReadDigitalInput": mc-readdigitalinput.md
+      - "Motion, probes and digital words: MC_ReadDigitalOutput": mc-readdigitaloutput.md
+      - "Motion, probes and digital words: MC_WriteDigitalOutput": mc-writedigitaloutput.md
+      # motion-blocks: end
+      - CANopen blocks: blocks-can.md
+      - Services: blocks-services.md
+      - Home automation: blocks-home.md
   - Vision:
       - Vision: vision.md
       - Cameras: cameras.md
@@ -160,127 +252,6 @@ nav:
       - "Learned models: Classify (model)": vision-dnn_classify.md
       - "Learned models: Detect (model)": vision-dnn_detect.md
       # vision-blocks: end
-  - Licensing: licensing.md
-  - Why ctrl32 at home: home-automation.md
-  - Start here:
-      - Start here: start-here.md
-      - Quick start: quickstart.md
-      - Your first project: tutorial.md
-  - Tutorial projects:
-      - Tutorial projects: tutorials.md
-      - "From a blank device to a running one": tutorial-linux-device.md
-      - "RS-485, step by step": tutorial-rs485.md
-      - "OPC UA, step by step": tutorial-opcua.md
-      - "EtherCAT, step by step": tutorial-ethercat.md
-      - "The line shaft, step by step": tutorial-line-shaft.md
-      - "A vehicle bus, step by step": tutorial-vehicle.md
-      - "Vision, step by step": tutorial-vision.md
-      - "Measuring, step by step: a bottle": tutorial-measuring.md
-      - Two boards over Modbus: tutorial-modbus-pair.md
-      - Hot tank: three-zone-thermostat.md
-      - Thermostat fed by Home Assistant: tutorial-ha-thermostat.md
-      - Lights from the glass: tutorial-ha-lights.md
-      - A drive over CAN (Lenze i550): tutorial-i550-can.md
-  - Examples:
-      - Examples: examples.md
-      - Thermostat (Olimex EVB): example-thermostat.md
-      - Drive control (Lenze i550): example-i550.md
-      - Showcase (STM32F746): example-showcase.md
-      - reTerminal (a drive, a pair, the device): example-reterminal.md
-      - reTerminal, the drive on EtherCAT: example-reterminal-ecat.md
-      - RS-485 system (reTerminal + two slaves): example-rs485.md
-      - "reTerminal, a SIMATIC": example-reterminal-s7.md
-      - "People counter (a learned model)": example-people-counter.md
-      - "Bottle check (level, cap, label)": example-bottle-check.md
-      - "Car cockpit (a J1939 instrument cluster)": example-car-cockpit.md
-      - "Flexo press (a SIMATIC over +7)": example-flexo-simatic.md
-  - Editor:
-      - Editor: editor-overview.md
-      - Layout and how to work in it: editor.md
-      - Controls and shortcuts: editor-controls.md
-      - Variables: variables.md
-  - The AI assistant (MCP): mcp.md
-  - Visualisation:
-      - Visualisation: visualisation.md
-      - HMIview — the panel screen: hmiview.md
-      - WEBview — in a browser: webview.md
-      - States and motion: states-motion.md
-      - Containers: widgets-containers.md
-      - Text and values: widgets-text.md
-      - Controls: widgets-controls.md
-      - Indicators: widgets-indicators.md
-      - Images and icons: widgets-graphics.md
-      - Trends and alarms: widgets-data.md
-      - Charts: widgets-charts.md
-      - Property reference: widgets.md
-  - Programming:
-      - Programming: programming.md
-      - Ladder (LD): ladder.md
-      - Function block diagram (FBD): fbd-composites.md
-      - Your own function block: own-block.md
-      - Structured Text (ST): st-language.md
-  - Function blocks:
-      - Function blocks: blocks.md
-      - Timers: blocks-timers.md
-      - Counters: blocks-counters.md
-      - Boolean: blocks-boolean.md
-      - Maths: blocks-math.md
-      - Comparison: blocks-compare.md
-      - Signal handling: blocks-signal.md
-      - Equipment blocks: blocks-equipment.md
-      - Motion: blocks-motion.md
-      # motion-blocks: begin
-      - "Motion, turning the axis on: MC_Power": mc-power.md
-      - "Motion, turning the axis on: MC_Reset": mc-reset.md
-      - "Motion, turning the axis on: MC_ReadStatus": mc-readstatus.md
-      - "Motion, turning the axis on: MC_ReadAxisError": mc-readaxiserror.md
-      - "Motion, making it move: MC_MoveVelocity": mc-movevelocity.md
-      - "Motion, making it move: MC_Halt": mc-halt.md
-      - "Motion, making it move: MC_Stop": mc-stop.md
-      - "Motion, making it move: MC_MoveAbsolute": mc-moveabsolute.md
-      - "Motion, making it move: MC_MoveRelative": mc-moverelative.md
-      - "Motion, making it move: MC_MoveAdditive": mc-moveadditive.md
-      - "Motion, making it move: MC_Home": mc-home.md
-      - "Motion, making it move: MC_SetPosition": mc-setposition.md
-      - "Motion, making it move: MC_SetOverride": mc-setoverride.md
-      - "Motion, reading the axis: MC_ReadActualPosition": mc-readactualposition.md
-      - "Motion, reading the axis: MC_ReadActualVelocity": mc-readactualvelocity.md
-      - "Motion, reading the axis: MC_ReadActualTorque": mc-readactualtorque.md
-      - "Motion, reading the axis: MC_ReadMotionState": mc-readmotionstate.md
-      - "Motion, reading the axis: MC_ReadAxisInfo": mc-readaxisinfo.md
-      - "Motion, reading the axis: MC_ReadParameter": mc-readparameter.md
-      - "Motion, reading the axis: MC_ReadBoolParameter": mc-readboolparameter.md
-      - "Motion, reading the axis: MC_WriteParameter": mc-writeparameter.md
-      - "Motion, reading the axis: MC_WriteBoolParameter": mc-writeboolparameter.md
-      - "Motion, continuous and superimposed motion: MC_MoveContinuousAbsolute": mc-movecontinuousabsolute.md
-      - "Motion, continuous and superimposed motion: MC_MoveContinuousRelative": mc-movecontinuousrelative.md
-      - "Motion, continuous and superimposed motion: MC_MoveSuperimposed": mc-movesuperimposed.md
-      - "Motion, continuous and superimposed motion: MC_HaltSuperimposed": mc-haltsuperimposed.md
-      - "Motion, profiles and cams: MC_PositionProfile": mc-positionprofile.md
-      - "Motion, profiles and cams: MC_VelocityProfile": mc-velocityprofile.md
-      - "Motion, profiles and cams: MC_AccelerationProfile": mc-accelerationprofile.md
-      - "Motion, profiles and cams: MC_CamTableSelect": mc-camtableselect.md
-      - "Motion, profiles and cams: MC_CamIn": mc-camin.md
-      - "Motion, profiles and cams: MC_CamOut": mc-camout.md
-      - "Motion, the line shaft: MC_GearIn": mc-gearin.md
-      - "Motion, the line shaft: MC_GearOut": mc-gearout.md
-      - "Motion, the line shaft: MC_GearInPos": mc-gearinpos.md
-      - "Motion, the line shaft: MC_PhasingAbsolute": mc-phasingabsolute.md
-      - "Motion, the line shaft: MC_PhasingRelative": mc-phasingrelative.md
-      - "Motion, the line shaft: MC_CombineAxes": mc-combineaxes.md
-      - "Motion, torque: MC_SetTorqueLimit": mc-settorquelimit.md
-      - "Motion, torque: MC_TorqueControl": mc-torquecontrol.md
-      - "Motion, torque: MC_TorqueFF": mc-torqueff.md
-      - "Motion, probes and digital words: MC_TouchProbe": mc-touchprobe.md
-      - "Motion, probes and digital words: MC_AbortTrigger": mc-aborttrigger.md
-      - "Motion, probes and digital words: MC_DigitalCamSwitch": mc-digitalcamswitch.md
-      - "Motion, probes and digital words: MC_ReadDigitalInput": mc-readdigitalinput.md
-      - "Motion, probes and digital words: MC_ReadDigitalOutput": mc-readdigitaloutput.md
-      - "Motion, probes and digital words: MC_WriteDigitalOutput": mc-writedigitaloutput.md
-      # motion-blocks: end
-      - CANopen blocks: blocks-can.md
-      - Services: blocks-services.md
-      - Home automation: blocks-home.md
   - Protocols:
       - Protocols: buses.md
       - What Modbus is: modbus-basics.md
@@ -308,13 +279,10 @@ nav:
       - I/O expanders and drivers: peripherals-io.md
       - Power and energy: peripherals-power.md
       - Cellular modems: peripherals-connectivity.md
-  - The project file: project-format.md
   - Deployment:
       - Deployment: deployment.md
-      - A board from zero: first-run.md
       - Finding your boards: find-devices.md
       - Download to the panel: deploy.md
-      - Third-party licences: third-party.md
   - Operation:
       - Operation: operation.md
       - Online monitoring: online.md
@@ -323,8 +291,10 @@ nav:
       - Forcing values: force.md
       - Performance and limits: limits.md
       - Troubleshooting: troubleshooting.md
-  - Network and security: security.md
-  - News:
-      - News: news.md
+  - About:
+      - About: about.md
+      - Intended use: intended-use.md
+      - Licensing: licensing.md
+      - Network and security: security.md
+      - Third-party licences: third-party.md
       - What's new: changelog.md
-      - Roadmap: roadmap.md

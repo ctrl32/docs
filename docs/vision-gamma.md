@@ -41,7 +41,7 @@ Every number and yes/no setting can be read from a **variable** before each run 
 
 ## Used in
 
-- [The reTerminal with EtherCAT (the code reader)](example-reterminal-ecat.md)
+- The reTerminal with EtherCAT (the code reader) - a shipped example project
 
 ---
 

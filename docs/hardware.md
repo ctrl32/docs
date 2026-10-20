@@ -36,6 +36,24 @@ assigned on the bus pages, and the module's electrical rules check each
 one as you type — flash pins, input-only pins, a pin claimed twice. See
 [Buses](buses.md).
 
+On a module the *Visualization* tick of the New project wizard decides
+the runtime: with a display, or the headless one with the bigger program
+limits. A catalog board's type comes from the catalog.
+
+**Your own board with a display.** On a module the display is yours to
+declare, on the board tab's **Glass** card:
+
+- the **catalog board that carries the same display controller** — its
+  initialisation and touch calibration are reused,
+- the **size as mounted**,
+- the **display and touch pins** of your board, picked from the module's
+  free pins.
+
+Until every required pin is set, the build says which one is missing. A
+board imported from a `.hdw32` file (below) is offered in the list too —
+that is the way to describe a display controller the catalog does not
+know yet.
+
 ### Your own board as a file — `.hdw32`
 
 A board you designed can travel as one file: a `.hdw32` is a small
@@ -102,8 +120,15 @@ silicon. This is the table to check before choosing:
 | Trend curves in a project | 4 | 4 | 8 | 8 | 8 |
 | WEBview clients | 2 | 2 | 2 | 2 | 1 |
 | Headless (bigger program limits) | yes | yes | yes | yes | yes |
+| Runtime update over the network | 8 / 16 MB flash | 8 MB flash | 8 / 16 MB flash | yes | yes |
 
-Two rows deserve a sentence. *MQTT over TLS* needs RAM the classic
+Three rows deserve a sentence. *Runtime update over the network* needs
+two runtime slots: a board with 4 MB of flash has room for one (a
+runtime with a display is 2.4 MB), keeps the USB road and its device
+page shows `ota=0`. The first update onto a two-slot runtime goes over
+USB once; from then on the runtime travels like a program.
+
+*MQTT over TLS* needs RAM the classic
 ESP32 does not have — the editor refuses the option for such a board
 at your desk (see [MQTT](mqtt.md)). And *trend curves*: the classic
 core's RAM carries four curve buffers; the S3, P4 and F7 carry the
@@ -115,9 +140,8 @@ full eight.
 
 The runtime is not tied to Espressif. The first STM32 target ships:
 the **STM32F746 Discovery** is in the catalogue, its runtime flashes
-[straight from the editor](first-run.md) over the on-board ST-LINK
-and updates over the network after that,
-and the [showcase example](example-showcase.md) runs on it — the
+[straight from the editor](setup-stm32.md) over the on-board ST-LINK
+and updates over the network after that - the
 same VM, the same variables, the same Modbus and CANopen, the same
 rasteriser and the same pack format. Today that is one board of one
 family: the F746 Discovery class. The rest of the family follows, and

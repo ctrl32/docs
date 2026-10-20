@@ -39,8 +39,22 @@ where CANopen puts its higher node numbers.
 
 ## Setting one up
 
-In the devices tree, under a CAN bus, add **Diagnostics** and then a
-control unit. Under the unit live the **values** you want read.
+In the devices tree, right-click a CAN bus and choose **Add
+diagnostics**, then open the control unit under it. Under the unit
+live the **values** you want read.
+
+The unit's page holds the conversation itself:
+
+| Field | What it is |
+|:---|:---|
+| **Request / answer identifiers** | the pair the tester asks and the unit answers on — `0x7E0` / `0x7E8` is the usual pair for an engine |
+| **Session** | the session to open at start-up: `0` the default session, `3` the extended one, where most readings live |
+| **Keep-alive** | how often to tell the unit "still here" so an opened session stays open — a couple of seconds |
+| **Fault variables** | where the count and the first fault codes land |
+
+The units are numbered in the order of the Diagnostics node, from `0`
+— the number the tree shows beside each unit. That number is the `ECU`
+input of the diagnostics blocks.
 
 ![The tree: Diagnostics under the CAN bus, the control unit with its identifier, and the values read out of it](img/vehicle-tree.webp){: .sb-center}
 
@@ -96,13 +110,23 @@ and the ST examples are on the
 !!! note "One question at a time"
     A control unit answers one question at a time — that is what the
     protocol allows. A block pressed while another question to the same
-    unit is still in hand reports `Error`; press again when it is free.
+    unit is still in hand reports `Error`; press again when it is idle.
 
 !!! tip "A refusal is an answer"
     A unit may refuse to clear its faults while the engine runs, or
     refuse a value in the session it is in. `Error` then means exactly
     that, and the program should say so rather than retry — the answer
     will not change while the conditions do not.
+
+Put both `Done` and `Error` on the screen beside the button. A press
+that lights neither means the request never got away — a different
+fault from a unit that answered "no".
+
+!!! tip "Reading a value both ways"
+    A value a unit also broadcasts on the [vehicle bus](vehicle-buses.md)
+    can be read both ways — overheard and asked. Two numbers that
+    disagree say one of them is stale, or that the unit means something
+    different by it.
 
 ---
 
@@ -116,6 +140,18 @@ stays open.
 
 Leave both at zero and the unit is asked in its default session, which
 is what most readings need.
+
+---
+
+## When it does not answer
+
+| Symptom | Where to look |
+|:---|:---|
+| Every block reports `Error` at once | the device is not a Linux device — the diagnostics need the Linux runtime |
+| Every question answers `Error` | the identifiers (`0x7E0` / `0x7E8`), then the session — some units answer nothing outside the extended one |
+| One row stays empty, the others fill | that identifier, its byte offset and its width — a unit answers only what it knows |
+| Nothing at all, broadcasts included | the bit rate, the termination, and whether the interface is up |
+| The bus also carries a drive | one bus, one higher layer: move one of them to another interface |
 
 ---
 

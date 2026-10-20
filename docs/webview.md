@@ -47,7 +47,7 @@ not the same canvas.
 
 A project with **no** WEBview screens serves the HMI screens instead — so
 a headless controller with no display still has a full visualisation, and
-you get one for free without drawing anything twice.
+you get one without drawing anything twice.
 
 The choice is explicit in the editor: the WEBview page asks what the
 browser shows — *the display screens* or *its own web screens* — and
@@ -102,6 +102,8 @@ pocket cannot write whatever it likes into the equipment.
 |:---|:---:|
 | ESP32 | 2 (the declared limit) |
 | STM32F7 | 1 |
+| node (ESP32-C3 / C6) | 1 |
+| Linux runtime | 16 |
 
 A viewer beyond the limit is refused; the page retries and gets in when
 somebody else closes theirs.
@@ -125,7 +127,8 @@ cycle.
 
 Once the board is on the network, open its address in a browser. The boot
 log prints both the IP address and an `.local` name, so you rarely have
-to remember the number.
+to remember the number. A Linux device serves on port **8080**:
+`http://<address>:8080`.
 
 A board with WiFi can also make **its own access point** — no
 infrastructure at all, the phone connects to the board directly. That is
@@ -155,7 +158,7 @@ A board that reports to a SCADA over Modbus TCP or MQTT may not need a
 browser page at all. The WEBview page in the editor has a switch for
 that: with **WEBview off** the board never starts its HTTP/WS server —
 no pages, no captive portal, no network upload — and the memory the
-server would take stays free for the program.
+server would take stays with the program.
 
 Everything else is untouched: the network still comes up, Modbus TCP,
 MQTT and time sync keep running, and uploading over USB always works.

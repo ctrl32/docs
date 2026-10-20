@@ -80,6 +80,15 @@ the page - the quickest check that the camera is plugged in, pointed
 the right way and in focus. It needs the device's address: go online,
 or enter the address for the network upload.
 
+A camera's first pictures after it opens come before its automatic
+exposure has settled - they are too bright or too dark. **Take a
+picture** (here and on the Vision page) waits until the brightness
+stops moving before it keeps one, so the picture is the one the camera
+gives in steady running. When pictures still differ from run to run,
+fix the exposure, the gain and the white balance above; when they are
+all dark, light the scene - a lamp helps a camera more than any
+setting.
+
 ## The camera on a screen
 
 The **camera** element is in the Toolbox. Draw it on a screen and set
@@ -110,7 +119,9 @@ name, a dot, the block's id — `codes.shp`), and the element shows that
 block's picture, live, on the glass and in the browser. Put it beside
 the camera and the operator sees the raw picture and the one the
 readers get side by side while turning the settings — a filter that
-is too strong shows itself at once.
+is too strong shows itself at once. Naming a detector block (a
+learned model) shows its picture with every object framed and its
+score - what the model saw, not the raw camera.
 
 ## The control comes first
 
@@ -124,6 +135,11 @@ camera.
 A camera can also **check**: is the part there, is it the right colour,
 where is its edge, what does its code say - the answers become
 variables. See [Vision](vision.md).
+
+One camera serves everything at once: the camera elements of the
+screens, the browser, the addresses above and every vision program
+that names it - several programs on one camera, each with its own
+trigger or period, is the usual way to ask it several questions.
 
 ## What comes next
 

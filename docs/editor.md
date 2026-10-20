@@ -7,6 +7,28 @@ included. What you see is what gets downloaded.
 
 ![A thermostat screen on the canvas, the widget toolbox on the right](img/editor-canvas.webp){: .sb-center}
 
+## What the installer puts on the PC
+
+`ctrl32-setup-<version>.exe` installs everything the editor needs:
+
+| Part | What it is for |
+|:---|:---|
+| `ctrl32_editor.exe` | the editor itself |
+| `ctrl32.dat` | the catalog of boards and chips |
+| `runtimes\` | the prebuilt runtime (firmware) of every supported board |
+| `linux\` under `%ProgramData%\ctrl32` | the Linux runtime bundles, see [Setting up a Linux device](linux-setup.md) |
+| `tutorials\` | small sample projects, one idea each |
+| `examples\` | complete sample projects for the catalog boards |
+
+The ST compiler, the pack builder and the flasher are **compiled into
+the editor** — there is no helper program to install, to go missing or
+to be a version behind, and no toolchain on the PC. The pack the editor
+builds is byte for byte the one a release is tested with.
+
+Your own files live under `Documents\ctrl32`: new projects in
+`Documents\ctrl32\projects`, your own theme files in
+`Documents\ctrl32\themes`.
+
 ## Layout
 
 | Part | Where | What is in it |
@@ -61,6 +83,46 @@ devices' shared variables are wired together. See
 Nodes for features that are not finished yet are in the tree as well — their
 page says so. A customer has to see what the board can have, not guess it.
 
+### What Application holds
+
+| Object | Holds |
+|:---|:---|
+| **VAR** | the variables (more lists and the retain list RVAR are added from *Add Object*, see [Variables](variables.md)) |
+| **PLC_PRG** | the first program, in the language the wizard was given |
+| **Tasks** | which programs run, and how often (below) |
+| **HMIview** | the board's own screens |
+| **WEBview** | the browser's screens |
+
+`VAR`, `PLC_PRG` and one screen are created with the project.
+
+## A new project
+
+The editor starts empty. *New project* — the button on the Welcome tab,
+the first icon of the toolbar, or `Ctrl+N` — opens one window with
+everything a fresh project needs:
+
+![The New project wizard with a board picked: the name, where it lands and what the project will do](img/newproj-board.webp){: .sb-center}
+
+| Field | What it decides |
+|:---|:---|
+| **Project name** | mandatory; it becomes the folder and the file name: `<location>\<name>\<name>.prj32` |
+| **Location** | `Documents\ctrl32\projects` unless you browse elsewhere |
+| **Hardware** | a board from the catalog (its card shows what it carries) or the processor module your own hardware carries; Linux devices are listed under *Linux*. The hardware decides the pins, the memory and which runtime is flashed — a project cannot be deployed without one |
+| **Theme** | the colour set the screens start with (see [HMIview](hmiview.md#colour-carries-meaning)) |
+| **What the project does** | visualization on the display, WEBview screens, the first program in ladder or ST, and the roles: CAN master, Modbus RTU or TCP slave, MQTT, net32. Every tick creates the matching part of the project |
+
+On a **module** the *Visualization* tick decides which runtime the module
+gets: the one with a display, or the headless one with the bigger program
+limits (see [Performance and limits](limits.md)). A catalog board's type
+comes from the catalog, so the tick follows the board. On an ESP32-C3 or
+C6 module the wizard makes a [node](node.md) project: no program
+language, no visualization, only the WEBview page.
+
+*Create project* writes the file and opens the tree on it. Nothing in the
+wizard is final: every part can be added or removed later from the tree,
+and the hardware can be changed on the board tab — a project may change
+hardware.
+
 ## Tasks — which programs run
 
 Under *Application* the tree has a *Tasks* node. Each task is a cycle
@@ -106,7 +168,7 @@ and the programs keep the order they ran in.
 | :ti-terminal-2: | the board's serial terminal |
 | :ti-wave-square: | the scope (trace) |
 | :ti-eyeglass: | [find devices](find-devices.md) |
-| *port picker* | which COM port or address the editor talks to |
+| *port picker* | which COM port or address the editor talks to — an IP address or `name.local` is taken anywhere a COM port is. It starts **empty**, and the download and runtime dialogs ask for a port at the moment bytes are about to move: a port nobody chose would read as configured |
 | :ti-plug: | **ONLINE** — connect to a real board (:ti-plug-connected: while connected) |
 | :ti-download: | **download to the board** (F5) — the only coloured icon in the bar |
 
@@ -130,6 +192,24 @@ What runs is **the same compiled program and the same block library** as in the
 board — the VM is compiled for the PC as well. So logic can be debugged at
 your desk and reach the equipment finished.
 
+While it runs the canvas is live: a button on the screen presses with
+the mouse, a lamp lights, an input takes a typed value. A value typed
+into an input reaches the logic in the next cycle — nothing is rebuilt
+and nothing is downloaded, because a block parameter bound to a variable
+reads it every cycle. Simulation needs no hardware connected and does not
+depend on the board picked; most of a project can be built and tested
+this way first.
+
+## Properties and the sheet
+
+A single click selects an element — a widget, a block, a contact — and
+the **Properties** panel shows its fields: a widget's variable, text and
+mode, a block's pins and parameters. A double-click on a block opens the
+same rows as a **sheet** right where the block is. Both edit the same
+thing; use whichever is closer to hand. A block parameter can take a
+variable instead of a literal, which is what makes a time or a limit
+adjustable from a screen without a rebuild.
+
 The difference from [online monitoring](online.md): TEST computes the
 values, ONLINE **reads them from the equipment**.
 
@@ -152,8 +232,8 @@ The first start picks the
 language your Windows runs in, when the editor has it, and the choice is
 remembered between runs. The documentation is English.
 
-The translations were made by the authors with machine help and
-checked where a native speaker was at hand — a wrong word in your
+The translations were made by the authors with automatic translation
+and checked where a native speaker was at hand — a wrong word in your
 language is worth a message, it gets fixed in the next release.
 
 ## AI assistant connection (MCP server)

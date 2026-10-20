@@ -10,7 +10,7 @@ The first change of brightness down (or up) a window, averaged across its width 
 
 Measures a fill level: the first change of brightness going down a window (or up it), averaged across the window's width - the surface of a liquid in a bottle, of a powder in a jar, of a stack in a magazine. The answer is *position* (pixels from the edge the search started at) and *level* (pixels from the other edge - the bottom for a top-down search - which is the fill height a specification states); with a scale wired in, *level_mm* is the same in millimetres, and `min`/`max` make *ok* a tolerance check.
 
-The window is dragged on the block's picture: as wide as the vessel's straight part, as tall as the whole range the level may lie in. `smooth` averages that many rows before the search - a rough or foaming surface wants more; `contrast` is the jump that counts as the surface and `polarity` whether a dark-over-light or a light-over-dark change counts - a clear liquid in a clear bottle is a faint edge, so lower the contrast and let a [Fixture](vision-fixture.md) keep the window on the bottle. The [measuring tutorial](tutorial-measuring.md) walks through a bottle.
+The window is dragged on the block's picture: as wide as the vessel's straight part, as tall as the whole range the level may lie in. `smooth` averages that many rows before the search - a rough or foaming surface wants more; `contrast` is the jump that counts as the surface and `polarity` whether a dark-over-light or a light-over-dark change counts - a clear liquid in a clear bottle is a faint edge, so lower the contrast and let a [Fixture](vision-fixture.md) keep the window on the bottle.
 
 ## Typical uses
 
@@ -60,7 +60,7 @@ Every number and yes/no setting can be read from a **variable** before each run 
 
 ## Used in
 
-- [Bottle check](example-bottle-check.md)
+- Bottle check - a shipped example project
 
 ---
 

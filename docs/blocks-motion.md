@@ -260,6 +260,109 @@ device of another kind than Linux refuses them at the build.
 
 ---
 
+## The line shaft
+
+**Linux.** Followers geared to a master in position - the cylinders of
+a press following its drum - are `MC_GearIn` (a ratio) and
+`MC_GearInPos` (a ratio and a defined relation of the two positions),
+on servos in cyclic position mode over [EtherCAT](ethercat.md). What
+the followers gear to is not the master's setpoint but its **measured
+position**: the drum's encoder, or the actual position of a servo
+master, usually through a virtual master axis that follows that
+counter (see [EtherCAT - a virtual master](ethercat.md#a-virtual-master)).
+
+### Gearing in at a relation
+
+`MC_GearInPos` takes a rational ratio (`RatioNumerator` /
+`RatioDenominator`, whole numbers, so a 2 : 3 never drifts) and a
+relation: when the master stands at `MasterSyncPosition`, the follower
+stands at `SlaveSyncPosition`, in the axes' units. At gear-in the
+follower moves the shortest way into the relation at `Velocity`, then
+follows the master's position every bus cycle with the velocity
+feed-forward.
+
+- While `Execute` holds, a changed `SlaveSyncPosition` is a further,
+  smooth move to the new relation - the operator's **register trim**.
+- A changed ratio is applied the moment the line stands still.
+- `InSync` is in gear and in the relation.
+- `Register` is the follower's actual position against the master's
+  through the ratio and the phase, in the follower's units; 0 is in
+  register, negative is behind.
+
+A ratio coming from a REAL setpoint on a screen is passed as a whole
+number (`RatioNumerator := REAL_TO_INT(r_num)`). On a servo whose
+`units_per_rev` is its increments (65536) and whose time base is `rpm`,
+the phases are plain increments and every velocity is rpm.
+
+The drives' positions are absolute: a ratio and a phase kept in
+persisted variables - a [recipe](recipes.md) of speed, ratios and phases
+is the natural form - bring the same relation back after a restart,
+and the next gear-in finds it without homing and without a movement. A
+set loaded at standstill re-gears the line: the ratios take effect and
+each follower moves into its phase without a new gear-in.
+
+### The chain delay
+
+A follower made from a measured position lags it: the drive samples,
+the bus carries, the runtime computes, the drive applies. The delay is a
+property of the chain - the drives' input latch, their velocity filter
+and loop, the bus's sampling and applying - not of the speed, and it
+shrinks with the bus cycle (roughly 1.2 ms plus 1.7 cycles on the Lenze
+i700: about 3 ms at a 1 ms cycle, 1.7 ms at 250 µs). Uncompensated, the
+register is the velocity times that delay - about a thousand increments
+at 300 rpm on a 1 ms cycle, and it grows with the speed: the error a
+press shows as colours running away during ramps. No bus cycle is short
+enough to remove it; it is compensated, through the gear blocks'
+`Delay` input (seconds), and it is **measured, not estimated**:
+
+1. Set `Delay` to 0, gear in, run the master at a constant speed.
+2. Read `Register` in the hold - it is negative, the follower behind.
+3. Divide it by the velocity in increments per second (300 rpm = 327 680
+   increments per second at 65 536 per revolution): 1 000 increments
+   behind at 300 rpm is 3 ms.
+4. Enter it. The register in the hold goes to a few increments.
+
+A screen with the register live and at its peak (with a reset for the
+peak) and a trend of it makes the measurement a matter of reading two
+numbers. The delay moves with the drives' loop settings - the number the
+hold implies includes the follower's response - so it is **re-measured
+after any loop change**.
+
+### The ramps
+
+With the delay in, what usually remains is a spike at the **start** of
+every ramp: the follower's loop taking up the breakaway. It is the same
+size whatever the acceleration, so an acceleration feed-forward does
+not touch it; the drive's **position controller gain** is the lever (on
+the Lenze servo inverters `0x2980`; raising it from the motor's own
+figure of 28.4 1/s to 80 1/s took the spike from about 225 increments to
+under 20). Higher is not always better - a gain the drive accepts can
+still make the follower lag more - so raise it in steps and stop where
+the spike stops shrinking. What is left, a few tens of increments that
+differ from run to run, is the drives' speed loops, tuned on the real
+line with its motors and loads.
+
+`MC_TorqueFF` hands the drive the torque a ramp needs up front, a gain
+times the acceleration the setpoint asks for, written as the drive's
+torque offset every cycle (0 = off). On a bare motor the inertia torque
+is under a per cent even at a hard ramp and no gain moves the register;
+on a press the plate cylinder is the inertia. Raise the gain until the
+register stops dipping at the start of a ramp, and stop before it
+overshoots.
+
+### What to watch
+
+- **The register**, live and at its peak, and its trend - the one number
+  the print sees. A peak at the start of a ramp is the loop taking up the
+  breakaway (the position controller gain, above).
+- **`InSync`** of each follower: off while a follower moves into its
+  phase, off when it is out of gear.
+- **The device page**: the EtherCAT master up with every slave
+  operational, and the bus counters - a working-counter error is a
+  slave gone.
+
+---
+
 ## A frequency drive is not a servo
 
 The reference target on CANopen is a **frequency drive** with no position
@@ -332,14 +435,23 @@ SDO so a project built from the i550 profile never meets it.
 
 The quickest road to a working axis is the **CAN axis wizard**:
 right-click *CANopen Master* in the project tree and choose *Add Axis
-(drive)*, or press the *CAN wizard...* button in an axis window. The whole
-road from the wiring to the first turn of the motor, with pictures, is
-[A drive over CAN, step by step](tutorial-i550-can.md).
+(drive)*, or press the *CAN wizard...* button in an axis window. The wiring,
+the drive's switches and what to check when it does not move are on
+[CANopen](canopen.md).
 
 ![The CAN axis wizard](img/axis-wizard.webp){: .sb-center}
 
-It takes the axis name, the node-ID and the profile and makes three
-things in one step:
+| Field | What it sets |
+|:---|:---|
+| **instance name** | the axis's name, one word; the motion blocks name the axis by it |
+| **CAN node** | the drive's node-ID - the address on its DIP switches |
+| **Profile** | the drive's profile (`Lenze i550`, ...) |
+| **what the axis does** | `speed` (a conveyor, a pump, a fan) or `positioning`, which adds the blocks' variables for going to a position |
+| **CAN device with the PDOs the runtime needs** | leave it ticked: without that device the cyclic exchange never starts |
+| **EDS** | the drive's own file from the device library; the wizard preselects the matching file with the most objects |
+| **variables for the MC blocks**, **prefix** | leave it ticked; the prefix stays empty for the first axis |
+
+It makes three things in one step:
 
 - the **CAN device** of that node with the two PDOs the runtime
   exchanges on every SYNC (TPDO1 statusword + speed, RPDO1 controlword +
@@ -352,8 +464,34 @@ things in one step:
 
 The first axis gets single words; a second one gets its name as a
 prefix (`feed_speed`), editable in the dialog. A variable that already
-exists under that name is kept, never duplicated. What the wizard makes
-is an ordinary project afterwards - every part can be changed by hand.
+exists under that name is kept, never duplicated. Each variable carries
+a comment naming the block pin it is for. What the wizard makes is an
+ordinary project afterwards - every part can be changed by hand.
+
+In the axis window, leave the **rated current** and **rated torque** at
+0: the runtime reads them from the drive at start. *Units per
+revolution* and *Feed constant* matter for positioning; a speed axis
+runs in the drive's own units.
+
+A speed axis needs five blocks, one per command:
+
+| Block | Pins to bind | What it does |
+|:---|:---|:---|
+| `MC_Power` | `Enable`, `Status`, `Error` | enables the drive while `Enable` is TRUE; `Status` = the drive reports it is enabled |
+| `MC_MoveVelocity` | `Execute`, `Velocity`, `InVelocity`; `Direction` at its default `mcPositiveDirection` | runs at the setpoint; `InVelocity` = the drive reached it |
+| `MC_Stop` | `Execute`, `Done` | a controlled stop along the drive's deceleration ramp |
+| `MC_Reset` | `Execute`, `Done` | acknowledges a drive fault |
+| `MC_ReadActualVelocity` | `Enable`, `Velocity` | the measured speed, every cycle |
+
+Every motion block names its axis. With one axis in the project a block
+on a rung or in a diagram is assigned to it by itself; with more, the
+block's sheet asks which. The build refuses a CAN project with an axis
+and no device carrying a PDO mapping - at the desk, before anything is
+deployed.
+
+Ramp times written with `CO_RAMPTIME` (see [CANopen blocks](blocks-can.md))
+are variables like any other: changed from a screen, they take effect
+the next time the motor starts, with no new download.
 
 See [CANopen blocks](blocks-can.md) for what talks to a drive directly,
 [EtherCAT](ethercat.md) for the servos, and [Buses](buses.md) for the

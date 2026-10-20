@@ -10,7 +10,7 @@ The largest dark (or light) object in a window, judged by where it sits and how 
 
 Is the part where it belongs, and is it the right size? The block takes the largest dark (or light - `polarity`) blob in a window, judged against `threshold`, and compares its centre with where it should be (`ex`, `ey`, within `pos_tol` pixels) and its frame with the size it should have (`ew` x `eh`, within `size_tol` percent). A cap on a bottle, a seal in its seat, a label on its place, a lid on a box, a component in its footprint - one block, one *ok*.
 
-The window is dragged on the block's picture round the place the part belongs. Leave `ex`/`ey` at 0 for "the window's centre" and `ew`/`eh` at 0 for "any size"; read the measured *cw*, *ch* on a good part and type them when the size matters. `min_area` leaves noise out, `max_area` leaves the background out when the threshold catches it. *dx*, *dy* say how far off the part sits - a trend of them shows a feeder drifting. The [measuring tutorial](tutorial-measuring.md) puts it on a bottle's cap.
+The window is dragged on the block's picture round the place the part belongs. Leave `ex`/`ey` at 0 for "the window's centre" and `ew`/`eh` at 0 for "any size"; read the measured *cw*, *ch* on a good part and type them when the size matters. `min_area` leaves noise out, `max_area` leaves the background out when the threshold catches it. *dx*, *dy* say how far off the part sits - a trend of them shows a feeder drifting.
 
 ## Typical uses
 
@@ -66,7 +66,7 @@ Every number and yes/no setting can be read from a **variable** before each run 
 
 ## Used in
 
-- [Bottle check](example-bottle-check.md)
+- Bottle check - a shipped example project
 
 ---
 

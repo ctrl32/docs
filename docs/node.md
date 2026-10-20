@@ -14,8 +14,7 @@ the network, and takes the main device's commands for its outputs.
 What makes it more than a dumb I/O module is the **reflex table**: a
 short list of "this input switches that output" rules the node keeps
 running by itself. The house keeps its light switches when the main
-device reboots or the network is gone — the same idea the
-[home automation](home-automation.md) page calls the reflexes.
+device reboots or the network is gone.
 
 A node is a full ctrl32 device in the editor: the same project file,
 the same variables, the same pin pickers, the same deploy. It runs no
@@ -142,6 +141,22 @@ page of a node on the stepCAN module board; the node's inputs and
 outputs become the module's channels, the rack's head drives them, and
 the chain and the terminator are the board's business. The stepCAN
 specification itself is published on [its own pages](https://www.ctrl32.com/docs/stepcan/).
+
+How a rack works:
+
+| | |
+|:---|:---|
+| Cable | one Cat5e cable carries the CAN bus past every module, and beside it a one-way "you are next" chain |
+| Connector | RJ45, pinned to the CANopen connector standard |
+| Addressing | at power-up the head station walks the chain and hands out CANopen node-IDs in strict physical order — no switches, no commissioning tool |
+| Size | up to 64 modules per segment, enumerated in under a second |
+| Bus | 500 kbit/s, up to 30 m |
+| Mounting | modules on a DIN-rail backplane, scattered around a building, or both on one segment |
+| Profile | CANopen (CiA 301, 305 and 401): the I/O reaches a project as CANopen variables, in the cycle |
+
+A module is added or replaced by plugging it in; the address comes from
+the position. A wrong module in a slot is seen by the head station as a
+mismatch.
 
 ---
 

@@ -81,7 +81,8 @@ per subject - every tab starts from the device's own values, and its
 
 ## Getting a program onto it
 
-The runtime is installed on the device **once**
+The runtime is installed on the device **once** — from the editor
+with *Online → Prepare a Linux device*, or by hand
 ([Setting up](linux-setup.md)); after that everything travels over
 the network:
 
@@ -182,6 +183,24 @@ device](linux-setup.md)), never a pin: the editor's board card says
 so, and a project's CAN or RTU configuration is carried to the
 device unchanged.
 
+Which serial port carries an RS-485 line, how its transceiver's
+direction is driven and which interface is a CAN bus are **settings of
+the device**, written from the board page's *Buses and chips* tab — not
+lines in the project. The project names the buses; the device says
+where they are.
+
+## The device's own facts
+
+A Linux device with a UPS, an accelerometer or a light sensor (the
+reTerminal with its E10-1) fills the matching
+[system variables](variables.md#system-variables) by itself:
+`SYS.ON_BATTERY`, `SYS.CHARGING`, `SYS.BATTERY_VOLTAGE`,
+`SYS.INPUT_VOLTAGE`, `SYS.TILT`, `SYS.SHOCK_G`, `SYS.LIGHT` and the
+rest. The runtime reads them anyway, so using them costs nothing; a
+fact the device does not have reads FALSE, 0 or -1. `SYS.ON_BATTERY`
+is the moment to save, to warn, or to stop what must not run
+unattended.
+
 ## Text variables
 
 A Linux device has **STRING** variables: a text of up to 80 characters
@@ -200,14 +219,9 @@ screen, no programming - and a vision program reads what it sees. The
 device); the STM32MP1 device has no cameras. See [Cameras](cameras.md)
 and [Vision](vision.md).
 
-## What the Linux runtime does not do (yet)
+## Safety
 
-**Local chips** — I2C and SPI peripherals of the part library — are
-not offered on a Linux target; the editor hides those buses and the
-build refuses them, so a project cannot carry configuration the
-device would silently ignore. They will arrive with their drivers.
-
-And the standing rule of the whole product applies unchanged: a
+The standing rule of the whole product applies unchanged: a
 ctrl32 device is [not a safety device](intended-use.md). Emergency
 stops stay hard-wired.
 
