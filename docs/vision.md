@@ -52,8 +52,10 @@ Every block is a box: its title and id in the header, the **inputs as dots on th
 
 | Gesture | What it does |
 |:---|:---|
-| click a block | selects it (the highlighted border) |
-| drag a block | moves it |
+| click a block | selects it (the highlighted border); `Ctrl` + click adds it to the selection or takes it out |
+| drag on the empty canvas | a selection rectangle: every block it touches is selected |
+| `Ctrl+A` / `Esc` | every block / none |
+| drag a block | moves it - a selected block moves the whole selection |
 | double-click a block | opens the [block's window](#the-blocks-window) |
 | drag from an output dot to an input dot | connects them - a picture into a picture input, a number into a number input, a list of objects into a list input, a text into a text input. A connection of two different types is refused (*These do not fit*), and so is one that would make a loop. Dropping on an input that is already fed replaces its connection |
 | click a wire | selects it (drawn thicker, in the selection colour); a click on the empty canvas unselects it |
@@ -61,7 +63,10 @@ Every block is a box: its title and id in the header, the **inputs as dots on th
 | drag a wire off its input dot | picks the wire up - drop it on another input to move the connection, or let it go anywhere and the connection is gone |
 | right-click an input dot | disconnects it |
 | right-click a block | the block's menu: **Settings** (the window), **Result ... into** (one entry per number, yes/no or text output - pick the variable it goes into), **Remove block** |
-| the Delete key | removes the selected wire; with no wire selected, the selected block, its connections and its results |
+| the Delete key | removes the selected wire; with no wire selected, the selected blocks, their connections and their results |
+| `Ctrl+C` / `Ctrl+X` / `Ctrl+V` | copy, cut and paste the selected blocks with their settings; the connections between them come along, the copies get new ids |
+| mouse wheel / `Ctrl` + wheel | scrolls / zooms around the mouse; a middle button drag or `Space` + drag moves the view, `Home` = zoom 100 % |
+| `F1` | the page of the selected block |
 
 The wires are drawn orthogonally; a wire that runs backwards (an output used by a block drawn to the left of it) is routed under the blocks. The blocks run in the order of their connections, whatever their place on the canvas.
 

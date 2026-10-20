@@ -31,6 +31,29 @@ and the strips pack top-down with nothing between them.
 
 ![Two networks: the tank logic in the first, the pump interlock in the second](img/fbd-networks.webp){: .sb-center}
 
+## The canvas
+
+The FBD page and the [Vision](vision.md) page draw on the same canvas
+and answer the same gestures.
+
+| Gesture | What it does |
+|:---|:---|
+| click a block | selects it; `Ctrl` + click adds it to the selection or takes it out |
+| drag on the empty canvas | a selection rectangle: every block it touches is selected (`Ctrl` keeps the ones selected before) |
+| `Ctrl+A` / `Esc` | every block of the program / none |
+| drag a selected block | moves the whole selection; the drop keeps every block clear of the others |
+| drag from an output to an input | draws a wire |
+| click a wire | selects it; `Delete` or its right-click menu **Remove connection** removes it, and the input goes back to `...` |
+| drag a wire off its input | picks the wire up: drop it on another input to move it, let it go anywhere and it is gone |
+| click an input or an output | its binding: a variable, a constant, one bit of an integer |
+| `Delete` | the selected wire, else the selected blocks, else the selected empty network |
+| `Ctrl+C` / `Ctrl+X` / `Ctrl+V` | copy, cut and paste the selection - the wires between the copied blocks are drawn again between the copies, a wire from outside stays a binding of the same variable, the copies land beside the originals and are selected |
+| mouse wheel | scrolls; `Shift` + wheel scrolls sideways |
+| `Ctrl` + wheel | zooms around the mouse, from 40 % to 250 % |
+| middle button drag, or `Space` + drag | moves the view |
+| `Home` | zoom 100 %, the top left corner |
+| `F1` | the page of the selected block |
+
 ## Composite block (an FB built from blocks)
 
 A composite is a POU with an **interface** (input/output ports) and its

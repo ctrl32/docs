@@ -21,10 +21,14 @@ does on each kind of canvas.
 | `Ctrl+S` | save |
 | `Ctrl+Shift+S` | save as |
 | `Ctrl+Z` / `Ctrl+Y` | undo / redo — unlimited, across every editor (canvas, ladder, FBD, variables); the Edit menu shows how many steps each way |
+| `F1` | the help page of what is selected — a block, a widget, a vision block, else the page in front |
 | `F7` | build — compile and report, touch nothing |
 | `F5` | download to the panel — build first, then send |
 | `Ctrl+D` | duplicate the selected widget (with its children) |
-| `Delete` | delete the selection — widgets on the canvas, blocks and contacts in ladder, blocks and wires in FBD |
+| `Delete` | delete the selection — widgets on the canvas, blocks and contacts in ladder, the selected blocks or the selected wire in FBD and Vision |
+| `Ctrl+C` / `Ctrl+X` / `Ctrl+V` | copy, cut and paste the selected blocks in FBD and Vision — the wires between them come along |
+| `Ctrl+A` | select every block of the program in FBD and Vision |
+| mouse wheel / `Ctrl` + wheel | scroll / zoom the FBD and Vision canvas (`Shift` + wheel scrolls sideways, `Home` = zoom 100 %) |
 | `Esc` | drop the selection |
 | `←` `→` `↑` `↓` | nudge the selected widget by 1 px |
 | `Shift` + arrows | nudge by 10 px |
@@ -114,13 +118,15 @@ selection, `Ctrl+Z` takes anything back.
 - **FBD**: a program is numbered **networks** stacked like rungs
   (*+ Network*; right-click the number lane to insert, move or delete
   one); blocks come from the **Toolbox** (click adds into the
-  selected network); wires are drawn **pin to pin** — click an
-  output, click an input — and run as horizontal and vertical
-  segments, a signal that feeds a block to its left goes around
-  underneath. A wire that would cross networks is refused. Blocks
-  never overlap: a block occupies its box and the names beside its
-  pins, a block dropped onto another is moved clear to the right, and
-  *Arrange* lays the columns out as wide as their blocks need.
+  selected network); a wire is **dragged** from an output to an input
+  and runs as horizontal and vertical segments, a signal that feeds a
+  block to its left goes around underneath. Across networks the
+  variable's name carries the signal. Blocks never overlap: a block
+  occupies its box and the names beside its pins, a block dropped onto
+  another is moved clear to the right, and *Arrange* lays the columns
+  out as wide as their blocks need. The canvas zooms, a group of
+  blocks is selected and moved together, a wire is selected and
+  removed on its own - see [The canvas](fbd-composites.md#the-canvas).
 - **ST**: a plain text editor with completion; the declaration pane
   above applies with `Ctrl+Enter`.
 
