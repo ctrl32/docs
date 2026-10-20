@@ -92,8 +92,10 @@ END_PROGRAM
 
 <!-- /blk -->
 
-**ADD takes four inputs**, and unconnected ones are 0 — so it doubles as
-a two- or three-input adder without any special handling.
+**ADD takes up to four inputs**, and unconnected ones are 0. A new ADD
+shows two; *Add input* on its right-click menu opens the third and the
+fourth, *Remove input* takes the last one away. An input in use is
+always shown.
 
 **Every other input is 0 when unconnected too**, and that is worth a
 thought on MUL (result 0) and DIV (see below).

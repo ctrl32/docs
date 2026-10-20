@@ -8,6 +8,21 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.06.001
+
+An editor build inside line 1.06 - the devices keep their 1.06.000
+runtime.
+
+- **The ladder Toolbox inserts the block you click.** A block from the
+  motion library (and every block after the first twenty of the list)
+  landed on the rung as a different, earlier block - `MC_Power` came in
+  as `ADD`. Every tile lands its own block now, from the Toolbox, from
+  the right-click menu and when dropped onto a cell.
+- **ADD starts with two inputs.** The box in ladder and the block in
+  FBD show `IN1` and `IN2`; *Add input* on the right-click menu opens
+  the third and the fourth, *Remove input* takes the last one away. An
+  input in use is always shown, an input not shown counts as 0.
+
 ## 1.06.000
 
 A new line: every
