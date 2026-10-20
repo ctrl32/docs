@@ -1,3 +1,8 @@
+---
+image: img/vbc-crop_object.webp
+image_alt: "The Crop to object block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Crop to object
@@ -6,7 +11,19 @@
 
 Keeps the frame around one found object, with a margin - the next blocks look only where the part really is, wherever it lies.
 
+![The Crop to object block on the Vision canvas](img/vbc-crop_object.webp){: .sb-center}
+
 ![The window of the Crop to object block: its settings on the left, its picture on the right](img/vb-crop_object.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Cuts the frame around one found object out of a picture, with `margin` pixels added on every side, and hands that cut-out on. The blocks after it look only where the part really is, wherever it lies: a code reader on the label that was found by its colour, a Colour check on the cap found by Find circles, a Compare with taught on the part found by Find pattern.
 

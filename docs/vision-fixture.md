@@ -1,3 +1,8 @@
+---
+image: img/vbc-fixture.webp
+image_alt: "The Fixture block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Fixture
@@ -6,7 +11,19 @@
 
 Finds the part by a taught picture and shifts the whole picture so the part sits where it was when taught - every later block keeps its areas wherever the part lies on the belt. Teach by dragging over the part on the block's picture.
 
+![The Fixture block on the Vision canvas](img/vbc-fixture.webp){: .sb-center}
+
 ![The window of the Fixture block: its settings on the left, its picture on the right](img/vb-fixture.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Makes every later block independent of where the part lies. Taught once by a drag over the part on the block's picture, the block remembers the part's picture and where it was. On every later picture it looks for the part again, measures how far it moved (and, with `max_angle` above 0, how far it turned) and shifts the whole picture back so that the part sits exactly where it was when taught. A window drawn on the cap finds the cap wherever the bottle stopped; a caliper drawn across the part measures the part, not the belt beside it.
 

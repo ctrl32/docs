@@ -5,95 +5,16 @@ states — a signal that stays TRUE counts once, not once per cycle.
 
 ---
 
-## CTU — up counter
+## The blocks
 
-**A rising edge of CU increments; R resets; Q is TRUE once CV has reached PV.**
+<!-- fb-index: begin -->
 
-| Pin | Type | Meaning |
-|:---|:---:|:---|
-| `CU` | input, bool | count up on the rising edge |
-| `R` | input, bool | reset — while TRUE, CV is 0 |
-| `PV` | parameter, number (10) | the preset the counter is aiming at |
-| `Q` | output, bool | TRUE while CV ≥ PV |
-| `CV` | output, number | the count so far |
+| Block | What it does | Linux | ESP32 | STM32 |
+|:---|:---|:---:|:---:|:---:|
+| [CTU](fb-ctu.md) | Counts up: a rising edge of CU increments CV, R resets it, Q is TRUE once CV has reached PV. | yes | yes | yes |
+| [CTD](fb-ctd.md) | Counts down: a rising edge of CD decrements CV, LD loads CV = PV, Q is TRUE at zero. | yes | yes | yes |
 
-<!-- blk:CTU -->
-![CTU on a rung](img/blk-ctu-ld.webp)
-
-```iecst
-PROGRAM CTU_ST
-VAR ctu : CTU; END_VAR
-  ctu(CU := ctu_cu, R := ctu_r, PV := ctu_pv);
-  ctu_q_st := ctu.Q;
-  ctu_cv_st := ctu.CV;
-END_PROGRAM
-```
-
-![CTU on the WEBview screen](img/blk-ctu-web.webp)
-
-<!-- /blk -->
-
-Reset has priority: while R is TRUE the counter stays at zero and ignores
-CU.
-
-**What it is for:** anything you need a quantity of. Parts in a box,
-strokes of a press, bottles past a sensor, retries before giving up.
-
-```
-part_sensor ──CU─┐
-box_changed ──R──┤ CTU PV=24 ├── Q ──> box_full
-                 └────────── CV ──> parts_in_box
-```
-
-Q comes on at the 24th part and stays on until somebody changes the box.
-
-!!! tip "CV is the number the operator wants to see"
-    Bind it to a variable and show it. "24 of 24" tells an operator more than
-    a lamp does, and it costs one widget.
-
----
-
-## CTD — down counter
-
-**A rising edge of CD decrements; LD loads CV = PV; Q is TRUE at zero.**
-
-| Pin | Type | Meaning |
-|:---|:---:|:---:|
-| `CD` | input, bool | count down on the rising edge |
-| `LD` | input, bool | load — sets CV to PV |
-| `PV` | parameter, number (10) | the value LD loads |
-| `Q` | output, bool | TRUE while CV ≤ 0 |
-| `CV` | output, number | what is left |
-
-<!-- blk:CTD -->
-![CTD on a rung](img/blk-ctd-ld.webp)
-
-```iecst
-PROGRAM CTD_ST
-VAR ctd : CTD; END_VAR
-  ctd(CD := ctd_cd, LD := ctd_ld, PV := ctd_pv);
-  ctd_q_st := ctd.Q;
-  ctd_cv_st := ctd.CV;
-END_PROGRAM
-```
-
-![CTD on the WEBview screen](img/blk-ctd-web.webp)
-
-<!-- /blk -->
-
-A down counter starts life at zero, which means **Q is TRUE before you
-load it**. Pulse LD once at startup, or whenever a new batch begins.
-
-**What it is for:** counting down to something. Remaining parts in a
-batch, lives left before a fault, doses left in a container.
-
-```
-batch_start ──LD─┐
-part_done   ──CD─┤ CTD PV=50 ├── Q ──> batch_finished
-                 └────────── CV ──> parts_remaining
-```
-
----
+<!-- fb-index: end -->
 
 ## Counting edges, not states
 
@@ -109,7 +30,7 @@ stuck.
 !!! warning "A bouncing input counts every bounce"
     A mechanical contact can bounce several times in a millisecond, and
     the counter is fast enough to see all of them. Put a short
-    [TON](blocks-timers.md#ton-on-delay) in front of a mechanical
+    [TON](fb-ton.md) in front of a mechanical
     contact, or use the input filtering on the peripheral if it has one.
 
 ## Retentive counting

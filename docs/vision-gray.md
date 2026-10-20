@@ -1,3 +1,8 @@
+---
+image: img/vbc-gray.webp
+image_alt: "The Grayscale block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Grayscale
@@ -6,7 +11,19 @@
 
 Turns a colour picture into shades of gray.
 
+![The Grayscale block on the Vision canvas](img/vbc-gray.webp){: .sb-center}
+
 ![The window of the Grayscale block: its settings on the left, its picture on the right](img/vb-gray.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Turns a colour picture into shades of gray. Most measuring and finding blocks work on brightness alone and do this themselves when they get a colour picture; put a Grayscale in front of them when several blocks share the gray picture (it is computed once) or when the gray picture itself should be shown on a screen.
 

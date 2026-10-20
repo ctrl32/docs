@@ -1,3 +1,8 @@
+---
+image: img/vbc-canny.webp
+image_alt: "The Edges block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Edges
@@ -6,7 +11,19 @@
 
 White on the edges of things, black elsewhere (Canny).
 
+![The Edges block on the Vision canvas](img/vbc-canny.webp){: .sb-center}
+
 ![The window of the Edges block: its settings on the left, its picture on the right](img/vb-canny.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Marks the edges of things with thin white lines on black (the Canny detector): the outline of a part, the border of a label, the strokes of a print - and nothing in the flat areas between. It is the picture [Find lines](vision-lines.md), [Find circles](vision-circles.md) and [Find objects](vision-contours.md) work best on, and it is independent of how bright the picture is, because an edge is a change of brightness, not a level.
 

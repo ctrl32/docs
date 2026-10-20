@@ -32,9 +32,9 @@ rung in LD and in a function block diagram with the axis in its properties.
 
 ## Where it runs
 
-| Linux runtime | ESP32 boards | EtherCAT | CANopen |
-|:---:|:---:|:---:|:---:|
-| yes | yes | yes | - |
+| Linux runtime | ESP32 boards | STM32 | EtherCAT | CANopen |
+|:---:|:---:|:---:|:---:|:---:|
+| yes | yes | - | yes | - |
 
 **Needs:** a servo whose cyclic set carries the torque-limit words (objects 0x60E0 / 0x60E1 - the *Torque limits* PDO of a servo family travels beside the cyclic pair when the device is added from its description); without them ErrorID 8.
 

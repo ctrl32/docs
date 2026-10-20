@@ -1,3 +1,8 @@
+---
+image: img/vbc-edge.webp
+image_alt: "The Edge position block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Edge position
@@ -6,7 +11,19 @@
 
 Where is the edge? Walks across an area in one direction and reports the first place the brightness jumps.
 
+![The Edge position block on the Vision canvas](img/vbc-edge.webp){: .sb-center}
+
 ![The window of the Edge position block: its settings on the left, its picture on the right](img/vb-edge.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Where is the edge? The block walks across an area in `direction` and reports the first place the brightness jumps by at least `contrast` - *position* is in pixels from the area's starting side. Where the material ends, where a web's edge runs, where a stack's top is, where a mark sits: one number, with *found* off when no jump reaches the contrast.
 

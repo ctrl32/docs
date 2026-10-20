@@ -9,121 +9,18 @@ Like the motion blocks, each one is bound to an **axis** at the call:
 
 ---
 
-## CO_CIA402 — the drive state machine
+## The blocks
 
-| Pin | Type | Meaning |
-|:---|:---:|:---|
-| `Enable` | input, bool | run the state machine |
-| `Ready` | output, bool | the drive is in *operation enabled* |
-| `Fault` | output, bool | the drive is in fault |
+<!-- fb-index: begin -->
 
-<!-- blk:CO_CIA402 -->
-![CO_CIA402 on a rung](img/blk-co402-ld.webp)
+| Block | What it does | Linux | ESP32 | STM32 |
+|:---|:---|:---:|:---:|:---:|
+| [CO_CIA402](fb-co_cia402.md) | The CiA 402 drive state machine on its own: Enable walks the drive to operation enabled, Ready says it got there. | yes | yes | - |
+| [CO_SDOWRITE](fb-co_sdowrite.md) | Writes an object of the drive over SDO - at startup only, never in the cycle. | yes | yes | - |
+| [CO_SDOREAD](fb-co_sdoread.md) | Reads an object of the drive over SDO at startup. | yes | yes | - |
+| [CO_RAMPTIME](fb-co_ramptime.md) | Sets the drive's acceleration and deceleration times - written only at standstill and only on change. | yes | yes | - |
 
-```iecst
-PROGRAM CO_CIA402_ST
-VAR co402 : CO_CIA402; END_VAR
-  co402(AXIS := 0, Enable := co402_enable);
-  co402_ready_st := co402.Ready;
-  co402_fault_st := co402.Fault;
-END_PROGRAM
-```
-
-![CO_CIA402 on the WEBview screen](img/blk-co402-web.webp)
-
-<!-- /blk -->
-
-The CiA 402 state machine on its own. This is what
-[MC_Power](blocks-motion.md#mc_power) uses underneath, exposed for when
-you want to build something the MC_ blocks do not cover.
-
-A CiA 402 drive is not controlled by writing a speed. There is a state
-equipment, driven through controlword `0x6040` and observed through
-statusword `0x6041`, and it must be walked through in order —
-*switch on disabled* → *ready to switch on* → *switched on* →
-*operation enabled*. `Ready` is TRUE only at the end of that walk.
-
----
-
-## CO_SDOWRITE — write a parameter
-
-| Pin | Type | Meaning |
-|:---|:---:|:---:|
-| `IN` | input, number | the value |
-| `INDEX`, `SUB` | parameters | which object |
-| `VALUE`, `SIZE` | parameters | value and byte width |
-
-<!-- blk:CO_SDOWRITE -->
-![CO_SDOWRITE on the WEBview screen](img/blk-sdow-web.webp)
-
-<!-- /blk -->
-
-**This runs at startup only.** The project compiler turns it into a
-startup record; it never executes inside the cycle.
-
-That restriction is the point. An SDO exchange takes milliseconds and
-involves waiting for an answer — do it in the cycle and the cycle timing
-is gone, non-reproducibly, in a way that shows up as jitter nobody can
-explain. Parameterise at startup; use PDOs for anything cyclic.
-
-**What it is for:** the settings a drive needs before it will behave —
-switching the i550 into CiA 402 mode, setting a ramp, choosing a
-reference source.
-
----
-
-## CO_SDOREAD — read a parameter
-
-| Pin | Type | Meaning |
-|:---|:---:|:---:|
-| `INDEX`, `SUB` | parameters | which object |
-| `OUT` | output, number | the value read |
-
-<!-- blk:CO_SDOREAD -->
-![CO_SDOREAD on a rung](img/blk-sdor-ld.webp)
-
-![CO_SDOREAD on the WEBview screen](img/blk-sdor-web.webp)
-
-<!-- /blk -->
-
-Startup only, for the same reason. Use it to read a nameplate value, a
-motor rating, a firmware revision — something you want in the program but
-that does not change while it runs.
-
----
-
-## CO_RAMPTIME — ramp times, safely
-
-| Pin | Type | Meaning |
-|:---|:---:|:---|
-| `ACC` | input, **seconds** | acceleration time, 0 → target rpm |
-| `DEC` | input, **seconds** | deceleration time |
-| `REF` | input, number | reference speed the times relate to |
-
-<!-- blk:CO_RAMPTIME -->
-![CO_RAMPTIME on the WEBview screen](img/blk-coramp-web.webp)
-
-```iecst
-PROGRAM CO_RAMPTIME_ST
-VAR coramp : CO_RAMPTIME; END_VAR
-  coramp(AXIS := 0, ACC := coramp_acc, DEC := coramp_dec,
-         REF := coramp_ref);
-END_PROGRAM
-```
-
-<!-- /blk -->
-
-Writes the CiA 402 ramp objects `0x6048` and `0x6049` — and it is careful
-about when:
-
-- **only when the axis is at standstill**, and
-- **only when the values actually changed**.
-
-So the cycle never touches SDO while the equipment is moving. This is the
-block that lets ACC and DEC be adjustable from a [WEBview](webview.md)
-screen without the adjustment being able to disturb a running axis.
-
----
+<!-- fb-index: end -->
 
 ## PDO timing belongs to the cycle
 

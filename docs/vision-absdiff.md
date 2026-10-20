@@ -1,3 +1,8 @@
+---
+image: img/vbc-absdiff.webp
+image_alt: "The Difference block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Difference
@@ -6,7 +11,19 @@
 
 The difference of two pictures, pixel by pixel - a part against the empty belt, this picture against a good one. White where they differ after the threshold.
 
+![The Difference block on the Vision canvas](img/vbc-absdiff.webp){: .sb-center}
+
 ![The window of the Difference block: its settings on the left, its picture on the right](img/vb-absdiff.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Subtracts two pictures point by point and keeps the size of the difference. Where the two are the same the result is black; where they differ it is bright. After the `level`, the output is black and white: white where the difference is larger than the level. *share* says how much of the picture that is, in percent.
 

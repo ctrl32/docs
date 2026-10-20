@@ -1,3 +1,8 @@
+---
+image: img/vbc-distance.webp
+image_alt: "The Distance map block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Distance map
@@ -6,7 +11,19 @@
 
 Every white point becomes as bright as it is far from the nearest black one - the middle of a thick shape shines, its rim stays dark; a way to find the widest place or to split touching parts.
 
+![The Distance map block on the Vision canvas](img/vbc-distance.webp){: .sb-center}
+
 ![The window of the Distance map block: its settings on the left, its picture on the right](img/vb-distance.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Turns a black-and-white picture into a map of distances: every white point becomes as bright as it is far from the nearest black one, so the middle of a thick shape shines and its rim stays dark. Two things follow from it. A threshold on the map at half the parts' width splits touching parts - two pills that touch share a thin neck, which is dark on the map, and come out as two shapes. And the brightest point of the map is the widest place of a shape: where a round part can be gripped, how wide a bead of glue is at its widest.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-presence.webp
+image_alt: "The Presence block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Presence
@@ -6,7 +11,19 @@
 
 Is something there? Measures the brightness of an area and says yes when it lies between the two limits.
 
+![The Presence block on the Vision canvas](img/vbc-presence.webp){: .sb-center}
+
 ![The window of the Presence block: its settings on the left, its picture on the right](img/vb-presence.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Is something there? The block measures the mean brightness of an area and says *present* when it lies between `min` and `max` - a dark part on a light belt, a light part on a dark table, a hand over the lens. It is the first check every line needs and the one most often enough: no threshold, no objects, one area and two limits.
 

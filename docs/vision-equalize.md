@@ -1,3 +1,8 @@
+---
+image: img/vbc-equalize.webp
+image_alt: "The Equalize light block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Equalize light
@@ -6,7 +11,19 @@
 
 Spreads the brightness over the whole range - a picture under uneven or weak light gets its contrast back before a threshold.
 
+![The Equalize light block on the Vision canvas](img/vbc-equalize.webp){: .sb-center}
+
 ![The window of the Equalize light block: its settings on the left, its picture on the right](img/vb-equalize.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Spreads the brightness of the picture over the whole range from black to white (histogram equalisation). A picture that is dull because the lamp is weak, or that uses only the dark half of the shades, gets its contrast back - a threshold after it has something to cut.
 

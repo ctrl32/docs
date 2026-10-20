@@ -1,3 +1,8 @@
+---
+image: img/vbc-pyramid.webp
+image_alt: "The Halve block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Halve
@@ -6,7 +11,19 @@
 
 Halves the picture once or several times with a proper blur first (an image pyramid) - a cleaner small picture than Resize for finding large things fast.
 
+![The Halve block on the Vision canvas](img/vbc-pyramid.webp){: .sb-center}
+
 ![The window of the Halve block: its settings on the left, its picture on the right](img/vb-pyramid.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Halves the picture once or several times, with the proper blur before each halving that keeps the small picture clean (an image pyramid). Two levels turn 1280 x 720 into 320 x 180 - a sixteenth of the pixels, and a Find pattern or a Find objects on it runs that much faster.
 

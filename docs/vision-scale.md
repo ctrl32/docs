@@ -1,3 +1,8 @@
+---
+image: img/vbc-scale.webp
+image_alt: "The Scale block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Scale
@@ -6,7 +11,19 @@
 
 Turns a number of pixels into millimetres (or any unit) - value x factor + offset. Connect a Ruler's mm_per_px to `factor_in` and the factor is measured, not typed.
 
+![The Scale block on the Vision canvas](img/vbc-scale.webp){: .sb-center}
+
 ![The window of the Scale block: its settings on the left, its picture on the right](img/vb-scale.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Turns a number of pixels into millimetres - or inches, degrees of a dial, any unit: the result is `v` x `factor` + `offset`. Wire a [Ruler](vision-ruler.md)'s *mm_per_px* or a [Plane from a board](vision-world.md)'s *mm_per_px* into `factor_in` and the factor is measured rather than typed; the typed `factor` is used when nothing feeds that input.
 

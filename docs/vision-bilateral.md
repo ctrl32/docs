@@ -1,3 +1,8 @@
+---
+image: img/vbc-bilateral.webp
+image_alt: "The Smooth, keep edges block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Smooth, keep edges
@@ -6,7 +11,19 @@
 
 Smooths noise inside areas and leaves the edges sharp (a bilateral filter) - a blur that does not wash the part into the belt.
 
+![The Smooth, keep edges block on the Vision canvas](img/vbc-bilateral.webp){: .sb-center}
+
 ![The window of the Smooth, keep edges block: its settings on the left, its picture on the right](img/vb-bilateral.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Smooths the noise inside areas and leaves the edges sharp. A point is averaged only with neighbours of a similar shade (within `colour`) and within `space` of it, so the belt's texture and the camera's noise disappear while the part's edge stays exactly where it was - a blur that does not wash the part into the background. It is the filter to put before a threshold when the part and the belt are close in shade.
 

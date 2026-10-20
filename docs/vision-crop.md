@@ -1,3 +1,8 @@
+---
+image: img/vbc-crop.webp
+image_alt: "The Crop block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Crop
@@ -6,7 +11,19 @@
 
 Keeps one rectangle of the picture - later blocks see only that area.
 
+![The Crop block on the Vision canvas](img/vbc-crop.webp){: .sb-center}
+
 ![The window of the Crop block: its settings on the left, its picture on the right](img/vb-crop.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Keeps one rectangle of the picture and throws the rest away. Everything after it works on that rectangle alone - the part, the label, the reading window - and a smaller picture is analysed faster: a code reader on a 640 x 360 window takes a quarter of the time it takes on the whole 1280 x 720 picture.
 

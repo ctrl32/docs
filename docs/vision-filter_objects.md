@@ -1,3 +1,8 @@
+---
+image: img/vbc-filter_objects.webp
+image_alt: "The Filter objects block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Filter objects
@@ -6,7 +11,19 @@
 
 Keeps only the objects of a list that look right - by area, by how round they are, by how elongated, by how solid (a ring or a C is not solid). The rest are dropped.
 
+![The Filter objects block on the Vision canvas](img/vbc-filter_objects.webp){: .sb-center}
+
 ![The window of the Filter objects block: its settings on the left, its picture on the right](img/vb-filter_objects.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Keeps only the objects of a list that look right and drops the rest. Four measures, each with its limits: the area (`area_min`..`area_max`), the roundness (100 for a disc, 0 for a line), the aspect (the longest side over the shortest - a square is 1, a bar 5) and the solidity (a filled shape is 100, a ring or a C much less). An object has to pass every limit to be kept.
 

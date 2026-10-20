@@ -1,3 +1,8 @@
+---
+image: img/vbc-adaptive.webp
+image_alt: "The Adaptive threshold block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Adaptive threshold
@@ -6,7 +11,19 @@
 
 Black and white by a level that follows the picture - each point is compared with its own neighbourhood, so uneven light or a shadow across the part does not matter.
 
+![The Adaptive threshold block on the Vision canvas](img/vbc-adaptive.webp){: .sb-center}
+
 ![The window of the Adaptive threshold block: its settings on the left, its picture on the right](img/vb-adaptive.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 A threshold that follows the picture. Instead of one level for the whole picture, each point is compared with the average of its own neighbourhood (`block` pixels across) less a small constant `c`: brighter than its surroundings is white, darker is black. Uneven light, a shadow across the part, a lamp that is brighter on one side - none of it matters, because every point is judged against what is next to it.
 

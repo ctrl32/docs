@@ -1,3 +1,8 @@
+---
+image: img/vbc-laser_line.webp
+image_alt: "The Laser line profile block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Laser line profile
@@ -6,7 +11,19 @@
 
 A line laser shines a line across the part, the camera sees it from an angle, and the line's bend is the height profile - the height of a step, the depth of a groove, the fill of an opaque jar. Teach the baseline on the empty plane; the height comes in millimetres once mm_per_px is set.
 
+![The Laser line profile block on the Vision canvas](img/vbc-laser_line.webp){: .sb-center}
+
 ![The window of the Laser line profile block: its settings on the left, its picture on the right](img/vb-laser_line.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 A height profile from a cheap line laser and the ordinary camera (laser triangulation). The laser shines a line across the part, the camera looks at it from an angle, and where the part is higher the line is shifted - the line's bend IS the height profile. The block finds the line's row in every column of the window (the brightest run in the laser's colour channel), subtracts the taught baseline and answers the *height* at the window's middle, its extremes, the *width* of what stands higher than `min_height`, and the whole profile as objects (one every `step` columns, the height in the object's r) for the geometry blocks.
 

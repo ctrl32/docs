@@ -1,3 +1,8 @@
+---
+image: img/vbc-threshold.webp
+image_alt: "The Threshold block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Threshold
@@ -6,7 +11,19 @@
 
 White where the picture is brighter than the level, black elsewhere.
 
+![The Threshold block on the Vision canvas](img/vbc-threshold.webp){: .sb-center}
+
 ![The window of the Threshold block: its settings on the left, its picture on the right](img/vb-threshold.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Splits a picture into black and white at one level of brightness: a point brighter than `level` is white, a darker one black (or the other way round with `invert`). It is the step from a gray picture to shapes - everything that finds objects, counts them or measures white wants a black-and-white picture, and this is the simplest way to make one.
 

@@ -36,9 +36,9 @@ rung in LD and in a function block diagram with the axis in its properties.
 
 ## Where it runs
 
-| Linux runtime | ESP32 boards | EtherCAT | CANopen |
-|:---:|:---:|:---:|:---:|
-| yes | - | yes | - |
+| Linux runtime | ESP32 boards | STM32 | EtherCAT | CANopen |
+|:---:|:---:|:---:|:---:|:---:|
+| yes | - | - | yes | - |
 
 **Needs:** a servo whose cyclic set carries the touch-probe words (objects 0x60B8 to 0x60BD); no shipped device description carries them yet, so every drive answers ErrorID 8 until one does.
 

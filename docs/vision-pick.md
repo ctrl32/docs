@@ -1,3 +1,8 @@
+---
+image: img/vbc-pick.webp
+image_alt: "The Pick object block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Pick object
@@ -6,7 +11,19 @@
 
 Takes one object of a list - number 0 is the first after sorting - and gives its numbers.
 
+![The Pick object block on the Vision canvas](img/vbc-pick.webp){: .sb-center}
+
 ![The window of the Pick object block: its settings on the left, its picture on the right](img/vb-pick.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Takes one object out of a list and gives its numbers: the centre, the frame, the radius, the angle, the area, and the score when the list came from a finder that scores. `index` says which one - 0 is the first after the list's sorting, so a list sorted left to right makes "the leftmost part" index 0 whatever its size.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-level.webp
+image_alt: "The Fill level block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Fill level
@@ -6,7 +11,19 @@
 
 The first change of brightness down (or up) a window, averaged across its width - the level of a liquid in a bottle, of a powder in a jar - as pixels from the window's bottom edge and, with a scale, in millimetres; with a tolerance.
 
+![The Fill level block on the Vision canvas](img/vbc-level.webp){: .sb-center}
+
 ![The window of the Fill level block: its settings on the left, its picture on the right](img/vb-level.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Measures a fill level: the first change of brightness going down a window (or up it), averaged across the window's width - the surface of a liquid in a bottle, of a powder in a jar, of a stack in a magazine. The answer is *position* (pixels from the edge the search started at) and *level* (pixels from the other edge - the bottom for a top-down search - which is the fill height a specification states); with a scale wired in, *level_mm* is the same in millimetres, and `min`/`max` make *ok* a tolerance check.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-contours.webp
+image_alt: "The Find objects block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find objects
@@ -6,7 +11,19 @@
 
 Finds the separate white areas of a black-and-white picture as a list of objects - each with its centre, frame, angle and area - sorted as chosen.
 
+![The Find objects block on the Vision canvas](img/vbc-contours.webp){: .sb-center}
+
 ![The window of the Find objects block: its settings on the left, its picture on the right](img/vb-contours.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds the separate white areas of a black-and-white picture and hands them on as a **list of objects**, each with its centre, its frame, its angle and its area. It is the block that turns a threshold into things: the parts on a tray, the holes in a plate, the pills in a blister, the drops on a nozzle - and the blocks after it ([Pick object](vision-pick.md), [Check objects](vision-objcheck.md), [Filter objects](vision-filter_objects.md), [Crop to object](vision-crop_object.md)) take the list.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-channel.webp
+image_alt: "The One channel block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # One channel
@@ -6,7 +11,19 @@
 
 Takes one channel of the colour picture as a gray one - the red, the saturation, the lightness ... - the way to make a colour into something Threshold can cut.
 
+![The One channel block on the Vision canvas](img/vbc-channel.webp){: .sb-center}
+
 ![The window of the One channel block: its settings on the left, its picture on the right](img/vb-channel.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Takes one channel of a colour picture as a gray picture: the red, the green or the blue part, or the hue, the saturation, the value or the lightness of each point. It is how a colour becomes something a [Threshold](vision-threshold.md) can cut - the red channel makes a red print on a white label stand out as dark, the saturation channel makes any coloured mark bright on a gray background, whatever the colour.
 

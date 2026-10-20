@@ -1,3 +1,8 @@
+---
+image: img/vbc-gamma.webp
+image_alt: "The Gamma block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Gamma
@@ -6,7 +11,19 @@
 
 Brightens or darkens the middle shades without touching black and white (a gamma curve) - 100 leaves the picture as it is, less brightens, more darkens.
 
+![The Gamma block on the Vision canvas](img/vbc-gamma.webp){: .sb-center}
+
 ![The window of the Gamma block: its settings on the left, its picture on the right](img/vb-gamma.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Brightens or darkens the middle shades while black stays black and white stays white (a gamma curve). Below 100 % the middle shades come up - the detail in a dark part or a shadow becomes visible; above 100 % they go down - a washed-out, overexposed label gets its contrast back. 100 leaves the picture as it is.
 

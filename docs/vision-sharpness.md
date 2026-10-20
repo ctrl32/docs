@@ -1,3 +1,8 @@
+---
+image: img/vbc-sharpness.webp
+image_alt: "The Sharpness block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Sharpness
@@ -6,7 +11,19 @@
 
 How sharp the picture is in an area (the variance of the Laplacian) - a camera knocked out of focus, a lens fogged up, a print smudged. Yes when it is at least the limit.
 
+![The Sharpness block on the Vision canvas](img/vbc-sharpness.webp){: .sb-center}
+
 ![The window of the Sharpness block: its settings on the left, its picture on the right](img/vb-sharpness.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 How sharp the picture is in an area - the variance of the Laplacian, the focus measure that autofocus algorithms use. A camera knocked out of focus, a lens fogged or dirty, a window smeared, a print that smudged - all of them lower it, and a check that silently reads a blurred picture is the check that passes bad parts. *ok* is on while the value stays at least `min`.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-open.webp
+image_alt: "The Open block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Open
@@ -6,7 +11,19 @@
 
 Erode, then dilate - removes specks and keeps the size of large areas.
 
+![The Open block on the Vision canvas](img/vbc-open.webp){: .sb-center}
+
 ![The window of the Open block: its settings on the left, its picture on the right](img/vb-open.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 An erode followed by a dilate with the same brush. Specks, thin lines and bridges thinner than the brush vanish in the erode and do not come back in the dilate, while the large shapes - shrunk and then grown by the same amount - keep their size and place. It is the one-step way to clean the background after a threshold before [Find objects](vision-contours.md) counts what is there.
 

@@ -34,9 +34,9 @@ rung in LD and in a function block diagram with the axis in its properties.
 
 ## Where it runs
 
-| Linux runtime | ESP32 boards | EtherCAT | CANopen |
-|:---:|:---:|:---:|:---:|
-| yes | - | yes | - |
+| Linux runtime | ESP32 boards | STM32 | EtherCAT | CANopen |
+|:---:|:---:|:---:|:---:|:---:|
+| yes | - | - | yes | - |
 
 **Needs:** a servo the kernel feeds (cyclic position mode).
 

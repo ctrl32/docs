@@ -1,3 +1,8 @@
+---
+image: img/vbc-caliper.webp
+image_alt: "The Caliper block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Caliper
@@ -6,7 +11,19 @@
 
 Walks along a line and finds every edge on it - the width of a part, the gap between two, the number of pins, their pitch. Teach the line by dragging it over the picture; wire a scale (mm per pixel) and the width comes in millimetres too.
 
+![The Caliper block on the Vision canvas](img/vbc-caliper.webp){: .sb-center}
+
 ![The window of the Caliper block: its settings on the left, its picture on the right](img/vb-caliper.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Walks along a line and finds every edge on it - every place the brightness jumps by at least `contrast` - the way a caliper tool does in a machine vision system. The first and the last edge give the *width* of a part, the number of edges counts pins or teeth, their mean spacing is the *pitch*, and every edge is handed on as an object (*edges_out*) for the geometry blocks. With a scale wired into `scale` the width and the pitch come in millimetres too, and `min`/`max` make *ok* a tolerance check on the width.
 

@@ -89,6 +89,56 @@ nav:
       - Trends and alarms: widgets-data.md
       - Charts: widgets-charts.md
       - Property reference: widgets.md
+      # widgets: begin
+      - "Containers: panel": w-panel.md
+      - "Containers: list": w-list.md
+      - "Containers: tabs": w-tabs.md
+      - "Containers: popup": w-popup.md
+      - "Containers: tileview": w-tileview.md
+      - "Containers: window": w-window.md
+      - "Text and values: label": w-label.md
+      - "Text and values: value": w-value.md
+      - "Text and values: textarea": w-textarea.md
+      - "Text and values: rich_text": w-rich_text.md
+      - "Controls: button": w-button.md
+      - "Controls: switch": w-switch.md
+      - "Controls: slider": w-slider.md
+      - "Controls: nav": w-nav.md
+      - "Controls: input": w-input.md
+      - "Controls: recipe_table": w-recipe_table.md
+      - "Controls: checkbox": w-checkbox.md
+      - "Controls: dropdown": w-dropdown.md
+      - "Controls: roller": w-roller.md
+      - "Controls: spinbox": w-spinbox.md
+      - "Controls: button_matrix": w-button_matrix.md
+      - "Controls: arc": w-arc.md
+      - "Controls: menu": w-menu.md
+      - "Controls: calendar": w-calendar.md
+      - "Controls: wheel": w-wheel.md
+      - "Indicators: led": w-led.md
+      - "Indicators: bar": w-bar.md
+      - "Indicators: gauge": w-gauge.md
+      - "Indicators: table": w-table.md
+      - "Indicators: scale": w-scale.md
+      - "Indicators: spinner": w-spinner.md
+      - "Indicators: qrcode": w-qrcode.md
+      - "Images and icons: image": w-image.md
+      - "Images and icons: icon": w-icon.md
+      - "Images and icons: logo": w-logo.md
+      - "Images and icons: camera": w-camera.md
+      - "Images and icons: anim_image": w-anim_image.md
+      - "Images and icons: line": w-line.md
+      - "Images and icons: shape": w-shape.md
+      - "Trends and alarms: trend": w-trend.md
+      - "Trends and alarms: alarm_table": w-alarm_table.md
+      - "Trends and alarms: trace": w-trace.md
+      - "Charts: energy_flow": w-energy_flow.md
+      - "Charts: bar_chart": w-bar_chart.md
+      - "Charts: donut": w-donut.md
+      - "Charts: sparkline": w-sparkline.md
+      - "Charts: chart_item": w-chart_item.md
+      - "Charts: scatter": w-scatter.md
+      # widgets: end
   - Programming:
       - Programming: programming.md
       - Ladder (LD): ladder.md
@@ -157,6 +207,76 @@ nav:
       - CANopen blocks: blocks-can.md
       - Services: blocks-services.md
       - Home automation: blocks-home.md
+      # fb-blocks: begin
+      - "Timers: TON": fb-ton.md
+      - "Timers: TOF": fb-tof.md
+      - "Timers: TP": fb-tp.md
+      - "Timers: BLINK": fb-blink.md
+      - "Counters: CTU": fb-ctu.md
+      - "Counters: CTD": fb-ctd.md
+      - "Boolean: R_TRIG": fb-r_trig.md
+      - "Boolean: F_TRIG": fb-f_trig.md
+      - "Boolean: SR": fb-sr.md
+      - "Boolean: RS": fb-rs.md
+      - "Boolean: AND": fb-and.md
+      - "Boolean: OR": fb-or.md
+      - "Boolean: XOR": fb-xor.md
+      - "Boolean: NOT": fb-not.md
+      - "Maths: ADD": fb-add.md
+      - "Maths: SUB": fb-sub.md
+      - "Maths: MUL": fb-mul.md
+      - "Maths: DIV": fb-div.md
+      - "Maths: MIN": fb-min.md
+      - "Maths: MAX": fb-max.md
+      - "Maths: ABS": fb-abs.md
+      - "Maths: MOVE": fb-move.md
+      - "Comparison: GT": fb-gt.md
+      - "Comparison: GE": fb-ge.md
+      - "Comparison: LT": fb-lt.md
+      - "Comparison: LE": fb-le.md
+      - "Comparison: EQ": fb-eq.md
+      - "Comparison: SEL": fb-sel.md
+      - "Signal handling: SCALE": fb-scale.md
+      - "Signal handling: LIMIT": fb-limit.md
+      - "Signal handling: HYST": fb-hyst.md
+      - "Signal handling: RAMP": fb-ramp.md
+      - "Signal handling: PT1": fb-pt1.md
+      - "Equipment: MOTOR": fb-motor.md
+      - "Equipment: VALVE": fb-valve.md
+      - "Equipment: PID": fb-pid.md
+      - "CANopen: CO_CIA402": fb-co_cia402.md
+      - "CANopen: CO_SDOWRITE": fb-co_sdowrite.md
+      - "CANopen: CO_SDOREAD": fb-co_sdoread.md
+      - "CANopen: CO_RAMPTIME": fb-co_ramptime.md
+      - "Services: IR_SEND": fb-ir_send.md
+      - "Services: SMS_SEND": fb-sms_send.md
+      - "Services: GSM_INFO": fb-gsm_info.md
+      - "Vehicle diagnostics: UDS_DTC": fb-uds_dtc.md
+      - "Vehicle diagnostics: UDS_CLEAR": fb-uds_clear.md
+      - "Vehicle diagnostics: UDS_READ": fb-uds_read.md
+      - "Ladder: LD_RET": fb-ld_ret.md
+      - "Ladder: LD_JMP": fb-ld_jmp.md
+      - "Home automation: PUSHBUTTON": home-pushbutton.md
+      - "Home automation: MULTICLICK": home-multiclick.md
+      - "Home automation: TOGGLE": home-toggle.md
+      - "Home automation: STAIRLIGHT": home-stairlight.md
+      - "Home automation: DIMMER": home-dimmer.md
+      - "Home automation: PWM": home-pwm.md
+      - "Home automation: BLINDS": home-blinds.md
+      - "Home automation: TRAVEL": home-travel.md
+      - "Home automation: PRESENCE": home-presence.md
+      - "Home automation: TWILIGHT": home-twilight.md
+      - "Home automation: THERMOSTAT": home-thermostat.md
+      - "Home automation: DAYTIME": home-daytime.md
+      - "Home automation: SUNTIMES": home-suntimes.md
+      - "Home automation: ASTRO": home-astro.md
+      - "Home automation: SCHEDULE": home-schedule.md
+      - "Home automation: SCENE": home-scene.md
+      - "Home automation: GATE": home-gate.md
+      - "Home automation: VENT": home-vent.md
+      - "Home automation: CENTRAL": home-central.md
+      - "Home automation: ENERGY": home-energy.md
+      # fb-blocks: end
   - Vision:
       - Vision: vision.md
       - Cameras: cameras.md

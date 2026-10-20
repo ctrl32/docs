@@ -1,3 +1,8 @@
+---
+image: img/vbc-clahe.webp
+image_alt: "The Local contrast block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Local contrast
@@ -6,7 +11,19 @@
 
 Raises the contrast piece by piece (CLAHE), so a dark corner and a bright corner each get their detail back - better than Equalize on uneven light.
 
+![The Local contrast block on the Vision canvas](img/vbc-clahe.webp){: .sb-center}
+
 ![The window of the Local contrast block: its settings on the left, its picture on the right](img/vb-clahe.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Raises the contrast piece by piece. The picture is split into `tiles` x `tiles` tiles and the shades of each tile are spread over the whole range on its own, with the tiles blended so that no seam shows; `clip` limits how far the contrast may be pushed so that noise in a flat tile is not amplified into texture. A dark corner and a bright corner each get their detail back - which [Equalize light](vision-equalize.md), working on the whole picture at once, cannot do.
 

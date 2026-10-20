@@ -1,3 +1,8 @@
+---
+image: img/vbc-code.webp
+image_alt: "The Read code block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Read code
@@ -6,7 +11,19 @@
 
 Reads a QR code, a barcode, a DataMatrix, a PDF417 or an Aztec code and checks it against the expected text.
 
+![The Read code block on the Vision canvas](img/vbc-code.webp){: .sb-center}
+
 ![The window of the Read code block: its settings on the left, its picture on the right](img/vb-code.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Reads a code on the part and checks it: a QR code, a one-dimensional barcode (EAN, UPC, Code 128, Code 39, ITF, Codabar, GS1 DataBar), a DataMatrix, a PDF417 or an Aztec code - `kind` picks the symbology, *any* tries every one. *text* is what the code says (into a STRING variable), *number* the same as a number when it is one, *format* which symbology was read, and *match* whether the text equals `expect` - the lot code of the recipe, a STRING variable bound to the setting, so the camera verifies that the right product is on the line.
 

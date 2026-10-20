@@ -1,3 +1,8 @@
+---
+image: img/vbc-pattern.webp
+image_alt: "The Find pattern block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find pattern
@@ -6,7 +11,19 @@
 
 Finds where a taught picture - a mark, a logo, a part seen from above - appears, as a list of matches with their score. Teach it by dragging over the part on the block's picture.
 
+![The Find pattern block on the Vision canvas](img/vbc-pattern.webp){: .sb-center}
+
 ![The window of the Find pattern block: its settings on the left, its picture on the right](img/vb-pattern.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Looks for a taught picture - a mark, a logo, the part seen from above - and says where it is. The block slides the taught picture over the whole picture and scores every place by how alike it is; the places scoring at least `min_score` are the matches, the best first, at most `max_count` of them. *found*, *x*, *y* and *score* describe the best one, *objects* carries them all.
 

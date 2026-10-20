@@ -1,3 +1,8 @@
+---
+image: img/vbc-object_colour.webp
+image_alt: "The Colour of object block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Colour of object
@@ -6,7 +11,19 @@
 
 The mean colour of every found object (its hue), and the ones inside a hue range kept - one pass sorts the red, green and blue cubes instead of one Colour range branch per colour.
 
+![The Colour of object block on the Vision canvas](img/vbc-object_colour.webp){: .sb-center}
+
 ![The window of the Colour of object block: its settings on the left, its picture on the right](img/vb-object_colour.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Gives every object of a list its colour - the mean hue of the pixels inside it, read from the colour picture - and keeps the ones inside a hue range. One pass sorts the red, the green and the blue cubes on a tray: the list from [Find objects](vision-contours.md) goes in with the camera's colour picture, *coloured* comes out with a hue on every object, *kept* holds the ones between `h_lo` and `h_hi`, and *hue* is the first kept object's.
 

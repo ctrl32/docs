@@ -1,3 +1,8 @@
+---
+image: img/vbc-motion.webp
+image_alt: "The Motion block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Motion
@@ -6,7 +11,19 @@
 
 Where the picture changed since the last run - a mask of what moved and how much of the picture it is. The first run after a start has nothing to compare and answers nothing moved.
 
+![The Motion block on the Vision canvas](img/vbc-motion.webp){: .sb-center}
+
 ![The window of the Motion block: its settings on the left, its picture on the right](img/vb-motion.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Compares the picture with the one the block saw at its last run and marks what changed. The output is a mask of the moving things (white where the picture changed by more than `level`), *share* says how much of the picture moved and *moved* comes on when that share reaches `min_share`. A belt that should be running, a door that should stay closed, a hand in the cell, a part that has not stopped yet - all of them are motion.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-white_ratio.webp
+image_alt: "The White share block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # White share
@@ -6,7 +11,19 @@
 
 How much of the picture is white, in percent - use it after a threshold or a colour range.
 
+![The White share block on the Vision canvas](img/vbc-white_ratio.webp){: .sb-center}
+
 ![The window of the White share block: its settings on the left, its picture on the right](img/vb-white_ratio.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 How much of the picture is white, in percent - the area fraction after a threshold or a colour range. It turns "how much of the window is red", "how much of the belt is covered", "how large is the stain" into one number, without finding objects. With a [Mask](vision-mask.md) or a [Crop](vision-crop.md) before it the share refers to the part alone.
 

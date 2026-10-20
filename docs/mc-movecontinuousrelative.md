@@ -39,9 +39,9 @@ rung in LD and in a function block diagram with the axis in its properties.
 
 ## Where it runs
 
-| Linux runtime | ESP32 boards | EtherCAT | CANopen |
-|:---:|:---:|:---:|:---:|
-| yes | - | yes | - |
+| Linux runtime | ESP32 boards | STM32 | EtherCAT | CANopen |
+|:---:|:---:|:---:|:---:|:---:|
+| yes | - | - | yes | - |
 
 **Needs:** a servo in cyclic position mode (csp) on EtherCAT with the distributed clock - a frequency drive answers ErrorID 8.
 

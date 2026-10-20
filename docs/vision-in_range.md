@@ -1,3 +1,8 @@
+---
+image: img/vbc-in_range.webp
+image_alt: "The In range block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # In range
@@ -6,7 +11,19 @@
 
 Yes when the number lies between the two limits (both included).
 
+![The In range block on the Vision canvas](img/vbc-in_range.webp){: .sb-center}
+
 ![The window of the In range block: its settings on the left, its picture on the right](img/vb-in_range.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Yes when the number lies between `min` and `max`, both included - the tolerance check that turns a measurement into a pass/fail. A brightness between 40 and 80, a count between 12 and 12, a distance between 48.5 and 51.5 mm: the block's *ok* is the result that goes into the PLC program's variable.
 

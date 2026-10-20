@@ -1,3 +1,8 @@
+---
+image: img/vbc-angle.webp
+image_alt: "The Angle block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Angle
@@ -6,7 +11,19 @@
 
 The angle between two directions - two Line (fit) blocks, a Line (fit) and a fixed number - with a tolerance.
 
+![The Angle block on the Vision canvas](img/vbc-angle.webp){: .sb-center}
+
 ![The window of the Angle block: its settings on the left, its picture on the right](img/vb-angle.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 The angle between two directions - the angles of two [Line (fit)](vision-line_fit.md) blocks, or one of them and a fixed number - as 0..180 degrees, with `min`/`max` making *ok* a tolerance check. The squareness of two edges, the opening of a flap, the angle of a lever, the alignment of a label against the part's edge.
 

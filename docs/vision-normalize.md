@@ -1,3 +1,8 @@
+---
+image: img/vbc-normalize.webp
+image_alt: "The Stretch contrast block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Stretch contrast
@@ -6,7 +11,19 @@
 
 Stretches the brightness so the darkest part of the picture becomes black and the brightest white - a dull picture becomes a clear one, whatever the light.
 
+![The Stretch contrast block on the Vision canvas](img/vbc-normalize.webp){: .sb-center}
+
 ![The window of the Stretch contrast block: its settings on the left, its picture on the right](img/vb-normalize.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Stretches the brightness so that the darkest part of the picture becomes black and the brightest white, with the shades between spread in proportion. A dull picture - a weak lamp, a camera's exposure set low - becomes a clear one, and a threshold after it keeps working when the light changes a little.
 

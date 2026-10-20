@@ -1,3 +1,8 @@
+---
+image: img/vbc-brightness.webp
+image_alt: "The Brightness block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Brightness
@@ -6,7 +11,19 @@
 
 The average brightness of the picture, 0 (black) to 255 (white).
 
+![The Brightness block on the Vision canvas](img/vbc-brightness.webp){: .sb-center}
+
 ![The window of the Brightness block: its settings on the left, its picture on the right](img/vb-brightness.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 The mean intensity of the picture it receives, 0 (black) to 255 (white). The simplest measurement there is, and often enough: with a [Crop](vision-crop.md) in front of it it says whether a lamp is on, whether the lens is covered, whether a part (darker than the belt) lies in the window. Put an [In range](vision-in_range.md) after it for a yes/no, or send the value into a variable the PLC program compares itself.
 

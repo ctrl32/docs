@@ -1,3 +1,8 @@
+---
+image: img/vbc-objcheck.webp
+image_alt: "The Check objects block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Check objects
@@ -6,7 +11,19 @@
 
 Are all the found objects right? Counts them and says yes when their number and every one's size (area) lie within the limits - parts on a tray, holes in a plate, pills in a blister.
 
+![The Check objects block on the Vision canvas](img/vbc-objcheck.webp){: .sb-center}
+
 ![The window of the Check objects block: its settings on the left, its picture on the right](img/vb-objcheck.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Judges a list of objects as a whole: are there as many as there should be, and is every one the right size? *ok* is on when the count lies between `count_min` and `count_max` and every object's area lies between `area_min` and `area_max`; *bad* counts the objects that do not. Parts on a tray, holes in a plate, pills in a blister, buttons on a panel - one block answers "complete and all alike".
 

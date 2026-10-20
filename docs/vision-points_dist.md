@@ -1,3 +1,8 @@
+---
+image: img/vbc-points_dist.webp
+image_alt: "The Distance of points block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Distance of points
@@ -6,7 +11,19 @@
 
 The distance between two points that other blocks found - a circle's centre, a pattern's position, an edge from Pick object - in pixels and, with a scale, in millimetres; with a tolerance.
 
+![The Distance of points block on the Vision canvas](img/vbc-points_dist.webp){: .sb-center}
+
 ![The window of the Distance of points block: its settings on the left, its picture on the right](img/vb-points_dist.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 The distance between two points other blocks found - a circle's centre and a corner, a pattern's position and a marker, two edges from a [Caliper](vision-caliper.md) through [Pick object](vision-pick.md) - in pixels and, with a scale wired in, in millimetres, with `min`/`max` making *ok* a tolerance check. It is the general gauge: wire any two x/y pairs into it and the distance between them is a measurement with a tolerance.
 

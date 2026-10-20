@@ -1,3 +1,8 @@
+---
+image: img/vbc-st.webp
+image_alt: "The ST code block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # ST code
@@ -6,7 +11,19 @@
 
 A few lines of ST - the same language as the PLC program - over the block's inputs a, b, c, d (numbers) and p, q (yes/no); it writes y1..y4 (numbers) and r1, r2 (yes/no). Locals in VAR ... END_VAR, loops and conditions as in a program.
 
+![The ST code block on the Vision canvas](img/vbc-st.webp){: .sb-center}
+
 ![The window of the ST code block: its settings on the left, its picture on the right](img/vb-st.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 A few lines of ST - the language of the PLC program - inside the vision program, for the calculation the blocks do not have: a ratio of two measurements, a limit that depends on a recipe value, an average of three distances, a pass/fail that combines four results with a condition. The block's inputs are `a`, `b`, `c`, `d` (numbers) and `p`, `q` (yes/no); it writes `y1`..`y4` (numbers) and `r1`, `r2` (yes/no). An input nothing feeds reads 0 or FALSE.
 

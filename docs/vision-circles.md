@@ -1,3 +1,8 @@
+---
+image: img/vbc-circles.webp
+image_alt: "The Find circles block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find circles
@@ -6,7 +11,19 @@
 
 Finds round things in the picture - holes, caps, bearings - as a list of objects with their centre and radius.
 
+![The Find circles block on the Vision canvas](img/vbc-circles.webp){: .sb-center}
+
 ![The window of the Find circles block: its settings on the left, its picture on the right](img/vb-circles.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds round things - holes, caps, bearings, bottle mouths seen from above - as a list of objects with their centre and radius (the Hough circle transform). It works on the edges of a gray picture, so it needs no threshold, and it finds a circle even when its outline is broken.
 

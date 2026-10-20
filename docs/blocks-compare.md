@@ -9,118 +9,31 @@ decision.
 
 | Block | Q is TRUE when |
 |:---|:---:|
-| **GT** | IN1 > IN2 |
-| **GE** | IN1 ≥ IN2 |
-| **LT** | IN1 < IN2 |
-| **LE** | IN1 ≤ IN2 |
-| **EQ** | IN1 and IN2 are equal within EPS |
-
-<!-- blk:GT -->
-**GT**
-
-![GT on a rung](img/blk-gt-ld.webp)
-
-```iecst
-PROGRAM GT_ST
-  gt_q_st := gt_in1 > gt_in2;
-END_PROGRAM
-```
-
-![GT on the WEBview screen](img/blk-gt-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:GE -->
-**GE**
-
-![GE on a rung](img/blk-ge-ld.webp)
-
-```iecst
-PROGRAM GE_ST
-  ge_q_st := ge_in1 >= ge_in2;
-END_PROGRAM
-```
-
-![GE on the WEBview screen](img/blk-ge-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:LT -->
-**LT**
-
-![LT on a rung](img/blk-lt-ld.webp)
-
-```iecst
-PROGRAM LT_ST
-  lt_q_st := lt_in1 < lt_in2;
-END_PROGRAM
-```
-
-![LT on the WEBview screen](img/blk-lt-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:LE -->
-**LE**
-
-![LE on a rung](img/blk-le-ld.webp)
-
-```iecst
-PROGRAM LE_ST
-  le_q_st := le_in1 <= le_in2;
-END_PROGRAM
-```
-
-![LE on the WEBview screen](img/blk-le-web.webp)
-
-<!-- /blk -->
+| [GT](fb-gt.md) | IN1 > IN2 |
+| [GE](fb-ge.md) | IN1 ≥ IN2 |
+| [LT](fb-lt.md) | IN1 < IN2 |
+| [LE](fb-le.md) | IN1 ≤ IN2 |
+| [EQ](fb-eq.md) | IN1 and IN2 are equal within EPS |
 
 All take two number inputs and give one boolean output. An unconnected
 input is 0, so `GT` with only IN1 wired asks "is it positive?".
 
 ---
 
-## EQ — equal within a tolerance
+## The blocks
 
-| Pin | Type | Meaning |
-|:---|:---:|:---:|
-| `IN1`, `IN2` | inputs, number | the two values |
-| `EPS` | parameter, number (0) | how close counts as equal |
-| `Q` | output, bool | TRUE when \|IN1 − IN2\| ≤ EPS |
+<!-- fb-index: begin -->
 
-<!-- blk:EQ -->
-![EQ on a rung](img/blk-eq-ld.webp)
+| Block | What it does | Linux | ESP32 | STM32 |
+|:---|:---|:---:|:---:|:---:|
+| [GT](fb-gt.md) | Q is TRUE when IN1 > IN2. | yes | yes | yes |
+| [GE](fb-ge.md) | Q is TRUE when IN1 >= IN2. | yes | yes | yes |
+| [LT](fb-lt.md) | Q is TRUE when IN1 < IN2. | yes | yes | yes |
+| [LE](fb-le.md) | Q is TRUE when IN1 <= IN2. | yes | yes | yes |
+| [EQ](fb-eq.md) | Q is TRUE when IN1 and IN2 are equal within the tolerance EPS: |IN1 - IN2| <= EPS. | yes | yes | yes |
+| [SEL](fb-sel.md) | Binary selector: OUT = IN1 when G is TRUE, IN0 when it is FALSE. | yes | yes | yes |
 
-```iecst
-PROGRAM EQ_ST
-  eq_q_st := ABS(eq_in1 - eq_in2) <= eq_eps;
-END_PROGRAM
-```
-
-![EQ on the WEBview screen](img/blk-eq-web.webp)
-
-<!-- /blk -->
-
-EQ has a tolerance and the others do not, for a reason worth
-understanding: **two calculated numbers are almost never exactly equal.**
-
-Ask whether a temperature has reached 50.0 °C with an exact comparison
-and you may wait forever — the measurement passes 49.9997 and 50.0001
-and never lands on 50.0 exactly.
-
-```
-temp     ──IN1─┐
-setpoint ──IN2─┤ EQ EPS=0.5 ├── Q ──> at_temperature
-```
-
-"Within half a degree" is what you meant anyway.
-
-!!! tip "Leave EPS at 0 only for whole numbers"
-    Comparing a step count, a recipe number or a state code with EPS = 0
-    is fine — those are exact. For anything measured or calculated, give
-    it a tolerance that reflects what the sensor can actually resolve.
-
----
+<!-- fb-index: end -->
 
 ## Comparisons chatter at the threshold
 
@@ -133,7 +46,7 @@ and downstream something switches at the same rate. A relay clacks, an
 alarm floods the log, a WEBview client drowns in updates.
 
 **The fix is hysteresis:** switch on at one level, off at a lower one.
-That is what [HYST](blocks-signal.md#hyst-comparator-with-hysteresis)
+That is what [HYST](fb-hyst.md)
 does, and for anything driving a physical output it should be your
 default choice over GT/LT.
 
@@ -146,42 +59,3 @@ costs nothing.
     WEBview. Set it on the variable, not in the logic. See [Variables](variables.md).
 
 ---
-
-## SEL — selector
-
-**OUT = IN1 when G is TRUE, IN0 when it is FALSE.**
-
-| Pin | Type | Meaning |
-|:---|:---:|:---:|
-| `G` | input, bool | which one to pass |
-| `IN0` | input, number | passed when G is FALSE |
-| `IN1` | input, number | passed when G is TRUE |
-| `OUT` | output, number | the chosen value |
-
-<!-- blk:SEL -->
-![SEL on a rung](img/blk-sel-ld.webp)
-
-```iecst
-PROGRAM SEL_ST
-  sel_out_st := SEL(sel_g, sel_in0, sel_in1);
-END_PROGRAM
-```
-
-![SEL on the WEBview screen](img/blk-sel-web.webp)
-
-<!-- /blk -->
-
-The IEC binary selector: an if-then-else you can draw.
-
-**What it is for:** two setpoints and a switch between them. Day and
-night temperature, fast and slow speed, manual and automatic value.
-
-```
-night_mode ──G───┐
-    temp_day ──IN0─┤ SEL ├── OUT ──> setpoint
-  temp_night ──IN1─┘
-```
-
-Both inputs are read every cycle whichever one wins, so there is no
-"stale" side — swap G and the output follows immediately.
-

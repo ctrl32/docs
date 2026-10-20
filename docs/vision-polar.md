@@ -1,3 +1,8 @@
+---
+image: img/vbc-polar.webp
+image_alt: "The Unroll ring block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Unroll ring
@@ -6,7 +11,19 @@
 
 Unrolls a ring or a disc round a centre into a straight strip (left to right round the circle, the centre at the top) - a label round a bottle, the teeth of a gear, a dial.
 
+![The Unroll ring block on the Vision canvas](img/vbc-polar.webp){: .sb-center}
+
 ![The window of the Unroll ring block: its settings on the left, its picture on the right](img/vb-polar.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Unrolls a ring or a disc round a centre into a straight strip: the circle becomes the strip's width (left to right, once round), the radius becomes its height (the centre at the top, the outer edge at the bottom). A label wrapped round a bottle, the teeth of a gear, the marks of a dial, the print round the rim of a cap become a straight line of things that [Caliper](vision-caliper.md), [Read code](vision-code.md) and [Find objects](vision-contours.md) handle as on a flat part.
 

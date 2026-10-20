@@ -1,3 +1,8 @@
+---
+image: img/vbc-resize.webp
+image_alt: "The Resize block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Resize
@@ -6,7 +11,19 @@
 
 Scales the picture - a smaller picture is analysed faster.
 
+![The Resize block on the Vision canvas](img/vbc-resize.webp){: .sb-center}
+
 ![The window of the Resize block: its settings on the left, its picture on the right](img/vb-resize.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Scales the picture to a share of its size. At 50 % a 1280 x 720 picture becomes 640 x 360 with a quarter of the pixels - the blocks after it run about four times faster. A check that looks for a large thing (is the part there, is the belt empty, which colour) loses nothing at half size; a code reader or a caliper wants the full picture.
 

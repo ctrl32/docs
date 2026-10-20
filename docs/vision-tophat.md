@@ -1,3 +1,8 @@
+---
+image: img/vbc-tophat.webp
+image_alt: "The Top-hat block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Top-hat
@@ -6,7 +11,19 @@
 
 Keeps only the small bright details on a dark or uneven background (a top-hat) - scratches, bright marks, text on a dark plate.
 
+![The Top-hat block on the Vision canvas](img/vbc-tophat.webp){: .sb-center}
+
 ![The window of the Top-hat block: its settings on the left, its picture on the right](img/vb-tophat.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Keeps only the small bright details and removes everything larger - the background, the part's broad surfaces, a slow change of brightness across the picture. The picture minus its own Open with a brush of `size` pixels is what remains: scratches, bright marks, the print on a dark plate, a reflection, anything bright and smaller than the brush.
 

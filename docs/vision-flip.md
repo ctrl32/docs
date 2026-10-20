@@ -1,3 +1,8 @@
+---
+image: img/vbc-flip.webp
+image_alt: "The Flip block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Flip
@@ -6,7 +11,19 @@
 
 Mirrors the picture.
 
+![The Flip block on the Vision canvas](img/vbc-flip.webp){: .sb-center}
+
 ![The window of the Flip block: its settings on the left, its picture on the right](img/vb-flip.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Mirrors the picture left-right, top-bottom or both. A camera that looks into a mirror, or one mounted so that the belt runs the wrong way on the screen, gives a picture people read more easily after this block. A taught pattern is found as taught: teach it after the Flip, not before.
 

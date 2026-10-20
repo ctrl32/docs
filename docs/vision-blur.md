@@ -1,3 +1,8 @@
+---
+image: img/vbc-blur.webp
+image_alt: "The Blur block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Blur
@@ -6,7 +11,19 @@
 
 Averages each pixel with its neighbours - calms noise.
 
+![The Blur block on the Vision canvas](img/vbc-blur.webp){: .sb-center}
+
 ![The window of the Blur block: its settings on the left, its picture on the right](img/vb-blur.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Averages every pixel with its neighbours in a square of `size` pixels. Noise calms down, fine texture disappears, and a threshold after it gives clean shapes instead of a snowstorm. The price is that edges soften - a code or a caliper measured after a blur loses precision.
 

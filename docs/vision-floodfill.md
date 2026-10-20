@@ -1,3 +1,8 @@
+---
+image: img/vbc-floodfill.webp
+image_alt: "The Fill from point block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Fill from point
@@ -6,7 +11,19 @@
 
 Starts at a point and takes every neighbouring point of a similar shade - the whole part under the point becomes a white shape, whatever its outline.
 
+![The Fill from point block on the Vision canvas](img/vbc-floodfill.webp){: .sb-center}
+
 ![The window of the Fill from point block: its settings on the left, its picture on the right](img/vb-floodfill.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Starts at one point and takes every neighbouring point of a similar shade, and their neighbours, until the shade changes by more than `tolerance`: the whole part under the point becomes a white shape, whatever its outline, and the rest stays black. It is the way to pick a part by one point - "whatever lies under the gripper", "the surface the mark is on" - without a threshold that would also pick everything else of that shade.
 

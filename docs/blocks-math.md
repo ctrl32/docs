@@ -9,88 +9,13 @@ value is in knowing what happens at the edges.
 
 | Block | Inputs | Output | Result |
 |:---|:---:|:---:|:---:|
-| **ADD** | IN1…IN4 | OUT | IN1 + IN2 + IN3 + IN4 |
-| **SUB** | IN1, IN2 | OUT | IN1 − IN2 |
-| **MUL** | IN1, IN2 | OUT | IN1 × IN2 |
-| **DIV** | IN1, IN2 | OUT | IN1 ÷ IN2 |
-| **MIN** | IN1, IN2 | OUT | the smaller of the two |
-| **MAX** | IN1, IN2 | OUT | the larger of the two |
-| **ABS** | IN | OUT | the value without its sign |
-
-<!-- blk:ADD -->
-**ADD**
-
-![ADD on a rung](img/blk-add-ld.webp)
-
-```iecst
-PROGRAM ADD_ST
-  add_out_st := add_in1 + add_in2 + add_in3 + add_in4;
-END_PROGRAM
-```
-
-![ADD on the WEBview screen](img/blk-add-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:SUB -->
-**SUB**
-
-![SUB on a rung](img/blk-sub-ld.webp)
-
-```iecst
-PROGRAM SUB_ST
-  sub_out_st := sub_in1 - sub_in2;
-END_PROGRAM
-```
-
-![SUB on the WEBview screen](img/blk-sub-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:MUL -->
-**MUL**
-
-![MUL on a rung](img/blk-mul-ld.webp)
-
-```iecst
-PROGRAM MUL_ST
-  mul_out_st := mul_in1 * mul_in2;
-END_PROGRAM
-```
-
-![MUL on the WEBview screen](img/blk-mul-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:DIV -->
-**DIV**
-
-![DIV on a rung](img/blk-div-ld.webp)
-
-```iecst
-PROGRAM DIV_ST
-  div_out_st := div_in1 / div_in2;
-END_PROGRAM
-```
-
-![DIV on the WEBview screen](img/blk-div-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:ABS -->
-**ABS**
-
-![ABS on a rung](img/blk-abs-ld.webp)
-
-```iecst
-PROGRAM ABS_ST
-  abs_out_st := ABS(abs_in);
-END_PROGRAM
-```
-
-![ABS on the WEBview screen](img/blk-abs-web.webp)
-
-<!-- /blk -->
+| [ADD](fb-add.md) | IN1…IN4 | OUT | IN1 + IN2 + IN3 + IN4 |
+| [SUB](fb-sub.md) | IN1, IN2 | OUT | IN1 − IN2 |
+| [MUL](fb-mul.md) | IN1, IN2 | OUT | IN1 × IN2 |
+| [DIV](fb-div.md) | IN1, IN2 | OUT | IN1 ÷ IN2 |
+| [MIN](fb-min.md) | IN1, IN2 | OUT | the smaller of the two |
+| [MAX](fb-max.md) | IN1, IN2 | OUT | the larger of the two |
+| [ABS](fb-abs.md) | IN | OUT | the value without its sign |
 
 **ADD takes up to four inputs**, and unconnected ones are 0. A new ADD
 shows two; *Add input* on its right-click menu opens the third and the
@@ -127,90 +52,22 @@ useless.
 
 ---
 
-## MIN and MAX as guards
+## The blocks
 
-The obvious use is picking the larger of two measurements. The more
-common one is putting a floor or a ceiling on a value:
+<!-- fb-index: begin -->
 
-<!-- blk:MIN -->
-**MIN**
+| Block | What it does | Linux | ESP32 | STM32 |
+|:---|:---|:---:|:---:|:---:|
+| [ADD](fb-add.md) | OUT = IN1 + IN2 + IN3 + IN4; unconnected inputs are 0. | yes | yes | yes |
+| [SUB](fb-sub.md) | OUT = IN1 - IN2. | yes | yes | yes |
+| [MUL](fb-mul.md) | OUT = IN1 × IN2. | yes | yes | yes |
+| [DIV](fb-div.md) | OUT = IN1 ÷ IN2; division by zero gives 0 and never stops anything. | yes | yes | yes |
+| [MIN](fb-min.md) | OUT = the smaller of IN1 and IN2. | yes | yes | yes |
+| [MAX](fb-max.md) | OUT = the larger of IN1 and IN2. | yes | yes | yes |
+| [ABS](fb-abs.md) | OUT = the value of IN without its sign. | yes | yes | yes |
+| [MOVE](fb-move.md) | OUT = IN - the IEC assignment as a block. | yes | yes | yes |
 
-![MIN on a rung](img/blk-min-ld.webp)
-
-```iecst
-PROGRAM MIN_ST
-  min_out_st := MIN(min_in1, min_in2);
-END_PROGRAM
-```
-
-![MIN on the WEBview screen](img/blk-min-web.webp)
-
-<!-- /blk -->
-
-<!-- blk:MAX -->
-**MAX**
-
-![MAX on a rung](img/blk-max-ld.webp)
-
-```iecst
-PROGRAM MAX_ST
-  max_out_st := MAX(max_in1, max_in2);
-END_PROGRAM
-```
-
-![MAX on the WEBview screen](img/blk-max-web.webp)
-
-<!-- /blk -->
-
-```
-setpoint ──IN1─┐
-      50 ──IN2─┤ MAX ├── OUT ──> setpoint_guarded
-```
-
-Now the setpoint can never go below 50, whatever a screen or a fieldbus
-writes into it.
-
-For a floor **and** a ceiling in one block, use
-[LIMIT](blocks-signal.md#limit-clamp) instead — that is what it is for.
-
----
-
-## MOVE — assignment
-
-**OUT = IN.** The IEC assignment, as a block.
-
-| Pin | Type | Meaning |
-|:---|:---:|:---:|
-| `IN` | input, number | the source |
-| `OUT` | output, number | the destination |
-
-<!-- blk:MOVE -->
-![MOVE on a rung](img/blk-move-ld.webp)
-
-```iecst
-PROGRAM MOVE_ST
-  move_out_st := move_in;
-END_PROGRAM
-```
-
-![MOVE on the WEBview screen](img/blk-move-web.webp)
-
-<!-- /blk -->
-
-It looks like it does nothing, and in a diagram it nearly does — its job
-is to get a value from one variable into another. Where it earns its keep is
-**in a ladder rung**, as the plain result box: while the rung conducts,
-the value is committed; while it does not, the destination holds.
-
-```
-recipe_ready ──[ MOVE IN=recipe_temp ]── OUT ──> setpoint
-```
-
-The setpoint takes the recipe value the moment the recipe is ready, and
-keeps it afterwards. That "commit a value when a condition is met" is
-one of the most common things a control program does.
-
----
+<!-- fb-index: end -->
 
 ## Numbers on ctrl32
 
@@ -222,7 +79,7 @@ Values are floating point, which means:
   exact into the millions belongs in an integer variable.
 - **Equality is unreliable.** `1.0 - 0.9 - 0.1` is not exactly 0. Never
   test two calculated values with `=`; use
-  [EQ with a tolerance](blocks-compare.md#eq-equal-within-a-tolerance),
+  [EQ with a tolerance](fb-eq.md),
   which exists for exactly this reason.
 
 ## Order matters

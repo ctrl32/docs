@@ -1,3 +1,8 @@
+---
+image: img/vbc-dnn_classify.webp
+image_alt: "The Classify (model) block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Classify (model)
@@ -6,7 +11,19 @@
 
 Runs a trained neural network (an ONNX model imported into the project) on the picture and says which of its classes it sees - a good part or a bad one, which of five products, a full or an empty tray. The labels are the model's classes in its order.
 
+![The Classify (model) block on the Vision canvas](img/vbc-dnn_classify.webp){: .sb-center}
+
 ![The window of the Classify (model) block: its settings on the left, its picture on the right](img/vb-dnn_classify.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project and an ONNX model added to the project as an asset.
+
+## Description
 
 Runs a trained neural network - an ONNX model imported into the project - on the picture and says which of its classes the picture is: a good part or a bad one, which of five products, a full or an empty tray, a scratch or no scratch. *class* is the class number, *label* its name from `labels`, *score* how sure the model is, *found* whether the best class reaches `min_score`. It is for the things no rule describes - a defect of any shape, a part that is "wrong" in a hundred ways.
 

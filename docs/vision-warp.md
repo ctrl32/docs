@@ -1,3 +1,8 @@
+---
+image: img/vbc-warp.webp
+image_alt: "The Straighten block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Straighten
@@ -6,7 +11,19 @@
 
 Takes a rectangle seen at an angle - a label, a plate, the belt from a camera on the side - and draws it straight. Teach the four corners by four clicks on the picture (top-left, top-right, bottom-right, bottom-left).
 
+![The Straighten block on the Vision canvas](img/vbc-warp.webp){: .sb-center}
+
 ![The window of the Straighten block: its settings on the left, its picture on the right](img/vb-warp.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Takes a rectangle that the camera sees at an angle - a label on a bottle's shoulder, a plate on the side of a crate, the belt seen from a camera mounted beside it - and draws it as if the camera looked at it straight on. The four corners of the rectangle in the picture are taught by four clicks (top-left, top-right, bottom-right, bottom-left); `out_w` and `out_h` say how large the straightened picture is.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-corners.webp
+image_alt: "The Find corners block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find corners
@@ -6,7 +11,19 @@
 
 Finds the strong corners of the picture (Shi-Tomasi) as a list of points - the corners of a plate, the ends of a slot.
 
+![The Find corners block on the Vision canvas](img/vbc-corners.webp){: .sb-center}
+
 ![The window of the Find corners block: its settings on the left, its picture on the right](img/vb-corners.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds the strong corners of the picture - the corners of a plate, the ends of a slot, the points of a star wheel - as a list of points (the Shi-Tomasi detector). Each corner is an object with its position; `max_count` limits how many, the strongest first, `quality` drops corners weaker than that share of the strongest, and `min_dist` keeps two corners that are closer than that apart from being one.
 

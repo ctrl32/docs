@@ -1,3 +1,8 @@
+---
+image: img/vbc-camera.webp
+image_alt: "The Camera block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Camera
@@ -6,7 +11,19 @@
 
 The latest picture of one of the project's cameras.
 
+![The Camera block on the Vision canvas](img/vbc-camera.webp){: .sb-center}
+
 ![The window of the Camera block: its settings on the left, its picture on the right](img/vb-camera.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 The first block of nearly every program. It hands over the newest picture the named camera delivered - the device keeps the last picture of each camera in memory, so the block costs nothing and never waits for the camera. A program that runs faster than the camera delivers sees the same picture twice; a program that runs slower simply skips pictures.
 

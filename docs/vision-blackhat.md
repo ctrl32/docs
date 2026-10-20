@@ -1,3 +1,8 @@
+---
+image: img/vbc-blackhat.webp
+image_alt: "The Black-hat block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Black-hat
@@ -6,7 +11,19 @@
 
 Keeps only the small dark details on a bright or uneven background (a black-hat) - dust, dark marks, printed text on a bright label.
 
+![The Black-hat block on the Vision canvas](img/vbc-blackhat.webp){: .sb-center}
+
 ![The window of the Black-hat block: its settings on the left, its picture on the right](img/vb-blackhat.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Keeps only the small dark details on a bright or uneven background: the picture's own Close minus the picture. Dust, dark marks, printed text on a bright label, a crack in a light surface - everything dark and smaller than the brush of `size` pixels stays bright in the output, the rest goes black. A threshold after it turns the detail into shapes to count or to measure.
 

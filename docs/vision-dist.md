@@ -1,3 +1,8 @@
+---
+image: img/vbc-dist.webp
+image_alt: "The Distance block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Distance
@@ -6,7 +11,19 @@
 
 The distance and the direction between two points given as numbers - from two Pick blocks, two markers, a corner and a hole.
 
+![The Distance block on the Vision canvas](img/vbc-dist.webp){: .sb-center}
+
 ![The window of the Distance block: its settings on the left, its picture on the right](img/vb-dist.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 The distance and the direction between two points given as numbers - from two [Pick object](vision-pick.md) blocks, two markers, a corner and a hole, a found centre and a typed one. Beside the distance it gives the angle of the line between them (0 = to the right, 90 = up) and the two components *dx*, *dy*, which a positioning program uses directly.
 

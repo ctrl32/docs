@@ -1,3 +1,8 @@
+---
+image: img/vbc-hsv_range.webp
+image_alt: "The Colour range block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Colour range
@@ -6,7 +11,19 @@
 
 White where the colour is inside the range, black elsewhere. Hue runs 0..179 around the colour wheel (red at 0, green at 60, blue at 120).
 
+![The Colour range block on the Vision canvas](img/vbc-hsv_range.webp){: .sb-center}
+
 ![The window of the Colour range block: its settings on the left, its picture on the right](img/vb-hsv_range.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Makes a black-and-white picture that is white wherever the colour lies inside a range and black elsewhere - the quickest way to find a red cap, a green mark or a blue label. The range is given in hue, saturation and value: the hue is the colour itself round the colour wheel (0 red, 30 yellow, 60 green, 90 cyan, 120 blue, 150 magenta, 179 red again), the saturation says how pure it is (0 gray, 255 vivid) and the value how bright (0 black, 255 full).
 

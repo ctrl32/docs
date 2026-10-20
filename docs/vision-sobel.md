@@ -1,3 +1,8 @@
+---
+image: img/vbc-sobel.webp
+image_alt: "The Gradient block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Gradient
@@ -6,7 +11,19 @@
 
 How fast the brightness changes at every point (Sobel) - bright where there is an edge, black where the picture is flat. A softer edge picture than Edges, with the strength kept.
 
+![The Gradient block on the Vision canvas](img/vbc-sobel.webp){: .sb-center}
+
 ![The window of the Gradient block: its settings on the left, its picture on the right](img/vb-sobel.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Shows how fast the brightness changes at every point (the Sobel gradient): bright where there is an edge, black where the picture is flat, and the stronger the edge the brighter. Unlike [Edges](vision-canny.md) it does not decide what is an edge and what is not - it hands the strength on, so a threshold of your own can decide, or a [Caliper](vision-caliper.md) can find the strongest change along its line.
 

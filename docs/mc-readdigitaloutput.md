@@ -33,9 +33,9 @@ rung in LD and in a function block diagram with the axis in its properties.
 
 ## Where it runs
 
-| Linux runtime | ESP32 boards | EtherCAT | CANopen |
-|:---:|:---:|:---:|:---:|
-| yes | yes | yes | - |
+| Linux runtime | ESP32 boards | STM32 | EtherCAT | CANopen |
+|:---:|:---:|:---:|:---:|:---:|
+| yes | yes | - | yes | - |
 
 **Needs:** a drive whose cyclic set carries the outputs word (object 0x60FE); no shipped device description carries it yet, so every drive answers ErrorID 8 until one does.
 

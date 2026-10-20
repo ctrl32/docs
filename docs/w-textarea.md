@@ -1,0 +1,46 @@
+---
+image: img/wl-textarea.webp
+image_alt: "The textarea widget on a screen"
+---
+
+# textarea
+
+**Text and values** · in a project file: `type: textarea`
+
+Text over several lines, wrapped at the widget's width.
+
+![The textarea widget on a screen](img/wl-textarea.webp){: .sb-center}
+
+## Properties
+
+| Property | Type | Default | Meaning |
+|:---|:---:|:---:|:---|
+| `text` | text | - | what it shows |
+| `tag` | variable | - | a text (STRING) variable to show instead - a Linux device |
+| `editable` | yes / no | no | a tap opens the keyboard |
+| `align` | one of `left` / `center` / `right` | `left` | how each line sits |
+| `font` | font | - | how the text is drawn |
+
+Every widget also has its place (`x`, `y`, `w`, `h`), a `style`, `visible_if` / `enabled_if` and the state colours and motion of [States and motion](states-motion.md) - see the [Property reference](widgets.md).
+
+## Description
+
+Text over several lines, **wrapped at the widget's width** — a word
+that does not fit starts the next line, and a new line in the text
+starts a new line on the screen. An instruction next to a control, a
+note on a service page, a paragraph a `label` would cut off.
+
+On a Linux device it can show a text (`STRING`) variable instead of
+its fixed text, and with `editable` a tap opens the keyboard: a note
+the shift leaves for the next one, a batch comment, a reason for a
+stop.
+
+```yaml
+- type: textarea
+  rect: [1036, 396, 204, 150]
+  text: "Scan the code: the same dashboard opens in the browser."
+```
+
+---
+
+Every widget of the family: [Text and values](widgets-text.md) · every widget: [Property reference](widgets.md)

@@ -1,3 +1,8 @@
+---
+image: img/vbc-median.webp
+image_alt: "The Median block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Median
@@ -6,7 +11,19 @@
 
 Removes specks and salt-and-pepper noise, keeps edges sharp.
 
+![The Median block on the Vision canvas](img/vbc-median.webp){: .sb-center}
+
 ![The window of the Median block: its settings on the left, its picture on the right](img/vb-median.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Replaces every pixel by the middle value of its neighbourhood. A lone bright or dark speck - dust, a dead pixel, salt-and-pepper noise - is never the middle value and vanishes, while an edge, where half the neighbourhood is dark and half bright, stays exactly where it was. It is the filter to put before a threshold that produces scattered single pixels.
 

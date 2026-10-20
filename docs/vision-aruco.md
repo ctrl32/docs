@@ -1,3 +1,8 @@
+---
+image: img/vbc-aruco.webp
+image_alt: "The Find markers block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find markers
@@ -6,7 +11,19 @@
 
 Finds ArUco / AprilTag markers - printed squares with a code - and gives each one's number, place and angle. A cheap, exact way to know where a fixture, a tray or a robot is.
 
+![The Find markers block on the Vision canvas](img/vbc-aruco.webp){: .sb-center}
+
 ![The window of the Find markers block: its settings on the left, its picture on the right](img/vb-aruco.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds printed markers - ArUco squares and AprilTags, the black-and-white squares with a code inside - and gives each one's number, place and angle. A marker is found exactly, from any angle, in poor light, and it carries a number: the cheapest way to know where a fixture, a tray, a pallet or a robot's hand is, and which one it is. Print the markers from the chosen `dictionary` (free generators exist for every family) and stick them on.
 

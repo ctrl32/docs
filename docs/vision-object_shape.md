@@ -1,3 +1,8 @@
+---
+image: img/vbc-object_shape.webp
+image_alt: "The Object shape block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Object shape
@@ -6,7 +11,19 @@
 
 Measures the shape of one object of a list - how round, how solid, how elongated, its turned frame and its angle. For checking a part is the right shape, not only there.
 
+![The Object shape block on the Vision canvas](img/vbc-object_shape.webp){: .sb-center}
+
 ![The window of the Object shape block: its settings on the left, its picture on the right](img/vb-object_shape.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Measures the shape of one object of a list: how round it is (a disc 100, a line 0), how solid (a filled shape 100, a ring or a C less), how elongated (`aspect`, the long side of the turned frame over the short one), its perimeter, the sides of the turned frame and its angle. It is the block for "the part is the right shape, not only there": a bent pin has a different aspect, a chipped disc a lower roundness, a ring that should be a disc a lower solidity.
 

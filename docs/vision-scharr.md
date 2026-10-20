@@ -1,3 +1,8 @@
+---
+image: img/vbc-scharr.webp
+image_alt: "The Gradient (fine) block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Gradient (fine)
@@ -6,7 +11,19 @@
 
 Like Gradient, with the Scharr kernel - more exact on the direction of thin edges.
 
+![The Gradient (fine) block on the Vision canvas](img/vbc-scharr.webp){: .sb-center}
+
 ![The window of the Gradient (fine) block: its settings on the left, its picture on the right](img/vb-scharr.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 The same as [Gradient](vision-sobel.md) with the Scharr kernel, which is more exact about the direction of thin edges and responds the same to an edge whatever its angle. Prefer it when the angle of an edge matters - before a [Line (fit)](vision-line_fit.md) on a thin line - and the plain Gradient when it does not.
 

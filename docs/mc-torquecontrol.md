@@ -40,9 +40,9 @@ rung in LD and in a function block diagram with the axis in its properties.
 
 ## Where it runs
 
-| Linux runtime | ESP32 boards | EtherCAT | CANopen |
-|:---:|:---:|:---:|:---:|
-| yes | yes | yes | - |
+| Linux runtime | ESP32 boards | STM32 | EtherCAT | CANopen |
+|:---:|:---:|:---:|:---:|:---:|
+| yes | yes | - | yes | - |
 
 **Needs:** a servo declared in cyclic synchronous torque mode (cst) on its slave - a servo in position mode, a frequency drive or the simulation answers ErrorID 8.
 

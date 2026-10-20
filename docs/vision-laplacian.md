@@ -1,3 +1,8 @@
+---
+image: img/vbc-laplacian.webp
+image_alt: "The Laplacian block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Laplacian
@@ -6,7 +11,19 @@
 
 The second change of brightness (Laplacian) - lights up the fine detail and the edges in every direction at once; also what Sharpness measures.
 
+![The Laplacian block on the Vision canvas](img/vbc-laplacian.webp){: .sb-center}
+
 ![The window of the Laplacian block: its settings on the left, its picture on the right](img/vb-laplacian.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Lights up the fine detail and the edges in every direction at once (the second change of brightness). A sharp picture has a strong Laplacian and a blurred one a weak one, which is what [Sharpness](vision-sharpness.md) measures; on its own the block is a fast way to make texture, print and edges stand out against flat areas before a threshold.
 

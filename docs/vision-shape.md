@@ -1,3 +1,8 @@
+---
+image: img/vbc-shape.webp
+image_alt: "The Match shape block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Match shape
@@ -6,7 +11,19 @@
 
 Is one of the found objects the taught shape, whatever its size or turn (Hu moments)? Teach by dragging over a good part on the block's picture - its outline is the reference.
 
+![The Match shape block on the Vision canvas](img/vbc-shape.webp){: .sb-center}
+
 ![The window of the Match shape block: its settings on the left, its picture on the right](img/vb-shape.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Is one of the found objects the taught shape, whatever its size or how it is turned? The block compares the outline of every object of a list with the outline taught on a good part (Hu moments, which do not change with scale or rotation) and reports the closest one: *index* says which, *diff* how different, *ok* whether the difference stays under `max_diff`. The right part among several on a tray, a part that is complete (a broken corner changes the outline), the right orientation of a part that is not symmetric.
 

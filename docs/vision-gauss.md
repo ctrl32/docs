@@ -1,3 +1,8 @@
+---
+image: img/vbc-gauss.webp
+image_alt: "The Gaussian blur block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Gaussian blur
@@ -6,7 +11,19 @@
 
 A softer blur that keeps edges better than the plain one.
 
+![The Gaussian blur block on the Vision canvas](img/vbc-gauss.webp){: .sb-center}
+
 ![The window of the Gaussian blur block: its settings on the left, its picture on the right](img/vb-gauss.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 A blur in which the near neighbours count more than the far ones (a Gaussian bell). It calms noise like the plain [Blur](vision-blur.md) but keeps edges in place better, which is why the edge finders are usually fed by it. `size` is the width of the bell in pixels and must be odd; 3 or 5 for camera noise, more for a texture that should disappear.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-close.webp
+image_alt: "The Close block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Close
@@ -6,7 +11,19 @@
 
 Dilate, then erode - fills small holes and keeps the size of large areas.
 
+![The Close block on the Vision canvas](img/vbc-close.webp){: .sb-center}
+
 ![The window of the Close block: its settings on the left, its picture on the right](img/vb-close.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 A dilate followed by an erode with the same brush. Holes, cracks and gaps narrower than the brush are filled in the dilate and stay filled after the erode, while the shapes keep their size and place. A part whose threshold came out with pinholes, a printed outline with breaks, a code's bars broken by a scratch - Close makes them whole before the next block counts or measures them.
 

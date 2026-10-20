@@ -1,3 +1,8 @@
+---
+image: img/vbc-chessboard.webp
+image_alt: "The Find chessboard block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find chessboard
@@ -6,7 +11,19 @@
 
 Finds the inner corners of a chessboard in the picture - the pattern a lens calibration and a camera-to-table check are done with.
 
+![The Find chessboard block on the Vision canvas](img/vbc-chessboard.webp){: .sb-center}
+
 ![The window of the Find chessboard block: its settings on the left, its picture on the right](img/vb-chessboard.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds the inner corners of a chessboard in the picture and gives them as a list of points, row by row. A chessboard is the pattern a lens calibration and a camera-to-table check are done with - [Lens correction](vision-undistort.md) and [Plane from a board](vision-world.md) find it themselves with their buttons; this block is for seeing whether the board is found at all (the window draws the corners), for checking that it is still where it was, and for your own measurements between its corners.
 

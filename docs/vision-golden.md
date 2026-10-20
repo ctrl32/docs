@@ -1,3 +1,8 @@
+---
+image: img/vbc-golden.webp
+image_alt: "The Compare with taught block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Compare with taught
@@ -6,7 +11,19 @@
 
 Compares an area with the same area taught on a good part and says how much differs - a missing print, a wrong label, a scratch. Teach by dragging over the area on the block's picture.
 
+![The Compare with taught block on the Vision canvas](img/vbc-golden.webp){: .sb-center}
+
 ![The window of the Compare with taught block: its settings on the left, its picture on the right](img/vb-golden.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Compares an area with the same area taught on a good part - the golden template - and says how much differs: a missing print, a wrong label, a scratch, a bent pin, a lead that is not there. The taught picture is subtracted from the current area point by point; a point that differs by more than `level` counts, and *diff* is the share of such points in percent. *ok* is on while the share stays under `max_diff`; the picture output shows the differences in white, so the window and a screen show WHERE the part differs.
 

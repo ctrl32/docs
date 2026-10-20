@@ -1,3 +1,8 @@
+---
+image: img/vbc-affine.webp
+image_alt: "The Turn and shift block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Turn and shift
@@ -6,7 +11,19 @@
 
 Turns the picture by any angle round its middle, scales it and shifts it - the part always lies the same way for the blocks after it.
 
+![The Turn and shift block on the Vision canvas](img/vbc-affine.webp){: .sb-center}
+
 ![The window of the Turn and shift block: its settings on the left, its picture on the right](img/vb-affine.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Turns the picture by any angle round its middle, scales it and shifts it by a number of pixels. A camera mounted a few degrees off, a part that always lies at the same slant, a picture that should sit a little to the left for the areas drawn on it - one block puts it right, and every block after it works on a picture where the part lies the way the areas were drawn.
 

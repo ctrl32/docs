@@ -1,3 +1,8 @@
+---
+image: img/vbc-gradient.webp
+image_alt: "The Outline block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Outline
@@ -6,7 +11,19 @@
 
 The outline of every shape in a black-and-white picture (the difference of a dilate and an erode) - a thin ring round each object.
 
+![The Outline block on the Vision canvas](img/vbc-gradient.webp){: .sb-center}
+
 ![The window of the Outline block: its settings on the left, its picture on the right](img/vb-gradient.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Draws the outline of every white shape of a black-and-white picture: the difference of a dilate and an erode leaves a ring of `size` pixels round each shape and nothing inside it. On a gray picture it marks the edges in every direction at once, thicker and stronger than [Edges](vision-canny.md), without the thresholds.
 

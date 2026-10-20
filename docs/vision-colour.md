@@ -1,3 +1,8 @@
+---
+image: img/vbc-colour.webp
+image_alt: "The Colour check block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Colour check
@@ -6,7 +11,19 @@
 
 Is the area the right colour? Counts the pixels of the area near the taught hue and says yes when enough of them are.
 
+![The Colour check block on the Vision canvas](img/vbc-colour.webp){: .sb-center}
+
 ![The window of the Colour check block: its settings on the left, its picture on the right](img/vb-colour.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Is the area the right colour? The block counts the pixels of the area whose hue lies within `tolerance` of the taught `hue` (and that are saturated and bright enough to have a colour at all - `sat_min`, `val_min`) and says *match* when their share reaches `min_share`. The right cap, the right label, the right wire, the right product on the belt.
 

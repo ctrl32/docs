@@ -1,3 +1,8 @@
+---
+image: img/vbc-part_ok.webp
+image_alt: "The Part in place block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Part in place
@@ -6,7 +11,19 @@
 
 The largest dark (or light) object in a window, judged by where it sits and how big it is - a cap on a bottle, a seal in its seat, a label on its place.
 
+![The Part in place block on the Vision canvas](img/vbc-part_ok.webp){: .sb-center}
+
 ![The window of the Part in place block: its settings on the left, its picture on the right](img/vb-part_ok.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Is the part where it belongs, and is it the right size? The block takes the largest dark (or light - `polarity`) blob in a window, judged against `threshold`, and compares its centre with where it should be (`ex`, `ey`, within `pos_tol` pixels) and its frame with the size it should have (`ew` x `eh`, within `size_tol` percent). A cap on a bottle, a seal in its seat, a label on its place, a lid on a box, a component in its footprint - one block, one *ok*.
 

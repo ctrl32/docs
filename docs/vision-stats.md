@@ -1,3 +1,8 @@
+---
+image: img/vbc-stats.webp
+image_alt: "The Brightness statistics block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Brightness statistics
@@ -6,7 +11,19 @@
 
 The mean, the darkest, the brightest and the spread of the brightness in an area - for a check that a lamp works, a surface is even, a print is there.
 
+![The Brightness statistics block on the Vision canvas](img/vbc-stats.webp){: .sb-center}
+
 ![The window of the Brightness statistics block: its settings on the left, its picture on the right](img/vb-stats.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 The mean, the darkest point, the brightest point and the spread (standard deviation) of the brightness in an area. Four numbers that say more than one: a lamp that works gives the expected mean, an even surface a small spread, a print in the area a large one, a glint a high maximum. The area is dragged on the block's picture.
 

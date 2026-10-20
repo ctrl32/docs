@@ -1,3 +1,8 @@
+---
+image: img/vbc-erode.webp
+image_alt: "The Erode block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Erode
@@ -6,7 +11,19 @@
 
 Shrinks white areas - removes thin lines and small specks.
 
+![The Erode block on the Vision canvas](img/vbc-erode.webp){: .sb-center}
+
 ![The window of the Erode block: its settings on the left, its picture on the right](img/vb-erode.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Shrinks every white area of a black-and-white picture by a brush of `size` pixels, `times` over. Thin lines and specks smaller than the brush disappear, two parts joined by a thin bridge come apart, and every shape loses a rim of that width - which [Dilate](vision-dilate.md) afterwards gives back.
 

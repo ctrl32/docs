@@ -1,3 +1,8 @@
+---
+image: img/vbc-nearest.webp
+image_alt: "The Nearest object block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Nearest object
@@ -6,7 +11,19 @@
 
 Which object of a list lies closest to a point - the one under the gripper, the one at the mark.
 
+![The Nearest object block on the Vision canvas](img/vbc-nearest.webp){: .sb-center}
+
 ![The window of the Nearest object block: its settings on the left, its picture on the right](img/vb-nearest.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds which object of a list lies closest to a point - the one under the gripper, the one at the mark, the one nearest the exit of a feeder - and gives its number in the list, its centre and its distance from the point. The point is typed (`px`, `py`) and may come from a variable, so the PLC program can ask "what is nearest to where the arm is now".
 

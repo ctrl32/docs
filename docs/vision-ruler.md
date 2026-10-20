@@ -1,3 +1,8 @@
+---
+image: img/vbc-ruler.webp
+image_alt: "The Ruler block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Ruler
@@ -6,7 +11,19 @@
 
 A known length in the picture - drag along it and type what it is in millimetres - gives the scale of the picture (mm per pixel) for the Scale block.
 
+![The Ruler block on the Vision canvas](img/vbc-ruler.webp){: .sb-center}
+
 ![The window of the Ruler block: its settings on the left, its picture on the right](img/vb-ruler.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Calibrates the picture: a known length - the part's width, a printed mark, a rule laid on the belt - is dragged on the block's picture and its real length typed, and the block answers how many millimetres one pixel is. Its *mm_per_px* feeds the **scale** input of the measuring blocks and the [Scale](vision-scale.md) block's `factor_in`; from then on they answer in millimetres.
 

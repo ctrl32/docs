@@ -1,3 +1,8 @@
+---
+image: img/vbc-mask.webp
+image_alt: "The Mask block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Mask
@@ -6,7 +11,19 @@
 
 Keeps the picture where a black-and-white mask is white and blacks out the rest - a shape found earlier cuts out what a later block may see.
 
+![The Mask block on the Vision canvas](img/vbc-mask.webp){: .sb-center}
+
 ![The window of the Mask block: its settings on the left, its picture on the right](img/vb-mask.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Keeps the picture where a black-and-white mask is white and blacks out the rest. The mask usually comes from something found earlier in the program - a colour range, a found object filled, the inside of a found circle - and the blocks after the Mask see only what lies inside it: a code reader that reads the label only, a brightness measured on the part only, a caliper that cannot be fooled by the belt.
 

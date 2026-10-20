@@ -1,3 +1,8 @@
+---
+image: img/vbc-world.webp
+image_alt: "The Plane from a board block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Plane from a board
@@ -6,7 +11,19 @@
 
 A chessboard lying on the working plane, seen once, teaches how the camera sees that plane - the block then straightens every picture to a top view with a known number of pixels per millimetre, so every measurement on it is millimetres. Teach with the button on the block's window.
 
+![The Plane from a board block on the Vision canvas](img/vbc-world.webp){: .sb-center}
+
 ![The window of the Plane from a board block: its settings on the left, its picture on the right](img/vb-world.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Teaches the camera what the working plane looks like - the belt, the table, the tray - from one picture of a chessboard lying flat on it. From then on the block draws every picture as a top view of that plane in which one millimetre is a known number of pixels (`px_per_mm`), whatever angle the camera looks from and wherever it stands. Every measurement on the top view is in millimetres without a ruler in the picture: its *mm_per_px* feeds the **scale** input of the measuring blocks and the [Scale](vision-scale.md) block.
 

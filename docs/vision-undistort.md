@@ -1,3 +1,8 @@
+---
+image: img/vbc-undistort.webp
+image_alt: "The Lens correction block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Lens correction
@@ -6,7 +11,19 @@
 
 Takes the barrel or pincushion of a wide lens out of the picture, so straight edges are straight and a Ruler holds across the whole picture. The numbers come from a lens calibration (a chessboard in front of the camera).
 
+![The Lens correction block on the Vision canvas](img/vbc-undistort.webp){: .sb-center}
+
 ![The window of the Lens correction block: its settings on the left, its picture on the right](img/vb-undistort.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Takes the barrel or the pincushion of a wide-angle lens out of the picture, so that a straight edge is straight and a [Ruler](vision-ruler.md) taught in the middle of the picture holds at its corners too. A cheap wide lens bends a straight belt edge by tens of pixels across the picture; a caliper or a line fit measured on it is wrong by that much.
 

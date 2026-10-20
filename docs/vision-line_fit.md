@@ -1,3 +1,8 @@
+---
+image: img/vbc-line_fit.webp
+image_alt: "The Line (fit) block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Line (fit)
@@ -6,7 +11,19 @@
 
 An edge on every scan across a window, a robust line through them - the angle of a part's edge, its position, its straightness, with a tolerance on the angle.
 
+![The Line (fit) block on the Vision canvas](img/vbc-line_fit.webp){: .sb-center}
+
 ![The window of the Line (fit) block: its settings on the left, its picture on the right](img/vb-line_fit.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Measures ONE straight edge precisely: `scans` scans run across the window in `direction` and each takes the first edge it meets, then a robust line is fitted through the edge points - the angle of a part's edge, its position, and *straightness* as how far the worst point lies off the line. The angle is in degrees, 0 along the picture's width; `min`/`max` make *ok* a tolerance check on it, and *x1*..*y2* give the line clipped to the window for the picture and for a [Distance of points](vision-points_dist.md).
 

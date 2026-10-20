@@ -1,3 +1,8 @@
+---
+image: img/vbc-dilate.webp
+image_alt: "The Dilate block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Dilate
@@ -6,7 +11,19 @@
 
 Grows white areas - closes small gaps.
 
+![The Dilate block on the Vision canvas](img/vbc-dilate.webp){: .sb-center}
+
 ![The window of the Dilate block: its settings on the left, its picture on the right](img/vb-dilate.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Grows every white area of a black-and-white picture by a brush of `size` pixels, `times` over. Small gaps close, a broken outline joins up, a thin line thickens into something [Find lines](vision-lines.md) can hold on to, and two parts that nearly touch become one - which is sometimes what you want (the printed letters of one word as one object) and sometimes not.
 

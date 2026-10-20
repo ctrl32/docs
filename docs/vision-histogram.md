@@ -1,3 +1,8 @@
+---
+image: img/vbc-histogram.webp
+image_alt: "The Histogram block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Histogram
@@ -6,7 +11,19 @@
 
 How the shades are spread in an area - the most common shade, the share of dark points and of light ones.
 
+![The Histogram block on the Vision canvas](img/vbc-histogram.webp){: .sb-center}
+
 ![The window of the Histogram block: its settings on the left, its picture on the right](img/vb-histogram.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 How the shades are distributed in an area: the most common shade (*peak*), the share of points darker than `dark_below` and the share brighter than `light_above`, in percent. It tells whether a surface is mostly light with a dark mark on it, whether the background is where it should be, whether a threshold still has a clean valley to cut at - and it does so without finding any object.
 

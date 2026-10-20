@@ -1,3 +1,8 @@
+---
+image: img/vbc-blobs.webp
+image_alt: "The Count objects block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Count objects
@@ -6,7 +11,19 @@
 
 Counts the separate white areas of a black-and-white picture, and reports the largest one.
 
+![The Count objects block on the Vision canvas](img/vbc-blobs.webp){: .sb-center}
+
 ![The window of the Count objects block: its settings on the left, its picture on the right](img/vb-blobs.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Counts the separate white areas of a black-and-white picture - the blobs - and reports the largest one's centre and area, in one block without a list of objects. For a quick "how many parts are in the window" or "where is the biggest one" it is enough; when the parts themselves are needed, their order and each one's numbers, use [Find objects](vision-contours.md), which hands them on as a list.
 

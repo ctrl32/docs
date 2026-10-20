@@ -1,3 +1,8 @@
+---
+image: img/vbc-lines.webp
+image_alt: "The Find lines block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find lines
@@ -6,7 +11,19 @@
 
 Finds straight lines in an edge picture (after Edges or a threshold) - the edge of a sheet, a rule, a seam - as a list of objects; each carries its angle and its length, the longest first.
 
+![The Find lines block on the Vision canvas](img/vbc-lines.webp){: .sb-center}
+
 ![The window of the Find lines block: its settings on the left, its picture on the right](img/vb-lines.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds straight lines in an edge picture - the edge of a sheet, a seam, a rule, the sides of a plate - as a list of objects, each with its angle and its length, the longest first (the probabilistic Hough transform). Feed it the output of [Edges](vision-canny.md) or a thin threshold; on a gray picture it finds little.
 

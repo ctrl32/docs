@@ -38,9 +38,9 @@ rung in LD and in a function block diagram with the axis in its properties.
 
 ## Where it runs
 
-| Linux runtime | ESP32 boards | EtherCAT | CANopen |
-|:---:|:---:|:---:|:---:|
-| yes | yes | yes | yes |
+| Linux runtime | ESP32 boards | STM32 | EtherCAT | CANopen |
+|:---:|:---:|:---:|:---:|:---:|
+| yes | yes | - | yes | yes |
 
 **Needs:** a drive with a position: a servo in cyclic position mode, a stepper chip with its own engine, or a frequency drive with a position - its own counter over the bus or an encoder on the board; a plain velocity axis answers ErrorID 8.
 

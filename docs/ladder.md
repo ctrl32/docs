@@ -154,6 +154,17 @@ a lower row of a branch may end in one too.
 A jump backwards, past the end, or across another jump's target is
 refused at the desk with the network named.
 
+The two coils are blocks of the library with a page of their own:
+
+<!-- fb-index: begin -->
+
+| Block | What it does | Linux | ESP32 | STM32 |
+|:---|:---|:---:|:---:|:---:|
+| [LD_RET](fb-ld_ret.md) | Return: while its network conducts, the program ends here for this cycle. | yes | yes | yes |
+| [LD_JMP](fb-ld_jmp.md) | Jump: while its network conducts, the networks between it and network N are skipped this cycle. | yes | yes | yes |
+
+<!-- fb-index: end -->
+
 ## Where used
 
 ![The Properties panel's Where used: every place of the variable, each a go-to](img/ladder-where.webp){: .sb-center}

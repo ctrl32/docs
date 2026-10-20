@@ -1,3 +1,8 @@
+---
+image: img/vbc-dnn_detect.webp
+image_alt: "The Detect (model) block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Detect (model)
@@ -6,7 +11,19 @@
 
 Runs a trained detection network (an ONNX model imported into the project - YOLO, SSD) on the picture and gives every object it finds as a list with its class, score and place. For what a rule cannot describe - mixed parts, a scratch of any shape, a person in the cell.
 
+![The Detect (model) block on the Vision canvas](img/vbc-dnn_detect.webp){: .sb-center}
+
 ![The window of the Detect (model) block: its settings on the left, its picture on the right](img/vb-dnn_detect.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project and an ONNX model added to the project as an asset.
+
+## Description
 
 Runs a trained detection network - an ONNX model imported into the project - and gives every object it finds as a list with its class, its score and its place: people in a cell, mixed parts on a belt, bottles, boxes, vehicles, whatever the model was trained on. *count*, and the best detection's *class*, *label*, *score*, *x*, *y* are outputs of their own; the list goes on to [Pick object](vision-pick.md), [Nearest object](vision-nearest.md), [Check objects](vision-objcheck.md). `only` keeps one class (`person` for a people counter), `min_score` drops weak detections and `overlap` merges boxes of one object.
 

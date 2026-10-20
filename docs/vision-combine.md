@@ -1,3 +1,8 @@
+---
+image: img/vbc-combine.webp
+image_alt: "The Combine pictures block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Combine pictures
@@ -6,7 +11,19 @@
 
 Puts two pictures of the same size together - added, subtracted, the darker or the lighter of the two, a blend, or the black-and-white ones by AND / OR / XOR.
 
+![The Combine pictures block on the Vision canvas](img/vbc-combine.webp){: .sb-center}
+
 ![The window of the Combine pictures block: its settings on the left, its picture on the right](img/vb-combine.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Puts two pictures of the same size together point by point. `add` and `subtract` do what they say; `min` keeps the darker of the two and `max` the lighter; `blend` mixes them with `share` percent of the first; `and_`, `or_` and `xor_` are for black-and-white pictures - white where both are white, where either is, where exactly one is.
 

@@ -1,3 +1,8 @@
+---
+image: img/vbc-features.webp
+image_alt: "The Find by features block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Find by features
@@ -6,7 +11,19 @@
 
 Finds a taught picture even when it is turned or nearer or farther from the camera (ORB feature matching) - a logo, a printed mark, a part at any angle. Teach it by dragging over the part on the block's picture.
 
+![The Find by features block on the Vision canvas](img/vbc-features.webp){: .sb-center}
+
 ![The window of the Find by features block: its settings on the left, its picture on the right](img/vb-features.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Finds a taught picture even when it is turned, nearer or farther from the camera, or partly covered (ORB feature matching): a logo, a printed mark, a part lying at any angle. The block picks distinctive points on the taught picture and on the current one, matches them, and from the matches works out where the taught thing is, how it is turned and how large it looks. [Find pattern](vision-pattern.md), which needs the same size and turn, is faster and more exact when the part always lies the same way; this block is for the part that does not.
 

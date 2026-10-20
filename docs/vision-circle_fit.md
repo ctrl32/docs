@@ -1,3 +1,8 @@
+---
+image: img/vbc-circle_fit.webp
+image_alt: "The Circle (fit) block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Circle (fit)
@@ -6,7 +11,19 @@
 
 An edge on every ray of a ring, a least squares circle through them without the stray points - the diameter and the centre of a hole, a shaft, a lid, with roundness and a tolerance.
 
+![The Circle (fit) block on the Vision canvas](img/vbc-circle_fit.webp){: .sb-center}
+
 ![The window of the Circle (fit) block: its settings on the left, its picture on the right](img/vb-circle_fit.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Measures ONE circle precisely: on every one of `rays` rays from the centre `cx`, `cy` between `r_min` and `r_max` the block looks for the edge, then fits a least-squares circle through the edge points with the stray ones rejected - a diameter and a centre to a fraction of a pixel, and *roundness* as how far the worst kept point lies off the circle. The diameter of a hole, a shaft, a lid, a bottle mouth; with a scale wired in, *diameter_mm*, and `min`/`max` make *ok* a tolerance check.
 

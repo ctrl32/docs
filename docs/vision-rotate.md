@@ -1,3 +1,8 @@
+---
+image: img/vbc-rotate.webp
+image_alt: "The Rotate block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # Rotate
@@ -6,7 +11,19 @@
 
 Turns the picture by a quarter, a half or three quarters.
 
+![The Rotate block on the Vision canvas](img/vbc-rotate.webp){: .sb-center}
+
 ![The window of the Rotate block: its settings on the left, its picture on the right](img/vb-rotate.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Turns the picture by a quarter, a half or three quarters, clockwise. A camera mounted on its side or upside down gives a picture that reads the right way up after this block, so that the areas drawn later make sense on the screen and in the window.
 

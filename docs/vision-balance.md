@@ -1,3 +1,8 @@
+---
+image: img/vbc-balance.webp
+image_alt: "The White balance block on the Vision canvas"
+---
+
 <!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
 
 # White balance
@@ -6,7 +11,19 @@
 
 Takes a colour cast out of the picture (the gray-world rule) - a yellowish lamp or a bluish window stops shifting the colours a Colour block reads.
 
+![The White balance block on the Vision canvas](img/vbc-balance.webp){: .sb-center}
+
 ![The window of the White balance block: its settings on the left, its picture on the right](img/vb-balance.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
 
 Takes a colour cast out of the picture. A yellowish lamp, a bluish window, a camera whose automatic white balance settled on the wrong thing - all of them shift every colour, and a [Colour check](vision-colour.md) taught in the morning fails under the evening light. The block assumes the picture is gray on average (the gray-world rule) and scales the three channels until it is; `strength` says how much of the correction is applied.
 

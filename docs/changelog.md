@@ -105,7 +105,7 @@ project saved by this editor, and the editor grows the round below.
   an image, a shape or a line turns to the angle a variable gives or spins
   at a speed (a propeller at the fan's rpm), and a moving widget can run
   on a circle - a marker round a dial.
-- **The wheel and the knob** ([Controls](widgets-controls.md#wheel)): a
+- **The wheel and the knob** ([Controls](w-wheel.md)): a
   ring of icons for a round screen, the chosen one at the top; and a
   rotary encoder with a push button drives the whole screen - a turn moves
   the highlight from control to control, a press presses a button or
