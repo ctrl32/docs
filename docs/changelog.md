@@ -8,6 +8,29 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.06.002
+
+An editor build inside line 1.06 - the devices keep their 1.06.000
+runtime.
+
+- **F1 opens the help.** On a selected block, widget or vision block F1
+  opens its own page; with nothing selected, the page of the window in
+  front. Over a tile in the Toolbox it opens the page of that tile.
+  *Help* has *Help for the selection* and *Documentation*.
+- **The FBD canvas is new.** It zooms (`Ctrl` + wheel) and scrolls (the
+  wheel, a middle button drag, `Space` + drag; `Home` goes back to
+  100 %). A rectangle drawn on the empty canvas, `Ctrl` + click and
+  `Ctrl+A` select several blocks, which move, delete, copy and paste
+  together - the wires between copied blocks come along. A wire is
+  selected with a click and removed with `Delete` or its right-click
+  menu, and a wire dragged off its input moves to another one. The
+  networks stay as they were. See [The canvas](fbd-composites.md#the-canvas).
+- **The Vision canvas** answers the same gestures.
+- **A block constant takes only what its pin holds.** A BOOL input or
+  parameter is a choice of FALSE and TRUE, an INT a whole number, a
+  time `T#...`; any other value is refused. In ladder a BOOL parameter
+  offers BOOL variables.
+
 ## 1.06.001
 
 An editor build inside line 1.06 - the devices keep their 1.06.000
