@@ -1,0 +1,3338 @@
+{
+  "site": "ctrl32",
+  "language": "en",
+  "generator": "tools/docs_export.py",
+  "sections": [
+    "",
+    "Getting started",
+    "Hardware",
+    "Editor",
+    "Visualisation",
+    "Programming",
+    "Function blocks",
+    "Vision",
+    "Protocols",
+    "Chips and services",
+    "Deployment",
+    "Operation",
+    "About"
+  ],
+  "pages": [
+    {
+      "slug": "index",
+      "title": "What ctrl32 is",
+      "section": "",
+      "order": 1,
+      "file": "index.md",
+      "bytes": 3861
+    },
+    {
+      "slug": "getting-started",
+      "title": "Getting started",
+      "section": "Getting started",
+      "order": 2,
+      "file": "Getting started/index.md",
+      "bytes": 670
+    },
+    {
+      "slug": "setup-raspberry-pi",
+      "title": "Raspberry Pi",
+      "section": "Getting started",
+      "order": 3,
+      "file": "Getting started/setup-raspberry-pi.md",
+      "bytes": 5433
+    },
+    {
+      "slug": "setup-esp32",
+      "title": "ESP32",
+      "section": "Getting started",
+      "order": 4,
+      "file": "Getting started/setup-esp32.md",
+      "bytes": 5516
+    },
+    {
+      "slug": "setup-stm32",
+      "title": "STM32",
+      "section": "Getting started",
+      "order": 5,
+      "file": "Getting started/setup-stm32.md",
+      "bytes": 4120
+    },
+    {
+      "slug": "hardware",
+      "title": "Hardware",
+      "section": "Hardware",
+      "order": 6,
+      "file": "Hardware/index.md",
+      "bytes": 9692
+    },
+    {
+      "slug": "modules",
+      "title": "Hardware catalog",
+      "section": "Hardware",
+      "order": 7,
+      "file": "Hardware/modules.md",
+      "bytes": 13874
+    },
+    {
+      "slug": "node",
+      "title": "The node (ESP32-C3 / C6)",
+      "section": "Hardware",
+      "order": 8,
+      "file": "Hardware/node.md",
+      "bytes": 8879
+    },
+    {
+      "slug": "linux-runtime",
+      "title": "The Linux runtime",
+      "section": "Hardware",
+      "order": 9,
+      "file": "Hardware/linux-runtime.md",
+      "bytes": 10267
+    },
+    {
+      "slug": "linux-setup",
+      "title": "Setting up a Linux device",
+      "section": "Hardware",
+      "order": 10,
+      "file": "Hardware/linux-setup.md",
+      "bytes": 21349
+    },
+    {
+      "slug": "editor-overview",
+      "title": "Editor",
+      "section": "Editor",
+      "order": 11,
+      "file": "Editor/index.md",
+      "bytes": 1037
+    },
+    {
+      "slug": "editor",
+      "title": "Layout and how to work in it",
+      "section": "Editor",
+      "order": 12,
+      "file": "Editor/editor.md",
+      "bytes": 14721
+    },
+    {
+      "slug": "editor-controls",
+      "title": "Controls and shortcuts",
+      "section": "Editor",
+      "order": 13,
+      "file": "Editor/editor-controls.md",
+      "bytes": 8227
+    },
+    {
+      "slug": "variables",
+      "title": "Variables",
+      "section": "Editor",
+      "order": 14,
+      "file": "Editor/variables.md",
+      "bytes": 18587
+    },
+    {
+      "slug": "project-format",
+      "title": "The project file",
+      "section": "Editor",
+      "order": 15,
+      "file": "Editor/project-format.md",
+      "bytes": 7097
+    },
+    {
+      "slug": "mcp",
+      "title": "The AI assistant (MCP)",
+      "section": "Editor",
+      "order": 16,
+      "file": "Editor/mcp.md",
+      "bytes": 6798
+    },
+    {
+      "slug": "visualisation",
+      "title": "Visualisation",
+      "section": "Visualisation",
+      "order": 17,
+      "file": "Visualisation/index.md",
+      "bytes": 4090
+    },
+    {
+      "slug": "hmiview",
+      "title": "HMIview — the panel screen",
+      "section": "Visualisation",
+      "order": 18,
+      "file": "Visualisation/hmiview.md",
+      "bytes": 10227
+    },
+    {
+      "slug": "webview",
+      "title": "WEBview — in a browser",
+      "section": "Visualisation",
+      "order": 19,
+      "file": "Visualisation/webview.md",
+      "bytes": 6695
+    },
+    {
+      "slug": "states-motion",
+      "title": "States and motion",
+      "section": "Visualisation",
+      "order": 20,
+      "file": "Visualisation/states-motion.md",
+      "bytes": 6220
+    },
+    {
+      "slug": "widgets-containers",
+      "title": "Containers",
+      "section": "Visualisation",
+      "order": 21,
+      "file": "Visualisation/widgets-containers.md",
+      "bytes": 1772
+    },
+    {
+      "slug": "widgets-text",
+      "title": "Text and values",
+      "section": "Visualisation",
+      "order": 22,
+      "file": "Visualisation/widgets-text.md",
+      "bytes": 1848
+    },
+    {
+      "slug": "widgets-controls",
+      "title": "Controls",
+      "section": "Visualisation",
+      "order": 23,
+      "file": "Visualisation/widgets-controls.md",
+      "bytes": 4717
+    },
+    {
+      "slug": "widgets-indicators",
+      "title": "Indicators",
+      "section": "Visualisation",
+      "order": 24,
+      "file": "Visualisation/widgets-indicators.md",
+      "bytes": 2265
+    },
+    {
+      "slug": "widgets-graphics",
+      "title": "Images and icons",
+      "section": "Visualisation",
+      "order": 25,
+      "file": "Visualisation/widgets-graphics.md",
+      "bytes": 3915
+    },
+    {
+      "slug": "widgets-data",
+      "title": "Trends and alarms",
+      "section": "Visualisation",
+      "order": 26,
+      "file": "Visualisation/widgets-data.md",
+      "bytes": 1189
+    },
+    {
+      "slug": "widgets-charts",
+      "title": "Charts",
+      "section": "Visualisation",
+      "order": 27,
+      "file": "Visualisation/widgets-charts.md",
+      "bytes": 1687
+    },
+    {
+      "slug": "widgets",
+      "title": "Property reference",
+      "section": "Visualisation",
+      "order": 28,
+      "file": "Visualisation/widgets.md",
+      "bytes": 15895
+    },
+    {
+      "slug": "w-panel",
+      "title": "Containers: panel",
+      "section": "Visualisation",
+      "order": 29,
+      "file": "Visualisation/w-panel.md",
+      "bytes": 1980
+    },
+    {
+      "slug": "w-list",
+      "title": "Containers: list",
+      "section": "Visualisation",
+      "order": 30,
+      "file": "Visualisation/w-list.md",
+      "bytes": 1074
+    },
+    {
+      "slug": "w-tabs",
+      "title": "Containers: tabs",
+      "section": "Visualisation",
+      "order": 31,
+      "file": "Visualisation/w-tabs.md",
+      "bytes": 1235
+    },
+    {
+      "slug": "w-popup",
+      "title": "Containers: popup",
+      "section": "Visualisation",
+      "order": 32,
+      "file": "Visualisation/w-popup.md",
+      "bytes": 1626
+    },
+    {
+      "slug": "w-tileview",
+      "title": "Containers: tileview",
+      "section": "Visualisation",
+      "order": 33,
+      "file": "Visualisation/w-tileview.md",
+      "bytes": 1797
+    },
+    {
+      "slug": "w-window",
+      "title": "Containers: window",
+      "section": "Visualisation",
+      "order": 34,
+      "file": "Visualisation/w-window.md",
+      "bytes": 1740
+    },
+    {
+      "slug": "w-label",
+      "title": "Text and values: label",
+      "section": "Visualisation",
+      "order": 35,
+      "file": "Visualisation/w-label.md",
+      "bytes": 2460
+    },
+    {
+      "slug": "w-value",
+      "title": "Text and values: value",
+      "section": "Visualisation",
+      "order": 36,
+      "file": "Visualisation/w-value.md",
+      "bytes": 2441
+    },
+    {
+      "slug": "w-textarea",
+      "title": "Text and values: textarea",
+      "section": "Visualisation",
+      "order": 37,
+      "file": "Visualisation/w-textarea.md",
+      "bytes": 1610
+    },
+    {
+      "slug": "w-rich_text",
+      "title": "Text and values: rich_text",
+      "section": "Visualisation",
+      "order": 38,
+      "file": "Visualisation/w-rich_text.md",
+      "bytes": 1709
+    },
+    {
+      "slug": "w-button",
+      "title": "Controls: button",
+      "section": "Visualisation",
+      "order": 39,
+      "file": "Visualisation/w-button.md",
+      "bytes": 3411
+    },
+    {
+      "slug": "w-switch",
+      "title": "Controls: switch",
+      "section": "Visualisation",
+      "order": 40,
+      "file": "Visualisation/w-switch.md",
+      "bytes": 1983
+    },
+    {
+      "slug": "w-slider",
+      "title": "Controls: slider",
+      "section": "Visualisation",
+      "order": 41,
+      "file": "Visualisation/w-slider.md",
+      "bytes": 1847
+    },
+    {
+      "slug": "w-nav",
+      "title": "Controls: nav",
+      "section": "Visualisation",
+      "order": 42,
+      "file": "Visualisation/w-nav.md",
+      "bytes": 1431
+    },
+    {
+      "slug": "w-input",
+      "title": "Controls: input",
+      "section": "Visualisation",
+      "order": 43,
+      "file": "Visualisation/w-input.md",
+      "bytes": 1984
+    },
+    {
+      "slug": "w-recipe_table",
+      "title": "Controls: recipe_table",
+      "section": "Visualisation",
+      "order": 44,
+      "file": "Visualisation/w-recipe_table.md",
+      "bytes": 2156
+    },
+    {
+      "slug": "w-checkbox",
+      "title": "Controls: checkbox",
+      "section": "Visualisation",
+      "order": 45,
+      "file": "Visualisation/w-checkbox.md",
+      "bytes": 1627
+    },
+    {
+      "slug": "w-dropdown",
+      "title": "Controls: dropdown",
+      "section": "Visualisation",
+      "order": 46,
+      "file": "Visualisation/w-dropdown.md",
+      "bytes": 1656
+    },
+    {
+      "slug": "w-roller",
+      "title": "Controls: roller",
+      "section": "Visualisation",
+      "order": 47,
+      "file": "Visualisation/w-roller.md",
+      "bytes": 1384
+    },
+    {
+      "slug": "w-spinbox",
+      "title": "Controls: spinbox",
+      "section": "Visualisation",
+      "order": 48,
+      "file": "Visualisation/w-spinbox.md",
+      "bytes": 1630
+    },
+    {
+      "slug": "w-button_matrix",
+      "title": "Controls: button_matrix",
+      "section": "Visualisation",
+      "order": 49,
+      "file": "Visualisation/w-button_matrix.md",
+      "bytes": 1503
+    },
+    {
+      "slug": "w-arc",
+      "title": "Controls: arc",
+      "section": "Visualisation",
+      "order": 50,
+      "file": "Visualisation/w-arc.md",
+      "bytes": 1788
+    },
+    {
+      "slug": "w-menu",
+      "title": "Controls: menu",
+      "section": "Visualisation",
+      "order": 51,
+      "file": "Visualisation/w-menu.md",
+      "bytes": 1736
+    },
+    {
+      "slug": "w-calendar",
+      "title": "Controls: calendar",
+      "section": "Visualisation",
+      "order": 52,
+      "file": "Visualisation/w-calendar.md",
+      "bytes": 1477
+    },
+    {
+      "slug": "w-wheel",
+      "title": "Controls: wheel",
+      "section": "Visualisation",
+      "order": 53,
+      "file": "Visualisation/w-wheel.md",
+      "bytes": 2181
+    },
+    {
+      "slug": "w-led",
+      "title": "Indicators: led",
+      "section": "Visualisation",
+      "order": 54,
+      "file": "Visualisation/w-led.md",
+      "bytes": 2641
+    },
+    {
+      "slug": "w-bar",
+      "title": "Indicators: bar",
+      "section": "Visualisation",
+      "order": 55,
+      "file": "Visualisation/w-bar.md",
+      "bytes": 1755
+    },
+    {
+      "slug": "w-gauge",
+      "title": "Indicators: gauge",
+      "section": "Visualisation",
+      "order": 56,
+      "file": "Visualisation/w-gauge.md",
+      "bytes": 2520
+    },
+    {
+      "slug": "w-table",
+      "title": "Indicators: table",
+      "section": "Visualisation",
+      "order": 57,
+      "file": "Visualisation/w-table.md",
+      "bytes": 1714
+    },
+    {
+      "slug": "w-scale",
+      "title": "Indicators: scale",
+      "section": "Visualisation",
+      "order": 58,
+      "file": "Visualisation/w-scale.md",
+      "bytes": 1463
+    },
+    {
+      "slug": "w-spinner",
+      "title": "Indicators: spinner",
+      "section": "Visualisation",
+      "order": 59,
+      "file": "Visualisation/w-spinner.md",
+      "bytes": 1080
+    },
+    {
+      "slug": "w-qrcode",
+      "title": "Indicators: qrcode",
+      "section": "Visualisation",
+      "order": 60,
+      "file": "Visualisation/w-qrcode.md",
+      "bytes": 1171
+    },
+    {
+      "slug": "w-image",
+      "title": "Images and icons: image",
+      "section": "Visualisation",
+      "order": 61,
+      "file": "Visualisation/w-image.md",
+      "bytes": 1833
+    },
+    {
+      "slug": "w-icon",
+      "title": "Images and icons: icon",
+      "section": "Visualisation",
+      "order": 62,
+      "file": "Visualisation/w-icon.md",
+      "bytes": 2163
+    },
+    {
+      "slug": "w-logo",
+      "title": "Images and icons: logo",
+      "section": "Visualisation",
+      "order": 63,
+      "file": "Visualisation/w-logo.md",
+      "bytes": 882
+    },
+    {
+      "slug": "w-camera",
+      "title": "Images and icons: camera",
+      "section": "Visualisation",
+      "order": 64,
+      "file": "Visualisation/w-camera.md",
+      "bytes": 2852
+    },
+    {
+      "slug": "w-anim_image",
+      "title": "Images and icons: anim_image",
+      "section": "Visualisation",
+      "order": 65,
+      "file": "Visualisation/w-anim_image.md",
+      "bytes": 1577
+    },
+    {
+      "slug": "w-line",
+      "title": "Images and icons: line",
+      "section": "Visualisation",
+      "order": 66,
+      "file": "Visualisation/w-line.md",
+      "bytes": 1373
+    },
+    {
+      "slug": "w-shape",
+      "title": "Images and icons: shape",
+      "section": "Visualisation",
+      "order": 67,
+      "file": "Visualisation/w-shape.md",
+      "bytes": 1353
+    },
+    {
+      "slug": "w-trend",
+      "title": "Trends and alarms: trend",
+      "section": "Visualisation",
+      "order": 68,
+      "file": "Visualisation/w-trend.md",
+      "bytes": 2628
+    },
+    {
+      "slug": "w-alarm_table",
+      "title": "Trends and alarms: alarm_table",
+      "section": "Visualisation",
+      "order": 69,
+      "file": "Visualisation/w-alarm_table.md",
+      "bytes": 2533
+    },
+    {
+      "slug": "w-trace",
+      "title": "Trends and alarms: trace",
+      "section": "Visualisation",
+      "order": 70,
+      "file": "Visualisation/w-trace.md",
+      "bytes": 1076
+    },
+    {
+      "slug": "w-energy_flow",
+      "title": "Charts: energy_flow",
+      "section": "Visualisation",
+      "order": 71,
+      "file": "Visualisation/w-energy_flow.md",
+      "bytes": 2578
+    },
+    {
+      "slug": "w-bar_chart",
+      "title": "Charts: bar_chart",
+      "section": "Visualisation",
+      "order": 72,
+      "file": "Visualisation/w-bar_chart.md",
+      "bytes": 2215
+    },
+    {
+      "slug": "w-donut",
+      "title": "Charts: donut",
+      "section": "Visualisation",
+      "order": 73,
+      "file": "Visualisation/w-donut.md",
+      "bytes": 1860
+    },
+    {
+      "slug": "w-sparkline",
+      "title": "Charts: sparkline",
+      "section": "Visualisation",
+      "order": 74,
+      "file": "Visualisation/w-sparkline.md",
+      "bytes": 1760
+    },
+    {
+      "slug": "w-chart_item",
+      "title": "Charts: chart_item",
+      "section": "Visualisation",
+      "order": 75,
+      "file": "Visualisation/w-chart_item.md",
+      "bytes": 932
+    },
+    {
+      "slug": "w-scatter",
+      "title": "Charts: scatter",
+      "section": "Visualisation",
+      "order": 76,
+      "file": "Visualisation/w-scatter.md",
+      "bytes": 2035
+    },
+    {
+      "slug": "programming",
+      "title": "Programming",
+      "section": "Programming",
+      "order": 77,
+      "file": "Programming/index.md",
+      "bytes": 1866
+    },
+    {
+      "slug": "ladder",
+      "title": "Ladder (LD)",
+      "section": "Programming",
+      "order": 78,
+      "file": "Programming/ladder.md",
+      "bytes": 13360
+    },
+    {
+      "slug": "fbd-composites",
+      "title": "Function block diagram (FBD)",
+      "section": "Programming",
+      "order": 79,
+      "file": "Programming/fbd-composites.md",
+      "bytes": 7396
+    },
+    {
+      "slug": "own-block",
+      "title": "Your own function block",
+      "section": "Programming",
+      "order": 80,
+      "file": "Programming/own-block.md",
+      "bytes": 6461
+    },
+    {
+      "slug": "st-language",
+      "title": "Structured Text (ST)",
+      "section": "Programming",
+      "order": 81,
+      "file": "Programming/st-language.md",
+      "bytes": 9122
+    },
+    {
+      "slug": "blocks",
+      "title": "Function blocks",
+      "section": "Function blocks",
+      "order": 82,
+      "file": "Function blocks/index.md",
+      "bytes": 7046
+    },
+    {
+      "slug": "blocks-timers",
+      "title": "Timers",
+      "section": "Function blocks",
+      "order": 83,
+      "file": "Function blocks/blocks-timers.md",
+      "bytes": 1698
+    },
+    {
+      "slug": "blocks-counters",
+      "title": "Counters",
+      "section": "Function blocks",
+      "order": 84,
+      "file": "Function blocks/blocks-counters.md",
+      "bytes": 2126
+    },
+    {
+      "slug": "blocks-boolean",
+      "title": "Boolean",
+      "section": "Function blocks",
+      "order": 85,
+      "file": "Function blocks/blocks-boolean.md",
+      "bytes": 3174
+    },
+    {
+      "slug": "blocks-math",
+      "title": "Maths",
+      "section": "Function blocks",
+      "order": 86,
+      "file": "Function blocks/blocks-math.md",
+      "bytes": 3731
+    },
+    {
+      "slug": "blocks-compare",
+      "title": "Comparison",
+      "section": "Function blocks",
+      "order": 87,
+      "file": "Function blocks/blocks-compare.md",
+      "bytes": 2267
+    },
+    {
+      "slug": "blocks-signal",
+      "title": "Signal handling",
+      "section": "Function blocks",
+      "order": 88,
+      "file": "Function blocks/blocks-signal.md",
+      "bytes": 1549
+    },
+    {
+      "slug": "blocks-equipment",
+      "title": "Equipment blocks",
+      "section": "Function blocks",
+      "order": 89,
+      "file": "Function blocks/blocks-equipment.md",
+      "bytes": 1065
+    },
+    {
+      "slug": "blocks-motion",
+      "title": "Motion",
+      "section": "Function blocks",
+      "order": 90,
+      "file": "Function blocks/blocks-motion.md",
+      "bytes": 26609
+    },
+    {
+      "slug": "mc-power",
+      "title": "Motion, turning the axis on: MC_Power",
+      "section": "Function blocks",
+      "order": 91,
+      "file": "Function blocks/mc-power.md",
+      "bytes": 2848
+    },
+    {
+      "slug": "mc-reset",
+      "title": "Motion, turning the axis on: MC_Reset",
+      "section": "Function blocks",
+      "order": 92,
+      "file": "Function blocks/mc-reset.md",
+      "bytes": 2277
+    },
+    {
+      "slug": "mc-readstatus",
+      "title": "Motion, turning the axis on: MC_ReadStatus",
+      "section": "Function blocks",
+      "order": 93,
+      "file": "Function blocks/mc-readstatus.md",
+      "bytes": 3268
+    },
+    {
+      "slug": "mc-readaxiserror",
+      "title": "Motion, turning the axis on: MC_ReadAxisError",
+      "section": "Function blocks",
+      "order": 94,
+      "file": "Function blocks/mc-readaxiserror.md",
+      "bytes": 2228
+    },
+    {
+      "slug": "mc-movevelocity",
+      "title": "Motion, making it move: MC_MoveVelocity",
+      "section": "Function blocks",
+      "order": 95,
+      "file": "Function blocks/mc-movevelocity.md",
+      "bytes": 4697
+    },
+    {
+      "slug": "mc-halt",
+      "title": "Motion, making it move: MC_Halt",
+      "section": "Function blocks",
+      "order": 96,
+      "file": "Function blocks/mc-halt.md",
+      "bytes": 3380
+    },
+    {
+      "slug": "mc-stop",
+      "title": "Motion, making it move: MC_Stop",
+      "section": "Function blocks",
+      "order": 97,
+      "file": "Function blocks/mc-stop.md",
+      "bytes": 3158
+    },
+    {
+      "slug": "mc-moveabsolute",
+      "title": "Motion, making it move: MC_MoveAbsolute",
+      "section": "Function blocks",
+      "order": 98,
+      "file": "Function blocks/mc-moveabsolute.md",
+      "bytes": 5254
+    },
+    {
+      "slug": "mc-moverelative",
+      "title": "Motion, making it move: MC_MoveRelative",
+      "section": "Function blocks",
+      "order": 99,
+      "file": "Function blocks/mc-moverelative.md",
+      "bytes": 4537
+    },
+    {
+      "slug": "mc-moveadditive",
+      "title": "Motion, making it move: MC_MoveAdditive",
+      "section": "Function blocks",
+      "order": 100,
+      "file": "Function blocks/mc-moveadditive.md",
+      "bytes": 4340
+    },
+    {
+      "slug": "mc-home",
+      "title": "Motion, making it move: MC_Home",
+      "section": "Function blocks",
+      "order": 101,
+      "file": "Function blocks/mc-home.md",
+      "bytes": 3461
+    },
+    {
+      "slug": "mc-setposition",
+      "title": "Motion, making it move: MC_SetPosition",
+      "section": "Function blocks",
+      "order": 102,
+      "file": "Function blocks/mc-setposition.md",
+      "bytes": 2841
+    },
+    {
+      "slug": "mc-setoverride",
+      "title": "Motion, making it move: MC_SetOverride",
+      "section": "Function blocks",
+      "order": 103,
+      "file": "Function blocks/mc-setoverride.md",
+      "bytes": 2488
+    },
+    {
+      "slug": "mc-readactualposition",
+      "title": "Motion, reading the axis: MC_ReadActualPosition",
+      "section": "Function blocks",
+      "order": 104,
+      "file": "Function blocks/mc-readactualposition.md",
+      "bytes": 2418
+    },
+    {
+      "slug": "mc-readactualvelocity",
+      "title": "Motion, reading the axis: MC_ReadActualVelocity",
+      "section": "Function blocks",
+      "order": 105,
+      "file": "Function blocks/mc-readactualvelocity.md",
+      "bytes": 2246
+    },
+    {
+      "slug": "mc-readactualtorque",
+      "title": "Motion, reading the axis: MC_ReadActualTorque",
+      "section": "Function blocks",
+      "order": 106,
+      "file": "Function blocks/mc-readactualtorque.md",
+      "bytes": 2108
+    },
+    {
+      "slug": "mc-readmotionstate",
+      "title": "Motion, reading the axis: MC_ReadMotionState",
+      "section": "Function blocks",
+      "order": 107,
+      "file": "Function blocks/mc-readmotionstate.md",
+      "bytes": 3033
+    },
+    {
+      "slug": "mc-readaxisinfo",
+      "title": "Motion, reading the axis: MC_ReadAxisInfo",
+      "section": "Function blocks",
+      "order": 108,
+      "file": "Function blocks/mc-readaxisinfo.md",
+      "bytes": 3176
+    },
+    {
+      "slug": "mc-readparameter",
+      "title": "Motion, reading the axis: MC_ReadParameter",
+      "section": "Function blocks",
+      "order": 109,
+      "file": "Function blocks/mc-readparameter.md",
+      "bytes": 2723
+    },
+    {
+      "slug": "mc-readboolparameter",
+      "title": "Motion, reading the axis: MC_ReadBoolParameter",
+      "section": "Function blocks",
+      "order": 110,
+      "file": "Function blocks/mc-readboolparameter.md",
+      "bytes": 2531
+    },
+    {
+      "slug": "mc-writeparameter",
+      "title": "Motion, reading the axis: MC_WriteParameter",
+      "section": "Function blocks",
+      "order": 111,
+      "file": "Function blocks/mc-writeparameter.md",
+      "bytes": 3222
+    },
+    {
+      "slug": "mc-writeboolparameter",
+      "title": "Motion, reading the axis: MC_WriteBoolParameter",
+      "section": "Function blocks",
+      "order": 112,
+      "file": "Function blocks/mc-writeboolparameter.md",
+      "bytes": 3059
+    },
+    {
+      "slug": "mc-movecontinuousabsolute",
+      "title": "Motion, continuous and superimposed motion: MC_MoveContinuousAbsolute",
+      "section": "Function blocks",
+      "order": 113,
+      "file": "Function blocks/mc-movecontinuousabsolute.md",
+      "bytes": 5194
+    },
+    {
+      "slug": "mc-movecontinuousrelative",
+      "title": "Motion, continuous and superimposed motion: MC_MoveContinuousRelative",
+      "section": "Function blocks",
+      "order": 114,
+      "file": "Function blocks/mc-movecontinuousrelative.md",
+      "bytes": 4687
+    },
+    {
+      "slug": "mc-movesuperimposed",
+      "title": "Motion, continuous and superimposed motion: MC_MoveSuperimposed",
+      "section": "Function blocks",
+      "order": 115,
+      "file": "Function blocks/mc-movesuperimposed.md",
+      "bytes": 4429
+    },
+    {
+      "slug": "mc-haltsuperimposed",
+      "title": "Motion, continuous and superimposed motion: MC_HaltSuperimposed",
+      "section": "Function blocks",
+      "order": 116,
+      "file": "Function blocks/mc-haltsuperimposed.md",
+      "bytes": 3042
+    },
+    {
+      "slug": "mc-positionprofile",
+      "title": "Motion, profiles and cams: MC_PositionProfile",
+      "section": "Function blocks",
+      "order": 117,
+      "file": "Function blocks/mc-positionprofile.md",
+      "bytes": 4559
+    },
+    {
+      "slug": "mc-velocityprofile",
+      "title": "Motion, profiles and cams: MC_VelocityProfile",
+      "section": "Function blocks",
+      "order": 118,
+      "file": "Function blocks/mc-velocityprofile.md",
+      "bytes": 4248
+    },
+    {
+      "slug": "mc-accelerationprofile",
+      "title": "Motion, profiles and cams: MC_AccelerationProfile",
+      "section": "Function blocks",
+      "order": 119,
+      "file": "Function blocks/mc-accelerationprofile.md",
+      "bytes": 4263
+    },
+    {
+      "slug": "mc-camtableselect",
+      "title": "Motion, profiles and cams: MC_CamTableSelect",
+      "section": "Function blocks",
+      "order": 120,
+      "file": "Function blocks/mc-camtableselect.md",
+      "bytes": 3365
+    },
+    {
+      "slug": "mc-camin",
+      "title": "Motion, profiles and cams: MC_CamIn",
+      "section": "Function blocks",
+      "order": 121,
+      "file": "Function blocks/mc-camin.md",
+      "bytes": 5938
+    },
+    {
+      "slug": "mc-camout",
+      "title": "Motion, profiles and cams: MC_CamOut",
+      "section": "Function blocks",
+      "order": 122,
+      "file": "Function blocks/mc-camout.md",
+      "bytes": 2449
+    },
+    {
+      "slug": "mc-gearin",
+      "title": "Motion, the line shaft: MC_GearIn",
+      "section": "Function blocks",
+      "order": 123,
+      "file": "Function blocks/mc-gearin.md",
+      "bytes": 6950
+    },
+    {
+      "slug": "mc-gearout",
+      "title": "Motion, the line shaft: MC_GearOut",
+      "section": "Function blocks",
+      "order": 124,
+      "file": "Function blocks/mc-gearout.md",
+      "bytes": 2622
+    },
+    {
+      "slug": "mc-gearinpos",
+      "title": "Motion, the line shaft: MC_GearInPos",
+      "section": "Function blocks",
+      "order": 125,
+      "file": "Function blocks/mc-gearinpos.md",
+      "bytes": 6928
+    },
+    {
+      "slug": "mc-phasingabsolute",
+      "title": "Motion, the line shaft: MC_PhasingAbsolute",
+      "section": "Function blocks",
+      "order": 126,
+      "file": "Function blocks/mc-phasingabsolute.md",
+      "bytes": 4578
+    },
+    {
+      "slug": "mc-phasingrelative",
+      "title": "Motion, the line shaft: MC_PhasingRelative",
+      "section": "Function blocks",
+      "order": 127,
+      "file": "Function blocks/mc-phasingrelative.md",
+      "bytes": 4210
+    },
+    {
+      "slug": "mc-combineaxes",
+      "title": "Motion, the line shaft: MC_CombineAxes",
+      "section": "Function blocks",
+      "order": 128,
+      "file": "Function blocks/mc-combineaxes.md",
+      "bytes": 5498
+    },
+    {
+      "slug": "mc-settorquelimit",
+      "title": "Motion, torque: MC_SetTorqueLimit",
+      "section": "Function blocks",
+      "order": 129,
+      "file": "Function blocks/mc-settorquelimit.md",
+      "bytes": 2814
+    },
+    {
+      "slug": "mc-torquecontrol",
+      "title": "Motion, torque: MC_TorqueControl",
+      "section": "Function blocks",
+      "order": 130,
+      "file": "Function blocks/mc-torquecontrol.md",
+      "bytes": 4873
+    },
+    {
+      "slug": "mc-torqueff",
+      "title": "Motion, torque: MC_TorqueFF",
+      "section": "Function blocks",
+      "order": 131,
+      "file": "Function blocks/mc-torqueff.md",
+      "bytes": 3279
+    },
+    {
+      "slug": "mc-touchprobe",
+      "title": "Motion, probes and digital words: MC_TouchProbe",
+      "section": "Function blocks",
+      "order": 132,
+      "file": "Function blocks/mc-touchprobe.md",
+      "bytes": 3435
+    },
+    {
+      "slug": "mc-aborttrigger",
+      "title": "Motion, probes and digital words: MC_AbortTrigger",
+      "section": "Function blocks",
+      "order": 133,
+      "file": "Function blocks/mc-aborttrigger.md",
+      "bytes": 2267
+    },
+    {
+      "slug": "mc-digitalcamswitch",
+      "title": "Motion, probes and digital words: MC_DigitalCamSwitch",
+      "section": "Function blocks",
+      "order": 134,
+      "file": "Function blocks/mc-digitalcamswitch.md",
+      "bytes": 3278
+    },
+    {
+      "slug": "mc-readdigitalinput",
+      "title": "Motion, probes and digital words: MC_ReadDigitalInput",
+      "section": "Function blocks",
+      "order": 135,
+      "file": "Function blocks/mc-readdigitalinput.md",
+      "bytes": 2648
+    },
+    {
+      "slug": "mc-readdigitaloutput",
+      "title": "Motion, probes and digital words: MC_ReadDigitalOutput",
+      "section": "Function blocks",
+      "order": 136,
+      "file": "Function blocks/mc-readdigitaloutput.md",
+      "bytes": 2495
+    },
+    {
+      "slug": "mc-writedigitaloutput",
+      "title": "Motion, probes and digital words: MC_WriteDigitalOutput",
+      "section": "Function blocks",
+      "order": 137,
+      "file": "Function blocks/mc-writedigitaloutput.md",
+      "bytes": 3063
+    },
+    {
+      "slug": "blocks-can",
+      "title": "CANopen blocks",
+      "section": "Function blocks",
+      "order": 138,
+      "file": "Function blocks/blocks-can.md",
+      "bytes": 2434
+    },
+    {
+      "slug": "blocks-services",
+      "title": "Services",
+      "section": "Function blocks",
+      "order": 139,
+      "file": "Function blocks/blocks-services.md",
+      "bytes": 2381
+    },
+    {
+      "slug": "blocks-home",
+      "title": "Home automation",
+      "section": "Function blocks",
+      "order": 140,
+      "file": "Function blocks/blocks-home.md",
+      "bytes": 5665
+    },
+    {
+      "slug": "blocks-drives",
+      "title": "Drives",
+      "section": "Function blocks",
+      "order": 141,
+      "file": "Function blocks/blocks-drives.md",
+      "bytes": 1154
+    },
+    {
+      "slug": "fb-ton",
+      "title": "Timers: TON",
+      "section": "Function blocks",
+      "order": 142,
+      "file": "Function blocks/fb-ton.md",
+      "bytes": 2746
+    },
+    {
+      "slug": "fb-tof",
+      "title": "Timers: TOF",
+      "section": "Function blocks",
+      "order": 143,
+      "file": "Function blocks/fb-tof.md",
+      "bytes": 2191
+    },
+    {
+      "slug": "fb-tp",
+      "title": "Timers: TP",
+      "section": "Function blocks",
+      "order": 144,
+      "file": "Function blocks/fb-tp.md",
+      "bytes": 2191
+    },
+    {
+      "slug": "fb-blink",
+      "title": "Timers: BLINK",
+      "section": "Function blocks",
+      "order": 145,
+      "file": "Function blocks/fb-blink.md",
+      "bytes": 2413
+    },
+    {
+      "slug": "fb-ctu",
+      "title": "Counters: CTU",
+      "section": "Function blocks",
+      "order": 146,
+      "file": "Function blocks/fb-ctu.md",
+      "bytes": 3132
+    },
+    {
+      "slug": "fb-ctd",
+      "title": "Counters: CTD",
+      "section": "Function blocks",
+      "order": 147,
+      "file": "Function blocks/fb-ctd.md",
+      "bytes": 2521
+    },
+    {
+      "slug": "fb-r_trig",
+      "title": "Boolean: R_TRIG",
+      "section": "Function blocks",
+      "order": 148,
+      "file": "Function blocks/fb-r_trig.md",
+      "bytes": 1397
+    },
+    {
+      "slug": "fb-f_trig",
+      "title": "Boolean: F_TRIG",
+      "section": "Function blocks",
+      "order": 149,
+      "file": "Function blocks/fb-f_trig.md",
+      "bytes": 1321
+    },
+    {
+      "slug": "fb-sr",
+      "title": "Boolean: SR",
+      "section": "Function blocks",
+      "order": 150,
+      "file": "Function blocks/fb-sr.md",
+      "bytes": 2064
+    },
+    {
+      "slug": "fb-rs",
+      "title": "Boolean: RS",
+      "section": "Function blocks",
+      "order": 151,
+      "file": "Function blocks/fb-rs.md",
+      "bytes": 1959
+    },
+    {
+      "slug": "fb-and",
+      "title": "Boolean: AND",
+      "section": "Function blocks",
+      "order": 152,
+      "file": "Function blocks/fb-and.md",
+      "bytes": 1758
+    },
+    {
+      "slug": "fb-or",
+      "title": "Boolean: OR",
+      "section": "Function blocks",
+      "order": 153,
+      "file": "Function blocks/fb-or.md",
+      "bytes": 1561
+    },
+    {
+      "slug": "fb-xor",
+      "title": "Boolean: XOR",
+      "section": "Function blocks",
+      "order": 154,
+      "file": "Function blocks/fb-xor.md",
+      "bytes": 1743
+    },
+    {
+      "slug": "fb-not",
+      "title": "Boolean: NOT",
+      "section": "Function blocks",
+      "order": 155,
+      "file": "Function blocks/fb-not.md",
+      "bytes": 1488
+    },
+    {
+      "slug": "fb-add",
+      "title": "Maths: ADD",
+      "section": "Function blocks",
+      "order": 156,
+      "file": "Function blocks/fb-add.md",
+      "bytes": 2439
+    },
+    {
+      "slug": "fb-sub",
+      "title": "Maths: SUB",
+      "section": "Function blocks",
+      "order": 157,
+      "file": "Function blocks/fb-sub.md",
+      "bytes": 1720
+    },
+    {
+      "slug": "fb-mul",
+      "title": "Maths: MUL",
+      "section": "Function blocks",
+      "order": 158,
+      "file": "Function blocks/fb-mul.md",
+      "bytes": 1728
+    },
+    {
+      "slug": "fb-div",
+      "title": "Maths: DIV",
+      "section": "Function blocks",
+      "order": 159,
+      "file": "Function blocks/fb-div.md",
+      "bytes": 2284
+    },
+    {
+      "slug": "fb-min",
+      "title": "Maths: MIN",
+      "section": "Function blocks",
+      "order": 160,
+      "file": "Function blocks/fb-min.md",
+      "bytes": 1685
+    },
+    {
+      "slug": "fb-max",
+      "title": "Maths: MAX",
+      "section": "Function blocks",
+      "order": 161,
+      "file": "Function blocks/fb-max.md",
+      "bytes": 1732
+    },
+    {
+      "slug": "fb-abs",
+      "title": "Maths: ABS",
+      "section": "Function blocks",
+      "order": 162,
+      "file": "Function blocks/fb-abs.md",
+      "bytes": 1315
+    },
+    {
+      "slug": "fb-move",
+      "title": "Maths: MOVE",
+      "section": "Function blocks",
+      "order": 163,
+      "file": "Function blocks/fb-move.md",
+      "bytes": 1253
+    },
+    {
+      "slug": "fb-gt",
+      "title": "Comparison: GT",
+      "section": "Function blocks",
+      "order": 164,
+      "file": "Function blocks/fb-gt.md",
+      "bytes": 2174
+    },
+    {
+      "slug": "fb-ge",
+      "title": "Comparison: GE",
+      "section": "Function blocks",
+      "order": 165,
+      "file": "Function blocks/fb-ge.md",
+      "bytes": 1883
+    },
+    {
+      "slug": "fb-lt",
+      "title": "Comparison: LT",
+      "section": "Function blocks",
+      "order": 166,
+      "file": "Function blocks/fb-lt.md",
+      "bytes": 1891
+    },
+    {
+      "slug": "fb-le",
+      "title": "Comparison: LE",
+      "section": "Function blocks",
+      "order": 167,
+      "file": "Function blocks/fb-le.md",
+      "bytes": 1883
+    },
+    {
+      "slug": "fb-eq",
+      "title": "Comparison: EQ",
+      "section": "Function blocks",
+      "order": 168,
+      "file": "Function blocks/fb-eq.md",
+      "bytes": 1749
+    },
+    {
+      "slug": "fb-sel",
+      "title": "Comparison: SEL",
+      "section": "Function blocks",
+      "order": 169,
+      "file": "Function blocks/fb-sel.md",
+      "bytes": 1583
+    },
+    {
+      "slug": "fb-scale",
+      "title": "Signal handling: SCALE",
+      "section": "Function blocks",
+      "order": 170,
+      "file": "Function blocks/fb-scale.md",
+      "bytes": 2539
+    },
+    {
+      "slug": "fb-limit",
+      "title": "Signal handling: LIMIT",
+      "section": "Function blocks",
+      "order": 171,
+      "file": "Function blocks/fb-limit.md",
+      "bytes": 1827
+    },
+    {
+      "slug": "fb-hyst",
+      "title": "Signal handling: HYST",
+      "section": "Function blocks",
+      "order": 172,
+      "file": "Function blocks/fb-hyst.md",
+      "bytes": 2236
+    },
+    {
+      "slug": "fb-ramp",
+      "title": "Signal handling: RAMP",
+      "section": "Function blocks",
+      "order": 173,
+      "file": "Function blocks/fb-ramp.md",
+      "bytes": 1605
+    },
+    {
+      "slug": "fb-pt1",
+      "title": "Signal handling: PT1",
+      "section": "Function blocks",
+      "order": 174,
+      "file": "Function blocks/fb-pt1.md",
+      "bytes": 1911
+    },
+    {
+      "slug": "fb-motor",
+      "title": "Equipment: MOTOR",
+      "section": "Function blocks",
+      "order": 175,
+      "file": "Function blocks/fb-motor.md",
+      "bytes": 2857
+    },
+    {
+      "slug": "fb-valve",
+      "title": "Equipment: VALVE",
+      "section": "Function blocks",
+      "order": 176,
+      "file": "Function blocks/fb-valve.md",
+      "bytes": 2489
+    },
+    {
+      "slug": "fb-pid",
+      "title": "Equipment: PID",
+      "section": "Function blocks",
+      "order": 177,
+      "file": "Function blocks/fb-pid.md",
+      "bytes": 3918
+    },
+    {
+      "slug": "fb-co_cia402",
+      "title": "CANopen: CO_CIA402",
+      "section": "Function blocks",
+      "order": 178,
+      "file": "Function blocks/fb-co_cia402.md",
+      "bytes": 3032
+    },
+    {
+      "slug": "fb-co_sdowrite",
+      "title": "CANopen: CO_SDOWRITE",
+      "section": "Function blocks",
+      "order": 179,
+      "file": "Function blocks/fb-co_sdowrite.md",
+      "bytes": 1465
+    },
+    {
+      "slug": "fb-co_sdoread",
+      "title": "CANopen: CO_SDOREAD",
+      "section": "Function blocks",
+      "order": 180,
+      "file": "Function blocks/fb-co_sdoread.md",
+      "bytes": 1071
+    },
+    {
+      "slug": "fb-co_ramptime",
+      "title": "CANopen: CO_RAMPTIME",
+      "section": "Function blocks",
+      "order": 181,
+      "file": "Function blocks/fb-co_ramptime.md",
+      "bytes": 1674
+    },
+    {
+      "slug": "fb-ir_send",
+      "title": "Services: IR_SEND",
+      "section": "Function blocks",
+      "order": 182,
+      "file": "Function blocks/fb-ir_send.md",
+      "bytes": 2246
+    },
+    {
+      "slug": "fb-sms_send",
+      "title": "Services: SMS_SEND",
+      "section": "Function blocks",
+      "order": 183,
+      "file": "Function blocks/fb-sms_send.md",
+      "bytes": 2994
+    },
+    {
+      "slug": "fb-gsm_info",
+      "title": "Services: GSM_INFO",
+      "section": "Function blocks",
+      "order": 184,
+      "file": "Function blocks/fb-gsm_info.md",
+      "bytes": 2242
+    },
+    {
+      "slug": "fb-uds_dtc",
+      "title": "Vehicle diagnostics: UDS_DTC",
+      "section": "Function blocks",
+      "order": 185,
+      "file": "Function blocks/fb-uds_dtc.md",
+      "bytes": 2830
+    },
+    {
+      "slug": "fb-uds_clear",
+      "title": "Vehicle diagnostics: UDS_CLEAR",
+      "section": "Function blocks",
+      "order": 186,
+      "file": "Function blocks/fb-uds_clear.md",
+      "bytes": 1975
+    },
+    {
+      "slug": "fb-uds_read",
+      "title": "Vehicle diagnostics: UDS_READ",
+      "section": "Function blocks",
+      "order": 187,
+      "file": "Function blocks/fb-uds_read.md",
+      "bytes": 2162
+    },
+    {
+      "slug": "fb-ld_ret",
+      "title": "Ladder: LD_RET",
+      "section": "Function blocks",
+      "order": 188,
+      "file": "Function blocks/fb-ld_ret.md",
+      "bytes": 860
+    },
+    {
+      "slug": "fb-ld_jmp",
+      "title": "Ladder: LD_JMP",
+      "section": "Function blocks",
+      "order": 189,
+      "file": "Function blocks/fb-ld_jmp.md",
+      "bytes": 1390
+    },
+    {
+      "slug": "home-pushbutton",
+      "title": "Home automation: PUSHBUTTON",
+      "section": "Function blocks",
+      "order": 190,
+      "file": "Function blocks/home-pushbutton.md",
+      "bytes": 1851
+    },
+    {
+      "slug": "home-multiclick",
+      "title": "Home automation: MULTICLICK",
+      "section": "Function blocks",
+      "order": 191,
+      "file": "Function blocks/home-multiclick.md",
+      "bytes": 1321
+    },
+    {
+      "slug": "home-toggle",
+      "title": "Home automation: TOGGLE",
+      "section": "Function blocks",
+      "order": 192,
+      "file": "Function blocks/home-toggle.md",
+      "bytes": 1159
+    },
+    {
+      "slug": "home-stairlight",
+      "title": "Home automation: STAIRLIGHT",
+      "section": "Function blocks",
+      "order": 193,
+      "file": "Function blocks/home-stairlight.md",
+      "bytes": 1623
+    },
+    {
+      "slug": "home-dimmer",
+      "title": "Home automation: DIMMER",
+      "section": "Function blocks",
+      "order": 194,
+      "file": "Function blocks/home-dimmer.md",
+      "bytes": 1929
+    },
+    {
+      "slug": "home-pwm",
+      "title": "Home automation: PWM",
+      "section": "Function blocks",
+      "order": 195,
+      "file": "Function blocks/home-pwm.md",
+      "bytes": 982
+    },
+    {
+      "slug": "home-blinds",
+      "title": "Home automation: BLINDS",
+      "section": "Function blocks",
+      "order": 196,
+      "file": "Function blocks/home-blinds.md",
+      "bytes": 2413
+    },
+    {
+      "slug": "home-travel",
+      "title": "Home automation: TRAVEL",
+      "section": "Function blocks",
+      "order": 197,
+      "file": "Function blocks/home-travel.md",
+      "bytes": 1364
+    },
+    {
+      "slug": "home-presence",
+      "title": "Home automation: PRESENCE",
+      "section": "Function blocks",
+      "order": 198,
+      "file": "Function blocks/home-presence.md",
+      "bytes": 1263
+    },
+    {
+      "slug": "home-twilight",
+      "title": "Home automation: TWILIGHT",
+      "section": "Function blocks",
+      "order": 199,
+      "file": "Function blocks/home-twilight.md",
+      "bytes": 1536
+    },
+    {
+      "slug": "home-thermostat",
+      "title": "Home automation: THERMOSTAT",
+      "section": "Function blocks",
+      "order": 200,
+      "file": "Function blocks/home-thermostat.md",
+      "bytes": 2209
+    },
+    {
+      "slug": "home-daytime",
+      "title": "Home automation: DAYTIME",
+      "section": "Function blocks",
+      "order": 201,
+      "file": "Function blocks/home-daytime.md",
+      "bytes": 1868
+    },
+    {
+      "slug": "home-suntimes",
+      "title": "Home automation: SUNTIMES",
+      "section": "Function blocks",
+      "order": 202,
+      "file": "Function blocks/home-suntimes.md",
+      "bytes": 1520
+    },
+    {
+      "slug": "home-astro",
+      "title": "Home automation: ASTRO",
+      "section": "Function blocks",
+      "order": 203,
+      "file": "Function blocks/home-astro.md",
+      "bytes": 1731
+    },
+    {
+      "slug": "home-schedule",
+      "title": "Home automation: SCHEDULE",
+      "section": "Function blocks",
+      "order": 204,
+      "file": "Function blocks/home-schedule.md",
+      "bytes": 2154
+    },
+    {
+      "slug": "home-scene",
+      "title": "Home automation: SCENE",
+      "section": "Function blocks",
+      "order": 205,
+      "file": "Function blocks/home-scene.md",
+      "bytes": 1836
+    },
+    {
+      "slug": "home-gate",
+      "title": "Home automation: GATE",
+      "section": "Function blocks",
+      "order": 206,
+      "file": "Function blocks/home-gate.md",
+      "bytes": 1886
+    },
+    {
+      "slug": "home-vent",
+      "title": "Home automation: VENT",
+      "section": "Function blocks",
+      "order": 207,
+      "file": "Function blocks/home-vent.md",
+      "bytes": 1668
+    },
+    {
+      "slug": "home-central",
+      "title": "Home automation: CENTRAL",
+      "section": "Function blocks",
+      "order": 208,
+      "file": "Function blocks/home-central.md",
+      "bytes": 1645
+    },
+    {
+      "slug": "home-energy",
+      "title": "Home automation: ENERGY",
+      "section": "Function blocks",
+      "order": 209,
+      "file": "Function blocks/home-energy.md",
+      "bytes": 1331
+    },
+    {
+      "slug": "drv-drive",
+      "title": "Drives: DRIVE",
+      "section": "Function blocks",
+      "order": 210,
+      "file": "Function blocks/drv-drive.md",
+      "bytes": 4940
+    },
+    {
+      "slug": "vision",
+      "title": "Vision",
+      "section": "Vision",
+      "order": 211,
+      "file": "Vision/index.md",
+      "bytes": 29375
+    },
+    {
+      "slug": "cameras",
+      "title": "Cameras",
+      "section": "Vision",
+      "order": 212,
+      "file": "Vision/cameras.md",
+      "bytes": 8207
+    },
+    {
+      "slug": "vision-blocks",
+      "title": "Vision blocks",
+      "section": "Vision",
+      "order": 213,
+      "file": "Vision/vision-blocks.md",
+      "bytes": 22986
+    },
+    {
+      "slug": "vision-camera",
+      "title": "Source: Camera",
+      "section": "Vision",
+      "order": 214,
+      "file": "Vision/vision-camera.md",
+      "bytes": 2747
+    },
+    {
+      "slug": "vision-crop",
+      "title": "Geometry: Crop",
+      "section": "Vision",
+      "order": 215,
+      "file": "Vision/vision-crop.md",
+      "bytes": 2999
+    },
+    {
+      "slug": "vision-resize",
+      "title": "Geometry: Resize",
+      "section": "Vision",
+      "order": 216,
+      "file": "Vision/vision-resize.md",
+      "bytes": 2437
+    },
+    {
+      "slug": "vision-rotate",
+      "title": "Geometry: Rotate",
+      "section": "Vision",
+      "order": 217,
+      "file": "Vision/vision-rotate.md",
+      "bytes": 2298
+    },
+    {
+      "slug": "vision-warp",
+      "title": "Geometry: Straighten",
+      "section": "Vision",
+      "order": 218,
+      "file": "Vision/vision-warp.md",
+      "bytes": 3626
+    },
+    {
+      "slug": "vision-flip",
+      "title": "Geometry: Flip",
+      "section": "Vision",
+      "order": 219,
+      "file": "Vision/vision-flip.md",
+      "bytes": 2047
+    },
+    {
+      "slug": "vision-affine",
+      "title": "Geometry: Turn and shift",
+      "section": "Vision",
+      "order": 220,
+      "file": "Vision/vision-affine.md",
+      "bytes": 2954
+    },
+    {
+      "slug": "vision-polar",
+      "title": "Geometry: Unroll ring",
+      "section": "Vision",
+      "order": 221,
+      "file": "Vision/vision-polar.md",
+      "bytes": 2976
+    },
+    {
+      "slug": "vision-pyramid",
+      "title": "Geometry: Halve",
+      "section": "Vision",
+      "order": 222,
+      "file": "Vision/vision-pyramid.md",
+      "bytes": 2475
+    },
+    {
+      "slug": "vision-undistort",
+      "title": "Geometry: Lens correction",
+      "section": "Vision",
+      "order": 223,
+      "file": "Vision/vision-undistort.md",
+      "bytes": 4070
+    },
+    {
+      "slug": "vision-fixture",
+      "title": "Geometry: Fixture",
+      "section": "Vision",
+      "order": 224,
+      "file": "Vision/vision-fixture.md",
+      "bytes": 4529
+    },
+    {
+      "slug": "vision-world",
+      "title": "Geometry: Plane from a board",
+      "section": "Vision",
+      "order": 225,
+      "file": "Vision/vision-world.md",
+      "bytes": 4592
+    },
+    {
+      "slug": "vision-gray",
+      "title": "Colour: Grayscale",
+      "section": "Vision",
+      "order": 226,
+      "file": "Vision/vision-gray.md",
+      "bytes": 1851
+    },
+    {
+      "slug": "vision-hsv_range",
+      "title": "Colour: Colour range",
+      "section": "Vision",
+      "order": 227,
+      "file": "Vision/vision-hsv_range.md",
+      "bytes": 3589
+    },
+    {
+      "slug": "vision-threshold",
+      "title": "Colour: Threshold",
+      "section": "Vision",
+      "order": 228,
+      "file": "Vision/vision-threshold.md",
+      "bytes": 2792
+    },
+    {
+      "slug": "vision-otsu",
+      "title": "Colour: Automatic threshold",
+      "section": "Vision",
+      "order": 229,
+      "file": "Vision/vision-otsu.md",
+      "bytes": 2544
+    },
+    {
+      "slug": "vision-invert",
+      "title": "Colour: Invert",
+      "section": "Vision",
+      "order": 230,
+      "file": "Vision/vision-invert.md",
+      "bytes": 1652
+    },
+    {
+      "slug": "vision-channel",
+      "title": "Colour: One channel",
+      "section": "Vision",
+      "order": 231,
+      "file": "Vision/vision-channel.md",
+      "bytes": 2814
+    },
+    {
+      "slug": "vision-adaptive",
+      "title": "Colour: Adaptive threshold",
+      "section": "Vision",
+      "order": 232,
+      "file": "Vision/vision-adaptive.md",
+      "bytes": 3159
+    },
+    {
+      "slug": "vision-balance",
+      "title": "Colour: White balance",
+      "section": "Vision",
+      "order": 233,
+      "file": "Vision/vision-balance.md",
+      "bytes": 2681
+    },
+    {
+      "slug": "vision-blur",
+      "title": "Filters: Blur",
+      "section": "Vision",
+      "order": 234,
+      "file": "Vision/vision-blur.md",
+      "bytes": 2346
+    },
+    {
+      "slug": "vision-gauss",
+      "title": "Filters: Gaussian blur",
+      "section": "Vision",
+      "order": 235,
+      "file": "Vision/vision-gauss.md",
+      "bytes": 2206
+    },
+    {
+      "slug": "vision-median",
+      "title": "Filters: Median",
+      "section": "Vision",
+      "order": 236,
+      "file": "Vision/vision-median.md",
+      "bytes": 2253
+    },
+    {
+      "slug": "vision-equalize",
+      "title": "Filters: Equalize light",
+      "section": "Vision",
+      "order": 237,
+      "file": "Vision/vision-equalize.md",
+      "bytes": 2227
+    },
+    {
+      "slug": "vision-sharpen",
+      "title": "Filters: Sharpen",
+      "section": "Vision",
+      "order": 238,
+      "file": "Vision/vision-sharpen.md",
+      "bytes": 2504
+    },
+    {
+      "slug": "vision-absdiff",
+      "title": "Filters: Difference",
+      "section": "Vision",
+      "order": 239,
+      "file": "Vision/vision-absdiff.md",
+      "bytes": 3013
+    },
+    {
+      "slug": "vision-motion",
+      "title": "Filters: Motion",
+      "section": "Vision",
+      "order": 240,
+      "file": "Vision/vision-motion.md",
+      "bytes": 3073
+    },
+    {
+      "slug": "vision-bilateral",
+      "title": "Filters: Smooth, keep edges",
+      "section": "Vision",
+      "order": 241,
+      "file": "Vision/vision-bilateral.md",
+      "bytes": 2705
+    },
+    {
+      "slug": "vision-normalize",
+      "title": "Filters: Stretch contrast",
+      "section": "Vision",
+      "order": 242,
+      "file": "Vision/vision-normalize.md",
+      "bytes": 2829
+    },
+    {
+      "slug": "vision-gamma",
+      "title": "Filters: Gamma",
+      "section": "Vision",
+      "order": 243,
+      "file": "Vision/vision-gamma.md",
+      "bytes": 2562
+    },
+    {
+      "slug": "vision-clahe",
+      "title": "Filters: Local contrast",
+      "section": "Vision",
+      "order": 244,
+      "file": "Vision/vision-clahe.md",
+      "bytes": 2769
+    },
+    {
+      "slug": "vision-combine",
+      "title": "Filters: Combine pictures",
+      "section": "Vision",
+      "order": 245,
+      "file": "Vision/vision-combine.md",
+      "bytes": 2907
+    },
+    {
+      "slug": "vision-mask",
+      "title": "Filters: Mask",
+      "section": "Vision",
+      "order": 246,
+      "file": "Vision/vision-mask.md",
+      "bytes": 2626
+    },
+    {
+      "slug": "vision-erode",
+      "title": "Shapes: Erode",
+      "section": "Vision",
+      "order": 247,
+      "file": "Vision/vision-erode.md",
+      "bytes": 2444
+    },
+    {
+      "slug": "vision-dilate",
+      "title": "Shapes: Dilate",
+      "section": "Vision",
+      "order": 248,
+      "file": "Vision/vision-dilate.md",
+      "bytes": 2409
+    },
+    {
+      "slug": "vision-open",
+      "title": "Shapes: Open",
+      "section": "Vision",
+      "order": 249,
+      "file": "Vision/vision-open.md",
+      "bytes": 2381
+    },
+    {
+      "slug": "vision-close",
+      "title": "Shapes: Close",
+      "section": "Vision",
+      "order": 250,
+      "file": "Vision/vision-close.md",
+      "bytes": 2405
+    },
+    {
+      "slug": "vision-tophat",
+      "title": "Shapes: Top-hat",
+      "section": "Vision",
+      "order": 251,
+      "file": "Vision/vision-tophat.md",
+      "bytes": 2659
+    },
+    {
+      "slug": "vision-blackhat",
+      "title": "Shapes: Black-hat",
+      "section": "Vision",
+      "order": 252,
+      "file": "Vision/vision-blackhat.md",
+      "bytes": 2542
+    },
+    {
+      "slug": "vision-gradient",
+      "title": "Shapes: Outline",
+      "section": "Vision",
+      "order": 253,
+      "file": "Vision/vision-gradient.md",
+      "bytes": 2608
+    },
+    {
+      "slug": "vision-fill_holes",
+      "title": "Shapes: Fill holes",
+      "section": "Vision",
+      "order": 254,
+      "file": "Vision/vision-fill_holes.md",
+      "bytes": 2162
+    },
+    {
+      "slug": "vision-distance",
+      "title": "Shapes: Distance map",
+      "section": "Vision",
+      "order": 255,
+      "file": "Vision/vision-distance.md",
+      "bytes": 2255
+    },
+    {
+      "slug": "vision-canny",
+      "title": "Edges: Edges",
+      "section": "Vision",
+      "order": 256,
+      "file": "Vision/vision-canny.md",
+      "bytes": 2918
+    },
+    {
+      "slug": "vision-sobel",
+      "title": "Edges: Gradient",
+      "section": "Vision",
+      "order": 257,
+      "file": "Vision/vision-sobel.md",
+      "bytes": 2676
+    },
+    {
+      "slug": "vision-laplacian",
+      "title": "Edges: Laplacian",
+      "section": "Vision",
+      "order": 258,
+      "file": "Vision/vision-laplacian.md",
+      "bytes": 2437
+    },
+    {
+      "slug": "vision-scharr",
+      "title": "Edges: Gradient (fine)",
+      "section": "Vision",
+      "order": 259,
+      "file": "Vision/vision-scharr.md",
+      "bytes": 2235
+    },
+    {
+      "slug": "vision-contours",
+      "title": "Finding objects: Find objects",
+      "section": "Vision",
+      "order": 260,
+      "file": "Vision/vision-contours.md",
+      "bytes": 3417
+    },
+    {
+      "slug": "vision-circles",
+      "title": "Finding objects: Find circles",
+      "section": "Vision",
+      "order": 261,
+      "file": "Vision/vision-circles.md",
+      "bytes": 3237
+    },
+    {
+      "slug": "vision-pattern",
+      "title": "Finding objects: Find pattern",
+      "section": "Vision",
+      "order": 262,
+      "file": "Vision/vision-pattern.md",
+      "bytes": 3730
+    },
+    {
+      "slug": "vision-lines",
+      "title": "Finding objects: Find lines",
+      "section": "Vision",
+      "order": 263,
+      "file": "Vision/vision-lines.md",
+      "bytes": 3102
+    },
+    {
+      "slug": "vision-objcheck",
+      "title": "Finding objects: Check objects",
+      "section": "Vision",
+      "order": 264,
+      "file": "Vision/vision-objcheck.md",
+      "bytes": 3251
+    },
+    {
+      "slug": "vision-pick",
+      "title": "Finding objects: Pick object",
+      "section": "Vision",
+      "order": 265,
+      "file": "Vision/vision-pick.md",
+      "bytes": 3078
+    },
+    {
+      "slug": "vision-crop_object",
+      "title": "Finding objects: Crop to object",
+      "section": "Vision",
+      "order": 266,
+      "file": "Vision/vision-crop_object.md",
+      "bytes": 2896
+    },
+    {
+      "slug": "vision-filter_objects",
+      "title": "Finding objects: Filter objects",
+      "section": "Vision",
+      "order": 267,
+      "file": "Vision/vision-filter_objects.md",
+      "bytes": 3170
+    },
+    {
+      "slug": "vision-object_shape",
+      "title": "Finding objects: Object shape",
+      "section": "Vision",
+      "order": 268,
+      "file": "Vision/vision-object_shape.md",
+      "bytes": 3118
+    },
+    {
+      "slug": "vision-nearest",
+      "title": "Finding objects: Nearest object",
+      "section": "Vision",
+      "order": 269,
+      "file": "Vision/vision-nearest.md",
+      "bytes": 2735
+    },
+    {
+      "slug": "vision-corners",
+      "title": "Finding objects: Find corners",
+      "section": "Vision",
+      "order": 270,
+      "file": "Vision/vision-corners.md",
+      "bytes": 2822
+    },
+    {
+      "slug": "vision-floodfill",
+      "title": "Finding objects: Fill from point",
+      "section": "Vision",
+      "order": 271,
+      "file": "Vision/vision-floodfill.md",
+      "bytes": 2863
+    },
+    {
+      "slug": "vision-features",
+      "title": "Finding objects: Find by features",
+      "section": "Vision",
+      "order": 272,
+      "file": "Vision/vision-features.md",
+      "bytes": 3784
+    },
+    {
+      "slug": "vision-aruco",
+      "title": "Finding objects: Find markers",
+      "section": "Vision",
+      "order": 273,
+      "file": "Vision/vision-aruco.md",
+      "bytes": 3326
+    },
+    {
+      "slug": "vision-chessboard",
+      "title": "Finding objects: Find chessboard",
+      "section": "Vision",
+      "order": 274,
+      "file": "Vision/vision-chessboard.md",
+      "bytes": 2905
+    },
+    {
+      "slug": "vision-object_colour",
+      "title": "Finding objects: Colour of object",
+      "section": "Vision",
+      "order": 275,
+      "file": "Vision/vision-object_colour.md",
+      "bytes": 3319
+    },
+    {
+      "slug": "vision-st",
+      "title": "Logic: ST code",
+      "section": "Vision",
+      "order": 276,
+      "file": "Vision/vision-st.md",
+      "bytes": 3829
+    },
+    {
+      "slug": "vision-brightness",
+      "title": "Measurements: Brightness",
+      "section": "Vision",
+      "order": 277,
+      "file": "Vision/vision-brightness.md",
+      "bytes": 2273
+    },
+    {
+      "slug": "vision-white_ratio",
+      "title": "Measurements: White share",
+      "section": "Vision",
+      "order": 278,
+      "file": "Vision/vision-white_ratio.md",
+      "bytes": 2080
+    },
+    {
+      "slug": "vision-blobs",
+      "title": "Measurements: Count objects",
+      "section": "Vision",
+      "order": 279,
+      "file": "Vision/vision-blobs.md",
+      "bytes": 2613
+    },
+    {
+      "slug": "vision-scale",
+      "title": "Measurements: Scale",
+      "section": "Vision",
+      "order": 280,
+      "file": "Vision/vision-scale.md",
+      "bytes": 2911
+    },
+    {
+      "slug": "vision-ruler",
+      "title": "Measurements: Ruler",
+      "section": "Vision",
+      "order": 281,
+      "file": "Vision/vision-ruler.md",
+      "bytes": 3454
+    },
+    {
+      "slug": "vision-in_range",
+      "title": "Measurements: In range",
+      "section": "Vision",
+      "order": 282,
+      "file": "Vision/vision-in_range.md",
+      "bytes": 2508
+    },
+    {
+      "slug": "vision-caliper",
+      "title": "Measurements: Caliper",
+      "section": "Vision",
+      "order": 283,
+      "file": "Vision/vision-caliper.md",
+      "bytes": 4584
+    },
+    {
+      "slug": "vision-stats",
+      "title": "Measurements: Brightness statistics",
+      "section": "Vision",
+      "order": 284,
+      "file": "Vision/vision-stats.md",
+      "bytes": 3024
+    },
+    {
+      "slug": "vision-sharpness",
+      "title": "Measurements: Sharpness",
+      "section": "Vision",
+      "order": 285,
+      "file": "Vision/vision-sharpness.md",
+      "bytes": 3271
+    },
+    {
+      "slug": "vision-histogram",
+      "title": "Measurements: Histogram",
+      "section": "Vision",
+      "order": 286,
+      "file": "Vision/vision-histogram.md",
+      "bytes": 3139
+    },
+    {
+      "slug": "vision-dist",
+      "title": "Measurements: Distance",
+      "section": "Vision",
+      "order": 287,
+      "file": "Vision/vision-dist.md",
+      "bytes": 2488
+    },
+    {
+      "slug": "vision-golden",
+      "title": "Measurements: Compare with taught",
+      "section": "Vision",
+      "order": 288,
+      "file": "Vision/vision-golden.md",
+      "bytes": 4009
+    },
+    {
+      "slug": "vision-level",
+      "title": "Measurements: Fill level",
+      "section": "Vision",
+      "order": 289,
+      "file": "Vision/vision-level.md",
+      "bytes": 4419
+    },
+    {
+      "slug": "vision-circle_fit",
+      "title": "Measurements: Circle (fit)",
+      "section": "Vision",
+      "order": 290,
+      "file": "Vision/vision-circle_fit.md",
+      "bytes": 4485
+    },
+    {
+      "slug": "vision-line_fit",
+      "title": "Measurements: Line (fit)",
+      "section": "Vision",
+      "order": 291,
+      "file": "Vision/vision-line_fit.md",
+      "bytes": 4345
+    },
+    {
+      "slug": "vision-angle",
+      "title": "Measurements: Angle",
+      "section": "Vision",
+      "order": 292,
+      "file": "Vision/vision-angle.md",
+      "bytes": 2416
+    },
+    {
+      "slug": "vision-points_dist",
+      "title": "Measurements: Distance of points",
+      "section": "Vision",
+      "order": 293,
+      "file": "Vision/vision-points_dist.md",
+      "bytes": 3090
+    },
+    {
+      "slug": "vision-part_ok",
+      "title": "Measurements: Part in place",
+      "section": "Vision",
+      "order": 294,
+      "file": "Vision/vision-part_ok.md",
+      "bytes": 4451
+    },
+    {
+      "slug": "vision-laser_line",
+      "title": "Measurements: Laser line profile",
+      "section": "Vision",
+      "order": 295,
+      "file": "Vision/vision-laser_line.md",
+      "bytes": 5539
+    },
+    {
+      "slug": "vision-presence",
+      "title": "Ready tools: Presence",
+      "section": "Vision",
+      "order": 296,
+      "file": "Vision/vision-presence.md",
+      "bytes": 3202
+    },
+    {
+      "slug": "vision-colour",
+      "title": "Ready tools: Colour check",
+      "section": "Vision",
+      "order": 297,
+      "file": "Vision/vision-colour.md",
+      "bytes": 3667
+    },
+    {
+      "slug": "vision-edge",
+      "title": "Ready tools: Edge position",
+      "section": "Vision",
+      "order": 298,
+      "file": "Vision/vision-edge.md",
+      "bytes": 3275
+    },
+    {
+      "slug": "vision-code",
+      "title": "Ready tools: Read code",
+      "section": "Vision",
+      "order": 299,
+      "file": "Vision/vision-code.md",
+      "bytes": 3917
+    },
+    {
+      "slug": "vision-shape",
+      "title": "Ready tools: Match shape",
+      "section": "Vision",
+      "order": 300,
+      "file": "Vision/vision-shape.md",
+      "bytes": 3357
+    },
+    {
+      "slug": "vision-dnn_classify",
+      "title": "Learned models: Classify (model)",
+      "section": "Vision",
+      "order": 301,
+      "file": "Vision/vision-dnn_classify.md",
+      "bytes": 4468
+    },
+    {
+      "slug": "vision-dnn_detect",
+      "title": "Learned models: Detect (model)",
+      "section": "Vision",
+      "order": 302,
+      "file": "Vision/vision-dnn_detect.md",
+      "bytes": 5253
+    },
+    {
+      "slug": "buses",
+      "title": "Protocols",
+      "section": "Protocols",
+      "order": 303,
+      "file": "Protocols/index.md",
+      "bytes": 8665
+    },
+    {
+      "slug": "modbus-basics",
+      "title": "What Modbus is",
+      "section": "Protocols",
+      "order": 304,
+      "file": "Protocols/modbus-basics.md",
+      "bytes": 9796
+    },
+    {
+      "slug": "modbus",
+      "title": "Modbus",
+      "section": "Protocols",
+      "order": 305,
+      "file": "Protocols/modbus.md",
+      "bytes": 16458
+    },
+    {
+      "slug": "rawcan",
+      "title": "Raw CAN",
+      "section": "Protocols",
+      "order": 306,
+      "file": "Protocols/rawcan.md",
+      "bytes": 4554
+    },
+    {
+      "slug": "mqtt",
+      "title": "MQTT",
+      "section": "Protocols",
+      "order": 307,
+      "file": "Protocols/mqtt.md",
+      "bytes": 14145
+    },
+    {
+      "slug": "home-assistant",
+      "title": "Home Assistant",
+      "section": "Protocols",
+      "order": 308,
+      "file": "Protocols/home-assistant.md",
+      "bytes": 11809
+    },
+    {
+      "slug": "canopen",
+      "title": "CANopen",
+      "section": "Protocols",
+      "order": 309,
+      "file": "Protocols/canopen.md",
+      "bytes": 12483
+    },
+    {
+      "slug": "ethercat",
+      "title": "EtherCAT",
+      "section": "Protocols",
+      "order": 310,
+      "file": "Protocols/ethercat.md",
+      "bytes": 21642
+    },
+    {
+      "slug": "vehicle-buses",
+      "title": "Vehicle buses (J1939)",
+      "section": "Protocols",
+      "order": 311,
+      "file": "Protocols/vehicle-buses.md",
+      "bytes": 12995
+    },
+    {
+      "slug": "vehicle-diagnostics",
+      "title": "Vehicle diagnostics",
+      "section": "Protocols",
+      "order": 312,
+      "file": "Protocols/vehicle-diagnostics.md",
+      "bytes": 6672
+    },
+    {
+      "slug": "plus7",
+      "title": "+7 (S7 PLC)",
+      "section": "Protocols",
+      "order": 313,
+      "file": "Protocols/plus7.md",
+      "bytes": 8324
+    },
+    {
+      "slug": "net32",
+      "title": "net32",
+      "section": "Protocols",
+      "order": 314,
+      "file": "Protocols/net32.md",
+      "bytes": 7483
+    },
+    {
+      "slug": "opcua",
+      "title": "OPC UA",
+      "section": "Protocols",
+      "order": 315,
+      "file": "Protocols/opcua.md",
+      "bytes": 4188
+    },
+    {
+      "slug": "adding-peripherals",
+      "title": "Adding a peripheral",
+      "section": "Protocols",
+      "order": 316,
+      "file": "Protocols/adding-peripherals.md",
+      "bytes": 896
+    },
+    {
+      "slug": "peripherals-and-services",
+      "title": "Chips and services",
+      "section": "Chips and services",
+      "order": 317,
+      "file": "Chips and services/index.md",
+      "bytes": 7328
+    },
+    {
+      "slug": "peripherals-temperature",
+      "title": "Temperature",
+      "section": "Chips and services",
+      "order": 318,
+      "file": "Chips and services/peripherals-temperature.md",
+      "bytes": 4814
+    },
+    {
+      "slug": "peripherals-environment",
+      "title": "Environment",
+      "section": "Chips and services",
+      "order": 319,
+      "file": "Chips and services/peripherals-environment.md",
+      "bytes": 6112
+    },
+    {
+      "slug": "peripherals-air",
+      "title": "Air quality",
+      "section": "Chips and services",
+      "order": 320,
+      "file": "Chips and services/peripherals-air.md",
+      "bytes": 5544
+    },
+    {
+      "slug": "peripherals-light",
+      "title": "Light, distance, motion",
+      "section": "Chips and services",
+      "order": 321,
+      "file": "Chips and services/peripherals-light.md",
+      "bytes": 5172
+    },
+    {
+      "slug": "peripherals-pressure",
+      "title": "Pressure and position",
+      "section": "Chips and services",
+      "order": 322,
+      "file": "Chips and services/peripherals-pressure.md",
+      "bytes": 6858
+    },
+    {
+      "slug": "peripherals-analog",
+      "title": "Analog in and out",
+      "section": "Chips and services",
+      "order": 323,
+      "file": "Chips and services/peripherals-analog.md",
+      "bytes": 7692
+    },
+    {
+      "slug": "analog-inputs",
+      "title": "Reading real values",
+      "section": "Chips and services",
+      "order": 324,
+      "file": "Chips and services/analog-inputs.md",
+      "bytes": 5818
+    },
+    {
+      "slug": "peripherals-io",
+      "title": "I/O expanders and drivers",
+      "section": "Chips and services",
+      "order": 325,
+      "file": "Chips and services/peripherals-io.md",
+      "bytes": 7273
+    },
+    {
+      "slug": "peripherals-power",
+      "title": "Power and energy",
+      "section": "Chips and services",
+      "order": 326,
+      "file": "Chips and services/peripherals-power.md",
+      "bytes": 6801
+    },
+    {
+      "slug": "peripherals-connectivity",
+      "title": "Cellular modems",
+      "section": "Chips and services",
+      "order": 327,
+      "file": "Chips and services/peripherals-connectivity.md",
+      "bytes": 4329
+    },
+    {
+      "slug": "deployment",
+      "title": "Deployment",
+      "section": "Deployment",
+      "order": 328,
+      "file": "Deployment/index.md",
+      "bytes": 654
+    },
+    {
+      "slug": "find-devices",
+      "title": "Finding your boards",
+      "section": "Deployment",
+      "order": 329,
+      "file": "Deployment/find-devices.md",
+      "bytes": 5147
+    },
+    {
+      "slug": "deploy",
+      "title": "Download to the panel",
+      "section": "Deployment",
+      "order": 330,
+      "file": "Deployment/deploy.md",
+      "bytes": 9044
+    },
+    {
+      "slug": "operation",
+      "title": "Operation",
+      "section": "Operation",
+      "order": 331,
+      "file": "Operation/index.md",
+      "bytes": 714
+    },
+    {
+      "slug": "online",
+      "title": "Online monitoring",
+      "section": "Operation",
+      "order": 332,
+      "file": "Operation/online.md",
+      "bytes": 8010
+    },
+    {
+      "slug": "recipes",
+      "title": "Recipes",
+      "section": "Operation",
+      "order": 333,
+      "file": "Operation/recipes.md",
+      "bytes": 3978
+    },
+    {
+      "slug": "scope",
+      "title": "Scope",
+      "section": "Operation",
+      "order": 334,
+      "file": "Operation/scope.md",
+      "bytes": 6342
+    },
+    {
+      "slug": "force",
+      "title": "Forcing values",
+      "section": "Operation",
+      "order": 335,
+      "file": "Operation/force.md",
+      "bytes": 3433
+    },
+    {
+      "slug": "limits",
+      "title": "Performance and limits",
+      "section": "Operation",
+      "order": 336,
+      "file": "Operation/limits.md",
+      "bytes": 6600
+    },
+    {
+      "slug": "troubleshooting",
+      "title": "Troubleshooting",
+      "section": "Operation",
+      "order": 337,
+      "file": "Operation/troubleshooting.md",
+      "bytes": 6132
+    },
+    {
+      "slug": "about",
+      "title": "About",
+      "section": "About",
+      "order": 338,
+      "file": "About/index.md",
+      "bytes": 509
+    },
+    {
+      "slug": "intended-use",
+      "title": "Intended use",
+      "section": "About",
+      "order": 339,
+      "file": "About/intended-use.md",
+      "bytes": 4655
+    },
+    {
+      "slug": "licensing",
+      "title": "Licensing",
+      "section": "About",
+      "order": 340,
+      "file": "About/licensing.md",
+      "bytes": 1391
+    },
+    {
+      "slug": "security",
+      "title": "Network and security",
+      "section": "About",
+      "order": 341,
+      "file": "About/security.md",
+      "bytes": 5120
+    },
+    {
+      "slug": "third-party",
+      "title": "Third-party licences",
+      "section": "About",
+      "order": 342,
+      "file": "About/third-party.md",
+      "bytes": 5791
+    },
+    {
+      "slug": "changelog",
+      "title": "What's new",
+      "section": "About",
+      "order": 343,
+      "file": "About/changelog.md",
+      "bytes": 116671
+    }
+  ],
+  "assets": [
+    "img/analog-current.webp",
+    "img/analog-ntc.webp",
+    "img/analog-screen.webp",
+    "img/axis-wizard.webp",
+    "img/blk-abs-ld.webp",
+    "img/blk-abs-web.webp",
+    "img/blk-add-ld.webp",
+    "img/blk-add-web.webp",
+    "img/blk-and-ld.webp",
+    "img/blk-and-web.webp",
+    "img/blk-blink-ld.webp",
+    "img/blk-blink-web.webp",
+    "img/blk-co402-ld.webp",
+    "img/blk-co402-web.webp",
+    "img/blk-coramp-web.webp",
+    "img/blk-ctd-ld.webp",
+    "img/blk-ctd-web.webp",
+    "img/blk-ctu-ld.webp",
+    "img/blk-ctu-web.webp",
+    "img/blk-div-ld.webp",
+    "img/blk-div-web.webp",
+    "img/blk-eq-ld.webp",
+    "img/blk-eq-web.webp",
+    "img/blk-ftrig-ld.webp",
+    "img/blk-ftrig-web.webp",
+    "img/blk-ge-ld.webp",
+    "img/blk-ge-web.webp",
+    "img/blk-gsm-ld.webp",
+    "img/blk-gsm-web.webp",
+    "img/blk-gt-ld.webp",
+    "img/blk-gt-web.webp",
+    "img/blk-hyst-ld.webp",
+    "img/blk-hyst-web.webp",
+    "img/blk-ir-ld.webp",
+    "img/blk-ir-web.webp",
+    "img/blk-le-ld.webp",
+    "img/blk-le-web.webp",
+    "img/blk-limit-ld.webp",
+    "img/blk-limit-web.webp",
+    "img/blk-lt-ld.webp",
+    "img/blk-lt-web.webp",
+    "img/blk-max-ld.webp",
+    "img/blk-max-web.webp",
+    "img/blk-mcabs-ld.webp",
+    "img/blk-mcabs-web.webp",
+    "img/blk-mcadd-ld.webp",
+    "img/blk-mcadd-web.webp",
+    "img/blk-mcapro-ld.webp",
+    "img/blk-mcapro-web.webp",
+    "img/blk-mccabs-ld.webp",
+    "img/blk-mccabs-web.webp",
+    "img/blk-mccami-ld.webp",
+    "img/blk-mccami-web.webp",
+    "img/blk-mccamo-ld.webp",
+    "img/blk-mccamo-web.webp",
+    "img/blk-mccomb-ld.webp",
+    "img/blk-mccomb-web.webp",
+    "img/blk-mccrel-ld.webp",
+    "img/blk-mccrel-web.webp",
+    "img/blk-mccsw-ld.webp",
+    "img/blk-mccsw-web.webp",
+    "img/blk-mccts-ld.webp",
+    "img/blk-mccts-web.webp",
+    "img/blk-mcgin-ld.webp",
+    "img/blk-mcgin-web.webp",
+    "img/blk-mcgip-ld.webp",
+    "img/blk-mcgip-web.webp",
+    "img/blk-mcgout-ld.webp",
+    "img/blk-mcgout-web.webp",
+    "img/blk-mchlt-ld.webp",
+    "img/blk-mchlt-web.webp",
+    "img/blk-mchlts-ld.webp",
+    "img/blk-mchlts-web.webp",
+    "img/blk-mchome-ld.webp",
+    "img/blk-mchome-web.webp",
+    "img/blk-mcovr-ld.webp",
+    "img/blk-mcovr-web.webp",
+    "img/blk-mcpha-ld.webp",
+    "img/blk-mcpha-web.webp",
+    "img/blk-mcphr-ld.webp",
+    "img/blk-mcphr-web.webp",
+    "img/blk-mcphs-ld.webp",
+    "img/blk-mcphs-web.webp",
+    "img/blk-mcpow-ld.webp",
+    "img/blk-mcpow-web.webp",
+    "img/blk-mcppro-ld.webp",
+    "img/blk-mcppro-web.webp",
+    "img/blk-mcprb-ld.webp",
+    "img/blk-mcprb-web.webp",
+    "img/blk-mcprbx-ld.webp",
+    "img/blk-mcprbx-web.webp",
+    "img/blk-mcrai-ld.webp",
+    "img/blk-mcrai-web.webp",
+    "img/blk-mcrbpar-ld.webp",
+    "img/blk-mcrbpar-web.webp",
+    "img/blk-mcrdi-ld.webp",
+    "img/blk-mcrdi-web.webp",
+    "img/blk-mcrdo-ld.webp",
+    "img/blk-mcrdo-web.webp",
+    "img/blk-mcrel-ld.webp",
+    "img/blk-mcrel-web.webp",
+    "img/blk-mcrerr-ld.webp",
+    "img/blk-mcrerr-web.webp",
+    "img/blk-mcrms-ld.webp",
+    "img/blk-mcrms-web.webp",
+    "img/blk-mcrpar-ld.webp",
+    "img/blk-mcrpar-web.webp",
+    "img/blk-mcrpos-ld.webp",
+    "img/blk-mcrpos-web.webp",
+    "img/blk-mcrst-ld.webp",
+    "img/blk-mcrst-web.webp",
+    "img/blk-mcrtrq-ld.webp",
+    "img/blk-mcrtrq-web.webp",
+    "img/blk-mcrvel-ld.webp",
+    "img/blk-mcrvel-web.webp",
+    "img/blk-mcspos-ld.webp",
+    "img/blk-mcspos-web.webp",
+    "img/blk-mcstat-ld.webp",
+    "img/blk-mcstat-web.webp",
+    "img/blk-mcstop-ld.webp",
+    "img/blk-mcstop-web.webp",
+    "img/blk-mcsup-ld.webp",
+    "img/blk-mcsup-web.webp",
+    "img/blk-mctff-ld.webp",
+    "img/blk-mctff-web.webp",
+    "img/blk-mctlim-ld.webp",
+    "img/blk-mctlim-web.webp",
+    "img/blk-mctrq-ld.webp",
+    "img/blk-mctrq-web.webp",
+    "img/blk-mcvel-ld.webp",
+    "img/blk-mcvel-web.webp",
+    "img/blk-mcvpro-ld.webp",
+    "img/blk-mcvpro-web.webp",
+    "img/blk-mcwbpar-ld.webp",
+    "img/blk-mcwbpar-web.webp",
+    "img/blk-mcwdo-ld.webp",
+    "img/blk-mcwdo-web.webp",
+    "img/blk-mcwpar-ld.webp",
+    "img/blk-mcwpar-web.webp",
+    "img/blk-min-ld.webp",
+    "img/blk-min-web.webp",
+    "img/blk-motor-ld.webp",
+    "img/blk-motor-web.webp",
+    "img/blk-move-ld.webp",
+    "img/blk-move-web.webp",
+    "img/blk-mul-ld.webp",
+    "img/blk-mul-web.webp",
+    "img/blk-not-ld.webp",
+    "img/blk-not-web.webp",
+    "img/blk-or-ld.webp",
+    "img/blk-or-web.webp",
+    "img/blk-pid-ld.webp",
+    "img/blk-pid-web.webp",
+    "img/blk-pt1-ld.webp",
+    "img/blk-pt1-web.webp",
+    "img/blk-ramp-ld.webp",
+    "img/blk-ramp-web.webp",
+    "img/blk-rs-ld.webp",
+    "img/blk-rs-web.webp",
+    "img/blk-rtrig-ld.webp",
+    "img/blk-rtrig-web.webp",
+    "img/blk-scale-ld.webp",
+    "img/blk-scale-web.webp",
+    "img/blk-sdor-ld.webp",
+    "img/blk-sdor-web.webp",
+    "img/blk-sdow-web.webp",
+    "img/blk-sel-ld.webp",
+    "img/blk-sel-web.webp",
+    "img/blk-sms-ld.webp",
+    "img/blk-sms-web.webp",
+    "img/blk-sr-ld.webp",
+    "img/blk-sr-web.webp",
+    "img/blk-sub-ld.webp",
+    "img/blk-sub-web.webp",
+    "img/blk-tof-ld.webp",
+    "img/blk-tof-web.webp",
+    "img/blk-ton-ld.webp",
+    "img/blk-ton-web.webp",
+    "img/blk-tp-ld.webp",
+    "img/blk-tp-web.webp",
+    "img/blk-valve-ld.webp",
+    "img/blk-valve-web.webp",
+    "img/blk-xor-ld.webp",
+    "img/blk-xor-web.webp",
+    "img/board-buspins.webp",
+    "img/board-catalog.webp",
+    "img/camera-page.webp",
+    "img/camera-screen.webp",
+    "img/camera-tree.webp",
+    "img/canopen-add.webp",
+    "img/canopen-canvas.webp",
+    "img/canopen-node.webp",
+    "img/cockpit-bus.webp",
+    "img/cockpit-engine.webp",
+    "img/cockpit-faults.webp",
+    "img/cockpit-main.webp",
+    "img/cockpit-settings.webp",
+    "img/deploy-runtime.webp",
+    "img/deploy-toolbar.webp",
+    "img/ecat-buspage.webp",
+    "img/ecat-device-tab.webp",
+    "img/ecat-iomap-tab.webp",
+    "img/ecat-sdo-tab.webp",
+    "img/ecat-tree.webp",
+    "img/ecat-vars-tab.webp",
+    "img/editor-canopen.png",
+    "img/editor-canvas.webp",
+    "img/editor-fbd.png",
+    "img/editor-ladder.png",
+    "img/editor-layout.webp",
+    "img/editor-online.png",
+    "img/editor-settings.webp",
+    "img/editor-st.png",
+    "img/editor-stephmi.png",
+    "img/editor-update.webp",
+    "img/ethercat-device.webp",
+    "img/example-bottle-check-glass.webp",
+    "img/example-evb-0.png",
+    "img/example-evb-2.png",
+    "img/example-evb-3.png",
+    "img/example-evb-5.png",
+    "img/example-f7-info.webp",
+    "img/example-f7-main.webp",
+    "img/example-f7-plc.webp",
+    "img/example-f7-states.webp",
+    "img/example-f7-trend.webp",
+    "img/example-i550-0.webp",
+    "img/example-i550-1.webp",
+    "img/example-i550-3.webp",
+    "img/example-reterminal-0.webp",
+    "img/example-reterminal-ecat-0.webp",
+    "img/example-reterminal-ecat-codes.webp",
+    "img/example-reterminal-ecat-line.webp",
+    "img/example-reterminal-ecat-position.webp",
+    "img/example-reterminal-ecat-servo.webp",
+    "img/fbd-i550.webp",
+    "img/fbd-networks.webp",
+    "img/find-devices-scan.png",
+    "img/first-ladder.webp",
+    "img/first-screen.webp",
+    "img/first-sheet.webp",
+    "img/first-variables.webp",
+    "img/flexo-diag.webp",
+    "img/flexo-heating.webp",
+    "img/flexo-jobs.webp",
+    "img/flexo-overview.webp",
+    "img/flexo-register.webp",
+    "img/flexo-sections.webp",
+    "img/gallery-alarms.webp",
+    "img/gallery-cards.webp",
+    "img/gallery-controls.webp",
+    "img/gallery-graphics.webp",
+    "img/gallery-indicators.webp",
+    "img/gallery-trend.webp",
+    "img/gallery-value.webp",
+    "img/ha-lights-glass.webp",
+    "img/ha-lights-ladder.webp",
+    "img/ha-therm-glass.webp",
+    "img/ha-therm-manual.webp",
+    "img/hmiview-settings.webp",
+    "img/home-blinds.webp",
+    "img/home-lights.webp",
+    "img/home-room.webp",
+    "img/i550-axis.webp",
+    "img/i550-dip.webp",
+    "img/i550-ladder.webp",
+    "img/i550-pdo.webp",
+    "img/i550-tree.webp",
+    "img/i550-web.webp",
+    "img/i550-wiring.webp",
+    "img/ladder-compare.webp",
+    "img/ladder-i550.webp",
+    "img/ladder-jump.webp",
+    "img/ladder-menu.webp",
+    "img/ladder-messages.webp",
+    "img/ladder-rows.webp",
+    "img/ladder-sheet.webp",
+    "img/ladder-thermostat.webp",
+    "img/ladder-where.webp",
+    "img/lineshaft-jobs.webp",
+    "img/lineshaft-slave.webp",
+    "img/lineshaft-vaxis.webp",
+    "img/lx-board-card.webp",
+    "img/lx-device-buses.webp",
+    "img/lx-prepare-open.webp",
+    "img/lx-prepare-plan.webp",
+    "img/lx-prepare-sys.webp",
+    "img/lx-runtime-dlg.webp",
+    "img/lx-wizard.webp",
+    "img/mcp-dialog.webp",
+    "img/measure-cap.webp",
+    "img/measure-fixture.webp",
+    "img/measure-level.webp",
+    "img/measure-page.webp",
+    "img/measure-screen.webp",
+    "img/modbus-pair-fbd.png",
+    "img/modbus-pair-lad.png",
+    "img/modbus-pair-screen.png",
+    "img/modbus-pair-st.png",
+    "img/modbus-registers.webp",
+    "img/modbus-slave-map.png",
+    "img/motion-page.webp",
+    "img/mqtt-card.webp",
+    "img/net32-deploy.webp",
+    "img/net32-system.webp",
+    "img/net32-tree.webp",
+    "img/newpou-dialog.webp",
+    "img/newproj-board.webp",
+    "img/newproj-wizard.webp",
+    "img/node-properties.webp",
+    "img/node-reflexes.webp",
+    "img/online-linux.webp",
+    "img/opcua-cert.webp",
+    "img/opcua-page.webp",
+    "img/opcua-vars.webp",
+    "img/ownblock-iface.webp",
+    "img/ownblock-screen.webp",
+    "img/ownblock-use.webp",
+    "img/plus7-page.webp",
+    "img/quickstart-sealin.webp",
+    "img/rawcan-page.webp",
+    "img/rs485-page.webp",
+    "img/rt-device.webp",
+    "img/rt-drive-ecat.webp",
+    "img/rt-s7.webp",
+    "img/rt-zones.webp",
+    "img/rtu-master-page.webp",
+    "img/scope-window.webp",
+    "img/st-editor.webp",
+    "img/tags-variables.webp",
+    "img/thermostat-alarms.png",
+    "img/thermostat-home-linkdown.png",
+    "img/thermostat-home-manual.png",
+    "img/thermostat-home.png",
+    "img/thermostat-login-open.png",
+    "img/thermostat-login.png",
+    "img/thermostat-settings.png",
+    "img/thermostat-trend.png",
+    "img/thermostat-web-alarms.png",
+    "img/thermostat-web-home-manual.png",
+    "img/thermostat-web-home.png",
+    "img/thermostat-web-login-open.png",
+    "img/thermostat-web-login.png",
+    "img/thermostat-web-settings.png",
+    "img/thermostat-web-trend.png",
+    "img/vb-absdiff.webp",
+    "img/vb-adaptive.webp",
+    "img/vb-affine.webp",
+    "img/vb-angle.webp",
+    "img/vb-aruco.webp",
+    "img/vb-balance.webp",
+    "img/vb-bilateral.webp",
+    "img/vb-blackhat.webp",
+    "img/vb-blobs.webp",
+    "img/vb-blur.webp",
+    "img/vb-brightness.webp",
+    "img/vb-caliper.webp",
+    "img/vb-camera.webp",
+    "img/vb-canny.webp",
+    "img/vb-channel.webp",
+    "img/vb-chessboard.webp",
+    "img/vb-circle_fit.webp",
+    "img/vb-circles.webp",
+    "img/vb-clahe.webp",
+    "img/vb-close.webp",
+    "img/vb-code.webp",
+    "img/vb-colour.webp",
+    "img/vb-combine.webp",
+    "img/vb-contours.webp",
+    "img/vb-corners.webp",
+    "img/vb-crop.webp",
+    "img/vb-crop_object.webp",
+    "img/vb-dilate.webp",
+    "img/vb-dist.webp",
+    "img/vb-distance.webp",
+    "img/vb-dnn_classify.webp",
+    "img/vb-dnn_detect.webp",
+    "img/vb-edge.webp",
+    "img/vb-equalize.webp",
+    "img/vb-erode.webp",
+    "img/vb-features.webp",
+    "img/vb-fill_holes.webp",
+    "img/vb-filter_objects.webp",
+    "img/vb-fixture.webp",
+    "img/vb-flip.webp",
+    "img/vb-floodfill.webp",
+    "img/vb-gamma.webp",
+    "img/vb-gauss.webp",
+    "img/vb-golden.webp",
+    "img/vb-gradient.webp",
+    "img/vb-gray.webp",
+    "img/vb-histogram.webp",
+    "img/vb-hsv_range.webp",
+    "img/vb-in_range.webp",
+    "img/vb-invert.webp",
+    "img/vb-laplacian.webp",
+    "img/vb-laser_line.webp",
+    "img/vb-level.webp",
+    "img/vb-line_fit.webp",
+    "img/vb-lines.webp",
+    "img/vb-mask.webp",
+    "img/vb-median.webp",
+    "img/vb-motion.webp",
+    "img/vb-nearest.webp",
+    "img/vb-normalize.webp",
+    "img/vb-objcheck.webp",
+    "img/vb-object_colour.webp",
+    "img/vb-object_shape.webp",
+    "img/vb-open.webp",
+    "img/vb-otsu.webp",
+    "img/vb-part_ok.webp",
+    "img/vb-pattern.webp",
+    "img/vb-pick.webp",
+    "img/vb-points_dist.webp",
+    "img/vb-polar.webp",
+    "img/vb-presence.webp",
+    "img/vb-pyramid.webp",
+    "img/vb-resize.webp",
+    "img/vb-rotate.webp",
+    "img/vb-ruler.webp",
+    "img/vb-scale.webp",
+    "img/vb-scharr.webp",
+    "img/vb-shape.webp",
+    "img/vb-sharpen.webp",
+    "img/vb-sharpness.webp",
+    "img/vb-sobel.webp",
+    "img/vb-st.webp",
+    "img/vb-stats.webp",
+    "img/vb-threshold.webp",
+    "img/vb-tophat.webp",
+    "img/vb-undistort.webp",
+    "img/vb-warp.webp",
+    "img/vb-white_ratio.webp",
+    "img/vb-world.webp",
+    "img/vbc-absdiff.webp",
+    "img/vbc-adaptive.webp",
+    "img/vbc-affine.webp",
+    "img/vbc-angle.webp",
+    "img/vbc-aruco.webp",
+    "img/vbc-balance.webp",
+    "img/vbc-bilateral.webp",
+    "img/vbc-blackhat.webp",
+    "img/vbc-blobs.webp",
+    "img/vbc-blur.webp",
+    "img/vbc-brightness.webp",
+    "img/vbc-caliper.webp",
+    "img/vbc-camera.webp",
+    "img/vbc-canny.webp",
+    "img/vbc-channel.webp",
+    "img/vbc-chessboard.webp",
+    "img/vbc-circle_fit.webp",
+    "img/vbc-circles.webp",
+    "img/vbc-clahe.webp",
+    "img/vbc-close.webp",
+    "img/vbc-code.webp",
+    "img/vbc-colour.webp",
+    "img/vbc-combine.webp",
+    "img/vbc-contours.webp",
+    "img/vbc-corners.webp",
+    "img/vbc-crop.webp",
+    "img/vbc-crop_object.webp",
+    "img/vbc-dilate.webp",
+    "img/vbc-dist.webp",
+    "img/vbc-distance.webp",
+    "img/vbc-dnn_classify.webp",
+    "img/vbc-dnn_detect.webp",
+    "img/vbc-edge.webp",
+    "img/vbc-equalize.webp",
+    "img/vbc-erode.webp",
+    "img/vbc-features.webp",
+    "img/vbc-fill_holes.webp",
+    "img/vbc-filter_objects.webp",
+    "img/vbc-fixture.webp",
+    "img/vbc-flip.webp",
+    "img/vbc-floodfill.webp",
+    "img/vbc-gamma.webp",
+    "img/vbc-gauss.webp",
+    "img/vbc-golden.webp",
+    "img/vbc-gradient.webp",
+    "img/vbc-gray.webp",
+    "img/vbc-histogram.webp",
+    "img/vbc-hsv_range.webp",
+    "img/vbc-in_range.webp",
+    "img/vbc-invert.webp",
+    "img/vbc-laplacian.webp",
+    "img/vbc-laser_line.webp",
+    "img/vbc-level.webp",
+    "img/vbc-line_fit.webp",
+    "img/vbc-lines.webp",
+    "img/vbc-mask.webp",
+    "img/vbc-median.webp",
+    "img/vbc-motion.webp",
+    "img/vbc-nearest.webp",
+    "img/vbc-normalize.webp",
+    "img/vbc-objcheck.webp",
+    "img/vbc-object_colour.webp",
+    "img/vbc-object_shape.webp",
+    "img/vbc-open.webp",
+    "img/vbc-otsu.webp",
+    "img/vbc-part_ok.webp",
+    "img/vbc-pattern.webp",
+    "img/vbc-pick.webp",
+    "img/vbc-points_dist.webp",
+    "img/vbc-polar.webp",
+    "img/vbc-presence.webp",
+    "img/vbc-pyramid.webp",
+    "img/vbc-resize.webp",
+    "img/vbc-rotate.webp",
+    "img/vbc-ruler.webp",
+    "img/vbc-scale.webp",
+    "img/vbc-scharr.webp",
+    "img/vbc-shape.webp",
+    "img/vbc-sharpen.webp",
+    "img/vbc-sharpness.webp",
+    "img/vbc-sobel.webp",
+    "img/vbc-st.webp",
+    "img/vbc-stats.webp",
+    "img/vbc-threshold.webp",
+    "img/vbc-tophat.webp",
+    "img/vbc-undistort.webp",
+    "img/vbc-warp.webp",
+    "img/vbc-white_ratio.webp",
+    "img/vbc-world.webp",
+    "img/veh-diagnostics.webp",
+    "img/veh-group.webp",
+    "img/veh-network.webp",
+    "img/veh-rung.webp",
+    "img/veh-screen.webp",
+    "img/veh-tree.webp",
+    "img/veh-variables.webp",
+    "img/vehicle-diag.webp",
+    "img/vehicle-j1939.webp",
+    "img/vehicle-library.webp",
+    "img/vehicle-tree.webp",
+    "img/vision-block.webp",
+    "img/vision-page.webp",
+    "img/vision-pattern.webp",
+    "img/vision-settings.webp",
+    "img/vision-st.webp",
+    "img/webview-page.webp",
+    "img/wl-anim_image.webp",
+    "img/wl-arc.webp",
+    "img/wl-bar_chart.webp",
+    "img/wl-bar_history.webp",
+    "img/wl-button_matrix.webp",
+    "img/wl-calendar.webp",
+    "img/wl-checkbox.webp",
+    "img/wl-controls.webp",
+    "img/wl-display.webp",
+    "img/wl-donut.webp",
+    "img/wl-dropdown.webp",
+    "img/wl-energy_flow.webp",
+    "img/wl-line.webp",
+    "img/wl-menu.webp",
+    "img/wl-qrcode.webp",
+    "img/wl-rich_text.webp",
+    "img/wl-roller.webp",
+    "img/wl-rotate.webp",
+    "img/wl-scale.webp",
+    "img/wl-scatter.webp",
+    "img/wl-shape.webp",
+    "img/wl-sparkline.webp",
+    "img/wl-spinbox.webp",
+    "img/wl-spinner.webp",
+    "img/wl-table.webp",
+    "img/wl-textarea.webp",
+    "img/wl-tileview.webp",
+    "img/wl-wheel.webp",
+    "img/wl-window.webp",
+    "stylesheets/extra.css"
+  ]
+}

@@ -1,0 +1,69 @@
+---
+title: "Edges: Edges"
+slug: vision-canny
+section: "Vision"
+order: 256
+sidebar_position: 256
+image: img/vbc-canny.webp
+image_alt: "The Edges block on the Vision canvas"
+generator: tools/docs_export.py
+---
+
+<!-- AUTOMATICALLY GENERATED from schema/visu-vision.yaml (tools/gen_vision.py) -->
+
+# Edges
+
+**Edges** · in the trade: *edge detection (Canny)* · in a project file: `canny`
+
+White on the edges of things, black elsewhere (Canny).
+
+![The Edges block on the Vision canvas](img/vbc-canny.webp){: .sb-center}
+
+![The window of the Edges block: its settings on the left, its picture on the right](img/vb-canny.webp){: .sb-center}
+
+## Where it runs
+
+| Linux runtime, 64-bit | Linux runtime, 32-bit ARM | ESP32 boards | STM32 |
+|:---:|:---:|:---:|:---:|
+| yes | - | - | - |
+
+**Needs:** a camera of the project (a USB camera or a stream address).
+
+## Description
+
+Marks the edges of things with thin white lines on black (the Canny detector): the outline of a part, the border of a label, the strokes of a print - and nothing in the flat areas between. It is the picture [Find lines](/docs/vision/vision-lines/), [Find circles](/docs/vision/vision-circles/) and [Find objects](/docs/vision/vision-contours/) work best on, and it is independent of how bright the picture is, because an edge is a change of brightness, not a level.
+
+Two thresholds control it: an edge starts where the change is stronger than `high` and continues along weaker changes down to `low`, so a strong edge is followed into its faint stretches while faint noise alone is dropped. A ratio of two or three between them is the usual choice; raise both when the picture is noisy, lower them when faint edges are missed. A [Gaussian blur](/docs/vision/vision-gauss/) of 3 or 5 before it removes the noise that would otherwise become short false edges.
+
+## Typical uses
+
+- the edge picture for Find lines and Find circles
+- an outline independent of the lamp's brightness
+- the strokes of a print as thin lines
+
+## Inputs
+
+| Input | Type | Meaning |
+|:---|:---:|:---|
+| `src` | picture | a gray or colour picture |
+
+## Outputs
+
+| Output | Type | Meaning |
+|:---|:---:|:---|
+| `out` | picture | the edges, one pixel wide, white on black |
+
+A number or a yes/no output goes into a variable of the PLC program (right-click the block on the Vision page, *Result ... into*); a text output into a STRING variable; a picture or a list of objects into the next block.
+
+## Settings
+
+| Setting | Range | Default | Unit | Meaning |
+|:---|:---:|:---:|:---:|:---|
+| `low` | 0 .. 1000 | 50 |  | weaker edges continue a strong one above this |
+| `high` | 0 .. 1000 | 150 |  | an edge starts above this |
+
+Every number and yes/no setting can be read from a **variable** before each run instead of being fixed - pick it in the list beside the setting (the variable column of [the block's window](/docs/vision/#the-blocks-window)). A text setting takes a STRING variable the same way.
+
+---
+
+Every block: [Vision blocks](/docs/vision/vision-blocks/) · how a program is drawn and what its window shows: [Vision](/docs/vision/) · the cameras: [Cameras](/docs/vision/cameras/)

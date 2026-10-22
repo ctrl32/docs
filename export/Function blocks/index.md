@@ -1,0 +1,149 @@
+---
+title: "Function blocks"
+slug: blocks
+section: "Function blocks"
+order: 82
+sidebar_position: 82
+generator: tools/docs_export.py
+---
+
+# Function blocks
+
+A function block is a piece of logic somebody already wrote and tested,
+so you do not have to. A timer, a counter, a motor starter with feedback
+supervision — you drop it into a rung or a diagram, wire its pins, and it
+behaves the same on every board ctrl32 runs on.
+
+ctrl32 ships **53 of them** in the firmware and twenty more for a house in the
+`home` block library. This page is what they have in common; the
+pages that follow are the reference, grouped the way the Toolbox groups
+them.
+
+| Group | Blocks | What they are for |
+|:---|:---|:---|
+| [Timers](/docs/blocks/blocks-timers/) | TON, TOF, TP, BLINK | delays, pulses, flashing |
+| [Counters](/docs/blocks/blocks-counters/) | CTU, CTD | counting events |
+| [Boolean](/docs/blocks/blocks-boolean/) | AND, OR, XOR, NOT, R_TRIG, F_TRIG, SR, RS | logic, edges, latches |
+| [Maths](/docs/blocks/blocks-math/) | ADD, SUB, MUL, DIV, MIN, MAX, ABS, MOVE | arithmetic |
+| [Comparison](/docs/blocks/blocks-compare/) | GT, GE, LT, LE, EQ, SEL | decisions on numbers |
+| [Signal handling](/docs/blocks/blocks-signal/) | SCALE, LIMIT, HYST, RAMP, PT1 | turning a raw value into a usable one |
+| [Equipment blocks](/docs/blocks/blocks-equipment/) | MOTOR, VALVE, PID | starters, valves and a controller, ready made |
+| [Motion](/docs/blocks/blocks-motion/) | MC_Power, MC_MoveVelocity, MC_MoveAbsolute, … | driving an axis |
+| [CANopen](/docs/blocks/blocks-can/) | CO_CIA402, CO_SDOWRITE, CO_SDOREAD, CO_RAMPTIME | talking to a drive directly |
+| [Services](/docs/blocks/blocks-services/) | IR_SEND, SMS_SEND, GSM_INFO | infrared, SMS, modem state |
+| [Home automation](/docs/blocks/blocks-home/) | PUSHBUTTON, TOGGLE, STAIRLIGHT, DIMMER, BLINDS, THERMOSTAT, DAYTIME, ASTRO, SCHEDULE, SCENE, GATE, VENT, … | a house: wall buttons, lights, blinds, rooms, the clock and the sun |
+| [Drives](/docs/blocks/blocks-drives/) | DRIVE | a frequency drive the device controls over Modbus: start, stop, the speed in Hz, its state back |
+
+![Function blocks wired in the FBD editor](img/fbd-i550.webp){: .sb-center}
+
+## Anatomy of a block
+
+Every block has three kinds of pin, and the difference matters:
+
+| | What it is | When it is read |
+|:---|:---|:---|
+| **Inputs** | values that change while it runs — a sensor, another block's output | every cycle |
+| **Parameters** | settings that belong to *this* instance — a delay, a limit | every cycle, but you normally set them once |
+| **Outputs** | what the block produces | written every cycle |
+
+An input you leave unconnected is **0** (or FALSE). A parameter you leave
+alone keeps its default, which is listed with every block.
+
+The practical difference is where you type them: inputs get wired to
+variables, parameters are typed into the block's own fields. If a value should
+be adjustable from a screen, it belongs on a variable wired to an input — not
+in a parameter.
+
+## An instance remembers, a formula does not
+
+`AND` has no memory: the same inputs always give the same output.
+A timer does — it has to know how long IN has been held.
+
+Blocks with memory get an **instance**: a name, and a piece of RAM
+reserved for it. Two `TON` instances count independently even with the
+same PT. That is why blocks with memory ask for a name and blocks
+without one do not.
+
+!!! success "The editor knows the RAM cost before you upload"
+    Instances are allocated when the project is compiled, not while the
+    equipment runs — so the editor can tell you a program does not fit
+    *at your desk*, instead of the board finding out on the equipment.
+
+## Every block, in pictures
+
+Every block page shows the block three ways: on a rung of a ladder
+program while it runs, written in structured text, and as a card on a
+WEBview screen - the picture any phone can open from the device's own
+address. All of them come from one shipped project, `library.prj32` in
+`examples\blocks\`: one rung per block in the ladder program of its
+family, every block once more in the ST program, a card per block on
+the family's screens. Open it, press *Simulation*, flip a switch.
+
+## Times are durations
+
+Every time parameter in every block is a **duration** written the IEC
+way: `T#500ms`, `T#1s500ms`, `T#2m`, `T#1h30m`. That is how the block
+shows it on the rung, how the sheet and the block-diagram field take
+it, and how it reads in ST. A bare number typed into a time field still
+means milliseconds (`1500` becomes `T#1s500ms`). Every block measures
+real elapsed time.
+
+This sounds obvious and it is the single most common way home-made
+timers go wrong: counting cycles (`if (++n >= 100)`) drifts the moment
+the cycle jitters, and it jitters as soon as the network gets busy. A
+ctrl32 timer that says `T#1s` waits a second, whatever the cycle is
+doing.
+
+The exceptions are marked at the block: PID uses **seconds** for TI and
+TD because that is how controllers are tuned everywhere, and the motion
+ramps use seconds for the same reason.
+
+## Order of execution
+
+Blocks run in the order they appear in the program, top to bottom. Data
+flows between them through variables: block A writes a variable, block B reads it.
+
+That order is yours to get right. A block reading a variable that a *later*
+block writes sees the value from the **previous cycle** — one cycle old.
+Usually that is harmless; in a fast chain of calculations it is not, and
+the fix is to put them in the order the data flows.
+
+!!! tip "Ladder and FBD are the same runtime"
+    A rung and a diagram compile to the same blocks and execute the same
+    way. Drawing in ladder does not cost anything at runtime, and does
+    not limit what you can use — every block below is available as a box
+    in a rung with EN/ENO.
+
+## EN and ENO
+
+Any block placed in a ladder rung gets **EN** (enable) and **ENO**:
+
+- the rung conducts → the block executes, ENO carries the rung on
+- the rung does not → **the block freezes**: its state is kept and its
+  outputs hold their last value
+
+Freezing, not resetting, is deliberate: a timer in a rung that stops
+conducting keeps its elapsed time, so a rung that flickers does not
+silently restart the measurement. If you want it reset, reset it
+explicitly.
+
+## What a block will never do
+
+- **Crash the board.** `DIV` by zero gives 0. An out-of-range index does
+  nothing. A block from a newer editor that this firmware does not know
+  is skipped with an entry in the diagnostic buffer.
+- **Allocate memory while running.** Everything is reserved at compile
+  time.
+- **Block the cycle.** No block waits for anything; the ones that talk to
+  hardware (SMS, SDO, infrared) report progress on their outputs and let
+  the cycle carry on.
+
+## Writing your own
+
+The shipped library is not the limit — you can write blocks of your own
+in Structured Text and use them exactly like these, no firmware release
+involved. See [Structured Text](/docs/programming/st-language/).
+
+The rule of thumb for what stays in C++: hardware access, precise timing
+and PID. Everything else is better written in ST, where you can read it,
+change it and ship it as data.
