@@ -23,6 +23,7 @@ them.
 | [CANopen](blocks-can.md) | CO_CIA402, CO_SDOWRITE, CO_SDOREAD, CO_RAMPTIME | talking to a drive directly |
 | [Services](blocks-services.md) | IR_SEND, SMS_SEND, GSM_INFO | infrared, SMS, modem state |
 | [Home automation](blocks-home.md) | PUSHBUTTON, TOGGLE, STAIRLIGHT, DIMMER, BLINDS, THERMOSTAT, DAYTIME, ASTRO, SCHEDULE, SCENE, GATE, VENT, … | a house: wall buttons, lights, blinds, rooms, the clock and the sun |
+| [Drives](blocks-drives.md) | DRIVE | a frequency drive the device controls over Modbus: start, stop, the speed in Hz, its state back |
 
 ![Function blocks wired in the FBD editor](img/fbd-i550.webp){: .sb-center}
 

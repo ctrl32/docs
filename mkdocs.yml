@@ -207,6 +207,7 @@ nav:
       - CANopen blocks: blocks-can.md
       - Services: blocks-services.md
       - Home automation: blocks-home.md
+      - Drives: blocks-drives.md
       # fb-blocks: begin
       - "Timers: TON": fb-ton.md
       - "Timers: TOF": fb-tof.md
@@ -276,6 +277,7 @@ nav:
       - "Home automation: VENT": home-vent.md
       - "Home automation: CENTRAL": home-central.md
       - "Home automation: ENERGY": home-energy.md
+      - "Drives: DRIVE": drv-drive.md
       # fb-blocks: end
   - Vision:
       - Vision: vision.md
