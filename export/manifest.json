@@ -113,7 +113,7 @@
       "section": "Editor",
       "order": 12,
       "file": "Editor/editor.md",
-      "bytes": 14721
+      "bytes": 15211
     },
     {
       "slug": "editor-controls",
@@ -2441,7 +2441,7 @@
       "section": "Protocols",
       "order": 303,
       "file": "Protocols/index.md",
-      "bytes": 8665
+      "bytes": 9075
     },
     {
       "slug": "modbus-basics",
@@ -2553,7 +2553,7 @@
       "section": "Drive library",
       "order": 317,
       "file": "Drive library/index.md",
-      "bytes": 4884
+      "bytes": 4918
     },
     {
       "slug": "drives-setup",
@@ -2785,7 +2785,7 @@
       "section": "About",
       "order": 346,
       "file": "About/changelog.md",
-      "bytes": 119004
+      "bytes": 120032
     }
   ],
   "assets": [

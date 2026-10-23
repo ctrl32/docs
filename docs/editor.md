@@ -18,7 +18,7 @@ included. What you see is what gets downloaded.
 | `runtimes\` | the prebuilt runtime (firmware) of every supported board |
 | `linux\` under `%ProgramData%\ctrl32` | the Linux runtime bundles, see [Setting up a Linux device](linux-setup.md) |
 | `tutorials\` | small sample projects, one idea each |
-| `examples\` | complete sample projects for the catalog boards |
+| `examples\` | the example projects of the tested boards, one folder per board - the same projects as the [hardware guides](https://ctrl32.com/docs/hardware/) |
 
 The ST compiler, the pack builder and the flasher are **compiled into
 the editor** — there is no helper program to install, to go missing or
@@ -107,7 +107,7 @@ everything a fresh project needs:
 |:---|:---|
 | **Project name** | mandatory; it becomes the folder and the file name: `<location>\<name>\<name>.prj32` |
 | **Location** | `Documents\ctrl32\projects` unless you browse elsewhere |
-| **Hardware** | a board from the catalog (its card shows what it carries) or the processor module your own hardware carries; Linux devices are listed under *Linux*. The hardware decides the pins, the memory and which runtime is flashed — a project cannot be deployed without one |
+| **Hardware** | a board from the catalog (its card shows what it carries) or the processor module your own hardware carries; Linux devices are listed under *Linux*. The hardware decides the pins, the memory and which runtime is flashed — a project cannot be deployed without one. **Drives only** makes a project with no hardware at all: see below |
 | **Theme** | the colour set the screens start with (see [HMIview](hmiview.md#colour-carries-meaning)) |
 | **What the project does** | visualization on the display, WEBview screens, the first program in ladder or ST, and the roles: CAN master, Modbus RTU or TCP slave, MQTT, net32. Every tick creates the matching part of the project |
 
@@ -117,6 +117,12 @@ limits (see [Performance and limits](limits.md)). A catalog board's type
 comes from the catalog, so the tick follows the board. On an ESP32-C3 or
 C6 module the wizard makes a [node](node.md) project: no program
 language, no visualization, only the WEBview page.
+
+**Drives only** - the third tab of *Hardware* - makes a project of
+frequency and servo drives alone: no board, no program, no screens. The
+drives are added under **Drives** in the device tree, set on their pages
+and written to the drives from this PC (see [Drives](drives.md)). A board
+can be added to the project later.
 
 *Create project* writes the file and opens the tree on it. Nothing in the
 wizard is final: every part can be added or removed later from the tree,

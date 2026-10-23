@@ -17,6 +17,26 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.07.001
+
+- **Drives only.** *New project* has a third hardware tab: a project of
+  drives alone - no board, no program, no screens; the drives are set and
+  written from the PC ([Editor](/docs/editor-overview/editor/#a-new-project),
+  [Drives](/docs/drives/)).
+- **CAN and RS485 on free pins** of any board with free pins: a
+  transceiver module on the pins named in **Bus pins**
+  ([Buses](/docs/buses/#the-bus-pins-are-part-of-the-project)).
+- **Examples by board.** The installed examples are the projects of the
+  [hardware guides](https://ctrl32.com/docs/hardware/) - for every tested
+  board an all-in-one project that uses everything the board can do, and
+  more projects for the MaTouch ESP32-P4 7" (a home dashboard, a car
+  cockpit, a flexo press on a SIMATIC). **File > Examples** shows one
+  submenu per board; the Welcome tab's *Try it on your board* lists the
+  same boards.
+- The **Olimex ESP32-P4-PC** joins the board catalog.
+- The board page no longer reports a missing RS485 for a Modbus TCP
+  variable.
+
 ## 1.07.000
 
 A new line: every device takes a new runtime (over the network or over

@@ -12,7 +12,8 @@ generator: tools/docs_export.py
 # Drives
 
 A project can hold **frequency drives and servo drives** beside its
-screens and its program - or on their own, with no controller at all. A
+screens and its program - or on their own, with no controller at all
+(*New project* > **Drives only**). A
 drive is a node under **Drives** in the device tree; its page shows every
 parameter of the drive, the way its maker groups them, and the project
 keeps only what you changed from the factory settings. The editor reads

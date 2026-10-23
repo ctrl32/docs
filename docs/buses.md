@@ -141,6 +141,13 @@ all — and an empty entry keeps the board's own default.
   strapping pins, one pin claimed twice. The same check runs again at
   build, so an illegal assignment never reaches the hardware.
 
+- **A board without a transceiver** - CAN or RS485 not on the board at
+  all - still takes the bus on its **free pins**: wire a 3.3 V transceiver
+  module (a CAN transceiver such as the SN65HVD230, an RS485 one such as
+  the MAX3485) to free pins and name them in **Bus pins**. A project that
+  uses CAN or Modbus RTU on such a board without naming its pins is refused
+  at the build, with the pins it needs.
+
 **RS485 comes in three wirings**, chosen on the RS485 page:
 
 | Wiring | Pins | When |
