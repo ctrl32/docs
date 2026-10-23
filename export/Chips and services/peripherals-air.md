@@ -2,8 +2,8 @@
 title: "Air quality"
 slug: peripherals-air
 section: "Chips and services"
-order: 320
-sidebar_position: 320
+order: 323
+sidebar_position: 323
 generator: tools/docs_export.py
 ---
 

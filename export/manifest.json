@@ -12,6 +12,7 @@
     "Function blocks",
     "Vision",
     "Protocols",
+    "Drive library",
     "Chips and services",
     "Deployment",
     "Operation",
@@ -2496,7 +2497,7 @@
       "section": "Protocols",
       "order": 310,
       "file": "Protocols/ethercat.md",
-      "bytes": 21642
+      "bytes": 21641
     },
     {
       "slug": "vehicle-buses",
@@ -2547,10 +2548,34 @@
       "bytes": 896
     },
     {
+      "slug": "drives",
+      "title": "Drive library",
+      "section": "Drive library",
+      "order": 317,
+      "file": "Drive library/index.md",
+      "bytes": 4884
+    },
+    {
+      "slug": "drives-setup",
+      "title": "Setup screens and Quick setup",
+      "section": "Drive library",
+      "order": 318,
+      "file": "Drive library/drives-setup.md",
+      "bytes": 2579
+    },
+    {
+      "slug": "drives-control",
+      "title": "Control from the device",
+      "section": "Drive library",
+      "order": 319,
+      "file": "Drive library/drives-control.md",
+      "bytes": 2690
+    },
+    {
       "slug": "peripherals-and-services",
       "title": "Chips and services",
       "section": "Chips and services",
-      "order": 317,
+      "order": 320,
       "file": "Chips and services/index.md",
       "bytes": 7328
     },
@@ -2558,7 +2583,7 @@
       "slug": "peripherals-temperature",
       "title": "Temperature",
       "section": "Chips and services",
-      "order": 318,
+      "order": 321,
       "file": "Chips and services/peripherals-temperature.md",
       "bytes": 4814
     },
@@ -2566,7 +2591,7 @@
       "slug": "peripherals-environment",
       "title": "Environment",
       "section": "Chips and services",
-      "order": 319,
+      "order": 322,
       "file": "Chips and services/peripherals-environment.md",
       "bytes": 6112
     },
@@ -2574,7 +2599,7 @@
       "slug": "peripherals-air",
       "title": "Air quality",
       "section": "Chips and services",
-      "order": 320,
+      "order": 323,
       "file": "Chips and services/peripherals-air.md",
       "bytes": 5544
     },
@@ -2582,7 +2607,7 @@
       "slug": "peripherals-light",
       "title": "Light, distance, motion",
       "section": "Chips and services",
-      "order": 321,
+      "order": 324,
       "file": "Chips and services/peripherals-light.md",
       "bytes": 5172
     },
@@ -2590,7 +2615,7 @@
       "slug": "peripherals-pressure",
       "title": "Pressure and position",
       "section": "Chips and services",
-      "order": 322,
+      "order": 325,
       "file": "Chips and services/peripherals-pressure.md",
       "bytes": 6858
     },
@@ -2598,7 +2623,7 @@
       "slug": "peripherals-analog",
       "title": "Analog in and out",
       "section": "Chips and services",
-      "order": 323,
+      "order": 326,
       "file": "Chips and services/peripherals-analog.md",
       "bytes": 7692
     },
@@ -2606,7 +2631,7 @@
       "slug": "analog-inputs",
       "title": "Reading real values",
       "section": "Chips and services",
-      "order": 324,
+      "order": 327,
       "file": "Chips and services/analog-inputs.md",
       "bytes": 5818
     },
@@ -2614,7 +2639,7 @@
       "slug": "peripherals-io",
       "title": "I/O expanders and drivers",
       "section": "Chips and services",
-      "order": 325,
+      "order": 328,
       "file": "Chips and services/peripherals-io.md",
       "bytes": 7273
     },
@@ -2622,7 +2647,7 @@
       "slug": "peripherals-power",
       "title": "Power and energy",
       "section": "Chips and services",
-      "order": 326,
+      "order": 329,
       "file": "Chips and services/peripherals-power.md",
       "bytes": 6801
     },
@@ -2630,7 +2655,7 @@
       "slug": "peripherals-connectivity",
       "title": "Cellular modems",
       "section": "Chips and services",
-      "order": 327,
+      "order": 330,
       "file": "Chips and services/peripherals-connectivity.md",
       "bytes": 4329
     },
@@ -2638,7 +2663,7 @@
       "slug": "deployment",
       "title": "Deployment",
       "section": "Deployment",
-      "order": 328,
+      "order": 331,
       "file": "Deployment/index.md",
       "bytes": 654
     },
@@ -2646,7 +2671,7 @@
       "slug": "find-devices",
       "title": "Finding your boards",
       "section": "Deployment",
-      "order": 329,
+      "order": 332,
       "file": "Deployment/find-devices.md",
       "bytes": 5147
     },
@@ -2654,7 +2679,7 @@
       "slug": "deploy",
       "title": "Download to the panel",
       "section": "Deployment",
-      "order": 330,
+      "order": 333,
       "file": "Deployment/deploy.md",
       "bytes": 9044
     },
@@ -2662,7 +2687,7 @@
       "slug": "operation",
       "title": "Operation",
       "section": "Operation",
-      "order": 331,
+      "order": 334,
       "file": "Operation/index.md",
       "bytes": 714
     },
@@ -2670,7 +2695,7 @@
       "slug": "online",
       "title": "Online monitoring",
       "section": "Operation",
-      "order": 332,
+      "order": 335,
       "file": "Operation/online.md",
       "bytes": 8010
     },
@@ -2678,7 +2703,7 @@
       "slug": "recipes",
       "title": "Recipes",
       "section": "Operation",
-      "order": 333,
+      "order": 336,
       "file": "Operation/recipes.md",
       "bytes": 3978
     },
@@ -2686,7 +2711,7 @@
       "slug": "scope",
       "title": "Scope",
       "section": "Operation",
-      "order": 334,
+      "order": 337,
       "file": "Operation/scope.md",
       "bytes": 6342
     },
@@ -2694,7 +2719,7 @@
       "slug": "force",
       "title": "Forcing values",
       "section": "Operation",
-      "order": 335,
+      "order": 338,
       "file": "Operation/force.md",
       "bytes": 3433
     },
@@ -2702,7 +2727,7 @@
       "slug": "limits",
       "title": "Performance and limits",
       "section": "Operation",
-      "order": 336,
+      "order": 339,
       "file": "Operation/limits.md",
       "bytes": 6600
     },
@@ -2710,7 +2735,7 @@
       "slug": "troubleshooting",
       "title": "Troubleshooting",
       "section": "Operation",
-      "order": 337,
+      "order": 340,
       "file": "Operation/troubleshooting.md",
       "bytes": 6132
     },
@@ -2718,7 +2743,7 @@
       "slug": "about",
       "title": "About",
       "section": "About",
-      "order": 338,
+      "order": 341,
       "file": "About/index.md",
       "bytes": 509
     },
@@ -2726,7 +2751,7 @@
       "slug": "intended-use",
       "title": "Intended use",
       "section": "About",
-      "order": 339,
+      "order": 342,
       "file": "About/intended-use.md",
       "bytes": 4655
     },
@@ -2734,7 +2759,7 @@
       "slug": "licensing",
       "title": "Licensing",
       "section": "About",
-      "order": 340,
+      "order": 343,
       "file": "About/licensing.md",
       "bytes": 1391
     },
@@ -2742,7 +2767,7 @@
       "slug": "security",
       "title": "Network and security",
       "section": "About",
-      "order": 341,
+      "order": 344,
       "file": "About/security.md",
       "bytes": 5120
     },
@@ -2750,7 +2775,7 @@
       "slug": "third-party",
       "title": "Third-party licences",
       "section": "About",
-      "order": 342,
+      "order": 345,
       "file": "About/third-party.md",
       "bytes": 5791
     },
@@ -2758,9 +2783,9 @@
       "slug": "changelog",
       "title": "What's new",
       "section": "About",
-      "order": 343,
+      "order": 346,
       "file": "About/changelog.md",
-      "bytes": 116671
+      "bytes": 119004
     }
   ],
   "assets": [
@@ -2963,6 +2988,12 @@
     "img/cockpit-settings.webp",
     "img/deploy-runtime.webp",
     "img/deploy-toolbar.webp",
+    "img/drv-block.webp",
+    "img/drv-io.webp",
+    "img/drv-motor.webp",
+    "img/drv-overview.webp",
+    "img/drv-params.webp",
+    "img/drv-quick.webp",
     "img/ecat-buspage.webp",
     "img/ecat-device-tab.webp",
     "img/ecat-iomap-tab.webp",

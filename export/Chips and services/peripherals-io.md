@@ -2,8 +2,8 @@
 title: "I/O expanders and drivers"
 slug: peripherals-io
 section: "Chips and services"
-order: 325
-sidebar_position: 325
+order: 328
+sidebar_position: 328
 generator: tools/docs_export.py
 ---
 

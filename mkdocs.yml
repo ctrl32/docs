@@ -389,6 +389,10 @@ nav:
       - net32: net32.md
       - OPC UA: opcua.md
       - Adding a peripheral: adding-peripherals.md
+  - Drive library:
+      - Drive library: drives.md
+      - Setup screens and Quick setup: drives-setup.md
+      - Control from the device: drives-control.md
   - Chips and services:
       - Chips and services: peripherals-and-services.md
       - Temperature: peripherals-temperature.md

@@ -2,8 +2,8 @@
 title: "What's new"
 slug: changelog
 section: "About"
-order: 343
-sidebar_position: 343
+order: 346
+sidebar_position: 346
 generator: tools/docs_export.py
 ---
 
@@ -16,6 +16,45 @@ opens in a newer one.
 Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
+
+## 1.07.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](/docs/deployment/deploy/)) before it accepts a
+project saved by this editor.
+
+- **Drives in the project** ([Drive library](/docs/drives/)). A project holds
+  frequency drives and servo drives under **Drives** in the device tree,
+  with or without a controller. Each drive's page shows every parameter
+  in its maker's groups, keeps what you change from the factory settings
+  and talks to the drive from the PC: read, compare, write, store in the
+  drive, take the drive's values into the project, watch chosen values.
+  The library holds the series of five drive makers; the
+  PC reaches a drive over Modbus TCP, LECOM or USS.
+- **Setup screens and Quick setup** ([Setup screens](/docs/drives/drives-setup/)).
+  Motor, Ramps & limits, Control and Inputs & outputs show the essential
+  settings as drawn fields, the same for every vendor; the terminals are
+  indicators that light green while the drive says TRUE, every relay a
+  block of its own. Quick setup walks through them step by step.
+- **A drive run by the device's program** ([Control from the
+  device](/docs/drives/drives-control/)). One step makes a drive's Modbus variables
+  and the settings that give the bus the control; the new
+  [DRIVE](/docs/blocks/drv-drive/) block runs it - Enable, Reverse, the speed in Hz,
+  Reset, and its state, actual speed and current back. The control word
+  and the setpoint are written on every poll, so the drive's own watchdog
+  stops it when the device stops answering. SINAMICS G120 / G120C on
+  Modbus RTU, Parker AC15 / AC20 / AC30 on Modbus TCP.
+- **Modbus variables:** a variable can be written on every poll, not only
+  when it changes (*cyclic*); a single register read into an `i16`
+  variable is signed (a negative speed no longer reads as 64000-odd); a
+  negative value through a gain is rounded correctly.
+- **A block written in ST** may have eight inputs and sixteen outputs, like
+  the blocks of the library.
+- **A variable created while you work** in a project that uses a block
+  library builds at once - a block bound to it no longer failed until the
+  project was reopened.
+- **An FBD block is as wide as its widest row** - an input's and an
+  output's name no longer run into each other.
 
 ## 1.06.002
 

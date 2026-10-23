@@ -11,7 +11,7 @@ generator: tools/docs_export.py
 
 # Widgets
 
-Schema version: **57** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **58** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 

@@ -358,7 +358,6 @@ any other bus.
 - [CANopen](/docs/buses/canopen/) — the same drive on the other bus.
 - [Motion blocks](/docs/blocks/blocks-motion/) — what commands an axis.
 
-
 ## Distributed clock and fast cycles
 
 The line's cycle is the master's setting: *Cycle ms* on the EtherCAT

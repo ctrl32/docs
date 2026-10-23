@@ -2,8 +2,8 @@
 title: "Light, distance, motion"
 slug: peripherals-light
 section: "Chips and services"
-order: 321
-sidebar_position: 321
+order: 324
+sidebar_position: 324
 generator: tools/docs_export.py
 ---
 
