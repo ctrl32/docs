@@ -150,7 +150,7 @@ the catalog boards built on it.
 
 | Module | Flash | PSRAM | Size | Boards on it | Note |
 |:---|:---|:---|:---|:---|:---|
-| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Large | ESP32-P4-NANO, MaTouch ESP32-P4 7", Olimex ESP32-P4-DevKit |  |
+| ESP32-P4NRW32 | 16 MB | 32 MB (hex) | Large | ESP32-P4-NANO, MaTouch ESP32-P4 7", Olimex ESP32-P4-DevKit, Olimex ESP32-P4-PC |  |
 
 ## Boards
 
@@ -194,6 +194,7 @@ the catalog boards built on it.
 | Olimex ESP32-EVB | ESP32 | 240 x 320 | yes | yes | yes | - | Compact | 1 |
 | Olimex ESP32-GATEWAY | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Olimex ESP32-P4-DevKit | ESP32-P4 | - | yes | yes | - | - | Large | 2 |
+| Olimex ESP32-P4-PC | ESP32-P4 | - | yes | yes | - | - | Large | 2 |
 | Olimex ESP32-PoE | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Olimex ESP32-PoE-ISO | ESP32 | - | yes | yes | - | - | Compact | 2 |
 | Olimex ESP32-PoE2 | ESP32 | - | yes | yes | - | - | Standard | 2 |
