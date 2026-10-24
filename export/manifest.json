@@ -113,7 +113,7 @@
       "section": "Editor",
       "order": 12,
       "file": "Editor/editor.md",
-      "bytes": 15211
+      "bytes": 15207
     },
     {
       "slug": "editor-controls",
@@ -2785,7 +2785,7 @@
       "section": "About",
       "order": 346,
       "file": "About/changelog.md",
-      "bytes": 120032
+      "bytes": 120028
     }
   ],
   "assets": [

@@ -27,7 +27,7 @@ capabilities, the first one practically never moves.
   transceiver module on the pins named in **Bus pins**
   ([Buses](/docs/buses/#the-bus-pins-are-part-of-the-project)).
 - **Examples by board.** The installed examples are the projects of the
-  [hardware guides](https://ctrl32.com/docs/hardware/) - for every tested
+  [hardware guides](https://ctrl32.com/docs/wiki/) - for every tested
   board an all-in-one project that uses everything the board can do, and
   more projects for the MaTouch ESP32-P4 7" (a home dashboard, a car
   cockpit, a flexo press on a SIMATIC). **File > Examples** shows one

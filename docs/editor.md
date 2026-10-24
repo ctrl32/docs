@@ -18,7 +18,7 @@ included. What you see is what gets downloaded.
 | `runtimes\` | the prebuilt runtime (firmware) of every supported board |
 | `linux\` under `%ProgramData%\ctrl32` | the Linux runtime bundles, see [Setting up a Linux device](linux-setup.md) |
 | `tutorials\` | small sample projects, one idea each |
-| `examples\` | the example projects of the tested boards, one folder per board - the same projects as the [hardware guides](https://ctrl32.com/docs/hardware/) |
+| `examples\` | the example projects of the tested boards, one folder per board - the same projects as the [hardware guides](https://ctrl32.com/docs/wiki/) |
 
 The ST compiler, the pack builder and the flasher are **compiled into
 the editor** — there is no helper program to install, to go missing or
