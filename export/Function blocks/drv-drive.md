@@ -54,7 +54,7 @@ END_PROGRAM
 | `SetpointRaw` | output | REAL | - | The speed setpoint in the drive's own units (the `_sp` variable). |
 | `Ready` | output | BOOL | - | TRUE while the drive is ready to run. |
 | `Running` | output | BOOL | - | TRUE while the drive runs (its operation is enabled). |
-| `Fault` | output | BOOL | - | TRUE while the drive reports a fault; its code is in the drive's `_flt` variable. |
+| `Fault` | output | BOOL | - | TRUE while the drive reports a fault; its code is in the drive's `_flt` variable, and that variable carries the drive's alarm. |
 | `ActualSpeed` | output | REAL | - | The actual speed in Hz. |
 | `Current` | output | REAL | - | The motor current in A. |
 
@@ -73,6 +73,13 @@ control from the bus.
 drive on every poll, not only when they change, and the drive's own
 fieldbus watchdog is set to about one second. When the device stops
 answering - a power cut, a broken cable - the drive stops by itself.
+
+**A fault is an alarm.** **Control from the device** also makes an alarm
+of the device on the drive's fault code (`<drive>: fault`, priority
+fault, acknowledged and logged like every other alarm). It shows in the
+alarm list and the alarm table with the others; the code itself is the
+`_flt` variable, so a screen can show it beside the alarm. The alarm page
+edits or removes it like any alarm.
 
 **Starting.** The block walks the drive's state machine: it asks for the
 ready state first and enables the drive when it reports ready, so
