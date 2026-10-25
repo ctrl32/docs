@@ -2,8 +2,8 @@
 title: "Setup screens and Quick setup"
 slug: drives-setup
 section: "Drive library"
-order: 318
-sidebar_position: 318
+order: 319
+sidebar_position: 319
 image: img/drv-motor.webp
 image_alt: "The Motor setup screen of a drive"
 generator: tools/docs_export.py

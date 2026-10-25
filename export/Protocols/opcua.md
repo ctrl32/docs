@@ -2,8 +2,8 @@
 title: "OPC UA"
 slug: opcua
 section: "Protocols"
-order: 315
-sidebar_position: 315
+order: 316
+sidebar_position: 316
 generator: tools/docs_export.py
 ---
 

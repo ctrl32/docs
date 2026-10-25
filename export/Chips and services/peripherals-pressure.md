@@ -2,8 +2,8 @@
 title: "Pressure and position"
 slug: peripherals-pressure
 section: "Chips and services"
-order: 325
-sidebar_position: 325
+order: 326
+sidebar_position: 326
 generator: tools/docs_export.py
 ---
 

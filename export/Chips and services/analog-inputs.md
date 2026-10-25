@@ -2,8 +2,8 @@
 title: "Reading real values"
 slug: analog-inputs
 section: "Chips and services"
-order: 327
-sidebar_position: 327
+order: 328
+sidebar_position: 328
 image: img/analog-current.webp
 image_alt: "The sensor sheet of a 4-20 mA channel: the shunt, the range, what it means, and what the variable would hold"
 generator: tools/docs_export.py

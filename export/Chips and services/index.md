@@ -2,8 +2,8 @@
 title: "Chips and services"
 slug: peripherals-and-services
 section: "Chips and services"
-order: 320
-sidebar_position: 320
+order: 321
+sidebar_position: 321
 generator: tools/docs_export.py
 ---
 

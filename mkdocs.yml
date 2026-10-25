@@ -380,6 +380,7 @@ nav:
       - Modbus: modbus.md
       - Raw CAN: rawcan.md
       - MQTT: mqtt.md
+      - Web data: web-data.md
       - Home Assistant: home-assistant.md
       - CANopen: canopen.md
       - EtherCAT: ethercat.md

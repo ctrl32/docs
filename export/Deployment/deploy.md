@@ -2,8 +2,8 @@
 title: "Download to the panel"
 slug: deploy
 section: "Deployment"
-order: 333
-sidebar_position: 333
+order: 334
+sidebar_position: 334
 generator: tools/docs_export.py
 ---
 

@@ -2,8 +2,8 @@
 title: "Finding your boards"
 slug: find-devices
 section: "Deployment"
-order: 332
-sidebar_position: 332
+order: 333
+sidebar_position: 333
 generator: tools/docs_export.py
 ---
 
