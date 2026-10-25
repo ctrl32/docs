@@ -14,7 +14,7 @@ into its variables. The weather from a forecast service, an electricity
 price, an exchange rate, the state of anything behind a web service that
 answers in JSON - without a server of yours in between.
 
-![The Web data page: the weather source with its address, period and status variable, and its eighteen fields under it](img/web-page.webp){: .sb-center}
+![The Web data page: two sources, the weather and the air quality, each with its address, period and status variable, and the eighteen fields of the selected one under them](img/web-page.webp){: .sb-center}
 
 ## A source
 
@@ -197,4 +197,5 @@ memory for the secure connection and is refused at the desk; a C3/C6
 node reads no web data - its head does.
 
 See also: [MQTT](/docs/buses/mqtt/) for pushing values out. The weather station
-example on the Examples pages reads its forecast this way.
+example on the Examples pages reads its forecast and the air quality this
+way - two sources, each with its status variable.
