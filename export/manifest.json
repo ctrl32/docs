@@ -2481,7 +2481,7 @@
       "section": "Protocols",
       "order": 308,
       "file": "Protocols/web-data.md",
-      "bytes": 4061
+      "bytes": 9759
     },
     {
       "slug": "home-assistant",
@@ -3356,6 +3356,7 @@
     "img/vision-pattern.webp",
     "img/vision-settings.webp",
     "img/vision-st.webp",
+    "img/web-page.webp",
     "img/webview-page.webp",
     "img/wl-anim_image.webp",
     "img/wl-arc.webp",
