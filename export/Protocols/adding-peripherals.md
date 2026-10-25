@@ -2,8 +2,8 @@
 title: "Adding a peripheral"
 slug: adding-peripherals
 section: "Protocols"
-order: 317
-sidebar_position: 317
+order: 318
+sidebar_position: 318
 generator: tools/docs_export.py
 ---
 

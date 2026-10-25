@@ -2,8 +2,8 @@
 title: "Measurements: Brightness statistics"
 slug: vision-stats
 section: "Vision"
-order: 284
-sidebar_position: 284
+order: 285
+sidebar_position: 285
 image: img/vbc-stats.webp
 image_alt: "The Brightness statistics block on the Vision canvas"
 generator: tools/docs_export.py

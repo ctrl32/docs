@@ -2,8 +2,8 @@
 title: "Finding objects: Find chessboard"
 slug: vision-chessboard
 section: "Vision"
-order: 274
-sidebar_position: 274
+order: 275
+sidebar_position: 275
 image: img/vbc-chessboard.webp
 image_alt: "The Find chessboard block on the Vision canvas"
 generator: tools/docs_export.py

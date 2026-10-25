@@ -2,8 +2,8 @@
 title: "Filters: Mask"
 slug: vision-mask
 section: "Vision"
-order: 246
-sidebar_position: 246
+order: 247
+sidebar_position: 247
 image: img/vbc-mask.webp
 image_alt: "The Mask block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Source: Camera"
 slug: vision-camera
 section: "Vision"
-order: 214
-sidebar_position: 214
+order: 215
+sidebar_position: 215
 image: img/vbc-camera.webp
 image_alt: "The Camera block on the Vision canvas"
 generator: tools/docs_export.py

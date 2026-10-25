@@ -2,8 +2,8 @@
 title: "Measurements: Sharpness"
 slug: vision-sharpness
 section: "Vision"
-order: 285
-sidebar_position: 285
+order: 286
+sidebar_position: 286
 image: img/vbc-sharpness.webp
 image_alt: "The Sharpness block on the Vision canvas"
 generator: tools/docs_export.py

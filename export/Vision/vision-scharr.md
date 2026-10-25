@@ -2,8 +2,8 @@
 title: "Edges: Gradient (fine)"
 slug: vision-scharr
 section: "Vision"
-order: 259
-sidebar_position: 259
+order: 260
+sidebar_position: 260
 image: img/vbc-scharr.webp
 image_alt: "The Gradient (fine) block on the Vision canvas"
 generator: tools/docs_export.py

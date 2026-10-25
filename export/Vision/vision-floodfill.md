@@ -2,8 +2,8 @@
 title: "Finding objects: Fill from point"
 slug: vision-floodfill
 section: "Vision"
-order: 271
-sidebar_position: 271
+order: 272
+sidebar_position: 272
 image: img/vbc-floodfill.webp
 image_alt: "The Fill from point block on the Vision canvas"
 generator: tools/docs_export.py

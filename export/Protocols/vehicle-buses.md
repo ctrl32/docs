@@ -2,8 +2,8 @@
 title: "Vehicle buses (J1939)"
 slug: vehicle-buses
 section: "Protocols"
-order: 312
-sidebar_position: 312
+order: 313
+sidebar_position: 313
 image: img/vehicle-tree.webp
 image_alt: "The devices tree of a vehicle project: under the CAN bus sits J1939 with our node, the engine ECU and its parameter groups"
 generator: tools/docs_export.py

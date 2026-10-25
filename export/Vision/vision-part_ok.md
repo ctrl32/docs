@@ -2,8 +2,8 @@
 title: "Measurements: Part in place"
 slug: vision-part_ok
 section: "Vision"
-order: 294
-sidebar_position: 294
+order: 295
+sidebar_position: 295
 image: img/vbc-part_ok.webp
 image_alt: "The Part in place block on the Vision canvas"
 generator: tools/docs_export.py

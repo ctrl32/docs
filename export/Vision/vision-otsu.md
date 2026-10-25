@@ -2,8 +2,8 @@
 title: "Colour: Automatic threshold"
 slug: vision-otsu
 section: "Vision"
-order: 229
-sidebar_position: 229
+order: 230
+sidebar_position: 230
 image: img/vbc-otsu.webp
 image_alt: "The Automatic threshold block on the Vision canvas"
 generator: tools/docs_export.py

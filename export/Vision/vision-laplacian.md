@@ -2,8 +2,8 @@
 title: "Edges: Laplacian"
 slug: vision-laplacian
 section: "Vision"
-order: 258
-sidebar_position: 258
+order: 259
+sidebar_position: 259
 image: img/vbc-laplacian.webp
 image_alt: "The Laplacian block on the Vision canvas"
 generator: tools/docs_export.py

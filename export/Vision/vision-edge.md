@@ -2,8 +2,8 @@
 title: "Ready tools: Edge position"
 slug: vision-edge
 section: "Vision"
-order: 298
-sidebar_position: 298
+order: 299
+sidebar_position: 299
 image: img/vbc-edge.webp
 image_alt: "The Edge position block on the Vision canvas"
 generator: tools/docs_export.py

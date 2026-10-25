@@ -2,8 +2,8 @@
 title: "Geometry: Rotate"
 slug: vision-rotate
 section: "Vision"
-order: 217
-sidebar_position: 217
+order: 218
+sidebar_position: 218
 image: img/vbc-rotate.webp
 image_alt: "The Rotate block on the Vision canvas"
 generator: tools/docs_export.py

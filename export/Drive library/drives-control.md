@@ -2,8 +2,8 @@
 title: "Control from the device"
 slug: drives-control
 section: "Drive library"
-order: 320
-sidebar_position: 320
+order: 321
+sidebar_position: 321
 image: img/drv-block.webp
 image_alt: "The DRIVE block bound to a drive"
 generator: tools/docs_export.py

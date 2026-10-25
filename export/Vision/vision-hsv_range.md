@@ -2,8 +2,8 @@
 title: "Colour: Colour range"
 slug: vision-hsv_range
 section: "Vision"
-order: 227
-sidebar_position: 227
+order: 228
+sidebar_position: 228
 image: img/vbc-hsv_range.webp
 image_alt: "The Colour range block on the Vision canvas"
 generator: tools/docs_export.py

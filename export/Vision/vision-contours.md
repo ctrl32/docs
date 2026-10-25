@@ -2,8 +2,8 @@
 title: "Finding objects: Find objects"
 slug: vision-contours
 section: "Vision"
-order: 260
-sidebar_position: 260
+order: 261
+sidebar_position: 261
 image: img/vbc-contours.webp
 image_alt: "The Find objects block on the Vision canvas"
 generator: tools/docs_export.py

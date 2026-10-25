@@ -2,8 +2,8 @@
 title: "Ready tools: Presence"
 slug: vision-presence
 section: "Vision"
-order: 296
-sidebar_position: 296
+order: 297
+sidebar_position: 297
 image: img/vbc-presence.webp
 image_alt: "The Presence block on the Vision canvas"
 generator: tools/docs_export.py

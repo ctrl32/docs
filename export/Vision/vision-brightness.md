@@ -2,8 +2,8 @@
 title: "Measurements: Brightness"
 slug: vision-brightness
 section: "Vision"
-order: 277
-sidebar_position: 277
+order: 278
+sidebar_position: 278
 image: img/vbc-brightness.webp
 image_alt: "The Brightness block on the Vision canvas"
 generator: tools/docs_export.py

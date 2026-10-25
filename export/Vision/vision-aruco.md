@@ -2,8 +2,8 @@
 title: "Finding objects: Find markers"
 slug: vision-aruco
 section: "Vision"
-order: 273
-sidebar_position: 273
+order: 274
+sidebar_position: 274
 image: img/vbc-aruco.webp
 image_alt: "The Find markers block on the Vision canvas"
 generator: tools/docs_export.py

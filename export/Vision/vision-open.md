@@ -2,8 +2,8 @@
 title: "Shapes: Open"
 slug: vision-open
 section: "Vision"
-order: 249
-sidebar_position: 249
+order: 250
+sidebar_position: 250
 image: img/vbc-open.webp
 image_alt: "The Open block on the Vision canvas"
 generator: tools/docs_export.py

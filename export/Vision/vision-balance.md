@@ -2,8 +2,8 @@
 title: "Colour: White balance"
 slug: vision-balance
 section: "Vision"
-order: 233
-sidebar_position: 233
+order: 234
+sidebar_position: 234
 image: img/vbc-balance.webp
 image_alt: "The White balance block on the Vision canvas"
 generator: tools/docs_export.py

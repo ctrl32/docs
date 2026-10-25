@@ -2,8 +2,8 @@
 title: "Geometry: Turn and shift"
 slug: vision-affine
 section: "Vision"
-order: 220
-sidebar_position: 220
+order: 221
+sidebar_position: 221
 image: img/vbc-affine.webp
 image_alt: "The Turn and shift block on the Vision canvas"
 generator: tools/docs_export.py

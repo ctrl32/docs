@@ -2,8 +2,8 @@
 title: "Cellular modems"
 slug: peripherals-connectivity
 section: "Chips and services"
-order: 331
-sidebar_position: 331
+order: 332
+sidebar_position: 332
 generator: tools/docs_export.py
 ---
 

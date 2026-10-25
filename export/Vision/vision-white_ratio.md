@@ -2,8 +2,8 @@
 title: "Measurements: White share"
 slug: vision-white_ratio
 section: "Vision"
-order: 278
-sidebar_position: 278
+order: 279
+sidebar_position: 279
 image: img/vbc-white_ratio.webp
 image_alt: "The White share block on the Vision canvas"
 generator: tools/docs_export.py

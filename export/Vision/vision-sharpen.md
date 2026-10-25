@@ -2,8 +2,8 @@
 title: "Filters: Sharpen"
 slug: vision-sharpen
 section: "Vision"
-order: 238
-sidebar_position: 238
+order: 239
+sidebar_position: 239
 image: img/vbc-sharpen.webp
 image_alt: "The Sharpen block on the Vision canvas"
 generator: tools/docs_export.py

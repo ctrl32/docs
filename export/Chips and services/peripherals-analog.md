@@ -2,8 +2,8 @@
 title: "Analog in and out"
 slug: peripherals-analog
 section: "Chips and services"
-order: 327
-sidebar_position: 327
+order: 328
+sidebar_position: 328
 generator: tools/docs_export.py
 ---
 

@@ -282,6 +282,7 @@ nav:
   - Vision:
       - Vision: vision.md
       - Cameras: cameras.md
+      - Intercom: intercom.md
       - Vision blocks: vision-blocks.md
       # vision-blocks: begin
       - "Source: Camera": vision-camera.md

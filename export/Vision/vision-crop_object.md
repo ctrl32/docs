@@ -2,8 +2,8 @@
 title: "Finding objects: Crop to object"
 slug: vision-crop_object
 section: "Vision"
-order: 266
-sidebar_position: 266
+order: 267
+sidebar_position: 267
 image: img/vbc-crop_object.webp
 image_alt: "The Crop to object block on the Vision canvas"
 generator: tools/docs_export.py

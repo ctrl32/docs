@@ -2,8 +2,8 @@
 title: "Raw CAN"
 slug: rawcan
 section: "Protocols"
-order: 306
-sidebar_position: 306
+order: 307
+sidebar_position: 307
 generator: tools/docs_export.py
 ---
 

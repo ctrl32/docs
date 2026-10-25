@@ -2,8 +2,8 @@
 title: "Shapes: Dilate"
 slug: vision-dilate
 section: "Vision"
-order: 248
-sidebar_position: 248
+order: 249
+sidebar_position: 249
 image: img/vbc-dilate.webp
 image_alt: "The Dilate block on the Vision canvas"
 generator: tools/docs_export.py

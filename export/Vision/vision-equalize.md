@@ -2,8 +2,8 @@
 title: "Filters: Equalize light"
 slug: vision-equalize
 section: "Vision"
-order: 237
-sidebar_position: 237
+order: 238
+sidebar_position: 238
 image: img/vbc-equalize.webp
 image_alt: "The Equalize light block on the Vision canvas"
 generator: tools/docs_export.py

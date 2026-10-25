@@ -2,8 +2,8 @@
 title: "Geometry: Plane from a board"
 slug: vision-world
 section: "Vision"
-order: 225
-sidebar_position: 225
+order: 226
+sidebar_position: 226
 image: img/vbc-world.webp
 image_alt: "The Plane from a board block on the Vision canvas"
 generator: tools/docs_export.py

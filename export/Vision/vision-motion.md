@@ -2,8 +2,8 @@
 title: "Filters: Motion"
 slug: vision-motion
 section: "Vision"
-order: 240
-sidebar_position: 240
+order: 241
+sidebar_position: 241
 image: img/vbc-motion.webp
 image_alt: "The Motion block on the Vision canvas"
 generator: tools/docs_export.py

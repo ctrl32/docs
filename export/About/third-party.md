@@ -2,8 +2,8 @@
 title: "Third-party licences"
 slug: third-party
 section: "About"
-order: 346
-sidebar_position: 346
+order: 347
+sidebar_position: 347
 generator: tools/docs_export.py
 ---
 

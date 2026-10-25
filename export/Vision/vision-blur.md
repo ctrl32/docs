@@ -2,8 +2,8 @@
 title: "Filters: Blur"
 slug: vision-blur
 section: "Vision"
-order: 234
-sidebar_position: 234
+order: 235
+sidebar_position: 235
 image: img/vbc-blur.webp
 image_alt: "The Blur block on the Vision canvas"
 generator: tools/docs_export.py

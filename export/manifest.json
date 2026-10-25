@@ -217,7 +217,7 @@
       "section": "Visualisation",
       "order": 25,
       "file": "Visualisation/widgets-graphics.md",
-      "bytes": 3915
+      "bytes": 3956
     },
     {
       "slug": "widgets-data",
@@ -529,7 +529,7 @@
       "section": "Visualisation",
       "order": 64,
       "file": "Visualisation/w-camera.md",
-      "bytes": 2852
+      "bytes": 3199
     },
     {
       "slug": "w-anim_image",
@@ -1713,13 +1713,21 @@
       "section": "Vision",
       "order": 212,
       "file": "Vision/cameras.md",
-      "bytes": 8207
+      "bytes": 8570
+    },
+    {
+      "slug": "intercom",
+      "title": "Intercom",
+      "section": "Vision",
+      "order": 213,
+      "file": "Vision/intercom.md",
+      "bytes": 3364
     },
     {
       "slug": "vision-blocks",
       "title": "Vision blocks",
       "section": "Vision",
-      "order": 213,
+      "order": 214,
       "file": "Vision/vision-blocks.md",
       "bytes": 22986
     },
@@ -1727,7 +1735,7 @@
       "slug": "vision-camera",
       "title": "Source: Camera",
       "section": "Vision",
-      "order": 214,
+      "order": 215,
       "file": "Vision/vision-camera.md",
       "bytes": 2747
     },
@@ -1735,7 +1743,7 @@
       "slug": "vision-crop",
       "title": "Geometry: Crop",
       "section": "Vision",
-      "order": 215,
+      "order": 216,
       "file": "Vision/vision-crop.md",
       "bytes": 2999
     },
@@ -1743,7 +1751,7 @@
       "slug": "vision-resize",
       "title": "Geometry: Resize",
       "section": "Vision",
-      "order": 216,
+      "order": 217,
       "file": "Vision/vision-resize.md",
       "bytes": 2437
     },
@@ -1751,7 +1759,7 @@
       "slug": "vision-rotate",
       "title": "Geometry: Rotate",
       "section": "Vision",
-      "order": 217,
+      "order": 218,
       "file": "Vision/vision-rotate.md",
       "bytes": 2298
     },
@@ -1759,7 +1767,7 @@
       "slug": "vision-warp",
       "title": "Geometry: Straighten",
       "section": "Vision",
-      "order": 218,
+      "order": 219,
       "file": "Vision/vision-warp.md",
       "bytes": 3626
     },
@@ -1767,7 +1775,7 @@
       "slug": "vision-flip",
       "title": "Geometry: Flip",
       "section": "Vision",
-      "order": 219,
+      "order": 220,
       "file": "Vision/vision-flip.md",
       "bytes": 2047
     },
@@ -1775,7 +1783,7 @@
       "slug": "vision-affine",
       "title": "Geometry: Turn and shift",
       "section": "Vision",
-      "order": 220,
+      "order": 221,
       "file": "Vision/vision-affine.md",
       "bytes": 2954
     },
@@ -1783,7 +1791,7 @@
       "slug": "vision-polar",
       "title": "Geometry: Unroll ring",
       "section": "Vision",
-      "order": 221,
+      "order": 222,
       "file": "Vision/vision-polar.md",
       "bytes": 2976
     },
@@ -1791,7 +1799,7 @@
       "slug": "vision-pyramid",
       "title": "Geometry: Halve",
       "section": "Vision",
-      "order": 222,
+      "order": 223,
       "file": "Vision/vision-pyramid.md",
       "bytes": 2475
     },
@@ -1799,7 +1807,7 @@
       "slug": "vision-undistort",
       "title": "Geometry: Lens correction",
       "section": "Vision",
-      "order": 223,
+      "order": 224,
       "file": "Vision/vision-undistort.md",
       "bytes": 4070
     },
@@ -1807,7 +1815,7 @@
       "slug": "vision-fixture",
       "title": "Geometry: Fixture",
       "section": "Vision",
-      "order": 224,
+      "order": 225,
       "file": "Vision/vision-fixture.md",
       "bytes": 4529
     },
@@ -1815,7 +1823,7 @@
       "slug": "vision-world",
       "title": "Geometry: Plane from a board",
       "section": "Vision",
-      "order": 225,
+      "order": 226,
       "file": "Vision/vision-world.md",
       "bytes": 4592
     },
@@ -1823,7 +1831,7 @@
       "slug": "vision-gray",
       "title": "Colour: Grayscale",
       "section": "Vision",
-      "order": 226,
+      "order": 227,
       "file": "Vision/vision-gray.md",
       "bytes": 1851
     },
@@ -1831,7 +1839,7 @@
       "slug": "vision-hsv_range",
       "title": "Colour: Colour range",
       "section": "Vision",
-      "order": 227,
+      "order": 228,
       "file": "Vision/vision-hsv_range.md",
       "bytes": 3589
     },
@@ -1839,7 +1847,7 @@
       "slug": "vision-threshold",
       "title": "Colour: Threshold",
       "section": "Vision",
-      "order": 228,
+      "order": 229,
       "file": "Vision/vision-threshold.md",
       "bytes": 2792
     },
@@ -1847,7 +1855,7 @@
       "slug": "vision-otsu",
       "title": "Colour: Automatic threshold",
       "section": "Vision",
-      "order": 229,
+      "order": 230,
       "file": "Vision/vision-otsu.md",
       "bytes": 2544
     },
@@ -1855,7 +1863,7 @@
       "slug": "vision-invert",
       "title": "Colour: Invert",
       "section": "Vision",
-      "order": 230,
+      "order": 231,
       "file": "Vision/vision-invert.md",
       "bytes": 1652
     },
@@ -1863,7 +1871,7 @@
       "slug": "vision-channel",
       "title": "Colour: One channel",
       "section": "Vision",
-      "order": 231,
+      "order": 232,
       "file": "Vision/vision-channel.md",
       "bytes": 2814
     },
@@ -1871,7 +1879,7 @@
       "slug": "vision-adaptive",
       "title": "Colour: Adaptive threshold",
       "section": "Vision",
-      "order": 232,
+      "order": 233,
       "file": "Vision/vision-adaptive.md",
       "bytes": 3159
     },
@@ -1879,7 +1887,7 @@
       "slug": "vision-balance",
       "title": "Colour: White balance",
       "section": "Vision",
-      "order": 233,
+      "order": 234,
       "file": "Vision/vision-balance.md",
       "bytes": 2681
     },
@@ -1887,7 +1895,7 @@
       "slug": "vision-blur",
       "title": "Filters: Blur",
       "section": "Vision",
-      "order": 234,
+      "order": 235,
       "file": "Vision/vision-blur.md",
       "bytes": 2346
     },
@@ -1895,7 +1903,7 @@
       "slug": "vision-gauss",
       "title": "Filters: Gaussian blur",
       "section": "Vision",
-      "order": 235,
+      "order": 236,
       "file": "Vision/vision-gauss.md",
       "bytes": 2206
     },
@@ -1903,7 +1911,7 @@
       "slug": "vision-median",
       "title": "Filters: Median",
       "section": "Vision",
-      "order": 236,
+      "order": 237,
       "file": "Vision/vision-median.md",
       "bytes": 2253
     },
@@ -1911,7 +1919,7 @@
       "slug": "vision-equalize",
       "title": "Filters: Equalize light",
       "section": "Vision",
-      "order": 237,
+      "order": 238,
       "file": "Vision/vision-equalize.md",
       "bytes": 2227
     },
@@ -1919,7 +1927,7 @@
       "slug": "vision-sharpen",
       "title": "Filters: Sharpen",
       "section": "Vision",
-      "order": 238,
+      "order": 239,
       "file": "Vision/vision-sharpen.md",
       "bytes": 2504
     },
@@ -1927,7 +1935,7 @@
       "slug": "vision-absdiff",
       "title": "Filters: Difference",
       "section": "Vision",
-      "order": 239,
+      "order": 240,
       "file": "Vision/vision-absdiff.md",
       "bytes": 3013
     },
@@ -1935,7 +1943,7 @@
       "slug": "vision-motion",
       "title": "Filters: Motion",
       "section": "Vision",
-      "order": 240,
+      "order": 241,
       "file": "Vision/vision-motion.md",
       "bytes": 3073
     },
@@ -1943,7 +1951,7 @@
       "slug": "vision-bilateral",
       "title": "Filters: Smooth, keep edges",
       "section": "Vision",
-      "order": 241,
+      "order": 242,
       "file": "Vision/vision-bilateral.md",
       "bytes": 2705
     },
@@ -1951,7 +1959,7 @@
       "slug": "vision-normalize",
       "title": "Filters: Stretch contrast",
       "section": "Vision",
-      "order": 242,
+      "order": 243,
       "file": "Vision/vision-normalize.md",
       "bytes": 2829
     },
@@ -1959,7 +1967,7 @@
       "slug": "vision-gamma",
       "title": "Filters: Gamma",
       "section": "Vision",
-      "order": 243,
+      "order": 244,
       "file": "Vision/vision-gamma.md",
       "bytes": 2562
     },
@@ -1967,7 +1975,7 @@
       "slug": "vision-clahe",
       "title": "Filters: Local contrast",
       "section": "Vision",
-      "order": 244,
+      "order": 245,
       "file": "Vision/vision-clahe.md",
       "bytes": 2769
     },
@@ -1975,7 +1983,7 @@
       "slug": "vision-combine",
       "title": "Filters: Combine pictures",
       "section": "Vision",
-      "order": 245,
+      "order": 246,
       "file": "Vision/vision-combine.md",
       "bytes": 2907
     },
@@ -1983,7 +1991,7 @@
       "slug": "vision-mask",
       "title": "Filters: Mask",
       "section": "Vision",
-      "order": 246,
+      "order": 247,
       "file": "Vision/vision-mask.md",
       "bytes": 2626
     },
@@ -1991,7 +1999,7 @@
       "slug": "vision-erode",
       "title": "Shapes: Erode",
       "section": "Vision",
-      "order": 247,
+      "order": 248,
       "file": "Vision/vision-erode.md",
       "bytes": 2444
     },
@@ -1999,7 +2007,7 @@
       "slug": "vision-dilate",
       "title": "Shapes: Dilate",
       "section": "Vision",
-      "order": 248,
+      "order": 249,
       "file": "Vision/vision-dilate.md",
       "bytes": 2409
     },
@@ -2007,7 +2015,7 @@
       "slug": "vision-open",
       "title": "Shapes: Open",
       "section": "Vision",
-      "order": 249,
+      "order": 250,
       "file": "Vision/vision-open.md",
       "bytes": 2381
     },
@@ -2015,7 +2023,7 @@
       "slug": "vision-close",
       "title": "Shapes: Close",
       "section": "Vision",
-      "order": 250,
+      "order": 251,
       "file": "Vision/vision-close.md",
       "bytes": 2405
     },
@@ -2023,7 +2031,7 @@
       "slug": "vision-tophat",
       "title": "Shapes: Top-hat",
       "section": "Vision",
-      "order": 251,
+      "order": 252,
       "file": "Vision/vision-tophat.md",
       "bytes": 2659
     },
@@ -2031,7 +2039,7 @@
       "slug": "vision-blackhat",
       "title": "Shapes: Black-hat",
       "section": "Vision",
-      "order": 252,
+      "order": 253,
       "file": "Vision/vision-blackhat.md",
       "bytes": 2542
     },
@@ -2039,7 +2047,7 @@
       "slug": "vision-gradient",
       "title": "Shapes: Outline",
       "section": "Vision",
-      "order": 253,
+      "order": 254,
       "file": "Vision/vision-gradient.md",
       "bytes": 2608
     },
@@ -2047,7 +2055,7 @@
       "slug": "vision-fill_holes",
       "title": "Shapes: Fill holes",
       "section": "Vision",
-      "order": 254,
+      "order": 255,
       "file": "Vision/vision-fill_holes.md",
       "bytes": 2162
     },
@@ -2055,7 +2063,7 @@
       "slug": "vision-distance",
       "title": "Shapes: Distance map",
       "section": "Vision",
-      "order": 255,
+      "order": 256,
       "file": "Vision/vision-distance.md",
       "bytes": 2255
     },
@@ -2063,7 +2071,7 @@
       "slug": "vision-canny",
       "title": "Edges: Edges",
       "section": "Vision",
-      "order": 256,
+      "order": 257,
       "file": "Vision/vision-canny.md",
       "bytes": 2918
     },
@@ -2071,7 +2079,7 @@
       "slug": "vision-sobel",
       "title": "Edges: Gradient",
       "section": "Vision",
-      "order": 257,
+      "order": 258,
       "file": "Vision/vision-sobel.md",
       "bytes": 2676
     },
@@ -2079,7 +2087,7 @@
       "slug": "vision-laplacian",
       "title": "Edges: Laplacian",
       "section": "Vision",
-      "order": 258,
+      "order": 259,
       "file": "Vision/vision-laplacian.md",
       "bytes": 2437
     },
@@ -2087,7 +2095,7 @@
       "slug": "vision-scharr",
       "title": "Edges: Gradient (fine)",
       "section": "Vision",
-      "order": 259,
+      "order": 260,
       "file": "Vision/vision-scharr.md",
       "bytes": 2235
     },
@@ -2095,7 +2103,7 @@
       "slug": "vision-contours",
       "title": "Finding objects: Find objects",
       "section": "Vision",
-      "order": 260,
+      "order": 261,
       "file": "Vision/vision-contours.md",
       "bytes": 3417
     },
@@ -2103,7 +2111,7 @@
       "slug": "vision-circles",
       "title": "Finding objects: Find circles",
       "section": "Vision",
-      "order": 261,
+      "order": 262,
       "file": "Vision/vision-circles.md",
       "bytes": 3237
     },
@@ -2111,7 +2119,7 @@
       "slug": "vision-pattern",
       "title": "Finding objects: Find pattern",
       "section": "Vision",
-      "order": 262,
+      "order": 263,
       "file": "Vision/vision-pattern.md",
       "bytes": 3730
     },
@@ -2119,7 +2127,7 @@
       "slug": "vision-lines",
       "title": "Finding objects: Find lines",
       "section": "Vision",
-      "order": 263,
+      "order": 264,
       "file": "Vision/vision-lines.md",
       "bytes": 3102
     },
@@ -2127,7 +2135,7 @@
       "slug": "vision-objcheck",
       "title": "Finding objects: Check objects",
       "section": "Vision",
-      "order": 264,
+      "order": 265,
       "file": "Vision/vision-objcheck.md",
       "bytes": 3251
     },
@@ -2135,7 +2143,7 @@
       "slug": "vision-pick",
       "title": "Finding objects: Pick object",
       "section": "Vision",
-      "order": 265,
+      "order": 266,
       "file": "Vision/vision-pick.md",
       "bytes": 3078
     },
@@ -2143,7 +2151,7 @@
       "slug": "vision-crop_object",
       "title": "Finding objects: Crop to object",
       "section": "Vision",
-      "order": 266,
+      "order": 267,
       "file": "Vision/vision-crop_object.md",
       "bytes": 2896
     },
@@ -2151,7 +2159,7 @@
       "slug": "vision-filter_objects",
       "title": "Finding objects: Filter objects",
       "section": "Vision",
-      "order": 267,
+      "order": 268,
       "file": "Vision/vision-filter_objects.md",
       "bytes": 3170
     },
@@ -2159,7 +2167,7 @@
       "slug": "vision-object_shape",
       "title": "Finding objects: Object shape",
       "section": "Vision",
-      "order": 268,
+      "order": 269,
       "file": "Vision/vision-object_shape.md",
       "bytes": 3118
     },
@@ -2167,7 +2175,7 @@
       "slug": "vision-nearest",
       "title": "Finding objects: Nearest object",
       "section": "Vision",
-      "order": 269,
+      "order": 270,
       "file": "Vision/vision-nearest.md",
       "bytes": 2735
     },
@@ -2175,7 +2183,7 @@
       "slug": "vision-corners",
       "title": "Finding objects: Find corners",
       "section": "Vision",
-      "order": 270,
+      "order": 271,
       "file": "Vision/vision-corners.md",
       "bytes": 2822
     },
@@ -2183,7 +2191,7 @@
       "slug": "vision-floodfill",
       "title": "Finding objects: Fill from point",
       "section": "Vision",
-      "order": 271,
+      "order": 272,
       "file": "Vision/vision-floodfill.md",
       "bytes": 2863
     },
@@ -2191,7 +2199,7 @@
       "slug": "vision-features",
       "title": "Finding objects: Find by features",
       "section": "Vision",
-      "order": 272,
+      "order": 273,
       "file": "Vision/vision-features.md",
       "bytes": 3784
     },
@@ -2199,7 +2207,7 @@
       "slug": "vision-aruco",
       "title": "Finding objects: Find markers",
       "section": "Vision",
-      "order": 273,
+      "order": 274,
       "file": "Vision/vision-aruco.md",
       "bytes": 3326
     },
@@ -2207,7 +2215,7 @@
       "slug": "vision-chessboard",
       "title": "Finding objects: Find chessboard",
       "section": "Vision",
-      "order": 274,
+      "order": 275,
       "file": "Vision/vision-chessboard.md",
       "bytes": 2905
     },
@@ -2215,7 +2223,7 @@
       "slug": "vision-object_colour",
       "title": "Finding objects: Colour of object",
       "section": "Vision",
-      "order": 275,
+      "order": 276,
       "file": "Vision/vision-object_colour.md",
       "bytes": 3319
     },
@@ -2223,7 +2231,7 @@
       "slug": "vision-st",
       "title": "Logic: ST code",
       "section": "Vision",
-      "order": 276,
+      "order": 277,
       "file": "Vision/vision-st.md",
       "bytes": 3829
     },
@@ -2231,7 +2239,7 @@
       "slug": "vision-brightness",
       "title": "Measurements: Brightness",
       "section": "Vision",
-      "order": 277,
+      "order": 278,
       "file": "Vision/vision-brightness.md",
       "bytes": 2273
     },
@@ -2239,7 +2247,7 @@
       "slug": "vision-white_ratio",
       "title": "Measurements: White share",
       "section": "Vision",
-      "order": 278,
+      "order": 279,
       "file": "Vision/vision-white_ratio.md",
       "bytes": 2080
     },
@@ -2247,7 +2255,7 @@
       "slug": "vision-blobs",
       "title": "Measurements: Count objects",
       "section": "Vision",
-      "order": 279,
+      "order": 280,
       "file": "Vision/vision-blobs.md",
       "bytes": 2613
     },
@@ -2255,7 +2263,7 @@
       "slug": "vision-scale",
       "title": "Measurements: Scale",
       "section": "Vision",
-      "order": 280,
+      "order": 281,
       "file": "Vision/vision-scale.md",
       "bytes": 2911
     },
@@ -2263,7 +2271,7 @@
       "slug": "vision-ruler",
       "title": "Measurements: Ruler",
       "section": "Vision",
-      "order": 281,
+      "order": 282,
       "file": "Vision/vision-ruler.md",
       "bytes": 3454
     },
@@ -2271,7 +2279,7 @@
       "slug": "vision-in_range",
       "title": "Measurements: In range",
       "section": "Vision",
-      "order": 282,
+      "order": 283,
       "file": "Vision/vision-in_range.md",
       "bytes": 2508
     },
@@ -2279,7 +2287,7 @@
       "slug": "vision-caliper",
       "title": "Measurements: Caliper",
       "section": "Vision",
-      "order": 283,
+      "order": 284,
       "file": "Vision/vision-caliper.md",
       "bytes": 4584
     },
@@ -2287,7 +2295,7 @@
       "slug": "vision-stats",
       "title": "Measurements: Brightness statistics",
       "section": "Vision",
-      "order": 284,
+      "order": 285,
       "file": "Vision/vision-stats.md",
       "bytes": 3024
     },
@@ -2295,7 +2303,7 @@
       "slug": "vision-sharpness",
       "title": "Measurements: Sharpness",
       "section": "Vision",
-      "order": 285,
+      "order": 286,
       "file": "Vision/vision-sharpness.md",
       "bytes": 3271
     },
@@ -2303,7 +2311,7 @@
       "slug": "vision-histogram",
       "title": "Measurements: Histogram",
       "section": "Vision",
-      "order": 286,
+      "order": 287,
       "file": "Vision/vision-histogram.md",
       "bytes": 3139
     },
@@ -2311,7 +2319,7 @@
       "slug": "vision-dist",
       "title": "Measurements: Distance",
       "section": "Vision",
-      "order": 287,
+      "order": 288,
       "file": "Vision/vision-dist.md",
       "bytes": 2488
     },
@@ -2319,7 +2327,7 @@
       "slug": "vision-golden",
       "title": "Measurements: Compare with taught",
       "section": "Vision",
-      "order": 288,
+      "order": 289,
       "file": "Vision/vision-golden.md",
       "bytes": 4009
     },
@@ -2327,7 +2335,7 @@
       "slug": "vision-level",
       "title": "Measurements: Fill level",
       "section": "Vision",
-      "order": 289,
+      "order": 290,
       "file": "Vision/vision-level.md",
       "bytes": 4419
     },
@@ -2335,7 +2343,7 @@
       "slug": "vision-circle_fit",
       "title": "Measurements: Circle (fit)",
       "section": "Vision",
-      "order": 290,
+      "order": 291,
       "file": "Vision/vision-circle_fit.md",
       "bytes": 4485
     },
@@ -2343,7 +2351,7 @@
       "slug": "vision-line_fit",
       "title": "Measurements: Line (fit)",
       "section": "Vision",
-      "order": 291,
+      "order": 292,
       "file": "Vision/vision-line_fit.md",
       "bytes": 4345
     },
@@ -2351,7 +2359,7 @@
       "slug": "vision-angle",
       "title": "Measurements: Angle",
       "section": "Vision",
-      "order": 292,
+      "order": 293,
       "file": "Vision/vision-angle.md",
       "bytes": 2416
     },
@@ -2359,7 +2367,7 @@
       "slug": "vision-points_dist",
       "title": "Measurements: Distance of points",
       "section": "Vision",
-      "order": 293,
+      "order": 294,
       "file": "Vision/vision-points_dist.md",
       "bytes": 3090
     },
@@ -2367,7 +2375,7 @@
       "slug": "vision-part_ok",
       "title": "Measurements: Part in place",
       "section": "Vision",
-      "order": 294,
+      "order": 295,
       "file": "Vision/vision-part_ok.md",
       "bytes": 4451
     },
@@ -2375,7 +2383,7 @@
       "slug": "vision-laser_line",
       "title": "Measurements: Laser line profile",
       "section": "Vision",
-      "order": 295,
+      "order": 296,
       "file": "Vision/vision-laser_line.md",
       "bytes": 5539
     },
@@ -2383,7 +2391,7 @@
       "slug": "vision-presence",
       "title": "Ready tools: Presence",
       "section": "Vision",
-      "order": 296,
+      "order": 297,
       "file": "Vision/vision-presence.md",
       "bytes": 3202
     },
@@ -2391,7 +2399,7 @@
       "slug": "vision-colour",
       "title": "Ready tools: Colour check",
       "section": "Vision",
-      "order": 297,
+      "order": 298,
       "file": "Vision/vision-colour.md",
       "bytes": 3667
     },
@@ -2399,7 +2407,7 @@
       "slug": "vision-edge",
       "title": "Ready tools: Edge position",
       "section": "Vision",
-      "order": 298,
+      "order": 299,
       "file": "Vision/vision-edge.md",
       "bytes": 3275
     },
@@ -2407,7 +2415,7 @@
       "slug": "vision-code",
       "title": "Ready tools: Read code",
       "section": "Vision",
-      "order": 299,
+      "order": 300,
       "file": "Vision/vision-code.md",
       "bytes": 3917
     },
@@ -2415,7 +2423,7 @@
       "slug": "vision-shape",
       "title": "Ready tools: Match shape",
       "section": "Vision",
-      "order": 300,
+      "order": 301,
       "file": "Vision/vision-shape.md",
       "bytes": 3357
     },
@@ -2423,7 +2431,7 @@
       "slug": "vision-dnn_classify",
       "title": "Learned models: Classify (model)",
       "section": "Vision",
-      "order": 301,
+      "order": 302,
       "file": "Vision/vision-dnn_classify.md",
       "bytes": 4468
     },
@@ -2431,7 +2439,7 @@
       "slug": "vision-dnn_detect",
       "title": "Learned models: Detect (model)",
       "section": "Vision",
-      "order": 302,
+      "order": 303,
       "file": "Vision/vision-dnn_detect.md",
       "bytes": 5253
     },
@@ -2439,7 +2447,7 @@
       "slug": "buses",
       "title": "Protocols",
       "section": "Protocols",
-      "order": 303,
+      "order": 304,
       "file": "Protocols/index.md",
       "bytes": 9075
     },
@@ -2447,7 +2455,7 @@
       "slug": "modbus-basics",
       "title": "What Modbus is",
       "section": "Protocols",
-      "order": 304,
+      "order": 305,
       "file": "Protocols/modbus-basics.md",
       "bytes": 9796
     },
@@ -2455,7 +2463,7 @@
       "slug": "modbus",
       "title": "Modbus",
       "section": "Protocols",
-      "order": 305,
+      "order": 306,
       "file": "Protocols/modbus.md",
       "bytes": 16458
     },
@@ -2463,7 +2471,7 @@
       "slug": "rawcan",
       "title": "Raw CAN",
       "section": "Protocols",
-      "order": 306,
+      "order": 307,
       "file": "Protocols/rawcan.md",
       "bytes": 4554
     },
@@ -2471,7 +2479,7 @@
       "slug": "mqtt",
       "title": "MQTT",
       "section": "Protocols",
-      "order": 307,
+      "order": 308,
       "file": "Protocols/mqtt.md",
       "bytes": 14145
     },
@@ -2479,7 +2487,7 @@
       "slug": "web-data",
       "title": "Web data",
       "section": "Protocols",
-      "order": 308,
+      "order": 309,
       "file": "Protocols/web-data.md",
       "bytes": 9878
     },
@@ -2487,7 +2495,7 @@
       "slug": "home-assistant",
       "title": "Home Assistant",
       "section": "Protocols",
-      "order": 309,
+      "order": 310,
       "file": "Protocols/home-assistant.md",
       "bytes": 11809
     },
@@ -2495,7 +2503,7 @@
       "slug": "canopen",
       "title": "CANopen",
       "section": "Protocols",
-      "order": 310,
+      "order": 311,
       "file": "Protocols/canopen.md",
       "bytes": 12483
     },
@@ -2503,7 +2511,7 @@
       "slug": "ethercat",
       "title": "EtherCAT",
       "section": "Protocols",
-      "order": 311,
+      "order": 312,
       "file": "Protocols/ethercat.md",
       "bytes": 21641
     },
@@ -2511,7 +2519,7 @@
       "slug": "vehicle-buses",
       "title": "Vehicle buses (J1939)",
       "section": "Protocols",
-      "order": 312,
+      "order": 313,
       "file": "Protocols/vehicle-buses.md",
       "bytes": 12995
     },
@@ -2519,7 +2527,7 @@
       "slug": "vehicle-diagnostics",
       "title": "Vehicle diagnostics",
       "section": "Protocols",
-      "order": 313,
+      "order": 314,
       "file": "Protocols/vehicle-diagnostics.md",
       "bytes": 6672
     },
@@ -2527,7 +2535,7 @@
       "slug": "plus7",
       "title": "+7 (S7 PLC)",
       "section": "Protocols",
-      "order": 314,
+      "order": 315,
       "file": "Protocols/plus7.md",
       "bytes": 8324
     },
@@ -2535,7 +2543,7 @@
       "slug": "net32",
       "title": "net32",
       "section": "Protocols",
-      "order": 315,
+      "order": 316,
       "file": "Protocols/net32.md",
       "bytes": 7483
     },
@@ -2543,7 +2551,7 @@
       "slug": "opcua",
       "title": "OPC UA",
       "section": "Protocols",
-      "order": 316,
+      "order": 317,
       "file": "Protocols/opcua.md",
       "bytes": 4188
     },
@@ -2551,7 +2559,7 @@
       "slug": "adding-peripherals",
       "title": "Adding a peripheral",
       "section": "Protocols",
-      "order": 317,
+      "order": 318,
       "file": "Protocols/adding-peripherals.md",
       "bytes": 896
     },
@@ -2559,7 +2567,7 @@
       "slug": "drives",
       "title": "Drive library",
       "section": "Drive library",
-      "order": 318,
+      "order": 319,
       "file": "Drive library/index.md",
       "bytes": 4918
     },
@@ -2567,7 +2575,7 @@
       "slug": "drives-setup",
       "title": "Setup screens and Quick setup",
       "section": "Drive library",
-      "order": 319,
+      "order": 320,
       "file": "Drive library/drives-setup.md",
       "bytes": 2579
     },
@@ -2575,7 +2583,7 @@
       "slug": "drives-control",
       "title": "Control from the device",
       "section": "Drive library",
-      "order": 320,
+      "order": 321,
       "file": "Drive library/drives-control.md",
       "bytes": 2690
     },
@@ -2583,7 +2591,7 @@
       "slug": "peripherals-and-services",
       "title": "Chips and services",
       "section": "Chips and services",
-      "order": 321,
+      "order": 322,
       "file": "Chips and services/index.md",
       "bytes": 7328
     },
@@ -2591,7 +2599,7 @@
       "slug": "peripherals-temperature",
       "title": "Temperature",
       "section": "Chips and services",
-      "order": 322,
+      "order": 323,
       "file": "Chips and services/peripherals-temperature.md",
       "bytes": 4814
     },
@@ -2599,7 +2607,7 @@
       "slug": "peripherals-environment",
       "title": "Environment",
       "section": "Chips and services",
-      "order": 323,
+      "order": 324,
       "file": "Chips and services/peripherals-environment.md",
       "bytes": 6112
     },
@@ -2607,7 +2615,7 @@
       "slug": "peripherals-air",
       "title": "Air quality",
       "section": "Chips and services",
-      "order": 324,
+      "order": 325,
       "file": "Chips and services/peripherals-air.md",
       "bytes": 5544
     },
@@ -2615,7 +2623,7 @@
       "slug": "peripherals-light",
       "title": "Light, distance, motion",
       "section": "Chips and services",
-      "order": 325,
+      "order": 326,
       "file": "Chips and services/peripherals-light.md",
       "bytes": 5172
     },
@@ -2623,7 +2631,7 @@
       "slug": "peripherals-pressure",
       "title": "Pressure and position",
       "section": "Chips and services",
-      "order": 326,
+      "order": 327,
       "file": "Chips and services/peripherals-pressure.md",
       "bytes": 6858
     },
@@ -2631,7 +2639,7 @@
       "slug": "peripherals-analog",
       "title": "Analog in and out",
       "section": "Chips and services",
-      "order": 327,
+      "order": 328,
       "file": "Chips and services/peripherals-analog.md",
       "bytes": 7692
     },
@@ -2639,7 +2647,7 @@
       "slug": "analog-inputs",
       "title": "Reading real values",
       "section": "Chips and services",
-      "order": 328,
+      "order": 329,
       "file": "Chips and services/analog-inputs.md",
       "bytes": 5818
     },
@@ -2647,7 +2655,7 @@
       "slug": "peripherals-io",
       "title": "I/O expanders and drivers",
       "section": "Chips and services",
-      "order": 329,
+      "order": 330,
       "file": "Chips and services/peripherals-io.md",
       "bytes": 7273
     },
@@ -2655,7 +2663,7 @@
       "slug": "peripherals-power",
       "title": "Power and energy",
       "section": "Chips and services",
-      "order": 330,
+      "order": 331,
       "file": "Chips and services/peripherals-power.md",
       "bytes": 6801
     },
@@ -2663,7 +2671,7 @@
       "slug": "peripherals-connectivity",
       "title": "Cellular modems",
       "section": "Chips and services",
-      "order": 331,
+      "order": 332,
       "file": "Chips and services/peripherals-connectivity.md",
       "bytes": 4329
     },
@@ -2671,7 +2679,7 @@
       "slug": "deployment",
       "title": "Deployment",
       "section": "Deployment",
-      "order": 332,
+      "order": 333,
       "file": "Deployment/index.md",
       "bytes": 654
     },
@@ -2679,7 +2687,7 @@
       "slug": "find-devices",
       "title": "Finding your boards",
       "section": "Deployment",
-      "order": 333,
+      "order": 334,
       "file": "Deployment/find-devices.md",
       "bytes": 5147
     },
@@ -2687,7 +2695,7 @@
       "slug": "deploy",
       "title": "Download to the panel",
       "section": "Deployment",
-      "order": 334,
+      "order": 335,
       "file": "Deployment/deploy.md",
       "bytes": 9044
     },
@@ -2695,7 +2703,7 @@
       "slug": "operation",
       "title": "Operation",
       "section": "Operation",
-      "order": 335,
+      "order": 336,
       "file": "Operation/index.md",
       "bytes": 714
     },
@@ -2703,7 +2711,7 @@
       "slug": "online",
       "title": "Online monitoring",
       "section": "Operation",
-      "order": 336,
+      "order": 337,
       "file": "Operation/online.md",
       "bytes": 8010
     },
@@ -2711,7 +2719,7 @@
       "slug": "recipes",
       "title": "Recipes",
       "section": "Operation",
-      "order": 337,
+      "order": 338,
       "file": "Operation/recipes.md",
       "bytes": 3978
     },
@@ -2719,7 +2727,7 @@
       "slug": "scope",
       "title": "Scope",
       "section": "Operation",
-      "order": 338,
+      "order": 339,
       "file": "Operation/scope.md",
       "bytes": 6342
     },
@@ -2727,7 +2735,7 @@
       "slug": "force",
       "title": "Forcing values",
       "section": "Operation",
-      "order": 339,
+      "order": 340,
       "file": "Operation/force.md",
       "bytes": 3433
     },
@@ -2735,7 +2743,7 @@
       "slug": "limits",
       "title": "Performance and limits",
       "section": "Operation",
-      "order": 340,
+      "order": 341,
       "file": "Operation/limits.md",
       "bytes": 6600
     },
@@ -2743,7 +2751,7 @@
       "slug": "troubleshooting",
       "title": "Troubleshooting",
       "section": "Operation",
-      "order": 341,
+      "order": 342,
       "file": "Operation/troubleshooting.md",
       "bytes": 6132
     },
@@ -2751,7 +2759,7 @@
       "slug": "about",
       "title": "About",
       "section": "About",
-      "order": 342,
+      "order": 343,
       "file": "About/index.md",
       "bytes": 509
     },
@@ -2759,7 +2767,7 @@
       "slug": "intended-use",
       "title": "Intended use",
       "section": "About",
-      "order": 343,
+      "order": 344,
       "file": "About/intended-use.md",
       "bytes": 4655
     },
@@ -2767,7 +2775,7 @@
       "slug": "licensing",
       "title": "Licensing",
       "section": "About",
-      "order": 344,
+      "order": 345,
       "file": "About/licensing.md",
       "bytes": 1391
     },
@@ -2775,7 +2783,7 @@
       "slug": "security",
       "title": "Network and security",
       "section": "About",
-      "order": 345,
+      "order": 346,
       "file": "About/security.md",
       "bytes": 5120
     },
@@ -2783,7 +2791,7 @@
       "slug": "third-party",
       "title": "Third-party licences",
       "section": "About",
-      "order": 346,
+      "order": 347,
       "file": "About/third-party.md",
       "bytes": 5791
     },
@@ -2791,7 +2799,7 @@
       "slug": "changelog",
       "title": "What's new",
       "section": "About",
-      "order": 347,
+      "order": 348,
       "file": "About/changelog.md",
       "bytes": 120028
     }

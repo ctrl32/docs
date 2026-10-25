@@ -2,8 +2,8 @@
 title: "Finding objects: Find corners"
 slug: vision-corners
 section: "Vision"
-order: 270
-sidebar_position: 270
+order: 271
+sidebar_position: 271
 image: img/vbc-corners.webp
 image_alt: "The Find corners block on the Vision canvas"
 generator: tools/docs_export.py

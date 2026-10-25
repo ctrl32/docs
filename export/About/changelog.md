@@ -2,8 +2,8 @@
 title: "What's new"
 slug: changelog
 section: "About"
-order: 347
-sidebar_position: 347
+order: 348
+sidebar_position: 348
 generator: tools/docs_export.py
 ---
 

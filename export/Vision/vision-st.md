@@ -2,8 +2,8 @@
 title: "Logic: ST code"
 slug: vision-st
 section: "Vision"
-order: 276
-sidebar_position: 276
+order: 277
+sidebar_position: 277
 image: img/vbc-st.webp
 image_alt: "The ST code block on the Vision canvas"
 generator: tools/docs_export.py

@@ -7,7 +7,7 @@ image_alt: "The camera widget on a screen"
 
 **Images and icons** · in a project file: `type: camera`
 
-The live picture of one of the project's cameras, or of a vision block - 64-bit Linux devices only.
+The live picture of one of the project's cameras, or of a vision block - 64-bit Linux devices, and the ESP32-P4 panel for an http:// camera.
 
 ![The camera widget on a screen](img/camera-screen.webp){: .sb-center}
 
@@ -30,6 +30,12 @@ on the device it shows the camera. Nothing is programmed: plug a USB
 camera into the device, add it to the project (the **Cameras** node
 under the device, see [Cameras](cameras.md)), drop the element on a
 screen.
+
+On an **ESP32-P4 panel** the element shows an IP camera - an
+`http://` MJPEG stream, a network camera or an ESP32-S3 camera device
+(see [Intercom](intercom.md)): the panel's JPEG hardware decodes the
+stream, up to two on a panel. A USB camera and the vision blocks stay
+with the Linux devices.
 
 The same screen in the **browser** shows the same picture, about ten
 times a second — the WEBview draws the screens of the device's glass,

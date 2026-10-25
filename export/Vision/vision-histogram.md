@@ -2,8 +2,8 @@
 title: "Measurements: Histogram"
 slug: vision-histogram
 section: "Vision"
-order: 286
-sidebar_position: 286
+order: 287
+sidebar_position: 287
 image: img/vbc-histogram.webp
 image_alt: "The Histogram block on the Vision canvas"
 generator: tools/docs_export.py

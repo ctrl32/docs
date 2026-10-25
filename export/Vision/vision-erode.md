@@ -2,8 +2,8 @@
 title: "Shapes: Erode"
 slug: vision-erode
 section: "Vision"
-order: 247
-sidebar_position: 247
+order: 248
+sidebar_position: 248
 image: img/vbc-erode.webp
 image_alt: "The Erode block on the Vision canvas"
 generator: tools/docs_export.py

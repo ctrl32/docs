@@ -2,8 +2,8 @@
 title: "Home Assistant"
 slug: home-assistant
 section: "Protocols"
-order: 309
-sidebar_position: 309
+order: 310
+sidebar_position: 310
 generator: tools/docs_export.py
 ---
 

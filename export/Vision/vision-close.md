@@ -2,8 +2,8 @@
 title: "Shapes: Close"
 slug: vision-close
 section: "Vision"
-order: 250
-sidebar_position: 250
+order: 251
+sidebar_position: 251
 image: img/vbc-close.webp
 image_alt: "The Close block on the Vision canvas"
 generator: tools/docs_export.py

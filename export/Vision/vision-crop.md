@@ -2,8 +2,8 @@
 title: "Geometry: Crop"
 slug: vision-crop
 section: "Vision"
-order: 215
-sidebar_position: 215
+order: 216
+sidebar_position: 216
 image: img/vbc-crop.webp
 image_alt: "The Crop block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Measurements: Angle"
 slug: vision-angle
 section: "Vision"
-order: 292
-sidebar_position: 292
+order: 293
+sidebar_position: 293
 image: img/vbc-angle.webp
 image_alt: "The Angle block on the Vision canvas"
 generator: tools/docs_export.py

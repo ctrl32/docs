@@ -5,14 +5,18 @@ A Linux device can show a **live camera picture** on its own screen
 device, add it to the project, drop a **camera** element on a screen -
 that is all. Nothing is programmed.
 
-!!! note "64-bit Linux devices only"
+!!! note "64-bit Linux devices, and the ESP32-P4 panel for the picture"
     Cameras belong to the Linux runtime on a processor that is up to
     them: a **64-bit** device - the reTerminal, a Raspberry Pi 4 / 5, a
     CM4 / CM5, a PC-class device. The STM32MP1 device (a pair of 32-bit
-    cores) is too slow for vision and its runtime has none. The Toolbox
-    offers the camera element only when the project's target is such a
-    device, and a project for another board that carries one is refused
-    at build.
+    cores) is too slow for vision and its runtime has none. An
+    **ESP32-P4 panel** shows the picture of an **IP camera** (an
+    `http://` MJPEG stream - a network camera, or an ESP32-S3 camera
+    device of this system, see [Intercom](intercom.md)): up to two
+    streams, decoded by the panel's own JPEG hardware; a USB camera and
+    the vision blocks stay with the Linux devices. The Toolbox offers the
+    camera element when the project's target is one of these, and a
+    project for another board that carries one is refused at build.
 
 ## Which cameras
 

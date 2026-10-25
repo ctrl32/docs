@@ -2,8 +2,8 @@
 title: "Colour: Grayscale"
 slug: vision-gray
 section: "Vision"
-order: 226
-sidebar_position: 226
+order: 227
+sidebar_position: 227
 image: img/vbc-gray.webp
 image_alt: "The Grayscale block on the Vision canvas"
 generator: tools/docs_export.py

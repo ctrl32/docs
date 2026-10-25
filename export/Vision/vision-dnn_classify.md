@@ -2,8 +2,8 @@
 title: "Learned models: Classify (model)"
 slug: vision-dnn_classify
 section: "Vision"
-order: 301
-sidebar_position: 301
+order: 302
+sidebar_position: 302
 image: img/vbc-dnn_classify.webp
 image_alt: "The Classify (model) block on the Vision canvas"
 generator: tools/docs_export.py

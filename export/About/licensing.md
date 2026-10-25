@@ -2,8 +2,8 @@
 title: "Licensing"
 slug: licensing
 section: "About"
-order: 344
-sidebar_position: 344
+order: 345
+sidebar_position: 345
 generator: tools/docs_export.py
 ---
 

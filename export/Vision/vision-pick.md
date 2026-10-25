@@ -2,8 +2,8 @@
 title: "Finding objects: Pick object"
 slug: vision-pick
 section: "Vision"
-order: 265
-sidebar_position: 265
+order: 266
+sidebar_position: 266
 image: img/vbc-pick.webp
 image_alt: "The Pick object block on the Vision canvas"
 generator: tools/docs_export.py

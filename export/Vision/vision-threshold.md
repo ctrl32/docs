@@ -2,8 +2,8 @@
 title: "Colour: Threshold"
 slug: vision-threshold
 section: "Vision"
-order: 228
-sidebar_position: 228
+order: 229
+sidebar_position: 229
 image: img/vbc-threshold.webp
 image_alt: "The Threshold block on the Vision canvas"
 generator: tools/docs_export.py

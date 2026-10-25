@@ -2,8 +2,8 @@
 title: "Geometry: Lens correction"
 slug: vision-undistort
 section: "Vision"
-order: 223
-sidebar_position: 223
+order: 224
+sidebar_position: 224
 image: img/vbc-undistort.webp
 image_alt: "The Lens correction block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Shapes: Top-hat"
 slug: vision-tophat
 section: "Vision"
-order: 251
-sidebar_position: 251
+order: 252
+sidebar_position: 252
 image: img/vbc-tophat.webp
 image_alt: "The Top-hat block on the Vision canvas"
 generator: tools/docs_export.py

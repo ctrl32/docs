@@ -2,8 +2,8 @@
 title: "Finding objects: Colour of object"
 slug: vision-object_colour
 section: "Vision"
-order: 275
-sidebar_position: 275
+order: 276
+sidebar_position: 276
 image: img/vbc-object_colour.webp
 image_alt: "The Colour of object block on the Vision canvas"
 generator: tools/docs_export.py

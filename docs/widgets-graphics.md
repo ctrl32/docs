@@ -16,7 +16,7 @@ line, a shape and an animated image.
 | [image](w-image.md) | A bitmap from the project's assets, for what only a picture can say. |
 | [icon](w-icon.md) | A vector glyph, sharp at any size, that can switch glyph and colour with a variable. |
 | [logo](w-logo.md) | The ctrl32 mark, drawn as vectors in one colour. |
-| [camera](w-camera.md) | The live picture of one of the project's cameras, or of a vision block - 64-bit Linux devices only. |
+| [camera](w-camera.md) | The live picture of one of the project's cameras, or of a vision block - 64-bit Linux devices, and the ESP32-P4 panel for an http:// camera. |
 | [anim_image](w-anim_image.md) | A picture made of frames, cycling on its own or picked by a variable. |
 | [line](w-line.md) | A line through points in the widget's own frame - a pipe, an arrow, an outline. |
 | [shape](w-shape.md) | A rectangle or an ellipse that fills the widget. |

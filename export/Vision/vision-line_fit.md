@@ -2,8 +2,8 @@
 title: "Measurements: Line (fit)"
 slug: vision-line_fit
 section: "Vision"
-order: 291
-sidebar_position: 291
+order: 292
+sidebar_position: 292
 image: img/vbc-line_fit.webp
 image_alt: "The Line (fit) block on the Vision canvas"
 generator: tools/docs_export.py

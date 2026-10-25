@@ -2,8 +2,8 @@
 title: "Shapes: Distance map"
 slug: vision-distance
 section: "Vision"
-order: 255
-sidebar_position: 255
+order: 256
+sidebar_position: 256
 image: img/vbc-distance.webp
 image_alt: "The Distance map block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Vision blocks"
 slug: vision-blocks
 section: "Vision"
-order: 213
-sidebar_position: 213
+order: 214
+sidebar_position: 214
 generator: tools/docs_export.py
 ---
 

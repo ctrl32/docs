@@ -2,8 +2,8 @@
 title: "Shapes: Outline"
 slug: vision-gradient
 section: "Vision"
-order: 253
-sidebar_position: 253
+order: 254
+sidebar_position: 254
 image: img/vbc-gradient.webp
 image_alt: "The Outline block on the Vision canvas"
 generator: tools/docs_export.py

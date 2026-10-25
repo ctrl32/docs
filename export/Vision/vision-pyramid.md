@@ -2,8 +2,8 @@
 title: "Geometry: Halve"
 slug: vision-pyramid
 section: "Vision"
-order: 222
-sidebar_position: 222
+order: 223
+sidebar_position: 223
 image: img/vbc-pyramid.webp
 image_alt: "The Halve block on the Vision canvas"
 generator: tools/docs_export.py

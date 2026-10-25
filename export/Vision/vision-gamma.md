@@ -2,8 +2,8 @@
 title: "Filters: Gamma"
 slug: vision-gamma
 section: "Vision"
-order: 243
-sidebar_position: 243
+order: 244
+sidebar_position: 244
 image: img/vbc-gamma.webp
 image_alt: "The Gamma block on the Vision canvas"
 generator: tools/docs_export.py

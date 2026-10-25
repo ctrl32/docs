@@ -2,8 +2,8 @@
 title: "Geometry: Flip"
 slug: vision-flip
 section: "Vision"
-order: 219
-sidebar_position: 219
+order: 220
+sidebar_position: 220
 image: img/vbc-flip.webp
 image_alt: "The Flip block on the Vision canvas"
 generator: tools/docs_export.py

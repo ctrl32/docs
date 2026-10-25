@@ -2,8 +2,8 @@
 title: "Geometry: Unroll ring"
 slug: vision-polar
 section: "Vision"
-order: 221
-sidebar_position: 221
+order: 222
+sidebar_position: 222
 image: img/vbc-polar.webp
 image_alt: "The Unroll ring block on the Vision canvas"
 generator: tools/docs_export.py

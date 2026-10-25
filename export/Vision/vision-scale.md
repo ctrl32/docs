@@ -2,8 +2,8 @@
 title: "Measurements: Scale"
 slug: vision-scale
 section: "Vision"
-order: 280
-sidebar_position: 280
+order: 281
+sidebar_position: 281
 image: img/vbc-scale.webp
 image_alt: "The Scale block on the Vision canvas"
 generator: tools/docs_export.py

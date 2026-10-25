@@ -2,8 +2,8 @@
 title: "Shapes: Fill holes"
 slug: vision-fill_holes
 section: "Vision"
-order: 254
-sidebar_position: 254
+order: 255
+sidebar_position: 255
 image: img/vbc-fill_holes.webp
 image_alt: "The Fill holes block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Colour: Invert"
 slug: vision-invert
 section: "Vision"
-order: 230
-sidebar_position: 230
+order: 231
+sidebar_position: 231
 image: img/vbc-invert.webp
 image_alt: "The Invert block on the Vision canvas"
 generator: tools/docs_export.py

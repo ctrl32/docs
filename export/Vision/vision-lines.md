@@ -2,8 +2,8 @@
 title: "Finding objects: Find lines"
 slug: vision-lines
 section: "Vision"
-order: 263
-sidebar_position: 263
+order: 264
+sidebar_position: 264
 image: img/vbc-lines.webp
 image_alt: "The Find lines block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Vehicle diagnostics"
 slug: vehicle-diagnostics
 section: "Protocols"
-order: 313
-sidebar_position: 313
+order: 314
+sidebar_position: 314
 image: img/vehicle-diag.webp
 image_alt: "The diagnostics page: a control unit with its request and answer identifiers, the fault-code variables and the values read over and over"
 generator: tools/docs_export.py
