@@ -72,11 +72,18 @@ says once what stopped it. The INFO line carries
 ## The bell and the door
 
 The camera device has free pins: a bell button on one of them is a
-BOOL variable published over net32; the panel subscribes to it, lights a
-lamp, opens the Door screen on its edge, and a button on that screen
-writes the door variable the device with the relay owns. All of it is
-the net32 and screen work described elsewhere; the house dashboard
-example carries a Door screen built this way.
+BOOL variable published over net32, and a relay for the door strike on
+another follows a command the panel publishes. The panel subscribes to
+the bell, counts the rings, keeps the time of the last one, lights a
+lamp and marks the Door tab on every screen while it rings; its **Open
+door** button raises the strike's command for five seconds, and the
+camera device's own program holds the relay for five seconds at most,
+whatever the panel says. All of it is the net32 and screen work
+described elsewhere; the house dashboard example carries a Door screen
+built this way - the camera element, the bell, the strike and the lock
+on one screen, the two devices in one project.
+
+![The Door screen of the house dashboard: the camera element, the doorbell ringing, the front door locked with the strike released, the camera online with one ring today](img/house-door.webp){: .sb-center}
 
 ## Numbers to plan with
 

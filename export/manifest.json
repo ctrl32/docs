@@ -1721,7 +1721,7 @@
       "section": "Vision",
       "order": 213,
       "file": "Vision/intercom.md",
-      "bytes": 3800
+      "bytes": 4355
     },
     {
       "slug": "vision-blocks",
@@ -3081,9 +3081,11 @@
     "img/home-room.webp",
     "img/house-access.webp",
     "img/house-climate.webp",
+    "img/house-door.webp",
     "img/house-energy.webp",
     "img/house-home.webp",
     "img/house-lights.webp",
+    "img/house-system.webp",
     "img/house-weather.webp",
     "img/i550-axis.webp",
     "img/i550-dip.webp",
