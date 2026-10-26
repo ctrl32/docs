@@ -76,6 +76,41 @@ on one screen, the two devices in one project.
 
 ![The Door screen of the house dashboard: the camera element, the doorbell ringing, the front door locked with the strike released, the camera online with one ring today](img/house-door.webp){: .sb-center}
 
+## The voice
+
+A device whose board carries an audio codec - a microphone and a
+speaker amplifier, as the ESP32-P4 panels do - speaks to one other
+device over the network and rings a chime of its own. The project's
+**Audio** section names the other device (`peer`: its network name or
+address), the port, the sample rate (8 or 16 kHz), the speaker's volume,
+the microphone's gain and three BOOL variables:
+
+- `talk`: while it is TRUE the device sends its microphone to the peer,
+  and its own speaker stays quiet meanwhile. On the panel it is the
+  **Talk** button of the Door screen, held while speaking; on the
+  device at the door a program sets it.
+- `listen`: while it is TRUE the device plays what the peer sends.
+  Without the variable it plays always - the device at the door. On the
+  panel it is **Listen**, and the house publishes it over net32 as
+  `call`, so the door device's program sets its own `talk` to it: the
+  door speaks while the panel listens.
+- `chime`: a rising edge plays the built-in two-tone chime - the
+  doorbell on the panel, a ding at the door.
+
+Push to talk is the intercom of a gate station: one direction at a
+time, no echo, nothing to tune. The voice is a quarter of a megabit,
+small beside the picture; a device without a peer still rings its
+chime. The pins of the codec come from the board's catalog record -
+nothing to assign. The INFO line carries
+`aud=<peer known>,<sent>,<received>,<lost>` and the diagnostic buffer
+says when the codec did not answer or the peer's name could not be
+resolved.
+
+The camera device at the door can be a small ESP32-S3 camera board (a
+microphone only; a speaker amplifier module on its free pins gives it a
+voice) or an ESP32-P4 panel standing at the door with its own codec and
+camera connector.
+
 ## Numbers to plan with
 
 | | |
@@ -85,6 +120,4 @@ on one screen, the two devices in one project.
 | Streams on one panel | two |
 | Viewers of one camera device | two at a time (its own server's limit) |
 | Delay door to panel | under a second: a frame's time and the network |
-
-Sound is not part of the picture: the intercom shows and rings, it does
-not talk.
+| The voice | 16 kHz, 16-bit, one channel: 256 kbit/s a direction, a tenth of a second from mouth to ear |
