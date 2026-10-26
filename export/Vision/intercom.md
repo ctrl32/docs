@@ -106,6 +106,8 @@ the microphone's gain and three BOOL variables:
 - `chime`: a rising edge plays the built-in two-tone chime - the
   doorbell on the panel, a ding at the door.
 
+![The Sound page of a panel: the other device, the port, the sample rate, the speaker volume, the microphone gain, the Talk, Listen and Chime variables, the codec's wiring](img/sound-page.webp){: .sb-center}
+
 Push to talk is the intercom of a gate station: one direction at a
 time, no echo, nothing to tune. The voice is a quarter of a megabit,
 small beside the picture; a device without a peer still rings its

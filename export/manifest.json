@@ -1721,7 +1721,7 @@
       "section": "Vision",
       "order": 213,
       "file": "Vision/intercom.md",
-      "bytes": 6149
+      "bytes": 6358
     },
     {
       "slug": "vision-blocks",
@@ -3156,6 +3156,7 @@
     "img/rt-zones.webp",
     "img/rtu-master-page.webp",
     "img/scope-window.webp",
+    "img/sound-page.webp",
     "img/st-editor.webp",
     "img/tags-variables.webp",
     "img/thermostat-alarms.png",
