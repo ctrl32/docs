@@ -73,7 +73,7 @@
       "section": "Hardware",
       "order": 7,
       "file": "Hardware/modules.md",
-      "bytes": 13964
+      "bytes": 14067
     },
     {
       "slug": "node",
@@ -1721,7 +1721,7 @@
       "section": "Vision",
       "order": 213,
       "file": "Vision/intercom.md",
-      "bytes": 3364
+      "bytes": 3800
     },
     {
       "slug": "vision-blocks",
@@ -2991,6 +2991,7 @@
     "img/blk-xor-web.webp",
     "img/board-buspins.webp",
     "img/board-catalog.webp",
+    "img/camera-device.webp",
     "img/camera-page.webp",
     "img/camera-screen.webp",
     "img/camera-tree.webp",

@@ -14,7 +14,11 @@ A board with a camera sensor and PSRAM - the **Seeed XIAO ESP32S3
 Sense** is the one in the catalog: an OV2640 on its expansion board, a
 microphone, a microSD slot, native USB for the console and the runtime,
 eleven free pins on the edge. Pick it as the project's board and add
-**Camera** from the device's context menu in the tree. The page:
+**Camera** from the device's context menu in the tree.
+
+![The camera device's page: resolution, quality, rate, flip and mirror, the sensor's wiring](img/camera-device.webp){: .sb-center}
+
+The page:
 
 | Setting | Meaning |
 |:---|:---|
@@ -27,7 +31,11 @@ The pins come from the catalog board; the page shows them and nothing
 has to be wired in the project. The device serves the picture on its own
 web server: `http://<name>.local/cam.mjpg` is the stream, `/cam.jpg` the
 latest frame - open either in a browser to see the camera before the
-panel does.
+panel does, or press **Take a picture** on the page while the device is
+reachable. Two viewers may watch the stream at a time; a third is told
+so. The device's INFO line carries `camsrc=<frames per second>,<viewers>`,
+and the diagnostic buffer says once when the sensor did not answer (the
+Sense board not seated).
 
 ## The picture on the panel
 
