@@ -189,4 +189,6 @@ node reads no web data - its head does.
 
 See also: [MQTT](mqtt.md) for pushing values out. The weather station
 example on the Examples pages reads its forecast and the air quality this
-way - two sources, each with its status variable.
+way - two sources, each with its status variable; the house dashboard's
+panel reads its Weather screen the same way and falls back to its
+simulated weather while the read has not succeeded.

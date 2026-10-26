@@ -17,7 +17,7 @@ Seven dark, translucent screens over photographs of the house they control: the 
 
 ## What you get
 - **Home:** a large clock with the day and a greeting, the outside temperature and humidity, a three-day forecast, the living room's temperature and setpoint, the solar output and the battery, the alarm state, and three scenes (Evening, Away, Night)
-- **Weather:** the condition, the temperature and how it feels, humidity, wind, pressure and the chance of rain today, and a four-day forecast with highs, lows and rain
+- **Weather:** the condition, the temperature and how it feels, humidity, wind, pressure and the chance of rain today, and a four-day forecast with highs, lows and rain - the real weather of your place, read by the panel from the internet every half hour; the simulated weather stands in while the panel is offline
 - **Climate:** six rooms, each with its temperature, its setpoint with − and + buttons and a flame lit while it heats; the heat pump's power, flow and return temperatures and COP; the hot-water tank with its level bar
 - **Energy:** the energy flow between the solar panels, the grid, the house, the battery and the car; the battery's charge and power; today's power use split into heating, car and house; today's produced, consumed, exported and imported kWh; the solar output over the last 12 hours and how self-sufficient the house is today
 - **Lights:** eight lights that switch with a touch, three shading positions on sliders, a dimmer, and All on / All off / Evening mood / Night
@@ -30,20 +30,22 @@ Seven dark, translucent screens over photographs of the house they control: the 
 1. Each screen is one background picture that already carries the frosted cards, the fixed words and the fixed icons; only the live parts - values, state icons, sliders, bars, the camera - draw over it.
 2. The buttons, switches and the navigation sit under the picture: the picture covers them, a touch still reaches them.
 3. Program `SIM` is the house, one step a second: the outdoor temperature follows the day, the solar output follows the sun, the load has its morning and evening peaks, the rooms heat with hysteresis through the heat pump, the battery takes the surplus and covers the deficit, the grid the rest.
-4. A state icon is two icons at the same place, each shown with `visible_if` on the state and its opposite - a lit and a dark bulb, an open and a closed lock, a quiet and a ringing bell.
-5. The large digits are Noto Sans faces carried in the project, 48 and 76 px.
-6. The project is a net32 system of two devices: **panel** (node 1, the P4 on the wall) and **camera** (node 2, a Seeed XIAO ESP32S3 Sense at the door). The camera device serves its picture as a Motion-JPEG stream on its own web address; the panel reads the stream into the Door screen's camera element and decodes every frame in hardware.
-7. The bell button on the camera device is a variable published over net32. The panel subscribes to it: a press counts a ring, records the time, lights the lamp for ten seconds and marks the Door tab on every screen. **Open door** publishes the strike's command for five seconds; the camera device pulses its relay for five seconds at most, whatever the panel says.
-8. Replace the simulation with the real house: bind the variables to Modbus, MQTT or the panel's own inputs and delete the program `SIM` - the screens and the door stay as they are.
+4. The weather is real: the panel's web source reads the forecast service every 30 minutes - the current weather, how it feels, humidity, wind, pressure and four days of forecast land in variables, and the program shows them while the last read succeeded. Without the internet the program draws a week of weather of its own, so the screens are never empty.
+5. A state icon is two icons at the same place, each shown with `visible_if` on the state and its opposite - a lit and a dark bulb, an open and a closed lock, a quiet and a ringing bell.
+6. The large digits are Noto Sans faces carried in the project, 48 and 76 px.
+7. The project is a net32 system of two devices: **panel** (node 1, the P4 on the wall) and **camera** (node 2, a Seeed XIAO ESP32S3 Sense at the door). The camera device serves its picture as a Motion-JPEG stream on its own web address; the panel reads the stream into the Door screen's camera element and decodes every frame in hardware.
+8. The bell button on the camera device is a variable published over net32. The panel subscribes to it: a press counts a ring, records the time, lights the lamp for ten seconds and marks the Door tab on every screen. **Open door** publishes the strike's command for five seconds; the camera device pulses its relay for five seconds at most, whatever the panel says.
+9. Replace the simulation with the real house: bind the variables to Modbus, MQTT or the panel's own inputs and delete the program `SIM` - the screens, the weather and the door stay as they are.
 
 ## Setting it up
 1. **Open the project.** The tree shows the system's two devices, **panel** and **camera**; the panel carries the seven screens, the **Cameras** node and the **Clock**, the camera device its **WiFi** node and its **Camera** node.
 2. **The camera device's WiFi.** Click its **WiFi**: the mode *STA*, the **Wi-Fi name (SSID)** and the **Wi-Fi password** of the house network. The shipped project carries placeholders; nothing joins until these are yours. The device announces itself on the network as `door-cam.local`.
 3. **The panel.** On Ethernet nothing needs setting - the panel takes its address from the router. The camera's address under **Cameras** is `http://door-cam.local/cam.mjpg`; change it only if you renamed the camera device or gave it a fixed address.
-4. **The camera device's page.** The **Camera** node shows the sensor's settings - 640×480 at 10 frames a second, quality 12 - and its wiring; the pins come from the board, nothing to assign.
-5. **Wiring at the door.** The bell button between pin D0 and GND (the pin's pull-up holds it high, a press pulls it low). The strike's relay module on pin D1: the pin gives a logic level, the module's own driver switches the strike's current.
-6. **Deploy both devices** - the system page deploys them together, or each one with F5 while it is selected. The panel shows the picture a few seconds after both are up; the **camera online** lamp on the Door screen says the camera device is heard over net32.
-7. **Try it.** Press the bell: the lamp on the Door screen rings for ten seconds, the count grows, the time of the ring is kept, and the Door tab of every other screen shows a bell. Press **Open door**: the strike is released for five seconds on the camera device and the screen says so.
+4. **Your place.** The panel's **Web data** node carries the source `weather`: the forecast service's address with the latitude and longitude of the shipped project in it. Put your own coordinates into the address (two numbers, the rest stays) - or open the **Weather** preset, which writes a fresh source for any place. The panel needs the internet for this; everything else runs without it.
+5. **The camera device's page.** The **Camera** node shows the sensor's settings - 640×480 at 10 frames a second, quality 12 - and its wiring; the pins come from the board, nothing to assign.
+6. **Wiring at the door.** The bell button between pin D0 and GND (the pin's pull-up holds it high, a press pulls it low). The strike's relay module on pin D1: the pin gives a logic level, the module's own driver switches the strike's current.
+7. **Deploy both devices** - the system page deploys them together, or each one with F5 while it is selected. The panel shows the picture a few seconds after both are up; the **camera online** lamp on the Door screen says the camera device is heard over net32.
+8. **Try it.** Press the bell: the lamp on the Door screen rings for ten seconds, the count grows, the time of the ring is kept, and the Door tab of every other screen shows a bell. Press **Open door**: the strike is released for five seconds on the camera device and the screen says so. About ten seconds after the panel starts, the Weather screen switches from the drawn weather to the real one.
 
 ## Pictures
 - ![The Home screen over a photograph of a modern house at dusk: the clock, the day and a greeting, the weather card with a three-day forecast, and four cards along the bottom - the living room, the solar output, the alarm and the scenes](img/house-home.webp) - Home
@@ -58,7 +60,7 @@ Seven dark, translucent screens over photographs of the house they control: the 
 ## Runs on
 - The panel: Makerfabs MaTouch ESP32-P4 7" (1024×600), on Ethernet or WiFi
 - The camera device: Seeed XIAO ESP32S3 Sense at the door, on WiFi - the camera on its expansion board, the bell button on D0, the strike's relay on D1
-- Nothing needed to start: the simulated house runs on the panel and in the editor's simulation; without the camera device the Door screen shows the camera element empty and the camera lamp dark
+- Nothing needed to start: the simulated house runs on the panel and in the editor's simulation; without the camera device the Door screen shows the camera element empty and the camera lamp dark; without the internet the Weather screen shows the simulation's weather
 
 ## Facts to keep exact
 - Seven screens: Home, Weather, Climate, Energy, Lights, Access, Door; the navigation bar on the left of every screen
@@ -72,10 +74,12 @@ Seven dark, translucent screens over photographs of the house they control: the 
 - The bell button on the camera device's D0 (to GND), the strike's relay on its D1; the strike is released for 5 s at most, on both sides
 - A ring lights the lamp for 10 s, counts (the count starts over at midnight) and records the time; the Door tab of every screen shows a bell while it rings
 - The shipped project carries placeholder WiFi settings on the camera device; the panel needs none on Ethernet
+- The weather comes from the panel's web source: the forecast service read every 30 minutes, 23 fields (the current weather and four days), the status variable `web_ok`; the place is the latitude and longitude in the source's address
+- The simulation's drawn weather is shown while `web_ok` is false - at the desk always, on the panel until the first read and whenever the internet is gone
 - Setpoints are retained variables, kept over a restart
 - The clock is set over NTP, Central European time
 - The frosted look is baked into the backgrounds: the runtime draws no translucent fill
-- The simulation steps once a second; the door is not simulated
+- The simulation steps once a second; the door is not simulated, the weather only while the web is not read
 
 ## Call to action
 Download the ctrl32 editor and open the shipped project `examples\house_dashboard.prj32`.
