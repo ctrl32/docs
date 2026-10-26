@@ -6,7 +6,7 @@ hero: img/house-home.webp
 
 # A house on one 7" panel - heating, energy, lights, doors and the camera at the door behind frosted glass
 
-Seven dark, translucent screens over photographs of the house they control: the clock and the weather, six heated rooms, the energy flow between the solar panels, the battery, the grid and the car, the lights and the shading, the garage, the front door and the alarm - and the door itself: the live picture of a small camera device at the door, its bell and the door strike. A simulated house runs behind the screens, so the dashboard is alive the moment it opens; the door is real, a second device of the same project.
+Seven dark, translucent screens over photographs of the house they control: the clock and the weather, six heated rooms, the energy flow between the solar panels, the battery, the grid and the car, the lights and the shading, the garage, the front door and the alarm - and the door itself: the live picture of the door station at the gate, its bell, its voice and the door strike. A simulated house runs behind the screens, so the dashboard is alive the moment it opens; the door is real, a second device of the same project.
 
 ## Who it is for
 - Integrators who build smart-home panels for family houses and apartments
@@ -23,7 +23,7 @@ Seven dark, translucent screens over photographs of the house they control: the 
 - **Lights:** eight lights that switch with a touch, three shading positions on sliders, a dimmer, and All on / All off / Evening mood / Night
 - **Access:** the garage door (open, closed or moving) and when it last opened, the front door lock, the alarm with its four zones, and the car charger
 - **Door:** the live picture of the camera at the door, the doorbell with the rings today and the time of the last one, **Talk** (hold it to speak to the door) and **Listen** (the door's microphone on the panel's speaker), the lock state and the strike, an **Open door** button that releases the strike for five seconds, and the lock button; while the bell rings, a bell appears on the Door tab of every screen and the panel's chime rings
-- The camera device: a thumb-size board with a camera, a bell button and a relay output, running the ordinary runtime - nothing to program on it
+- The door station: an ESP32-P4 board with its camera, microphone and speaker, a bell button and a relay output, running the camera runtime - nothing to program on it
 - The setpoints are kept over a restart, and the clock sets itself from the internet
 
 ## How it works
@@ -33,20 +33,20 @@ Seven dark, translucent screens over photographs of the house they control: the 
 4. The weather is real: the panel's web source reads the forecast service every 30 minutes - the current weather, how it feels, humidity, wind, pressure and four days of forecast land in variables, and the program shows them while the last read succeeded. Without the internet the program draws a week of weather of its own, so the screens are never empty.
 5. A state icon is two icons at the same place, each shown with `visible_if` on the state and its opposite - a lit and a dark bulb, an open and a closed lock, a quiet and a ringing bell.
 6. The large digits are Noto Sans faces carried in the project, 48 and 76 px.
-7. The project is a net32 system of two devices: **panel** (node 1, the P4 on the wall) and **camera** (node 2, a Seeed XIAO ESP32S3 Sense at the door). The camera device serves its picture as a Motion-JPEG stream on its own web address; the panel reads the stream into the Door screen's camera element and decodes every frame in hardware.
-8. The bell button on the camera device is a variable published over net32. The panel subscribes to it: a press counts a ring, records the time, lights the lamp for ten seconds, marks the Door tab on every screen and rings the panel's chime. **Open door** publishes the strike's command for five seconds; the camera device pulses its relay for five seconds at most, whatever the panel says.
-9. The voice is push to talk: the panel's codec sends its microphone to the camera device while **Talk** is held and keeps its own speaker quiet meanwhile; **Listen** is published as `call`, and the door device's program sends its microphone while it holds. One direction at a time, no echo. The shipped camera device has a microphone and no speaker; a speaker amplifier on its free pins, or a P4 panel at the door, gives the door its voice.
+7. The project is a net32 system of two devices: **panel** (node 1, the P4 on the wall) and **camera** (node 2, the door station - an ESP32-P4-NANO at the door on its camera runtime). The door station's camera module sits on the board's MIPI-CSI connector; the device serves its picture as a Motion-JPEG stream on its own web address, and the panel reads the stream into the Door screen's camera element and decodes every frame in hardware.
+8. The bell button on the door station is a variable published over net32. The panel subscribes to it: a press counts a ring, records the time, lights the lamp for ten seconds, marks the Door tab on every screen and rings the panel's chime through its speaker; the door station dings on its own speaker. **Open door** publishes the strike's command for five seconds; the door station pulses its relay for five seconds at most, whatever the panel says.
+9. The voice is push to talk: the panel's codec sends its microphone to the door station while **Talk** is held and keeps its own speaker quiet meanwhile; **Listen** is published as `call`, and the door station's program sends its microphone while it holds. One direction at a time, no echo. Both boards carry the same codec, microphone and speaker amplifier - the door station needs a speaker on its header, nothing more.
 10. Replace the simulation with the real house: bind the variables to Modbus, MQTT or the panel's own inputs and delete the program `SIM` - the screens, the weather and the door stay as they are.
 
 ## Setting it up
-1. **Open the project.** The tree shows the system's two devices, **panel** and **camera**; the panel carries the seven screens, the **Cameras** node and the **Clock**, the camera device its **WiFi** node and its **Camera** node.
-2. **The camera device's WiFi.** Click its **WiFi**: the mode *STA*, the **Wi-Fi name (SSID)** and the **Wi-Fi password** of the house network. The shipped project carries placeholders; nothing joins until these are yours. The device announces itself on the network as `door-cam.local`.
-3. **The panel.** On Ethernet nothing needs setting - the panel takes its address from the router. The camera's address under **Cameras** is `http://door-cam.local/cam.mjpg`; change it only if you renamed the camera device or gave it a fixed address.
+1. **Open the project.** The tree shows the system's two devices, **panel** and **camera** (the door station); the panel carries the seven screens, the **Cameras**, **Sound** and **Clock** nodes, the door station its **WiFi**, **Camera** and **Sound** nodes. The door station runs the board's camera runtime - the board window says so under *Runtime type*.
+2. **The door station's network.** Click its **WiFi**: the mode *STA*, the **Wi-Fi name (SSID)** and the **Wi-Fi password** of the house network - or plug its Ethernet in and leave the WiFi as it is. The shipped project carries placeholders; nothing joins until these are yours. The device announces itself on the network as `door-cam.local`, the panel as `house-panel.local`; each one's **Sound** page names the other as its peer.
+3. **The panel.** On Ethernet nothing needs setting - the panel takes its address from the router. The camera's address under **Cameras** is `http://door-cam.local/cam.mjpg`; change it only if you renamed the door station or gave it a fixed address.
 4. **Your place.** The panel's **Web data** node carries the source `weather`: the forecast service's address with the latitude and longitude of the shipped project in it. Put your own coordinates into the address (two numbers, the rest stays) - or open the **Weather** preset, which writes a fresh source for any place. The panel needs the internet for this; everything else runs without it.
-5. **The camera device's page.** The **Camera** node shows the sensor's settings - 640×480 at 10 frames a second, quality 12 - and its wiring; the pins come from the board, nothing to assign.
-6. **Wiring at the door.** The bell button between pin D0 and GND (the pin's pull-up holds it high, a press pulls it low). The strike's relay module on pin D1: the pin gives a logic level, the module's own driver switches the strike's current.
-7. **Deploy both devices** - the system page deploys them together, or each one with F5 while it is selected. The panel shows the picture a few seconds after both are up; the **camera online** lamp on the Door screen says the camera device is heard over net32.
-8. **Try it.** Press the bell: the lamp on the Door screen rings for ten seconds, the count grows, the time of the ring is kept, and the Door tab of every other screen shows a bell. Press **Open door**: the strike is released for five seconds on the camera device and the screen says so. About ten seconds after the panel starts, the Weather screen switches from the drawn weather to the real one.
+5. **The door station's camera.** The **Camera** node shows the sensor's settings - 640×480 at 10 frames a second, quality 12 - and the connector it sits on; the pins come from the board, nothing to assign. Its **Sound** page carries the volume and the microphone gain for the door.
+6. **Wiring at the door.** The camera module on the board's camera connector, a small speaker on the speaker header. The bell button between GPIO 20 and GND (the pin's pull-up holds it high, a press pulls it low). The strike's relay module on GPIO 21: the pin gives a logic level, the module's own driver switches the strike's current.
+7. **Deploy both devices** - the system page deploys them together, or each one with F5 while it is selected. The panel shows the picture a few seconds after both are up; the **camera online** lamp on the Door screen says the door station is heard over net32.
+8. **Try it.** Press the bell: the panel's chime rings, the lamp on the Door screen rings for ten seconds, the count grows, the time of the ring is kept, and the Door tab of every other screen shows a bell. Hold **Talk** and speak; switch **Listen** on and listen to the door. Press **Open door**: the strike is released for five seconds on the door station and the screen says so. About ten seconds after the panel starts, the Weather screen switches from the drawn weather to the real one.
 
 ## Pictures
 - ![The Home screen over a photograph of a modern house at dusk: the clock, the day and a greeting, the weather card with a three-day forecast, and four cards along the bottom - the living room, the solar output, the alarm and the scenes](img/house-home.webp) - Home
@@ -56,12 +56,12 @@ Seven dark, translucent screens over photographs of the house they control: the 
 - ![The Lights screen: eight light tiles, some lit, three shading sliders, the living-room dimmer and four scene buttons](img/house-lights.webp) - Lights and shading
 - ![The Access screen: the garage door closed, the front door locked, the alarm disarmed with its zones, and the car charger](img/house-access.webp) - Access
 - ![The Door screen: the camera element, the doorbell ringing, the front door locked with the strike released, the Open door and Lock buttons, and the camera online with one ring today](img/house-door.webp) - Door: the intercom
-- ![The net32 system in the editor: the camera device as node 2 with bell and door_rel, the panel as node 1 with door_rel and bell](img/house-system.webp) - Two devices, one net32 system
+- ![The net32 system in the editor: the door station as node 2 with bell and door_rel, the panel as node 1 with door_rel and bell](img/house-system.webp) - Two devices, one net32 system
 
 ## Runs on
 - The panel: Makerfabs MaTouch ESP32-P4 7" (1024×600), on Ethernet or WiFi
-- The camera device: Seeed XIAO ESP32S3 Sense at the door, on WiFi - the camera on its expansion board, the bell button on D0, the strike's relay on D1
-- Nothing needed to start: the simulated house runs on the panel and in the editor's simulation; without the camera device the Door screen shows the camera element empty and the camera lamp dark; without the internet the Weather screen shows the simulation's weather
+- The door station: Waveshare ESP32-P4-NANO at the door on its camera runtime, on WiFi or Ethernet - the camera module on its MIPI-CSI connector, the board's own microphone and speaker amplifier, the bell button on GPIO 20, the strike's relay on GPIO 21
+- Nothing needed to start: the simulated house runs on the panel and in the editor's simulation; without the door station the Door screen shows the camera element empty and the camera lamp dark; without the internet the Weather screen shows the simulation's weather
 
 ## Facts to keep exact
 - Seven screens: Home, Weather, Climate, Energy, Lights, Access, Door; the navigation bar on the left of every screen
@@ -70,12 +70,12 @@ Seven dark, translucent screens over photographs of the house they control: the 
 - Eight lights: facade, garden, path, entrance, living room, kitchen, dining, terrace; three shading sliders: living room, bedroom, office
 - Four alarm zones: ground floor, upper floor, garage, garden
 - The energy flow shows solar, grid, home, battery and car; the battery shows charging or discharging
-- Two devices, one net32 system: panel = node 1, camera = node 2; the camera device publishes `bell`, the panel publishes `door_rel`
+- Two devices, one net32 system: panel = node 1, camera (the door station) = node 2; the door station publishes `bell`, the panel publishes `door_rel` and `call`
 - The camera: 640×480 at 10 frames a second, JPEG quality 12; the stream at `http://door-cam.local/cam.mjpg`, the latest frame at `/cam.jpg`
-- The bell button on the camera device's D0 (to GND), the strike's relay on its D1; the strike is released for 5 s at most, on both sides
+- The bell button on the door station's GPIO 20 (to GND), the strike's relay on its GPIO 21; the strike is released for 5 s at most, on both sides
 - A ring lights the lamp for 10 s, counts (the count starts over at midnight), records the time and rings the panel's chime; the Door tab of every screen shows a bell while it rings
-- The voice: push to talk - Talk held on the panel sends its microphone to the camera device (the panel's speaker quiet meanwhile), Listen (`call`, published) opens the door's microphone on the panel; 16 kHz over UDP port 5004; the panel's codec is the board's own
-- The shipped project carries placeholder WiFi settings on the camera device; the panel needs none on Ethernet
+- The voice: push to talk - Talk held on the panel sends its microphone to the door station (the panel's speaker quiet meanwhile), Listen (`call`, published) opens the door's microphone on the panel; 16 kHz over UDP port 5004; both codecs are the boards' own; the bell rings the panel's chime and the door station's ding
+- The shipped project carries placeholder WiFi settings on the door station; the panel needs none on Ethernet; the two name each other `door-cam.local` and `house-panel.local`
 - The weather comes from the panel's web source: the forecast service read every 30 minutes, 23 fields (the current weather and four days), the status variable `web_ok`; the place is the latitude and longitude in the source's address
 - The simulation's drawn weather is shown while `web_ok` is false - at the desk always, on the panel until the first read and whenever the internet is gone
 - Setpoints are retained variables, kept over a restart

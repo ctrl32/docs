@@ -9,21 +9,32 @@ generator: tools/docs_export.py
 
 # Intercom
 
-A door intercom is a small camera at the door and its live picture on
-the wall panel - a bell lamp and a door button beside it. In ctrl32 the
-camera is an **ESP32-S3 device** running the ordinary runtime with a
-camera section in its project, and the picture is the **camera element**
-on an **ESP32-P4 panel** (or a Linux device). Nothing is programmed on
-either side; the bell and the door are variables of the system, shared
-over net32 like any other.
+A door intercom is a camera at the door, its live picture on the wall
+panel, a bell, a voice both ways and a door button. In ctrl32 the door
+station is an **ESP32-P4 board** running its **camera runtime** - the
+camera module on the board's connector, the board's own microphone and
+speaker, a bell button and a relay on two of its pins - and the picture
+is the **camera element** on an **ESP32-P4 panel** (or a Linux device).
+Nothing is programmed on either side beyond a few lines; the bell, the
+call and the door are variables of the system, shared over net32 like
+any other.
 
-## The camera device
+## The door station
 
-A board with a camera sensor and PSRAM - the **Seeed XIAO ESP32S3
-Sense** is the one in the catalog: an OV2640 on its expansion board, a
-microphone, a microSD slot, native USB for the console and the runtime,
-eleven free pins on the edge. Pick it as the project's board and add
-**Camera** from the device's context menu in the tree.
+An ESP32-P4 board with a camera connector - the **Waveshare
+ESP32-P4-NANO** (its kit camera, an OV5647) or the **MaTouch ESP32-P4 7"**
+(its SC2336 module) in the catalog. Pick it as the project's board and
+add **Camera** from the device's context menu in the tree: the project
+moves onto the board's **camera runtime** - no screen, the WEBview, the
+standard program limits of an ESP32 - and the board window's *Runtime
+type* says so. The camera runtime leaves the board's memory to the
+picture; a panel that shows pictures keeps its display runtime.
+
+A plain camera device without a voice can also be a small ESP32-S3
+board with a sensor on its DVP lines - the **Seeed XIAO ESP32S3 Sense**
+in the catalog: an OV2640 on its expansion board, native USB for the
+console and the runtime, eleven free pins on the edge. Its project is
+the same **Camera** section; its runtime is the board's own.
 
 ![The camera device's page: resolution, quality, rate, flip and mirror, the sensor's wiring](img/camera-device.webp){: .sb-center}
 
@@ -37,14 +48,17 @@ The page:
 | **Flip**, **Mirror** | the picture turned for a sensor mounted upside down or seen from behind |
 
 The pins come from the catalog board; the page shows them and nothing
-has to be wired in the project. The device serves the picture on its own
+has to be wired in the project. On a P4 the sensor runs at its own
+size and the picture is cut to the chosen proportions and scaled to the
+chosen size in hardware, so every size of the table is available
+whatever module is plugged in. The device serves the picture on its own
 web server: `http://<name>.local/cam.mjpg` is the stream, `/cam.jpg` the
 latest frame - open either in a browser to see the camera before the
 panel does, or press **Take a picture** on the page while the device is
 reachable. Two viewers may watch the stream at a time; a third is told
 so. The device's INFO line carries `camsrc=<frames per second>,<viewers>`,
 and the diagnostic buffer says once when the sensor did not answer (the
-Sense board not seated).
+camera module not seated).
 
 ## The picture on the panel
 
@@ -71,17 +85,18 @@ says once what stopped it. The INFO line carries
 
 ## The bell and the door
 
-The camera device has free pins: a bell button on one of them is a
-BOOL variable published over net32, and a relay for the door strike on
-another follows a command the panel publishes. The panel subscribes to
-the bell, counts the rings, keeps the time of the last one, lights a
-lamp and marks the Door tab on every screen while it rings; its **Open
-door** button raises the strike's command for five seconds, and the
-camera device's own program holds the relay for five seconds at most,
-whatever the panel says. All of it is the net32 and screen work
-described elsewhere; the house dashboard example carries a Door screen
-built this way - the camera element, the bell, the strike and the lock
-on one screen, the two devices in one project.
+The door station has free pins on its header: a bell button on one of
+them is a BOOL variable published over net32, and a relay for the door
+strike on another follows a command the panel publishes. The panel
+subscribes to the bell, counts the rings, keeps the time of the last
+one, lights a lamp, rings its chime and marks the Door tab on every
+screen while it rings; its **Open door** button raises the strike's
+command for five seconds, and the door station's own program holds the
+relay for five seconds at most, whatever the panel says. All of it is
+the net32 and screen work described elsewhere; the house dashboard
+example carries a Door screen built this way - the camera element, the
+bell, the strike and the lock on one screen, the two devices in one
+project.
 
 ![The Door screen of the house dashboard: the camera element, the doorbell ringing, the front door locked with the strike released, the camera online with one ring today](img/house-door.webp){: .sb-center}
 
@@ -117,10 +132,11 @@ nothing to assign. The INFO line carries
 says when the codec did not answer or the peer's name could not be
 resolved.
 
-The camera device at the door can be a small ESP32-S3 camera board (a
-microphone only; a speaker amplifier module on its free pins gives it a
-voice) or an ESP32-P4 panel standing at the door with its own codec and
-camera connector.
+The door station and the panel carry the same codec, so the house
+example speaks both ways out of the box: the door station's **Sound**
+page names the panel as its peer, the panel's names the door station,
+and a speaker on the door station's header is all the wiring. The bell
+rings the panel's chime through its speaker and a ding at the door.
 
 ## Numbers to plan with
 

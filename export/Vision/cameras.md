@@ -20,8 +20,9 @@ that is all. Nothing is programmed.
     CM4 / CM5, a PC-class device. The STM32MP1 device (a pair of 32-bit
     cores) is too slow for vision and its runtime has none. An
     **ESP32-P4 panel** shows the picture of an **IP camera** (an
-    `http://` MJPEG stream - a network camera, or an ESP32-S3 camera
-    device of this system, see [Intercom](/docs/vision/intercom/)): up to two
+    `http://` MJPEG stream - a network camera, or a camera device of
+    this system: an ESP32-P4 door station or an ESP32-S3 camera board,
+    see [Intercom](/docs/vision/intercom/)): up to two
     streams, decoded by the panel's own JPEG hardware; a USB camera and
     the vision blocks stay with the Linux devices. The Toolbox offers the
     camera element when the project's target is one of these, and a

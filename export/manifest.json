@@ -1713,7 +1713,7 @@
       "section": "Vision",
       "order": 212,
       "file": "Vision/cameras.md",
-      "bytes": 8570
+      "bytes": 8618
     },
     {
       "slug": "intercom",
@@ -1721,7 +1721,7 @@
       "section": "Vision",
       "order": 213,
       "file": "Vision/intercom.md",
-      "bytes": 6358
+      "bytes": 7386
     },
     {
       "slug": "vision-blocks",
