@@ -63,7 +63,12 @@ http://door-cam.local/cam.mjpg
 Then draw a **camera** element on a screen and set its text to the
 camera's name. The panel reads the stream, decodes every frame with its
 JPEG hardware and scales it into the element with the proportions kept;
-the browser of the panel's WEBview shows the same picture. A panel shows
+the browser of the panel's WEBview shows the same picture. The panel's
+scaler works in sixteenths of the picture, so an element whose size is a
+whole sixteenth of the camera's (560x420 or 480x360 for a 640x480
+camera, 640x480 for the picture as it comes) is filled edge to edge; any
+other size leaves a narrow frame of the element's background around the
+picture. A panel shows
 up to two cameras; any network camera with an `http://` MJPEG stream
 works the same way. A USB camera and the vision blocks remain the Linux
 devices' - see [Cameras](cameras.md).
@@ -111,6 +116,13 @@ the microphone's gain and three BOOL variables:
   door speaks while the panel listens.
 - `chime`: a rising edge plays the built-in two-tone chime - the
   doorbell on the panel, a ding at the door.
+- **Volume from variable** and **Microphone gain from variable**: a
+  number variable the device follows while it runs - a slider on a
+  screen sets it (0..100 for the speaker, 0..42 dB for the microphone);
+  the volume and gain numbers above are the start values. The house
+  example puts four sliders on the Door screen: the panel's speaker and
+  microphone, and the door station's pair, which travel to the door over
+  net32.
 
 ![The Sound page of a panel: the other device, the port, the sample rate, the speaker volume, the microphone gain, the Talk, Listen and Chime variables, the codec's wiring](img/sound-page.webp){: .sb-center}
 
