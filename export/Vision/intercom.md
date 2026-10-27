@@ -24,11 +24,13 @@ any other.
 An ESP32-P4 board with a camera connector - the **Waveshare
 ESP32-P4-NANO** (its kit camera, an OV5647) or the **MaTouch ESP32-P4 7"**
 (its SC2336 module) in the catalog. Pick it as the project's board and
-add **Camera** from the device's context menu in the tree: the project
-moves onto the board's **camera runtime** - no screen, the WEBview, the
-standard program limits of an ESP32 - and the board window's *Runtime
-type* says so. The camera runtime leaves the board's memory to the
-picture; a panel that shows pictures keeps its display runtime.
+add **Camera** from the device's context menu in the tree. The camera
+runs beside the board's screen, so the door station carries a bell
+button and the house's answers on its glass - the house example's door
+station does. A station without a glass picks the board's **camera
+runtime** as the *Runtime type* in the board window: no screen, the
+WEBview, the standard program limits of an ESP32, the board's memory
+left to the picture.
 
 ![The camera device's page: resolution, quality, rate, flip and mirror, the sensor's wiring](img/camera-device.webp){: .sb-center}
 
