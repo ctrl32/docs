@@ -51,8 +51,10 @@ whatever module is plugged in. The device serves the picture on its own
 web server: `http://<name>.local/cam.mjpg` is the stream, `/cam.jpg` the
 latest frame - open either in a browser to see the camera before the
 panel does, or press **Take a picture** on the page while the device is
-reachable. Two viewers may watch the stream at a time; a third is told
-so. The device's INFO line carries `camsrc=<frames per second>,<viewers>`,
+reachable. The device serves as many viewers at a time as its **Viewers**
+setting says (two unless changed, up to eight; one more is told so) -
+each one is a connection of its server and the picture's bandwidth once
+more. The device's INFO line carries `camsrc=<frames per second>,<viewers>`,
 and the diagnostic buffer says once when the sensor did not answer (the
 camera module not seated).
 
@@ -76,7 +78,12 @@ other size leaves a narrow frame of the element's background around the
 picture. A tap on the picture shows it over the whole screen, as large
 as the glass takes it in whole sixteenths (a 640x480 camera fills
 800x600 of a 1024x600 panel); the next tap anywhere brings the screen
-back. The browser does the same on a click. A panel shows
+back. The browser does the same on a click. A panel reads the stream
+only while the picture is on the screen in front (or a browser looks at
+it) and closes it a few seconds after it leaves - ten panels of a house
+do not hold ten streams open all day; **Read the stream only while the
+picture is on a screen** on the camera's page, unticked, keeps it open.
+A panel shows
 up to two cameras; any network camera with an `http://` MJPEG stream
 works the same way. A USB camera and the vision blocks remain the Linux
 devices' - see [Cameras](/docs/vision/cameras/).
@@ -156,6 +163,6 @@ rings the panel's chime through its speaker and a ding at the door.
 | 640x480 at 10 fps | 3 to 4 Mbit/s on the network |
 | 1280x720 | 5 fps at most, a quarter of the panel's screen |
 | Streams on one panel | two |
-| Viewers of one camera device | two at a time (its own server's limit) |
+| Viewers of one camera device | its **Viewers** setting, 1 to 8 (two unless changed) |
 | Delay door to panel | under a second: a frame's time and the network |
 | The voice | 16 kHz, 16-bit, one channel: 256 kbit/s a direction, a tenth of a second from mouth to ear |
