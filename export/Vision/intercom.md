@@ -30,12 +30,6 @@ standard program limits of an ESP32 - and the board window's *Runtime
 type* says so. The camera runtime leaves the board's memory to the
 picture; a panel that shows pictures keeps its display runtime.
 
-A plain camera device without a voice can also be a small ESP32-S3
-board with a sensor on its DVP lines - the **Seeed XIAO ESP32S3 Sense**
-in the catalog: an OV2640 on its expansion board, native USB for the
-console and the runtime, eleven free pins on the edge. Its project is
-the same **Camera** section; its runtime is the board's own.
-
 ![The camera device's page: resolution, quality, rate, flip and mirror, the sensor's wiring](img/camera-device.webp){: .sb-center}
 
 The page:

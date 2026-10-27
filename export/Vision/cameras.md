@@ -21,7 +21,7 @@ that is all. Nothing is programmed.
     cores) is too slow for vision and its runtime has none. An
     **ESP32-P4 panel** shows the picture of an **IP camera** (an
     `http://` MJPEG stream - a network camera, or a camera device of
-    this system: an ESP32-P4 door station or an ESP32-S3 camera board,
+    this system - an ESP32-P4 door station,
     see [Intercom](/docs/vision/intercom/)): up to two
     streams, decoded by the panel's own JPEG hardware; a USB camera and
     the vision blocks stay with the Linux devices. The Toolbox offers the

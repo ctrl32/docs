@@ -128,7 +128,7 @@ the catalog boards built on it.
 | ESP32-S3-WROOM-1-N16R8 | 16 MB | 8 MB (octal) | Standard | ESP32-S3-DevKitC-1 (N16R8), MaTouch Lite ESP32-S3 3.95", Makerfabs Energy Meter, Waveshare ESP32-S3 Knob 1.8", inoHMI32, inoHMI43, stepHMI32.4, stepHMI32.5 |  |
 | ESP32-S3-WROOM-1-N8 | 8 MB (quad) | - | Standard | M5Stack Dial, M5Stack StamPLC, S3-DevKitC-1 WEBview setup |  |
 | ESP32-S3-WROOM-1-N8R2 | 8 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only |
-| ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | Standard | Olimex ESP32-S3-DevKit-LiPo, Seeed XIAO ESP32S3 Sense |  |
+| ESP32-S3-WROOM-1-N8R8 | 8 MB | 8 MB (octal) | Standard | Olimex ESP32-S3-DevKit-LiPo |  |
 | ESP32-S3-WROOM-1U-N16 | 16 MB (quad) | - | Standard |  | external antenna |
 | ESP32-S3-WROOM-1U-N16R16VA | 16 MB (quad) | 16 MB (octal) | Standard |  | external antenna |
 | ESP32-S3-WROOM-1U-N16R2 | 16 MB (quad) | 2 MB (quad) | - |  | octal PSRAM only; external antenna |
@@ -195,7 +195,6 @@ the catalog boards built on it.
 | S3 SSD1963 setup | ESP32-S3 | 480 x 272 | - | yes | - | - | Standard | 1 |
 | S3-DevKitC-1 WEBview setup | ESP32-S3 | - | - | yes | - | - | Standard | 2 |
 | Seeed reTerminal | Linux | 1280 x 720 | - | module | yes | yes | Linux | many |
-| Seeed XIAO ESP32S3 Sense | ESP32-S3 | - | - | yes | - | - | Standard | 2 |
 | SparkFun Thing Plus ESP32 | ESP32 | - | - | yes | yes | yes | on request | on request |
 | ST 32F746GDISCOVERY | STM32F746 | 480 x 272 | yes | - | - | - | Standard | 2 |
 | ST STM32MP157C-DK2 | Linux | 480 x 800 | - | module | yes | yes | Linux | many |

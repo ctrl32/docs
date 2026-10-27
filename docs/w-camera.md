@@ -32,7 +32,7 @@ under the device, see [Cameras](cameras.md)), drop the element on a
 screen.
 
 On an **ESP32-P4 panel** the element shows an IP camera - an
-`http://` MJPEG stream, a network camera or an ESP32-S3 camera device
+`http://` MJPEG stream, a network camera or another camera device of this system
 (see [Intercom](intercom.md)): the panel's JPEG hardware decodes the
 stream, up to two on a panel. A USB camera and the vision blocks stay
 with the Linux devices.
