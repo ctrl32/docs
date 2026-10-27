@@ -77,7 +77,10 @@ scaler works in sixteenths of the picture, so an element whose size is a
 whole sixteenth of the camera's (560x420 or 480x360 for a 640x480
 camera, 640x480 for the picture as it comes) is filled edge to edge; any
 other size leaves a narrow frame of the element's background around the
-picture. A panel shows
+picture. A tap on the picture shows it over the whole screen, as large
+as the glass takes it in whole sixteenths (a 640x480 camera fills
+800x600 of a 1024x600 panel); the next tap anywhere brings the screen
+back. The browser does the same on a click. A panel shows
 up to two cameras; any network camera with an `http://` MJPEG stream
 works the same way. A USB camera and the vision blocks remain the Linux
 devices' - see [Cameras](/docs/vision/cameras/).

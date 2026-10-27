@@ -529,7 +529,7 @@
       "section": "Visualisation",
       "order": 64,
       "file": "Visualisation/w-camera.md",
-      "bytes": 3199
+      "bytes": 3399
     },
     {
       "slug": "w-anim_image",
@@ -1721,7 +1721,7 @@
       "section": "Vision",
       "order": 213,
       "file": "Vision/intercom.md",
-      "bytes": 8120
+      "bytes": 8362
     },
     {
       "slug": "vision-blocks",

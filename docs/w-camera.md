@@ -41,6 +41,10 @@ The same screen in the **browser** shows the same picture, about ten
 times a second — the WEBview draws the screens of the device's glass,
 the camera included.
 
+**A tap on the picture** shows it over the whole screen, as large as
+the glass takes it with the proportions kept; the next tap anywhere
+brings the screen back. The browser does the same on a click.
+
 **The picture after the filters.** The same element can show what a
 **vision block** makes instead of a camera: write the block as
 `program.block` in its text (the program's name, a dot, the block's id
