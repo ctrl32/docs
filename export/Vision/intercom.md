@@ -32,6 +32,13 @@ runtime** as the *Runtime type* in the board window: no screen, the
 WEBview, the standard program limits of an ESP32, the board's memory
 left to the picture.
 
+A panel with a sensor on its connector is a camera device as well as a
+panel: it serves its picture to the other panels of the system and
+shows it on its own glass through a camera entry that names its own
+stream, `http://127.0.0.1/cam.mjpg` - the house example's Camera screen
+is the panel's own module. The entry takes one of the device's viewer
+slots like any other.
+
 ![The camera device's page: resolution, quality, rate, flip and mirror, the sensor's wiring](img/camera-device.webp){: .sb-center}
 
 The page:
@@ -45,9 +52,10 @@ The page:
 
 The pins come from the catalog board; the page shows them and nothing
 has to be wired in the project. On a P4 the sensor runs at its own
-size and the picture is cut to the chosen proportions and scaled to the
-chosen size in hardware, so every size of the table is available
-whatever module is plugged in. The device serves the picture on its own
+size and the picture is cut to the chosen proportions and scaled in
+hardware to the nearest size the hardware makes exactly - the chosen
+size on a 4:3 module, a size close to it on a 16:9 module (600×450 for
+640×480); the device's console says which. The device serves the picture on its own
 web server: `http://<name>.local/cam.mjpg` is the stream, `/cam.jpg` the
 latest frame - open either in a browser to see the camera before the
 panel does, or press **Take a picture** on the page while the device is
