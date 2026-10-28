@@ -17,6 +17,40 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.08.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](/docs/deployment/deploy/)) before it accepts a
+project saved by this editor. **ESP32-P4 boards take this one over USB
+once** - their flash layout changes so that a runtime of any size fits
+both of the board's slots - and download the project again afterwards;
+from then on the network road is back.
+
+- **The intercom** ([Intercom](/docs/vision/intercom/)). An ESP32-P4 board with a
+  camera module serves its picture as a stream; a panel shows it in a
+  [camera](/docs/visualisation/w-camera/) element and decodes every frame in hardware. A
+  tap on the picture fills the screen, the next tap brings the screen
+  back. A panel reads a stream only while its picture is on the screen
+  in front (or always, by the camera's setting), and a camera device
+  serves as many viewers at a time as its **Viewers** setting says - a
+  house of panels does not hold a stream open on every wall. Two P4
+  panels with the codec speak to each other: push to talk, listen, a
+  chime; four variables set the volumes and the microphone gains while
+  the devices run. A panel whose board carries a camera module serves
+  it and can show its own picture.
+- **Web data** ([Web data](/docs/buses/web-data/)). A device reads a web service's
+  answer into variables on a period - a number or a yes/no out of the
+  JSON by its path. The **Weather** preset writes a forecast source for
+  any place from its coordinates.
+- **The house dashboard** grows the door: the door station with its own
+  screen and bell button, the Door screen's camera, the voice, the door
+  strike, the panel's own camera on a screen of its own.
+- An ESP32-S3 panel with PSRAM keeps its WEBview beside MQTT, net32 and
+  web data - the network stack takes its small blocks from the module's
+  PSRAM now.
+- A slider bound to an integer variable writes it under a finger (it
+  wrote only floating-point variables before).
+
 ## 1.07.001
 
 - **Drives only.** *New project* has a third hardware tab: a project of
