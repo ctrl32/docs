@@ -55,7 +55,10 @@ Ethernet or WiFi:
    runtime into the inactive application slot, the board restarts into
    it, confirms it after the program loaded, and rolls back to the old
    runtime by itself if that does not happen. The program, the retentive
-   values and the network settings stay.
+   values and the network settings stay. A board with PSRAM (the
+   ESP32-S3 and ESP32-P4 boards) takes the whole runtime into memory
+   first and writes it to flash only once it is complete and checked, so
+   a connection that drops halfway leaves the board exactly as it was.
 
 **What to check afterwards** — the status bar shows the board's name and
 version once ONLINE; the panel's own `INFO` line (the serial terminal,
@@ -97,6 +100,12 @@ is data, not code — the board reads it straight from flash.
 4. The board **verifies the whole pack**: CRC, format, schema version and
    target board.
 5. **Only then** does it switch the active slot and restart.
+6. While the slot is being written the board's screen goes dark with
+   one line of text - *Uploading the project...* - and the picture comes
+   back with the restart. Writing flash stops everything else on the
+   board for a moment at a time, and a screen repainted in those moments
+   would flicker; a dark screen is the honest one. A runtime says
+   *Updating the runtime...* the same way.
 
 !!! success "A download cannot brick the board"
     When anything is wrong — a broken cable, a bad pack, the wrong board —
