@@ -45,6 +45,7 @@ The sections, in the order they usually appear:
 | `tags` | every variable: type, unit, scaling, deadband, source |
 | `pous` | program units — ladder, FBD or ST |
 | `logic` | the blocks and how they are wired |
+| `screen_tag` | the number variable whose change opens a screen - the program writes the screen's index |
 | `alarms` | condition, limit, hysteresis, delay, priority, text |
 | `icons` | which glyphs the project uses |
 | `screens` | the board's own screens and their widgets |

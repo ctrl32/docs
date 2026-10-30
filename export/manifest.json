@@ -137,7 +137,7 @@
       "section": "Editor",
       "order": 15,
       "file": "Editor/project-format.md",
-      "bytes": 7097
+      "bytes": 7204
     },
     {
       "slug": "mcp",
@@ -161,7 +161,7 @@
       "section": "Visualisation",
       "order": 18,
       "file": "Visualisation/hmiview.md",
-      "bytes": 10227
+      "bytes": 10774
     },
     {
       "slug": "webview",
@@ -1721,7 +1721,7 @@
       "section": "Vision",
       "order": 213,
       "file": "Vision/intercom.md",
-      "bytes": 9040
+      "bytes": 9228
     },
     {
       "slug": "vision-blocks",

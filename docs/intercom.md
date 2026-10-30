@@ -99,8 +99,11 @@ The door station has free pins on its header: a bell button on one of
 them is a BOOL variable published over net32, and a relay for the door
 strike on another follows a command the panel publishes. The panel
 subscribes to the bell, counts the rings, keeps the time of the last
-one, lights a lamp, rings its chime and marks the Door tab on every
-screen while it rings; its **Open door** button raises the strike's
+one, lights a lamp, rings its chime, marks the Door tab on every
+screen while it rings and brings the Door screen to the front itself
+(the program writes the screen's index into the project's screen
+variable - see [HMIview](hmiview.md#colour-carries-meaning)); its
+**Open door** button raises the strike's
 command for five seconds, and the door station's own program holds the
 relay for five seconds at most, whatever the panel says. All of it is
 the net32 and screen work described elsewhere; the house dashboard

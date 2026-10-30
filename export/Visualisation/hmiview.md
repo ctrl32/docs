@@ -146,6 +146,15 @@ library or replaces the active one, and a variable can switch the panel
 between the project's themes at run time. Your own theme file in
 `Documents\ctrl32\themes` appears in the same list.
 
+A second variable on the same page, *Screen switched by VAR*, lets the
+program open a screen: when it changes the variable to a screen's index
+(the order of the screens in the tree, the first is 0), that screen
+comes to the front on the panel and in the browser - a ring at the door
+opens the Door screen. A value outside the screens does nothing, and a
+tap on a navigation button is never undone: to bring a screen back
+after the operator tapped away, the program writes the variable again
+(write -1 in between, or any value that is no screen).
+
 The screen is read by somebody who is tired, in a hurry, and possibly
 holding a torch. Colour does more work than text.
 
