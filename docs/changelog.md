@@ -8,6 +8,29 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.09.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](deploy.md)) before it accepts a
+project saved by this editor.
+
+- **A dark screen while a slot is written.** During a project or runtime
+  download the board's screen goes dark with one line of text instead of
+  flickering, and the picture comes back with the restart
+  ([Download to the board](deploy.md)).
+- **A runtime received whole before it is written.** A board with PSRAM
+  (ESP32-S3, ESP32-P4) takes the whole runtime into memory first and
+  writes it only once it is complete and checked; a connection that drops
+  halfway leaves the board as it was.
+- **ESP32-P4 panels:** the display's data has the first say on the memory
+  bus, and a panel whose picture slipped sideways under a heavy load
+  resynchronises itself within a second instead of staying that way
+  until a restart.
+- The camera element draws its picture whole to the edge on a 16:9
+  module.
+- The editor no longer closes when a screen with many photographs is
+  switched after a few others.
+
 ## 1.08.000
 
 A new line: every device takes a new runtime (over the network or over
