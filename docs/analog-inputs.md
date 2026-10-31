@@ -154,8 +154,20 @@ supply drops out again. Enter the **sensitivity** in mV/V and the
 Under the settings the sheet **draws the wiring** from the numbers
 you typed: the sensor, the divider or shunt, the reference resistor,
 the excitation currents and the converter's pins they go to, the
-bridge and its excitation, the junction of a thermocouple. Change a
-number and the picture follows.
+bridge and its excitation, the junction of a thermocouple; on the
+right of the converter its bus pins with the GPIO numbers the project
+or the board gives them, and on an I2C converter the ADDR pin's tie
+for the address and the ALERT/RDY pin's use. Change a number and the
+picture follows.
+
+The `ADS1115` and `ADS1015` have a register block of their own under
+the sensor: the input (a pin against ground or a pair), the range, the
+rate, and the **ALERT/RDY pin** - off, a comparator (asserts above
+High, releases below Low), a window (asserts outside Low .. High) or
+the conversion-ready output, with its polarity, its latch and the
+number of readings beyond a threshold it waits for; Low and High are
+volts at the input. A loop that leaves its window raises the pin
+without the program's help.
 
 ---
 

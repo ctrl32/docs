@@ -20,7 +20,14 @@ live in.
 
 `ADS1115` is the default for good reasons: 16 bits is enough for almost
 anything, four channels covers a small equipment, and its programmable gain
-amplifier handles small signals without extra parts.
+amplifier handles small signals without extra parts. Its register set is
+yours too: under a channel's sensor the sheet shows the input (a pin
+against ground or one of the four pairs), the range, the rate and the
+ALERT/RDY pin - off, a comparator that asserts above High and releases
+below Low, a window that asserts outside Low .. High, or the
+conversion-ready output - with the pin's polarity, its latch and how many
+readings beyond a threshold it waits; the thresholds are volts at the
+input. The `ADS1015` has the same set with its own rates.
 
 ### Reading 4–20 mA
 
