@@ -24,7 +24,7 @@ Nine power monitors, three energy meters and two battery gauges.
 | mains energy, single phase | `ADE7953` |
 | a power converter with its own pulse output, every register yours | `CS5460A` |
 | mains energy, three phase, every register yours | `ATM90E32` |
-| battery state of charge | `MAX17043`, `LC709203F` |
+| battery state of charge | `MAX17043`, `MAX17044`, `LC709203F` |
 
 `INA226` measures current through a shunt and voltage at the same time
 and reports power directly. `INA3221` does three channels, which suits a
@@ -147,7 +147,8 @@ occasionally.
 | Chip | Bus | What it is |
 |:---|:---:|:---|
 | `LC709203F` | I2C | I2C LiPo fuel gauge (ON Semi) — channels: 0 = cell voltage [V], 1 = state of charge [%]. Fixed address 0x0B; commands carry a CRC-8 PEC. VERIFY ON THE BENCH. |
-| `MAX17043` | I2C | I2C LiPo fuel gauge — channels: 0 = cell voltage [V], 1 = state of charge [%]. Fixed address 0x36 (collides with the AS5600 — one bus carries only one of them). |
+| `MAX17043` | I2C | I2C single-cell Li+ fuel gauge (Maxim) — channels: 0 = cell voltage [V] (1.25 mV a count, 0–5 V), 1 = state of charge [%], 2 = alert (1 while the charge fell below the threshold). Every register is a setting of the chip: `rcomp` (the compensation byte of CONFIG, 97h at power-up), `alert` (the threshold 1–32 %; the ALRT pin goes low under it), `quick_start` (the gauge restarts its first guess at start-up), `sleep` (a BOOL variable whose 1 halts the gauge). Fixed address 0x36 (collides with the AS5600 — one bus carries only one of them). |
+| `MAX17044` | I2C | I2C two-cell (2S) Li+ fuel gauge (Maxim, the MAX17043's sibling) — channels: 0 = pack voltage [V] (2.5 mV a count, 0–10 V), 1 = state of charge [%], 2 = alert. The same settings as the MAX17043. Fixed address 0x36. |
 
 Every entry above is in the editor: pick the chip, give it
 an address or a chip-select pin, and its channels become variables.
