@@ -13,7 +13,7 @@ Nine power monitors, three energy meters and two battery gauges.
 | current without an external shunt | `INA260` (shunt built in) |
 | mains energy, single phase, every register yours | `ATM90E26` |
 | mains energy, single phase | `ADE7953` |
-| mains energy, three phase | `ATM90E32` |
+| mains energy, three phase, every register yours | `ATM90E32` |
 | battery state of charge | `MAX17043`, `LC709203F` |
 
 `INA226` measures current through a shunt and voltage at the same time
@@ -41,6 +41,22 @@ frequency, the N line's current, powers and power factor, and the four
 energies - forward and reverse, active and reactive - which accumulate
 in their variables: make the variable retentive and the total survives
 a restart.
+
+`ATM90E32` is its three-phase brother and gets the same treatment: the
+meter constant, the grid, the current sensor (a transformer or a Rogowski
+coil), the wiring (four or three wires), what the CF2 pin counts, how
+the totals are summed and which phases count, the PGA gain of every
+channel, the startup thresholds in watts, the monitors - voltage sag,
+phase loss, over-voltage, over-current, the frequency window, the
+neutral current - with their periods, the three ZX pins, the interrupt
+sources of IRQ0 and IRQ1, and the calibration per phase from the bench.
+The device writes the configuration behind the chip's access gate at
+every start-up and enables metering; the chip then guards its own
+configuration with a CRC and raises WarnOut if it drifts. Thirty
+channels: every phase's voltage, current, active and reactive power,
+power factor and angle, the totals, the frequency, the calculated
+neutral current, the chip's temperature and the five energies that
+accumulate in their variables.
 
 ## Why measure current in a real setup
 
@@ -99,7 +115,7 @@ occasionally.
 |:---|:---:|:---|
 | `ADE7953` | I2C | I2C single-phase energy metering AFE — channels: 0 = Vrms, 1 = Irms A, 2 = Irms B, 3 = active power A (signed), 4 = active power B (signed), all RAW 24-bit counts (scaling depends on the divider/shunt/CT — put it into the variable gain); 5 = line frequency [Hz]. Init writes the datasheet unlock (0xAD to 0xFE, 0x0030 to 0x120). Address 0x38. VERIFY ON THE BENCH. |
 | `ATM90E26` | SPI | SPI single-phase energy meter (Atmel / Microchip) — the L line's voltage, current, active / reactive / apparent power, power factor and phase angle, the line frequency, the N line's current, powers and power factor, and the four energies (forward / reverse, active / reactive) in kWh / kvarh that accumulate in their variables (a retentive variable keeps the total). Every register is a setting of the chip: the meter constant, the reference voltage and basic current, the shunt or CT of the L line and the CT of the N line, the voltage divider, the gains, the metering mode, the startup and no-load thresholds, the voltage sag, and the bench's calibration errors - the device writes them behind the chip's start commands at start-up. addr = CS pin. |
-| `ATM90E32` | SPI | SPI three-phase energy meter — channels: 0-2 = Urms A/B/C [V], 3-5 = Irms A/B/C [A], 6 = line frequency [Hz], 7 = total active power (raw complement counts). 16-bit register addresses; probe via CfgRegAccEn 0x55AA + LastSPIData readback. Calibrate on the bench. addr = CS pin. |
+| `ATM90E32` | SPI | SPI three-phase energy meter (Atmel / Microchip) — the three phases' voltage, current, active and reactive power, power factor and phase angle, the totals of active, reactive and apparent power and power factor, the line frequency, the calculated neutral current, the chip's temperature, and the five energies (forward / reverse active, forward / reverse reactive, apparent) in kWh / kvarh / kVAh that accumulate in their variables (a retentive variable keeps the total). Every configuration register is a setting of the chip: the meter constant, the grid, the PGA gains, the metering method, the startup thresholds in watts, the sag / phase-loss / over-voltage / over-current / frequency monitors, the ZX pins, the interrupt sources and the bench's calibration per phase - the device writes them behind the chip's access gate at start-up. addr = CS pin. |
 
 ### Battery gauges
 
