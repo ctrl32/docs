@@ -38,6 +38,33 @@ another address turns them into thirty-two.
     and the board reads the expander when something happened rather than
     constantly — which matters when the same bus also carries sensors.
 
+## The chip's page
+
+Every expander has a page of its own (a click on it in the tree): the
+pin table — each pin with the variable it carries, its direction
+(input or output), its inversion — and under the table a **picture of
+the chip**: the pins on the left with their variables and an arrow for
+the direction, the bus pins on the right with the GPIO numbers the
+project or the board gives them, the address pins' ties for the address
+you chose, the INT pins.
+
+On the Microchip `MCP23017`, `MCP23008`, `MCP23S17` and `MCP23S08` the
+table has two more columns and the page two more rows, because the
+chip has them:
+
+| Setting | Where | What it does |
+|:---|:---|:---|
+| **Pull-up** | per input pin | the internal 100 kΩ pull-up; on by default, off for a driven signal |
+| **Interrupt** | per input pin | *on change*, *when not 0* or *when not 1* raises the INT pin; the device reads the inputs either way |
+| **INT pins joined** | the chip (16-pin parts) | INTA and INTB both report either port |
+| **INT open-drain**, **INT active high** | the chip | how the INT pin drives its line |
+| **SDA slew-rate control off** | the I2C parts | the datasheet's DISSLW |
+| **Hardware address pins** | the SPI parts | A2 A1 A0 as wired; off, the chip answers address 000 |
+
+The inversion of a pin is done by the device, so an active-low relay
+board reads and writes as true = on without the chip's own polarity
+register.
+
 ## Capacitive touch controllers
 
 `CAP1188`, `MPR121`, `TTP229` — these are **touch buttons**, not touch
