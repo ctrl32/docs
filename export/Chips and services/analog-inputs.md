@@ -34,6 +34,10 @@ OPC UA, Modbus, MQTT.
 | **NTC thermistor** | the reference resistor and supply, R25 and B | °C |
 | **NTC, Steinhart-Hart** | the same, with the three coefficients | °C |
 | **Pt100 / Pt1000** | the reference resistor and supply | °C |
+| **Ni1000** (DIN 43760) / **Ni1000 TK5000** (Landis+Gyr) | the reference resistor and supply | °C |
+| **RTD excited by the converter** (`ADS1220`) — Pt100, Pt1000, Ni1000 in 2, 3 or 4 wires | R at 0 °C, the curve, the wires, the reference resistor | °C |
+| **Thermocouple** (`ADS1220`) — K, J, T, E, N, S, R, B | the type, and where the cold junction comes from | °C |
+| **Weight** (`ADS1220`) — a strain-gauge bridge: a load cell, a pressure cell | mV/V and the capacity off the cell's label; a tare variable | the capacity's unit |
 | **Raw** | gain and offset, as before | whatever you compute |
 
 Every type arrives with the **usual numbers already filled in** — a
@@ -45,8 +49,11 @@ overwritten, because the next board is not the last one.
 ## Where it is
 
 On the variable's own sheet, under its source. It appears for every
-input that measures volts: a converter's channel (ADS1115, ADS1118)
-and the board's own ADC alike.
+input that measures volts: a converter's channel (ADS1115, ADS1118,
+ADS1220) and the board's own ADC alike. Under the numbers the sheet
+**draws the wiring** of the type you picked — the converter's pins,
+the sensor, the reference resistor, the currents — from the values
+you typed, so the picture on the screen is the one to build.
 
 Pick the sensor, check the numbers, and read the last line:
 
@@ -82,6 +89,51 @@ pulls up) or the other way round.
     R25 and B are on the thermistor's datasheet; a Pt100 is 100 Ω at
     zero degrees and a Pt1000 is 1000 Ω. Nothing here has to be
     measured — it is all printed on the part or its box.
+
+---
+
+## Thermocouples, three-wire RTDs and load cells: the ADS1220
+
+The `ADS1220` is the converter of the industrial analog input card:
+24 bits, a gain up to 128, two matched excitation currents, four
+reference choices and its own temperature sensor. On its channels
+three more types appear:
+
+**An RTD excited by the converter.** No divider: the chip's own
+current (10 µA to 1.5 mA) flows through the sensor and through a
+**reference resistor**, and the reading is the ratio of the two —
+the supply drops out of the arithmetic. Three wires put the second
+current through the third wire so the leads cancel; two wires let you
+enter the lead resistance; four wires sense straight across the
+sensor. The curve is platinum (IEC 60751), nickel (DIN 43760) or the
+Landis+Gyr nickel (TK5000, 1500 Ω at 100 °C).
+
+**A thermocouple.** Pick the letter — K, J, T, E, N, S, R or B — and
+where the **cold junction** comes from: the converter's own
+temperature sensor (the usual choice, when the terminals sit on the
+converter's board), a fixed temperature, or another variable (a
+sensor at the terminals). The device holds the reference tables of
+the standard in both directions; the variable holds the junction's
+temperature in °C. A reading beyond the type's table is refused.
+
+**Weight.** A strain-gauge bridge — a load cell, a pressure cell —
+excited from the converter's supply and read against it, so the
+supply drops out again. Enter the **sensitivity** in mV/V and the
+**capacity** off the cell's label; name a BOOL variable as the
+**tare** and its rising edge takes the current reading as zero.
+
+!!! tip "Every register of the converter is yours"
+    The sheet shows the chip's own settings under the sensor: the
+    input pair, the gain, the data rate and mode, the 50/60 Hz
+    filter, the reference, the excitation current and where each of
+    the two currents goes, the burn-out sources that turn an open
+    sensor into a refused reading, the low-side power switch. Every
+    type fills in its usual values; tick *Set the registers myself*
+    to change them, and the sheet says in red what the datasheet
+    would refuse (a single-ended input with the amplifier in the path,
+    the 50/60 Hz filter above 20 samples a second). The converter's
+    own temperature, supply and reference go into variables you name
+    on the chip (`temp`, `supply`, `reference`).
 
 ---
 
@@ -140,10 +192,12 @@ Nobody can write "below 3 bar" against a raw converter count.
 
 ## What this is not
 
-- **Not a replacement for a proper RTD converter.** A divider is a
-  divider; for a three-wire Pt100 and tenth-of-a-degree work, use a
-  MAX31865, which delivers degrees by itself.
-- **Not a thermocouple input.** Those need cold-junction
-  compensation and their own chip.
+- **A divider is a divider.** For a three-wire Pt100 and
+  tenth-of-a-degree work use an excited channel of the `ADS1220`, or
+  a MAX31865, which delivers degrees by itself.
+- **A thermocouple needs the `ADS1220`.** A 16-bit converter without a
+  gain stage reads its forty microvolts a degree as noise; the type is
+  refused on any other input.
 - **Not a filter.** A noisy signal is what the variable's deadband is
-  for.
+  for — and on the `ADS1220` the 50/60 Hz filter at 20 samples a
+  second.
