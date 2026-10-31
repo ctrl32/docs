@@ -20,13 +20,36 @@ Nine power monitors, three energy meters and two battery gauges.
 | higher precision, wider range | `INA228`, `INA238` |
 | three rails at once | `INA3221` |
 | current without an external shunt | `INA260` (shunt built in) |
-| mains energy, single phase | `ADE7953`, `ATM90E26` |
+| mains energy, single phase, every register yours | `ATM90E26` |
+| mains energy, single phase | `ADE7953` |
 | mains energy, three phase | `ATM90E32` |
 | battery state of charge | `MAX17043`, `LC709203F` |
 
 `INA226` measures current through a shunt and voltage at the same time
 and reports power directly. `INA3221` does three channels, which suits a
 board watching its own supplies.
+
+`ATM90E26` is a meter, not a sampler: it meters only once its two
+register blocks have been written behind the chip's start commands,
+and the device does that at every start-up with the words of your
+project (or the chip's own power-on words when you have set nothing).
+On the chip's page you type the hardware - the meter constant in
+pulses per kWh, the reference voltage and basic current, the shunt or
+current transformer of the L line, the transformer of the N line, the
+voltage divider, the gains - the metering mode (the line, the
+high-pass filters, what the CF1 / CF2 pulse pins count, the ZX pin,
+the anti-tamper threshold), the startup and no-load thresholds, the
+voltage sag with its pins, and the calibration from the bench (the
+gain and angle errors of the two lines, the voltage and current
+readings at the reference); every register's word is derived from
+those numbers by the chip maker's own formulas and shown under the
+fields, and the wiring picture draws the sensors on the chip's pins.
+Its sixteen channels give the L line's voltage, current, active,
+reactive and apparent power, power factor and phase angle, the line
+frequency, the N line's current, powers and power factor, and the four
+energies - forward and reverse, active and reactive - which accumulate
+in their variables: make the variable retentive and the total survives
+a restart.
 
 ## Why measure current in a real setup
 
@@ -84,7 +107,7 @@ occasionally.
 | Chip | Bus | What it is |
 |:---|:---:|:---|
 | `ADE7953` | I2C | I2C single-phase energy metering AFE — channels: 0 = Vrms, 1 = Irms A, 2 = Irms B, 3 = active power A (signed), 4 = active power B (signed), all RAW 24-bit counts (scaling depends on the divider/shunt/CT — put it into the variable gain); 5 = line frequency [Hz]. Init writes the datasheet unlock (0xAD to 0xFE, 0x0030 to 0x120). Address 0x38. VERIFY ON THE BENCH. |
-| `ATM90E26` | SPI | SPI single-phase energy meter — channels: 0 = Urms [V], 1 = Irms [A], 2 = active power (raw complement counts, the unit depends on metering calibration), 3 = line frequency [Hz], 4 = power factor. Probe rewrites SagTh with its power-on default (0x1D64) and reads it back. Metering calibration is left at defaults — calibrate on the bench. addr = CS pin. |
+| `ATM90E26` | SPI | SPI single-phase energy meter (Atmel / Microchip) — the L line's voltage, current, active / reactive / apparent power, power factor and phase angle, the line frequency, the N line's current, powers and power factor, and the four energies (forward / reverse, active / reactive) in kWh / kvarh that accumulate in their variables (a retentive variable keeps the total). Every register is a setting of the chip: the meter constant, the reference voltage and basic current, the shunt or CT of the L line and the CT of the N line, the voltage divider, the gains, the metering mode, the startup and no-load thresholds, the voltage sag, and the bench's calibration errors - the device writes them behind the chip's start commands at start-up. addr = CS pin. |
 | `ATM90E32` | SPI | SPI three-phase energy meter — channels: 0-2 = Urms A/B/C [V], 3-5 = Irms A/B/C [A], 6 = line frequency [Hz], 7 = total active power (raw complement counts). 16-bit register addresses; probe via CfgRegAccEn 0x55AA + LastSPIData readback. Calibrate on the bench. addr = CS pin. |
 
 ### Battery gauges
