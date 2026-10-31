@@ -175,6 +175,15 @@ number of readings beyond a threshold it waits for; Low and High are
 volts at the input. A loop that leaves its window raises the pin
 without the program's help.
 
+The `ADS1118` is that converter over SPI with a temperature sensor of
+its own: the input, the range and the rate per channel, no comparator.
+A thermocouple is at home on it - the chip's sensor is the cold
+junction, the type fills in the pair of the pin at the 0.256 V range
+and 8 samples a second - while an RTD by excitation or a ratiometric
+bridge still wants one of the three above. The sensor's reading goes
+into a variable you name on the chip (`temp`), and the pull-up on the
+chip's DOUT/DRDY pin is a tick on the same page (`pull_up`).
+
 ---
 
 ## A broken loop is not a low reading
