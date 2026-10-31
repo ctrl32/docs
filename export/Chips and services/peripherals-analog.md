@@ -71,7 +71,11 @@ valid "zero".
 DACs — `MCP4725`, `MCP4728`, `DAC7678`, `GP8403` — produce a real
 voltage for a drive input, an analog setpoint, a proportional valve.
 `GP8403` is worth noting: it outputs **0–10 V directly**, without the
-amplifier the others need.
+amplifier the others need. Its chip page carries the range (5 or 10 V),
+whether both outputs change in one write, and the unit of each
+channel's variable (counts, volts or percent); the picture shows the
+two outputs with their variables, the address pins by the address, the
+chip's 5 V LDO pin and the supply.
 
 `DAC7678` carries its every register as a setting of the chip page: the
 reference (an external one on VREFIN, or the internal 2.5 V that gives a
@@ -136,7 +140,7 @@ it drives LEDs, heaters and servos directly.
 | Chip | Bus | What it is |
 |:---|:---:|:---|
 | `DAC7678` | I2C | I2C 12-bit DAC, 8 channels (OUTPUTS, TI) — a channel's variable is raw counts through its gain / offset, volts or percent; every register is a setting of the chip: the reference (external on VREFIN with a gain of 1, the internal 2.5 V with a gain of 2 = 5 V full scale, or the internal one always on), what an unused output does (powered on, 1 kΩ, 100 kΩ, high impedance), what the CLR pin loads (zero, mid, full scale, or ignored), how the outputs update (each at its own write, all at once at the cycle's last write, or by the LDAC pin), the QFN's TWOC pin. Written on change. Address 0x48–0x4F. |
-| `GP8403` | I2C | I2C 2-channel 0–10 V DAC (DFRobot GP8403) — channels 0/1 are OUTPUTS: raw = (variable - offset) / gain, 12-bit over the range. Optional key range = 5 or 10 (V full scale, default 10) — stored in PeriphRec.config as 1 = 5 V. Address 0x58–0x5F. Verify on the bench — written from the DFRobot library, not a datasheet. |
+| `GP8403` | I2C | I2C 2-channel 0–5 V / 0–10 V DAC (Guestgood GP8403, the DFRobot module) — VOUT0 and VOUT1 are OUTPUTS driven straight at the industrial range, 12 bits over it (VOUT = DATA / 0xFFF × the range). A channel's variable is raw counts through its gain / offset, volts or percent (`units`); the range is 5 or 10 V (`range`, the default 10); the outputs update each at its own write or both in one (`update`). The chip's power-on store needs a bit-banged frame a shared bus cannot send, so the device writes the outputs at every start-up. Address 0x58–0x5F by the pins A2 A1 A0. |
 | `MCP4461` | I2C | I2C quad digital potentiometer — channels 0–3 = volatile wipers, raw 0..256 (OUTPUTS). Address 0x2C–0x2F. |
 | `MCP4725` | I2C | I2C 12-bit DAC — channel 0 is an OUTPUT: raw = (variable - offset) / gain, clamped to 0..4095. Variable gain/offset therefore defines the engineering units (e.g. gain 10.0/4095 for a 0–10 V module). Written only on change. |
 | `MCP4728` | I2C | I2C 12-bit DAC, 4 channels (OUTPUTS) — raw = (variable - offset) / gain, clamped to 0..4095; all four channels go out in one fast write, only on change. Address 0x60–0x67. |
