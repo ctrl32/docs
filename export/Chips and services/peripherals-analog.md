@@ -24,6 +24,7 @@ live in.
 | load cells and strain gauges | `NAU7802` (24-bit, built-in amplifier) |
 | a wide input range | `ADS1118` |
 | thermocouples, three-wire RTDs, load cells — the analog input card | `ADS1220` (24-bit, a gain to 128, two excitation currents, a temperature sensor) |
+| the same with eight inputs, a gain to 256, currents to 1 mA | `ADS122S14` (24-bit, the newer part of the family) |
 
 `ADS1115` is the default for good reasons: 16 bits is enough for almost
 anything, four channels covers a small equipment, and its programmable gain
@@ -96,6 +97,7 @@ it drives LEDs, heaters and servos directly.
 | `ADS1115` | I2C | I2C 16-bit ADC, 4 single-ended channels (AIN0–3 = pin 0–3, INPUTS only), address 0x48–0x4B. Optional key range = full scale in volts (6.144/4.096/2.048/1.024/0.512/0.256, default 4.096) — stored in PeriphRec.config as PGA code+1 (0 = default). The raw variable value is the i16 conversion register; engineering units come from the variable gain/offset. |
 | `ADS1118` | SPI | SPI 16-bit ADC (the ADS1115 over SPI) — 4 single-ended channels, raw conversion counts at ±2.048 V; units via variable gain/offset. addr = CS pin. |
 | `ADS1220` | SPI | SPI 24-bit delta-sigma ADC (TI) — 4 inputs as single-ended channels or differential pairs, a PGA 1-128, two matched excitation currents (10-1500 µA) for an RTD, four reference choices (internal 2.048 V, REFP0/REFN0, AIN2/AIN3, AVDD), a temperature sensor for a thermocouple's cold junction, 50/60 Hz rejection. Every field of its four configuration registers is a setting of the channel; the channel's sensor type (thermocouple, RTD by excitation, a bridge, Ni1000) does the arithmetic. addr = CS pin. |
+| `ADS122S14` | SPI | SPI 24-bit delta-sigma ADC (TI) — 8 inputs, any two as a pair or one against ground, a PGA 0.5-256, two excitation currents in 1 µA or 10 µA units up to 1 mA on any input, the reference internal (1.25 or 2.5 V), external on AIN4/AIN5 (buffered on request) or the supply, four speed modes with 20/25 SPS 50/60 Hz rejection, global chop, a start delay, burn-out currents of 0.2/1/10 µA, a temperature sensor and the supply and reference monitors. Every field of its configuration registers is a setting of the channel, the same sensor types as the ADS1220. addr = CS pin. |
 | `MCP3008` | SPI | SPI 10-bit ADC, 8 single-ended channels — raw counts per channel (units via variable gain/offset). addr = CS pin. |
 | `MCP3204` | SPI | SPI 12-bit ADC, 4 single-ended channels — raw counts per channel (units via variable gain/offset). addr = CS pin. |
 | `MCP3221` | I2C | I2C 12-bit ADC, 1 channel, no configuration at all — channel 0 = raw counts (units via variable gain/offset). Address 0x48–0x4F (factory-coded). |

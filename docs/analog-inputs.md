@@ -29,9 +29,9 @@ OPC UA, Modbus, MQTT.
 | **NTC, Steinhart-Hart** | the same, with the three coefficients | °C |
 | **Pt100 / Pt1000** | the reference resistor and supply | °C |
 | **Ni1000** (DIN 43760) / **Ni1000 TK5000** (Landis+Gyr) | the reference resistor and supply | °C |
-| **RTD excited by the converter** (`ADS1220`) — Pt100, Pt1000, Ni1000 in 2, 3 or 4 wires | R at 0 °C, the curve, the wires, the reference resistor | °C |
-| **Thermocouple** (`ADS1220`) — K, J, T, E, N, S, R, B | the type, and where the cold junction comes from | °C |
-| **Weight** (`ADS1220`) — a strain-gauge bridge: a load cell, a pressure cell | mV/V and the capacity off the cell's label; a tare variable | the capacity's unit |
+| **RTD excited by the converter** (`ADS1220`, `ADS122S14`) — Pt100, Pt1000, Ni1000 in 2, 3 or 4 wires | R at 0 °C, the curve, the wires, the reference resistor | °C |
+| **Thermocouple** (`ADS1220`, `ADS122S14`) — K, J, T, E, N, S, R, B | the type, and where the cold junction comes from | °C |
+| **Weight** (`ADS1220`, `ADS122S14`) — a strain-gauge bridge: a load cell, a pressure cell | mV/V and the capacity off the cell's label; a tare variable | the capacity's unit |
 | **Raw** | gain and offset, as before | whatever you compute |
 
 Every type arrives with the **usual numbers already filled in** — a
@@ -86,12 +86,16 @@ pulls up) or the other way round.
 
 ---
 
-## Thermocouples, three-wire RTDs and load cells: the ADS1220
+## Thermocouples, three-wire RTDs and load cells: the ADS1220 and the ADS122S14
 
 The `ADS1220` is the converter of the industrial analog input card:
 24 bits, a gain up to 128, two matched excitation currents, four
-reference choices and its own temperature sensor. On its channels
-three more types appear:
+reference choices and its own temperature sensor. The `ADS122S14` is
+the newer part of the same family: eight inputs, a gain from 0.5 to
+256, currents up to 1 mA on any input, an internal 1.25 or 2.5 V
+reference or an external one on AIN4/AIN5, four speed modes, global
+chop and three burn-out currents. On the channels of either three
+more types appear:
 
 **An RTD excited by the converter.** No divider: the chip's own
 current (10 µA to 1.5 mA) flows through the sensor and through a
@@ -121,13 +125,24 @@ supply drops out again. Enter the **sensitivity** in mV/V and the
     input pair, the gain, the data rate and mode, the 50/60 Hz
     filter, the reference, the excitation current and where each of
     the two currents goes, the burn-out sources that turn an open
-    sensor into a refused reading, the low-side power switch. Every
-    type fills in its usual values; tick *Set the registers myself*
-    to change them, and the sheet says in red what the datasheet
-    would refuse (a single-ended input with the amplifier in the path,
-    the 50/60 Hz filter above 20 samples a second). The converter's
-    own temperature, supply and reference go into variables you name
-    on the chip (`temp`, `supply`, `reference`).
+    sensor into a refused reading, the low-side power switch. On the
+    `ADS122S14` the block has that chip's fields: the two input pins,
+    the speed mode and rate, global chop, the start delay, the
+    reference with its buffers, the burn-out current, the current
+    unit and the two currents with their pins. Every type fills in
+    its usual values; tick *Set the registers myself* to change them,
+    and the sheet says in red what the datasheet would refuse (a
+    single-ended input with the amplifier in the path, the 50/60 Hz
+    filter above 20 samples a second, the burn-out sources in
+    global-chop mode). The converter's own temperature, supply and
+    reference go into variables you name on the chip (`temp`,
+    `supply`, `reference`).
+
+Under the settings the sheet **draws the wiring** from the numbers
+you typed: the sensor, the divider or shunt, the reference resistor,
+the excitation currents and the converter's pins they go to, the
+bridge and its excitation, the junction of a thermocouple. Change a
+number and the picture follows.
 
 ---
 
@@ -187,11 +202,11 @@ Nobody can write "below 3 bar" against a raw converter count.
 ## What this is not
 
 - **A divider is a divider.** For a three-wire Pt100 and
-  tenth-of-a-degree work use an excited channel of the `ADS1220`, or
-  a MAX31865, which delivers degrees by itself.
-- **A thermocouple needs the `ADS1220`.** A 16-bit converter without a
-  gain stage reads its forty microvolts a degree as noise; the type is
-  refused on any other input.
+  tenth-of-a-degree work use an excited channel of the `ADS1220` or
+  the `ADS122S14`, or a MAX31865, which delivers degrees by itself.
+- **A thermocouple needs the `ADS1220` or the `ADS122S14`.** A 16-bit
+  converter without a gain stage reads its forty microvolts a degree
+  as noise; the type is refused on any other input.
 - **Not a filter.** A noisy signal is what the variable's deadband is
-  for — and on the `ADS1220` the 50/60 Hz filter at 20 samples a
-  second.
+  for — and on the `ADS1220` and the `ADS122S14` the 50/60 Hz filter
+  at 20 samples a second.
