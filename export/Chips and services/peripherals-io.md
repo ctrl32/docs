@@ -27,6 +27,7 @@ another address turns them into thirty-two.
 | shift registers — cheapest per pin | `SN74HC595` (out), `SN74HC165` (in) |
 | a modern part with per-pin drive control | `PI4IOE5V6408` |
 | the relays and inputs of an M5Stack StamPLC | `AW9523B` |
+| twenty-four pins on two wires, eight of them inputs | `CH423` |
 
 !!! warning "An expander pin is not a relay output"
     These pins source a few milliamps — enough for an LED or an
@@ -108,6 +109,7 @@ silent, which matters in a room with people in it.
 |:---|:---:|:---|
 | `AW9523B` | I2C | I2C expander 16 DIO (Awinic) — pin 0–7 = P0_0–P0_7, 8–15 = P1_0–P1_7. The relay and input chip of the M5Stack StamPLC (0x59: relays on pins 0–3, the eight isolated inputs on 4–7 and 12–15). Every pin in GPIO mode, P0 push-pull; the chip must answer its ID (0x23) or it is left alone. Address 0x58–0x5B. |
 | `MCP23008` | I2C | I2C expander 8 DIO — the 8-bit brother of the MCP23017, address 0x20–0x27. Inputs get the internal pull-up; the latch is written before the direction switches. |
+| `CH423` | I2C | WCH two-wire I/O expander - IO0-IO7 bidirectional with a weak pull-up and ONE direction for all eight (inputs, or outputs when a pin of them is an output), OC0-OC15 outputs, push-pull or open-drain (open_drain), high after power-on; the input level-change interrupt on OC15 (int). The chip's addresses are fixed, so a bus carries one CH423; the LED-digit scan driver stays off. |
 | `MCP23017` | I2C | I2C expander 8+8 DIO — 16 pins, address 0x20–0x27. Inputs get the internal 100 k pull-up (GPPU); outputs write the latch before the direction switches. |
 | `MCP23S08` | SPI | SPI expander 8 DIO (the MCP23008 over SPI, hardware address pins grounded). Inputs get the pull-up; latch before direction. addr = CS pin. |
 | `MCP23S17` | SPI | SPI expander 8+8 DIO (the MCP23017 over SPI, hardware address pins grounded). Inputs get the pull-up; latch before direction. addr = CS pin. |
