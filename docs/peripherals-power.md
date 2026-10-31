@@ -13,6 +13,7 @@ Nine power monitors, three energy meters and two battery gauges.
 | current without an external shunt | `INA260` (shunt built in) |
 | mains energy, single phase, every register yours | `ATM90E26` |
 | mains energy, single phase | `ADE7953` |
+| a power converter with its own pulse output, every register yours | `CS5460A` |
 | mains energy, three phase, every register yours | `ATM90E32` |
 | battery state of charge | `MAX17043`, `LC709203F` |
 
@@ -57,6 +58,20 @@ channels: every phase's voltage, current, active and reactive power,
 power factor and angle, the totals, the frequency, the calculated
 neutral current, the chip's temperature and the five energies that
 accumulate in their variables.
+
+`CS5460A` is the Cirrus single-phase power converter: two 24-bit
+channels for the voltage through a divider and the current through a
+shunt or a transformer, the rms voltage and current, the mean active
+power of a computation cycle, the apparent power and the power factor,
+and the real energy that accumulates in its variable; the EOUT / EDIR
+pulse output runs at the rate you set. On its page you type the
+sensors (the device derives the full scales of the line from them),
+the clock and its divider, the filters, the phase compensation in
+degrees at your line frequency, the samples of a cycle, the pulse rate
+and format, the INT pin and its events, and the words the chip's own
+calibration commands produced on the bench - the gains, the offsets,
+the time base. The device writes every register at start-up and starts
+continuous computation cycles.
 
 ## Why measure current in a real setup
 
@@ -116,6 +131,7 @@ occasionally.
 | `ADE7953` | I2C | I2C single-phase energy metering AFE — channels: 0 = Vrms, 1 = Irms A, 2 = Irms B, 3 = active power A (signed), 4 = active power B (signed), all RAW 24-bit counts (scaling depends on the divider/shunt/CT — put it into the variable gain); 5 = line frequency [Hz]. Init writes the datasheet unlock (0xAD to 0xFE, 0x0030 to 0x120). Address 0x38. VERIFY ON THE BENCH. |
 | `ATM90E26` | SPI | SPI single-phase energy meter (Atmel / Microchip) — the L line's voltage, current, active / reactive / apparent power, power factor and phase angle, the line frequency, the N line's current, powers and power factor, and the four energies (forward / reverse, active / reactive) in kWh / kvarh that accumulate in their variables (a retentive variable keeps the total). Every register is a setting of the chip: the meter constant, the reference voltage and basic current, the shunt or CT of the L line and the CT of the N line, the voltage divider, the gains, the metering mode, the startup and no-load thresholds, the voltage sag, and the bench's calibration errors - the device writes them behind the chip's start commands at start-up. addr = CS pin. |
 | `ATM90E32` | SPI | SPI three-phase energy meter (Atmel / Microchip) — the three phases' voltage, current, active and reactive power, power factor and phase angle, the totals of active, reactive and apparent power and power factor, the line frequency, the calculated neutral current, the chip's temperature, and the five energies (forward / reverse active, forward / reverse reactive, apparent) in kWh / kvarh / kVAh that accumulate in their variables (a retentive variable keeps the total). Every configuration register is a setting of the chip: the meter constant, the grid, the PGA gains, the metering method, the startup thresholds in watts, the sag / phase-loss / over-voltage / over-current / frequency monitors, the ZX pins, the interrupt sources and the bench's calibration per phase - the device writes them behind the chip's access gate at start-up. addr = CS pin. |
+| `CS5460A` | SPI | SPI single-phase power / energy converter (Cirrus Logic) - two 24-bit channels for the line's voltage (a divider) and current (a shunt or a CT, the PGA x10 or x50), the rms voltage and current, the mean active power of a computation cycle, the apparent power and power factor, and the real energy in kWh that accumulates in its variable (a retentive variable keeps the total); the EOUT / EDIR pulse output at the project's rate. Every register is a setting of the chip: the sensors, the clock and its divider, the filters, the phase compensation, the cycle count, the pulse rate and format, the interrupt, the chip's own calibration words. addr = CS pin. |
 
 ### Battery gauges
 
