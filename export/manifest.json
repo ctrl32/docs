@@ -2641,7 +2641,7 @@
       "section": "Chips and services",
       "order": 328,
       "file": "Chips and services/peripherals-analog.md",
-      "bytes": 9091
+      "bytes": 10064
     },
     {
       "slug": "analog-inputs",
@@ -2649,7 +2649,7 @@
       "section": "Chips and services",
       "order": 329,
       "file": "Chips and services/analog-inputs.md",
-      "bytes": 10101
+      "bytes": 11003
     },
     {
       "slug": "peripherals-io",
