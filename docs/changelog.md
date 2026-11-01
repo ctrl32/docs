@@ -8,6 +8,54 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.10.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](deploy.md)) before it accepts a
+project saved by this editor.
+
+- **Every setting of a chip, from its datasheet.** The page of a chip
+  in the editor shows every register of the part as a setting and draws
+  its wiring with the board's pin numbers: the converters for
+  thermocouples, RTDs, load cells and Ni1000 (ADS1220, ADS122S14,
+  ADS124S08), the ADS1115, ADS1015 and ADS1118, the temperature
+  converters MAX31855, MAX6675, MAX31856 and MAX31865 (the fault as a
+  channel, the thresholds in degrees), the energy meters ATM90E26 and
+  ATM90E32 and the CS5460A, the fuel gauges MAX17043 and MAX17044, the
+  analog outputs DAC7678 and GP8403, the I/O expanders with the
+  direction of every pin, the CH423, the SN74HC165 and SN74HC595.
+  [Analog inputs and outputs](peripherals-analog.md),
+  [Temperature](peripherals-temperature.md),
+  [Power and energy](peripherals-power.md),
+  [I/O expanders and drivers](peripherals-io.md).
+- **The screen variable.** A number variable whose change opens the
+  screen with that index, on the board's screen and in the browser; a
+  ring at the door of the house example opens its Door screen this way
+  ([HMIview](hmiview.md), [Intercom](intercom.md)).
+- **A review of the whole program.** Forty-odd corrections on the
+  device, in the editor, in the browser and in the Linux runtime: among
+  them a counter that counted an edge during its reset, a position
+  watchdog that never fired above 255 cycles, a deleted variable that
+  left a lamp, a mover or a recipe bound to its neighbour, a pasted
+  contact bound to the wrong variable after a delete, a motion block
+  that reported a finished move as aborted, and a planned restart of a
+  Linux device that left its EtherCAT drives on their watchdog.
+- **Room on 4 MB devices.** The two 4 MB display runtimes no longer
+  carry the 28 px built-in font either; a project that draws with it
+  carries the font in its own pack, like the 36 px one
+  ([Performance and limits](limits.md)).
+- **ESP32-P4 boards:** a runtime update over the network stops the
+  board's Ethernet before the restart, so the new runtime starts on a
+  quiet board; a board still on an older runtime may come back at the
+  old version once on a busy network - repeat the update, or take it
+  over USB ([Download to the board](deploy.md)).
+- **Chips on boards with PSRAM:** the chip drivers moved out of the
+  internal memory, which keeps the room the browser view and the network
+  need on ESP32-S3 and ESP32-P4 boards.
+- The arrows of the editor's dropdown fields are light grey, the ticks
+  of a pin table sit centred in their cells and the fields of a sensor
+  sheet are one width.
+
 ## 1.09.000
 
 A new line: every device takes a new runtime (over the network or over

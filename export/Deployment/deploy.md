@@ -59,6 +59,10 @@ Ethernet or WiFi:
    ESP32-S3 and ESP32-P4 boards) takes the whole runtime into memory
    first and writes it to flash only once it is complete and checked, so
    a connection that drops halfway leaves the board exactly as it was.
+   An ESP32-P4 board stops its Ethernet before the restart, so the new
+   runtime starts on a quiet board; a P4 board that still runs an older
+   runtime may come back at the old version once on a busy network -
+   repeat the update, or take it over USB.
 
 **What to check afterwards** — the status bar shows the board's name and
 version once ONLINE; the panel's own `INFO` line (the serial terminal,
