@@ -58,8 +58,8 @@ Start there unless something says otherwise.
 | `BMP388` | I2C | I2C barometer (also the BMP390 — chip id 0x50/0x60) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Datasheet float compensation from the NVM coefficients. Address 0x76–0x77. |
 | `DHT12` | I2C | I2C temperature + humidity sensor (the wired DHT11 heir) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Fixed address 0x5C; 5-byte register read with a sum checksum. |
 | `ENS210` | I2C | I2C temperature + humidity sensor (ScioSense) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Continuous run, valid bits checked. Fixed address 0x43. |
-| `FS3000` | I2C | I2C air velocity sensor — channel 0 = raw 12-bit counts (the m/s curve is nonlinear and ordering-specific; approximate via variable gain/offset). Fixed address 0x28. VERIFY ON THE BENCH. |
-| `GDK101` | I2C | I2C gamma radiation sensor — channel 0 = dose rate [µSv/h] (10-minute average). Address 0x18–0x1B. VERIFY ON THE BENCH. |
+| `FS3000` | I2C | I2C air velocity sensor — channel 0 = raw 12-bit counts (the m/s curve is nonlinear and ordering-specific; approximate via variable gain/offset). Fixed address 0x28. Not yet tested on hardware. |
+| `GDK101` | I2C | I2C gamma radiation sensor — channel 0 = dose rate [µSv/h] (10-minute average). Address 0x18–0x1B. Not yet tested on hardware. |
 | `HDC1080` | I2C | I2C temperature + humidity sensor (TI) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Fixed address 0x40; both values in one sequential acquisition. |
 | `HDC2010` | I2C | I2C temperature + humidity sensor (TI) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Triggered measurement, little-endian data. Address 0x40–0x41. |
 | `HTU21D` | I2C | I2C temperature + humidity sensor (also Si7021/SHT21 compatible) — channels: 0 = temperature [°C], 1 = humidity [%RH]. Fixed address 0x40; no-hold measurements alternate T/RH. |

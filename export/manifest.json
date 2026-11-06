@@ -2601,7 +2601,7 @@
       "section": "Chips and services",
       "order": 323,
       "file": "Chips and services/peripherals-temperature.md",
-      "bytes": 8200
+      "bytes": 8174
     },
     {
       "slug": "peripherals-environment",
@@ -2609,7 +2609,7 @@
       "section": "Chips and services",
       "order": 324,
       "file": "Chips and services/peripherals-environment.md",
-      "bytes": 6112
+      "bytes": 6126
     },
     {
       "slug": "peripherals-air",
@@ -2617,7 +2617,7 @@
       "section": "Chips and services",
       "order": 325,
       "file": "Chips and services/peripherals-air.md",
-      "bytes": 5544
+      "bytes": 5565
     },
     {
       "slug": "peripherals-light",
@@ -2625,7 +2625,7 @@
       "section": "Chips and services",
       "order": 326,
       "file": "Chips and services/peripherals-light.md",
-      "bytes": 5172
+      "bytes": 5218
     },
     {
       "slug": "peripherals-pressure",
@@ -2633,7 +2633,7 @@
       "section": "Chips and services",
       "order": 327,
       "file": "Chips and services/peripherals-pressure.md",
-      "bytes": 6858
+      "bytes": 6872
     },
     {
       "slug": "peripherals-analog",
@@ -2657,7 +2657,7 @@
       "section": "Chips and services",
       "order": 330,
       "file": "Chips and services/peripherals-io.md",
-      "bytes": 10822
+      "bytes": 10849
     },
     {
       "slug": "peripherals-power",
@@ -2665,7 +2665,7 @@
       "section": "Chips and services",
       "order": 331,
       "file": "Chips and services/peripherals-power.md",
-      "bytes": 13282
+      "bytes": 13296
     },
     {
       "slug": "peripherals-connectivity",

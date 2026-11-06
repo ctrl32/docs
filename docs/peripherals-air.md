@@ -64,7 +64,7 @@ cross-compensation work below.
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `AGS10` | I2C | I2C TVOC sensor (ASAIR) — channel 0 = TVOC [ppb]. The chip refreshes every ~1.5 s and the driver polls every 2 s; CRC checked. Fixed address 0x1A. VERIFY ON THE BENCH. |
+| `AGS10` | I2C | I2C TVOC sensor (ASAIR) — channel 0 = TVOC [ppb]. The chip refreshes every ~1.5 s and the driver polls every 2 s; CRC checked. Fixed address 0x1A. Not yet tested on hardware. |
 | `CCS811` | I2C | I2C air quality sensor — channels: 0 = eCO2 [ppm], 1 = TVOC [ppb]; drive mode 1 s. Needs ~20 min burn-in after power-up before the values mean anything. Address 0x5A–0x5B. |
 | `ENS160` | I2C | I2C air quality sensor (ScioSense) — channels: 0 = eCO2 [ppm], 1 = TVOC [ppb], 2 = AQI index 1–5. Standard operating mode; the first minutes after power-up are warm-up. Address 0x52–0x53. |
 | `HM3301` | I2C | I2C particulate matter sensor (Seeed/Tomoto) — channels: 0 = PM1.0, 1 = PM2.5, 2 = PM10 [µg/m³] (atmospheric). 29-byte frame with a sum checksum. Fixed address 0x40. |
@@ -72,12 +72,12 @@ cross-compensation work below.
 | `PMSA003I` | I2C | I2C particulate matter sensor (Plantower) — channels: 0 = PM1.0, 1 = PM2.5, 2 = PM10 [µg/m³] (atmospheric values). Fixed address 0x12; 32-byte frame with checksum. |
 | `SCD30` | I2C | I2C CO2 sensor (Sensirion NDIR, the SCD41 predecessor) — channels: 0 = CO2 [ppm], 1 = temperature [°C], 2 = humidity [%RH]. Fixed address 0x61; continuous measurement every 2 s, float values, CRC checked. |
 | `SCD41` | I2C | I2C CO2 sensor (Sensirion NDIR) — channels: 0 = CO2 [ppm], 1 = temperature [°C], 2 = humidity [%RH]. Fixed address 0x62; periodic measurement, a fresh value every ~5 s, CRC checked. |
-| `SEN0321` | I2C | I2C ozone sensor (DFRobot Gravity) — channel 0 = O3 [ppb], automatic mode, 1 s poll. Register map from the vendor wiki. Address 0x70–0x73 (DIP switches). VERIFY ON THE BENCH. |
+| `SEN0321` | I2C | I2C ozone sensor (DFRobot Gravity) — channel 0 = O3 [ppb], automatic mode, 1 s poll. Register map from the vendor wiki. Address 0x70–0x73 (DIP switches). Not yet tested on hardware. |
 | `SEN5X` | I2C | I2C environmental node (Sensirion SEN54/55) — channels: 0–3 = PM1.0/2.5/4.0/10 [µg/m³], 4 = humidity [%RH], 5 = temperature [°C], 6 = VOC index, 7 = NOx index (SEN55; 0 elsewhere). Fixed address 0x69. |
 | `SFA30` | I2C | I2C formaldehyde sensor (Sensirion) — channels: 0 = HCHO [ppb], 1 = humidity [%RH], 2 = temperature [°C]. Continuous measurement, CRC checked. Fixed address 0x5D. |
 | `SGP30` | I2C | I2C VOC air quality sensor — channels: 0 = eCO2 [ppm], 1 = TVOC [ppb]. Fixed address 0x58; 1 Hz measurement, CRC checked. The first ~15 s after power-up report the fixed 400/0 warm-up values; baseline persistence is not stored. |
 | `SGP4X` | I2C | I2C VOC sensor (SGP40/41) — channel 0 = RAW resistance counts (the Sensirion VOC-index algorithm is not in the firmware; trends via variable gain/offset). Fixed address 0x59. |
-| `SPS30` | I2C | I2C particulate matter sensor (Sensirion) — channels: 0 = PM1.0, 1 = PM2.5, 2 = PM4.0, 3 = PM10 [µg/m³]. Fixed address 0x69; integer output format, CRC checked. VERIFY ON THE BENCH. |
+| `SPS30` | I2C | I2C particulate matter sensor (Sensirion) — channels: 0 = PM1.0, 1 = PM2.5, 2 = PM4.0, 3 = PM10 [µg/m³]. Fixed address 0x69; integer output format, CRC checked. Not yet tested on hardware. |
 
 Every entry above is in the editor: pick the chip, give it
 an address or a chip-select pin, and its channels become variables.

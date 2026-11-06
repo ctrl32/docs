@@ -71,7 +71,7 @@ gyroscope together: tilt, and vibration.
 | Chip | Bus | What it is |
 |:---|:---:|:---|
 | `BMP085` | I2C | I2C barometer (BMP085/BMP180, integer datasheet compensation) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Fixed address 0x77. |
-| `BMP581` | I2C | I2C pressure + temperature sensor (Bosch, direct-reading — no compensation math) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Address 0x46–0x47. VERIFY ON THE BENCH. |
+| `BMP581` | I2C | I2C pressure + temperature sensor (Bosch, direct-reading — no compensation math) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Address 0x46–0x47. Not yet tested on hardware. |
 | `HONEYWELLABP` | I2C | I2C board-mount pressure sensor (Honeywell ABP series) — channels: 0 = raw bridge counts (10–90 % of 2^14; the range is ordering-specific, engineering units via variable gain/offset), 1 = temperature [°C] (11-bit). The address is ordering-specific too — the check accepts 0x08–0x78. |
 | `HONEYWELLABP2` | I2C | I2C micropressure sensor (Honeywell ABP2/MPR series) — channels: 0 = raw 24-bit counts (units via variable gain/offset), 1 = temperature [°C]. Command-triggered conversion; the address is ordering-specific — the check accepts 0x08–0x78. |
 | `LPS22` | I2C | I2C pressure + temperature sensor (ST LPS22HB/HH) — channels: 0 = pressure [hPa], 1 = temperature [°C]. 1 Hz continuous. Address 0x5C–0x5D. |
@@ -79,7 +79,7 @@ gyroscope together: tilt, and vibration.
 | `MS5611` | I2C | I2C barometer (PROM coefficients + first-order datasheet compensation) — channels: 0 = pressure [hPa], 1 = temperature [°C]. Address 0x76–0x77. |
 | `MS8607` | I2C | I2C PHT combo, the pressure/temperature die (MS5637-class compensation) — channels: 0 = pressure [hPa], 1 = temperature [°C]. The humidity die is a separate HTU21D at 0x40 — add it as its own peripheral. Fixed address 0x76. |
 | `SDP3X` | I2C | I2C differential pressure sensor (Sensirion SDP3x) — channels: 0 = differential pressure [Pa] (the chip reports its own scale factor), 1 = temperature [°C]. Continuous measurement with averaging; address 0x21–0x23. Filter and duct monitoring. |
-| `XGZP68XX` | I2C | I2C pressure sensor (CFSensor XGZP68xx modules) — channels: 0 = raw 24-bit counts (the K factor of the ordering goes into variable gain), 1 = temperature [°C]. Fixed address 0x6D. VERIFY ON THE BENCH. |
+| `XGZP68XX` | I2C | I2C pressure sensor (CFSensor XGZP68xx modules) — channels: 0 = raw 24-bit counts (the K factor of the ordering goes into variable gain), 1 = temperature [°C]. Fixed address 0x6D. Not yet tested on hardware. |
 
 ### Position sensors
 
