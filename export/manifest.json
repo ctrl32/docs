@@ -2625,7 +2625,7 @@
       "section": "Chips and services",
       "order": 326,
       "file": "Chips and services/peripherals-light.md",
-      "bytes": 5218
+      "bytes": 6391
     },
     {
       "slug": "peripherals-pressure",
@@ -3019,6 +3019,7 @@
     "img/chip-max31855.webp",
     "img/chip-max31856.webp",
     "img/chip-max31865.webp",
+    "img/chip-max44009.webp",
     "img/chip-max6675.webp",
     "img/chip-mcp23017.webp",
     "img/chip-mcp23s17.webp",

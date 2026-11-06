@@ -43,6 +43,21 @@ exposure, or whether a UV lamp is actually lit.
     room. If it might see both, pick one with the range for it rather
     than scaling afterwards.
 
+### The MAX44009's page
+
+`MAX44009` has every register on its page: readings one after another or
+one every 800 ms (the lowest current), the chip's own auto range or a
+manual one with the current divider and the integration time from 800 ms
+to 6.25 ms, and the interrupt with its window in lux and the time the
+light must stay beyond it. The chip compares in coarse steps, so the page
+says the thresholds it will really use, and the bytes the device writes.
+Its second channel is the interrupt: 1 when the light left the window,
+and reading it clears the INT pin. A reading over the chip's range is
+refused: the variable keeps its last value and the diagnostic buffer says
+why.
+
+![The MAX44009's page: the manual range, the window of the INT pin in lux, the bytes written, and the chip drawn with its variables and pins](img/chip-max44009.webp){: .sb-center}
+
 ## Distance
 
 `TOF10120` measures time of flight — it sends an infrared pulse and times
@@ -75,7 +90,7 @@ For a shaft *angle*, see the magnetic angle sensors under
 | `LTR303` | I2C | I2C ambient light sensor (LTR-303/LTR-329; also the ALS half of the LTR-553) — channel 0 = illuminance [lx] (Lite-On appendix ratio formula, gain x1 / 100 ms). Address 0x29. |
 | `LTR390` | I2C | I2C UV sensor — channel 0 = UV index (18-bit, gain x18 typical sensitivity). Fixed address 0x53. Not yet tested on hardware. |
 | `LTR501` | I2C | I2C light + proximity sensor — channels: 0 = illuminance [lx] (Lite-On appendix ratio formula at gain x1), 1 = proximity counts (11-bit). Address 0x23. Not yet tested on hardware. |
-| `MAX44009` | I2C | I2C ambient light sensor with a 22-bit dynamic range — channel 0 = illuminance [lx] (exponent + mantissa format). Address 0x4A–0x4B. |
+| `MAX44009` | I2C | I2C ambient light sensor with a 22-bit dynamic range — channels: 0 = illuminance [lx] (a reading over the range keeps the last value), 1 = interrupt (1 when the light left the window; reading it clears the chip's bit and the INT pin). Every register is a setting of the chip: `continuous`, `manual` with `cdr` and `integration` (800 .. 6.25 ms), `int`, the thresholds `high` and `low` in lux, `delay` in seconds. Address 0x4A–0x4B by the A0 pin. |
 | `OPT3001` | I2C | I2C ambient light sensor — channel 0 = illuminance [lx], continuous 800 ms conversions. Address 0x44–0x47. |
 | `TCS34725` | I2C | I2C color sensor — channels: 0 = clear, 1 = red, 2 = green, 3 = blue (raw counts, ~101 ms integration). Fixed address 0x29. |
 | `TSL2561` | I2C | I2C ambient light sensor, two diodes — channel 0 = illuminance [lx] (datasheet piecewise formula, T package). Valid addresses are ONLY 0x29 / 0x39 / 0x49 (ADDR pin low / float / high) — the checked range is wider. |
