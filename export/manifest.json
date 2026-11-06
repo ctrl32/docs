@@ -2657,7 +2657,7 @@
       "section": "Chips and services",
       "order": 330,
       "file": "Chips and services/peripherals-io.md",
-      "bytes": 10849
+      "bytes": 11520
     },
     {
       "slug": "peripherals-power",
@@ -3024,6 +3024,7 @@
     "img/chip-max9611.webp",
     "img/chip-mcp23017.webp",
     "img/chip-mcp23s17.webp",
+    "img/chip-pca6408a.webp",
     "img/chip-pcf8574.webp",
     "img/chip-sn74hc165.webp",
     "img/chip-sn74hc595.webp",

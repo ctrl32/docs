@@ -9,7 +9,7 @@ generator: tools/docs_export.py
 
 # I/O expanders and drivers
 
-Thirteen expanders, three capacitive touch controllers, two stepper
+Fourteen expanders, three capacitive touch controllers, two stepper
 drivers and a fan controller.
 
 ## Why an expander
@@ -22,6 +22,7 @@ another address turns them into thirty-two.
 |:---|:---:|
 | the standard 16-bit expanders | `TCA9555`, `PCF8575`, `MCP23017` |
 | 8-bit, cheaper | `PCF8574`, `PCF8574A`, `PCA9554`, `MCP23008` |
+| 8-bit between two voltages: the bus on one, the pins on the other | `PCA6408A` |
 | SPI instead of I2C | `MCP23S17`, `MCP23S08` |
 | just four pins | `PCA9536` |
 | shift registers — cheapest per pin | `SN74HC595` (out), `SN74HC165` (in) |
@@ -65,6 +66,12 @@ chip has them:
 | **INT open-drain**, **INT active high** | the chip | how the INT pin drives its line |
 | **SDA slew-rate control off** | the I2C parts | the datasheet's DISSLW |
 | **Hardware address pins** | the SPI parts | A2 A1 A0 as wired; off, the chip answers address 000 |
+
+The `PCA6408A` has a supply on each side, 1.65 to 5.5 V, so it joins a 1.8 V
+bus to 5 V pins. Its page draws the ADDR pin for the address you chose, INT
+and RESET, which wants a pull-up to the bus supply.
+
+![The PCA6408A's page: the eight pins with their variables, and the chip drawn with ADDR, INT and RESET](img/chip-pca6408a.webp){: .sb-center}
 
 The inversion of a pin is done by the device, so an active-low relay
 board reads and writes as true = on without the chip's own polarity
@@ -136,6 +143,7 @@ silent, which matters in a room with people in it.
 | `MCP23S17` | SPI | SPI expander 8+8 DIO (the MCP23017 over SPI, hardware address pins grounded). Inputs get the pull-up; latch before direction. addr = CS pin. |
 | `PCA9536` | I2C | I2C expander, 4 DIO pins, fixed address 0x41 — the small brother of the TCA9555 for a few signals (register layout is the single-byte variant of the same family). |
 | `PCA9554` | I2C | I2C expander 8 DIO (PCA9554/TCA9534 register family) — address 0x20–0x27, the A variant 0x38–0x3F (the checked range covers both). |
+| `PCA6408A` | I2C | I2C expander 8 DIO, low voltage (NXP) — two supplies, 1.65–5.5 V on the bus side and on the port side, so it translates between them. Address 0x20–0x21 by the ADDR pin; RESET low resets it, INT is open-drain. |
 | `PCF8574` | I2C | I2C expander, 8 quasi-bidirectional pins, address 0x20–0x27 (the PCF8574A variant uses 0x38–0x3F and will be a separate type). No config registers: an input pin keeps latch 1 (weak pull-up), writing 0 is a hard low — common relay boards are therefore active-low (invert). |
 | `PCF8574A` | I2C | I2C expander, 8 quasi-bidirectional pins — the A variant of the PCF8574 differs ONLY in the address range 0x38–0x3F (both fit on one bus, 16 addresses total). |
 | `PCF8575` | I2C | I2C expander, 16 quasi-bidirectional pins, address 0x20–0x27. Like the PCF8574 but 16-bit: an input pin keeps latch 1 (weak pull-up), writing 0 is a hard low — relay boards are typically active-low (invert). |
