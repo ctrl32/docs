@@ -108,7 +108,9 @@ current (10 µA to 1.5 mA) flows through the sensor and through a
 the supply drops out of the arithmetic. Three wires put the second
 current through the third wire so the leads cancel; two wires let you
 enter the lead resistance; four wires sense straight across the
-sensor. The curve is platinum (IEC 60751), nickel (DIN 43760) or the
+sensor while the one current runs on a lead and a converter pin of its
+own, so no lead is in the reading. The usual registers follow the wires
+you choose. The curve is platinum (IEC 60751), nickel (DIN 43760) or the
 Landis+Gyr nickel (TK5000, 1500 Ω at 100 °C).
 
 ![The sheet of a three-wire Pt100 on an ADS1220: the two excitation currents, the reference resistor, and the registers the type fills in](img/chip-ads1220-rtd.webp){: .sb-center}
@@ -174,7 +176,7 @@ reference resistor on its AIN4 and AIN5:
 
 ![A type J thermocouple on an ADS122S14: the input pins, the speed mode and the burn-out current](img/chip-ads122s14-tc.webp){: .sb-center}
 
-![A four-wire Ni1000 on an ADS122S14: one excitation current of 200 µA and the external reference on AIN4 and AIN5](img/chip-ads122s14-rtd.webp){: .sb-center}
+![A four-wire Ni1000 on an ADS122S14: the force lead with 200 µA on AIN6, the sense leads on AIN2 and AIN3, and the external reference on AIN4 and AIN5](img/chip-ads122s14-rtd.webp){: .sb-center}
 
 The `ADS124S08`, a type T thermocouple held at mid-supply by the sensor
 bias and a three-wire Pt100 with the reference monitor and the rail
