@@ -1,6 +1,6 @@
 # Power and energy
 
-Nine power monitors, three energy meters and two battery gauges.
+Eleven power monitors, three energy meters and two battery gauges.
 
 ## Measuring what a setup draws
 
@@ -10,6 +10,7 @@ Nine power monitors, three energy meters and two battery gauges.
 | A battery charger / UPS: supply and battery voltage and current, charge state | `BQ25790` |
 | higher precision, wider range | `INA228`, `INA238` |
 | three rails at once | `INA3221` |
+| current up to 60 V with an op amp or a comparator that acts by itself | `MAX9611`, `MAX9612` |
 | current without an external shunt | `INA260` (shunt built in) |
 | mains energy, single phase, every register yours | `ATM90E26` |
 | mains energy, single phase | `ADE7953` |
@@ -20,6 +21,20 @@ Nine power monitors, three energy meters and two battery gauges.
 `INA226` measures current through a shunt and voltage at the same time
 and reports power directly. `INA3221` does three channels, which suits a
 board watching its own supplies.
+
+`MAX9611` reads the voltage across a shunt anywhere from 0 to 60 V, and
+its OUT pin can act without the program: an op amp that holds the current
+at a limit, or a comparator that trips when the current passes the SET
+voltage. On its page you type the shunt in mΩ and pick the ADC's gain (440,
+110 or 55 mV full scale; the page says what that is in amps), what OUT does
+with its watchdog and retry delays, and the BOOL variables that shut the
+chip down and reset a latched output. Its channels are the current, the
+sense voltage, the common mode, OUT, SET and the die temperature. A reading
+at full scale is refused: the current may be anything above it, so the
+variable keeps its value and the diagnostic buffer says why. `MAX9612` is
+the same with the amplifier working the other way round.
+
+![The MAX9611's page: the shunt and the gain with the current they reach, the comparator with its delays, the variables, the channels, and the shunt drawn on RS+ and RS-](img/chip-max9611.webp){: .sb-center}
 
 `ATM90E26` is a meter, not a sampler: it meters only once its two
 register blocks have been written behind the chip's start commands,
@@ -136,6 +151,8 @@ occasionally.
 | `INA239` | SPI | SPI current/voltage/power monitor (the INA238 over SPI) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ). addr = CS pin. |
 | `INA260` | I2C | I2C current/voltage/power monitor with the shunt built in (2 mΩ) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. No shunt configuration at all. Address 0x40–0x4F. |
 | `INA3221` | I2C | I2C 3-channel current/voltage monitor — channels: 0–2 = current 1–3 [A], 3–5 = bus voltage 1–3 [V]. One shunt value for all three channels: the key shunt_mohm, in mΩ (default 100 mΩ). Address 0x40–0x43. |
+| `MAX9611` | I2C | I2C high-side current-sense amplifier with a 12-bit ADC and an op amp / comparator, 0–60 V (Maxim) — channels: 0 = current [A], 1 = sense voltage [mV], 2 = common mode [V], 3 = OUT [V], 4 = SET [V], 5 = die temperature [°C]. Every register is a setting of the chip: `shunt_mohm`, `gain` 1 / 4 / 8 (440, 110, 55 mV full scale), `mode` normal / opamp / comparator with `watchdog_100us` and `retry_10ms`, `shutdown` and `reset` variables. A reading at full scale keeps the last value. Address 0x70–0x7F by A1 and A0. |
+| `MAX9612` | I2C | The `MAX9611` with an inverting amplifier: the op amp and the comparator work the other way round. The same channels and settings. Address 0x70–0x7F by A1 and A0. |
 
 ### Energy metering
 

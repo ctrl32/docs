@@ -2665,7 +2665,7 @@
       "section": "Chips and services",
       "order": 331,
       "file": "Chips and services/peripherals-power.md",
-      "bytes": 13296
+      "bytes": 15128
     },
     {
       "slug": "peripherals-connectivity",
@@ -3021,6 +3021,7 @@
     "img/chip-max31865.webp",
     "img/chip-max44009.webp",
     "img/chip-max6675.webp",
+    "img/chip-max9611.webp",
     "img/chip-mcp23017.webp",
     "img/chip-mcp23s17.webp",
     "img/chip-pcf8574.webp",
