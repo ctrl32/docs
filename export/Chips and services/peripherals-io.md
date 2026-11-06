@@ -87,8 +87,14 @@ open-drain, and the change interrupt on OC15.
 
 ![The CH423's page: IO0 to IO7, OC0 to OC15, the open-drain and interrupt settings, and the chip drawn with its variables](img/chip-ch423.webp){: .sb-center}
 
-The shift registers have no register to set: their page is the signals
-by the datasheet's pin names and the picture.
+The shift registers have no register to set: their page is the signals by
+the datasheet's pin names and the picture. Several on one CS pin work as one
+long register, and that is their one setting: give each its **place in the
+chain**, 1 for the one wired to the board, 2 for the next and so on (`chain`
+in the project file). Each keeps its own page and variables, the picture says
+what to join, and the device moves the whole chain in one transfer. The
+numbering must run from 1 without a gap, and a chain is one kind: outputs or
+inputs.
 
 ![The SN74HC595's page: eight outputs with their variables, and the chip drawn with SER, SRCLK, RCLK, SRCLR and OE](img/chip-sn74hc595.webp){: .sb-center}
 
@@ -148,8 +154,8 @@ silent, which matters in a room with people in it.
 | `PCF8574A` | I2C | I2C expander, 8 quasi-bidirectional pins — the A variant of the PCF8574 differs ONLY in the address range 0x38–0x3F (both fit on one bus, 16 addresses total). |
 | `PCF8575` | I2C | I2C expander, 16 quasi-bidirectional pins, address 0x20–0x27. Like the PCF8574 but 16-bit: an input pin keeps latch 1 (weak pull-up), writing 0 is a hard low — relay boards are typically active-low (invert). |
 | `PI4IOE5V6408` | I2C | I2C expander 8 DIO (Diodes Inc) — inputs get the pull-up, the latch is written before the direction switches. Address 0x43–0x44. Not yet tested on hardware. |
-| `SN74HC165` | SPI | SPI shift register, 8 INPUTS (TI) — the input mirror of the 74HC595: SH/LD on CS (the parallel load fires when CS asserts), CLK on the SPI clock, QH on the SPI input, CLK INH to GND, SER to GND or a second register's QH. No register to set: one byte read every cycle. addr = CS pin. |
-| `SN74HC595` | SPI | SPI shift register, 8 OUTPUTS (TI) — the cheap relay-board driver: SER on the SPI data, SRCLK on the SPI clock, RCLK on CS (the outputs latch when CS deasserts), SRCLR to VCC, OE to GND or a PWM for dimming, QH' the cascade output. No register to set: one byte written on change. addr = CS pin. |
+| `SN74HC165` | SPI | SPI shift register, 8 INPUTS (TI) — the input mirror of the 74HC595: SH/LD on CS (the parallel load fires when CS asserts), CLK on the SPI clock, QH on the SPI input, CLK INH to GND, SER to GND, or to the next register's QH with `chain` as on the 74HC595 or a second register's QH. No register to set: one byte read every cycle. addr = CS pin. |
+| `SN74HC595` | SPI | SPI shift register, 8 OUTPUTS (TI) — the cheap relay-board driver: SER on the SPI data, SRCLK on the SPI clock, RCLK on CS (the outputs latch when CS deasserts), SRCLR to VCC, OE to GND or a PWM for dimming, QH' the cascade output: registers on one CS with `chain` 1, 2, ... work as one long register, chain 1 wired to the board. No register to set: one byte written on change. addr = CS pin. |
 | `TCA9555` | I2C | I2C expander 8+8 DIO — 16 pins, address 0x20–0x27. |
 
 ### Touch controllers
