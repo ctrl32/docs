@@ -117,6 +117,8 @@ enter the lead resistance; four wires sense straight across the
 sensor. The curve is platinum (IEC 60751), nickel (DIN 43760) or the
 Landis+Gyr nickel (TK5000, 1500 Ω at 100 °C).
 
+![The sheet of a three-wire Pt100 on an ADS1220: the two excitation currents, the reference resistor, and the registers the type fills in](img/chip-ads1220-rtd.webp){: .sb-center}
+
 **A thermocouple.** Pick the letter — K, J, T, E, N, S, R or B — and
 where the **cold junction** comes from: the converter's own
 temperature sensor (the usual choice, when the terminals sit on the
@@ -125,11 +127,15 @@ sensor at the terminals). The device holds the reference tables of
 the standard in both directions; the variable holds the junction's
 temperature in °C. A reading beyond the type's table is refused.
 
+![The sheet of a type K thermocouple on an ADS1220: the type, the cold junction, the registers, and the wiring drawn under them](img/chip-ads1220-tc.webp){: .sb-center}
+
 **Weight.** A strain-gauge bridge — a load cell, a pressure cell —
 excited from the converter's supply and read against it, so the
 supply drops out again. Enter the **sensitivity** in mV/V and the
 **capacity** off the cell's label; name a BOOL variable as the
 **tare** and its rising edge takes the current reading as zero.
+
+![The sheet of a load cell on an ADS1220: the sensitivity, the capacity, the tare variable, and the bridge drawn on the converter's pins](img/chip-ads1220-bridge.webp){: .sb-center}
 
 !!! tip "Every register of the converter is yours"
     The sheet shows the chip's own settings under the sensor: the
@@ -166,6 +172,24 @@ or the board gives them, and on an I2C converter the ADDR pin's tie
 for the address and the ALERT/RDY pin's use. Change a number and the
 picture follows.
 
+![A Ni1000 in a divider on an ADS1220: the reference resistor and the supply on the sheet, the divider drawn on the converter's AIN2](img/chip-ads1220-divider.webp){: .sb-center}
+
+The two bigger converters draw the same way with their own pins. The
+`ADS122S14`, a type J thermocouple and a four-wire Ni1000 against a
+reference resistor on its AIN4 and AIN5:
+
+![A type J thermocouple on an ADS122S14: the input pins, the speed mode and the burn-out current](img/chip-ads122s14-tc.webp){: .sb-center}
+
+![A four-wire Ni1000 on an ADS122S14: one excitation current of 200 µA and the external reference on AIN4 and AIN5](img/chip-ads122s14-rtd.webp){: .sb-center}
+
+The `ADS124S08`, a type T thermocouple held at mid-supply by the sensor
+bias and a three-wire Pt100 with the reference monitor and the rail
+monitor on:
+
+![A type T thermocouple on an ADS124S08: the sensor bias on AIN1 and the burn-out current, among the twelve inputs](img/chip-ads124s08-tc.webp){: .sb-center}
+
+![A three-wire Pt100 on an ADS124S08: the reference pair with its buffers, the reference monitor, the two currents and the rail monitor](img/chip-ads124s08-rtd.webp){: .sb-center}
+
 The `ADS1115` and `ADS1015` have a register block of their own under
 the sensor: the input (a pin against ground or a pair), the range, the
 rate, and the **ALERT/RDY pin** - off, a comparator (asserts above
@@ -175,6 +199,8 @@ number of readings beyond a threshold it waits for; Low and High are
 volts at the input. A loop that leaves its window raises the pin
 without the program's help.
 
+![A 4-20 mA loop on an ADS1115: the shunt, the range in bar, the ALERT/RDY pin as a window comparator, and the loop drawn on AIN0](img/chip-ads1115-current.webp){: .sb-center}
+
 The `ADS1118` is that converter over SPI with a temperature sensor of
 its own: the input, the range and the rate per channel, no comparator.
 A thermocouple is at home on it - the chip's sensor is the cold
@@ -183,6 +209,10 @@ and 8 samples a second - while an RTD by excitation or a ratiometric
 bridge still wants one of the three above. The sensor's reading goes
 into a variable you name on the chip (`temp`), and the pull-up on the
 chip's DOUT/DRDY pin is a tick on the same page (`pull_up`).
+
+![A type K thermocouple on an ADS1118: the pair AIN0 and AIN1 at the 0.256 V range and 8 samples a second](img/chip-ads1118-tc.webp){: .sb-center}
+
+![A 0-10 V sensor through a divider on an ADS1118: AIN2 against ground at the 4.096 V range](img/chip-ads1118-voltage.webp){: .sb-center}
 
 ---
 

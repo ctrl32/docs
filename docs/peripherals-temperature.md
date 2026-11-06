@@ -39,6 +39,39 @@ extra wiring comes with them.
     consistently off — often by a plausible-looking amount, which is the
     kind of error that survives for months.
 
+## The chip's page
+
+The thermocouple and RTD converters have a page of their own (a click
+on the chip in the tree): the settings, the words the device writes, a
+table of the signals with their variables, and the chip drawn with its
+sensor and its bus pins, with the GPIO numbers the project or the board
+gives them.
+
+The `MAX31855` comes as seven parts, one per thermocouple type, so the
+part is what you pick; the device can correct the chip's straight line
+with the standard's table.
+
+![The MAX31855's page: the part, the correction with the standard's table, the three signals, and a type J thermocouple drawn on the chip](img/chip-max31855.webp){: .sb-center}
+
+The `MAX6675` has nothing to set: one frame with the temperature and the
+open-thermocouple bit.
+
+![The MAX6675's page: the two signals, and a type K thermocouple drawn on the chip](img/chip-max6675.webp){: .sb-center}
+
+The `MAX31856` has every register on its page: the type, the samples
+averaged, the mains filter, the open-circuit test, the cold junction and
+its offset, the four fault thresholds, the fault mode and the faults that
+drive the FAULT pin, continuous or 1-shot conversions.
+
+![The MAX31856's page: the converter, the fault thresholds and the FAULT pin, the conversions, the words written, and the chip drawn with its thermocouple](img/chip-max31856.webp){: .sb-center}
+
+The `MAX31865` the same for an RTD: the sensor, the reference resistor,
+the wires, the mains filter, the fault thresholds in degrees, the fault
+detection cycle at start-up, continuous or 1-shot conversions. The
+picture follows the wires you chose.
+
+![The MAX31865's page: a three-wire PT100, the fault thresholds, the detection cycle, the words written, and the sensor and reference resistor drawn on the chip](img/chip-max31865.webp){: .sb-center}
+
 ## The chips
 
 ### Temperature sensors

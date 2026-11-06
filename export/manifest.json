@@ -2601,7 +2601,7 @@
       "section": "Chips and services",
       "order": 323,
       "file": "Chips and services/peripherals-temperature.md",
-      "bytes": 6399
+      "bytes": 8200
     },
     {
       "slug": "peripherals-environment",
@@ -2641,7 +2641,7 @@
       "section": "Chips and services",
       "order": 328,
       "file": "Chips and services/peripherals-analog.md",
-      "bytes": 12993
+      "bytes": 13221
     },
     {
       "slug": "analog-inputs",
@@ -2649,7 +2649,7 @@
       "section": "Chips and services",
       "order": 329,
       "file": "Chips and services/analog-inputs.md",
-      "bytes": 12242
+      "bytes": 14394
     },
     {
       "slug": "peripherals-io",
@@ -2657,7 +2657,7 @@
       "section": "Chips and services",
       "order": 330,
       "file": "Chips and services/peripherals-io.md",
-      "bytes": 9402
+      "bytes": 10822
     },
     {
       "slug": "peripherals-power",
@@ -2665,7 +2665,7 @@
       "section": "Chips and services",
       "order": 331,
       "file": "Chips and services/peripherals-power.md",
-      "bytes": 12461
+      "bytes": 13282
     },
     {
       "slug": "peripherals-connectivity",
@@ -2998,6 +2998,34 @@
     "img/canopen-add.webp",
     "img/canopen-canvas.webp",
     "img/canopen-node.webp",
+    "img/chip-ads1115-current.webp",
+    "img/chip-ads1118-tc.webp",
+    "img/chip-ads1118-voltage.webp",
+    "img/chip-ads1220-bridge.webp",
+    "img/chip-ads1220-divider.webp",
+    "img/chip-ads1220-rtd.webp",
+    "img/chip-ads1220-tc.webp",
+    "img/chip-ads122s14-rtd.webp",
+    "img/chip-ads122s14-tc.webp",
+    "img/chip-ads124s08-rtd.webp",
+    "img/chip-ads124s08-tc.webp",
+    "img/chip-atm90e26.webp",
+    "img/chip-atm90e32.webp",
+    "img/chip-ch423.webp",
+    "img/chip-cs5460a.webp",
+    "img/chip-dac7678.webp",
+    "img/chip-gp8403.webp",
+    "img/chip-max17044.webp",
+    "img/chip-max31855.webp",
+    "img/chip-max31856.webp",
+    "img/chip-max31865.webp",
+    "img/chip-max6675.webp",
+    "img/chip-mcp23017.webp",
+    "img/chip-mcp23s17.webp",
+    "img/chip-pcf8574.webp",
+    "img/chip-sn74hc165.webp",
+    "img/chip-sn74hc595.webp",
+    "img/chip-tca9555.webp",
     "img/cockpit-bus.webp",
     "img/cockpit-engine.webp",
     "img/cockpit-faults.webp",

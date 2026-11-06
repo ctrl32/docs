@@ -43,6 +43,8 @@ energies - forward and reverse, active and reactive - which accumulate
 in their variables: make the variable retentive and the total survives
 a restart.
 
+![The ATM90E26's page: the meter, the thresholds, the calibration from the bench, the words written, the sixteen channels, and the shunt, transformer and divider drawn on the chip](img/chip-atm90e26.webp){: .sb-center}
+
 `ATM90E32` is its three-phase brother and gets the same treatment: the
 meter constant, the grid, the current sensor (a transformer or a Rogowski
 coil), the wiring (four or three wires), what the CF2 pin counts, how
@@ -59,6 +61,8 @@ power factor and angle, the totals, the frequency, the calculated
 neutral current, the chip's temperature and the five energies that
 accumulate in their variables.
 
+![The ATM90E32's page: the grid and the wiring, the monitors, the calibration per phase, the thirty channels, and the three phases drawn on the chip](img/chip-atm90e32.webp){: .sb-center}
+
 `CS5460A` is the Cirrus single-phase power converter: two 24-bit
 channels for the voltage through a divider and the current through a
 shunt or a transformer, the rms voltage and current, the mean active
@@ -72,6 +76,15 @@ and format, the INT pin and its events, and the words the chip's own
 calibration commands produced on the bench - the gains, the offsets,
 the time base. The device writes every register at start-up and starts
 continuous computation cycles.
+
+![The CS5460A's page: the sensors, the clock, the filters, the pulse output, the INT pin, the calibration words, and the shunt and divider drawn on the chip](img/chip-cs5460a.webp){: .sb-center}
+
+`MAX17043` and `MAX17044` have a page too: the compensation byte, the
+alert threshold, the quick start at start-up and the variable that puts
+the gauge to sleep, the words written, and the cell or the pack drawn on
+the chip.
+
+![The MAX17044's page: RCOMP, the alert, the quick start and the sleep variable, and the 2S pack drawn on the chip](img/chip-max17044.webp){: .sb-center}
 
 ## Why measure current in a real setup
 
@@ -113,16 +126,16 @@ occasionally.
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `INA219` | I2C | I2C current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt resistance in tenths of mΩ (0 = 100 mΩ, the common blue module; YAML key shunt_mohm). Address 0x40–0x4F. |
-| `INA226` | I2C | I2C current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt resistance in tenths of mΩ (0 = 100 mΩ, the common blue module; YAML key shunt_mohm). Current is computed from Vshunt/R; fine-tuning via variable gain/offset. |
+| `INA219` | I2C | I2C current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ, the common blue module). Address 0x40–0x4F. |
+| `INA226` | I2C | I2C current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ, the common blue module). Current is computed from Vshunt/R; fine-tuning via variable gain/offset. |
 | `BQ25790` | I2C | I2C buck-boost battery charger with ADC (TI BQ25790 / BQ25792; the UPS of the reTerminal E10-1) — channels: 0 = supply voltage VBUS [V], 1 = battery VBAT [V], 2 = supply current IBUS [A], 3 = battery current IBAT [A] (+ = charging), 4 = charge state (0 off, 1 trickle, 2 pre, 3 fast, 4 taper, 6 top-off, 7 done), 5 = supply present (1/0), 6 = die temperature [°C]. Read-only: the charge limits stay the board's. Address 0x6B. |
-| `INA228` | I2C | I2C 20-bit current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). Address 0x40–0x4F. |
-| `INA229` | SPI | SPI 20-bit current/voltage/power monitor (the INA228 over SPI) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). addr = CS pin. |
-| `INA236` | I2C | I2C current/voltage/power monitor (the INA226 successor) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). Address 0x40–0x4F. |
-| `INA238` | I2C | I2C current/voltage/power monitor (85 V bus) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). Address 0x40–0x4F. |
-| `INA239` | SPI | SPI current/voltage/power monitor (the INA238 over SPI) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. PeriphRec.config = shunt in tenths of mΩ (0 = 100 mΩ, YAML shunt_mohm). addr = CS pin. |
+| `INA228` | I2C | I2C 20-bit current/voltage/power monitor — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ). Address 0x40–0x4F. |
+| `INA229` | SPI | SPI 20-bit current/voltage/power monitor (the INA228 over SPI) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ). addr = CS pin. |
+| `INA236` | I2C | I2C current/voltage/power monitor (the INA226 successor) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ). Address 0x40–0x4F. |
+| `INA238` | I2C | I2C current/voltage/power monitor (85 V bus) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ). Address 0x40–0x4F. |
+| `INA239` | SPI | SPI current/voltage/power monitor (the INA238 over SPI) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. The key shunt_mohm is the shunt in mΩ (default 100 mΩ). addr = CS pin. |
 | `INA260` | I2C | I2C current/voltage/power monitor with the shunt built in (2 mΩ) — channels: 0 = current [A], 1 = bus voltage [V], 2 = power [W]. No shunt configuration at all. Address 0x40–0x4F. |
-| `INA3221` | I2C | I2C 3-channel current/voltage monitor — channels: 0–2 = current 1–3 [A], 3–5 = bus voltage 1–3 [V]. One shunt value for all three channels: PeriphRec.config = tenths of mΩ (0 = 100 mΩ, YAML key shunt_mohm). Address 0x40–0x43. |
+| `INA3221` | I2C | I2C 3-channel current/voltage monitor — channels: 0–2 = current 1–3 [A], 3–5 = bus voltage 1–3 [V]. One shunt value for all three channels: the key shunt_mohm, in mΩ (default 100 mΩ). Address 0x40–0x43. |
 
 ### Energy metering
 

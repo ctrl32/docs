@@ -40,6 +40,10 @@ the direction, the bus pins on the right with the GPIO numbers the
 project or the board gives them, the address pins' ties for the address
 you chose, the INT pins.
 
+![The TCA9555's page: the sixteen pins in a table, and the chip drawn with the variable of each pin used, its address pins and its bus](img/chip-tca9555.webp){: .sb-center}
+
+![The PCF8574's page: an inverted relay output in the table and on the chip, with the address pins by the address chosen](img/chip-pcf8574.webp){: .sb-center}
+
 On the Microchip `MCP23017`, `MCP23008`, `MCP23S17` and `MCP23S08` the
 table has two more columns and the page two more rows, because the
 chip has them:
@@ -56,6 +60,23 @@ chip has them:
 The inversion of a pin is done by the device, so an active-low relay
 board reads and writes as true = on without the chip's own polarity
 register.
+
+![The MCP23017's page: the pull-up and interrupt columns, the INT settings, and the chip drawn with its inputs, outputs and joined INT pins](img/chip-mcp23017.webp){: .sb-center}
+
+![The MCP23S17's page: the same over SPI, with the hardware address pins tied as the page says](img/chip-mcp23s17.webp){: .sb-center}
+
+The `CH423` has one direction for its eight IO pins as a group, sixteen
+outputs beside them, and two settings on its page: the outputs
+open-drain, and the change interrupt on OC15.
+
+![The CH423's page: IO0 to IO7, OC0 to OC15, the open-drain and interrupt settings, and the chip drawn with its variables](img/chip-ch423.webp){: .sb-center}
+
+The shift registers have no register to set: their page is the signals
+by the datasheet's pin names and the picture.
+
+![The SN74HC595's page: eight outputs with their variables, and the chip drawn with SER, SRCLK, RCLK, SRCLR and OE](img/chip-sn74hc595.webp){: .sb-center}
+
+![The SN74HC165's page: eight inputs with their variables, and the chip drawn with SH/LD, CLK, CLK INH, SER and QH](img/chip-sn74hc165.webp){: .sb-center}
 
 ## Capacitive touch controllers
 

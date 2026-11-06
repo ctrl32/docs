@@ -42,7 +42,8 @@ channel, no comparator - and a temperature sensor of its own, which is
 the cold junction of a thermocouple on its channels (the 0.256 V range
 holds a type K to its end) and goes into a variable you name on the chip
 (`temp`); the pull-up on its DOUT/DRDY pin is the chip's setting
-(`pull_up`).
+(`pull_up`). The sheets of these converters, with the wiring they draw,
+are on [Reading real values](/docs/peripherals-and-services/analog-inputs/).
 
 ### Reading 4–20 mA
 
@@ -77,6 +78,8 @@ channel's variable (counts, volts or percent); the picture shows the
 two outputs with their variables, the address pins by the address, the
 chip's 5 V LDO pin and the supply.
 
+![The GP8403's page: the range, the update, a variable in volts and one in percent, and the chip with its outputs and address pins](img/chip-gp8403.webp){: .sb-center}
+
 `DAC7678` carries its every register as a setting of the chip page: the
 reference (an external one on VREFIN, or the internal 2.5 V that gives a
 5 V full scale and can be kept always on), what an unused output does
@@ -88,6 +91,8 @@ counts, in volts (the device scales by the reference) or in percent of
 the full scale; the chip page's picture shows the eight outputs with
 their variables, the address pins by the datasheet's table, the
 reference, CLR and LDAC.
+
+![The DAC7678's page: the reference, the unused outputs, the CLR pin, the update, and the eight outputs drawn with their variables](img/chip-dac7678.webp){: .sb-center}
 
 Digital potentiometers — `MCP4461`, `MCP47A1` — replace a trimmer in
 somebody else's circuit.
@@ -124,7 +129,7 @@ it drives LEDs, heaters and servos directly.
 |:---|:---:|:---|
 | `ADC128S102` | SPI | SPI 12-bit ADC, 8 single-ended channels (TI) — raw counts per channel; two frames per conversion (address, then data). addr = CS pin. |
 | `ADS1015` | I2C | I2C 12-bit ADC, 4 single-ended channels (AIN0–3 = pin 0–3, INPUTS only), address 0x48–0x4B — the faster 12-bit sibling of the ADS1115 (same registers, conversion in 12-bit steps of 16: raw keeps the ADS1115 scale). Optional key range = full scale in volts, stored as PGA code+1 like the ADS1115. |
-| `ADS1115` | I2C | I2C 16-bit ADC, 4 single-ended channels (AIN0–3 = pin 0–3, INPUTS only), address 0x48–0x4B. Optional key range = full scale in volts (6.144/4.096/2.048/1.024/0.512/0.256, default 4.096) — stored in PeriphRec.config as PGA code+1 (0 = default). The raw variable value is the i16 conversion register; engineering units come from the variable gain/offset. |
+| `ADS1115` | I2C | I2C 16-bit ADC, 4 single-ended channels (AIN0–3 = pin 0–3, INPUTS only), address 0x48–0x4B. Optional key range = full scale in volts (6.144/4.096/2.048/1.024/0.512/0.256, default 4.096). The raw variable value is the i16 conversion register; engineering units come from the variable gain/offset. |
 | `ADS1118` | SPI | SPI 16-bit ADC (the ADS1115 over SPI, TI) — 4 inputs as single-ended channels or four pairs, a PGA with the ranges 6.144 .. 0.256 V and 8 .. 860 SPS per channel, a temperature sensor of its own that serves as a thermocouple's cold junction or goes into a variable named on the chip (temp), the DOUT/DRDY pull-up as the chip's setting (pull_up). A channel may carry a sensor type and the device does the arithmetic. addr = CS pin. |
 | `ADS1220` | SPI | SPI 24-bit delta-sigma ADC (TI) — 4 inputs as single-ended channels or differential pairs, a PGA 1-128, two matched excitation currents (10-1500 µA) for an RTD, four reference choices (internal 2.048 V, REFP0/REFN0, AIN2/AIN3, AVDD), a temperature sensor for a thermocouple's cold junction, 50/60 Hz rejection. Every field of its four configuration registers is a setting of the channel; the channel's sensor type (thermocouple, RTD by excitation, a bridge, Ni1000) does the arithmetic. addr = CS pin. |
 | `ADS122S14` | SPI | SPI 24-bit delta-sigma ADC (TI) — 8 inputs, any two as a pair or one against ground, a PGA 0.5-256, two excitation currents in 1 µA or 10 µA units up to 1 mA on any input, the reference internal (1.25 or 2.5 V), external on AIN4/AIN5 (buffered on request) or the supply, four speed modes with 20/25 SPS 50/60 Hz rejection, global chop, a start delay, burn-out currents of 0.2/1/10 µA, a temperature sensor and the supply and reference monitors. Every field of its configuration registers is a setting of the channel, the same sensor types as the ADS1220. addr = CS pin. |
@@ -132,8 +137,8 @@ it drives LEDs, heaters and servos directly.
 | `MCP3008` | SPI | SPI 10-bit ADC, 8 single-ended channels — raw counts per channel (units via variable gain/offset). addr = CS pin. |
 | `MCP3204` | SPI | SPI 12-bit ADC, 4 single-ended channels — raw counts per channel (units via variable gain/offset). addr = CS pin. |
 | `MCP3221` | I2C | I2C 12-bit ADC, 1 channel, no configuration at all — channel 0 = raw counts (units via variable gain/offset). Address 0x48–0x4F (factory-coded). |
-| `MCP3421` | I2C | I2C 18-bit delta-sigma ADC, 1 differential channel — channel 0 = raw converter value; engineering units via variable gain/offset. PeriphRec.config: bits 0–2 = PGA code +1 (YAML gain: 1/2/4/8), bits 4–6 = resolution code +1 (YAML bits: 12/14/16/18, default 16 — 15 SPS). Address 0x68–0x6F (factory-coded). |
-| `NAU7802` | I2C | I2C 24-bit ADC for strain-gauge bridges (weighing) — channel 0 = raw converter value; kilograms come from variable gain/offset (scale calibration = two known points). PeriphRec.config: bits 0–3 = PGA gain code +1 (default x128, YAML key gain: 1..128), bits 4–7 = rate code +1 (default 10 SPS, YAML key rate: 10/20/40/80/320). The internal 3.0 V LDO powers the bridge (AVDD). |
+| `MCP3421` | I2C | I2C 18-bit delta-sigma ADC, 1 differential channel — channel 0 = raw converter value; engineering units via variable gain/offset. Optional keys gain (1/2/4/8) and bits (12/14/16/18, default 16 — 15 SPS). Address 0x68–0x6F (factory-coded). |
+| `NAU7802` | I2C | I2C 24-bit ADC for strain-gauge bridges (weighing) — channel 0 = raw converter value; kilograms come from variable gain/offset (scale calibration = two known points). Optional keys gain (1..128, default 128) and rate (10/20/40/80/320, default 10 SPS). The internal 3.0 V LDO powers the bridge (AVDD). |
 
 ### Analog outputs
 
@@ -150,7 +155,7 @@ it drives LEDs, heaters and servos directly.
 
 | Chip | Bus | What it is |
 |:---|:---:|:---|
-| `PCA9685` | I2C | I2C 16-channel 12-bit PWM — every pin is an OUTPUT, the variable value is duty in % (0–100, like the on-chip PWM service). Optional key freq_hz = PWM frequency 24–1526 Hz (default 200) — stored directly in PeriphRec.config. Address 0x40–0x7F (0x70 is the all-call address — avoid it with other chips). |
+| `PCA9685` | I2C | I2C 16-channel 12-bit PWM — every pin is an OUTPUT, the variable value is duty in % (0–100, like the on-chip PWM service). Optional key freq_hz = PWM frequency 24–1526 Hz (default 200). Address 0x40–0x7F (0x70 is the all-call address — avoid it with other chips). |
 | `TLC59208F` | I2C | I2C 8-channel 8-bit LED PWM — every channel is an OUTPUT, the variable value is duty in % (0–100). Address 0x20–0x27 (configurable wider; the check covers the common range). |
 
 Every entry above is in the editor: pick the chip, give it
