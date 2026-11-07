@@ -1,6 +1,6 @@
 # Pressure and position
 
-Ten pressure sensors and six position sensors.
+Ten pressure sensors and seven position sensors.
 
 ## Pressure
 
@@ -38,8 +38,26 @@ axis that does not need to count revolutions.
 therefore heading. On a setup, more often used to detect a large steel
 object moving nearby.
 
-**Inertial** — `MPU6050`, `BMI160`, `LSM6DS`, `LIS3DH`, `LIS331DLH` — accelerometer and
+**Inertial** — `MPU6050`, `BMI160`, `LSM6DS`, `LIS3DH`, `LIS331DLH`, `QMI8658` — accelerometer and
 gyroscope together: tilt, and vibration.
+
+### The QMI8658's page
+
+`QMI8658` carries a motion co-processor, and its page has every setting of
+the chip: the range, rate and low-pass filter of the accelerometer and of
+the gyroscope; the **AttitudeEngine**, which turns the two into orientation
+on the chip - the device adds its increments up and gives you the
+quaternion and roll, pitch and yaw in degrees, and a BOOL variable of your
+choice starts the orientation again from where the device stands (yaw
+drifts over time, there is no compass to hold it); the motion events -
+tap, any motion, no motion, significant motion, a step - each a channel
+that is 1 for the cycle that read it; **Wake on Motion** on the
+accelerometer alone, with its threshold in mg and the INT pin it drives;
+and at start-up a self test of both sensors (its verdict is the last
+channel), the gyroscope's calibration on demand and offsets for both
+sensors. The bytes the device writes are shown under the fields.
+
+![The QMI8658's page: both sensors, the AttitudeEngine, the motion events, Wake on Motion, the start-up, the words written, the twenty-nine channels, and the chip drawn with its pins](img/chip-qmi8658.webp){: .sb-center}
 
 !!! tip "Vibration is easier than orientation"
     Getting a stable angle out of an inertial sensor needs filtering and
@@ -80,6 +98,7 @@ gyroscope together: tilt, and vibration.
 | `BMI160` | I2C | I2C accelerometer + gyroscope (Bosch) — channels: 0–2 = acceleration X/Y/Z [g], 3–5 = angular rate X/Y/Z [°/s], 6 = die temperature [°C]. Ranges ±2 g / ±2000 °/s. Address 0x68–0x69. |
 | `HMC5883L` | I2C | I2C magnetometer (Honeywell classic) — channels: 0–2 = field X/Y/Z [gauss]. Fixed address 0x1E; continuous mode, ±1.3 G range. |
 | `LSM6DS` | I2C | I2C accelerometer + gyroscope (ST LSM6DS3/DSO family) — channels: 0–2 = acceleration X/Y/Z [g], 3–5 = angular rate X/Y/Z [°/s], 6 = die temperature [°C]. Ranges ±2 g / ±250 °/s. Address 0x6A–0x6B. |
+| `QMI8658` | I2C | I2C 6-axis IMU with an AttitudeEngine (QST QMI8658C) — channels: 0–2 = acceleration [g], 3–5 = angular rate [dps], 6 = temperature [°C], 7–10 = quaternion increment, 11–13 = velocity increment [m/s], 14–17 = orientation (the increments added up), 18–20 = roll, pitch, yaw [°], 21 = tap, 22 = any motion, 23 = no motion, 24 = significant motion, 25 = step, 26 = wake on motion, 27 = AttitudeEngine flags, 28 = self test (0 not run, 1 passed, 2 failed). Every setting on the chip: `accel_range`, `gyro_range`, the rates, `accel_filter` / `gyro_filter`, `attitude` with `attitude_rate` and `zero`, the events, `wom_mg` with `wom_blank`, `wom_int2`, `wom_high`, the offsets, `self_test`, `calibrate`. Address 0x6A, 0x6B with SA0 low. |
 | `MPU6050` | I2C | I2C accelerometer + gyroscope — channels: 0–2 = acceleration X/Y/Z [g], 3–5 = angular rate X/Y/Z [°/s], 6 = die temperature [°C]. Ranges ±2 g / ±250 °/s. Address 0x68–0x69. Vibration and tilt monitoring. |
 | `LIS331DLH` | I2C | I2C 3-axis accelerometer (ST LIS331DLH) — channels: 0–2 = acceleration X/Y/Z [g]. ±2 g range, 12-bit, 1 mg/LSB, normal mode 50 Hz. Tilt, vibration and shock monitoring. Address 0x18–0x19 (the reTerminal's own accelerometer is the LIS3DH). |
 | `LIS3DH` | I2C | I2C 3-axis accelerometer (ST LIS3DH / LIS3DHTR; the reTerminal's own, address 0x19) — channels: 0–2 = acceleration X/Y/Z [g]. ±2 g range, high-resolution 12-bit, 1 mg/LSB, 50 Hz. Tilt, vibration and shock monitoring on a Linux device; the kernel's evdev driver may run beside it. Address 0x18–0x19. |

@@ -2633,7 +2633,7 @@
       "section": "Chips and services",
       "order": 327,
       "file": "Chips and services/peripherals-pressure.md",
-      "bytes": 6872
+      "bytes": 8819
     },
     {
       "slug": "peripherals-analog",
@@ -3026,6 +3026,7 @@
     "img/chip-mcp23s17.webp",
     "img/chip-pca6408a.webp",
     "img/chip-pcf8574.webp",
+    "img/chip-qmi8658.webp",
     "img/chip-sn74hc165.webp",
     "img/chip-sn74hc595.webp",
     "img/chip-tca9555.webp",
