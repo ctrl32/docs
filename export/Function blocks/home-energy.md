@@ -15,10 +15,13 @@ Kilowatt-hours from a power: E counts kWh from a power in kW, once a second; COS
 
 ```iecst
 PROGRAM ENERGY_ST
-VAR energy : ENERGY; END_VAR
-  energy(P := energy_p, RESET := energy_reset, E_IN := energy_e_in, PRICE := energy_price);
-  energy_e := energy.E;
-  energy_cost := energy.COST;
+    VAR
+        energy : ENERGY;
+    END_VAR
+
+    energy(P := energy_p, RESET := energy_reset, E_IN := energy_e_in, PRICE := energy_price);
+    energy_e := energy.E;
+    energy_cost := energy.COST;
 END_PROGRAM
 ```
 

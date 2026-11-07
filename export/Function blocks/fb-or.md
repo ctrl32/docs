@@ -21,7 +21,7 @@ Q is TRUE when at least one input is TRUE.
 
 ```iecst
 PROGRAM OR_ST
-  or_q_st := or_in1 OR or_in2;
+    or_q_st := or_in1 OR or_in2;
 END_PROGRAM
 ```
 

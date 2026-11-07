@@ -21,7 +21,7 @@ Q is TRUE when IN1 and IN2 are equal within the tolerance EPS: |IN1 - IN2| <= EP
 
 ```iecst
 PROGRAM EQ_ST
-  eq_q_st := ABS(eq_in1 - eq_in2) <= eq_eps;
+    eq_q_st := ABS(eq_in1 - eq_in2) <= eq_eps;
 END_PROGRAM
 ```
 

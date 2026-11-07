@@ -21,10 +21,13 @@ The CiA 402 drive state machine on its own: Enable walks the drive to operation 
 
 ```iecst
 PROGRAM CO_CIA402_ST
-VAR co402 : CO_CIA402; END_VAR
-  co402(AXIS := 0, Enable := co402_enable);
-  co402_ready_st := co402.Ready;
-  co402_fault_st := co402.Fault;
+    VAR
+        co402 : CO_CIA402;
+    END_VAR
+
+    co402(AXIS := 0, Enable := co402_enable);
+    co402_ready_st := co402.Ready;
+    co402_fault_st := co402.Fault;
 END_PROGRAM
 ```
 

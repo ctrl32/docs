@@ -21,7 +21,7 @@ OUT = IN1 + IN2 + IN3 + IN4; unconnected inputs are 0.
 
 ```iecst
 PROGRAM ADD_ST
-  add_out_st := add_in1 + add_in2 + add_in3 + add_in4;
+    add_out_st := add_in1 + add_in2 + add_in3 + add_in4;
 END_PROGRAM
 ```
 

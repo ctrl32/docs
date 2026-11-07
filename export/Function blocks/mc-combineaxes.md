@@ -21,24 +21,17 @@ The follower is the sum or the difference of two masters.
 
 ```iecst
 PROGRAM MC_CombineAxes_ST
-VAR mccomb : MC_CombineAxes; END_VAR
-  mccomb(AXIS := 2, Execute := mccomb_execute,
-         Master1 := mccomb_master1, Master2 := mccomb_master2,
-         ContinuousUpdate := mccomb_continuousupdate,
-         CombineMode := mccomb_combinemode,
-         GearRatioNumeratorM1 := mccomb_gearrationumeratorm1,
-         GearRatioDenominatorM1 := mccomb_gearratiodenominatorm1,
-         GearRatioNumeratorM2 := mccomb_gearrationumeratorm2,
-         GearRatioDenominatorM2 := mccomb_gearratiodenominatorm2,
-         MasterValueSourceM1 := mccomb_mastervaluesourcem1,
-         MasterValueSourceM2 := mccomb_mastervaluesourcem2,
-         BufferMode := mccomb_buffermode);
-  mccomb_insync_st := mccomb.InSync;
-  mccomb_busy_st := mccomb.Busy;
-  mccomb_active_st := mccomb.Active;
-  mccomb_commandaborted_st := mccomb.CommandAborted;
-  mccomb_error_st := mccomb.Error;
-  mccomb_errorid_st := mccomb.ErrorID;
+    VAR
+        mccomb : MC_CombineAxes;
+    END_VAR
+
+    mccomb(AXIS := 2, Execute := mccomb_execute, Master1 := mccomb_master1, Master2 := mccomb_master2, ContinuousUpdate := mccomb_continuousupdate, CombineMode := mccomb_combinemode, GearRatioNumeratorM1 := mccomb_gearrationumeratorm1, GearRatioDenominatorM1 := mccomb_gearratiodenominatorm1, GearRatioNumeratorM2 := mccomb_gearrationumeratorm2, GearRatioDenominatorM2 := mccomb_gearratiodenominatorm2, MasterValueSourceM1 := mccomb_mastervaluesourcem1, MasterValueSourceM2 := mccomb_mastervaluesourcem2, BufferMode := mccomb_buffermode);
+    mccomb_insync_st := mccomb.InSync;
+    mccomb_busy_st := mccomb.Busy;
+    mccomb_active_st := mccomb.Active;
+    mccomb_commandaborted_st := mccomb.CommandAborted;
+    mccomb_error_st := mccomb.Error;
+    mccomb_errorid_st := mccomb.ErrorID;
 END_PROGRAM
 ```
 

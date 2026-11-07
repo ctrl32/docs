@@ -19,10 +19,13 @@ Where the blind is: integrates the motor time into a position, 0 = up, 100 = dow
 
 ```iecst
 PROGRAM TRAVEL_ST
-VAR travel : TRAVEL; END_VAR
-  travel(M_UP := travel_m_up, M_DOWN := travel_m_down, T_RUN := travel_t_run);
-  travel_pos := travel.POS;
-  travel_moving := travel.MOVING;
+    VAR
+        travel : TRAVEL;
+    END_VAR
+
+    travel(M_UP := travel_m_up, M_DOWN := travel_m_down, T_RUN := travel_t_run);
+    travel_pos := travel.POS;
+    travel_moving := travel.MOVING;
 END_PROGRAM
 ```
 

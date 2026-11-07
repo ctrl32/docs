@@ -21,16 +21,17 @@ A controlled stop that does not lock the axis.
 
 ```iecst
 PROGRAM MC_Halt_ST
-VAR mchlt : MC_Halt; END_VAR
-  mchlt(AXIS := 0, Execute := mchlt_execute,
-        Deceleration := mchlt_deceleration, Jerk := mchlt_jerk,
-        BufferMode := mchlt_buffermode);
-  mchlt_done_st := mchlt.Done;
-  mchlt_busy_st := mchlt.Busy;
-  mchlt_active_st := mchlt.Active;
-  mchlt_commandaborted_st := mchlt.CommandAborted;
-  mchlt_error_st := mchlt.Error;
-  mchlt_errorid_st := mchlt.ErrorID;
+    VAR
+        mchlt : MC_Halt;
+    END_VAR
+
+    mchlt(AXIS := 0, Execute := mchlt_execute, Deceleration := mchlt_deceleration, Jerk := mchlt_jerk, BufferMode := mchlt_buffermode);
+    mchlt_done_st := mchlt.Done;
+    mchlt_busy_st := mchlt.Busy;
+    mchlt_active_st := mchlt.Active;
+    mchlt_commandaborted_st := mchlt.CommandAborted;
+    mchlt_error_st := mchlt.Error;
+    mchlt_errorid_st := mchlt.ErrorID;
 END_PROGRAM
 ```
 

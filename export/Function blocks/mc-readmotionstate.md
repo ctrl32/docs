@@ -21,18 +21,20 @@ Is the axis accelerating, decelerating, at constant velocity, which way.
 
 ```iecst
 PROGRAM MC_ReadMotionState_ST
-VAR mcrms : MC_ReadMotionState; END_VAR
-  mcrms(AXIS := 0, Enable := mcrms_enable,
-        Source := mcrms_source);
-  mcrms_valid_st := mcrms.Valid;
-  mcrms_busy_st := mcrms.Busy;
-  mcrms_error_st := mcrms.Error;
-  mcrms_errorid_st := mcrms.ErrorID;
-  mcrms_constantvelocity_st := mcrms.ConstantVelocity;
-  mcrms_accelerating_st := mcrms.Accelerating;
-  mcrms_decelerating_st := mcrms.Decelerating;
-  mcrms_directionpositive_st := mcrms.DirectionPositive;
-  mcrms_directionnegative_st := mcrms.DirectionNegative;
+    VAR
+        mcrms : MC_ReadMotionState;
+    END_VAR
+
+    mcrms(AXIS := 0, Enable := mcrms_enable, Source := mcrms_source);
+    mcrms_valid_st := mcrms.Valid;
+    mcrms_busy_st := mcrms.Busy;
+    mcrms_error_st := mcrms.Error;
+    mcrms_errorid_st := mcrms.ErrorID;
+    mcrms_constantvelocity_st := mcrms.ConstantVelocity;
+    mcrms_accelerating_st := mcrms.Accelerating;
+    mcrms_decelerating_st := mcrms.Decelerating;
+    mcrms_directionpositive_st := mcrms.DirectionPositive;
+    mcrms_directionnegative_st := mcrms.DirectionNegative;
 END_PROGRAM
 ```
 

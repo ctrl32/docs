@@ -21,7 +21,7 @@ OUT = the value of IN without its sign.
 
 ```iecst
 PROGRAM ABS_ST
-  abs_out_st := ABS(abs_in);
+    abs_out_st := ABS(abs_in);
 END_PROGRAM
 ```
 

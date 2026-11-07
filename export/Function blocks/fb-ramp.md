@@ -21,9 +21,12 @@ Rate limiter: OUT follows IN, but changes at most RATE units per second.
 
 ```iecst
 PROGRAM RAMP_ST
-VAR ramp : RAMP; END_VAR
-  ramp(IN := ramp_in, RATE := ramp_rate);
-  ramp_out_st := ramp.OUT;
+    VAR
+        ramp : RAMP;
+    END_VAR
+
+    ramp(IN := ramp_in, RATE := ramp_rate);
+    ramp_out_st := ramp.OUT;
 END_PROGRAM
 ```
 

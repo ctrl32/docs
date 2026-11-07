@@ -21,13 +21,15 @@ Disarms a touch probe.
 
 ```iecst
 PROGRAM MC_AbortTrigger_ST
-VAR mcprbx : MC_AbortTrigger; END_VAR
-  mcprbx(AXIS := 0, Execute := mcprbx_execute,
-         TriggerInput := mcprbx_triggerinput);
-  mcprbx_done_st := mcprbx.Done;
-  mcprbx_busy_st := mcprbx.Busy;
-  mcprbx_error_st := mcprbx.Error;
-  mcprbx_errorid_st := mcprbx.ErrorID;
+    VAR
+        mcprbx : MC_AbortTrigger;
+    END_VAR
+
+    mcprbx(AXIS := 0, Execute := mcprbx_execute, TriggerInput := mcprbx_triggerinput);
+    mcprbx_done_st := mcprbx.Done;
+    mcprbx_busy_st := mcprbx.Busy;
+    mcprbx_error_st := mcprbx.Error;
+    mcprbx_errorid_st := mcprbx.ErrorID;
 END_PROGRAM
 ```
 

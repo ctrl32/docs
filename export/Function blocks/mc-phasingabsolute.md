@@ -21,20 +21,17 @@ Shifts a geared follower against its master to a phase.
 
 ```iecst
 PROGRAM MC_PhasingAbsolute_ST
-VAR mcpha : MC_PhasingAbsolute; END_VAR
-  mcpha(AXIS := 2, Execute := mcpha_execute,
-        PhaseShift := mcpha_phaseshift,
-        Velocity := mcpha_velocity,
-        ContinuousUpdate := mcpha_continuousupdate,
-        Acceleration := mcpha_acceleration,
-        Deceleration := mcpha_deceleration, Jerk := mcpha_jerk,
-        BufferMode := mcpha_buffermode);
-  mcpha_done_st := mcpha.Done;
-  mcpha_busy_st := mcpha.Busy;
-  mcpha_active_st := mcpha.Active;
-  mcpha_commandaborted_st := mcpha.CommandAborted;
-  mcpha_error_st := mcpha.Error;
-  mcpha_errorid_st := mcpha.ErrorID;
+    VAR
+        mcpha : MC_PhasingAbsolute;
+    END_VAR
+
+    mcpha(AXIS := 2, Execute := mcpha_execute, PhaseShift := mcpha_phaseshift, Velocity := mcpha_velocity, ContinuousUpdate := mcpha_continuousupdate, Acceleration := mcpha_acceleration, Deceleration := mcpha_deceleration, Jerk := mcpha_jerk, BufferMode := mcpha_buffermode);
+    mcpha_done_st := mcpha.Done;
+    mcpha_busy_st := mcpha.Busy;
+    mcpha_active_st := mcpha.Active;
+    mcpha_commandaborted_st := mcpha.CommandAborted;
+    mcpha_error_st := mcpha.Error;
+    mcpha_errorid_st := mcpha.ErrorID;
 END_PROGRAM
 ```
 

@@ -21,10 +21,13 @@ Fires a fixed pulse: a rising edge of IN makes Q TRUE for exactly PT (non-retrig
 
 ```iecst
 PROGRAM TP_ST
-VAR tp : TP; END_VAR
-  tp(IN := tp_in, PT := tp_pt);
-  tp_q_st := tp.Q;
-  tp_et_st := tp.ET;
+    VAR
+        tp : TP;
+    END_VAR
+
+    tp(IN := tp_in, PT := tp_pt);
+    tp_q_st := tp.Q;
+    tp_et_st := tp.ET;
 END_PROGRAM
 ```
 

@@ -21,7 +21,7 @@ Q is TRUE when IN1 < IN2.
 
 ```iecst
 PROGRAM LT_ST
-  lt_q_st := lt_in1 < lt_in2;
+    lt_q_st := lt_in1 < lt_in2;
 END_PROGRAM
 ```
 

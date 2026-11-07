@@ -19,9 +19,12 @@ Somebody is here: holds PRESENT for T_HOLD after the last motion.
 
 ```iecst
 PROGRAM PRESENCE_ST
-VAR presence : PRESENCE; END_VAR
-  presence(MOTION := presence_motion, ENABLE := presence_enable, T_HOLD := presence_t_hold);
-  presence_present := presence.PRESENT;
+    VAR
+        presence : PRESENCE;
+    END_VAR
+
+    presence(MOTION := presence_motion, ENABLE := presence_enable, T_HOLD := presence_t_hold);
+    presence_present := presence.PRESENT;
 END_PROGRAM
 ```
 

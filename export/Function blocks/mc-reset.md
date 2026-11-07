@@ -21,12 +21,15 @@ Acknowledges the axis fault - ErrorStop goes back to Standstill.
 
 ```iecst
 PROGRAM MC_Reset_ST
-VAR mcrst : MC_Reset; END_VAR
-  mcrst(AXIS := 0, Execute := mcrst_execute);
-  mcrst_done_st := mcrst.Done;
-  mcrst_busy_st := mcrst.Busy;
-  mcrst_error_st := mcrst.Error;
-  mcrst_errorid_st := mcrst.ErrorID;
+    VAR
+        mcrst : MC_Reset;
+    END_VAR
+
+    mcrst(AXIS := 0, Execute := mcrst_execute);
+    mcrst_done_st := mcrst.Done;
+    mcrst_busy_st := mcrst.Busy;
+    mcrst_error_st := mcrst.Error;
+    mcrst_errorid_st := mcrst.ErrorID;
 END_PROGRAM
 ```
 

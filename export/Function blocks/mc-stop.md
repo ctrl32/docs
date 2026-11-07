@@ -21,16 +21,17 @@ A controlled stop that holds the axis while Execute is TRUE.
 
 ```iecst
 PROGRAM MC_Stop_ST
-VAR mcstop : MC_Stop; END_VAR
-  mcstop(AXIS := 0, Execute := mcstop_execute,
-         Deceleration := mcstop_deceleration,
-         Jerk := mcstop_jerk);
-  mcstop_done_st := mcstop.Done;
-  mcstop_busy_st := mcstop.Busy;
-  mcstop_active_st := mcstop.Active;
-  mcstop_commandaborted_st := mcstop.CommandAborted;
-  mcstop_error_st := mcstop.Error;
-  mcstop_errorid_st := mcstop.ErrorID;
+    VAR
+        mcstop : MC_Stop;
+    END_VAR
+
+    mcstop(AXIS := 0, Execute := mcstop_execute, Deceleration := mcstop_deceleration, Jerk := mcstop_jerk);
+    mcstop_done_st := mcstop.Done;
+    mcstop_busy_st := mcstop.Busy;
+    mcstop_active_st := mcstop.Active;
+    mcstop_commandaborted_st := mcstop.CommandAborted;
+    mcstop_error_st := mcstop.Error;
+    mcstop_errorid_st := mcstop.ErrorID;
 END_PROGRAM
 ```
 

@@ -21,22 +21,17 @@ Moves to a position and arrives at a velocity instead of standing still.
 
 ```iecst
 PROGRAM MC_MoveContinuousAbsolute_ST
-VAR mccabs : MC_MoveContinuousAbsolute; END_VAR
-  mccabs(AXIS := 0, Execute := mccabs_execute,
-         Position := mccabs_position,
-         EndVelocity := mccabs_endvelocity,
-         Velocity := mccabs_velocity,
-         ContinuousUpdate := mccabs_continuousupdate,
-         Acceleration := mccabs_acceleration,
-         Deceleration := mccabs_deceleration,
-         Jerk := mccabs_jerk, Direction := mccabs_direction,
-         BufferMode := mccabs_buffermode);
-  mccabs_inendvelocity_st := mccabs.InEndVelocity;
-  mccabs_busy_st := mccabs.Busy;
-  mccabs_active_st := mccabs.Active;
-  mccabs_commandaborted_st := mccabs.CommandAborted;
-  mccabs_error_st := mccabs.Error;
-  mccabs_errorid_st := mccabs.ErrorID;
+    VAR
+        mccabs : MC_MoveContinuousAbsolute;
+    END_VAR
+
+    mccabs(AXIS := 0, Execute := mccabs_execute, Position := mccabs_position, EndVelocity := mccabs_endvelocity, Velocity := mccabs_velocity, ContinuousUpdate := mccabs_continuousupdate, Acceleration := mccabs_acceleration, Deceleration := mccabs_deceleration, Jerk := mccabs_jerk, Direction := mccabs_direction, BufferMode := mccabs_buffermode);
+    mccabs_inendvelocity_st := mccabs.InEndVelocity;
+    mccabs_busy_st := mccabs.Busy;
+    mccabs_active_st := mccabs.Active;
+    mccabs_commandaborted_st := mccabs.CommandAborted;
+    mccabs_error_st := mccabs.Error;
+    mccabs_errorid_st := mccabs.ErrorID;
 END_PROGRAM
 ```
 

@@ -657,7 +657,7 @@
       "section": "Programming",
       "order": 80,
       "file": "Programming/own-block.md",
-      "bytes": 6461
+      "bytes": 6566
     },
     {
       "slug": "st-language",
@@ -665,7 +665,7 @@
       "section": "Programming",
       "order": 81,
       "file": "Programming/st-language.md",
-      "bytes": 9122
+      "bytes": 9891
     },
     {
       "slug": "blocks",
@@ -745,7 +745,7 @@
       "section": "Function blocks",
       "order": 91,
       "file": "Function blocks/mc-power.md",
-      "bytes": 2848
+      "bytes": 2859
     },
     {
       "slug": "mc-reset",
@@ -753,7 +753,7 @@
       "section": "Function blocks",
       "order": 92,
       "file": "Function blocks/mc-reset.md",
-      "bytes": 2277
+      "bytes": 2304
     },
     {
       "slug": "mc-readstatus",
@@ -761,7 +761,7 @@
       "section": "Function blocks",
       "order": 93,
       "file": "Function blocks/mc-readstatus.md",
-      "bytes": 3268
+      "bytes": 3311
     },
     {
       "slug": "mc-readaxiserror",
@@ -769,7 +769,7 @@
       "section": "Function blocks",
       "order": 94,
       "file": "Function blocks/mc-readaxiserror.md",
-      "bytes": 2228
+      "bytes": 2257
     },
     {
       "slug": "mc-movevelocity",
@@ -777,7 +777,7 @@
       "section": "Function blocks",
       "order": 95,
       "file": "Function blocks/mc-movevelocity.md",
-      "bytes": 4697
+      "bytes": 4680
     },
     {
       "slug": "mc-halt",
@@ -785,7 +785,7 @@
       "section": "Function blocks",
       "order": 96,
       "file": "Function blocks/mc-halt.md",
-      "bytes": 3380
+      "bytes": 3395
     },
     {
       "slug": "mc-stop",
@@ -793,7 +793,7 @@
       "section": "Function blocks",
       "order": 97,
       "file": "Function blocks/mc-stop.md",
-      "bytes": 3158
+      "bytes": 3171
     },
     {
       "slug": "mc-moveabsolute",
@@ -801,7 +801,7 @@
       "section": "Function blocks",
       "order": 98,
       "file": "Function blocks/mc-moveabsolute.md",
-      "bytes": 5254
+      "bytes": 5237
     },
     {
       "slug": "mc-moverelative",
@@ -809,7 +809,7 @@
       "section": "Function blocks",
       "order": 99,
       "file": "Function blocks/mc-moverelative.md",
-      "bytes": 4537
+      "bytes": 4528
     },
     {
       "slug": "mc-moveadditive",
@@ -817,7 +817,7 @@
       "section": "Function blocks",
       "order": 100,
       "file": "Function blocks/mc-moveadditive.md",
-      "bytes": 4340
+      "bytes": 4331
     },
     {
       "slug": "mc-home",
@@ -825,7 +825,7 @@
       "section": "Function blocks",
       "order": 101,
       "file": "Function blocks/mc-home.md",
-      "bytes": 3461
+      "bytes": 3474
     },
     {
       "slug": "mc-setposition",
@@ -833,7 +833,7 @@
       "section": "Function blocks",
       "order": 102,
       "file": "Function blocks/mc-setposition.md",
-      "bytes": 2841
+      "bytes": 2850
     },
     {
       "slug": "mc-setoverride",
@@ -841,7 +841,7 @@
       "section": "Function blocks",
       "order": 103,
       "file": "Function blocks/mc-setoverride.md",
-      "bytes": 2488
+      "bytes": 2491
     },
     {
       "slug": "mc-readactualposition",
@@ -849,7 +849,7 @@
       "section": "Function blocks",
       "order": 104,
       "file": "Function blocks/mc-readactualposition.md",
-      "bytes": 2418
+      "bytes": 2447
     },
     {
       "slug": "mc-readactualvelocity",
@@ -857,7 +857,7 @@
       "section": "Function blocks",
       "order": 105,
       "file": "Function blocks/mc-readactualvelocity.md",
-      "bytes": 2246
+      "bytes": 2275
     },
     {
       "slug": "mc-readactualtorque",
@@ -865,7 +865,7 @@
       "section": "Function blocks",
       "order": 106,
       "file": "Function blocks/mc-readactualtorque.md",
-      "bytes": 2108
+      "bytes": 2137
     },
     {
       "slug": "mc-readmotionstate",
@@ -873,7 +873,7 @@
       "section": "Function blocks",
       "order": 107,
       "file": "Function blocks/mc-readmotionstate.md",
-      "bytes": 3033
+      "bytes": 3062
     },
     {
       "slug": "mc-readaxisinfo",
@@ -881,7 +881,7 @@
       "section": "Function blocks",
       "order": 108,
       "file": "Function blocks/mc-readaxisinfo.md",
-      "bytes": 3176
+      "bytes": 3221
     },
     {
       "slug": "mc-readparameter",
@@ -889,7 +889,7 @@
       "section": "Function blocks",
       "order": 109,
       "file": "Function blocks/mc-readparameter.md",
-      "bytes": 2723
+      "bytes": 2743
     },
     {
       "slug": "mc-readboolparameter",
@@ -897,7 +897,7 @@
       "section": "Function blocks",
       "order": 110,
       "file": "Function blocks/mc-readboolparameter.md",
-      "bytes": 2531
+      "bytes": 2550
     },
     {
       "slug": "mc-writeparameter",
@@ -913,7 +913,7 @@
       "section": "Function blocks",
       "order": 112,
       "file": "Function blocks/mc-writeboolparameter.md",
-      "bytes": 3059
+      "bytes": 3056
     },
     {
       "slug": "mc-movecontinuousabsolute",
@@ -921,7 +921,7 @@
       "section": "Function blocks",
       "order": 113,
       "file": "Function blocks/mc-movecontinuousabsolute.md",
-      "bytes": 5194
+      "bytes": 5153
     },
     {
       "slug": "mc-movecontinuousrelative",
@@ -929,7 +929,7 @@
       "section": "Function blocks",
       "order": 114,
       "file": "Function blocks/mc-movecontinuousrelative.md",
-      "bytes": 4687
+      "bytes": 4655
     },
     {
       "slug": "mc-movesuperimposed",
@@ -937,7 +937,7 @@
       "section": "Function blocks",
       "order": 115,
       "file": "Function blocks/mc-movesuperimposed.md",
-      "bytes": 4429
+      "bytes": 4422
     },
     {
       "slug": "mc-haltsuperimposed",
@@ -945,7 +945,7 @@
       "section": "Function blocks",
       "order": 116,
       "file": "Function blocks/mc-haltsuperimposed.md",
-      "bytes": 3042
+      "bytes": 3055
     },
     {
       "slug": "mc-positionprofile",
@@ -953,7 +953,7 @@
       "section": "Function blocks",
       "order": 117,
       "file": "Function blocks/mc-positionprofile.md",
-      "bytes": 4559
+      "bytes": 4536
     },
     {
       "slug": "mc-velocityprofile",
@@ -961,7 +961,7 @@
       "section": "Function blocks",
       "order": 118,
       "file": "Function blocks/mc-velocityprofile.md",
-      "bytes": 4248
+      "bytes": 4225
     },
     {
       "slug": "mc-accelerationprofile",
@@ -969,7 +969,7 @@
       "section": "Function blocks",
       "order": 119,
       "file": "Function blocks/mc-accelerationprofile.md",
-      "bytes": 4263
+      "bytes": 4240
     },
     {
       "slug": "mc-camtableselect",
@@ -977,7 +977,7 @@
       "section": "Function blocks",
       "order": 120,
       "file": "Function blocks/mc-camtableselect.md",
-      "bytes": 3365
+      "bytes": 3362
     },
     {
       "slug": "mc-camin",
@@ -985,7 +985,7 @@
       "section": "Function blocks",
       "order": 121,
       "file": "Function blocks/mc-camin.md",
-      "bytes": 5938
+      "bytes": 5872
     },
     {
       "slug": "mc-camout",
@@ -993,7 +993,7 @@
       "section": "Function blocks",
       "order": 122,
       "file": "Function blocks/mc-camout.md",
-      "bytes": 2449
+      "bytes": 2476
     },
     {
       "slug": "mc-gearin",
@@ -1001,7 +1001,7 @@
       "section": "Function blocks",
       "order": 123,
       "file": "Function blocks/mc-gearin.md",
-      "bytes": 6950
+      "bytes": 6919
     },
     {
       "slug": "mc-gearout",
@@ -1009,7 +1009,7 @@
       "section": "Function blocks",
       "order": 124,
       "file": "Function blocks/mc-gearout.md",
-      "bytes": 2622
+      "bytes": 2649
     },
     {
       "slug": "mc-gearinpos",
@@ -1017,7 +1017,7 @@
       "section": "Function blocks",
       "order": 125,
       "file": "Function blocks/mc-gearinpos.md",
-      "bytes": 6928
+      "bytes": 6875
     },
     {
       "slug": "mc-phasingabsolute",
@@ -1025,7 +1025,7 @@
       "section": "Function blocks",
       "order": 126,
       "file": "Function blocks/mc-phasingabsolute.md",
-      "bytes": 4578
+      "bytes": 4561
     },
     {
       "slug": "mc-phasingrelative",
@@ -1033,7 +1033,7 @@
       "section": "Function blocks",
       "order": 127,
       "file": "Function blocks/mc-phasingrelative.md",
-      "bytes": 4210
+      "bytes": 4193
     },
     {
       "slug": "mc-combineaxes",
@@ -1041,7 +1041,7 @@
       "section": "Function blocks",
       "order": 128,
       "file": "Function blocks/mc-combineaxes.md",
-      "bytes": 5498
+      "bytes": 5439
     },
     {
       "slug": "mc-settorquelimit",
@@ -1049,7 +1049,7 @@
       "section": "Function blocks",
       "order": 129,
       "file": "Function blocks/mc-settorquelimit.md",
-      "bytes": 2814
+      "bytes": 2823
     },
     {
       "slug": "mc-torquecontrol",
@@ -1057,7 +1057,7 @@
       "section": "Function blocks",
       "order": 130,
       "file": "Function blocks/mc-torquecontrol.md",
-      "bytes": 4873
+      "bytes": 4840
     },
     {
       "slug": "mc-torqueff",
@@ -1065,7 +1065,7 @@
       "section": "Function blocks",
       "order": 131,
       "file": "Function blocks/mc-torqueff.md",
-      "bytes": 3279
+      "bytes": 3300
     },
     {
       "slug": "mc-touchprobe",
@@ -1073,7 +1073,7 @@
       "section": "Function blocks",
       "order": 132,
       "file": "Function blocks/mc-touchprobe.md",
-      "bytes": 3435
+      "bytes": 3434
     },
     {
       "slug": "mc-aborttrigger",
@@ -1081,7 +1081,7 @@
       "section": "Function blocks",
       "order": 133,
       "file": "Function blocks/mc-aborttrigger.md",
-      "bytes": 2267
+      "bytes": 2285
     },
     {
       "slug": "mc-digitalcamswitch",
@@ -1089,7 +1089,7 @@
       "section": "Function blocks",
       "order": 134,
       "file": "Function blocks/mc-digitalcamswitch.md",
-      "bytes": 3278
+      "bytes": 3283
     },
     {
       "slug": "mc-readdigitalinput",
@@ -1097,7 +1097,7 @@
       "section": "Function blocks",
       "order": 135,
       "file": "Function blocks/mc-readdigitalinput.md",
-      "bytes": 2648
+      "bytes": 2669
     },
     {
       "slug": "mc-readdigitaloutput",
@@ -1105,7 +1105,7 @@
       "section": "Function blocks",
       "order": 136,
       "file": "Function blocks/mc-readdigitaloutput.md",
-      "bytes": 2495
+      "bytes": 2508
     },
     {
       "slug": "mc-writedigitaloutput",
@@ -1113,7 +1113,7 @@
       "section": "Function blocks",
       "order": 137,
       "file": "Function blocks/mc-writedigitaloutput.md",
-      "bytes": 3063
+      "bytes": 3066
     },
     {
       "slug": "blocks-can",
@@ -1153,7 +1153,7 @@
       "section": "Function blocks",
       "order": 142,
       "file": "Function blocks/fb-ton.md",
-      "bytes": 2746
+      "bytes": 2769
     },
     {
       "slug": "fb-tof",
@@ -1161,7 +1161,7 @@
       "section": "Function blocks",
       "order": 143,
       "file": "Function blocks/fb-tof.md",
-      "bytes": 2191
+      "bytes": 2214
     },
     {
       "slug": "fb-tp",
@@ -1169,7 +1169,7 @@
       "section": "Function blocks",
       "order": 144,
       "file": "Function blocks/fb-tp.md",
-      "bytes": 2191
+      "bytes": 2214
     },
     {
       "slug": "fb-blink",
@@ -1177,7 +1177,7 @@
       "section": "Function blocks",
       "order": 145,
       "file": "Function blocks/fb-blink.md",
-      "bytes": 2413
+      "bytes": 2428
     },
     {
       "slug": "fb-ctu",
@@ -1185,7 +1185,7 @@
       "section": "Function blocks",
       "order": 146,
       "file": "Function blocks/fb-ctu.md",
-      "bytes": 3132
+      "bytes": 3155
     },
     {
       "slug": "fb-ctd",
@@ -1193,7 +1193,7 @@
       "section": "Function blocks",
       "order": 147,
       "file": "Function blocks/fb-ctd.md",
-      "bytes": 2521
+      "bytes": 2544
     },
     {
       "slug": "fb-r_trig",
@@ -1201,7 +1201,7 @@
       "section": "Function blocks",
       "order": 148,
       "file": "Function blocks/fb-r_trig.md",
-      "bytes": 1397
+      "bytes": 1418
     },
     {
       "slug": "fb-f_trig",
@@ -1209,7 +1209,7 @@
       "section": "Function blocks",
       "order": 149,
       "file": "Function blocks/fb-f_trig.md",
-      "bytes": 1321
+      "bytes": 1342
     },
     {
       "slug": "fb-sr",
@@ -1217,7 +1217,7 @@
       "section": "Function blocks",
       "order": 150,
       "file": "Function blocks/fb-sr.md",
-      "bytes": 2064
+      "bytes": 2085
     },
     {
       "slug": "fb-rs",
@@ -1225,7 +1225,7 @@
       "section": "Function blocks",
       "order": 151,
       "file": "Function blocks/fb-rs.md",
-      "bytes": 1959
+      "bytes": 1980
     },
     {
       "slug": "fb-and",
@@ -1233,7 +1233,7 @@
       "section": "Function blocks",
       "order": 152,
       "file": "Function blocks/fb-and.md",
-      "bytes": 1758
+      "bytes": 1760
     },
     {
       "slug": "fb-or",
@@ -1241,7 +1241,7 @@
       "section": "Function blocks",
       "order": 153,
       "file": "Function blocks/fb-or.md",
-      "bytes": 1561
+      "bytes": 1563
     },
     {
       "slug": "fb-xor",
@@ -1249,7 +1249,7 @@
       "section": "Function blocks",
       "order": 154,
       "file": "Function blocks/fb-xor.md",
-      "bytes": 1743
+      "bytes": 1745
     },
     {
       "slug": "fb-not",
@@ -1257,7 +1257,7 @@
       "section": "Function blocks",
       "order": 155,
       "file": "Function blocks/fb-not.md",
-      "bytes": 1488
+      "bytes": 1490
     },
     {
       "slug": "fb-add",
@@ -1265,7 +1265,7 @@
       "section": "Function blocks",
       "order": 156,
       "file": "Function blocks/fb-add.md",
-      "bytes": 2439
+      "bytes": 2441
     },
     {
       "slug": "fb-sub",
@@ -1273,7 +1273,7 @@
       "section": "Function blocks",
       "order": 157,
       "file": "Function blocks/fb-sub.md",
-      "bytes": 1720
+      "bytes": 1722
     },
     {
       "slug": "fb-mul",
@@ -1281,7 +1281,7 @@
       "section": "Function blocks",
       "order": 158,
       "file": "Function blocks/fb-mul.md",
-      "bytes": 1728
+      "bytes": 1730
     },
     {
       "slug": "fb-div",
@@ -1289,7 +1289,7 @@
       "section": "Function blocks",
       "order": 159,
       "file": "Function blocks/fb-div.md",
-      "bytes": 2284
+      "bytes": 2286
     },
     {
       "slug": "fb-min",
@@ -1297,7 +1297,7 @@
       "section": "Function blocks",
       "order": 160,
       "file": "Function blocks/fb-min.md",
-      "bytes": 1685
+      "bytes": 1687
     },
     {
       "slug": "fb-max",
@@ -1305,7 +1305,7 @@
       "section": "Function blocks",
       "order": 161,
       "file": "Function blocks/fb-max.md",
-      "bytes": 1732
+      "bytes": 1734
     },
     {
       "slug": "fb-abs",
@@ -1313,7 +1313,7 @@
       "section": "Function blocks",
       "order": 162,
       "file": "Function blocks/fb-abs.md",
-      "bytes": 1315
+      "bytes": 1317
     },
     {
       "slug": "fb-move",
@@ -1321,7 +1321,7 @@
       "section": "Function blocks",
       "order": 163,
       "file": "Function blocks/fb-move.md",
-      "bytes": 1253
+      "bytes": 1255
     },
     {
       "slug": "fb-gt",
@@ -1329,7 +1329,7 @@
       "section": "Function blocks",
       "order": 164,
       "file": "Function blocks/fb-gt.md",
-      "bytes": 2174
+      "bytes": 2176
     },
     {
       "slug": "fb-ge",
@@ -1337,7 +1337,7 @@
       "section": "Function blocks",
       "order": 165,
       "file": "Function blocks/fb-ge.md",
-      "bytes": 1883
+      "bytes": 1885
     },
     {
       "slug": "fb-lt",
@@ -1345,7 +1345,7 @@
       "section": "Function blocks",
       "order": 166,
       "file": "Function blocks/fb-lt.md",
-      "bytes": 1891
+      "bytes": 1893
     },
     {
       "slug": "fb-le",
@@ -1353,7 +1353,7 @@
       "section": "Function blocks",
       "order": 167,
       "file": "Function blocks/fb-le.md",
-      "bytes": 1883
+      "bytes": 1885
     },
     {
       "slug": "fb-eq",
@@ -1361,7 +1361,7 @@
       "section": "Function blocks",
       "order": 168,
       "file": "Function blocks/fb-eq.md",
-      "bytes": 1749
+      "bytes": 1751
     },
     {
       "slug": "fb-sel",
@@ -1369,7 +1369,7 @@
       "section": "Function blocks",
       "order": 169,
       "file": "Function blocks/fb-sel.md",
-      "bytes": 1583
+      "bytes": 1585
     },
     {
       "slug": "fb-scale",
@@ -1377,7 +1377,7 @@
       "section": "Function blocks",
       "order": 170,
       "file": "Function blocks/fb-scale.md",
-      "bytes": 2539
+      "bytes": 2541
     },
     {
       "slug": "fb-limit",
@@ -1385,7 +1385,7 @@
       "section": "Function blocks",
       "order": 171,
       "file": "Function blocks/fb-limit.md",
-      "bytes": 1827
+      "bytes": 1829
     },
     {
       "slug": "fb-hyst",
@@ -1393,7 +1393,7 @@
       "section": "Function blocks",
       "order": 172,
       "file": "Function blocks/fb-hyst.md",
-      "bytes": 2236
+      "bytes": 2257
     },
     {
       "slug": "fb-ramp",
@@ -1401,7 +1401,7 @@
       "section": "Function blocks",
       "order": 173,
       "file": "Function blocks/fb-ramp.md",
-      "bytes": 1605
+      "bytes": 1626
     },
     {
       "slug": "fb-pt1",
@@ -1409,7 +1409,7 @@
       "section": "Function blocks",
       "order": 174,
       "file": "Function blocks/fb-pt1.md",
-      "bytes": 1911
+      "bytes": 1932
     },
     {
       "slug": "fb-motor",
@@ -1417,7 +1417,7 @@
       "section": "Function blocks",
       "order": 175,
       "file": "Function blocks/fb-motor.md",
-      "bytes": 2857
+      "bytes": 2872
     },
     {
       "slug": "fb-valve",
@@ -1425,7 +1425,7 @@
       "section": "Function blocks",
       "order": 176,
       "file": "Function blocks/fb-valve.md",
-      "bytes": 2489
+      "bytes": 2504
     },
     {
       "slug": "fb-pid",
@@ -1433,7 +1433,7 @@
       "section": "Function blocks",
       "order": 177,
       "file": "Function blocks/fb-pid.md",
-      "bytes": 3918
+      "bytes": 3929
     },
     {
       "slug": "fb-co_cia402",
@@ -1441,7 +1441,7 @@
       "section": "Function blocks",
       "order": 178,
       "file": "Function blocks/fb-co_cia402.md",
-      "bytes": 3032
+      "bytes": 3055
     },
     {
       "slug": "fb-co_sdowrite",
@@ -1465,7 +1465,7 @@
       "section": "Function blocks",
       "order": 181,
       "file": "Function blocks/fb-co_ramptime.md",
-      "bytes": 1674
+      "bytes": 1684
     },
     {
       "slug": "fb-ir_send",
@@ -1473,7 +1473,7 @@
       "section": "Function blocks",
       "order": 182,
       "file": "Function blocks/fb-ir_send.md",
-      "bytes": 2246
+      "bytes": 2269
     },
     {
       "slug": "fb-sms_send",
@@ -1481,7 +1481,7 @@
       "section": "Function blocks",
       "order": 183,
       "file": "Function blocks/fb-sms_send.md",
-      "bytes": 2994
+      "bytes": 3002
     },
     {
       "slug": "fb-gsm_info",
@@ -1489,7 +1489,7 @@
       "section": "Function blocks",
       "order": 184,
       "file": "Function blocks/fb-gsm_info.md",
-      "bytes": 2242
+      "bytes": 2265
     },
     {
       "slug": "fb-uds_dtc",
@@ -1537,7 +1537,7 @@
       "section": "Function blocks",
       "order": 190,
       "file": "Function blocks/home-pushbutton.md",
-      "bytes": 1851
+      "bytes": 1874
     },
     {
       "slug": "home-multiclick",
@@ -1545,7 +1545,7 @@
       "section": "Function blocks",
       "order": 191,
       "file": "Function blocks/home-multiclick.md",
-      "bytes": 1321
+      "bytes": 1344
     },
     {
       "slug": "home-toggle",
@@ -1553,7 +1553,7 @@
       "section": "Function blocks",
       "order": 192,
       "file": "Function blocks/home-toggle.md",
-      "bytes": 1159
+      "bytes": 1180
     },
     {
       "slug": "home-stairlight",
@@ -1561,7 +1561,7 @@
       "section": "Function blocks",
       "order": 193,
       "file": "Function blocks/home-stairlight.md",
-      "bytes": 1623
+      "bytes": 1646
     },
     {
       "slug": "home-dimmer",
@@ -1569,7 +1569,7 @@
       "section": "Function blocks",
       "order": 194,
       "file": "Function blocks/home-dimmer.md",
-      "bytes": 1929
+      "bytes": 1952
     },
     {
       "slug": "home-pwm",
@@ -1577,7 +1577,7 @@
       "section": "Function blocks",
       "order": 195,
       "file": "Function blocks/home-pwm.md",
-      "bytes": 982
+      "bytes": 1003
     },
     {
       "slug": "home-blinds",
@@ -1585,7 +1585,7 @@
       "section": "Function blocks",
       "order": 196,
       "file": "Function blocks/home-blinds.md",
-      "bytes": 2413
+      "bytes": 2436
     },
     {
       "slug": "home-travel",
@@ -1593,7 +1593,7 @@
       "section": "Function blocks",
       "order": 197,
       "file": "Function blocks/home-travel.md",
-      "bytes": 1364
+      "bytes": 1387
     },
     {
       "slug": "home-presence",
@@ -1601,7 +1601,7 @@
       "section": "Function blocks",
       "order": 198,
       "file": "Function blocks/home-presence.md",
-      "bytes": 1263
+      "bytes": 1284
     },
     {
       "slug": "home-twilight",
@@ -1609,7 +1609,7 @@
       "section": "Function blocks",
       "order": 199,
       "file": "Function blocks/home-twilight.md",
-      "bytes": 1536
+      "bytes": 1557
     },
     {
       "slug": "home-thermostat",
@@ -1617,7 +1617,7 @@
       "section": "Function blocks",
       "order": 200,
       "file": "Function blocks/home-thermostat.md",
-      "bytes": 2209
+      "bytes": 2232
     },
     {
       "slug": "home-daytime",
@@ -1625,7 +1625,7 @@
       "section": "Function blocks",
       "order": 201,
       "file": "Function blocks/home-daytime.md",
-      "bytes": 1868
+      "bytes": 1889
     },
     {
       "slug": "home-suntimes",
@@ -1633,7 +1633,7 @@
       "section": "Function blocks",
       "order": 202,
       "file": "Function blocks/home-suntimes.md",
-      "bytes": 1520
+      "bytes": 1543
     },
     {
       "slug": "home-astro",
@@ -1641,7 +1641,7 @@
       "section": "Function blocks",
       "order": 203,
       "file": "Function blocks/home-astro.md",
-      "bytes": 1731
+      "bytes": 1754
     },
     {
       "slug": "home-schedule",
@@ -1649,7 +1649,7 @@
       "section": "Function blocks",
       "order": 204,
       "file": "Function blocks/home-schedule.md",
-      "bytes": 2154
+      "bytes": 2177
     },
     {
       "slug": "home-scene",
@@ -1657,7 +1657,7 @@
       "section": "Function blocks",
       "order": 205,
       "file": "Function blocks/home-scene.md",
-      "bytes": 1836
+      "bytes": 1859
     },
     {
       "slug": "home-gate",
@@ -1665,7 +1665,7 @@
       "section": "Function blocks",
       "order": 206,
       "file": "Function blocks/home-gate.md",
-      "bytes": 1886
+      "bytes": 1909
     },
     {
       "slug": "home-vent",
@@ -1673,7 +1673,7 @@
       "section": "Function blocks",
       "order": 207,
       "file": "Function blocks/home-vent.md",
-      "bytes": 1668
+      "bytes": 1691
     },
     {
       "slug": "home-central",
@@ -1681,7 +1681,7 @@
       "section": "Function blocks",
       "order": 208,
       "file": "Function blocks/home-central.md",
-      "bytes": 1645
+      "bytes": 1668
     },
     {
       "slug": "home-energy",
@@ -1689,7 +1689,7 @@
       "section": "Function blocks",
       "order": 209,
       "file": "Function blocks/home-energy.md",
-      "bytes": 1331
+      "bytes": 1354
     },
     {
       "slug": "drv-drive",
@@ -1697,7 +1697,7 @@
       "section": "Function blocks",
       "order": 210,
       "file": "Function blocks/drv-drive.md",
-      "bytes": 5380
+      "bytes": 5413
     },
     {
       "slug": "vision",
@@ -2801,7 +2801,7 @@
       "section": "About",
       "order": 348,
       "file": "About/changelog.md",
-      "bytes": 128626
+      "bytes": 130131
     }
   ],
   "assets": [

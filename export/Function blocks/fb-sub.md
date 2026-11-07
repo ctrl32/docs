@@ -21,7 +21,7 @@ OUT = IN1 - IN2.
 
 ```iecst
 PROGRAM SUB_ST
-  sub_out_st := sub_in1 - sub_in2;
+    sub_out_st := sub_in1 - sub_in2;
 END_PROGRAM
 ```
 

@@ -15,10 +15,13 @@ A garage door or a gate: one impulse key cycles open - stop - close - stop; the 
 
 ```iecst
 PROGRAM GATE_ST
-VAR gate : GATE; END_VAR
-  gate(TRIG := gate_trig, OPEN := gate_open, CLOSE := gate_close, SAFETY := gate_safety, T_RUN := gate_t_run, T_REVERSE := gate_t_reverse, T_AUTO := gate_t_auto);
-  gate_m_open := gate.M_OPEN;
-  gate_m_close := gate.M_CLOSE;
+    VAR
+        gate : GATE;
+    END_VAR
+
+    gate(TRIG := gate_trig, OPEN := gate_open, CLOSE := gate_close, SAFETY := gate_safety, T_RUN := gate_t_run, T_REVERSE := gate_t_reverse, T_AUTO := gate_t_auto);
+    gate_m_open := gate.M_OPEN;
+    gate_m_close := gate.M_CLOSE;
 END_PROGRAM
 ```
 

@@ -21,20 +21,17 @@ Shifts a geared follower by a further phase.
 
 ```iecst
 PROGRAM MC_PhasingRelative_ST
-VAR mcphr : MC_PhasingRelative; END_VAR
-  mcphr(AXIS := 2, Execute := mcphr_execute,
-        PhaseShift := mcphr_phaseshift,
-        Velocity := mcphr_velocity,
-        ContinuousUpdate := mcphr_continuousupdate,
-        Acceleration := mcphr_acceleration,
-        Deceleration := mcphr_deceleration, Jerk := mcphr_jerk,
-        BufferMode := mcphr_buffermode);
-  mcphr_done_st := mcphr.Done;
-  mcphr_busy_st := mcphr.Busy;
-  mcphr_active_st := mcphr.Active;
-  mcphr_commandaborted_st := mcphr.CommandAborted;
-  mcphr_error_st := mcphr.Error;
-  mcphr_errorid_st := mcphr.ErrorID;
+    VAR
+        mcphr : MC_PhasingRelative;
+    END_VAR
+
+    mcphr(AXIS := 2, Execute := mcphr_execute, PhaseShift := mcphr_phaseshift, Velocity := mcphr_velocity, ContinuousUpdate := mcphr_continuousupdate, Acceleration := mcphr_acceleration, Deceleration := mcphr_deceleration, Jerk := mcphr_jerk, BufferMode := mcphr_buffermode);
+    mcphr_done_st := mcphr.Done;
+    mcphr_busy_st := mcphr.Busy;
+    mcphr_active_st := mcphr.Active;
+    mcphr_commandaborted_st := mcphr.CommandAborted;
+    mcphr_error_st := mcphr.Error;
+    mcphr_errorid_st := mcphr.ErrorID;
 END_PROGRAM
 ```
 

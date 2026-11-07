@@ -15,10 +15,13 @@ Day and dark by the sun: DAY between sunrise and sunset, DARK outside, each edge
 
 ```iecst
 PROGRAM ASTRO_ST
-VAR astro : ASTRO; END_VAR
-  astro(ENABLE := astro_enable, MINUTES := astro_minutes, DOY := astro_doy, UTC_OFF := astro_utc_off, LAT := astro_lat, LON := astro_lon, OFS_RISE := astro_ofs_rise, OFS_SET := astro_ofs_set);
-  astro_day := astro.DAY;
-  astro_dark := astro.DARK;
+    VAR
+        astro : ASTRO;
+    END_VAR
+
+    astro(ENABLE := astro_enable, MINUTES := astro_minutes, DOY := astro_doy, UTC_OFF := astro_utc_off, LAT := astro_lat, LON := astro_lon, OFS_RISE := astro_ofs_rise, OFS_SET := astro_ofs_set);
+    astro_day := astro.DAY;
+    astro_dark := astro.DARK;
 END_PROGRAM
 ```
 

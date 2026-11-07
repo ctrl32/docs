@@ -21,7 +21,7 @@ OUT = IN1 ÷ IN2; division by zero gives 0 and never stops anything.
 
 ```iecst
 PROGRAM DIV_ST
-  div_out_st := div_in1 / div_in2;
+    div_out_st := div_in1 / div_in2;
 END_PROGRAM
 ```
 

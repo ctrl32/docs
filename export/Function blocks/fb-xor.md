@@ -21,7 +21,7 @@ Q is TRUE when exactly one input is TRUE - the two inputs disagree.
 
 ```iecst
 PROGRAM XOR_ST
-  xor_q_st := xor_in1 XOR xor_in2;
+    xor_q_st := xor_in1 XOR xor_in2;
 END_PROGRAM
 ```
 

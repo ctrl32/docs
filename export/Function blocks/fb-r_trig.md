@@ -21,9 +21,12 @@ Detects a rising edge: Q is TRUE for exactly one cycle after CLK rises.
 
 ```iecst
 PROGRAM R_TRIG_ST
-VAR rtrig : R_TRIG; END_VAR
-  rtrig(CLK := rtrig_clk);
-  rtrig_q_st := rtrig.Q;
+    VAR
+        rtrig : R_TRIG;
+    END_VAR
+
+    rtrig(CLK := rtrig_clk);
+    rtrig_q_st := rtrig.Q;
 END_PROGRAM
 ```
 

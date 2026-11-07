@@ -21,7 +21,7 @@ Q is TRUE when both inputs are TRUE.
 
 ```iecst
 PROGRAM AND_ST
-  and_q_st := and_in1 AND and_in2;
+    and_q_st := and_in1 AND and_in2;
 END_PROGRAM
 ```
 

@@ -19,9 +19,12 @@ A window in the day: Q while the clock is inside FROM..TO on one of DAYS.
 
 ```iecst
 PROGRAM DAYTIME_ST
-VAR daytime : DAYTIME; END_VAR
-  daytime(ENABLE := daytime_enable, MINUTES := daytime_minutes, WEEKDAY := daytime_weekday, FROM := daytime_from, TO := daytime_to, DAYS := daytime_days);
-  daytime_q := daytime.Q;
+    VAR
+        daytime : DAYTIME;
+    END_VAR
+
+    daytime(ENABLE := daytime_enable, MINUTES := daytime_minutes, WEEKDAY := daytime_weekday, FROM := daytime_from, TO := daytime_to, DAYS := daytime_days);
+    daytime_q := daytime.Q;
 END_PROGRAM
 ```
 

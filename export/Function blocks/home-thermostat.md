@@ -19,10 +19,13 @@ A room: two-point heating with three setpoints, a boost and a window pause.
 
 ```iecst
 PROGRAM THERMOSTAT_ST
-VAR thermostat : THERMOSTAT; END_VAR
-  thermostat(PV := thermostat_pv, MODE := thermostat_mode, WINDOW := thermostat_window, BOOST := thermostat_boost, SP_COMFORT := thermostat_sp_comfort, SP_ECO := thermostat_sp_eco, SP_FROST := thermostat_sp_frost, HYST := thermostat_hyst, T_BOOST := thermostat_t_boost, T_WINDOW := thermostat_t_window);
-  thermostat_heat := thermostat.HEAT;
-  thermostat_sp := thermostat.SP;
+    VAR
+        thermostat : THERMOSTAT;
+    END_VAR
+
+    thermostat(PV := thermostat_pv, MODE := thermostat_mode, WINDOW := thermostat_window, BOOST := thermostat_boost, SP_COMFORT := thermostat_sp_comfort, SP_ECO := thermostat_sp_eco, SP_FROST := thermostat_sp_frost, HYST := thermostat_hyst, T_BOOST := thermostat_t_boost, T_WINDOW := thermostat_t_window);
+    thermostat_heat := thermostat.HEAT;
+    thermostat_sp := thermostat.SP;
 END_PROGRAM
 ```
 

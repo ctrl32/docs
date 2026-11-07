@@ -21,27 +21,19 @@ Gears in at a defined relation of the two positions.
 
 ```iecst
 PROGRAM MC_GearInPos_ST
-VAR mcgip : MC_GearInPos; END_VAR
-  mcgip(AXIS := 2, Execute := mcgip_execute,
-        MasterSyncPosition := mcgip_mastersyncposition,
-        SlaveSyncPosition := mcgip_slavesyncposition,
-        Velocity := mcgip_velocity, Master := mcgip_master,
-        RatioNumerator := mcgip_rationumerator,
-        RatioDenominator := mcgip_ratiodenominator,
-        MasterValueSource := mcgip_mastervaluesource,
-        SyncMode := mcgip_syncmode,
-        MasterStartDistance := mcgip_masterstartdistance,
-        Acceleration := mcgip_acceleration,
-        Deceleration := mcgip_deceleration, Jerk := mcgip_jerk,
-        BufferMode := mcgip_buffermode, Delay := mcgip_delay);
-  mcgip_startsync_st := mcgip.StartSync;
-  mcgip_insync_st := mcgip.InSync;
-  mcgip_busy_st := mcgip.Busy;
-  mcgip_active_st := mcgip.Active;
-  mcgip_commandaborted_st := mcgip.CommandAborted;
-  mcgip_error_st := mcgip.Error;
-  mcgip_errorid_st := mcgip.ErrorID;
-  mcgip_register_st := mcgip.Register;
+    VAR
+        mcgip : MC_GearInPos;
+    END_VAR
+
+    mcgip(AXIS := 2, Execute := mcgip_execute, MasterSyncPosition := mcgip_mastersyncposition, SlaveSyncPosition := mcgip_slavesyncposition, Velocity := mcgip_velocity, Master := mcgip_master, RatioNumerator := mcgip_rationumerator, RatioDenominator := mcgip_ratiodenominator, MasterValueSource := mcgip_mastervaluesource, SyncMode := mcgip_syncmode, MasterStartDistance := mcgip_masterstartdistance, Acceleration := mcgip_acceleration, Deceleration := mcgip_deceleration, Jerk := mcgip_jerk, BufferMode := mcgip_buffermode, Delay := mcgip_delay);
+    mcgip_startsync_st := mcgip.StartSync;
+    mcgip_insync_st := mcgip.InSync;
+    mcgip_busy_st := mcgip.Busy;
+    mcgip_active_st := mcgip.Active;
+    mcgip_commandaborted_st := mcgip.CommandAborted;
+    mcgip_error_st := mcgip.Error;
+    mcgip_errorid_st := mcgip.ErrorID;
+    mcgip_register_st := mcgip.Register;
 END_PROGRAM
 ```
 

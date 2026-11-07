@@ -15,10 +15,13 @@ Everything on, everything off, leaving: ON and OFF edges make a pulse; LEAVE mak
 
 ```iecst
 PROGRAM CENTRAL_ST
-VAR central : CENTRAL; END_VAR
-  central(ON := central_on, OFF := central_off, LEAVE := central_leave, CANCEL := central_cancel, T_LEAVE := central_t_leave, T_PULSE := central_t_pulse);
-  central_all_on := central.ALL_ON;
-  central_all_off := central.ALL_OFF;
+    VAR
+        central : CENTRAL;
+    END_VAR
+
+    central(ON := central_on, OFF := central_off, LEAVE := central_leave, CANCEL := central_cancel, T_LEAVE := central_t_leave, T_PULSE := central_t_pulse);
+    central_all_on := central.ALL_ON;
+    central_all_off := central.ALL_OFF;
 END_PROGRAM
 ```
 

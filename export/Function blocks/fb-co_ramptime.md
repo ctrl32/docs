@@ -19,9 +19,11 @@ Sets the drive's acceleration and deceleration times - written only at standstil
 
 ```iecst
 PROGRAM CO_RAMPTIME_ST
-VAR coramp : CO_RAMPTIME; END_VAR
-  coramp(AXIS := 0, ACC := coramp_acc, DEC := coramp_dec,
-         REF := coramp_ref);
+    VAR
+        coramp : CO_RAMPTIME;
+    END_VAR
+
+    coramp(AXIS := 0, ACC := coramp_acc, DEC := coramp_dec, REF := coramp_ref);
 END_PROGRAM
 ```
 

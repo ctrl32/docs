@@ -21,13 +21,16 @@ The measured torque of a servo.
 
 ```iecst
 PROGRAM MC_ReadActualTorque_ST
-VAR mcrtrq : MC_ReadActualTorque; END_VAR
-  mcrtrq(AXIS := 0, Enable := mcrtrq_enable);
-  mcrtrq_valid_st := mcrtrq.Valid;
-  mcrtrq_busy_st := mcrtrq.Busy;
-  mcrtrq_error_st := mcrtrq.Error;
-  mcrtrq_errorid_st := mcrtrq.ErrorID;
-  mcrtrq_torque_st := mcrtrq.Torque;
+    VAR
+        mcrtrq : MC_ReadActualTorque;
+    END_VAR
+
+    mcrtrq(AXIS := 0, Enable := mcrtrq_enable);
+    mcrtrq_valid_st := mcrtrq.Valid;
+    mcrtrq_busy_st := mcrtrq.Busy;
+    mcrtrq_error_st := mcrtrq.Error;
+    mcrtrq_errorid_st := mcrtrq.ErrorID;
+    mcrtrq_torque_st := mcrtrq.Torque;
 END_PROGRAM
 ```
 

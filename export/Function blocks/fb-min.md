@@ -21,7 +21,7 @@ OUT = the smaller of IN1 and IN2.
 
 ```iecst
 PROGRAM MIN_ST
-  min_out_st := MIN(min_in1, min_in2);
+    min_out_st := MIN(min_in1, min_in2);
 END_PROGRAM
 ```
 

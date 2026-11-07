@@ -21,17 +21,16 @@ Names the cam table MC_CamIn will ride.
 
 ```iecst
 PROGRAM MC_CamTableSelect_ST
-VAR mccts : MC_CamTableSelect; END_VAR
-  mccts(AXIS := 0, Execute := mccts_execute,
-        Master := mccts_master, CamTable := mccts_camtable,
-        Periodic := mccts_periodic,
-        MasterAbsolute := mccts_masterabsolute,
-        SlaveAbsolute := mccts_slaveabsolute);
-  mccts_done_st := mccts.Done;
-  mccts_busy_st := mccts.Busy;
-  mccts_error_st := mccts.Error;
-  mccts_errorid_st := mccts.ErrorID;
-  mccts_camtableid_st := mccts.CamTableID;
+    VAR
+        mccts : MC_CamTableSelect;
+    END_VAR
+
+    mccts(AXIS := 0, Execute := mccts_execute, Master := mccts_master, CamTable := mccts_camtable, Periodic := mccts_periodic, MasterAbsolute := mccts_masterabsolute, SlaveAbsolute := mccts_slaveabsolute);
+    mccts_done_st := mccts.Done;
+    mccts_busy_st := mccts.Busy;
+    mccts_error_st := mccts.Error;
+    mccts_errorid_st := mccts.ErrorID;
+    mccts_camtableid_st := mccts.CamTableID;
 END_PROGRAM
 ```
 

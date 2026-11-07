@@ -21,7 +21,7 @@ Q is TRUE when the input is FALSE.
 
 ```iecst
 PROGRAM NOT_ST
-  not_q_st := NOT not_in;
+    not_q_st := NOT not_in;
 END_PROGRAM
 ```
 

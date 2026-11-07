@@ -21,14 +21,15 @@ Moves the coordinate system, not the axis.
 
 ```iecst
 PROGRAM MC_SetPosition_ST
-VAR mcspos : MC_SetPosition; END_VAR
-  mcspos(AXIS := 0, Execute := mcspos_execute,
-         Position := mcspos_position, Mode := mcspos_mode,
-         ExecutionMode := mcspos_executionmode);
-  mcspos_done_st := mcspos.Done;
-  mcspos_busy_st := mcspos.Busy;
-  mcspos_error_st := mcspos.Error;
-  mcspos_errorid_st := mcspos.ErrorID;
+    VAR
+        mcspos : MC_SetPosition;
+    END_VAR
+
+    mcspos(AXIS := 0, Execute := mcspos_execute, Position := mcspos_position, Mode := mcspos_mode, ExecutionMode := mcspos_executionmode);
+    mcspos_done_st := mcspos.Done;
+    mcspos_busy_st := mcspos.Busy;
+    mcspos_error_st := mcspos.Error;
+    mcspos_errorid_st := mcspos.ErrorID;
 END_PROGRAM
 ```
 

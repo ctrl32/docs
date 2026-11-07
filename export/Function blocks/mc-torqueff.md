@@ -21,14 +21,16 @@ The acceleration feed-forward of a servo in position mode.
 
 ```iecst
 PROGRAM MC_TorqueFF_ST
-VAR mctff : MC_TorqueFF; END_VAR
-  mctff(AXIS := 0, Enable := mctff_enable,
-        AccGain := mctff_accgain);
-  mctff_enabled_st := mctff.Enabled;
-  mctff_busy_st := mctff.Busy;
-  mctff_error_st := mctff.Error;
-  mctff_errorid_st := mctff.ErrorID;
-  mctff_torque_st := mctff.Torque;
+    VAR
+        mctff : MC_TorqueFF;
+    END_VAR
+
+    mctff(AXIS := 0, Enable := mctff_enable, AccGain := mctff_accgain);
+    mctff_enabled_st := mctff.Enabled;
+    mctff_busy_st := mctff.Busy;
+    mctff_error_st := mctff.Error;
+    mctff_errorid_st := mctff.ErrorID;
+    mctff_torque_st := mctff.Torque;
 END_PROGRAM
 ```
 

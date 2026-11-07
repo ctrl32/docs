@@ -21,12 +21,15 @@ Releases the follower from its gear where it stands.
 
 ```iecst
 PROGRAM MC_GearOut_ST
-VAR mcgout : MC_GearOut; END_VAR
-  mcgout(AXIS := 2, Execute := mcgout_execute);
-  mcgout_done_st := mcgout.Done;
-  mcgout_busy_st := mcgout.Busy;
-  mcgout_error_st := mcgout.Error;
-  mcgout_errorid_st := mcgout.ErrorID;
+    VAR
+        mcgout : MC_GearOut;
+    END_VAR
+
+    mcgout(AXIS := 2, Execute := mcgout_execute);
+    mcgout_done_st := mcgout.Done;
+    mcgout_busy_st := mcgout.Busy;
+    mcgout_error_st := mcgout.Error;
+    mcgout_errorid_st := mcgout.ErrorID;
 END_PROGRAM
 ```
 

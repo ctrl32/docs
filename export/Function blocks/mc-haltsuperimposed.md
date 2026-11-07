@@ -21,16 +21,17 @@ Stops the superimposed part of the motion alone.
 
 ```iecst
 PROGRAM MC_HaltSuperimposed_ST
-VAR mchlts : MC_HaltSuperimposed; END_VAR
-  mchlts(AXIS := 0, Execute := mchlts_execute,
-         Deceleration := mchlts_deceleration,
-         Jerk := mchlts_jerk);
-  mchlts_done_st := mchlts.Done;
-  mchlts_busy_st := mchlts.Busy;
-  mchlts_active_st := mchlts.Active;
-  mchlts_commandaborted_st := mchlts.CommandAborted;
-  mchlts_error_st := mchlts.Error;
-  mchlts_errorid_st := mchlts.ErrorID;
+    VAR
+        mchlts : MC_HaltSuperimposed;
+    END_VAR
+
+    mchlts(AXIS := 0, Execute := mchlts_execute, Deceleration := mchlts_deceleration, Jerk := mchlts_jerk);
+    mchlts_done_st := mchlts.Done;
+    mchlts_busy_st := mchlts.Busy;
+    mchlts_active_st := mchlts.Active;
+    mchlts_commandaborted_st := mchlts.CommandAborted;
+    mchlts_error_st := mchlts.Error;
+    mchlts_errorid_st := mchlts.ErrorID;
 END_PROGRAM
 ```
 

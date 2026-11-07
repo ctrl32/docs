@@ -21,21 +21,24 @@ The switches, the drive's readiness, homed or not.
 
 ```iecst
 PROGRAM MC_ReadAxisInfo_ST
-VAR mcrai : MC_ReadAxisInfo; END_VAR
-  mcrai(AXIS := 0, Enable := mcrai_enable);
-  mcrai_valid_st := mcrai.Valid;
-  mcrai_busy_st := mcrai.Busy;
-  mcrai_error_st := mcrai.Error;
-  mcrai_errorid_st := mcrai.ErrorID;
-  mcrai_homeabsswitch_st := mcrai.HomeAbsSwitch;
-  mcrai_limitswitchpos_st := mcrai.LimitSwitchPos;
-  mcrai_limitswitchneg_st := mcrai.LimitSwitchNeg;
-  mcrai_simulation_st := mcrai.Simulation;
-  mcrai_communicationready_st := mcrai.CommunicationReady;
-  mcrai_readyforpoweron_st := mcrai.ReadyForPowerOn;
-  mcrai_poweron_st := mcrai.PowerOn;
-  mcrai_ishomed_st := mcrai.IsHomed;
-  mcrai_axiswarning_st := mcrai.AxisWarning;
+    VAR
+        mcrai : MC_ReadAxisInfo;
+    END_VAR
+
+    mcrai(AXIS := 0, Enable := mcrai_enable);
+    mcrai_valid_st := mcrai.Valid;
+    mcrai_busy_st := mcrai.Busy;
+    mcrai_error_st := mcrai.Error;
+    mcrai_errorid_st := mcrai.ErrorID;
+    mcrai_homeabsswitch_st := mcrai.HomeAbsSwitch;
+    mcrai_limitswitchpos_st := mcrai.LimitSwitchPos;
+    mcrai_limitswitchneg_st := mcrai.LimitSwitchNeg;
+    mcrai_simulation_st := mcrai.Simulation;
+    mcrai_communicationready_st := mcrai.CommunicationReady;
+    mcrai_readyforpoweron_st := mcrai.ReadyForPowerOn;
+    mcrai_poweron_st := mcrai.PowerOn;
+    mcrai_ishomed_st := mcrai.IsHomed;
+    mcrai_axiswarning_st := mcrai.AxisWarning;
 END_PROGRAM
 ```
 

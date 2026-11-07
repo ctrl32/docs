@@ -21,16 +21,16 @@ Up to 32 outputs switched by the axis position.
 
 ```iecst
 PROGRAM MC_DigitalCamSwitch_ST
-VAR mccsw : MC_DigitalCamSwitch; END_VAR
-  mccsw(AXIS := 0, Enable := mccsw_enable,
-        Switches := mccsw_switches,
-        EnableMask := mccsw_enablemask,
-        ValueSource := mccsw_valuesource);
-  mccsw_inoperation_st := mccsw.InOperation;
-  mccsw_busy_st := mccsw.Busy;
-  mccsw_error_st := mccsw.Error;
-  mccsw_errorid_st := mccsw.ErrorID;
-  mccsw_outputs_st := mccsw.Outputs;
+    VAR
+        mccsw : MC_DigitalCamSwitch;
+    END_VAR
+
+    mccsw(AXIS := 0, Enable := mccsw_enable, Switches := mccsw_switches, EnableMask := mccsw_enablemask, ValueSource := mccsw_valuesource);
+    mccsw_inoperation_st := mccsw.InOperation;
+    mccsw_busy_st := mccsw.Busy;
+    mccsw_error_st := mccsw.Error;
+    mccsw_errorid_st := mccsw.ErrorID;
+    mccsw_outputs_st := mccsw.Outputs;
 END_PROGRAM
 ```
 

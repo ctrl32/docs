@@ -21,22 +21,17 @@ Commands the torque itself, with a speed the drive limits itself to.
 
 ```iecst
 PROGRAM MC_TorqueControl_ST
-VAR mctrq : MC_TorqueControl; END_VAR
-  mctrq(AXIS := 0, Execute := mctrq_execute,
-        Torque := mctrq_torque,
-        ContinuousUpdate := mctrq_continuousupdate,
-        TorqueRamp := mctrq_torqueramp,
-        Velocity := mctrq_velocity,
-        Acceleration := mctrq_acceleration,
-        Deceleration := mctrq_deceleration, Jerk := mctrq_jerk,
-        Direction := mctrq_direction,
-        BufferMode := mctrq_buffermode);
-  mctrq_intorque_st := mctrq.InTorque;
-  mctrq_busy_st := mctrq.Busy;
-  mctrq_active_st := mctrq.Active;
-  mctrq_commandaborted_st := mctrq.CommandAborted;
-  mctrq_error_st := mctrq.Error;
-  mctrq_errorid_st := mctrq.ErrorID;
+    VAR
+        mctrq : MC_TorqueControl;
+    END_VAR
+
+    mctrq(AXIS := 0, Execute := mctrq_execute, Torque := mctrq_torque, ContinuousUpdate := mctrq_continuousupdate, TorqueRamp := mctrq_torqueramp, Velocity := mctrq_velocity, Acceleration := mctrq_acceleration, Deceleration := mctrq_deceleration, Jerk := mctrq_jerk, Direction := mctrq_direction, BufferMode := mctrq_buffermode);
+    mctrq_intorque_st := mctrq.InTorque;
+    mctrq_busy_st := mctrq.Busy;
+    mctrq_active_st := mctrq.Active;
+    mctrq_commandaborted_st := mctrq.CommandAborted;
+    mctrq_error_st := mctrq.Error;
+    mctrq_errorid_st := mctrq.ErrorID;
 END_PROGRAM
 ```
 

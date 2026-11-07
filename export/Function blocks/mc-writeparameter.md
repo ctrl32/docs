@@ -21,15 +21,15 @@ Writes one of the axis's numbers while the program runs.
 
 ```iecst
 PROGRAM MC_WriteParameter_ST
-VAR mcwpar : MC_WriteParameter; END_VAR
-  mcwpar(AXIS := 0, Execute := mcwpar_execute,
-         Value := mcwpar_value,
-         ParameterNumber := mcwpar_parameternumber,
-         ExecutionMode := mcwpar_executionmode);
-  mcwpar_done_st := mcwpar.Done;
-  mcwpar_busy_st := mcwpar.Busy;
-  mcwpar_error_st := mcwpar.Error;
-  mcwpar_errorid_st := mcwpar.ErrorID;
+    VAR
+        mcwpar : MC_WriteParameter;
+    END_VAR
+
+    mcwpar(AXIS := 0, Execute := mcwpar_execute, Value := mcwpar_value, ParameterNumber := mcwpar_parameternumber, ExecutionMode := mcwpar_executionmode);
+    mcwpar_done_st := mcwpar.Done;
+    mcwpar_busy_st := mcwpar.Busy;
+    mcwpar_error_st := mcwpar.Error;
+    mcwpar_errorid_st := mcwpar.ErrorID;
 END_PROGRAM
 ```
 

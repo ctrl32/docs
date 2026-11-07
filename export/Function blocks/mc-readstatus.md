@@ -21,20 +21,23 @@ Which state the axis is in - exactly one of eight.
 
 ```iecst
 PROGRAM MC_ReadStatus_ST
-VAR mcstat : MC_ReadStatus; END_VAR
-  mcstat(AXIS := 0, Enable := mcstat_enable);
-  mcstat_valid_st := mcstat.Valid;
-  mcstat_busy_st := mcstat.Busy;
-  mcstat_error_st := mcstat.Error;
-  mcstat_errorid_st := mcstat.ErrorID;
-  mcstat_errorstop_st := mcstat.ErrorStop;
-  mcstat_disabled_st := mcstat.Disabled;
-  mcstat_stopping_st := mcstat.Stopping;
-  mcstat_homing_st := mcstat.Homing;
-  mcstat_standstill_st := mcstat.Standstill;
-  mcstat_discretemotion_st := mcstat.DiscreteMotion;
-  mcstat_continuousmotion_st := mcstat.ContinuousMotion;
-  mcstat_synchronizedmotion_st := mcstat.SynchronizedMotion;
+    VAR
+        mcstat : MC_ReadStatus;
+    END_VAR
+
+    mcstat(AXIS := 0, Enable := mcstat_enable);
+    mcstat_valid_st := mcstat.Valid;
+    mcstat_busy_st := mcstat.Busy;
+    mcstat_error_st := mcstat.Error;
+    mcstat_errorid_st := mcstat.ErrorID;
+    mcstat_errorstop_st := mcstat.ErrorStop;
+    mcstat_disabled_st := mcstat.Disabled;
+    mcstat_stopping_st := mcstat.Stopping;
+    mcstat_homing_st := mcstat.Homing;
+    mcstat_standstill_st := mcstat.Standstill;
+    mcstat_discretemotion_st := mcstat.DiscreteMotion;
+    mcstat_continuousmotion_st := mcstat.ContinuousMotion;
+    mcstat_synchronizedmotion_st := mcstat.SynchronizedMotion;
 END_PROGRAM
 ```
 

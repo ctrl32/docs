@@ -15,10 +15,13 @@ Two channels, three scenes: an APPLY edge sets A and B to the levels of scene SE
 
 ```iecst
 PROGRAM SCENE_ST
-VAR scene : SCENE; END_VAR
-  scene(SEL := scene_sel, APPLY := scene_apply, OFF := scene_off, S1_A := scene_s1_a, S1_B := scene_s1_b, S2_A := scene_s2_a, S2_B := scene_s2_b, S3_A := scene_s3_a, S3_B := scene_s3_b);
-  scene_a := scene.A;
-  scene_b := scene.B;
+    VAR
+        scene : SCENE;
+    END_VAR
+
+    scene(SEL := scene_sel, APPLY := scene_apply, OFF := scene_off, S1_A := scene_s1_a, S1_B := scene_s1_b, S2_A := scene_s2_a, S2_B := scene_s2_b, S3_A := scene_s3_a, S3_B := scene_s3_b);
+    scene_a := scene.A;
+    scene_b := scene.B;
 END_PROGRAM
 ```
 

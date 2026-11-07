@@ -21,20 +21,17 @@ The axis follows a table of time against velocity.
 
 ```iecst
 PROGRAM MC_VelocityProfile_ST
-VAR mcvpro : MC_VelocityProfile; END_VAR
-  mcvpro(AXIS := 0, Execute := mcvpro_execute,
-         TimeVelocity := mcvpro_timevelocity,
-         ArraySize := mcvpro_arraysize,
-         TimeScale := mcvpro_timescale,
-         VelocityScale := mcvpro_velocityscale,
-         Offset := mcvpro_offset,
-         BufferMode := mcvpro_buffermode);
-  mcvpro_done_st := mcvpro.Done;
-  mcvpro_busy_st := mcvpro.Busy;
-  mcvpro_active_st := mcvpro.Active;
-  mcvpro_commandaborted_st := mcvpro.CommandAborted;
-  mcvpro_error_st := mcvpro.Error;
-  mcvpro_errorid_st := mcvpro.ErrorID;
+    VAR
+        mcvpro : MC_VelocityProfile;
+    END_VAR
+
+    mcvpro(AXIS := 0, Execute := mcvpro_execute, TimeVelocity := mcvpro_timevelocity, ArraySize := mcvpro_arraysize, TimeScale := mcvpro_timescale, VelocityScale := mcvpro_velocityscale, Offset := mcvpro_offset, BufferMode := mcvpro_buffermode);
+    mcvpro_done_st := mcvpro.Done;
+    mcvpro_busy_st := mcvpro.Busy;
+    mcvpro_active_st := mcvpro.Active;
+    mcvpro_commandaborted_st := mcvpro.CommandAborted;
+    mcvpro_error_st := mcvpro.Error;
+    mcvpro_errorid_st := mcvpro.ErrorID;
 END_PROGRAM
 ```
 

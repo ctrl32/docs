@@ -19,9 +19,12 @@ It is dark: DARK switches with hysteresis around THRESHOLD, filtered by T_FILTER
 
 ```iecst
 PROGRAM TWILIGHT_ST
-VAR twilight : TWILIGHT; END_VAR
-  twilight(LUX := twilight_lux, THRESHOLD := twilight_threshold, HYST := twilight_hyst, T_FILTER := twilight_t_filter);
-  twilight_dark := twilight.DARK;
+    VAR
+        twilight : TWILIGHT;
+    END_VAR
+
+    twilight(LUX := twilight_lux, THRESHOLD := twilight_threshold, HYST := twilight_hyst, T_FILTER := twilight_t_filter);
+    twilight_dark := twilight.DARK;
 END_PROGRAM
 ```
 

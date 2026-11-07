@@ -21,14 +21,16 @@ Reads one of the axis's flags by its Part 1 number.
 
 ```iecst
 PROGRAM MC_ReadBoolParameter_ST
-VAR mcrbpar : MC_ReadBoolParameter; END_VAR
-  mcrbpar(AXIS := 0, Enable := mcrbpar_enable,
-          ParameterNumber := mcrbpar_parameternumber);
-  mcrbpar_valid_st := mcrbpar.Valid;
-  mcrbpar_busy_st := mcrbpar.Busy;
-  mcrbpar_error_st := mcrbpar.Error;
-  mcrbpar_errorid_st := mcrbpar.ErrorID;
-  mcrbpar_value_st := mcrbpar.Value;
+    VAR
+        mcrbpar : MC_ReadBoolParameter;
+    END_VAR
+
+    mcrbpar(AXIS := 0, Enable := mcrbpar_enable, ParameterNumber := mcrbpar_parameternumber);
+    mcrbpar_valid_st := mcrbpar.Valid;
+    mcrbpar_busy_st := mcrbpar.Busy;
+    mcrbpar_error_st := mcrbpar.Error;
+    mcrbpar_errorid_st := mcrbpar.ErrorID;
+    mcrbpar_value_st := mcrbpar.Value;
 END_PROGRAM
 ```
 

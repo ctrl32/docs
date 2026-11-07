@@ -21,14 +21,16 @@ Reads one of the axis's numbers by its Part 1 number.
 
 ```iecst
 PROGRAM MC_ReadParameter_ST
-VAR mcrpar : MC_ReadParameter; END_VAR
-  mcrpar(AXIS := 0, Enable := mcrpar_enable,
-         ParameterNumber := mcrpar_parameternumber);
-  mcrpar_valid_st := mcrpar.Valid;
-  mcrpar_busy_st := mcrpar.Busy;
-  mcrpar_error_st := mcrpar.Error;
-  mcrpar_errorid_st := mcrpar.ErrorID;
-  mcrpar_value_st := mcrpar.Value;
+    VAR
+        mcrpar : MC_ReadParameter;
+    END_VAR
+
+    mcrpar(AXIS := 0, Enable := mcrpar_enable, ParameterNumber := mcrpar_parameternumber);
+    mcrpar_valid_st := mcrpar.Valid;
+    mcrpar_busy_st := mcrpar.Busy;
+    mcrpar_error_st := mcrpar.Error;
+    mcrpar_errorid_st := mcrpar.ErrorID;
+    mcrpar_value_st := mcrpar.Value;
 END_PROGRAM
 ```
 

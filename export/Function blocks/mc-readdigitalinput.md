@@ -21,14 +21,16 @@ One bit of the drive's inputs word.
 
 ```iecst
 PROGRAM MC_ReadDigitalInput_ST
-VAR mcrdi : MC_ReadDigitalInput; END_VAR
-  mcrdi(AXIS := 0, Enable := mcrdi_enable, Input := mcrdi_input,
-        InputNumber := mcrdi_inputnumber);
-  mcrdi_valid_st := mcrdi.Valid;
-  mcrdi_busy_st := mcrdi.Busy;
-  mcrdi_error_st := mcrdi.Error;
-  mcrdi_errorid_st := mcrdi.ErrorID;
-  mcrdi_value_st := mcrdi.Value;
+    VAR
+        mcrdi : MC_ReadDigitalInput;
+    END_VAR
+
+    mcrdi(AXIS := 0, Enable := mcrdi_enable, Input := mcrdi_input, InputNumber := mcrdi_inputnumber);
+    mcrdi_valid_st := mcrdi.Valid;
+    mcrdi_busy_st := mcrdi.Busy;
+    mcrdi_error_st := mcrdi.Error;
+    mcrdi_errorid_st := mcrdi.ErrorID;
+    mcrdi_value_st := mcrdi.Value;
 END_PROGRAM
 ```
 

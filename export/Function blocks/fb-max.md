@@ -21,7 +21,7 @@ OUT = the larger of IN1 and IN2.
 
 ```iecst
 PROGRAM MAX_ST
-  max_out_st := MAX(max_in1, max_in2);
+    max_out_st := MAX(max_in1, max_in2);
 END_PROGRAM
 ```
 

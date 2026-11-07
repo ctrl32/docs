@@ -21,9 +21,12 @@ Reset-dominant latch: remembers, and if set and reset are both TRUE, reset wins.
 
 ```iecst
 PROGRAM RS_ST
-VAR rs : RS; END_VAR
-  rs(S := rs_s, R1 := rs_r1);
-  rs_q1_st := rs.Q1;
+    VAR
+        rs : RS;
+    END_VAR
+
+    rs(S := rs_s, R1 := rs_r1);
+    rs_q1_st := rs.Q1;
 END_PROGRAM
 ```
 
