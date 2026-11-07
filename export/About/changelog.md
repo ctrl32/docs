@@ -17,6 +17,46 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.11.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](/docs/deployment/deploy/)) before it accepts a
+project saved by this editor.
+
+- **Four chips join the library.** The MAX9611 and MAX9612 high-side
+  current-sense amplifiers: the current, the shunt voltage, the
+  common-mode voltage, the output of the comparator or the op amp, the
+  chip's temperature, with the gain and the mode as settings
+  ([Power and energy](/docs/peripherals-and-services/peripherals-power/)). The PCA6408A I/O expander
+  with its ADDR, INT and RESET pins ([I/O expanders and
+  drivers](/docs/peripherals-and-services/peripherals-io/)). The QMI8658 six-axis motion sensor:
+  both sensors with their ranges, rates and filters, the orientation
+  the device integrates as roll, pitch and yaw, the motion events, Wake
+  on Motion, the self test and the calibration at start-up
+  ([Pressure and position](/docs/peripherals-and-services/peripherals-pressure/)).
+- **The MAX44009 light sensor** has every register as a setting:
+  continuous or manual conversion, the current divider and the
+  integration time, the two thresholds with their timer, and the
+  interrupt as a channel of its own; a reading beyond the sensor's
+  range keeps the last value instead of a huge number
+  ([Light, distance, motion](/docs/peripherals-and-services/peripherals-light/)).
+- **Shift registers in a chain.** Several SN74HC595 or several
+  SN74HC165 on one chip-select pin work as one long register: each has
+  its place in the chain, the device moves every byte in one transfer,
+  and each register keeps its own page and variables
+  ([I/O expanders and drivers](/docs/peripherals-and-services/peripherals-io/)).
+- **The wiring of every chip in the documentation.** Every chip page
+  shows the picture the editor draws for it, with the pins and the
+  parts named, and the sensor sheets of the converters show each kind
+  of sensor wired ([Reading real values](/docs/peripherals-and-services/analog-inputs/)).
+- **Corrections.** An RTD on two or four wires with the converter's
+  usual registers read half its resistance (the presets gave every RTD
+  the two excitation currents of a three-wire sensor); a project whose
+  only chip was a CH423 or a CS5460A read none of its variables; two
+  bytes of the MAX44009 read apart could mix two conversions; the
+  Terminal under the canvas disappeared when a project was opened from
+  the Welcome window and had to be opened again from the Window menu.
+
 ## 1.10.000
 
 A new line: every device takes a new runtime (over the network or over
