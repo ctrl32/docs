@@ -48,9 +48,12 @@ overwritten, because the next board is not the last one.
 
 ## Where it is
 
-On the variable's own sheet, under its source. It appears for every
-input that measures volts: a converter's channel (ADS1115, ADS1118,
-ADS1220) and the board's own ADC alike. Under the numbers the sheet
+In the variable's Properties, the **Sensor** section - and the same
+Properties open from the converter's page: pick the channel's row
+there and the panel under the canvas shows the variable's sheet. It
+appears for every input that measures volts: a converter's channel
+(ADS1115, ADS1118, ADS1220) and the board's own ADC alike. Under the
+numbers the sheet
 **draws the wiring** of the type you picked — the converter's pins,
 the sensor, the reference resistor, the currents — from the values
 you typed, so the picture on the screen is the one to build.
