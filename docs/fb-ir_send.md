@@ -15,10 +15,13 @@ Sends an infrared code from the project's IR key table on the rising edge of Exe
 
 ```iecst
 PROGRAM IR_SEND_ST
-VAR ir : IR_SEND; END_VAR
-  ir(Execute := ir_execute, KEY := 0);
-  ir_done_st := ir.Done;
-  ir_error_st := ir.Error;
+    VAR
+        ir : IR_SEND;
+    END_VAR
+
+    ir(Execute := ir_execute, KEY := 0);
+    ir_done_st := ir.Done;
+    ir_error_st := ir.Error;
 END_PROGRAM
 ```
 

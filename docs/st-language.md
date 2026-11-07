@@ -8,6 +8,16 @@ uploading new screens.
 
 ![A control program in ST: MOTOR, VALVE, PID and a hysteresis comparator](img/st-editor.webp){: .sb-center}
 
+The page has two parts, the way every PLC editor lays a program out:
+the **Declarations** window at the top holds the header and the
+`VAR ... END_VAR` blocks, the editor under it holds the statements. The
+declarations show as text or as a table (the two buttons on the right of
+the window; in the table a row is a variable - its scope, name, type,
+initial value and comment - and `+ variable` adds one), and the bar
+between the two parts drags to the height you want. The compiler reads
+both parts as one program; a declaration it refuses is underlined in the
+top window and named in the footer.
+
 The FBD blocks and the ST program run in the same task, in this order:
 FBD first, then ST. A variable the FBD wrote in this cycle is already
 visible to the ST body (and the other way round next cycle) — the same
@@ -106,15 +116,35 @@ can write ctrl32 blocks:
 
 ```iecst
 FUNCTION_BLOCK MY_TON
-VAR_INPUT  IN : BOOL; PT : TIME; END_VAR
-VAR_OUTPUT Q  : BOOL; ET : TIME; END_VAR
-VAR  running : BOOL; t0 : TIME; END_VAR
-  IF IN AND NOT running THEN t0 := NOW(); running := TRUE; END_IF
-  IF NOT IN THEN running := FALSE; Q := FALSE; ET := T#0s; END_IF
-  IF running THEN
-    ET := NOW() - t0;
-    IF ET >= PT THEN Q := TRUE; ET := PT; END_IF
-  END_IF
+    VAR_INPUT
+        IN : BOOL;
+        PT : TIME;
+    END_VAR
+    VAR_OUTPUT
+        Q  : BOOL;
+        ET : TIME;
+    END_VAR
+    VAR
+        running : BOOL;
+        t0      : TIME;
+    END_VAR
+
+    IF IN AND NOT running THEN
+        t0 := NOW();
+        running := TRUE;
+    END_IF
+    IF NOT IN THEN
+        running := FALSE;
+        Q := FALSE;
+        ET := T#0s;
+    END_IF
+    IF running THEN
+        ET := NOW() - t0;
+        IF ET >= PT THEN
+            Q := TRUE;
+            ET := PT;
+        END_IF
+    END_IF
 END_FUNCTION_BLOCK
 ```
 

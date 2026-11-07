@@ -15,20 +15,17 @@ Moves to a position measured from the axis zero.
 
 ```iecst
 PROGRAM MC_MoveAbsolute_ST
-VAR mcabs : MC_MoveAbsolute; END_VAR
-  mcabs(AXIS := 0, Execute := mcabs_execute,
-        Position := mcabs_position, Velocity := mcabs_velocity,
-        ContinuousUpdate := mcabs_continuousupdate,
-        Acceleration := mcabs_acceleration,
-        Deceleration := mcabs_deceleration, Jerk := mcabs_jerk,
-        Direction := mcabs_direction,
-        BufferMode := mcabs_buffermode);
-  mcabs_done_st := mcabs.Done;
-  mcabs_busy_st := mcabs.Busy;
-  mcabs_active_st := mcabs.Active;
-  mcabs_commandaborted_st := mcabs.CommandAborted;
-  mcabs_error_st := mcabs.Error;
-  mcabs_errorid_st := mcabs.ErrorID;
+    VAR
+        mcabs : MC_MoveAbsolute;
+    END_VAR
+
+    mcabs(AXIS := 0, Execute := mcabs_execute, Position := mcabs_position, Velocity := mcabs_velocity, ContinuousUpdate := mcabs_continuousupdate, Acceleration := mcabs_acceleration, Deceleration := mcabs_deceleration, Jerk := mcabs_jerk, Direction := mcabs_direction, BufferMode := mcabs_buffermode);
+    mcabs_done_st := mcabs.Done;
+    mcabs_busy_st := mcabs.Busy;
+    mcabs_active_st := mcabs.Active;
+    mcabs_commandaborted_st := mcabs.CommandAborted;
+    mcabs_error_st := mcabs.Error;
+    mcabs_errorid_st := mcabs.ErrorID;
 END_PROGRAM
 ```
 

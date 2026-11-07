@@ -15,11 +15,13 @@ Valve with end-position check: OPEN opens, CLOSE has priority, FB must arrive wi
 
 ```iecst
 PROGRAM VALVE_ST
-VAR valve : VALVE; END_VAR
-  valve(OPEN := valve_open, CLOSE := valve_close, FB := valve_fb,
-        ACK := valve_ack, T_FB := valve_t_fb);
-  valve_cmd_st := valve.CMD;
-  valve_fault_st := valve.FAULT;
+    VAR
+        valve : VALVE;
+    END_VAR
+
+    valve(OPEN := valve_open, CLOSE := valve_close, FB := valve_fb, ACK := valve_ack, T_FB := valve_t_fb);
+    valve_cmd_st := valve.CMD;
+    valve_fault_st := valve.FAULT;
 END_PROGRAM
 ```
 

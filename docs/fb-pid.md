@@ -15,12 +15,13 @@ PID controller with anti-windup, bumpless auto/manual transfer and derivative on
 
 ```iecst
 PROGRAM PID_ST
-VAR pid : PID; END_VAR
-  pid(SP := pid_sp, PV := pid_pv, MAN := pid_man,
-      AUTO := pid_auto, KP := pid_kp, TI := pid_ti, TD := pid_td,
-      OUT_MIN := pid_out_min, OUT_MAX := pid_out_max);
-  pid_out_st := pid.OUT;
-  pid_lim_st := pid.LIM;
+    VAR
+        pid : PID;
+    END_VAR
+
+    pid(SP := pid_sp, PV := pid_pv, MAN := pid_man, AUTO := pid_auto, KP := pid_kp, TI := pid_ti, TD := pid_td, OUT_MIN := pid_out_min, OUT_MAX := pid_out_max);
+    pid_out_st := pid.OUT;
+    pid_lim_st := pid.LIM;
 END_PROGRAM
 ```
 

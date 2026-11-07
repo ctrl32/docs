@@ -15,15 +15,15 @@ Sets one bit of the drive's outputs word.
 
 ```iecst
 PROGRAM MC_WriteDigitalOutput_ST
-VAR mcwdo : MC_WriteDigitalOutput; END_VAR
-  mcwdo(AXIS := 0, Execute := mcwdo_execute,
-        Value := mcwdo_value, Output := mcwdo_output,
-        OutputNumber := mcwdo_outputnumber,
-        ExecutionMode := mcwdo_executionmode);
-  mcwdo_done_st := mcwdo.Done;
-  mcwdo_busy_st := mcwdo.Busy;
-  mcwdo_error_st := mcwdo.Error;
-  mcwdo_errorid_st := mcwdo.ErrorID;
+    VAR
+        mcwdo : MC_WriteDigitalOutput;
+    END_VAR
+
+    mcwdo(AXIS := 0, Execute := mcwdo_execute, Value := mcwdo_value, Output := mcwdo_output, OutputNumber := mcwdo_outputnumber, ExecutionMode := mcwdo_executionmode);
+    mcwdo_done_st := mcwdo.Done;
+    mcwdo_busy_st := mcwdo.Busy;
+    mcwdo_error_st := mcwdo.Error;
+    mcwdo_errorid_st := mcwdo.ErrorID;
 END_PROGRAM
 ```
 

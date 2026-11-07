@@ -15,20 +15,18 @@ A move on top of whatever the axis is doing.
 
 ```iecst
 PROGRAM MC_MoveSuperimposed_ST
-VAR mcsup : MC_MoveSuperimposed; END_VAR
-  mcsup(AXIS := 0, Execute := mcsup_execute,
-        Distance := mcsup_distance,
-        VelocityDiff := mcsup_velocitydiff,
-        ContinuousUpdate := mcsup_continuousupdate,
-        Acceleration := mcsup_acceleration,
-        Deceleration := mcsup_deceleration, Jerk := mcsup_jerk);
-  mcsup_done_st := mcsup.Done;
-  mcsup_busy_st := mcsup.Busy;
-  mcsup_active_st := mcsup.Active;
-  mcsup_commandaborted_st := mcsup.CommandAborted;
-  mcsup_error_st := mcsup.Error;
-  mcsup_errorid_st := mcsup.ErrorID;
-  mcsup_covereddistance_st := mcsup.CoveredDistance;
+    VAR
+        mcsup : MC_MoveSuperimposed;
+    END_VAR
+
+    mcsup(AXIS := 0, Execute := mcsup_execute, Distance := mcsup_distance, VelocityDiff := mcsup_velocitydiff, ContinuousUpdate := mcsup_continuousupdate, Acceleration := mcsup_acceleration, Deceleration := mcsup_deceleration, Jerk := mcsup_jerk);
+    mcsup_done_st := mcsup.Done;
+    mcsup_busy_st := mcsup.Busy;
+    mcsup_active_st := mcsup.Active;
+    mcsup_commandaborted_st := mcsup.CommandAborted;
+    mcsup_error_st := mcsup.Error;
+    mcsup_errorid_st := mcsup.ErrorID;
+    mcsup_covereddistance_st := mcsup.CoveredDistance;
 END_PROGRAM
 ```
 

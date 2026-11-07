@@ -15,7 +15,7 @@ OUT = IN1 × IN2.
 
 ```iecst
 PROGRAM MUL_ST
-  mul_out_st := mul_in1 * mul_in2;
+    mul_out_st := mul_in1 * mul_in2;
 END_PROGRAM
 ```
 

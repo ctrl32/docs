@@ -15,7 +15,7 @@ Clamps IN into the range MN..MX.
 
 ```iecst
 PROGRAM LIMIT_ST
-  limit_out_st := LIMIT(limit_mn, limit_in, limit_mx);
+    limit_out_st := LIMIT(limit_mn, limit_in, limit_mx);
 END_PROGRAM
 ```
 

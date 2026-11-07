@@ -15,20 +15,17 @@ Runs at a velocity, for as long as nothing else takes the axis.
 
 ```iecst
 PROGRAM MC_MoveVelocity_ST
-VAR mcvel : MC_MoveVelocity; END_VAR
-  mcvel(AXIS := 0, Execute := mcvel_execute,
-        Velocity := mcvel_velocity,
-        ContinuousUpdate := mcvel_continuousupdate,
-        Acceleration := mcvel_acceleration,
-        Deceleration := mcvel_deceleration, Jerk := mcvel_jerk,
-        Direction := mcvel_direction,
-        BufferMode := mcvel_buffermode);
-  mcvel_invelocity_st := mcvel.InVelocity;
-  mcvel_busy_st := mcvel.Busy;
-  mcvel_active_st := mcvel.Active;
-  mcvel_commandaborted_st := mcvel.CommandAborted;
-  mcvel_error_st := mcvel.Error;
-  mcvel_errorid_st := mcvel.ErrorID;
+    VAR
+        mcvel : MC_MoveVelocity;
+    END_VAR
+
+    mcvel(AXIS := 0, Execute := mcvel_execute, Velocity := mcvel_velocity, ContinuousUpdate := mcvel_continuousupdate, Acceleration := mcvel_acceleration, Deceleration := mcvel_deceleration, Jerk := mcvel_jerk, Direction := mcvel_direction, BufferMode := mcvel_buffermode);
+    mcvel_invelocity_st := mcvel.InVelocity;
+    mcvel_busy_st := mcvel.Busy;
+    mcvel_active_st := mcvel.Active;
+    mcvel_commandaborted_st := mcvel.CommandAborted;
+    mcvel_error_st := mcvel.Error;
+    mcvel_errorid_st := mcvel.ErrorID;
 END_PROGRAM
 ```
 

@@ -15,15 +15,15 @@ Writes one of the axis's flags while the program runs.
 
 ```iecst
 PROGRAM MC_WriteBoolParameter_ST
-VAR mcwbpar : MC_WriteBoolParameter; END_VAR
-  mcwbpar(AXIS := 0, Execute := mcwbpar_execute,
-          Value := mcwbpar_value,
-          ParameterNumber := mcwbpar_parameternumber,
-          ExecutionMode := mcwbpar_executionmode);
-  mcwbpar_done_st := mcwbpar.Done;
-  mcwbpar_busy_st := mcwbpar.Busy;
-  mcwbpar_error_st := mcwbpar.Error;
-  mcwbpar_errorid_st := mcwbpar.ErrorID;
+    VAR
+        mcwbpar : MC_WriteBoolParameter;
+    END_VAR
+
+    mcwbpar(AXIS := 0, Execute := mcwbpar_execute, Value := mcwbpar_value, ParameterNumber := mcwbpar_parameternumber, ExecutionMode := mcwbpar_executionmode);
+    mcwbpar_done_st := mcwbpar.Done;
+    mcwbpar_busy_st := mcwbpar.Busy;
+    mcwbpar_error_st := mcwbpar.Error;
+    mcwbpar_errorid_st := mcwbpar.ErrorID;
 END_PROGRAM
 ```
 

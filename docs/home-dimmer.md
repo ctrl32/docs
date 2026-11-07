@@ -6,10 +6,13 @@ One button dims: a short click switches between off and the remembered level, a 
 
 ```iecst
 PROGRAM DIMMER_ST
-VAR dimmer : DIMMER; END_VAR
-  dimmer(BTN := dimmer_btn, ON := dimmer_on, OFF := dimmer_off, SET := dimmer_set, MIN := dimmer_min, MAX := dimmer_max, T_RAMP := dimmer_t_ramp);
-  dimmer_level := dimmer.LEVEL;
-  dimmer_q := dimmer.Q;
+    VAR
+        dimmer : DIMMER;
+    END_VAR
+
+    dimmer(BTN := dimmer_btn, ON := dimmer_on, OFF := dimmer_off, SET := dimmer_set, MIN := dimmer_min, MAX := dimmer_max, T_RAMP := dimmer_t_ramp);
+    dimmer_level := dimmer.LEVEL;
+    dimmer_q := dimmer.Q;
 END_PROGRAM
 ```
 

@@ -6,10 +6,13 @@ Today's sunrise and sunset: the minutes of the local day the sun rises and sets 
 
 ```iecst
 PROGRAM SUNTIMES_ST
-VAR suntimes : SUNTIMES; END_VAR
-  suntimes(DOY := suntimes_doy, UTC_OFF := suntimes_utc_off, LAT := suntimes_lat, LON := suntimes_lon);
-  suntimes_sunrise := suntimes.SUNRISE;
-  suntimes_sunset := suntimes.SUNSET;
+    VAR
+        suntimes : SUNTIMES;
+    END_VAR
+
+    suntimes(DOY := suntimes_doy, UTC_OFF := suntimes_utc_off, LAT := suntimes_lat, LON := suntimes_lon);
+    suntimes_sunrise := suntimes.SUNRISE;
+    suntimes_sunset := suntimes.SUNSET;
 END_PROGRAM
 ```
 

@@ -6,15 +6,18 @@ Runs one drive the device controls over Modbus: start and stop, the direction, t
 
 ```iecst
 PROGRAM DRIVE_ST
-VAR drive : DRIVE; END_VAR
-  drive(Enable := drive_enable, Reverse := drive_reverse, Speed := drive_speed, Reset := drive_reset, StatusWord := drive_statusword, ActualRaw := drive_actualraw, CurrentRaw := drive_currentraw, Profile := drive_profile, SpeedScale := drive_speedscale, ActualScale := drive_actualscale, CurrentScale := drive_currentscale);
-  drive_controlword := drive.ControlWord;
-  drive_setpointraw := drive.SetpointRaw;
-  drive_ready := drive.Ready;
-  drive_running := drive.Running;
-  drive_fault := drive.Fault;
-  drive_actualspeed := drive.ActualSpeed;
-  drive_current := drive.Current;
+    VAR
+        drive : DRIVE;
+    END_VAR
+
+    drive(Enable := drive_enable, Reverse := drive_reverse, Speed := drive_speed, Reset := drive_reset, StatusWord := drive_statusword, ActualRaw := drive_actualraw, CurrentRaw := drive_currentraw, Profile := drive_profile, SpeedScale := drive_speedscale, ActualScale := drive_actualscale, CurrentScale := drive_currentscale);
+    drive_controlword := drive.ControlWord;
+    drive_setpointraw := drive.SetpointRaw;
+    drive_ready := drive.Ready;
+    drive_running := drive.Running;
+    drive_fault := drive.Fault;
+    drive_actualspeed := drive.ActualSpeed;
+    drive_current := drive.Current;
 END_PROGRAM
 ```
 

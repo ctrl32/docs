@@ -15,9 +15,12 @@ Set-dominant latch: remembers, and if set and reset are both TRUE, set wins.
 
 ```iecst
 PROGRAM SR_ST
-VAR sr : SR; END_VAR
-  sr(S1 := sr_s1, R := sr_r);
-  sr_q1_st := sr.Q1;
+    VAR
+        sr : SR;
+    END_VAR
+
+    sr(S1 := sr_s1, R := sr_r);
+    sr_q1_st := sr.Q1;
 END_PROGRAM
 ```
 

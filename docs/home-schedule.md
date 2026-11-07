@@ -6,10 +6,13 @@ Two windows a day, a value: VALUE is V_IN inside either window on the listed day
 
 ```iecst
 PROGRAM SCHEDULE_ST
-VAR schedule : SCHEDULE; END_VAR
-  schedule(ENABLE := schedule_enable, MINUTES := schedule_minutes, WEEKDAY := schedule_weekday, DAYS := schedule_days, FROM1 := schedule_from1, TO1 := schedule_to1, FROM2 := schedule_from2, TO2 := schedule_to2, V_IN := schedule_v_in, V_OUT := schedule_v_out);
-  schedule_value := schedule.VALUE;
-  schedule_q := schedule.Q;
+    VAR
+        schedule : SCHEDULE;
+    END_VAR
+
+    schedule(ENABLE := schedule_enable, MINUTES := schedule_minutes, WEEKDAY := schedule_weekday, DAYS := schedule_days, FROM1 := schedule_from1, TO1 := schedule_to1, FROM2 := schedule_from2, TO2 := schedule_to2, V_IN := schedule_v_in, V_OUT := schedule_v_out);
+    schedule_value := schedule.VALUE;
+    schedule_q := schedule.Q;
 END_PROGRAM
 ```
 

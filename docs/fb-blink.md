@@ -15,11 +15,13 @@ Blinks: while RUN is TRUE, Q alternates T_ON on and T_OFF off.
 
 ```iecst
 PROGRAM BLINK_ST
-VAR blink : BLINK; END_VAR
-  blink(RUN := blink_run, T_ON := blink_t_on,
-        T_OFF := blink_t_off);
-  blink_q_st := blink.Q;
-  blink_rem_st := blink.REM;
+    VAR
+        blink : BLINK;
+    END_VAR
+
+    blink(RUN := blink_run, T_ON := blink_t_on, T_OFF := blink_t_off);
+    blink_q_st := blink.Q;
+    blink_rem_st := blink.REM;
 END_PROGRAM
 ```
 

@@ -15,7 +15,7 @@ Maps IN linearly from the range IN_MIN..IN_MAX onto OUT_MIN..OUT_MAX.
 
 ```iecst
 PROGRAM SCALE_ST
-  scale_out_st := SCALE(scale_in, scale_in_min, scale_in_max, scale_out_min, scale_out_max);
+    scale_out_st := SCALE(scale_in, scale_in_min, scale_in_max, scale_out_min, scale_out_max);
 END_PROGRAM
 ```
 

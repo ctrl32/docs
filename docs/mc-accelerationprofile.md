@@ -15,20 +15,17 @@ The axis follows a table of time against acceleration.
 
 ```iecst
 PROGRAM MC_AccelerationProfile_ST
-VAR mcapro : MC_AccelerationProfile; END_VAR
-  mcapro(AXIS := 0, Execute := mcapro_execute,
-         TimeAcceleration := mcapro_timeacceleration,
-         ArraySize := mcapro_arraysize,
-         TimeScale := mcapro_timescale,
-         AccelerationScale := mcapro_accelerationscale,
-         Offset := mcapro_offset,
-         BufferMode := mcapro_buffermode);
-  mcapro_done_st := mcapro.Done;
-  mcapro_busy_st := mcapro.Busy;
-  mcapro_active_st := mcapro.Active;
-  mcapro_commandaborted_st := mcapro.CommandAborted;
-  mcapro_error_st := mcapro.Error;
-  mcapro_errorid_st := mcapro.ErrorID;
+    VAR
+        mcapro : MC_AccelerationProfile;
+    END_VAR
+
+    mcapro(AXIS := 0, Execute := mcapro_execute, TimeAcceleration := mcapro_timeacceleration, ArraySize := mcapro_arraysize, TimeScale := mcapro_timescale, AccelerationScale := mcapro_accelerationscale, Offset := mcapro_offset, BufferMode := mcapro_buffermode);
+    mcapro_done_st := mcapro.Done;
+    mcapro_busy_st := mcapro.Busy;
+    mcapro_active_st := mcapro.Active;
+    mcapro_commandaborted_st := mcapro.CommandAborted;
+    mcapro_error_st := mcapro.Error;
+    mcapro_errorid_st := mcapro.ErrorID;
 END_PROGRAM
 ```
 

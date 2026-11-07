@@ -42,12 +42,13 @@ straight away; the next step renames them.
 
 ## 2. Define the interface
 
-Above the rungs sits the **Variables (interface)** pane. Click its header
-to open it.
+Above the rungs sits the **Declarations** window - the block's pins, as a
+table or as text (the two buttons on its right; drag the bar under the
+window to give it the height you want).
 
-![The interface pane of STARTSTOP: two inputs, one output, the buttons that add more](img/ownblock-iface.webp){: .sb-center}
+![The declaration window of STARTSTOP: two inputs, one output, the buttons that add more](img/ownblock-iface.webp){: .sb-center}
 
-The pane is the block's declaration in the PLCopen shape:
+The window is the block's declaration in the PLCopen shape:
 
 | Row | Meaning |
 |:---|:---|

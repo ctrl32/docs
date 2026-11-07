@@ -13,10 +13,13 @@ The staircase light: a pulse lights Q for PT, another pulse restarts the time, W
 
 ```iecst
 PROGRAM STAIRLIGHT_ST
-VAR stairlight : STAIRLIGHT; END_VAR
-  stairlight(TRIG := stairlight_trig, OFF := stairlight_off, PERMANENT := stairlight_permanent, PT := stairlight_pt, T_WARN := stairlight_t_warn);
-  stairlight_q := stairlight.Q;
-  stairlight_warn := stairlight.WARN;
+    VAR
+        stairlight : STAIRLIGHT;
+    END_VAR
+
+    stairlight(TRIG := stairlight_trig, OFF := stairlight_off, PERMANENT := stairlight_permanent, PT := stairlight_pt, T_WARN := stairlight_t_warn);
+    stairlight_q := stairlight.Q;
+    stairlight_warn := stairlight.WARN;
 END_PROGRAM
 ```
 

@@ -15,15 +15,15 @@ The operator's "slower, please" - scales every command.
 
 ```iecst
 PROGRAM MC_SetOverride_ST
-VAR mcovr : MC_SetOverride; END_VAR
-  mcovr(AXIS := 0, Enable := mcovr_enable,
-        VelFactor := mcovr_velfactor,
-        AccFactor := mcovr_accfactor,
-        JerkFactor := mcovr_jerkfactor);
-  mcovr_enabled_st := mcovr.Enabled;
-  mcovr_busy_st := mcovr.Busy;
-  mcovr_error_st := mcovr.Error;
-  mcovr_errorid_st := mcovr.ErrorID;
+    VAR
+        mcovr : MC_SetOverride;
+    END_VAR
+
+    mcovr(AXIS := 0, Enable := mcovr_enable, VelFactor := mcovr_velfactor, AccFactor := mcovr_accfactor, JerkFactor := mcovr_jerkfactor);
+    mcovr_enabled_st := mcovr.Enabled;
+    mcovr_busy_st := mcovr.Busy;
+    mcovr_error_st := mcovr.Error;
+    mcovr_errorid_st := mcovr.ErrorID;
 END_PROGRAM
 ```
 

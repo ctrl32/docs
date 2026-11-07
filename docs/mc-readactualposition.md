@@ -15,13 +15,16 @@ The measured position.
 
 ```iecst
 PROGRAM MC_ReadActualPosition_ST
-VAR mcrpos : MC_ReadActualPosition; END_VAR
-  mcrpos(AXIS := 0, Enable := mcrpos_enable);
-  mcrpos_valid_st := mcrpos.Valid;
-  mcrpos_busy_st := mcrpos.Busy;
-  mcrpos_error_st := mcrpos.Error;
-  mcrpos_errorid_st := mcrpos.ErrorID;
-  mcrpos_position_st := mcrpos.Position;
+    VAR
+        mcrpos : MC_ReadActualPosition;
+    END_VAR
+
+    mcrpos(AXIS := 0, Enable := mcrpos_enable);
+    mcrpos_valid_st := mcrpos.Valid;
+    mcrpos_busy_st := mcrpos.Busy;
+    mcrpos_error_st := mcrpos.Error;
+    mcrpos_errorid_st := mcrpos.ErrorID;
+    mcrpos_position_st := mcrpos.Position;
 END_PROGRAM
 ```
 

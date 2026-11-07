@@ -15,13 +15,16 @@ The measured velocity.
 
 ```iecst
 PROGRAM MC_ReadActualVelocity_ST
-VAR mcrvel : MC_ReadActualVelocity; END_VAR
-  mcrvel(AXIS := 0, Enable := mcrvel_enable);
-  mcrvel_valid_st := mcrvel.Valid;
-  mcrvel_busy_st := mcrvel.Busy;
-  mcrvel_error_st := mcrvel.Error;
-  mcrvel_errorid_st := mcrvel.ErrorID;
-  mcrvel_velocity_st := mcrvel.Velocity;
+    VAR
+        mcrvel : MC_ReadActualVelocity;
+    END_VAR
+
+    mcrvel(AXIS := 0, Enable := mcrvel_enable);
+    mcrvel_valid_st := mcrvel.Valid;
+    mcrvel_busy_st := mcrvel.Busy;
+    mcrvel_error_st := mcrvel.Error;
+    mcrvel_errorid_st := mcrvel.ErrorID;
+    mcrvel_velocity_st := mcrvel.Velocity;
 END_PROGRAM
 ```
 

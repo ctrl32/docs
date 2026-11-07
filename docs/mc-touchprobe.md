@@ -15,18 +15,17 @@ Records the axis position at the edge of a probe input.
 
 ```iecst
 PROGRAM MC_TouchProbe_ST
-VAR mcprb : MC_TouchProbe; END_VAR
-  mcprb(AXIS := 0, Execute := mcprb_execute,
-        FirstPosition := mcprb_firstposition,
-        LastPosition := mcprb_lastposition,
-        TriggerInput := mcprb_triggerinput,
-        WindowOnly := mcprb_windowonly);
-  mcprb_done_st := mcprb.Done;
-  mcprb_busy_st := mcprb.Busy;
-  mcprb_error_st := mcprb.Error;
-  mcprb_errorid_st := mcprb.ErrorID;
-  mcprb_recordedposition_st := mcprb.RecordedPosition;
-  mcprb_commandaborted_st := mcprb.CommandAborted;
+    VAR
+        mcprb : MC_TouchProbe;
+    END_VAR
+
+    mcprb(AXIS := 0, Execute := mcprb_execute, FirstPosition := mcprb_firstposition, LastPosition := mcprb_lastposition, TriggerInput := mcprb_triggerinput, WindowOnly := mcprb_windowonly);
+    mcprb_done_st := mcprb.Done;
+    mcprb_busy_st := mcprb.Busy;
+    mcprb_error_st := mcprb.Error;
+    mcprb_errorid_st := mcprb.ErrorID;
+    mcprb_recordedposition_st := mcprb.RecordedPosition;
+    mcprb_commandaborted_st := mcprb.CommandAborted;
 END_PROGRAM
 ```
 

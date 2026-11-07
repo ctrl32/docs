@@ -15,10 +15,13 @@ Delays switching off: Q follows IN on at once and stays on for another PT after 
 
 ```iecst
 PROGRAM TOF_ST
-VAR tof : TOF; END_VAR
-  tof(IN := tof_in, PT := tof_pt);
-  tof_q_st := tof.Q;
-  tof_et_st := tof.ET;
+    VAR
+        tof : TOF;
+    END_VAR
+
+    tof(IN := tof_in, PT := tof_pt);
+    tof_q_st := tof.Q;
+    tof_et_st := tof.ET;
 END_PROGRAM
 ```
 

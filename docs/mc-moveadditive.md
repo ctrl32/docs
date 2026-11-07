@@ -15,19 +15,17 @@ Adds a distance to the target of the running move.
 
 ```iecst
 PROGRAM MC_MoveAdditive_ST
-VAR mcadd : MC_MoveAdditive; END_VAR
-  mcadd(AXIS := 0, Execute := mcadd_execute,
-        Distance := mcadd_distance, Velocity := mcadd_velocity,
-        ContinuousUpdate := mcadd_continuousupdate,
-        Acceleration := mcadd_acceleration,
-        Deceleration := mcadd_deceleration, Jerk := mcadd_jerk,
-        BufferMode := mcadd_buffermode);
-  mcadd_done_st := mcadd.Done;
-  mcadd_busy_st := mcadd.Busy;
-  mcadd_active_st := mcadd.Active;
-  mcadd_commandaborted_st := mcadd.CommandAborted;
-  mcadd_error_st := mcadd.Error;
-  mcadd_errorid_st := mcadd.ErrorID;
+    VAR
+        mcadd : MC_MoveAdditive;
+    END_VAR
+
+    mcadd(AXIS := 0, Execute := mcadd_execute, Distance := mcadd_distance, Velocity := mcadd_velocity, ContinuousUpdate := mcadd_continuousupdate, Acceleration := mcadd_acceleration, Deceleration := mcadd_deceleration, Jerk := mcadd_jerk, BufferMode := mcadd_buffermode);
+    mcadd_done_st := mcadd.Done;
+    mcadd_busy_st := mcadd.Busy;
+    mcadd_active_st := mcadd.Active;
+    mcadd_commandaborted_st := mcadd.CommandAborted;
+    mcadd_error_st := mcadd.Error;
+    mcadd_errorid_st := mcadd.ErrorID;
 END_PROGRAM
 ```
 

@@ -15,9 +15,9 @@ Sends an SMS from the project's message table on the rising edge of Execute.
 
 ```iecst
 PROGRAM SMS_SEND_ST
-  IF sms_execute THEN
-    sms_done_st := SMS_SEND('block library: SMS_SEND fired', 0);
-  END_IF;
+    IF sms_execute THEN
+        sms_done_st := SMS_SEND('block library: SMS_SEND fired', 0);
+    END_IF;
 END_PROGRAM
 ```
 

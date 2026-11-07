@@ -15,14 +15,15 @@ Switches the axis on and off - the CiA 402 state machine, handled for you.
 
 ```iecst
 PROGRAM MC_Power_ST
-VAR mcpow : MC_Power; END_VAR
-  mcpow(AXIS := 0, Enable := mcpow_enable,
-        Enable_Positive := mcpow_enable_positive,
-        Enable_Negative := mcpow_enable_negative);
-  mcpow_status_st := mcpow.Status;
-  mcpow_valid_st := mcpow.Valid;
-  mcpow_error_st := mcpow.Error;
-  mcpow_errorid_st := mcpow.ErrorID;
+    VAR
+        mcpow : MC_Power;
+    END_VAR
+
+    mcpow(AXIS := 0, Enable := mcpow_enable, Enable_Positive := mcpow_enable_positive, Enable_Negative := mcpow_enable_negative);
+    mcpow_status_st := mcpow.Status;
+    mcpow_valid_st := mcpow.Valid;
+    mcpow_error_st := mcpow.Error;
+    mcpow_errorid_st := mcpow.ErrorID;
 END_PROGRAM
 ```
 

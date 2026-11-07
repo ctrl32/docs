@@ -15,21 +15,17 @@ Moves a distance and arrives at a velocity.
 
 ```iecst
 PROGRAM MC_MoveContinuousRelative_ST
-VAR mccrel : MC_MoveContinuousRelative; END_VAR
-  mccrel(AXIS := 0, Execute := mccrel_execute,
-         Distance := mccrel_distance,
-         EndVelocity := mccrel_endvelocity,
-         Velocity := mccrel_velocity,
-         ContinuousUpdate := mccrel_continuousupdate,
-         Acceleration := mccrel_acceleration,
-         Deceleration := mccrel_deceleration,
-         Jerk := mccrel_jerk, BufferMode := mccrel_buffermode);
-  mccrel_inendvelocity_st := mccrel.InEndVelocity;
-  mccrel_busy_st := mccrel.Busy;
-  mccrel_active_st := mccrel.Active;
-  mccrel_commandaborted_st := mccrel.CommandAborted;
-  mccrel_error_st := mccrel.Error;
-  mccrel_errorid_st := mccrel.ErrorID;
+    VAR
+        mccrel : MC_MoveContinuousRelative;
+    END_VAR
+
+    mccrel(AXIS := 0, Execute := mccrel_execute, Distance := mccrel_distance, EndVelocity := mccrel_endvelocity, Velocity := mccrel_velocity, ContinuousUpdate := mccrel_continuousupdate, Acceleration := mccrel_acceleration, Deceleration := mccrel_deceleration, Jerk := mccrel_jerk, BufferMode := mccrel_buffermode);
+    mccrel_inendvelocity_st := mccrel.InEndVelocity;
+    mccrel_busy_st := mccrel.Busy;
+    mccrel_active_st := mccrel.Active;
+    mccrel_commandaborted_st := mccrel.CommandAborted;
+    mccrel_error_st := mccrel.Error;
+    mccrel_errorid_st := mccrel.ErrorID;
 END_PROGRAM
 ```
 

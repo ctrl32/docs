@@ -15,15 +15,16 @@ One bit of the drive's outputs word.
 
 ```iecst
 PROGRAM MC_ReadDigitalOutput_ST
-VAR mcrdo : MC_ReadDigitalOutput; END_VAR
-  mcrdo(AXIS := 0, Enable := mcrdo_enable,
-        Output := mcrdo_output,
-        OutputNumber := mcrdo_outputnumber);
-  mcrdo_valid_st := mcrdo.Valid;
-  mcrdo_busy_st := mcrdo.Busy;
-  mcrdo_error_st := mcrdo.Error;
-  mcrdo_errorid_st := mcrdo.ErrorID;
-  mcrdo_value_st := mcrdo.Value;
+    VAR
+        mcrdo : MC_ReadDigitalOutput;
+    END_VAR
+
+    mcrdo(AXIS := 0, Enable := mcrdo_enable, Output := mcrdo_output, OutputNumber := mcrdo_outputnumber);
+    mcrdo_valid_st := mcrdo.Valid;
+    mcrdo_busy_st := mcrdo.Busy;
+    mcrdo_error_st := mcrdo.Error;
+    mcrdo_errorid_st := mcrdo.ErrorID;
+    mcrdo_value_st := mcrdo.Value;
 END_PROGRAM
 ```
 

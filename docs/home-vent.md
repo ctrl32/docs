@@ -6,10 +6,13 @@ The bathroom fan: runs with the light after a delay, runs on after it, runs on h
 
 ```iecst
 PROGRAM VENT_ST
-VAR vent : VENT; END_VAR
-  vent(LIGHT := vent_light, HUM := vent_hum, MANUAL := vent_manual, T_DELAY := vent_t_delay, T_RUNON := vent_t_runon, T_MAX := vent_t_max, H_ON := vent_h_on, H_OFF := vent_h_off);
-  vent_fan := vent.FAN;
-  vent_humid := vent.HUMID;
+    VAR
+        vent : VENT;
+    END_VAR
+
+    vent(LIGHT := vent_light, HUM := vent_hum, MANUAL := vent_manual, T_DELAY := vent_t_delay, T_RUNON := vent_t_runon, T_MAX := vent_t_max, H_ON := vent_h_on, H_OFF := vent_h_off);
+    vent_fan := vent.FAN;
+    vent_humid := vent.HUMID;
 END_PROGRAM
 ```
 

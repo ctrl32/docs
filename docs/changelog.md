@@ -8,6 +8,31 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.11.001
+
+- **The declarations in a window of their own.** Every program page -
+  ST, ladder and FBD - now has the shape of a PLC editor: the
+  declarations (`VAR ... END_VAR`, a block's pins) in a window at the
+  top, the program under it, a bar between them you drag to the height
+  you want. The declarations show as text or as a table
+  ([Structured Text](st-language.md), [Your own block](own-block.md)).
+- **The converter's Properties from its page.** Pick a channel's row on
+  a converter's page and the panel under the canvas shows the variable's
+  whole sheet - General, I/O source, Sensor with the registers and the
+  wiring, Scaling, Use - the same one the variable opens
+  ([Reading real values](analog-inputs.md)).
+- **A quieter face.** The menu on the left of every Properties sheet
+  names its sections and nothing else; every drop-down list wears one
+  thin chevron instead of a filled triangle; the Drives node and every
+  drive carry the motor symbol an electrician knows.
+- **The examples are the boards' projects.** The Examples menu lists
+  the boards of the hardware guides and nothing else; the example
+  projects an earlier version placed in your Documents folder move into
+  an `archive` folder beside them, nothing is deleted.
+- **The programs read like a program.** Every ST program of the shipped
+  examples is laid out one statement a line, with the blocks indented
+  and a comment on each group of statements.
+
 ## 1.11.000
 
 A new line: every device takes a new runtime (over the network or over

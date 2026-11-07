@@ -15,7 +15,7 @@ OUT = IN - the IEC assignment as a block.
 
 ```iecst
 PROGRAM MOVE_ST
-  move_out_st := move_in;
+    move_out_st := move_in;
 END_PROGRAM
 ```
 

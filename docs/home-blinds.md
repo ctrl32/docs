@@ -13,10 +13,13 @@ A roller shutter with two keys: UP and DOWN run the motor, the same key stops, t
 
 ```iecst
 PROGRAM BLINDS_ST
-VAR blinds : BLINDS; END_VAR
-  blinds(UP := blinds_up, DOWN := blinds_down, STOP := blinds_stop, SAFETY := blinds_safety, T_RUN := blinds_t_run, T_REVERSE := blinds_t_reverse, T_TILT := blinds_t_tilt, T_LONG := blinds_t_long);
-  blinds_m_up := blinds.M_UP;
-  blinds_m_down := blinds.M_DOWN;
+    VAR
+        blinds : BLINDS;
+    END_VAR
+
+    blinds(UP := blinds_up, DOWN := blinds_down, STOP := blinds_stop, SAFETY := blinds_safety, T_RUN := blinds_t_run, T_REVERSE := blinds_t_reverse, T_TILT := blinds_t_tilt, T_LONG := blinds_t_long);
+    blinds_m_up := blinds.M_UP;
+    blinds_m_down := blinds.M_DOWN;
 END_PROGRAM
 ```
 

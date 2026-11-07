@@ -13,10 +13,13 @@ Tells a short click from a long press on one wall contact.
 
 ```iecst
 PROGRAM PUSHBUTTON_ST
-VAR pushbutton : PUSHBUTTON; END_VAR
-  pushbutton(IN := pushbutton_in, T_LONG := pushbutton_t_long, T_DOUBLE := pushbutton_t_double);
-  pushbutton_short := pushbutton.SHORT;
-  pushbutton_long := pushbutton.LONG;
+    VAR
+        pushbutton : PUSHBUTTON;
+    END_VAR
+
+    pushbutton(IN := pushbutton_in, T_LONG := pushbutton_t_long, T_DOUBLE := pushbutton_t_double);
+    pushbutton_short := pushbutton.SHORT;
+    pushbutton_long := pushbutton.LONG;
 END_PROGRAM
 ```
 

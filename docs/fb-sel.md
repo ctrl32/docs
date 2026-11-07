@@ -15,7 +15,7 @@ Binary selector: OUT = IN1 when G is TRUE, IN0 when it is FALSE.
 
 ```iecst
 PROGRAM SEL_ST
-  sel_out_st := SEL(sel_g, sel_in0, sel_in1);
+    sel_out_st := SEL(sel_g, sel_in0, sel_in1);
 END_PROGRAM
 ```
 

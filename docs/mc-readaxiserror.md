@@ -15,13 +15,16 @@ The drive's own error code.
 
 ```iecst
 PROGRAM MC_ReadAxisError_ST
-VAR mcrerr : MC_ReadAxisError; END_VAR
-  mcrerr(AXIS := 0, Enable := mcrerr_enable);
-  mcrerr_valid_st := mcrerr.Valid;
-  mcrerr_busy_st := mcrerr.Busy;
-  mcrerr_error_st := mcrerr.Error;
-  mcrerr_errorid_st := mcrerr.ErrorID;
-  mcrerr_axiserrorid_st := mcrerr.AxisErrorID;
+    VAR
+        mcrerr : MC_ReadAxisError;
+    END_VAR
+
+    mcrerr(AXIS := 0, Enable := mcrerr_enable);
+    mcrerr_valid_st := mcrerr.Valid;
+    mcrerr_busy_st := mcrerr.Busy;
+    mcrerr_error_st := mcrerr.Error;
+    mcrerr_errorid_st := mcrerr.ErrorID;
+    mcrerr_axiserrorid_st := mcrerr.AxisErrorID;
 END_PROGRAM
 ```
 

@@ -15,10 +15,13 @@ Delays switching on: Q goes TRUE once IN has been held continuously for PT.
 
 ```iecst
 PROGRAM TON_ST
-VAR ton : TON; END_VAR
-  ton(IN := ton_in, PT := ton_pt);
-  ton_q_st := ton.Q;
-  ton_et_st := ton.ET;
+    VAR
+        ton : TON;
+    END_VAR
+
+    ton(IN := ton_in, PT := ton_pt);
+    ton_q_st := ton.Q;
+    ton_et_st := ton.ET;
 END_PROGRAM
 ```
 

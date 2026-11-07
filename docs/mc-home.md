@@ -15,16 +15,17 @@ The reference run - the axis learns its zero.
 
 ```iecst
 PROGRAM MC_Home_ST
-VAR mchome : MC_Home; END_VAR
-  mchome(AXIS := 0, Execute := mchome_execute,
-         Position := mchome_position,
-         BufferMode := mchome_buffermode);
-  mchome_done_st := mchome.Done;
-  mchome_busy_st := mchome.Busy;
-  mchome_active_st := mchome.Active;
-  mchome_commandaborted_st := mchome.CommandAborted;
-  mchome_error_st := mchome.Error;
-  mchome_errorid_st := mchome.ErrorID;
+    VAR
+        mchome : MC_Home;
+    END_VAR
+
+    mchome(AXIS := 0, Execute := mchome_execute, Position := mchome_position, BufferMode := mchome_buffermode);
+    mchome_done_st := mchome.Done;
+    mchome_busy_st := mchome.Busy;
+    mchome_active_st := mchome.Active;
+    mchome_commandaborted_st := mchome.CommandAborted;
+    mchome_error_st := mchome.Error;
+    mchome_errorid_st := mchome.ErrorID;
 END_PROGRAM
 ```
 

@@ -15,10 +15,13 @@ Counts up: a rising edge of CU increments CV, R resets it, Q is TRUE once CV has
 
 ```iecst
 PROGRAM CTU_ST
-VAR ctu : CTU; END_VAR
-  ctu(CU := ctu_cu, R := ctu_r, PV := ctu_pv);
-  ctu_q_st := ctu.Q;
-  ctu_cv_st := ctu.CV;
+    VAR
+        ctu : CTU;
+    END_VAR
+
+    ctu(CU := ctu_cu, R := ctu_r, PV := ctu_pv);
+    ctu_q_st := ctu.Q;
+    ctu_cv_st := ctu.CV;
 END_PROGRAM
 ```
 

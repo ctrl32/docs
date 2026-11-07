@@ -15,7 +15,7 @@ Q is TRUE when IN1 > IN2.
 
 ```iecst
 PROGRAM GT_ST
-  gt_q_st := gt_in1 > gt_in2;
+    gt_q_st := gt_in1 > gt_in2;
 END_PROGRAM
 ```
 

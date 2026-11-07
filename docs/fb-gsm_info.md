@@ -15,10 +15,13 @@ Reports the modem's state to the logic: registered on the network, and the signa
 
 ```iecst
 PROGRAM GSM_INFO_ST
-VAR gsm : GSM_INFO; END_VAR
-  gsm(Enable := gsm_enable);
-  gsm_ready_st := gsm.Ready;
-  gsm_signal_st := gsm.Signal;
+    VAR
+        gsm : GSM_INFO;
+    END_VAR
+
+    gsm(Enable := gsm_enable);
+    gsm_ready_st := gsm.Ready;
+    gsm_signal_st := gsm.Signal;
 END_PROGRAM
 ```
 

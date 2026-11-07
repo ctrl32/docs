@@ -15,9 +15,12 @@ Comparator with hysteresis: Q switches on at IN >= ON, and off again only at IN 
 
 ```iecst
 PROGRAM HYST_ST
-VAR hyst : HYST; END_VAR
-  hyst(IN := hyst_in, ON := hyst_on, OFF := hyst_off);
-  hyst_q_st := hyst.Q;
+    VAR
+        hyst : HYST;
+    END_VAR
+
+    hyst(IN := hyst_in, ON := hyst_on, OFF := hyst_off);
+    hyst_q_st := hyst.Q;
 END_PROGRAM
 ```
 

@@ -6,9 +6,12 @@ A level into a slow square wave: Q is TRUE for IN percent of every PERIOD.
 
 ```iecst
 PROGRAM PWM_ST
-VAR pwm : PWM; END_VAR
-  pwm(IN := pwm_in, PERIOD := pwm_period);
-  pwm_q := pwm.Q;
+    VAR
+        pwm : PWM;
+    END_VAR
+
+    pwm(IN := pwm_in, PERIOD := pwm_period);
+    pwm_q := pwm.Q;
 END_PROGRAM
 ```
 

@@ -6,10 +6,13 @@ Counts the clicks of a burst.
 
 ```iecst
 PROGRAM MULTICLICK_ST
-VAR multiclick : MULTICLICK; END_VAR
-  multiclick(IN := multiclick_in, T_DOUBLE := multiclick_t_double);
-  multiclick_double := multiclick.DOUBLE;
-  multiclick_clicks := multiclick.CLICKS;
+    VAR
+        multiclick : MULTICLICK;
+    END_VAR
+
+    multiclick(IN := multiclick_in, T_DOUBLE := multiclick_t_double);
+    multiclick_double := multiclick.DOUBLE;
+    multiclick_clicks := multiclick.CLICKS;
 END_PROGRAM
 ```
 

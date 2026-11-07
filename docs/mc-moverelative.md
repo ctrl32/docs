@@ -15,19 +15,17 @@ Moves this far from the position commanded now.
 
 ```iecst
 PROGRAM MC_MoveRelative_ST
-VAR mcrel : MC_MoveRelative; END_VAR
-  mcrel(AXIS := 0, Execute := mcrel_execute,
-        Distance := mcrel_distance, Velocity := mcrel_velocity,
-        ContinuousUpdate := mcrel_continuousupdate,
-        Acceleration := mcrel_acceleration,
-        Deceleration := mcrel_deceleration, Jerk := mcrel_jerk,
-        BufferMode := mcrel_buffermode);
-  mcrel_done_st := mcrel.Done;
-  mcrel_busy_st := mcrel.Busy;
-  mcrel_active_st := mcrel.Active;
-  mcrel_commandaborted_st := mcrel.CommandAborted;
-  mcrel_error_st := mcrel.Error;
-  mcrel_errorid_st := mcrel.ErrorID;
+    VAR
+        mcrel : MC_MoveRelative;
+    END_VAR
+
+    mcrel(AXIS := 0, Execute := mcrel_execute, Distance := mcrel_distance, Velocity := mcrel_velocity, ContinuousUpdate := mcrel_continuousupdate, Acceleration := mcrel_acceleration, Deceleration := mcrel_deceleration, Jerk := mcrel_jerk, BufferMode := mcrel_buffermode);
+    mcrel_done_st := mcrel.Done;
+    mcrel_busy_st := mcrel.Busy;
+    mcrel_active_st := mcrel.Active;
+    mcrel_commandaborted_st := mcrel.CommandAborted;
+    mcrel_error_st := mcrel.Error;
+    mcrel_errorid_st := mcrel.ErrorID;
 END_PROGRAM
 ```
 

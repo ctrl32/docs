@@ -13,9 +13,12 @@ The light switch: every rising edge of TRIG flips Q; SET and RESET are the centr
 
 ```iecst
 PROGRAM TOGGLE_ST
-VAR toggle : TOGGLE; END_VAR
-  toggle(TRIG := toggle_trig, SET := toggle_set, RESET := toggle_reset);
-  toggle_q := toggle.Q;
+    VAR
+        toggle : TOGGLE;
+    END_VAR
+
+    toggle(TRIG := toggle_trig, SET := toggle_set, RESET := toggle_reset);
+    toggle_q := toggle.Q;
 END_PROGRAM
 ```
 

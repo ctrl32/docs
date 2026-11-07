@@ -15,7 +15,7 @@ Q is TRUE when IN1 >= IN2.
 
 ```iecst
 PROGRAM GE_ST
-  ge_q_st := ge_in1 >= ge_in2;
+    ge_q_st := ge_in1 >= ge_in2;
 END_PROGRAM
 ```
 

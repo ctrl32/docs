@@ -15,9 +15,12 @@ Detects a falling edge: Q is TRUE for exactly one cycle after CLK drops.
 
 ```iecst
 PROGRAM F_TRIG_ST
-VAR ftrig : F_TRIG; END_VAR
-  ftrig(CLK := ftrig_clk);
-  ftrig_q_st := ftrig.Q;
+    VAR
+        ftrig : F_TRIG;
+    END_VAR
+
+    ftrig(CLK := ftrig_clk);
+    ftrig_q_st := ftrig.Q;
 END_PROGRAM
 ```
 

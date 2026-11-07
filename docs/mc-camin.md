@@ -15,26 +15,18 @@ Couples the axis to a master through a cam table.
 
 ```iecst
 PROGRAM MC_CamIn_ST
-VAR mccami : MC_CamIn; END_VAR
-  mccami(AXIS := 2, Execute := mccami_execute,
-         MasterOffset := mccami_masteroffset,
-         SlaveOffset := mccami_slaveoffset,
-         CamTableID := mccami_camtableid,
-         Master := mccami_master,
-         ContinuousUpdate := mccami_continuousupdate,
-         MasterScaling := mccami_masterscaling,
-         SlaveScaling := mccami_slavescaling,
-         StartMode := mccami_startmode,
-         MasterStartDistance := mccami_masterstartdistance,
-         MasterSyncPosition := mccami_mastersyncposition,
-         BufferMode := mccami_buffermode);
-  mccami_insync_st := mccami.InSync;
-  mccami_busy_st := mccami.Busy;
-  mccami_active_st := mccami.Active;
-  mccami_commandaborted_st := mccami.CommandAborted;
-  mccami_error_st := mccami.Error;
-  mccami_errorid_st := mccami.ErrorID;
-  mccami_endofprofile_st := mccami.EndOfProfile;
+    VAR
+        mccami : MC_CamIn;
+    END_VAR
+
+    mccami(AXIS := 2, Execute := mccami_execute, MasterOffset := mccami_masteroffset, SlaveOffset := mccami_slaveoffset, CamTableID := mccami_camtableid, Master := mccami_master, ContinuousUpdate := mccami_continuousupdate, MasterScaling := mccami_masterscaling, SlaveScaling := mccami_slavescaling, StartMode := mccami_startmode, MasterStartDistance := mccami_masterstartdistance, MasterSyncPosition := mccami_mastersyncposition, BufferMode := mccami_buffermode);
+    mccami_insync_st := mccami.InSync;
+    mccami_busy_st := mccami.Busy;
+    mccami_active_st := mccami.Active;
+    mccami_commandaborted_st := mccami.CommandAborted;
+    mccami_error_st := mccami.Error;
+    mccami_errorid_st := mccami.ErrorID;
+    mccami_endofprofile_st := mccami.EndOfProfile;
 END_PROGRAM
 ```
 

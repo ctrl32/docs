@@ -15,10 +15,13 @@ Counts down: a rising edge of CD decrements CV, LD loads CV = PV, Q is TRUE at z
 
 ```iecst
 PROGRAM CTD_ST
-VAR ctd : CTD; END_VAR
-  ctd(CD := ctd_cd, LD := ctd_ld, PV := ctd_pv);
-  ctd_q_st := ctd.Q;
-  ctd_cv_st := ctd.CV;
+    VAR
+        ctd : CTD;
+    END_VAR
+
+    ctd(CD := ctd_cd, LD := ctd_ld, PV := ctd_pv);
+    ctd_q_st := ctd.Q;
+    ctd_cv_st := ctd.CV;
 END_PROGRAM
 ```
 

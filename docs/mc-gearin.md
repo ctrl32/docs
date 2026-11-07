@@ -15,23 +15,18 @@ Couples the axis to a master at a ratio - the line shaft.
 
 ```iecst
 PROGRAM MC_GearIn_ST
-VAR mcgin : MC_GearIn; END_VAR
-  mcgin(AXIS := 2, Execute := mcgin_execute,
-        Master := mcgin_master,
-        ContinuousUpdate := mcgin_continuousupdate,
-        RatioNumerator := mcgin_rationumerator,
-        RatioDenominator := mcgin_ratiodenominator,
-        MasterValueSource := mcgin_mastervaluesource,
-        Acceleration := mcgin_acceleration,
-        Deceleration := mcgin_deceleration, Jerk := mcgin_jerk,
-        BufferMode := mcgin_buffermode, Delay := mcgin_delay);
-  mcgin_ingear_st := mcgin.InGear;
-  mcgin_busy_st := mcgin.Busy;
-  mcgin_active_st := mcgin.Active;
-  mcgin_commandaborted_st := mcgin.CommandAborted;
-  mcgin_error_st := mcgin.Error;
-  mcgin_errorid_st := mcgin.ErrorID;
-  mcgin_register_st := mcgin.Register;
+    VAR
+        mcgin : MC_GearIn;
+    END_VAR
+
+    mcgin(AXIS := 2, Execute := mcgin_execute, Master := mcgin_master, ContinuousUpdate := mcgin_continuousupdate, RatioNumerator := mcgin_rationumerator, RatioDenominator := mcgin_ratiodenominator, MasterValueSource := mcgin_mastervaluesource, Acceleration := mcgin_acceleration, Deceleration := mcgin_deceleration, Jerk := mcgin_jerk, BufferMode := mcgin_buffermode, Delay := mcgin_delay);
+    mcgin_ingear_st := mcgin.InGear;
+    mcgin_busy_st := mcgin.Busy;
+    mcgin_active_st := mcgin.Active;
+    mcgin_commandaborted_st := mcgin.CommandAborted;
+    mcgin_error_st := mcgin.Error;
+    mcgin_errorid_st := mcgin.ErrorID;
+    mcgin_register_st := mcgin.Register;
 END_PROGRAM
 ```
 

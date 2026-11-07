@@ -15,9 +15,12 @@ First-order filter: OUT approaches IN with the time constant T.
 
 ```iecst
 PROGRAM PT1_ST
-VAR pt1 : PT1; END_VAR
-  pt1(IN := pt1_in, T := pt1_t);
-  pt1_out_st := pt1.OUT;
+    VAR
+        pt1 : PT1;
+    END_VAR
+
+    pt1(IN := pt1_in, T := pt1_t);
+    pt1_out_st := pt1.OUT;
 END_PROGRAM
 ```
 

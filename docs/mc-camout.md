@@ -15,12 +15,15 @@ Releases the follower from its cam where it stands.
 
 ```iecst
 PROGRAM MC_CamOut_ST
-VAR mccamo : MC_CamOut; END_VAR
-  mccamo(AXIS := 2, Execute := mccamo_execute);
-  mccamo_done_st := mccamo.Done;
-  mccamo_busy_st := mccamo.Busy;
-  mccamo_error_st := mccamo.Error;
-  mccamo_errorid_st := mccamo.ErrorID;
+    VAR
+        mccamo : MC_CamOut;
+    END_VAR
+
+    mccamo(AXIS := 2, Execute := mccamo_execute);
+    mccamo_done_st := mccamo.Done;
+    mccamo_busy_st := mccamo.Busy;
+    mccamo_error_st := mccamo.Error;
+    mccamo_errorid_st := mccamo.ErrorID;
 END_PROGRAM
 ```
 

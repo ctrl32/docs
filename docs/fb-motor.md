@@ -15,11 +15,13 @@ Motor starter with feedback supervision: START raises CMD, FB must confirm withi
 
 ```iecst
 PROGRAM MOTOR_ST
-VAR motor : MOTOR; END_VAR
-  motor(START := motor_start, STOP := motor_stop, FB := motor_fb,
-        ACK := motor_ack, T_FB := motor_t_fb);
-  motor_cmd_st := motor.CMD;
-  motor_fault_st := motor.FAULT;
+    VAR
+        motor : MOTOR;
+    END_VAR
+
+    motor(START := motor_start, STOP := motor_stop, FB := motor_fb, ACK := motor_ack, T_FB := motor_t_fb);
+    motor_cmd_st := motor.CMD;
+    motor_fault_st := motor.FAULT;
 END_PROGRAM
 ```
 

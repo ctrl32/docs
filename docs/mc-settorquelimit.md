@@ -15,14 +15,15 @@ Holds the drive's torque limits every bus cycle.
 
 ```iecst
 PROGRAM MC_SetTorqueLimit_ST
-VAR mctlim : MC_SetTorqueLimit; END_VAR
-  mctlim(AXIS := 0, Enable := mctlim_enable,
-         PosLimit := mctlim_poslimit,
-         NegLimit := mctlim_neglimit);
-  mctlim_enabled_st := mctlim.Enabled;
-  mctlim_busy_st := mctlim.Busy;
-  mctlim_error_st := mctlim.Error;
-  mctlim_errorid_st := mctlim.ErrorID;
+    VAR
+        mctlim : MC_SetTorqueLimit;
+    END_VAR
+
+    mctlim(AXIS := 0, Enable := mctlim_enable, PosLimit := mctlim_poslimit, NegLimit := mctlim_neglimit);
+    mctlim_enabled_st := mctlim.Enabled;
+    mctlim_busy_st := mctlim.Busy;
+    mctlim_error_st := mctlim.Error;
+    mctlim_errorid_st := mctlim.ErrorID;
 END_PROGRAM
 ```
 

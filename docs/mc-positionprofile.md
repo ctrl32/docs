@@ -15,20 +15,17 @@ The axis follows a table of time against position.
 
 ```iecst
 PROGRAM MC_PositionProfile_ST
-VAR mcppro : MC_PositionProfile; END_VAR
-  mcppro(AXIS := 0, Execute := mcppro_execute,
-         TimePosition := mcppro_timeposition,
-         ArraySize := mcppro_arraysize,
-         TimeScale := mcppro_timescale,
-         PositionScale := mcppro_positionscale,
-         Offset := mcppro_offset,
-         BufferMode := mcppro_buffermode);
-  mcppro_done_st := mcppro.Done;
-  mcppro_busy_st := mcppro.Busy;
-  mcppro_active_st := mcppro.Active;
-  mcppro_commandaborted_st := mcppro.CommandAborted;
-  mcppro_error_st := mcppro.Error;
-  mcppro_errorid_st := mcppro.ErrorID;
+    VAR
+        mcppro : MC_PositionProfile;
+    END_VAR
+
+    mcppro(AXIS := 0, Execute := mcppro_execute, TimePosition := mcppro_timeposition, ArraySize := mcppro_arraysize, TimeScale := mcppro_timescale, PositionScale := mcppro_positionscale, Offset := mcppro_offset, BufferMode := mcppro_buffermode);
+    mcppro_done_st := mcppro.Done;
+    mcppro_busy_st := mcppro.Busy;
+    mcppro_active_st := mcppro.Active;
+    mcppro_commandaborted_st := mcppro.CommandAborted;
+    mcppro_error_st := mcppro.Error;
+    mcppro_errorid_st := mcppro.ErrorID;
 END_PROGRAM
 ```
 
