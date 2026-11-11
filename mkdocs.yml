@@ -115,6 +115,7 @@ nav:
       - "Controls: menu": w-menu.md
       - "Controls: calendar": w-calendar.md
       - "Controls: wheel": w-wheel.md
+      - "Controls: joystick": w-joystick.md
       - "Indicators: led": w-led.md
       - "Indicators: bar": w-bar.md
       - "Indicators: gauge": w-gauge.md
@@ -129,6 +130,7 @@ nav:
       - "Images and icons: anim_image": w-anim_image.md
       - "Images and icons: line": w-line.md
       - "Images and icons: shape": w-shape.md
+      - "Images and icons: map2d": w-map2d.md
       - "Trends and alarms: trend": w-trend.md
       - "Trends and alarms: alarm_table": w-alarm_table.md
       - "Trends and alarms: trace": w-trace.md
@@ -382,6 +384,7 @@ nav:
       - Raw CAN: rawcan.md
       - MQTT: mqtt.md
       - Web data: web-data.md
+      - ROS 2: ros.md
       - Home Assistant: home-assistant.md
       - CANopen: canopen.md
       - EtherCAT: ethercat.md

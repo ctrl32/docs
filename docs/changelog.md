@@ -8,6 +8,38 @@ Versions are plain numbers in the form `generation.feature.build`:
 the last field counts builds, the middle one grows with new
 capabilities, the first one practically never moves.
 
+## 1.12.000
+
+A new line: every device takes a new runtime (over the network or over
+USB, as always - [Download to the board](deploy.md)) before it accepts a
+project saved by this editor.
+
+- **ROS 2.** A Linux device joins the robot's network as a node:
+  variables published as topics, topics received into variables, a
+  composite message by its fields, the quality of service of each. The
+  editor's ROS 2 page shows the nodes and topics on the network, writes
+  start-up parameters into the robot's nodes, walks a lifecycle node to
+  its state and starts launch files where ROS is installed on the
+  device; the graph page draws the network as a picture. Nothing of ROS
+  is installed on the device for the data ([ROS 2](ros.md)).
+- **Goals from a button.** A button in the mode *ROS 2 action* sends a
+  goal to the robot - a navigation goal, a docking, a spin - shows that
+  it is on its way and cancels it on the next press; the feedback and
+  the result land in variables ([button](w-button.md)).
+- **The robot's map on a screen.** The new `map2d` element draws the
+  occupancy grid with the robot's pose and the planned path, and a tap
+  on it places a goal ([map2d](w-map2d.md)).
+- **A joystick.** The new `joystick` element is a two-axis pad that
+  writes forward and turn while a finger holds it and zeroes both on
+  release - with a velocity message published by its fields it drives a
+  robot by hand ([joystick](w-joystick.md)).
+- **Pictures and diagnostics over the network.** A camera of the device
+  is published as an image topic, an image topic of the robot is shown
+  by a camera element, the alarms go out as the robot's diagnostics and
+  the robot's warnings land in the diagnostic buffer.
+- **Your own message types.** A robot's own `.msg`, `.srv` and
+  `.action` files are imported into the project and used like the
+  standard ones.
 ## 1.11.001
 
 - **The declarations in a window of their own.** Every program page -

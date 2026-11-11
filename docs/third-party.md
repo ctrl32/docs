@@ -35,7 +35,7 @@ Everything that runs on the equipment.
 ## In the Linux runtime
 
 The Linux runtime carries everything above that applies to a headless
-device, and four components of its own.
+device, and six components of its own.
 
 | Component | Licence | What it does |
 |:---|:---:|:---|
@@ -43,6 +43,8 @@ device, and four components of its own.
 | OpenSSL | Apache 2.0 | the certificates of the OPC UA endpoints |
 | OpenCV | Apache 2.0 | the camera picture and the image processing - with the libraries it carries (libjpeg-turbo, libpng, zlib, quirc; on 64-bit Arm also KleidiCV), each under its own permissive licence |
 | SOEM | GPL 2.0 with the linking exception | the EtherCAT master |
+| Eclipse Cyclone DDS | Eclipse Distribution License 1.0 (BSD 3-clause wording) | the wire of the ROS 2 node - the device speaks to the robot's network directly, nothing of ROS itself is installed or linked |
+| ROS 2 interface definitions | Apache 2.0 (one package BSD 3-clause) | the layouts of the standard messages, services and actions the ROS 2 node speaks - the message files of the core interface packages and of the navigation stack, read into a table at build time |
 
 !!! note "The two exceptions, and what they mean for you"
     open62541 is under the Mozilla Public License 2.0 and SOEM under the
