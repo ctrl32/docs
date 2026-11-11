@@ -2,8 +2,8 @@
 title: "Equipment: PID"
 slug: fb-pid
 section: "Function blocks"
-order: 177
-sidebar_position: 177
+order: 179
+sidebar_position: 179
 image: img/blk-pid-ld.webp
 image_alt: "PID in the editor"
 generator: tools/docs_export.py

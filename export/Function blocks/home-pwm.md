@@ -2,8 +2,8 @@
 title: "Home automation: PWM"
 slug: home-pwm
 section: "Function blocks"
-order: 195
-sidebar_position: 195
+order: 197
+sidebar_position: 197
 generator: tools/docs_export.py
 ---
 

@@ -2,8 +2,8 @@
 title: "Motion, profiles and cams: MC_CamOut"
 slug: mc-camout
 section: "Function blocks"
-order: 122
-sidebar_position: 122
+order: 124
+sidebar_position: 124
 image: img/blk-mccamo-ld.webp
 image_alt: "MC_CamOut on a rung of a ladder program"
 generator: tools/docs_export.py

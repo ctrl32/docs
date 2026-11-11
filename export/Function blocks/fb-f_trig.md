@@ -2,8 +2,8 @@
 title: "Boolean: F_TRIG"
 slug: fb-f_trig
 section: "Function blocks"
-order: 149
-sidebar_position: 149
+order: 151
+sidebar_position: 151
 image: img/blk-ftrig-ld.webp
 image_alt: "F_TRIG in the editor"
 generator: tools/docs_export.py

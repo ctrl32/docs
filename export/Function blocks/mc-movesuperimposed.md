@@ -2,8 +2,8 @@
 title: "Motion, continuous and superimposed motion: MC_MoveSuperimposed"
 slug: mc-movesuperimposed
 section: "Function blocks"
-order: 115
-sidebar_position: 115
+order: 117
+sidebar_position: 117
 image: img/blk-mcsup-ld.webp
 image_alt: "MC_MoveSuperimposed on a rung of a ladder program"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Images and icons: camera"
 slug: w-camera
 section: "Visualisation"
-order: 64
-sidebar_position: 64
+order: 65
+sidebar_position: 65
 image: img/camera-screen.webp
 image_alt: "The camera widget on a screen"
 generator: tools/docs_export.py

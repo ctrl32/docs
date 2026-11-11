@@ -2,8 +2,8 @@
 title: "Images and icons: image"
 slug: w-image
 section: "Visualisation"
-order: 61
-sidebar_position: 61
+order: 62
+sidebar_position: 62
 image: img/gallery-graphics.webp
 image_alt: "The image widget on a screen"
 generator: tools/docs_export.py

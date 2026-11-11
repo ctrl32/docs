@@ -2,8 +2,8 @@
 title: "Your own function block"
 slug: own-block
 section: "Programming"
-order: 80
-sidebar_position: 80
+order: 82
+sidebar_position: 82
 generator: tools/docs_export.py
 ---
 

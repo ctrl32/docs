@@ -2,8 +2,8 @@
 title: "Motion, reading the axis: MC_ReadAxisInfo"
 slug: mc-readaxisinfo
 section: "Function blocks"
-order: 108
-sidebar_position: 108
+order: 110
+sidebar_position: 110
 image: img/blk-mcrai-ld.webp
 image_alt: "MC_ReadAxisInfo on a rung of a ladder program"
 generator: tools/docs_export.py

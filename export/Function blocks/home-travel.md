@@ -2,8 +2,8 @@
 title: "Home automation: TRAVEL"
 slug: home-travel
 section: "Function blocks"
-order: 197
-sidebar_position: 197
+order: 199
+sidebar_position: 199
 image: img/home-blinds.webp
 image_alt: "TRAVEL in the editor"
 generator: tools/docs_export.py

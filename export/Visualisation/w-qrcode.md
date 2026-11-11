@@ -2,8 +2,8 @@
 title: "Indicators: qrcode"
 slug: w-qrcode
 section: "Visualisation"
-order: 60
-sidebar_position: 60
+order: 61
+sidebar_position: 61
 image: img/wl-qrcode.webp
 image_alt: "The qrcode widget on a screen"
 generator: tools/docs_export.py

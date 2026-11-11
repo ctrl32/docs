@@ -2,8 +2,8 @@
 title: "Charts: sparkline"
 slug: w-sparkline
 section: "Visualisation"
-order: 74
-sidebar_position: 74
+order: 76
+sidebar_position: 76
 image: img/wl-sparkline.webp
 image_alt: "The sparkline widget on a screen"
 generator: tools/docs_export.py

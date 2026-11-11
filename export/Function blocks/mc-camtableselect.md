@@ -2,8 +2,8 @@
 title: "Motion, profiles and cams: MC_CamTableSelect"
 slug: mc-camtableselect
 section: "Function blocks"
-order: 120
-sidebar_position: 120
+order: 122
+sidebar_position: 122
 image: img/blk-mccts-ld.webp
 image_alt: "MC_CamTableSelect on a rung of a ladder program"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Timers: BLINK"
 slug: fb-blink
 section: "Function blocks"
-order: 145
-sidebar_position: 145
+order: 147
+sidebar_position: 147
 image: img/blk-blink-ld.webp
 image_alt: "BLINK in the editor"
 generator: tools/docs_export.py

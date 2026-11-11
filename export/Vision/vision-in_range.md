@@ -2,8 +2,8 @@
 title: "Measurements: In range"
 slug: vision-in_range
 section: "Vision"
-order: 283
-sidebar_position: 283
+order: 285
+sidebar_position: 285
 image: img/vbc-in_range.webp
 image_alt: "The In range block on the Vision canvas"
 generator: tools/docs_export.py

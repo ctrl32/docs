@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_MoveRelative"
 slug: mc-moverelative
 section: "Function blocks"
-order: 99
-sidebar_position: 99
+order: 101
+sidebar_position: 101
 image: img/blk-mcrel-ld.webp
 image_alt: "MC_MoveRelative on a rung of a ladder program"
 generator: tools/docs_export.py

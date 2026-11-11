@@ -2,8 +2,8 @@
 title: "Boolean"
 slug: blocks-boolean
 section: "Function blocks"
-order: 85
-sidebar_position: 85
+order: 87
+sidebar_position: 87
 generator: tools/docs_export.py
 ---
 

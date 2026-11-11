@@ -2,8 +2,8 @@
 title: "Boolean: SR"
 slug: fb-sr
 section: "Function blocks"
-order: 150
-sidebar_position: 150
+order: 152
+sidebar_position: 152
 image: img/blk-sr-ld.webp
 image_alt: "SR in the editor"
 generator: tools/docs_export.py

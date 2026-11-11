@@ -2,8 +2,8 @@
 title: "Finding objects: Filter objects"
 slug: vision-filter_objects
 section: "Vision"
-order: 268
-sidebar_position: 268
+order: 270
+sidebar_position: 270
 image: img/vbc-filter_objects.webp
 image_alt: "The Filter objects block on the Vision canvas"
 generator: tools/docs_export.py

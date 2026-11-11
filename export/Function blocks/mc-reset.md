@@ -2,8 +2,8 @@
 title: "Motion, turning the axis on: MC_Reset"
 slug: mc-reset
 section: "Function blocks"
-order: 92
-sidebar_position: 92
+order: 94
+sidebar_position: 94
 image: img/blk-mcrst-ld.webp
 image_alt: "MC_Reset on a rung of a ladder program"
 generator: tools/docs_export.py

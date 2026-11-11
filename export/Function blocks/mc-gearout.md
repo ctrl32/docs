@@ -2,8 +2,8 @@
 title: "Motion, the line shaft: MC_GearOut"
 slug: mc-gearout
 section: "Function blocks"
-order: 124
-sidebar_position: 124
+order: 126
+sidebar_position: 126
 image: img/blk-mcgout-ld.webp
 image_alt: "MC_GearOut on a rung of a ladder program"
 generator: tools/docs_export.py

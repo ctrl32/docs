@@ -2,8 +2,8 @@
 title: "Maths: MAX"
 slug: fb-max
 section: "Function blocks"
-order: 161
-sidebar_position: 161
+order: 163
+sidebar_position: 163
 image: img/blk-max-ld.webp
 image_alt: "MAX in the editor"
 generator: tools/docs_export.py

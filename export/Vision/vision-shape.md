@@ -2,8 +2,8 @@
 title: "Ready tools: Match shape"
 slug: vision-shape
 section: "Vision"
-order: 301
-sidebar_position: 301
+order: 303
+sidebar_position: 303
 image: img/vbc-shape.webp
 image_alt: "The Match shape block on the Vision canvas"
 generator: tools/docs_export.py

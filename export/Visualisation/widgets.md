@@ -11,7 +11,7 @@ generator: tools/docs_export.py
 
 # Widgets
 
-Schema version: **65** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
+Schema version: **68** — the vocabulary of the project file. The compiled pack carries its own format number; error messages name whichever one they mean.
 
 ## Common properties (widget_base)
 
@@ -88,7 +88,8 @@ A card that groups widgets: its fill (bg), its border (fg) and its corner radius
 | `text` | str |  |
 | `text_on` | str | `` |
 | `tag` | variable |  |
-| `mode` | one of `momentary` / `toggle` / `set` / `reset` / `recipe_load` / `recipe_save` / `recipe_delete` |  |
+| `mode` | one of `momentary` / `toggle` / `set` / `reset` / `recipe_load` / `recipe_save` / `recipe_delete` / `ros_action` |  |
+| `action` | str | `` |
 | `value` | f32 | `1.0` |
 | `icon` | image_ref |  |
 | `confirm` | bool | `False` |
@@ -529,6 +530,25 @@ A ring of icons with their captions - the home screen of a round glass with a kn
 | `items` | list |  |
 | `icon_size` | i16 | `40` |
 | `font` | font_ref |  |
+
+## `joystick`
+
+A two-axis pad. A finger on it writes two variables WHILE IT IS HELD - the FORWARD axis (up is positive) and the TURN axis (left is positive), each scaled to its `max` at full deflection - and writes both ZERO the moment it is released; on the glass and in the browser alike. With a `geometry_msgs/Twist` published by fields (`linear.x`, `angular.z`) it is the robot's teleop pad. `knob` is the knob's radius, 0 = a quarter of the pad.
+
+| Property | Type | Default |
+|---|---|---|
+| `axes` | list |  |
+| `knob` | i16 | `0` |
+
+## `map2d`
+
+The robot's map: the occupancy grid of `topic` (nav_msgs/OccupancyGrid) scaled into the element, the planned path of `path_topic` (nav_msgs/Path) over it, the robot drawn from its pose variables (`x`, `y` in metres, `yaw` in radians - received topics by fields) and the goal from `goal_x`, `goal_y`. A tap places the goal marker; a second tap on the marker writes `goal_x` and `goal_y` and pulses `goal` - the project publishes them as a PoseStamped by fields. The variables are named by role.
+
+| Property | Type | Default |
+|---|---|---|
+| `topic` | str |  |
+| `path_topic` | str |  |
+| `vars` | list |  |
 
 ---
 

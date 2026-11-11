@@ -2,8 +2,8 @@
 title: "Indicators: spinner"
 slug: w-spinner
 section: "Visualisation"
-order: 59
-sidebar_position: 59
+order: 60
+sidebar_position: 60
 image: img/wl-spinner.webp
 image_alt: "The spinner widget on a screen"
 generator: tools/docs_export.py

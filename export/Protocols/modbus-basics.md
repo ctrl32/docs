@@ -2,8 +2,8 @@
 title: "What Modbus is"
 slug: modbus-basics
 section: "Protocols"
-order: 305
-sidebar_position: 305
+order: 307
+sidebar_position: 307
 generator: tools/docs_export.py
 ---
 

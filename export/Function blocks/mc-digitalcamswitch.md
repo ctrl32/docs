@@ -2,8 +2,8 @@
 title: "Motion, probes and digital words: MC_DigitalCamSwitch"
 slug: mc-digitalcamswitch
 section: "Function blocks"
-order: 134
-sidebar_position: 134
+order: 136
+sidebar_position: 136
 image: img/blk-mccsw-ld.webp
 image_alt: "MC_DigitalCamSwitch on a rung of a ladder program"
 generator: tools/docs_export.py

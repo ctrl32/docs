@@ -2,8 +2,8 @@
 title: "Home automation: GATE"
 slug: home-gate
 section: "Function blocks"
-order: 206
-sidebar_position: 206
+order: 208
+sidebar_position: 208
 generator: tools/docs_export.py
 ---
 

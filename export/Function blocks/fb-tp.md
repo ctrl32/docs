@@ -2,8 +2,8 @@
 title: "Timers: TP"
 slug: fb-tp
 section: "Function blocks"
-order: 144
-sidebar_position: 144
+order: 146
+sidebar_position: 146
 image: img/blk-tp-ld.webp
 image_alt: "TP in the editor"
 generator: tools/docs_export.py

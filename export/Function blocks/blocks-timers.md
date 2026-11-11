@@ -2,8 +2,8 @@
 title: "Timers"
 slug: blocks-timers
 section: "Function blocks"
-order: 83
-sidebar_position: 83
+order: 85
+sidebar_position: 85
 generator: tools/docs_export.py
 ---
 

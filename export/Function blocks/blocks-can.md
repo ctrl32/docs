@@ -2,8 +2,8 @@
 title: "CANopen blocks"
 slug: blocks-can
 section: "Function blocks"
-order: 138
-sidebar_position: 138
+order: 140
+sidebar_position: 140
 generator: tools/docs_export.py
 ---
 

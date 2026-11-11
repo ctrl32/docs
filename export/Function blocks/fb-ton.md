@@ -2,8 +2,8 @@
 title: "Timers: TON"
 slug: fb-ton
 section: "Function blocks"
-order: 142
-sidebar_position: 142
+order: 144
+sidebar_position: 144
 image: img/blk-ton-ld.webp
 image_alt: "TON in the editor"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Motion, continuous and superimposed motion: MC_MoveContinuousAbsolute"
 slug: mc-movecontinuousabsolute
 section: "Function blocks"
-order: 113
-sidebar_position: 113
+order: 115
+sidebar_position: 115
 image: img/blk-mccabs-ld.webp
 image_alt: "MC_MoveContinuousAbsolute on a rung of a ladder program"
 generator: tools/docs_export.py

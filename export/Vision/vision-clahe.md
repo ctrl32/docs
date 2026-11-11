@@ -2,8 +2,8 @@
 title: "Filters: Local contrast"
 slug: vision-clahe
 section: "Vision"
-order: 245
-sidebar_position: 245
+order: 247
+sidebar_position: 247
 image: img/vbc-clahe.webp
 image_alt: "The Local contrast block on the Vision canvas"
 generator: tools/docs_export.py

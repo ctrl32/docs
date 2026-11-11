@@ -2,8 +2,8 @@
 title: "Geometry: Fixture"
 slug: vision-fixture
 section: "Vision"
-order: 225
-sidebar_position: 225
+order: 227
+sidebar_position: 227
 image: img/vbc-fixture.webp
 image_alt: "The Fixture block on the Vision canvas"
 generator: tools/docs_export.py

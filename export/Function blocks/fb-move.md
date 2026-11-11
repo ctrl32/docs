@@ -2,8 +2,8 @@
 title: "Maths: MOVE"
 slug: fb-move
 section: "Function blocks"
-order: 163
-sidebar_position: 163
+order: 165
+sidebar_position: 165
 image: img/blk-move-ld.webp
 image_alt: "MOVE in the editor"
 generator: tools/docs_export.py

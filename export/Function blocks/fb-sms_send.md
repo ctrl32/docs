@@ -2,8 +2,8 @@
 title: "Services: SMS_SEND"
 slug: fb-sms_send
 section: "Function blocks"
-order: 183
-sidebar_position: 183
+order: 185
+sidebar_position: 185
 image: img/blk-sms-ld.webp
 image_alt: "SMS_SEND in the editor"
 generator: tools/docs_export.py

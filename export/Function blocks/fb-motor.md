@@ -2,8 +2,8 @@
 title: "Equipment: MOTOR"
 slug: fb-motor
 section: "Function blocks"
-order: 175
-sidebar_position: 175
+order: 177
+sidebar_position: 177
 image: img/blk-motor-ld.webp
 image_alt: "MOTOR in the editor"
 generator: tools/docs_export.py

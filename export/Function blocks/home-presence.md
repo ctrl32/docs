@@ -2,8 +2,8 @@
 title: "Home automation: PRESENCE"
 slug: home-presence
 section: "Function blocks"
-order: 198
-sidebar_position: 198
+order: 200
+sidebar_position: 200
 image: img/home-room.webp
 image_alt: "PRESENCE in the editor"
 generator: tools/docs_export.py

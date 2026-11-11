@@ -2,8 +2,8 @@
 title: "Charts: chart_item"
 slug: w-chart_item
 section: "Visualisation"
-order: 75
-sidebar_position: 75
+order: 77
+sidebar_position: 77
 generator: tools/docs_export.py
 ---
 

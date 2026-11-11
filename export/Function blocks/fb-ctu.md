@@ -2,8 +2,8 @@
 title: "Counters: CTU"
 slug: fb-ctu
 section: "Function blocks"
-order: 146
-sidebar_position: 146
+order: 148
+sidebar_position: 148
 image: img/blk-ctu-ld.webp
 image_alt: "CTU in the editor"
 generator: tools/docs_export.py

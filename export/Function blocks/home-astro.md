@@ -2,8 +2,8 @@
 title: "Home automation: ASTRO"
 slug: home-astro
 section: "Function blocks"
-order: 203
-sidebar_position: 203
+order: 205
+sidebar_position: 205
 generator: tools/docs_export.py
 ---
 

@@ -2,8 +2,8 @@
 title: "Motion, continuous and superimposed motion: MC_MoveContinuousRelative"
 slug: mc-movecontinuousrelative
 section: "Function blocks"
-order: 114
-sidebar_position: 114
+order: 116
+sidebar_position: 116
 image: img/blk-mccrel-ld.webp
 image_alt: "MC_MoveContinuousRelative on a rung of a ladder program"
 generator: tools/docs_export.py

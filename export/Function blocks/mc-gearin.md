@@ -2,8 +2,8 @@
 title: "Motion, the line shaft: MC_GearIn"
 slug: mc-gearin
 section: "Function blocks"
-order: 123
-sidebar_position: 123
+order: 125
+sidebar_position: 125
 image: img/blk-mcgin-ld.webp
 image_alt: "MC_GearIn on a rung of a ladder program"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Motion, reading the axis: MC_ReadMotionState"
 slug: mc-readmotionstate
 section: "Function blocks"
-order: 107
-sidebar_position: 107
+order: 109
+sidebar_position: 109
 image: img/blk-mcrms-ld.webp
 image_alt: "MC_ReadMotionState on a rung of a ladder program"
 generator: tools/docs_export.py

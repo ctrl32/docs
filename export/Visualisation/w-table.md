@@ -2,8 +2,8 @@
 title: "Indicators: table"
 slug: w-table
 section: "Visualisation"
-order: 57
-sidebar_position: 57
+order: 58
+sidebar_position: 58
 image: img/wl-table.webp
 image_alt: "The table widget on a screen"
 generator: tools/docs_export.py

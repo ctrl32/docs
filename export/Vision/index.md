@@ -2,8 +2,8 @@
 title: "Vision"
 slug: vision
 section: "Vision"
-order: 211
-sidebar_position: 211
+order: 213
+sidebar_position: 213
 image: img/vision-page.webp
 image_alt: "The Vision page of the editor with a program of blocks and the Toolbox beside it"
 generator: tools/docs_export.py

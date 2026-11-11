@@ -2,8 +2,8 @@
 title: "Intercom"
 slug: intercom
 section: "Vision"
-order: 213
-sidebar_position: 213
+order: 215
+sidebar_position: 215
 generator: tools/docs_export.py
 ---
 

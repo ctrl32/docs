@@ -2,8 +2,8 @@
 title: "Home automation: THERMOSTAT"
 slug: home-thermostat
 section: "Function blocks"
-order: 200
-sidebar_position: 200
+order: 202
+sidebar_position: 202
 image: img/home-room.webp
 image_alt: "THERMOSTAT in the editor"
 generator: tools/docs_export.py

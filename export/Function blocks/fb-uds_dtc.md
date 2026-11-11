@@ -2,8 +2,8 @@
 title: "Vehicle diagnostics: UDS_DTC"
 slug: fb-uds_dtc
 section: "Function blocks"
-order: 185
-sidebar_position: 185
+order: 187
+sidebar_position: 187
 generator: tools/docs_export.py
 ---
 

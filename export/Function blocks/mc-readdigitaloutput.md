@@ -2,8 +2,8 @@
 title: "Motion, probes and digital words: MC_ReadDigitalOutput"
 slug: mc-readdigitaloutput
 section: "Function blocks"
-order: 136
-sidebar_position: 136
+order: 138
+sidebar_position: 138
 image: img/blk-mcrdo-ld.webp
 image_alt: "MC_ReadDigitalOutput on a rung of a ladder program"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Motion, the line shaft: MC_GearInPos"
 slug: mc-gearinpos
 section: "Function blocks"
-order: 125
-sidebar_position: 125
+order: 127
+sidebar_position: 127
 image: img/blk-mcgip-ld.webp
 image_alt: "MC_GearInPos on a rung of a ladder program"
 generator: tools/docs_export.py

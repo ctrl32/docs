@@ -2,8 +2,8 @@
 title: "Motion, profiles and cams: MC_PositionProfile"
 slug: mc-positionprofile
 section: "Function blocks"
-order: 117
-sidebar_position: 117
+order: 119
+sidebar_position: 119
 image: img/blk-mcppro-ld.webp
 image_alt: "MC_PositionProfile on a rung of a ladder program"
 generator: tools/docs_export.py

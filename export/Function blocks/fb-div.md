@@ -2,8 +2,8 @@
 title: "Maths: DIV"
 slug: fb-div
 section: "Function blocks"
-order: 159
-sidebar_position: 159
+order: 161
+sidebar_position: 161
 image: img/blk-div-ld.webp
 image_alt: "DIV in the editor"
 generator: tools/docs_export.py

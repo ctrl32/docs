@@ -2,8 +2,8 @@
 title: "CANopen: CO_RAMPTIME"
 slug: fb-co_ramptime
 section: "Function blocks"
-order: 181
-sidebar_position: 181
+order: 183
+sidebar_position: 183
 image: img/blk-coramp-web.webp
 image_alt: "CO_RAMPTIME in the editor"
 generator: tools/docs_export.py

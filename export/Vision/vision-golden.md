@@ -2,8 +2,8 @@
 title: "Measurements: Compare with taught"
 slug: vision-golden
 section: "Vision"
-order: 289
-sidebar_position: 289
+order: 291
+sidebar_position: 291
 image: img/vbc-golden.webp
 image_alt: "The Compare with taught block on the Vision canvas"
 generator: tools/docs_export.py

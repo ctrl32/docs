@@ -2,8 +2,8 @@
 title: "Motion, torque: MC_TorqueFF"
 slug: mc-torqueff
 section: "Function blocks"
-order: 131
-sidebar_position: 131
+order: 133
+sidebar_position: 133
 image: img/blk-mctff-ld.webp
 image_alt: "MC_TorqueFF on a rung of a ladder program"
 generator: tools/docs_export.py

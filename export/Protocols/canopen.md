@@ -2,8 +2,8 @@
 title: "CANopen"
 slug: canopen
 section: "Protocols"
-order: 311
-sidebar_position: 311
+order: 314
+sidebar_position: 314
 generator: tools/docs_export.py
 ---
 

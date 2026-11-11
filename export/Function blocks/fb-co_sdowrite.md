@@ -2,8 +2,8 @@
 title: "CANopen: CO_SDOWRITE"
 slug: fb-co_sdowrite
 section: "Function blocks"
-order: 179
-sidebar_position: 179
+order: 181
+sidebar_position: 181
 image: img/blk-sdow-web.webp
 image_alt: "CO_SDOWRITE in the editor"
 generator: tools/docs_export.py

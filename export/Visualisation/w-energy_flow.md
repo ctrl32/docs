@@ -2,8 +2,8 @@
 title: "Charts: energy_flow"
 slug: w-energy_flow
 section: "Visualisation"
-order: 71
-sidebar_position: 71
+order: 73
+sidebar_position: 73
 image: img/wl-energy_flow.webp
 image_alt: "The energy_flow widget on a screen"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Finding objects: Find circles"
 slug: vision-circles
 section: "Vision"
-order: 262
-sidebar_position: 262
+order: 264
+sidebar_position: 264
 image: img/vbc-circles.webp
 image_alt: "The Find circles block on the Vision canvas"
 generator: tools/docs_export.py

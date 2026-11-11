@@ -2,8 +2,8 @@
 title: "Measurements: Ruler"
 slug: vision-ruler
 section: "Vision"
-order: 282
-sidebar_position: 282
+order: 284
+sidebar_position: 284
 image: img/vbc-ruler.webp
 image_alt: "The Ruler block on the Vision canvas"
 generator: tools/docs_export.py

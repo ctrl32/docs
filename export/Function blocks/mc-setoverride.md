@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_SetOverride"
 slug: mc-setoverride
 section: "Function blocks"
-order: 103
-sidebar_position: 103
+order: 105
+sidebar_position: 105
 image: img/blk-mcovr-ld.webp
 image_alt: "MC_SetOverride on a rung of a ladder program"
 generator: tools/docs_export.py

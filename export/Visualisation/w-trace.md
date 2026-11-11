@@ -2,8 +2,8 @@
 title: "Trends and alarms: trace"
 slug: w-trace
 section: "Visualisation"
-order: 70
-sidebar_position: 70
+order: 72
+sidebar_position: 72
 image: img/gallery-trend.webp
 image_alt: "The trace widget on a screen"
 generator: tools/docs_export.py

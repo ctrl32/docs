@@ -2,8 +2,8 @@
 title: "Ready tools: Colour check"
 slug: vision-colour
 section: "Vision"
-order: 298
-sidebar_position: 298
+order: 300
+sidebar_position: 300
 image: img/vbc-colour.webp
 image_alt: "The Colour check block on the Vision canvas"
 generator: tools/docs_export.py

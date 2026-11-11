@@ -2,8 +2,8 @@
 title: "Images and icons: logo"
 slug: w-logo
 section: "Visualisation"
-order: 63
-sidebar_position: 63
+order: 64
+sidebar_position: 64
 generator: tools/docs_export.py
 ---
 

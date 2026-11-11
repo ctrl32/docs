@@ -2,8 +2,8 @@
 title: "Boolean: NOT"
 slug: fb-not
 section: "Function blocks"
-order: 155
-sidebar_position: 155
+order: 157
+sidebar_position: 157
 image: img/blk-not-ld.webp
 image_alt: "NOT in the editor"
 generator: tools/docs_export.py

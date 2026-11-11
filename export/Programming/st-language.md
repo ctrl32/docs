@@ -2,8 +2,8 @@
 title: "Structured Text (ST)"
 slug: st-language
 section: "Programming"
-order: 81
-sidebar_position: 81
+order: 83
+sidebar_position: 83
 generator: tools/docs_export.py
 ---
 

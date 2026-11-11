@@ -46,6 +46,7 @@ a command that arrives at the wrong moment.
 | [menu](/docs/visualisation/w-menu/) | Rows of text with icons, each opening a screen or writing a value. |
 | [calendar](/docs/visualisation/w-calendar/) | A month; the variable holds a date as one number YYYYMMDD. |
 | [wheel](/docs/visualisation/w-wheel/) | A ring of icons with captions - the home screen of a round glass with a knob. |
+| [joystick](/docs/visualisation/w-joystick/) | A two-axis pad that writes two variables while a finger holds it - the robot's teleop pad. |
 
 <!-- w-index: end -->
 

@@ -2,8 +2,8 @@
 title: "Maths: MIN"
 slug: fb-min
 section: "Function blocks"
-order: 160
-sidebar_position: 160
+order: 162
+sidebar_position: 162
 image: img/blk-min-ld.webp
 image_alt: "MIN in the editor"
 generator: tools/docs_export.py

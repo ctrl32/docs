@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_Home"
 slug: mc-home
 section: "Function blocks"
-order: 101
-sidebar_position: 101
+order: 103
+sidebar_position: 103
 image: img/blk-mchome-ld.webp
 image_alt: "MC_Home on a rung of a ladder program"
 generator: tools/docs_export.py

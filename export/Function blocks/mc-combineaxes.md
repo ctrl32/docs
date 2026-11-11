@@ -2,8 +2,8 @@
 title: "Motion, the line shaft: MC_CombineAxes"
 slug: mc-combineaxes
 section: "Function blocks"
-order: 128
-sidebar_position: 128
+order: 130
+sidebar_position: 130
 image: img/blk-mccomb-ld.webp
 image_alt: "MC_CombineAxes on a rung of a ladder program"
 generator: tools/docs_export.py

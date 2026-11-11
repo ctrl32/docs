@@ -2,8 +2,8 @@
 title: "Filters: Combine pictures"
 slug: vision-combine
 section: "Vision"
-order: 246
-sidebar_position: 246
+order: 248
+sidebar_position: 248
 image: img/vbc-combine.webp
 image_alt: "The Combine pictures block on the Vision canvas"
 generator: tools/docs_export.py

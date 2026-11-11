@@ -2,8 +2,8 @@
 title: "CANopen: CO_SDOREAD"
 slug: fb-co_sdoread
 section: "Function blocks"
-order: 180
-sidebar_position: 180
+order: 182
+sidebar_position: 182
 image: img/blk-sdor-ld.webp
 image_alt: "CO_SDOREAD in the editor"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Boolean: XOR"
 slug: fb-xor
 section: "Function blocks"
-order: 154
-sidebar_position: 154
+order: 156
+sidebar_position: 156
 image: img/blk-xor-ld.webp
 image_alt: "XOR in the editor"
 generator: tools/docs_export.py

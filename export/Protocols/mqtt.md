@@ -2,8 +2,8 @@
 title: "MQTT"
 slug: mqtt
 section: "Protocols"
-order: 308
-sidebar_position: 308
+order: 310
+sidebar_position: 310
 generator: tools/docs_export.py
 ---
 

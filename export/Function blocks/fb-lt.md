@@ -2,8 +2,8 @@
 title: "Comparison: LT"
 slug: fb-lt
 section: "Function blocks"
-order: 166
-sidebar_position: 166
+order: 168
+sidebar_position: 168
 image: img/blk-lt-ld.webp
 image_alt: "LT in the editor"
 generator: tools/docs_export.py

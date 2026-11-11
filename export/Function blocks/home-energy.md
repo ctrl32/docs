@@ -2,8 +2,8 @@
 title: "Home automation: ENERGY"
 slug: home-energy
 section: "Function blocks"
-order: 209
-sidebar_position: 209
+order: 211
+sidebar_position: 211
 generator: tools/docs_export.py
 ---
 

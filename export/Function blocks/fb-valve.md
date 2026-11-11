@@ -2,8 +2,8 @@
 title: "Equipment: VALVE"
 slug: fb-valve
 section: "Function blocks"
-order: 176
-sidebar_position: 176
+order: 178
+sidebar_position: 178
 image: img/blk-valve-ld.webp
 image_alt: "VALVE in the editor"
 generator: tools/docs_export.py

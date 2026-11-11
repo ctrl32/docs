@@ -2,8 +2,8 @@
 title: "Motion, torque: MC_SetTorqueLimit"
 slug: mc-settorquelimit
 section: "Function blocks"
-order: 129
-sidebar_position: 129
+order: 131
+sidebar_position: 131
 image: img/blk-mctlim-ld.webp
 image_alt: "MC_SetTorqueLimit on a rung of a ladder program"
 generator: tools/docs_export.py

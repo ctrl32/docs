@@ -29,6 +29,7 @@ line, a shape and an animated image.
 | [anim_image](/docs/visualisation/w-anim_image/) | A picture made of frames, cycling on its own or picked by a variable. |
 | [line](/docs/visualisation/w-line/) | A line through points in the widget's own frame - a pipe, an arrow, an outline. |
 | [shape](/docs/visualisation/w-shape/) | A rectangle or an ellipse that fills the widget. |
+| [map2d](/docs/visualisation/w-map2d/) | The robot's map - the occupancy grid from the robot's network, the robot on it, a tap a goal. |
 
 <!-- w-index: end -->
 

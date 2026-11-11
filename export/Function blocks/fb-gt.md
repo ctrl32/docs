@@ -2,8 +2,8 @@
 title: "Comparison: GT"
 slug: fb-gt
 section: "Function blocks"
-order: 164
-sidebar_position: 164
+order: 166
+sidebar_position: 166
 image: img/blk-gt-ld.webp
 image_alt: "GT in the editor"
 generator: tools/docs_export.py

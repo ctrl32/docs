@@ -2,8 +2,8 @@
 title: "net32"
 slug: net32
 section: "Protocols"
-order: 316
-sidebar_position: 316
+order: 319
+sidebar_position: 319
 generator: tools/docs_export.py
 ---
 

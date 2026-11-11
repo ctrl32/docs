@@ -2,8 +2,8 @@
 title: "Motion, turning the axis on: MC_ReadStatus"
 slug: mc-readstatus
 section: "Function blocks"
-order: 93
-sidebar_position: 93
+order: 95
+sidebar_position: 95
 image: img/blk-mcstat-ld.webp
 image_alt: "MC_ReadStatus on a rung of a ladder program"
 generator: tools/docs_export.py

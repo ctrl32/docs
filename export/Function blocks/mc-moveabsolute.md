@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_MoveAbsolute"
 slug: mc-moveabsolute
 section: "Function blocks"
-order: 98
-sidebar_position: 98
+order: 100
+sidebar_position: 100
 image: img/blk-mcabs-ld.webp
 image_alt: "MC_MoveAbsolute on a rung of a ladder program"
 generator: tools/docs_export.py

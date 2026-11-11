@@ -2,8 +2,8 @@
 title: "Filters: Stretch contrast"
 slug: vision-normalize
 section: "Vision"
-order: 243
-sidebar_position: 243
+order: 245
+sidebar_position: 245
 image: img/vbc-normalize.webp
 image_alt: "The Stretch contrast block on the Vision canvas"
 generator: tools/docs_export.py

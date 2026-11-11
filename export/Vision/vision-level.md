@@ -2,8 +2,8 @@
 title: "Measurements: Fill level"
 slug: vision-level
 section: "Vision"
-order: 290
-sidebar_position: 290
+order: 292
+sidebar_position: 292
 image: img/vbc-level.webp
 image_alt: "The Fill level block on the Vision canvas"
 generator: tools/docs_export.py

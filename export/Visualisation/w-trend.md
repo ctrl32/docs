@@ -2,8 +2,8 @@
 title: "Trends and alarms: trend"
 slug: w-trend
 section: "Visualisation"
-order: 68
-sidebar_position: 68
+order: 70
+sidebar_position: 70
 image: img/gallery-trend.webp
 image_alt: "The trend widget on a screen"
 generator: tools/docs_export.py

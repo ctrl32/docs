@@ -2,8 +2,8 @@
 title: "Motion, continuous and superimposed motion: MC_HaltSuperimposed"
 slug: mc-haltsuperimposed
 section: "Function blocks"
-order: 116
-sidebar_position: 116
+order: 118
+sidebar_position: 118
 image: img/blk-mchlts-ld.webp
 image_alt: "MC_HaltSuperimposed on a rung of a ladder program"
 generator: tools/docs_export.py

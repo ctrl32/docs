@@ -2,8 +2,8 @@
 title: "Ready tools: Read code"
 slug: vision-code
 section: "Vision"
-order: 300
-sidebar_position: 300
+order: 302
+sidebar_position: 302
 image: img/vbc-code.webp
 image_alt: "The Read code block on the Vision canvas"
 generator: tools/docs_export.py

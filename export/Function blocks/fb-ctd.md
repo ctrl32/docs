@@ -2,8 +2,8 @@
 title: "Counters: CTD"
 slug: fb-ctd
 section: "Function blocks"
-order: 147
-sidebar_position: 147
+order: 149
+sidebar_position: 149
 image: img/blk-ctd-ld.webp
 image_alt: "CTD in the editor"
 generator: tools/docs_export.py

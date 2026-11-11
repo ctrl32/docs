@@ -2,8 +2,8 @@
 title: "Filters: Median"
 slug: vision-median
 section: "Vision"
-order: 237
-sidebar_position: 237
+order: 239
+sidebar_position: 239
 image: img/vbc-median.webp
 image_alt: "The Median block on the Vision canvas"
 generator: tools/docs_export.py

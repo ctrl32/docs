@@ -2,8 +2,8 @@
 title: "Motion, turning the axis on: MC_ReadAxisError"
 slug: mc-readaxiserror
 section: "Function blocks"
-order: 94
-sidebar_position: 94
+order: 96
+sidebar_position: 96
 image: img/blk-mcrerr-ld.webp
 image_alt: "MC_ReadAxisError on a rung of a ladder program"
 generator: tools/docs_export.py

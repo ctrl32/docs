@@ -2,8 +2,8 @@
 title: "Signal handling: SCALE"
 slug: fb-scale
 section: "Function blocks"
-order: 170
-sidebar_position: 170
+order: 172
+sidebar_position: 172
 image: img/blk-scale-ld.webp
 image_alt: "SCALE in the editor"
 generator: tools/docs_export.py

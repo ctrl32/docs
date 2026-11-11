@@ -2,8 +2,8 @@
 title: "Indicators: scale"
 slug: w-scale
 section: "Visualisation"
-order: 58
-sidebar_position: 58
+order: 59
+sidebar_position: 59
 image: img/wl-scale.webp
 image_alt: "The scale widget on a screen"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Comparison: LE"
 slug: fb-le
 section: "Function blocks"
-order: 167
-sidebar_position: 167
+order: 169
+sidebar_position: 169
 image: img/blk-le-ld.webp
 image_alt: "LE in the editor"
 generator: tools/docs_export.py

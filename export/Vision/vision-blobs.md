@@ -2,8 +2,8 @@
 title: "Measurements: Count objects"
 slug: vision-blobs
 section: "Vision"
-order: 280
-sidebar_position: 280
+order: 282
+sidebar_position: 282
 image: img/vbc-blobs.webp
 image_alt: "The Count objects block on the Vision canvas"
 generator: tools/docs_export.py

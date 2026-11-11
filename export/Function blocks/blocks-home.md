@@ -2,8 +2,8 @@
 title: "Home automation"
 slug: blocks-home
 section: "Function blocks"
-order: 140
-sidebar_position: 140
+order: 142
+sidebar_position: 142
 generator: tools/docs_export.py
 ---
 

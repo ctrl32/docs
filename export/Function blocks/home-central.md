@@ -2,8 +2,8 @@
 title: "Home automation: CENTRAL"
 slug: home-central
 section: "Function blocks"
-order: 208
-sidebar_position: 208
+order: 210
+sidebar_position: 210
 generator: tools/docs_export.py
 ---
 

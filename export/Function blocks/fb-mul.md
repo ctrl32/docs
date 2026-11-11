@@ -2,8 +2,8 @@
 title: "Maths: MUL"
 slug: fb-mul
 section: "Function blocks"
-order: 158
-sidebar_position: 158
+order: 160
+sidebar_position: 160
 image: img/blk-mul-ld.webp
 image_alt: "MUL in the editor"
 generator: tools/docs_export.py

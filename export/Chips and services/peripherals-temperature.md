@@ -2,8 +2,8 @@
 title: "Temperature"
 slug: peripherals-temperature
 section: "Chips and services"
-order: 323
-sidebar_position: 323
+order: 326
+sidebar_position: 326
 generator: tools/docs_export.py
 ---
 

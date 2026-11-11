@@ -2,8 +2,8 @@
 title: "Signal handling: LIMIT"
 slug: fb-limit
 section: "Function blocks"
-order: 171
-sidebar_position: 171
+order: 173
+sidebar_position: 173
 image: img/blk-limit-ld.webp
 image_alt: "LIMIT in the editor"
 generator: tools/docs_export.py

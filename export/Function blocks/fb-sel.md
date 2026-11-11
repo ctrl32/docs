@@ -2,8 +2,8 @@
 title: "Comparison: SEL"
 slug: fb-sel
 section: "Function blocks"
-order: 169
-sidebar_position: 169
+order: 171
+sidebar_position: 171
 image: img/blk-sel-ld.webp
 image_alt: "SEL in the editor"
 generator: tools/docs_export.py

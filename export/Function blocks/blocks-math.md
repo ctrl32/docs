@@ -2,8 +2,8 @@
 title: "Maths"
 slug: blocks-math
 section: "Function blocks"
-order: 86
-sidebar_position: 86
+order: 88
+sidebar_position: 88
 generator: tools/docs_export.py
 ---
 

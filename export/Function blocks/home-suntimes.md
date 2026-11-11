@@ -2,8 +2,8 @@
 title: "Home automation: SUNTIMES"
 slug: home-suntimes
 section: "Function blocks"
-order: 202
-sidebar_position: 202
+order: 204
+sidebar_position: 204
 generator: tools/docs_export.py
 ---
 

@@ -2,8 +2,8 @@
 title: "Motion, reading the axis: MC_ReadParameter"
 slug: mc-readparameter
 section: "Function blocks"
-order: 109
-sidebar_position: 109
+order: 111
+sidebar_position: 111
 image: img/blk-mcrpar-ld.webp
 image_alt: "MC_ReadParameter on a rung of a ladder program"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Signal handling"
 slug: blocks-signal
 section: "Function blocks"
-order: 88
-sidebar_position: 88
+order: 90
+sidebar_position: 90
 generator: tools/docs_export.py
 ---
 

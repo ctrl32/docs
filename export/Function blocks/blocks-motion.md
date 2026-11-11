@@ -2,8 +2,8 @@
 title: "Motion"
 slug: blocks-motion
 section: "Function blocks"
-order: 90
-sidebar_position: 90
+order: 92
+sidebar_position: 92
 generator: tools/docs_export.py
 ---
 

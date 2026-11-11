@@ -2,8 +2,8 @@
 title: "Finding objects: Check objects"
 slug: vision-objcheck
 section: "Vision"
-order: 265
-sidebar_position: 265
+order: 267
+sidebar_position: 267
 image: img/vbc-objcheck.webp
 image_alt: "The Check objects block on the Vision canvas"
 generator: tools/docs_export.py

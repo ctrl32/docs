@@ -2,8 +2,8 @@
 title: "Home automation: STAIRLIGHT"
 slug: home-stairlight
 section: "Function blocks"
-order: 193
-sidebar_position: 193
+order: 195
+sidebar_position: 195
 image: img/home-lights.webp
 image_alt: "STAIRLIGHT in the editor"
 generator: tools/docs_export.py

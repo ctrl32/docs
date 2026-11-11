@@ -2,8 +2,8 @@
 title: "Motion, reading the axis: MC_ReadActualTorque"
 slug: mc-readactualtorque
 section: "Function blocks"
-order: 106
-sidebar_position: 106
+order: 108
+sidebar_position: 108
 image: img/blk-mcrtrq-ld.webp
 image_alt: "MC_ReadActualTorque on a rung of a ladder program"
 generator: tools/docs_export.py

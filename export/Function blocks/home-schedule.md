@@ -2,8 +2,8 @@
 title: "Home automation: SCHEDULE"
 slug: home-schedule
 section: "Function blocks"
-order: 204
-sidebar_position: 204
+order: 206
+sidebar_position: 206
 generator: tools/docs_export.py
 ---
 

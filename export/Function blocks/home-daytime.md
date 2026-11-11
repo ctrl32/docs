@@ -2,8 +2,8 @@
 title: "Home automation: DAYTIME"
 slug: home-daytime
 section: "Function blocks"
-order: 201
-sidebar_position: 201
+order: 203
+sidebar_position: 203
 image: img/home-room.webp
 image_alt: "DAYTIME in the editor"
 generator: tools/docs_export.py

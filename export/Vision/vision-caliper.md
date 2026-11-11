@@ -2,8 +2,8 @@
 title: "Measurements: Caliper"
 slug: vision-caliper
 section: "Vision"
-order: 284
-sidebar_position: 284
+order: 286
+sidebar_position: 286
 image: img/vbc-caliper.webp
 image_alt: "The Caliper block on the Vision canvas"
 generator: tools/docs_export.py

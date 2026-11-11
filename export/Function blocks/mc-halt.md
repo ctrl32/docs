@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_Halt"
 slug: mc-halt
 section: "Function blocks"
-order: 96
-sidebar_position: 96
+order: 98
+sidebar_position: 98
 image: img/blk-mchlt-ld.webp
 image_alt: "MC_Halt on a rung of a ladder program"
 generator: tools/docs_export.py

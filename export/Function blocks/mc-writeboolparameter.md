@@ -2,8 +2,8 @@
 title: "Motion, reading the axis: MC_WriteBoolParameter"
 slug: mc-writeboolparameter
 section: "Function blocks"
-order: 112
-sidebar_position: 112
+order: 114
+sidebar_position: 114
 image: img/blk-mcwbpar-ld.webp
 image_alt: "MC_WriteBoolParameter on a rung of a ladder program"
 generator: tools/docs_export.py

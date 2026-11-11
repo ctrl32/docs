@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_SetPosition"
 slug: mc-setposition
 section: "Function blocks"
-order: 102
-sidebar_position: 102
+order: 104
+sidebar_position: 104
 image: img/blk-mcspos-ld.webp
 image_alt: "MC_SetPosition on a rung of a ladder program"
 generator: tools/docs_export.py

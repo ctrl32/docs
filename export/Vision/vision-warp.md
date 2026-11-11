@@ -2,8 +2,8 @@
 title: "Geometry: Straighten"
 slug: vision-warp
 section: "Vision"
-order: 219
-sidebar_position: 219
+order: 221
+sidebar_position: 221
 image: img/vbc-warp.webp
 image_alt: "The Straighten block on the Vision canvas"
 generator: tools/docs_export.py

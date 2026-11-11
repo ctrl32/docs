@@ -2,8 +2,8 @@
 title: "Vehicle diagnostics: UDS_CLEAR"
 slug: fb-uds_clear
 section: "Function blocks"
-order: 186
-sidebar_position: 186
+order: 188
+sidebar_position: 188
 generator: tools/docs_export.py
 ---
 

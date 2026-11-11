@@ -2,8 +2,8 @@
 title: "Power and energy"
 slug: peripherals-power
 section: "Chips and services"
-order: 331
-sidebar_position: 331
+order: 334
+sidebar_position: 334
 generator: tools/docs_export.py
 ---
 

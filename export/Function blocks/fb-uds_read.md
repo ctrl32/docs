@@ -2,8 +2,8 @@
 title: "Vehicle diagnostics: UDS_READ"
 slug: fb-uds_read
 section: "Function blocks"
-order: 187
-sidebar_position: 187
+order: 189
+sidebar_position: 189
 generator: tools/docs_export.py
 ---
 

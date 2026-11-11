@@ -2,8 +2,8 @@
 title: "Measurements: Distance of points"
 slug: vision-points_dist
 section: "Vision"
-order: 294
-sidebar_position: 294
+order: 296
+sidebar_position: 296
 image: img/vbc-points_dist.webp
 image_alt: "The Distance of points block on the Vision canvas"
 generator: tools/docs_export.py

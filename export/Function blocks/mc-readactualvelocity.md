@@ -2,8 +2,8 @@
 title: "Motion, reading the axis: MC_ReadActualVelocity"
 slug: mc-readactualvelocity
 section: "Function blocks"
-order: 105
-sidebar_position: 105
+order: 107
+sidebar_position: 107
 image: img/blk-mcrvel-ld.webp
 image_alt: "MC_ReadActualVelocity on a rung of a ladder program"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Filters: Smooth, keep edges"
 slug: vision-bilateral
 section: "Vision"
-order: 242
-sidebar_position: 242
+order: 244
+sidebar_position: 244
 image: img/vbc-bilateral.webp
 image_alt: "The Smooth, keep edges block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Boolean: AND"
 slug: fb-and
 section: "Function blocks"
-order: 152
-sidebar_position: 152
+order: 154
+sidebar_position: 154
 image: img/blk-and-ld.webp
 image_alt: "AND in the editor"
 generator: tools/docs_export.py

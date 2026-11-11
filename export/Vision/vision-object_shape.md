@@ -2,8 +2,8 @@
 title: "Finding objects: Object shape"
 slug: vision-object_shape
 section: "Vision"
-order: 269
-sidebar_position: 269
+order: 271
+sidebar_position: 271
 image: img/vbc-object_shape.webp
 image_alt: "The Object shape block on the Vision canvas"
 generator: tools/docs_export.py

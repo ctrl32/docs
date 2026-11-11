@@ -2,8 +2,8 @@
 title: "Filters: Gaussian blur"
 slug: vision-gauss
 section: "Vision"
-order: 236
-sidebar_position: 236
+order: 238
+sidebar_position: 238
 image: img/vbc-gauss.webp
 image_alt: "The Gaussian blur block on the Vision canvas"
 generator: tools/docs_export.py

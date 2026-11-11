@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_MoveVelocity"
 slug: mc-movevelocity
 section: "Function blocks"
-order: 95
-sidebar_position: 95
+order: 97
+sidebar_position: 97
 image: img/blk-mcvel-ld.webp
 image_alt: "MC_MoveVelocity on a rung of a ladder program"
 generator: tools/docs_export.py

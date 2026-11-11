@@ -2,8 +2,8 @@
 title: "Motion, profiles and cams: MC_VelocityProfile"
 slug: mc-velocityprofile
 section: "Function blocks"
-order: 118
-sidebar_position: 118
+order: 120
+sidebar_position: 120
 image: img/blk-mcvpro-ld.webp
 image_alt: "MC_VelocityProfile on a rung of a ladder program"
 generator: tools/docs_export.py

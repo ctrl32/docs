@@ -2,8 +2,8 @@
 title: "+7 (S7 PLC)"
 slug: plus7
 section: "Protocols"
-order: 315
-sidebar_position: 315
+order: 318
+sidebar_position: 318
 generator: tools/docs_export.py
 ---
 

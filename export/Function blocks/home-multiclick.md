@@ -2,8 +2,8 @@
 title: "Home automation: MULTICLICK"
 slug: home-multiclick
 section: "Function blocks"
-order: 191
-sidebar_position: 191
+order: 193
+sidebar_position: 193
 generator: tools/docs_export.py
 ---
 

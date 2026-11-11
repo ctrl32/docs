@@ -2,8 +2,8 @@
 title: "Charts: bar_chart"
 slug: w-bar_chart
 section: "Visualisation"
-order: 72
-sidebar_position: 72
+order: 74
+sidebar_position: 74
 image: img/wl-bar_chart.webp
 image_alt: "The bar_chart widget on a screen"
 generator: tools/docs_export.py

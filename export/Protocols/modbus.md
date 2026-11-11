@@ -2,8 +2,8 @@
 title: "Modbus"
 slug: modbus
 section: "Protocols"
-order: 306
-sidebar_position: 306
+order: 308
+sidebar_position: 308
 generator: tools/docs_export.py
 ---
 

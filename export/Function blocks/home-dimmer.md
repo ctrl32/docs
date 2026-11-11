@@ -2,8 +2,8 @@
 title: "Home automation: DIMMER"
 slug: home-dimmer
 section: "Function blocks"
-order: 194
-sidebar_position: 194
+order: 196
+sidebar_position: 196
 generator: tools/docs_export.py
 ---
 

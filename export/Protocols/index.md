@@ -2,8 +2,8 @@
 title: "Protocols"
 slug: buses
 section: "Protocols"
-order: 304
-sidebar_position: 304
+order: 306
+sidebar_position: 306
 generator: tools/docs_export.py
 ---
 

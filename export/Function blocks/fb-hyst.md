@@ -2,8 +2,8 @@
 title: "Signal handling: HYST"
 slug: fb-hyst
 section: "Function blocks"
-order: 172
-sidebar_position: 172
+order: 174
+sidebar_position: 174
 image: img/blk-hyst-ld.webp
 image_alt: "HYST in the editor"
 generator: tools/docs_export.py

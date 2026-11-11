@@ -2,8 +2,8 @@
 title: "Shapes: Black-hat"
 slug: vision-blackhat
 section: "Vision"
-order: 253
-sidebar_position: 253
+order: 255
+sidebar_position: 255
 image: img/vbc-blackhat.webp
 image_alt: "The Black-hat block on the Vision canvas"
 generator: tools/docs_export.py

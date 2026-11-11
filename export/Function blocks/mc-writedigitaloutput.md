@@ -2,8 +2,8 @@
 title: "Motion, probes and digital words: MC_WriteDigitalOutput"
 slug: mc-writedigitaloutput
 section: "Function blocks"
-order: 137
-sidebar_position: 137
+order: 139
+sidebar_position: 139
 image: img/blk-mcwdo-ld.webp
 image_alt: "MC_WriteDigitalOutput on a rung of a ladder program"
 generator: tools/docs_export.py

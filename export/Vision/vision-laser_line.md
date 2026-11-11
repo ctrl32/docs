@@ -2,8 +2,8 @@
 title: "Measurements: Laser line profile"
 slug: vision-laser_line
 section: "Vision"
-order: 296
-sidebar_position: 296
+order: 298
+sidebar_position: 298
 image: img/vbc-laser_line.webp
 image_alt: "The Laser line profile block on the Vision canvas"
 generator: tools/docs_export.py

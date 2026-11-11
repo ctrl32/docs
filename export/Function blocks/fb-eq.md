@@ -2,8 +2,8 @@
 title: "Comparison: EQ"
 slug: fb-eq
 section: "Function blocks"
-order: 168
-sidebar_position: 168
+order: 170
+sidebar_position: 170
 image: img/blk-eq-ld.webp
 image_alt: "EQ in the editor"
 generator: tools/docs_export.py

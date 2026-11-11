@@ -2,8 +2,8 @@
 title: "Charts: donut"
 slug: w-donut
 section: "Visualisation"
-order: 73
-sidebar_position: 73
+order: 75
+sidebar_position: 75
 image: img/wl-donut.webp
 image_alt: "The donut widget on a screen"
 generator: tools/docs_export.py

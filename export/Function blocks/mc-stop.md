@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_Stop"
 slug: mc-stop
 section: "Function blocks"
-order: 97
-sidebar_position: 97
+order: 99
+sidebar_position: 99
 image: img/blk-mcstop-ld.webp
 image_alt: "MC_Stop on a rung of a ladder program"
 generator: tools/docs_export.py

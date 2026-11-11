@@ -2,8 +2,8 @@
 title: "Motion, torque: MC_TorqueControl"
 slug: mc-torquecontrol
 section: "Function blocks"
-order: 130
-sidebar_position: 130
+order: 132
+sidebar_position: 132
 image: img/blk-mctrq-ld.webp
 image_alt: "MC_TorqueControl on a rung of a ladder program"
 generator: tools/docs_export.py

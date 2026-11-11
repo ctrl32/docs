@@ -2,8 +2,8 @@
 title: "CANopen: CO_CIA402"
 slug: fb-co_cia402
 section: "Function blocks"
-order: 178
-sidebar_position: 178
+order: 180
+sidebar_position: 180
 image: img/blk-co402-ld.webp
 image_alt: "CO_CIA402 in the editor"
 generator: tools/docs_export.py

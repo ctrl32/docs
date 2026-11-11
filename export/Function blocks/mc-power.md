@@ -2,8 +2,8 @@
 title: "Motion, turning the axis on: MC_Power"
 slug: mc-power
 section: "Function blocks"
-order: 91
-sidebar_position: 91
+order: 93
+sidebar_position: 93
 image: img/blk-mcpow-ld.webp
 image_alt: "MC_Power on a rung of a ladder program"
 generator: tools/docs_export.py

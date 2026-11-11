@@ -2,8 +2,8 @@
 title: "Edges: Gradient"
 slug: vision-sobel
 section: "Vision"
-order: 258
-sidebar_position: 258
+order: 260
+sidebar_position: 260
 image: img/vbc-sobel.webp
 image_alt: "The Gradient block on the Vision canvas"
 generator: tools/docs_export.py

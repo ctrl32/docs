@@ -2,8 +2,8 @@
 title: "Motion, probes and digital words: MC_AbortTrigger"
 slug: mc-aborttrigger
 section: "Function blocks"
-order: 133
-sidebar_position: 133
+order: 135
+sidebar_position: 135
 image: img/blk-mcprbx-ld.webp
 image_alt: "MC_AbortTrigger on a rung of a ladder program"
 generator: tools/docs_export.py

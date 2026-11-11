@@ -2,8 +2,8 @@
 title: "Finding objects: Find by features"
 slug: vision-features
 section: "Vision"
-order: 273
-sidebar_position: 273
+order: 275
+sidebar_position: 275
 image: img/vbc-features.webp
 image_alt: "The Find by features block on the Vision canvas"
 generator: tools/docs_export.py

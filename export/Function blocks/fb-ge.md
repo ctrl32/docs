@@ -2,8 +2,8 @@
 title: "Comparison: GE"
 slug: fb-ge
 section: "Function blocks"
-order: 165
-sidebar_position: 165
+order: 167
+sidebar_position: 167
 image: img/blk-ge-ld.webp
 image_alt: "GE in the editor"
 generator: tools/docs_export.py

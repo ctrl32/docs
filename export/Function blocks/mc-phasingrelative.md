@@ -2,8 +2,8 @@
 title: "Motion, the line shaft: MC_PhasingRelative"
 slug: mc-phasingrelative
 section: "Function blocks"
-order: 127
-sidebar_position: 127
+order: 129
+sidebar_position: 129
 image: img/blk-mcphr-ld.webp
 image_alt: "MC_PhasingRelative on a rung of a ladder program"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Function blocks"
 slug: blocks
 section: "Function blocks"
-order: 82
-sidebar_position: 82
+order: 84
+sidebar_position: 84
 generator: tools/docs_export.py
 ---
 

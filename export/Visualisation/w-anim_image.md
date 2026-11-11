@@ -2,8 +2,8 @@
 title: "Images and icons: anim_image"
 slug: w-anim_image
 section: "Visualisation"
-order: 65
-sidebar_position: 65
+order: 66
+sidebar_position: 66
 image: img/wl-anim_image.webp
 image_alt: "The anim_image widget on a screen"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Counters"
 slug: blocks-counters
 section: "Function blocks"
-order: 84
-sidebar_position: 84
+order: 86
+sidebar_position: 86
 generator: tools/docs_export.py
 ---
 

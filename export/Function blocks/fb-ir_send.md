@@ -2,8 +2,8 @@
 title: "Services: IR_SEND"
 slug: fb-ir_send
 section: "Function blocks"
-order: 182
-sidebar_position: 182
+order: 184
+sidebar_position: 184
 image: img/blk-ir-ld.webp
 image_alt: "IR_SEND in the editor"
 generator: tools/docs_export.py

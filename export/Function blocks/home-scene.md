@@ -2,8 +2,8 @@
 title: "Home automation: SCENE"
 slug: home-scene
 section: "Function blocks"
-order: 205
-sidebar_position: 205
+order: 207
+sidebar_position: 207
 generator: tools/docs_export.py
 ---
 

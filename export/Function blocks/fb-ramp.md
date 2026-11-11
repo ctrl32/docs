@@ -2,8 +2,8 @@
 title: "Signal handling: RAMP"
 slug: fb-ramp
 section: "Function blocks"
-order: 173
-sidebar_position: 173
+order: 175
+sidebar_position: 175
 image: img/blk-ramp-ld.webp
 image_alt: "RAMP in the editor"
 generator: tools/docs_export.py

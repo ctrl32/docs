@@ -2,8 +2,8 @@
 title: "Maths: ADD"
 slug: fb-add
 section: "Function blocks"
-order: 156
-sidebar_position: 156
+order: 158
+sidebar_position: 158
 image: img/blk-add-ld.webp
 image_alt: "ADD in the editor"
 generator: tools/docs_export.py

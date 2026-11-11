@@ -2,8 +2,8 @@
 title: "Images and icons: line"
 slug: w-line
 section: "Visualisation"
-order: 66
-sidebar_position: 66
+order: 67
+sidebar_position: 67
 image: img/wl-line.webp
 image_alt: "The line widget on a screen"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Motion, probes and digital words: MC_ReadDigitalInput"
 slug: mc-readdigitalinput
 section: "Function blocks"
-order: 135
-sidebar_position: 135
+order: 137
+sidebar_position: 137
 image: img/blk-mcrdi-ld.webp
 image_alt: "MC_ReadDigitalInput on a rung of a ladder program"
 generator: tools/docs_export.py

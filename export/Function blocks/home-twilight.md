@@ -2,8 +2,8 @@
 title: "Home automation: TWILIGHT"
 slug: home-twilight
 section: "Function blocks"
-order: 199
-sidebar_position: 199
+order: 201
+sidebar_position: 201
 image: img/home-room.webp
 image_alt: "TWILIGHT in the editor"
 generator: tools/docs_export.py

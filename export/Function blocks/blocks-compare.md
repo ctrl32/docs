@@ -2,8 +2,8 @@
 title: "Comparison"
 slug: blocks-compare
 section: "Function blocks"
-order: 87
-sidebar_position: 87
+order: 89
+sidebar_position: 89
 generator: tools/docs_export.py
 ---
 

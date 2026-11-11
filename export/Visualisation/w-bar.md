@@ -2,8 +2,8 @@
 title: "Indicators: bar"
 slug: w-bar
 section: "Visualisation"
-order: 55
-sidebar_position: 55
+order: 56
+sidebar_position: 56
 image: img/gallery-indicators.webp
 image_alt: "The bar widget on a screen"
 generator: tools/docs_export.py

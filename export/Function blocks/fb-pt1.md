@@ -2,8 +2,8 @@
 title: "Signal handling: PT1"
 slug: fb-pt1
 section: "Function blocks"
-order: 174
-sidebar_position: 174
+order: 176
+sidebar_position: 176
 image: img/blk-pt1-ld.webp
 image_alt: "PT1 in the editor"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Boolean: R_TRIG"
 slug: fb-r_trig
 section: "Function blocks"
-order: 148
-sidebar_position: 148
+order: 150
+sidebar_position: 150
 image: img/blk-rtrig-ld.webp
 image_alt: "R_TRIG in the editor"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Finding objects: Find pattern"
 slug: vision-pattern
 section: "Vision"
-order: 263
-sidebar_position: 263
+order: 265
+sidebar_position: 265
 image: img/vbc-pattern.webp
 image_alt: "The Find pattern block on the Vision canvas"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Charts: scatter"
 slug: w-scatter
 section: "Visualisation"
-order: 76
-sidebar_position: 76
+order: 78
+sidebar_position: 78
 image: img/wl-scatter.webp
 image_alt: "The scatter widget on a screen"
 generator: tools/docs_export.py

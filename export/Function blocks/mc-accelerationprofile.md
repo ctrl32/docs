@@ -2,8 +2,8 @@
 title: "Motion, profiles and cams: MC_AccelerationProfile"
 slug: mc-accelerationprofile
 section: "Function blocks"
-order: 119
-sidebar_position: 119
+order: 121
+sidebar_position: 121
 image: img/blk-mcapro-ld.webp
 image_alt: "MC_AccelerationProfile on a rung of a ladder program"
 generator: tools/docs_export.py

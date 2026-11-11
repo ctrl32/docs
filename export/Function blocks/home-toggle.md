@@ -2,8 +2,8 @@
 title: "Home automation: TOGGLE"
 slug: home-toggle
 section: "Function blocks"
-order: 192
-sidebar_position: 192
+order: 194
+sidebar_position: 194
 image: img/home-lights.webp
 image_alt: "TOGGLE in the editor"
 generator: tools/docs_export.py

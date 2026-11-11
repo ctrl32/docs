@@ -2,8 +2,8 @@
 title: "Motion, reading the axis: MC_ReadActualPosition"
 slug: mc-readactualposition
 section: "Function blocks"
-order: 104
-sidebar_position: 104
+order: 106
+sidebar_position: 106
 image: img/blk-mcrpos-ld.webp
 image_alt: "MC_ReadActualPosition on a rung of a ladder program"
 generator: tools/docs_export.py

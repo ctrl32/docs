@@ -2,8 +2,8 @@
 title: "Indicators: led"
 slug: w-led
 section: "Visualisation"
-order: 54
-sidebar_position: 54
+order: 55
+sidebar_position: 55
 image: img/gallery-indicators.webp
 image_alt: "The led widget on a screen"
 generator: tools/docs_export.py

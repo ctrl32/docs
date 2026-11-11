@@ -2,8 +2,8 @@
 title: "Measurements: Distance"
 slug: vision-dist
 section: "Vision"
-order: 288
-sidebar_position: 288
+order: 290
+sidebar_position: 290
 image: img/vbc-dist.webp
 image_alt: "The Distance block on the Vision canvas"
 generator: tools/docs_export.py

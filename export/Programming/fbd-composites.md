@@ -2,8 +2,8 @@
 title: "Function block diagram (FBD)"
 slug: fbd-composites
 section: "Programming"
-order: 79
-sidebar_position: 79
+order: 81
+sidebar_position: 81
 generator: tools/docs_export.py
 ---
 

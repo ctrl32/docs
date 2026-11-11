@@ -2,8 +2,8 @@
 title: "Boolean: OR"
 slug: fb-or
 section: "Function blocks"
-order: 153
-sidebar_position: 153
+order: 155
+sidebar_position: 155
 image: img/blk-or-ld.webp
 image_alt: "OR in the editor"
 generator: tools/docs_export.py

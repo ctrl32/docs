@@ -2,8 +2,8 @@
 title: "Ladder (LD)"
 slug: ladder
 section: "Programming"
-order: 78
-sidebar_position: 78
+order: 80
+sidebar_position: 80
 generator: tools/docs_export.py
 ---
 

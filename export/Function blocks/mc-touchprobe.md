@@ -2,8 +2,8 @@
 title: "Motion, probes and digital words: MC_TouchProbe"
 slug: mc-touchprobe
 section: "Function blocks"
-order: 132
-sidebar_position: 132
+order: 134
+sidebar_position: 134
 image: img/blk-mcprb-ld.webp
 image_alt: "MC_TouchProbe on a rung of a ladder program"
 generator: tools/docs_export.py

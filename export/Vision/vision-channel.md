@@ -2,8 +2,8 @@
 title: "Colour: One channel"
 slug: vision-channel
 section: "Vision"
-order: 232
-sidebar_position: 232
+order: 234
+sidebar_position: 234
 image: img/vbc-channel.webp
 image_alt: "The One channel block on the Vision canvas"
 generator: tools/docs_export.py

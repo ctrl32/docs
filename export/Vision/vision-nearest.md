@@ -2,8 +2,8 @@
 title: "Finding objects: Nearest object"
 slug: vision-nearest
 section: "Vision"
-order: 270
-sidebar_position: 270
+order: 272
+sidebar_position: 272
 image: img/vbc-nearest.webp
 image_alt: "The Nearest object block on the Vision canvas"
 generator: tools/docs_export.py

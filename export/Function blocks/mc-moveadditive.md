@@ -2,8 +2,8 @@
 title: "Motion, making it move: MC_MoveAdditive"
 slug: mc-moveadditive
 section: "Function blocks"
-order: 100
-sidebar_position: 100
+order: 102
+sidebar_position: 102
 image: img/blk-mcadd-ld.webp
 image_alt: "MC_MoveAdditive on a rung of a ladder program"
 generator: tools/docs_export.py

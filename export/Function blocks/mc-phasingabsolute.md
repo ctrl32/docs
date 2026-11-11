@@ -2,8 +2,8 @@
 title: "Motion, the line shaft: MC_PhasingAbsolute"
 slug: mc-phasingabsolute
 section: "Function blocks"
-order: 126
-sidebar_position: 126
+order: 128
+sidebar_position: 128
 image: img/blk-mcpha-ld.webp
 image_alt: "MC_PhasingAbsolute on a rung of a ladder program"
 generator: tools/docs_export.py

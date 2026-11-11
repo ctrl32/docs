@@ -2,8 +2,8 @@
 title: "Home automation: VENT"
 slug: home-vent
 section: "Function blocks"
-order: 207
-sidebar_position: 207
+order: 209
+sidebar_position: 209
 generator: tools/docs_export.py
 ---
 

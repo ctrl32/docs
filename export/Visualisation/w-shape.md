@@ -2,8 +2,8 @@
 title: "Images and icons: shape"
 slug: w-shape
 section: "Visualisation"
-order: 67
-sidebar_position: 67
+order: 68
+sidebar_position: 68
 image: img/wl-shape.webp
 image_alt: "The shape widget on a screen"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Boolean: RS"
 slug: fb-rs
 section: "Function blocks"
-order: 151
-sidebar_position: 151
+order: 153
+sidebar_position: 153
 image: img/blk-rs-ld.webp
 image_alt: "RS in the editor"
 generator: tools/docs_export.py

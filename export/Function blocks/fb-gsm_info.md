@@ -2,8 +2,8 @@
 title: "Services: GSM_INFO"
 slug: fb-gsm_info
 section: "Function blocks"
-order: 184
-sidebar_position: 184
+order: 186
+sidebar_position: 186
 image: img/blk-gsm-ld.webp
 image_alt: "GSM_INFO in the editor"
 generator: tools/docs_export.py

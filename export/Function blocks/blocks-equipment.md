@@ -2,8 +2,8 @@
 title: "Equipment blocks"
 slug: blocks-equipment
 section: "Function blocks"
-order: 89
-sidebar_position: 89
+order: 91
+sidebar_position: 91
 generator: tools/docs_export.py
 ---
 

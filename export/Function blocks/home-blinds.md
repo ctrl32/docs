@@ -2,8 +2,8 @@
 title: "Home automation: BLINDS"
 slug: home-blinds
 section: "Function blocks"
-order: 196
-sidebar_position: 196
+order: 198
+sidebar_position: 198
 image: img/home-blinds.webp
 image_alt: "BLINDS in the editor"
 generator: tools/docs_export.py

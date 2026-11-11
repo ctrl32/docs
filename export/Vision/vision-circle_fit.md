@@ -2,8 +2,8 @@
 title: "Measurements: Circle (fit)"
 slug: vision-circle_fit
 section: "Vision"
-order: 291
-sidebar_position: 291
+order: 293
+sidebar_position: 293
 image: img/vbc-circle_fit.webp
 image_alt: "The Circle (fit) block on the Vision canvas"
 generator: tools/docs_export.py

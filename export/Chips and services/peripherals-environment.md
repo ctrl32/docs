@@ -2,8 +2,8 @@
 title: "Environment"
 slug: peripherals-environment
 section: "Chips and services"
-order: 324
-sidebar_position: 324
+order: 327
+sidebar_position: 327
 generator: tools/docs_export.py
 ---
 

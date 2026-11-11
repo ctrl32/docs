@@ -2,8 +2,8 @@
 title: "Maths: ABS"
 slug: fb-abs
 section: "Function blocks"
-order: 162
-sidebar_position: 162
+order: 164
+sidebar_position: 164
 image: img/blk-abs-ld.webp
 image_alt: "ABS in the editor"
 generator: tools/docs_export.py

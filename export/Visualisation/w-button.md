@@ -24,7 +24,8 @@ A press that writes a variable - momentary, toggle, set or reset, or a recipe ac
 | `text` | text | - | the label |
 | `text_on` | text | `` | the label while the variable is TRUE (text when ON in the inspector) |
 | `tag` | variable | required | what it writes |
-| `mode` | one of `momentary` / `toggle` / `set` / `reset` / `recipe_load` / `recipe_save` / `recipe_delete` | - | how it writes: momentary, toggle, set, reset, or a recipe action |
+| `mode` | one of `momentary` / `toggle` / `set` / `reset` / `recipe_load` / `recipe_save` / `recipe_delete` / `ros_action` | - | how it writes: momentary, toggle, set, reset, a recipe action, or ros_action |
+| `action` | text | `` | mode ros_action: the ROS 2 action whose status variable the button binds |
 | `value` | number | `1.0` | the value written |
 | `icon` | image_ref | - | a glyph beside the text |
 | `confirm` | yes / no | no | ask before acting |
@@ -54,6 +55,15 @@ variable the program alone writes cannot be written from a screen.
   buttons beside a `recipe_table`: they bind to the table of the same
   screen and need no variable. A button with `confirm` asks first; on
   a delete that is the right default. See [Recipes](/docs/operation/recipes/).
+- **`ros_action`** — the button sends a goal to the robot: it binds
+  the **status variable** of an action listed on the ROS 2 page
+  (`action` names it). A press writes 1 and the device sends the goal;
+  a press while the goal runs writes 3 and the device cancels it. The
+  device writes the state back - 2 executing, 4 succeeded, 5 canceled,
+  6 aborted, 7 rejected, 8 no server - and the face shows the word
+  under the caption, filled with the accent colour while the goal is
+  on its way (`text_on` is the caption then, "Cancel" reads well). See
+  [ROS 2](/docs/buses/ros/).
 
 With a knob, a press on a focused button acts exactly as a tap would.
 

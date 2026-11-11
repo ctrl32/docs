@@ -201,7 +201,7 @@
       "section": "Visualisation",
       "order": 23,
       "file": "Visualisation/widgets-controls.md",
-      "bytes": 4717
+      "bytes": 4858
     },
     {
       "slug": "widgets-indicators",
@@ -217,7 +217,7 @@
       "section": "Visualisation",
       "order": 25,
       "file": "Visualisation/widgets-graphics.md",
-      "bytes": 3956
+      "bytes": 4094
     },
     {
       "slug": "widgets-data",
@@ -241,7 +241,7 @@
       "section": "Visualisation",
       "order": 28,
       "file": "Visualisation/widgets.md",
-      "bytes": 15895
+      "bytes": 17095
     },
     {
       "slug": "w-panel",
@@ -329,7 +329,7 @@
       "section": "Visualisation",
       "order": 39,
       "file": "Visualisation/w-button.md",
-      "bytes": 3411
+      "bytes": 4120
     },
     {
       "slug": "w-switch",
@@ -444,10 +444,18 @@
       "bytes": 2181
     },
     {
+      "slug": "w-joystick",
+      "title": "Controls: joystick",
+      "section": "Visualisation",
+      "order": 54,
+      "file": "Visualisation/w-joystick.md",
+      "bytes": 1507
+    },
+    {
       "slug": "w-led",
       "title": "Indicators: led",
       "section": "Visualisation",
-      "order": 54,
+      "order": 55,
       "file": "Visualisation/w-led.md",
       "bytes": 2641
     },
@@ -455,7 +463,7 @@
       "slug": "w-bar",
       "title": "Indicators: bar",
       "section": "Visualisation",
-      "order": 55,
+      "order": 56,
       "file": "Visualisation/w-bar.md",
       "bytes": 1755
     },
@@ -463,7 +471,7 @@
       "slug": "w-gauge",
       "title": "Indicators: gauge",
       "section": "Visualisation",
-      "order": 56,
+      "order": 57,
       "file": "Visualisation/w-gauge.md",
       "bytes": 2520
     },
@@ -471,7 +479,7 @@
       "slug": "w-table",
       "title": "Indicators: table",
       "section": "Visualisation",
-      "order": 57,
+      "order": 58,
       "file": "Visualisation/w-table.md",
       "bytes": 1714
     },
@@ -479,7 +487,7 @@
       "slug": "w-scale",
       "title": "Indicators: scale",
       "section": "Visualisation",
-      "order": 58,
+      "order": 59,
       "file": "Visualisation/w-scale.md",
       "bytes": 1463
     },
@@ -487,7 +495,7 @@
       "slug": "w-spinner",
       "title": "Indicators: spinner",
       "section": "Visualisation",
-      "order": 59,
+      "order": 60,
       "file": "Visualisation/w-spinner.md",
       "bytes": 1080
     },
@@ -495,7 +503,7 @@
       "slug": "w-qrcode",
       "title": "Indicators: qrcode",
       "section": "Visualisation",
-      "order": 60,
+      "order": 61,
       "file": "Visualisation/w-qrcode.md",
       "bytes": 1171
     },
@@ -503,7 +511,7 @@
       "slug": "w-image",
       "title": "Images and icons: image",
       "section": "Visualisation",
-      "order": 61,
+      "order": 62,
       "file": "Visualisation/w-image.md",
       "bytes": 1833
     },
@@ -511,7 +519,7 @@
       "slug": "w-icon",
       "title": "Images and icons: icon",
       "section": "Visualisation",
-      "order": 62,
+      "order": 63,
       "file": "Visualisation/w-icon.md",
       "bytes": 2163
     },
@@ -519,7 +527,7 @@
       "slug": "w-logo",
       "title": "Images and icons: logo",
       "section": "Visualisation",
-      "order": 63,
+      "order": 64,
       "file": "Visualisation/w-logo.md",
       "bytes": 882
     },
@@ -527,7 +535,7 @@
       "slug": "w-camera",
       "title": "Images and icons: camera",
       "section": "Visualisation",
-      "order": 64,
+      "order": 65,
       "file": "Visualisation/w-camera.md",
       "bytes": 3410
     },
@@ -535,7 +543,7 @@
       "slug": "w-anim_image",
       "title": "Images and icons: anim_image",
       "section": "Visualisation",
-      "order": 65,
+      "order": 66,
       "file": "Visualisation/w-anim_image.md",
       "bytes": 1577
     },
@@ -543,7 +551,7 @@
       "slug": "w-line",
       "title": "Images and icons: line",
       "section": "Visualisation",
-      "order": 66,
+      "order": 67,
       "file": "Visualisation/w-line.md",
       "bytes": 1373
     },
@@ -551,15 +559,23 @@
       "slug": "w-shape",
       "title": "Images and icons: shape",
       "section": "Visualisation",
-      "order": 67,
+      "order": 68,
       "file": "Visualisation/w-shape.md",
       "bytes": 1353
+    },
+    {
+      "slug": "w-map2d",
+      "title": "Images and icons: map2d",
+      "section": "Visualisation",
+      "order": 69,
+      "file": "Visualisation/w-map2d.md",
+      "bytes": 1800
     },
     {
       "slug": "w-trend",
       "title": "Trends and alarms: trend",
       "section": "Visualisation",
-      "order": 68,
+      "order": 70,
       "file": "Visualisation/w-trend.md",
       "bytes": 2628
     },
@@ -567,7 +583,7 @@
       "slug": "w-alarm_table",
       "title": "Trends and alarms: alarm_table",
       "section": "Visualisation",
-      "order": 69,
+      "order": 71,
       "file": "Visualisation/w-alarm_table.md",
       "bytes": 2533
     },
@@ -575,7 +591,7 @@
       "slug": "w-trace",
       "title": "Trends and alarms: trace",
       "section": "Visualisation",
-      "order": 70,
+      "order": 72,
       "file": "Visualisation/w-trace.md",
       "bytes": 1076
     },
@@ -583,7 +599,7 @@
       "slug": "w-energy_flow",
       "title": "Charts: energy_flow",
       "section": "Visualisation",
-      "order": 71,
+      "order": 73,
       "file": "Visualisation/w-energy_flow.md",
       "bytes": 2578
     },
@@ -591,7 +607,7 @@
       "slug": "w-bar_chart",
       "title": "Charts: bar_chart",
       "section": "Visualisation",
-      "order": 72,
+      "order": 74,
       "file": "Visualisation/w-bar_chart.md",
       "bytes": 2215
     },
@@ -599,7 +615,7 @@
       "slug": "w-donut",
       "title": "Charts: donut",
       "section": "Visualisation",
-      "order": 73,
+      "order": 75,
       "file": "Visualisation/w-donut.md",
       "bytes": 1860
     },
@@ -607,7 +623,7 @@
       "slug": "w-sparkline",
       "title": "Charts: sparkline",
       "section": "Visualisation",
-      "order": 74,
+      "order": 76,
       "file": "Visualisation/w-sparkline.md",
       "bytes": 1760
     },
@@ -615,7 +631,7 @@
       "slug": "w-chart_item",
       "title": "Charts: chart_item",
       "section": "Visualisation",
-      "order": 75,
+      "order": 77,
       "file": "Visualisation/w-chart_item.md",
       "bytes": 932
     },
@@ -623,7 +639,7 @@
       "slug": "w-scatter",
       "title": "Charts: scatter",
       "section": "Visualisation",
-      "order": 76,
+      "order": 78,
       "file": "Visualisation/w-scatter.md",
       "bytes": 2035
     },
@@ -631,7 +647,7 @@
       "slug": "programming",
       "title": "Programming",
       "section": "Programming",
-      "order": 77,
+      "order": 79,
       "file": "Programming/index.md",
       "bytes": 1866
     },
@@ -639,7 +655,7 @@
       "slug": "ladder",
       "title": "Ladder (LD)",
       "section": "Programming",
-      "order": 78,
+      "order": 80,
       "file": "Programming/ladder.md",
       "bytes": 13360
     },
@@ -647,7 +663,7 @@
       "slug": "fbd-composites",
       "title": "Function block diagram (FBD)",
       "section": "Programming",
-      "order": 79,
+      "order": 81,
       "file": "Programming/fbd-composites.md",
       "bytes": 7396
     },
@@ -655,7 +671,7 @@
       "slug": "own-block",
       "title": "Your own function block",
       "section": "Programming",
-      "order": 80,
+      "order": 82,
       "file": "Programming/own-block.md",
       "bytes": 6566
     },
@@ -663,7 +679,7 @@
       "slug": "st-language",
       "title": "Structured Text (ST)",
       "section": "Programming",
-      "order": 81,
+      "order": 83,
       "file": "Programming/st-language.md",
       "bytes": 9891
     },
@@ -671,7 +687,7 @@
       "slug": "blocks",
       "title": "Function blocks",
       "section": "Function blocks",
-      "order": 82,
+      "order": 84,
       "file": "Function blocks/index.md",
       "bytes": 7046
     },
@@ -679,7 +695,7 @@
       "slug": "blocks-timers",
       "title": "Timers",
       "section": "Function blocks",
-      "order": 83,
+      "order": 85,
       "file": "Function blocks/blocks-timers.md",
       "bytes": 1698
     },
@@ -687,7 +703,7 @@
       "slug": "blocks-counters",
       "title": "Counters",
       "section": "Function blocks",
-      "order": 84,
+      "order": 86,
       "file": "Function blocks/blocks-counters.md",
       "bytes": 2126
     },
@@ -695,7 +711,7 @@
       "slug": "blocks-boolean",
       "title": "Boolean",
       "section": "Function blocks",
-      "order": 85,
+      "order": 87,
       "file": "Function blocks/blocks-boolean.md",
       "bytes": 3174
     },
@@ -703,7 +719,7 @@
       "slug": "blocks-math",
       "title": "Maths",
       "section": "Function blocks",
-      "order": 86,
+      "order": 88,
       "file": "Function blocks/blocks-math.md",
       "bytes": 3731
     },
@@ -711,7 +727,7 @@
       "slug": "blocks-compare",
       "title": "Comparison",
       "section": "Function blocks",
-      "order": 87,
+      "order": 89,
       "file": "Function blocks/blocks-compare.md",
       "bytes": 2267
     },
@@ -719,7 +735,7 @@
       "slug": "blocks-signal",
       "title": "Signal handling",
       "section": "Function blocks",
-      "order": 88,
+      "order": 90,
       "file": "Function blocks/blocks-signal.md",
       "bytes": 1549
     },
@@ -727,7 +743,7 @@
       "slug": "blocks-equipment",
       "title": "Equipment blocks",
       "section": "Function blocks",
-      "order": 89,
+      "order": 91,
       "file": "Function blocks/blocks-equipment.md",
       "bytes": 1065
     },
@@ -735,7 +751,7 @@
       "slug": "blocks-motion",
       "title": "Motion",
       "section": "Function blocks",
-      "order": 90,
+      "order": 92,
       "file": "Function blocks/blocks-motion.md",
       "bytes": 26609
     },
@@ -743,7 +759,7 @@
       "slug": "mc-power",
       "title": "Motion, turning the axis on: MC_Power",
       "section": "Function blocks",
-      "order": 91,
+      "order": 93,
       "file": "Function blocks/mc-power.md",
       "bytes": 2859
     },
@@ -751,7 +767,7 @@
       "slug": "mc-reset",
       "title": "Motion, turning the axis on: MC_Reset",
       "section": "Function blocks",
-      "order": 92,
+      "order": 94,
       "file": "Function blocks/mc-reset.md",
       "bytes": 2304
     },
@@ -759,7 +775,7 @@
       "slug": "mc-readstatus",
       "title": "Motion, turning the axis on: MC_ReadStatus",
       "section": "Function blocks",
-      "order": 93,
+      "order": 95,
       "file": "Function blocks/mc-readstatus.md",
       "bytes": 3311
     },
@@ -767,7 +783,7 @@
       "slug": "mc-readaxiserror",
       "title": "Motion, turning the axis on: MC_ReadAxisError",
       "section": "Function blocks",
-      "order": 94,
+      "order": 96,
       "file": "Function blocks/mc-readaxiserror.md",
       "bytes": 2257
     },
@@ -775,7 +791,7 @@
       "slug": "mc-movevelocity",
       "title": "Motion, making it move: MC_MoveVelocity",
       "section": "Function blocks",
-      "order": 95,
+      "order": 97,
       "file": "Function blocks/mc-movevelocity.md",
       "bytes": 4680
     },
@@ -783,7 +799,7 @@
       "slug": "mc-halt",
       "title": "Motion, making it move: MC_Halt",
       "section": "Function blocks",
-      "order": 96,
+      "order": 98,
       "file": "Function blocks/mc-halt.md",
       "bytes": 3395
     },
@@ -791,7 +807,7 @@
       "slug": "mc-stop",
       "title": "Motion, making it move: MC_Stop",
       "section": "Function blocks",
-      "order": 97,
+      "order": 99,
       "file": "Function blocks/mc-stop.md",
       "bytes": 3171
     },
@@ -799,7 +815,7 @@
       "slug": "mc-moveabsolute",
       "title": "Motion, making it move: MC_MoveAbsolute",
       "section": "Function blocks",
-      "order": 98,
+      "order": 100,
       "file": "Function blocks/mc-moveabsolute.md",
       "bytes": 5237
     },
@@ -807,7 +823,7 @@
       "slug": "mc-moverelative",
       "title": "Motion, making it move: MC_MoveRelative",
       "section": "Function blocks",
-      "order": 99,
+      "order": 101,
       "file": "Function blocks/mc-moverelative.md",
       "bytes": 4528
     },
@@ -815,7 +831,7 @@
       "slug": "mc-moveadditive",
       "title": "Motion, making it move: MC_MoveAdditive",
       "section": "Function blocks",
-      "order": 100,
+      "order": 102,
       "file": "Function blocks/mc-moveadditive.md",
       "bytes": 4331
     },
@@ -823,7 +839,7 @@
       "slug": "mc-home",
       "title": "Motion, making it move: MC_Home",
       "section": "Function blocks",
-      "order": 101,
+      "order": 103,
       "file": "Function blocks/mc-home.md",
       "bytes": 3474
     },
@@ -831,7 +847,7 @@
       "slug": "mc-setposition",
       "title": "Motion, making it move: MC_SetPosition",
       "section": "Function blocks",
-      "order": 102,
+      "order": 104,
       "file": "Function blocks/mc-setposition.md",
       "bytes": 2850
     },
@@ -839,7 +855,7 @@
       "slug": "mc-setoverride",
       "title": "Motion, making it move: MC_SetOverride",
       "section": "Function blocks",
-      "order": 103,
+      "order": 105,
       "file": "Function blocks/mc-setoverride.md",
       "bytes": 2491
     },
@@ -847,7 +863,7 @@
       "slug": "mc-readactualposition",
       "title": "Motion, reading the axis: MC_ReadActualPosition",
       "section": "Function blocks",
-      "order": 104,
+      "order": 106,
       "file": "Function blocks/mc-readactualposition.md",
       "bytes": 2447
     },
@@ -855,7 +871,7 @@
       "slug": "mc-readactualvelocity",
       "title": "Motion, reading the axis: MC_ReadActualVelocity",
       "section": "Function blocks",
-      "order": 105,
+      "order": 107,
       "file": "Function blocks/mc-readactualvelocity.md",
       "bytes": 2275
     },
@@ -863,7 +879,7 @@
       "slug": "mc-readactualtorque",
       "title": "Motion, reading the axis: MC_ReadActualTorque",
       "section": "Function blocks",
-      "order": 106,
+      "order": 108,
       "file": "Function blocks/mc-readactualtorque.md",
       "bytes": 2137
     },
@@ -871,7 +887,7 @@
       "slug": "mc-readmotionstate",
       "title": "Motion, reading the axis: MC_ReadMotionState",
       "section": "Function blocks",
-      "order": 107,
+      "order": 109,
       "file": "Function blocks/mc-readmotionstate.md",
       "bytes": 3062
     },
@@ -879,7 +895,7 @@
       "slug": "mc-readaxisinfo",
       "title": "Motion, reading the axis: MC_ReadAxisInfo",
       "section": "Function blocks",
-      "order": 108,
+      "order": 110,
       "file": "Function blocks/mc-readaxisinfo.md",
       "bytes": 3221
     },
@@ -887,7 +903,7 @@
       "slug": "mc-readparameter",
       "title": "Motion, reading the axis: MC_ReadParameter",
       "section": "Function blocks",
-      "order": 109,
+      "order": 111,
       "file": "Function blocks/mc-readparameter.md",
       "bytes": 2743
     },
@@ -895,7 +911,7 @@
       "slug": "mc-readboolparameter",
       "title": "Motion, reading the axis: MC_ReadBoolParameter",
       "section": "Function blocks",
-      "order": 110,
+      "order": 112,
       "file": "Function blocks/mc-readboolparameter.md",
       "bytes": 2550
     },
@@ -903,7 +919,7 @@
       "slug": "mc-writeparameter",
       "title": "Motion, reading the axis: MC_WriteParameter",
       "section": "Function blocks",
-      "order": 111,
+      "order": 113,
       "file": "Function blocks/mc-writeparameter.md",
       "bytes": 3222
     },
@@ -911,7 +927,7 @@
       "slug": "mc-writeboolparameter",
       "title": "Motion, reading the axis: MC_WriteBoolParameter",
       "section": "Function blocks",
-      "order": 112,
+      "order": 114,
       "file": "Function blocks/mc-writeboolparameter.md",
       "bytes": 3056
     },
@@ -919,7 +935,7 @@
       "slug": "mc-movecontinuousabsolute",
       "title": "Motion, continuous and superimposed motion: MC_MoveContinuousAbsolute",
       "section": "Function blocks",
-      "order": 113,
+      "order": 115,
       "file": "Function blocks/mc-movecontinuousabsolute.md",
       "bytes": 5153
     },
@@ -927,7 +943,7 @@
       "slug": "mc-movecontinuousrelative",
       "title": "Motion, continuous and superimposed motion: MC_MoveContinuousRelative",
       "section": "Function blocks",
-      "order": 114,
+      "order": 116,
       "file": "Function blocks/mc-movecontinuousrelative.md",
       "bytes": 4655
     },
@@ -935,7 +951,7 @@
       "slug": "mc-movesuperimposed",
       "title": "Motion, continuous and superimposed motion: MC_MoveSuperimposed",
       "section": "Function blocks",
-      "order": 115,
+      "order": 117,
       "file": "Function blocks/mc-movesuperimposed.md",
       "bytes": 4422
     },
@@ -943,7 +959,7 @@
       "slug": "mc-haltsuperimposed",
       "title": "Motion, continuous and superimposed motion: MC_HaltSuperimposed",
       "section": "Function blocks",
-      "order": 116,
+      "order": 118,
       "file": "Function blocks/mc-haltsuperimposed.md",
       "bytes": 3055
     },
@@ -951,7 +967,7 @@
       "slug": "mc-positionprofile",
       "title": "Motion, profiles and cams: MC_PositionProfile",
       "section": "Function blocks",
-      "order": 117,
+      "order": 119,
       "file": "Function blocks/mc-positionprofile.md",
       "bytes": 4536
     },
@@ -959,7 +975,7 @@
       "slug": "mc-velocityprofile",
       "title": "Motion, profiles and cams: MC_VelocityProfile",
       "section": "Function blocks",
-      "order": 118,
+      "order": 120,
       "file": "Function blocks/mc-velocityprofile.md",
       "bytes": 4225
     },
@@ -967,7 +983,7 @@
       "slug": "mc-accelerationprofile",
       "title": "Motion, profiles and cams: MC_AccelerationProfile",
       "section": "Function blocks",
-      "order": 119,
+      "order": 121,
       "file": "Function blocks/mc-accelerationprofile.md",
       "bytes": 4240
     },
@@ -975,7 +991,7 @@
       "slug": "mc-camtableselect",
       "title": "Motion, profiles and cams: MC_CamTableSelect",
       "section": "Function blocks",
-      "order": 120,
+      "order": 122,
       "file": "Function blocks/mc-camtableselect.md",
       "bytes": 3362
     },
@@ -983,7 +999,7 @@
       "slug": "mc-camin",
       "title": "Motion, profiles and cams: MC_CamIn",
       "section": "Function blocks",
-      "order": 121,
+      "order": 123,
       "file": "Function blocks/mc-camin.md",
       "bytes": 5872
     },
@@ -991,7 +1007,7 @@
       "slug": "mc-camout",
       "title": "Motion, profiles and cams: MC_CamOut",
       "section": "Function blocks",
-      "order": 122,
+      "order": 124,
       "file": "Function blocks/mc-camout.md",
       "bytes": 2476
     },
@@ -999,7 +1015,7 @@
       "slug": "mc-gearin",
       "title": "Motion, the line shaft: MC_GearIn",
       "section": "Function blocks",
-      "order": 123,
+      "order": 125,
       "file": "Function blocks/mc-gearin.md",
       "bytes": 6919
     },
@@ -1007,7 +1023,7 @@
       "slug": "mc-gearout",
       "title": "Motion, the line shaft: MC_GearOut",
       "section": "Function blocks",
-      "order": 124,
+      "order": 126,
       "file": "Function blocks/mc-gearout.md",
       "bytes": 2649
     },
@@ -1015,7 +1031,7 @@
       "slug": "mc-gearinpos",
       "title": "Motion, the line shaft: MC_GearInPos",
       "section": "Function blocks",
-      "order": 125,
+      "order": 127,
       "file": "Function blocks/mc-gearinpos.md",
       "bytes": 6875
     },
@@ -1023,7 +1039,7 @@
       "slug": "mc-phasingabsolute",
       "title": "Motion, the line shaft: MC_PhasingAbsolute",
       "section": "Function blocks",
-      "order": 126,
+      "order": 128,
       "file": "Function blocks/mc-phasingabsolute.md",
       "bytes": 4561
     },
@@ -1031,7 +1047,7 @@
       "slug": "mc-phasingrelative",
       "title": "Motion, the line shaft: MC_PhasingRelative",
       "section": "Function blocks",
-      "order": 127,
+      "order": 129,
       "file": "Function blocks/mc-phasingrelative.md",
       "bytes": 4193
     },
@@ -1039,7 +1055,7 @@
       "slug": "mc-combineaxes",
       "title": "Motion, the line shaft: MC_CombineAxes",
       "section": "Function blocks",
-      "order": 128,
+      "order": 130,
       "file": "Function blocks/mc-combineaxes.md",
       "bytes": 5439
     },
@@ -1047,7 +1063,7 @@
       "slug": "mc-settorquelimit",
       "title": "Motion, torque: MC_SetTorqueLimit",
       "section": "Function blocks",
-      "order": 129,
+      "order": 131,
       "file": "Function blocks/mc-settorquelimit.md",
       "bytes": 2823
     },
@@ -1055,7 +1071,7 @@
       "slug": "mc-torquecontrol",
       "title": "Motion, torque: MC_TorqueControl",
       "section": "Function blocks",
-      "order": 130,
+      "order": 132,
       "file": "Function blocks/mc-torquecontrol.md",
       "bytes": 4840
     },
@@ -1063,7 +1079,7 @@
       "slug": "mc-torqueff",
       "title": "Motion, torque: MC_TorqueFF",
       "section": "Function blocks",
-      "order": 131,
+      "order": 133,
       "file": "Function blocks/mc-torqueff.md",
       "bytes": 3300
     },
@@ -1071,7 +1087,7 @@
       "slug": "mc-touchprobe",
       "title": "Motion, probes and digital words: MC_TouchProbe",
       "section": "Function blocks",
-      "order": 132,
+      "order": 134,
       "file": "Function blocks/mc-touchprobe.md",
       "bytes": 3434
     },
@@ -1079,7 +1095,7 @@
       "slug": "mc-aborttrigger",
       "title": "Motion, probes and digital words: MC_AbortTrigger",
       "section": "Function blocks",
-      "order": 133,
+      "order": 135,
       "file": "Function blocks/mc-aborttrigger.md",
       "bytes": 2285
     },
@@ -1087,7 +1103,7 @@
       "slug": "mc-digitalcamswitch",
       "title": "Motion, probes and digital words: MC_DigitalCamSwitch",
       "section": "Function blocks",
-      "order": 134,
+      "order": 136,
       "file": "Function blocks/mc-digitalcamswitch.md",
       "bytes": 3283
     },
@@ -1095,7 +1111,7 @@
       "slug": "mc-readdigitalinput",
       "title": "Motion, probes and digital words: MC_ReadDigitalInput",
       "section": "Function blocks",
-      "order": 135,
+      "order": 137,
       "file": "Function blocks/mc-readdigitalinput.md",
       "bytes": 2669
     },
@@ -1103,7 +1119,7 @@
       "slug": "mc-readdigitaloutput",
       "title": "Motion, probes and digital words: MC_ReadDigitalOutput",
       "section": "Function blocks",
-      "order": 136,
+      "order": 138,
       "file": "Function blocks/mc-readdigitaloutput.md",
       "bytes": 2508
     },
@@ -1111,7 +1127,7 @@
       "slug": "mc-writedigitaloutput",
       "title": "Motion, probes and digital words: MC_WriteDigitalOutput",
       "section": "Function blocks",
-      "order": 137,
+      "order": 139,
       "file": "Function blocks/mc-writedigitaloutput.md",
       "bytes": 3066
     },
@@ -1119,7 +1135,7 @@
       "slug": "blocks-can",
       "title": "CANopen blocks",
       "section": "Function blocks",
-      "order": 138,
+      "order": 140,
       "file": "Function blocks/blocks-can.md",
       "bytes": 2434
     },
@@ -1127,7 +1143,7 @@
       "slug": "blocks-services",
       "title": "Services",
       "section": "Function blocks",
-      "order": 139,
+      "order": 141,
       "file": "Function blocks/blocks-services.md",
       "bytes": 2381
     },
@@ -1135,7 +1151,7 @@
       "slug": "blocks-home",
       "title": "Home automation",
       "section": "Function blocks",
-      "order": 140,
+      "order": 142,
       "file": "Function blocks/blocks-home.md",
       "bytes": 5665
     },
@@ -1143,7 +1159,7 @@
       "slug": "blocks-drives",
       "title": "Drives",
       "section": "Function blocks",
-      "order": 141,
+      "order": 143,
       "file": "Function blocks/blocks-drives.md",
       "bytes": 1154
     },
@@ -1151,7 +1167,7 @@
       "slug": "fb-ton",
       "title": "Timers: TON",
       "section": "Function blocks",
-      "order": 142,
+      "order": 144,
       "file": "Function blocks/fb-ton.md",
       "bytes": 2769
     },
@@ -1159,7 +1175,7 @@
       "slug": "fb-tof",
       "title": "Timers: TOF",
       "section": "Function blocks",
-      "order": 143,
+      "order": 145,
       "file": "Function blocks/fb-tof.md",
       "bytes": 2214
     },
@@ -1167,7 +1183,7 @@
       "slug": "fb-tp",
       "title": "Timers: TP",
       "section": "Function blocks",
-      "order": 144,
+      "order": 146,
       "file": "Function blocks/fb-tp.md",
       "bytes": 2214
     },
@@ -1175,7 +1191,7 @@
       "slug": "fb-blink",
       "title": "Timers: BLINK",
       "section": "Function blocks",
-      "order": 145,
+      "order": 147,
       "file": "Function blocks/fb-blink.md",
       "bytes": 2428
     },
@@ -1183,7 +1199,7 @@
       "slug": "fb-ctu",
       "title": "Counters: CTU",
       "section": "Function blocks",
-      "order": 146,
+      "order": 148,
       "file": "Function blocks/fb-ctu.md",
       "bytes": 3155
     },
@@ -1191,7 +1207,7 @@
       "slug": "fb-ctd",
       "title": "Counters: CTD",
       "section": "Function blocks",
-      "order": 147,
+      "order": 149,
       "file": "Function blocks/fb-ctd.md",
       "bytes": 2544
     },
@@ -1199,7 +1215,7 @@
       "slug": "fb-r_trig",
       "title": "Boolean: R_TRIG",
       "section": "Function blocks",
-      "order": 148,
+      "order": 150,
       "file": "Function blocks/fb-r_trig.md",
       "bytes": 1418
     },
@@ -1207,7 +1223,7 @@
       "slug": "fb-f_trig",
       "title": "Boolean: F_TRIG",
       "section": "Function blocks",
-      "order": 149,
+      "order": 151,
       "file": "Function blocks/fb-f_trig.md",
       "bytes": 1342
     },
@@ -1215,7 +1231,7 @@
       "slug": "fb-sr",
       "title": "Boolean: SR",
       "section": "Function blocks",
-      "order": 150,
+      "order": 152,
       "file": "Function blocks/fb-sr.md",
       "bytes": 2085
     },
@@ -1223,7 +1239,7 @@
       "slug": "fb-rs",
       "title": "Boolean: RS",
       "section": "Function blocks",
-      "order": 151,
+      "order": 153,
       "file": "Function blocks/fb-rs.md",
       "bytes": 1980
     },
@@ -1231,7 +1247,7 @@
       "slug": "fb-and",
       "title": "Boolean: AND",
       "section": "Function blocks",
-      "order": 152,
+      "order": 154,
       "file": "Function blocks/fb-and.md",
       "bytes": 1760
     },
@@ -1239,7 +1255,7 @@
       "slug": "fb-or",
       "title": "Boolean: OR",
       "section": "Function blocks",
-      "order": 153,
+      "order": 155,
       "file": "Function blocks/fb-or.md",
       "bytes": 1563
     },
@@ -1247,7 +1263,7 @@
       "slug": "fb-xor",
       "title": "Boolean: XOR",
       "section": "Function blocks",
-      "order": 154,
+      "order": 156,
       "file": "Function blocks/fb-xor.md",
       "bytes": 1745
     },
@@ -1255,7 +1271,7 @@
       "slug": "fb-not",
       "title": "Boolean: NOT",
       "section": "Function blocks",
-      "order": 155,
+      "order": 157,
       "file": "Function blocks/fb-not.md",
       "bytes": 1490
     },
@@ -1263,7 +1279,7 @@
       "slug": "fb-add",
       "title": "Maths: ADD",
       "section": "Function blocks",
-      "order": 156,
+      "order": 158,
       "file": "Function blocks/fb-add.md",
       "bytes": 2441
     },
@@ -1271,7 +1287,7 @@
       "slug": "fb-sub",
       "title": "Maths: SUB",
       "section": "Function blocks",
-      "order": 157,
+      "order": 159,
       "file": "Function blocks/fb-sub.md",
       "bytes": 1722
     },
@@ -1279,7 +1295,7 @@
       "slug": "fb-mul",
       "title": "Maths: MUL",
       "section": "Function blocks",
-      "order": 158,
+      "order": 160,
       "file": "Function blocks/fb-mul.md",
       "bytes": 1730
     },
@@ -1287,7 +1303,7 @@
       "slug": "fb-div",
       "title": "Maths: DIV",
       "section": "Function blocks",
-      "order": 159,
+      "order": 161,
       "file": "Function blocks/fb-div.md",
       "bytes": 2286
     },
@@ -1295,7 +1311,7 @@
       "slug": "fb-min",
       "title": "Maths: MIN",
       "section": "Function blocks",
-      "order": 160,
+      "order": 162,
       "file": "Function blocks/fb-min.md",
       "bytes": 1687
     },
@@ -1303,7 +1319,7 @@
       "slug": "fb-max",
       "title": "Maths: MAX",
       "section": "Function blocks",
-      "order": 161,
+      "order": 163,
       "file": "Function blocks/fb-max.md",
       "bytes": 1734
     },
@@ -1311,7 +1327,7 @@
       "slug": "fb-abs",
       "title": "Maths: ABS",
       "section": "Function blocks",
-      "order": 162,
+      "order": 164,
       "file": "Function blocks/fb-abs.md",
       "bytes": 1317
     },
@@ -1319,7 +1335,7 @@
       "slug": "fb-move",
       "title": "Maths: MOVE",
       "section": "Function blocks",
-      "order": 163,
+      "order": 165,
       "file": "Function blocks/fb-move.md",
       "bytes": 1255
     },
@@ -1327,7 +1343,7 @@
       "slug": "fb-gt",
       "title": "Comparison: GT",
       "section": "Function blocks",
-      "order": 164,
+      "order": 166,
       "file": "Function blocks/fb-gt.md",
       "bytes": 2176
     },
@@ -1335,7 +1351,7 @@
       "slug": "fb-ge",
       "title": "Comparison: GE",
       "section": "Function blocks",
-      "order": 165,
+      "order": 167,
       "file": "Function blocks/fb-ge.md",
       "bytes": 1885
     },
@@ -1343,7 +1359,7 @@
       "slug": "fb-lt",
       "title": "Comparison: LT",
       "section": "Function blocks",
-      "order": 166,
+      "order": 168,
       "file": "Function blocks/fb-lt.md",
       "bytes": 1893
     },
@@ -1351,7 +1367,7 @@
       "slug": "fb-le",
       "title": "Comparison: LE",
       "section": "Function blocks",
-      "order": 167,
+      "order": 169,
       "file": "Function blocks/fb-le.md",
       "bytes": 1885
     },
@@ -1359,7 +1375,7 @@
       "slug": "fb-eq",
       "title": "Comparison: EQ",
       "section": "Function blocks",
-      "order": 168,
+      "order": 170,
       "file": "Function blocks/fb-eq.md",
       "bytes": 1751
     },
@@ -1367,7 +1383,7 @@
       "slug": "fb-sel",
       "title": "Comparison: SEL",
       "section": "Function blocks",
-      "order": 169,
+      "order": 171,
       "file": "Function blocks/fb-sel.md",
       "bytes": 1585
     },
@@ -1375,7 +1391,7 @@
       "slug": "fb-scale",
       "title": "Signal handling: SCALE",
       "section": "Function blocks",
-      "order": 170,
+      "order": 172,
       "file": "Function blocks/fb-scale.md",
       "bytes": 2541
     },
@@ -1383,7 +1399,7 @@
       "slug": "fb-limit",
       "title": "Signal handling: LIMIT",
       "section": "Function blocks",
-      "order": 171,
+      "order": 173,
       "file": "Function blocks/fb-limit.md",
       "bytes": 1829
     },
@@ -1391,7 +1407,7 @@
       "slug": "fb-hyst",
       "title": "Signal handling: HYST",
       "section": "Function blocks",
-      "order": 172,
+      "order": 174,
       "file": "Function blocks/fb-hyst.md",
       "bytes": 2257
     },
@@ -1399,7 +1415,7 @@
       "slug": "fb-ramp",
       "title": "Signal handling: RAMP",
       "section": "Function blocks",
-      "order": 173,
+      "order": 175,
       "file": "Function blocks/fb-ramp.md",
       "bytes": 1626
     },
@@ -1407,7 +1423,7 @@
       "slug": "fb-pt1",
       "title": "Signal handling: PT1",
       "section": "Function blocks",
-      "order": 174,
+      "order": 176,
       "file": "Function blocks/fb-pt1.md",
       "bytes": 1932
     },
@@ -1415,7 +1431,7 @@
       "slug": "fb-motor",
       "title": "Equipment: MOTOR",
       "section": "Function blocks",
-      "order": 175,
+      "order": 177,
       "file": "Function blocks/fb-motor.md",
       "bytes": 2872
     },
@@ -1423,7 +1439,7 @@
       "slug": "fb-valve",
       "title": "Equipment: VALVE",
       "section": "Function blocks",
-      "order": 176,
+      "order": 178,
       "file": "Function blocks/fb-valve.md",
       "bytes": 2504
     },
@@ -1431,7 +1447,7 @@
       "slug": "fb-pid",
       "title": "Equipment: PID",
       "section": "Function blocks",
-      "order": 177,
+      "order": 179,
       "file": "Function blocks/fb-pid.md",
       "bytes": 3929
     },
@@ -1439,7 +1455,7 @@
       "slug": "fb-co_cia402",
       "title": "CANopen: CO_CIA402",
       "section": "Function blocks",
-      "order": 178,
+      "order": 180,
       "file": "Function blocks/fb-co_cia402.md",
       "bytes": 3055
     },
@@ -1447,7 +1463,7 @@
       "slug": "fb-co_sdowrite",
       "title": "CANopen: CO_SDOWRITE",
       "section": "Function blocks",
-      "order": 179,
+      "order": 181,
       "file": "Function blocks/fb-co_sdowrite.md",
       "bytes": 1465
     },
@@ -1455,7 +1471,7 @@
       "slug": "fb-co_sdoread",
       "title": "CANopen: CO_SDOREAD",
       "section": "Function blocks",
-      "order": 180,
+      "order": 182,
       "file": "Function blocks/fb-co_sdoread.md",
       "bytes": 1071
     },
@@ -1463,7 +1479,7 @@
       "slug": "fb-co_ramptime",
       "title": "CANopen: CO_RAMPTIME",
       "section": "Function blocks",
-      "order": 181,
+      "order": 183,
       "file": "Function blocks/fb-co_ramptime.md",
       "bytes": 1684
     },
@@ -1471,7 +1487,7 @@
       "slug": "fb-ir_send",
       "title": "Services: IR_SEND",
       "section": "Function blocks",
-      "order": 182,
+      "order": 184,
       "file": "Function blocks/fb-ir_send.md",
       "bytes": 2269
     },
@@ -1479,7 +1495,7 @@
       "slug": "fb-sms_send",
       "title": "Services: SMS_SEND",
       "section": "Function blocks",
-      "order": 183,
+      "order": 185,
       "file": "Function blocks/fb-sms_send.md",
       "bytes": 3002
     },
@@ -1487,7 +1503,7 @@
       "slug": "fb-gsm_info",
       "title": "Services: GSM_INFO",
       "section": "Function blocks",
-      "order": 184,
+      "order": 186,
       "file": "Function blocks/fb-gsm_info.md",
       "bytes": 2265
     },
@@ -1495,7 +1511,7 @@
       "slug": "fb-uds_dtc",
       "title": "Vehicle diagnostics: UDS_DTC",
       "section": "Function blocks",
-      "order": 185,
+      "order": 187,
       "file": "Function blocks/fb-uds_dtc.md",
       "bytes": 2830
     },
@@ -1503,7 +1519,7 @@
       "slug": "fb-uds_clear",
       "title": "Vehicle diagnostics: UDS_CLEAR",
       "section": "Function blocks",
-      "order": 186,
+      "order": 188,
       "file": "Function blocks/fb-uds_clear.md",
       "bytes": 1975
     },
@@ -1511,7 +1527,7 @@
       "slug": "fb-uds_read",
       "title": "Vehicle diagnostics: UDS_READ",
       "section": "Function blocks",
-      "order": 187,
+      "order": 189,
       "file": "Function blocks/fb-uds_read.md",
       "bytes": 2162
     },
@@ -1519,7 +1535,7 @@
       "slug": "fb-ld_ret",
       "title": "Ladder: LD_RET",
       "section": "Function blocks",
-      "order": 188,
+      "order": 190,
       "file": "Function blocks/fb-ld_ret.md",
       "bytes": 860
     },
@@ -1527,7 +1543,7 @@
       "slug": "fb-ld_jmp",
       "title": "Ladder: LD_JMP",
       "section": "Function blocks",
-      "order": 189,
+      "order": 191,
       "file": "Function blocks/fb-ld_jmp.md",
       "bytes": 1390
     },
@@ -1535,7 +1551,7 @@
       "slug": "home-pushbutton",
       "title": "Home automation: PUSHBUTTON",
       "section": "Function blocks",
-      "order": 190,
+      "order": 192,
       "file": "Function blocks/home-pushbutton.md",
       "bytes": 1874
     },
@@ -1543,7 +1559,7 @@
       "slug": "home-multiclick",
       "title": "Home automation: MULTICLICK",
       "section": "Function blocks",
-      "order": 191,
+      "order": 193,
       "file": "Function blocks/home-multiclick.md",
       "bytes": 1344
     },
@@ -1551,7 +1567,7 @@
       "slug": "home-toggle",
       "title": "Home automation: TOGGLE",
       "section": "Function blocks",
-      "order": 192,
+      "order": 194,
       "file": "Function blocks/home-toggle.md",
       "bytes": 1180
     },
@@ -1559,7 +1575,7 @@
       "slug": "home-stairlight",
       "title": "Home automation: STAIRLIGHT",
       "section": "Function blocks",
-      "order": 193,
+      "order": 195,
       "file": "Function blocks/home-stairlight.md",
       "bytes": 1646
     },
@@ -1567,7 +1583,7 @@
       "slug": "home-dimmer",
       "title": "Home automation: DIMMER",
       "section": "Function blocks",
-      "order": 194,
+      "order": 196,
       "file": "Function blocks/home-dimmer.md",
       "bytes": 1952
     },
@@ -1575,7 +1591,7 @@
       "slug": "home-pwm",
       "title": "Home automation: PWM",
       "section": "Function blocks",
-      "order": 195,
+      "order": 197,
       "file": "Function blocks/home-pwm.md",
       "bytes": 1003
     },
@@ -1583,7 +1599,7 @@
       "slug": "home-blinds",
       "title": "Home automation: BLINDS",
       "section": "Function blocks",
-      "order": 196,
+      "order": 198,
       "file": "Function blocks/home-blinds.md",
       "bytes": 2436
     },
@@ -1591,7 +1607,7 @@
       "slug": "home-travel",
       "title": "Home automation: TRAVEL",
       "section": "Function blocks",
-      "order": 197,
+      "order": 199,
       "file": "Function blocks/home-travel.md",
       "bytes": 1387
     },
@@ -1599,7 +1615,7 @@
       "slug": "home-presence",
       "title": "Home automation: PRESENCE",
       "section": "Function blocks",
-      "order": 198,
+      "order": 200,
       "file": "Function blocks/home-presence.md",
       "bytes": 1284
     },
@@ -1607,7 +1623,7 @@
       "slug": "home-twilight",
       "title": "Home automation: TWILIGHT",
       "section": "Function blocks",
-      "order": 199,
+      "order": 201,
       "file": "Function blocks/home-twilight.md",
       "bytes": 1557
     },
@@ -1615,7 +1631,7 @@
       "slug": "home-thermostat",
       "title": "Home automation: THERMOSTAT",
       "section": "Function blocks",
-      "order": 200,
+      "order": 202,
       "file": "Function blocks/home-thermostat.md",
       "bytes": 2232
     },
@@ -1623,7 +1639,7 @@
       "slug": "home-daytime",
       "title": "Home automation: DAYTIME",
       "section": "Function blocks",
-      "order": 201,
+      "order": 203,
       "file": "Function blocks/home-daytime.md",
       "bytes": 1889
     },
@@ -1631,7 +1647,7 @@
       "slug": "home-suntimes",
       "title": "Home automation: SUNTIMES",
       "section": "Function blocks",
-      "order": 202,
+      "order": 204,
       "file": "Function blocks/home-suntimes.md",
       "bytes": 1543
     },
@@ -1639,7 +1655,7 @@
       "slug": "home-astro",
       "title": "Home automation: ASTRO",
       "section": "Function blocks",
-      "order": 203,
+      "order": 205,
       "file": "Function blocks/home-astro.md",
       "bytes": 1754
     },
@@ -1647,7 +1663,7 @@
       "slug": "home-schedule",
       "title": "Home automation: SCHEDULE",
       "section": "Function blocks",
-      "order": 204,
+      "order": 206,
       "file": "Function blocks/home-schedule.md",
       "bytes": 2177
     },
@@ -1655,7 +1671,7 @@
       "slug": "home-scene",
       "title": "Home automation: SCENE",
       "section": "Function blocks",
-      "order": 205,
+      "order": 207,
       "file": "Function blocks/home-scene.md",
       "bytes": 1859
     },
@@ -1663,7 +1679,7 @@
       "slug": "home-gate",
       "title": "Home automation: GATE",
       "section": "Function blocks",
-      "order": 206,
+      "order": 208,
       "file": "Function blocks/home-gate.md",
       "bytes": 1909
     },
@@ -1671,7 +1687,7 @@
       "slug": "home-vent",
       "title": "Home automation: VENT",
       "section": "Function blocks",
-      "order": 207,
+      "order": 209,
       "file": "Function blocks/home-vent.md",
       "bytes": 1691
     },
@@ -1679,7 +1695,7 @@
       "slug": "home-central",
       "title": "Home automation: CENTRAL",
       "section": "Function blocks",
-      "order": 208,
+      "order": 210,
       "file": "Function blocks/home-central.md",
       "bytes": 1668
     },
@@ -1687,7 +1703,7 @@
       "slug": "home-energy",
       "title": "Home automation: ENERGY",
       "section": "Function blocks",
-      "order": 209,
+      "order": 211,
       "file": "Function blocks/home-energy.md",
       "bytes": 1354
     },
@@ -1695,7 +1711,7 @@
       "slug": "drv-drive",
       "title": "Drives: DRIVE",
       "section": "Function blocks",
-      "order": 210,
+      "order": 212,
       "file": "Function blocks/drv-drive.md",
       "bytes": 5413
     },
@@ -1703,7 +1719,7 @@
       "slug": "vision",
       "title": "Vision",
       "section": "Vision",
-      "order": 211,
+      "order": 213,
       "file": "Vision/index.md",
       "bytes": 29375
     },
@@ -1711,7 +1727,7 @@
       "slug": "cameras",
       "title": "Cameras",
       "section": "Vision",
-      "order": 212,
+      "order": 214,
       "file": "Vision/cameras.md",
       "bytes": 8591
     },
@@ -1719,7 +1735,7 @@
       "slug": "intercom",
       "title": "Intercom",
       "section": "Vision",
-      "order": 213,
+      "order": 215,
       "file": "Vision/intercom.md",
       "bytes": 9228
     },
@@ -1727,7 +1743,7 @@
       "slug": "vision-blocks",
       "title": "Vision blocks",
       "section": "Vision",
-      "order": 214,
+      "order": 216,
       "file": "Vision/vision-blocks.md",
       "bytes": 22986
     },
@@ -1735,7 +1751,7 @@
       "slug": "vision-camera",
       "title": "Source: Camera",
       "section": "Vision",
-      "order": 215,
+      "order": 217,
       "file": "Vision/vision-camera.md",
       "bytes": 2747
     },
@@ -1743,7 +1759,7 @@
       "slug": "vision-crop",
       "title": "Geometry: Crop",
       "section": "Vision",
-      "order": 216,
+      "order": 218,
       "file": "Vision/vision-crop.md",
       "bytes": 2999
     },
@@ -1751,7 +1767,7 @@
       "slug": "vision-resize",
       "title": "Geometry: Resize",
       "section": "Vision",
-      "order": 217,
+      "order": 219,
       "file": "Vision/vision-resize.md",
       "bytes": 2437
     },
@@ -1759,7 +1775,7 @@
       "slug": "vision-rotate",
       "title": "Geometry: Rotate",
       "section": "Vision",
-      "order": 218,
+      "order": 220,
       "file": "Vision/vision-rotate.md",
       "bytes": 2298
     },
@@ -1767,7 +1783,7 @@
       "slug": "vision-warp",
       "title": "Geometry: Straighten",
       "section": "Vision",
-      "order": 219,
+      "order": 221,
       "file": "Vision/vision-warp.md",
       "bytes": 3626
     },
@@ -1775,7 +1791,7 @@
       "slug": "vision-flip",
       "title": "Geometry: Flip",
       "section": "Vision",
-      "order": 220,
+      "order": 222,
       "file": "Vision/vision-flip.md",
       "bytes": 2047
     },
@@ -1783,7 +1799,7 @@
       "slug": "vision-affine",
       "title": "Geometry: Turn and shift",
       "section": "Vision",
-      "order": 221,
+      "order": 223,
       "file": "Vision/vision-affine.md",
       "bytes": 2954
     },
@@ -1791,7 +1807,7 @@
       "slug": "vision-polar",
       "title": "Geometry: Unroll ring",
       "section": "Vision",
-      "order": 222,
+      "order": 224,
       "file": "Vision/vision-polar.md",
       "bytes": 2976
     },
@@ -1799,7 +1815,7 @@
       "slug": "vision-pyramid",
       "title": "Geometry: Halve",
       "section": "Vision",
-      "order": 223,
+      "order": 225,
       "file": "Vision/vision-pyramid.md",
       "bytes": 2475
     },
@@ -1807,7 +1823,7 @@
       "slug": "vision-undistort",
       "title": "Geometry: Lens correction",
       "section": "Vision",
-      "order": 224,
+      "order": 226,
       "file": "Vision/vision-undistort.md",
       "bytes": 4070
     },
@@ -1815,7 +1831,7 @@
       "slug": "vision-fixture",
       "title": "Geometry: Fixture",
       "section": "Vision",
-      "order": 225,
+      "order": 227,
       "file": "Vision/vision-fixture.md",
       "bytes": 4529
     },
@@ -1823,7 +1839,7 @@
       "slug": "vision-world",
       "title": "Geometry: Plane from a board",
       "section": "Vision",
-      "order": 226,
+      "order": 228,
       "file": "Vision/vision-world.md",
       "bytes": 4592
     },
@@ -1831,7 +1847,7 @@
       "slug": "vision-gray",
       "title": "Colour: Grayscale",
       "section": "Vision",
-      "order": 227,
+      "order": 229,
       "file": "Vision/vision-gray.md",
       "bytes": 1851
     },
@@ -1839,7 +1855,7 @@
       "slug": "vision-hsv_range",
       "title": "Colour: Colour range",
       "section": "Vision",
-      "order": 228,
+      "order": 230,
       "file": "Vision/vision-hsv_range.md",
       "bytes": 3589
     },
@@ -1847,7 +1863,7 @@
       "slug": "vision-threshold",
       "title": "Colour: Threshold",
       "section": "Vision",
-      "order": 229,
+      "order": 231,
       "file": "Vision/vision-threshold.md",
       "bytes": 2792
     },
@@ -1855,7 +1871,7 @@
       "slug": "vision-otsu",
       "title": "Colour: Automatic threshold",
       "section": "Vision",
-      "order": 230,
+      "order": 232,
       "file": "Vision/vision-otsu.md",
       "bytes": 2544
     },
@@ -1863,7 +1879,7 @@
       "slug": "vision-invert",
       "title": "Colour: Invert",
       "section": "Vision",
-      "order": 231,
+      "order": 233,
       "file": "Vision/vision-invert.md",
       "bytes": 1652
     },
@@ -1871,7 +1887,7 @@
       "slug": "vision-channel",
       "title": "Colour: One channel",
       "section": "Vision",
-      "order": 232,
+      "order": 234,
       "file": "Vision/vision-channel.md",
       "bytes": 2814
     },
@@ -1879,7 +1895,7 @@
       "slug": "vision-adaptive",
       "title": "Colour: Adaptive threshold",
       "section": "Vision",
-      "order": 233,
+      "order": 235,
       "file": "Vision/vision-adaptive.md",
       "bytes": 3159
     },
@@ -1887,7 +1903,7 @@
       "slug": "vision-balance",
       "title": "Colour: White balance",
       "section": "Vision",
-      "order": 234,
+      "order": 236,
       "file": "Vision/vision-balance.md",
       "bytes": 2681
     },
@@ -1895,7 +1911,7 @@
       "slug": "vision-blur",
       "title": "Filters: Blur",
       "section": "Vision",
-      "order": 235,
+      "order": 237,
       "file": "Vision/vision-blur.md",
       "bytes": 2346
     },
@@ -1903,7 +1919,7 @@
       "slug": "vision-gauss",
       "title": "Filters: Gaussian blur",
       "section": "Vision",
-      "order": 236,
+      "order": 238,
       "file": "Vision/vision-gauss.md",
       "bytes": 2206
     },
@@ -1911,7 +1927,7 @@
       "slug": "vision-median",
       "title": "Filters: Median",
       "section": "Vision",
-      "order": 237,
+      "order": 239,
       "file": "Vision/vision-median.md",
       "bytes": 2253
     },
@@ -1919,7 +1935,7 @@
       "slug": "vision-equalize",
       "title": "Filters: Equalize light",
       "section": "Vision",
-      "order": 238,
+      "order": 240,
       "file": "Vision/vision-equalize.md",
       "bytes": 2227
     },
@@ -1927,7 +1943,7 @@
       "slug": "vision-sharpen",
       "title": "Filters: Sharpen",
       "section": "Vision",
-      "order": 239,
+      "order": 241,
       "file": "Vision/vision-sharpen.md",
       "bytes": 2504
     },
@@ -1935,7 +1951,7 @@
       "slug": "vision-absdiff",
       "title": "Filters: Difference",
       "section": "Vision",
-      "order": 240,
+      "order": 242,
       "file": "Vision/vision-absdiff.md",
       "bytes": 3013
     },
@@ -1943,7 +1959,7 @@
       "slug": "vision-motion",
       "title": "Filters: Motion",
       "section": "Vision",
-      "order": 241,
+      "order": 243,
       "file": "Vision/vision-motion.md",
       "bytes": 3073
     },
@@ -1951,7 +1967,7 @@
       "slug": "vision-bilateral",
       "title": "Filters: Smooth, keep edges",
       "section": "Vision",
-      "order": 242,
+      "order": 244,
       "file": "Vision/vision-bilateral.md",
       "bytes": 2705
     },
@@ -1959,7 +1975,7 @@
       "slug": "vision-normalize",
       "title": "Filters: Stretch contrast",
       "section": "Vision",
-      "order": 243,
+      "order": 245,
       "file": "Vision/vision-normalize.md",
       "bytes": 2829
     },
@@ -1967,7 +1983,7 @@
       "slug": "vision-gamma",
       "title": "Filters: Gamma",
       "section": "Vision",
-      "order": 244,
+      "order": 246,
       "file": "Vision/vision-gamma.md",
       "bytes": 2562
     },
@@ -1975,7 +1991,7 @@
       "slug": "vision-clahe",
       "title": "Filters: Local contrast",
       "section": "Vision",
-      "order": 245,
+      "order": 247,
       "file": "Vision/vision-clahe.md",
       "bytes": 2769
     },
@@ -1983,7 +1999,7 @@
       "slug": "vision-combine",
       "title": "Filters: Combine pictures",
       "section": "Vision",
-      "order": 246,
+      "order": 248,
       "file": "Vision/vision-combine.md",
       "bytes": 2907
     },
@@ -1991,7 +2007,7 @@
       "slug": "vision-mask",
       "title": "Filters: Mask",
       "section": "Vision",
-      "order": 247,
+      "order": 249,
       "file": "Vision/vision-mask.md",
       "bytes": 2626
     },
@@ -1999,7 +2015,7 @@
       "slug": "vision-erode",
       "title": "Shapes: Erode",
       "section": "Vision",
-      "order": 248,
+      "order": 250,
       "file": "Vision/vision-erode.md",
       "bytes": 2444
     },
@@ -2007,7 +2023,7 @@
       "slug": "vision-dilate",
       "title": "Shapes: Dilate",
       "section": "Vision",
-      "order": 249,
+      "order": 251,
       "file": "Vision/vision-dilate.md",
       "bytes": 2409
     },
@@ -2015,7 +2031,7 @@
       "slug": "vision-open",
       "title": "Shapes: Open",
       "section": "Vision",
-      "order": 250,
+      "order": 252,
       "file": "Vision/vision-open.md",
       "bytes": 2381
     },
@@ -2023,7 +2039,7 @@
       "slug": "vision-close",
       "title": "Shapes: Close",
       "section": "Vision",
-      "order": 251,
+      "order": 253,
       "file": "Vision/vision-close.md",
       "bytes": 2405
     },
@@ -2031,7 +2047,7 @@
       "slug": "vision-tophat",
       "title": "Shapes: Top-hat",
       "section": "Vision",
-      "order": 252,
+      "order": 254,
       "file": "Vision/vision-tophat.md",
       "bytes": 2659
     },
@@ -2039,7 +2055,7 @@
       "slug": "vision-blackhat",
       "title": "Shapes: Black-hat",
       "section": "Vision",
-      "order": 253,
+      "order": 255,
       "file": "Vision/vision-blackhat.md",
       "bytes": 2542
     },
@@ -2047,7 +2063,7 @@
       "slug": "vision-gradient",
       "title": "Shapes: Outline",
       "section": "Vision",
-      "order": 254,
+      "order": 256,
       "file": "Vision/vision-gradient.md",
       "bytes": 2608
     },
@@ -2055,7 +2071,7 @@
       "slug": "vision-fill_holes",
       "title": "Shapes: Fill holes",
       "section": "Vision",
-      "order": 255,
+      "order": 257,
       "file": "Vision/vision-fill_holes.md",
       "bytes": 2162
     },
@@ -2063,7 +2079,7 @@
       "slug": "vision-distance",
       "title": "Shapes: Distance map",
       "section": "Vision",
-      "order": 256,
+      "order": 258,
       "file": "Vision/vision-distance.md",
       "bytes": 2255
     },
@@ -2071,7 +2087,7 @@
       "slug": "vision-canny",
       "title": "Edges: Edges",
       "section": "Vision",
-      "order": 257,
+      "order": 259,
       "file": "Vision/vision-canny.md",
       "bytes": 2918
     },
@@ -2079,7 +2095,7 @@
       "slug": "vision-sobel",
       "title": "Edges: Gradient",
       "section": "Vision",
-      "order": 258,
+      "order": 260,
       "file": "Vision/vision-sobel.md",
       "bytes": 2676
     },
@@ -2087,7 +2103,7 @@
       "slug": "vision-laplacian",
       "title": "Edges: Laplacian",
       "section": "Vision",
-      "order": 259,
+      "order": 261,
       "file": "Vision/vision-laplacian.md",
       "bytes": 2437
     },
@@ -2095,7 +2111,7 @@
       "slug": "vision-scharr",
       "title": "Edges: Gradient (fine)",
       "section": "Vision",
-      "order": 260,
+      "order": 262,
       "file": "Vision/vision-scharr.md",
       "bytes": 2235
     },
@@ -2103,7 +2119,7 @@
       "slug": "vision-contours",
       "title": "Finding objects: Find objects",
       "section": "Vision",
-      "order": 261,
+      "order": 263,
       "file": "Vision/vision-contours.md",
       "bytes": 3417
     },
@@ -2111,7 +2127,7 @@
       "slug": "vision-circles",
       "title": "Finding objects: Find circles",
       "section": "Vision",
-      "order": 262,
+      "order": 264,
       "file": "Vision/vision-circles.md",
       "bytes": 3237
     },
@@ -2119,7 +2135,7 @@
       "slug": "vision-pattern",
       "title": "Finding objects: Find pattern",
       "section": "Vision",
-      "order": 263,
+      "order": 265,
       "file": "Vision/vision-pattern.md",
       "bytes": 3730
     },
@@ -2127,7 +2143,7 @@
       "slug": "vision-lines",
       "title": "Finding objects: Find lines",
       "section": "Vision",
-      "order": 264,
+      "order": 266,
       "file": "Vision/vision-lines.md",
       "bytes": 3102
     },
@@ -2135,7 +2151,7 @@
       "slug": "vision-objcheck",
       "title": "Finding objects: Check objects",
       "section": "Vision",
-      "order": 265,
+      "order": 267,
       "file": "Vision/vision-objcheck.md",
       "bytes": 3251
     },
@@ -2143,7 +2159,7 @@
       "slug": "vision-pick",
       "title": "Finding objects: Pick object",
       "section": "Vision",
-      "order": 266,
+      "order": 268,
       "file": "Vision/vision-pick.md",
       "bytes": 3078
     },
@@ -2151,7 +2167,7 @@
       "slug": "vision-crop_object",
       "title": "Finding objects: Crop to object",
       "section": "Vision",
-      "order": 267,
+      "order": 269,
       "file": "Vision/vision-crop_object.md",
       "bytes": 2896
     },
@@ -2159,7 +2175,7 @@
       "slug": "vision-filter_objects",
       "title": "Finding objects: Filter objects",
       "section": "Vision",
-      "order": 268,
+      "order": 270,
       "file": "Vision/vision-filter_objects.md",
       "bytes": 3170
     },
@@ -2167,7 +2183,7 @@
       "slug": "vision-object_shape",
       "title": "Finding objects: Object shape",
       "section": "Vision",
-      "order": 269,
+      "order": 271,
       "file": "Vision/vision-object_shape.md",
       "bytes": 3118
     },
@@ -2175,7 +2191,7 @@
       "slug": "vision-nearest",
       "title": "Finding objects: Nearest object",
       "section": "Vision",
-      "order": 270,
+      "order": 272,
       "file": "Vision/vision-nearest.md",
       "bytes": 2735
     },
@@ -2183,7 +2199,7 @@
       "slug": "vision-corners",
       "title": "Finding objects: Find corners",
       "section": "Vision",
-      "order": 271,
+      "order": 273,
       "file": "Vision/vision-corners.md",
       "bytes": 2822
     },
@@ -2191,7 +2207,7 @@
       "slug": "vision-floodfill",
       "title": "Finding objects: Fill from point",
       "section": "Vision",
-      "order": 272,
+      "order": 274,
       "file": "Vision/vision-floodfill.md",
       "bytes": 2863
     },
@@ -2199,7 +2215,7 @@
       "slug": "vision-features",
       "title": "Finding objects: Find by features",
       "section": "Vision",
-      "order": 273,
+      "order": 275,
       "file": "Vision/vision-features.md",
       "bytes": 3784
     },
@@ -2207,7 +2223,7 @@
       "slug": "vision-aruco",
       "title": "Finding objects: Find markers",
       "section": "Vision",
-      "order": 274,
+      "order": 276,
       "file": "Vision/vision-aruco.md",
       "bytes": 3326
     },
@@ -2215,7 +2231,7 @@
       "slug": "vision-chessboard",
       "title": "Finding objects: Find chessboard",
       "section": "Vision",
-      "order": 275,
+      "order": 277,
       "file": "Vision/vision-chessboard.md",
       "bytes": 2905
     },
@@ -2223,7 +2239,7 @@
       "slug": "vision-object_colour",
       "title": "Finding objects: Colour of object",
       "section": "Vision",
-      "order": 276,
+      "order": 278,
       "file": "Vision/vision-object_colour.md",
       "bytes": 3319
     },
@@ -2231,7 +2247,7 @@
       "slug": "vision-st",
       "title": "Logic: ST code",
       "section": "Vision",
-      "order": 277,
+      "order": 279,
       "file": "Vision/vision-st.md",
       "bytes": 3829
     },
@@ -2239,7 +2255,7 @@
       "slug": "vision-brightness",
       "title": "Measurements: Brightness",
       "section": "Vision",
-      "order": 278,
+      "order": 280,
       "file": "Vision/vision-brightness.md",
       "bytes": 2273
     },
@@ -2247,7 +2263,7 @@
       "slug": "vision-white_ratio",
       "title": "Measurements: White share",
       "section": "Vision",
-      "order": 279,
+      "order": 281,
       "file": "Vision/vision-white_ratio.md",
       "bytes": 2080
     },
@@ -2255,7 +2271,7 @@
       "slug": "vision-blobs",
       "title": "Measurements: Count objects",
       "section": "Vision",
-      "order": 280,
+      "order": 282,
       "file": "Vision/vision-blobs.md",
       "bytes": 2613
     },
@@ -2263,7 +2279,7 @@
       "slug": "vision-scale",
       "title": "Measurements: Scale",
       "section": "Vision",
-      "order": 281,
+      "order": 283,
       "file": "Vision/vision-scale.md",
       "bytes": 2911
     },
@@ -2271,7 +2287,7 @@
       "slug": "vision-ruler",
       "title": "Measurements: Ruler",
       "section": "Vision",
-      "order": 282,
+      "order": 284,
       "file": "Vision/vision-ruler.md",
       "bytes": 3454
     },
@@ -2279,7 +2295,7 @@
       "slug": "vision-in_range",
       "title": "Measurements: In range",
       "section": "Vision",
-      "order": 283,
+      "order": 285,
       "file": "Vision/vision-in_range.md",
       "bytes": 2508
     },
@@ -2287,7 +2303,7 @@
       "slug": "vision-caliper",
       "title": "Measurements: Caliper",
       "section": "Vision",
-      "order": 284,
+      "order": 286,
       "file": "Vision/vision-caliper.md",
       "bytes": 4584
     },
@@ -2295,7 +2311,7 @@
       "slug": "vision-stats",
       "title": "Measurements: Brightness statistics",
       "section": "Vision",
-      "order": 285,
+      "order": 287,
       "file": "Vision/vision-stats.md",
       "bytes": 3024
     },
@@ -2303,7 +2319,7 @@
       "slug": "vision-sharpness",
       "title": "Measurements: Sharpness",
       "section": "Vision",
-      "order": 286,
+      "order": 288,
       "file": "Vision/vision-sharpness.md",
       "bytes": 3271
     },
@@ -2311,7 +2327,7 @@
       "slug": "vision-histogram",
       "title": "Measurements: Histogram",
       "section": "Vision",
-      "order": 287,
+      "order": 289,
       "file": "Vision/vision-histogram.md",
       "bytes": 3139
     },
@@ -2319,7 +2335,7 @@
       "slug": "vision-dist",
       "title": "Measurements: Distance",
       "section": "Vision",
-      "order": 288,
+      "order": 290,
       "file": "Vision/vision-dist.md",
       "bytes": 2488
     },
@@ -2327,7 +2343,7 @@
       "slug": "vision-golden",
       "title": "Measurements: Compare with taught",
       "section": "Vision",
-      "order": 289,
+      "order": 291,
       "file": "Vision/vision-golden.md",
       "bytes": 4009
     },
@@ -2335,7 +2351,7 @@
       "slug": "vision-level",
       "title": "Measurements: Fill level",
       "section": "Vision",
-      "order": 290,
+      "order": 292,
       "file": "Vision/vision-level.md",
       "bytes": 4419
     },
@@ -2343,7 +2359,7 @@
       "slug": "vision-circle_fit",
       "title": "Measurements: Circle (fit)",
       "section": "Vision",
-      "order": 291,
+      "order": 293,
       "file": "Vision/vision-circle_fit.md",
       "bytes": 4485
     },
@@ -2351,7 +2367,7 @@
       "slug": "vision-line_fit",
       "title": "Measurements: Line (fit)",
       "section": "Vision",
-      "order": 292,
+      "order": 294,
       "file": "Vision/vision-line_fit.md",
       "bytes": 4345
     },
@@ -2359,7 +2375,7 @@
       "slug": "vision-angle",
       "title": "Measurements: Angle",
       "section": "Vision",
-      "order": 293,
+      "order": 295,
       "file": "Vision/vision-angle.md",
       "bytes": 2416
     },
@@ -2367,7 +2383,7 @@
       "slug": "vision-points_dist",
       "title": "Measurements: Distance of points",
       "section": "Vision",
-      "order": 294,
+      "order": 296,
       "file": "Vision/vision-points_dist.md",
       "bytes": 3090
     },
@@ -2375,7 +2391,7 @@
       "slug": "vision-part_ok",
       "title": "Measurements: Part in place",
       "section": "Vision",
-      "order": 295,
+      "order": 297,
       "file": "Vision/vision-part_ok.md",
       "bytes": 4451
     },
@@ -2383,7 +2399,7 @@
       "slug": "vision-laser_line",
       "title": "Measurements: Laser line profile",
       "section": "Vision",
-      "order": 296,
+      "order": 298,
       "file": "Vision/vision-laser_line.md",
       "bytes": 5539
     },
@@ -2391,7 +2407,7 @@
       "slug": "vision-presence",
       "title": "Ready tools: Presence",
       "section": "Vision",
-      "order": 297,
+      "order": 299,
       "file": "Vision/vision-presence.md",
       "bytes": 3202
     },
@@ -2399,7 +2415,7 @@
       "slug": "vision-colour",
       "title": "Ready tools: Colour check",
       "section": "Vision",
-      "order": 298,
+      "order": 300,
       "file": "Vision/vision-colour.md",
       "bytes": 3667
     },
@@ -2407,7 +2423,7 @@
       "slug": "vision-edge",
       "title": "Ready tools: Edge position",
       "section": "Vision",
-      "order": 299,
+      "order": 301,
       "file": "Vision/vision-edge.md",
       "bytes": 3275
     },
@@ -2415,7 +2431,7 @@
       "slug": "vision-code",
       "title": "Ready tools: Read code",
       "section": "Vision",
-      "order": 300,
+      "order": 302,
       "file": "Vision/vision-code.md",
       "bytes": 3917
     },
@@ -2423,7 +2439,7 @@
       "slug": "vision-shape",
       "title": "Ready tools: Match shape",
       "section": "Vision",
-      "order": 301,
+      "order": 303,
       "file": "Vision/vision-shape.md",
       "bytes": 3357
     },
@@ -2431,7 +2447,7 @@
       "slug": "vision-dnn_classify",
       "title": "Learned models: Classify (model)",
       "section": "Vision",
-      "order": 302,
+      "order": 304,
       "file": "Vision/vision-dnn_classify.md",
       "bytes": 4468
     },
@@ -2439,7 +2455,7 @@
       "slug": "vision-dnn_detect",
       "title": "Learned models: Detect (model)",
       "section": "Vision",
-      "order": 303,
+      "order": 305,
       "file": "Vision/vision-dnn_detect.md",
       "bytes": 5253
     },
@@ -2447,7 +2463,7 @@
       "slug": "buses",
       "title": "Protocols",
       "section": "Protocols",
-      "order": 304,
+      "order": 306,
       "file": "Protocols/index.md",
       "bytes": 9075
     },
@@ -2455,7 +2471,7 @@
       "slug": "modbus-basics",
       "title": "What Modbus is",
       "section": "Protocols",
-      "order": 305,
+      "order": 307,
       "file": "Protocols/modbus-basics.md",
       "bytes": 9796
     },
@@ -2463,7 +2479,7 @@
       "slug": "modbus",
       "title": "Modbus",
       "section": "Protocols",
-      "order": 306,
+      "order": 308,
       "file": "Protocols/modbus.md",
       "bytes": 16458
     },
@@ -2471,7 +2487,7 @@
       "slug": "rawcan",
       "title": "Raw CAN",
       "section": "Protocols",
-      "order": 307,
+      "order": 309,
       "file": "Protocols/rawcan.md",
       "bytes": 4554
     },
@@ -2479,7 +2495,7 @@
       "slug": "mqtt",
       "title": "MQTT",
       "section": "Protocols",
-      "order": 308,
+      "order": 310,
       "file": "Protocols/mqtt.md",
       "bytes": 14145
     },
@@ -2487,15 +2503,23 @@
       "slug": "web-data",
       "title": "Web data",
       "section": "Protocols",
-      "order": 309,
+      "order": 311,
       "file": "Protocols/web-data.md",
       "bytes": 10018
+    },
+    {
+      "slug": "ros",
+      "title": "ROS 2",
+      "section": "Protocols",
+      "order": 312,
+      "file": "Protocols/ros.md",
+      "bytes": 12293
     },
     {
       "slug": "home-assistant",
       "title": "Home Assistant",
       "section": "Protocols",
-      "order": 310,
+      "order": 313,
       "file": "Protocols/home-assistant.md",
       "bytes": 11809
     },
@@ -2503,7 +2527,7 @@
       "slug": "canopen",
       "title": "CANopen",
       "section": "Protocols",
-      "order": 311,
+      "order": 314,
       "file": "Protocols/canopen.md",
       "bytes": 12483
     },
@@ -2511,7 +2535,7 @@
       "slug": "ethercat",
       "title": "EtherCAT",
       "section": "Protocols",
-      "order": 312,
+      "order": 315,
       "file": "Protocols/ethercat.md",
       "bytes": 21641
     },
@@ -2519,7 +2543,7 @@
       "slug": "vehicle-buses",
       "title": "Vehicle buses (J1939)",
       "section": "Protocols",
-      "order": 313,
+      "order": 316,
       "file": "Protocols/vehicle-buses.md",
       "bytes": 12995
     },
@@ -2527,7 +2551,7 @@
       "slug": "vehicle-diagnostics",
       "title": "Vehicle diagnostics",
       "section": "Protocols",
-      "order": 314,
+      "order": 317,
       "file": "Protocols/vehicle-diagnostics.md",
       "bytes": 6672
     },
@@ -2535,7 +2559,7 @@
       "slug": "plus7",
       "title": "+7 (S7 PLC)",
       "section": "Protocols",
-      "order": 315,
+      "order": 318,
       "file": "Protocols/plus7.md",
       "bytes": 8324
     },
@@ -2543,7 +2567,7 @@
       "slug": "net32",
       "title": "net32",
       "section": "Protocols",
-      "order": 316,
+      "order": 319,
       "file": "Protocols/net32.md",
       "bytes": 7483
     },
@@ -2551,7 +2575,7 @@
       "slug": "opcua",
       "title": "OPC UA",
       "section": "Protocols",
-      "order": 317,
+      "order": 320,
       "file": "Protocols/opcua.md",
       "bytes": 4188
     },
@@ -2559,7 +2583,7 @@
       "slug": "adding-peripherals",
       "title": "Adding a peripheral",
       "section": "Protocols",
-      "order": 318,
+      "order": 321,
       "file": "Protocols/adding-peripherals.md",
       "bytes": 896
     },
@@ -2567,7 +2591,7 @@
       "slug": "drives",
       "title": "Drive library",
       "section": "Drive library",
-      "order": 319,
+      "order": 322,
       "file": "Drive library/index.md",
       "bytes": 4918
     },
@@ -2575,7 +2599,7 @@
       "slug": "drives-setup",
       "title": "Setup screens and Quick setup",
       "section": "Drive library",
-      "order": 320,
+      "order": 323,
       "file": "Drive library/drives-setup.md",
       "bytes": 2579
     },
@@ -2583,7 +2607,7 @@
       "slug": "drives-control",
       "title": "Control from the device",
       "section": "Drive library",
-      "order": 321,
+      "order": 324,
       "file": "Drive library/drives-control.md",
       "bytes": 2690
     },
@@ -2591,7 +2615,7 @@
       "slug": "peripherals-and-services",
       "title": "Chips and services",
       "section": "Chips and services",
-      "order": 322,
+      "order": 325,
       "file": "Chips and services/index.md",
       "bytes": 7328
     },
@@ -2599,7 +2623,7 @@
       "slug": "peripherals-temperature",
       "title": "Temperature",
       "section": "Chips and services",
-      "order": 323,
+      "order": 326,
       "file": "Chips and services/peripherals-temperature.md",
       "bytes": 8174
     },
@@ -2607,7 +2631,7 @@
       "slug": "peripherals-environment",
       "title": "Environment",
       "section": "Chips and services",
-      "order": 324,
+      "order": 327,
       "file": "Chips and services/peripherals-environment.md",
       "bytes": 6126
     },
@@ -2615,7 +2639,7 @@
       "slug": "peripherals-air",
       "title": "Air quality",
       "section": "Chips and services",
-      "order": 325,
+      "order": 328,
       "file": "Chips and services/peripherals-air.md",
       "bytes": 5565
     },
@@ -2623,7 +2647,7 @@
       "slug": "peripherals-light",
       "title": "Light, distance, motion",
       "section": "Chips and services",
-      "order": 326,
+      "order": 329,
       "file": "Chips and services/peripherals-light.md",
       "bytes": 6391
     },
@@ -2631,7 +2655,7 @@
       "slug": "peripherals-pressure",
       "title": "Pressure and position",
       "section": "Chips and services",
-      "order": 327,
+      "order": 330,
       "file": "Chips and services/peripherals-pressure.md",
       "bytes": 8819
     },
@@ -2639,7 +2663,7 @@
       "slug": "peripherals-analog",
       "title": "Analog in and out",
       "section": "Chips and services",
-      "order": 328,
+      "order": 331,
       "file": "Chips and services/peripherals-analog.md",
       "bytes": 13221
     },
@@ -2647,7 +2671,7 @@
       "slug": "analog-inputs",
       "title": "Reading real values",
       "section": "Chips and services",
-      "order": 329,
+      "order": 332,
       "file": "Chips and services/analog-inputs.md",
       "bytes": 14730
     },
@@ -2655,7 +2679,7 @@
       "slug": "peripherals-io",
       "title": "I/O expanders and drivers",
       "section": "Chips and services",
-      "order": 330,
+      "order": 333,
       "file": "Chips and services/peripherals-io.md",
       "bytes": 12100
     },
@@ -2663,7 +2687,7 @@
       "slug": "peripherals-power",
       "title": "Power and energy",
       "section": "Chips and services",
-      "order": 331,
+      "order": 334,
       "file": "Chips and services/peripherals-power.md",
       "bytes": 15128
     },
@@ -2671,7 +2695,7 @@
       "slug": "peripherals-connectivity",
       "title": "Cellular modems",
       "section": "Chips and services",
-      "order": 332,
+      "order": 335,
       "file": "Chips and services/peripherals-connectivity.md",
       "bytes": 4329
     },
@@ -2679,7 +2703,7 @@
       "slug": "deployment",
       "title": "Deployment",
       "section": "Deployment",
-      "order": 333,
+      "order": 336,
       "file": "Deployment/index.md",
       "bytes": 654
     },
@@ -2687,7 +2711,7 @@
       "slug": "find-devices",
       "title": "Finding your boards",
       "section": "Deployment",
-      "order": 334,
+      "order": 337,
       "file": "Deployment/find-devices.md",
       "bytes": 5147
     },
@@ -2695,7 +2719,7 @@
       "slug": "deploy",
       "title": "Download to the panel",
       "section": "Deployment",
-      "order": 335,
+      "order": 338,
       "file": "Deployment/deploy.md",
       "bytes": 9929
     },
@@ -2703,7 +2727,7 @@
       "slug": "operation",
       "title": "Operation",
       "section": "Operation",
-      "order": 336,
+      "order": 339,
       "file": "Operation/index.md",
       "bytes": 714
     },
@@ -2711,7 +2735,7 @@
       "slug": "online",
       "title": "Online monitoring",
       "section": "Operation",
-      "order": 337,
+      "order": 340,
       "file": "Operation/online.md",
       "bytes": 8010
     },
@@ -2719,7 +2743,7 @@
       "slug": "recipes",
       "title": "Recipes",
       "section": "Operation",
-      "order": 338,
+      "order": 341,
       "file": "Operation/recipes.md",
       "bytes": 3978
     },
@@ -2727,7 +2751,7 @@
       "slug": "scope",
       "title": "Scope",
       "section": "Operation",
-      "order": 339,
+      "order": 342,
       "file": "Operation/scope.md",
       "bytes": 6342
     },
@@ -2735,7 +2759,7 @@
       "slug": "force",
       "title": "Forcing values",
       "section": "Operation",
-      "order": 340,
+      "order": 343,
       "file": "Operation/force.md",
       "bytes": 3433
     },
@@ -2743,7 +2767,7 @@
       "slug": "limits",
       "title": "Performance and limits",
       "section": "Operation",
-      "order": 341,
+      "order": 344,
       "file": "Operation/limits.md",
       "bytes": 6643
     },
@@ -2751,7 +2775,7 @@
       "slug": "troubleshooting",
       "title": "Troubleshooting",
       "section": "Operation",
-      "order": 342,
+      "order": 345,
       "file": "Operation/troubleshooting.md",
       "bytes": 6132
     },
@@ -2759,7 +2783,7 @@
       "slug": "about",
       "title": "About",
       "section": "About",
-      "order": 343,
+      "order": 346,
       "file": "About/index.md",
       "bytes": 509
     },
@@ -2767,7 +2791,7 @@
       "slug": "intended-use",
       "title": "Intended use",
       "section": "About",
-      "order": 344,
+      "order": 347,
       "file": "About/intended-use.md",
       "bytes": 4655
     },
@@ -2775,7 +2799,7 @@
       "slug": "licensing",
       "title": "Licensing",
       "section": "About",
-      "order": 345,
+      "order": 348,
       "file": "About/licensing.md",
       "bytes": 1391
     },
@@ -2783,7 +2807,7 @@
       "slug": "security",
       "title": "Network and security",
       "section": "About",
-      "order": 346,
+      "order": 349,
       "file": "About/security.md",
       "bytes": 5120
     },
@@ -2791,17 +2815,17 @@
       "slug": "third-party",
       "title": "Third-party licences",
       "section": "About",
-      "order": 347,
+      "order": 350,
       "file": "About/third-party.md",
-      "bytes": 5791
+      "bytes": 6266
     },
     {
       "slug": "changelog",
       "title": "What's new",
       "section": "About",
-      "order": 348,
+      "order": 351,
       "file": "About/changelog.md",
-      "bytes": 130131
+      "bytes": 132067
     }
   ],
   "assets": [
@@ -3181,6 +3205,8 @@
     "img/plus7-page.webp",
     "img/quickstart-sealin.webp",
     "img/rawcan-page.webp",
+    "img/ros-graph.webp",
+    "img/ros-page.webp",
     "img/rs485-page.webp",
     "img/rt-device.webp",
     "img/rt-drive-ecat.webp",
@@ -3414,7 +3440,9 @@
     "img/wl-donut.webp",
     "img/wl-dropdown.webp",
     "img/wl-energy_flow.webp",
+    "img/wl-joystick.webp",
     "img/wl-line.webp",
+    "img/wl-map2d.webp",
     "img/wl-menu.webp",
     "img/wl-qrcode.webp",
     "img/wl-rich_text.webp",

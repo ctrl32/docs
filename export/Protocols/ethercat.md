@@ -2,8 +2,8 @@
 title: "EtherCAT"
 slug: ethercat
 section: "Protocols"
-order: 312
-sidebar_position: 312
+order: 315
+sidebar_position: 315
 generator: tools/docs_export.py
 ---
 

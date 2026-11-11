@@ -2,8 +2,8 @@
 title: "Colour: Adaptive threshold"
 slug: vision-adaptive
 section: "Vision"
-order: 233
-sidebar_position: 233
+order: 235
+sidebar_position: 235
 image: img/vbc-adaptive.webp
 image_alt: "The Adaptive threshold block on the Vision canvas"
 generator: tools/docs_export.py

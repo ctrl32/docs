@@ -2,8 +2,8 @@
 title: "Indicators: gauge"
 slug: w-gauge
 section: "Visualisation"
-order: 56
-sidebar_position: 56
+order: 57
+sidebar_position: 57
 image: img/gallery-indicators.webp
 image_alt: "The gauge widget on a screen"
 generator: tools/docs_export.py

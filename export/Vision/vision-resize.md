@@ -2,8 +2,8 @@
 title: "Geometry: Resize"
 slug: vision-resize
 section: "Vision"
-order: 217
-sidebar_position: 217
+order: 219
+sidebar_position: 219
 image: img/vbc-resize.webp
 image_alt: "The Resize block on the Vision canvas"
 generator: tools/docs_export.py

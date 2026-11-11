@@ -2,8 +2,8 @@
 title: "Edges: Edges"
 slug: vision-canny
 section: "Vision"
-order: 257
-sidebar_position: 257
+order: 259
+sidebar_position: 259
 image: img/vbc-canny.webp
 image_alt: "The Edges block on the Vision canvas"
 generator: tools/docs_export.py

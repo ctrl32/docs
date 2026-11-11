@@ -2,8 +2,8 @@
 title: "Learned models: Detect (model)"
 slug: vision-dnn_detect
 section: "Vision"
-order: 303
-sidebar_position: 303
+order: 305
+sidebar_position: 305
 image: img/vbc-dnn_detect.webp
 image_alt: "The Detect (model) block on the Vision canvas"
 generator: tools/docs_export.py

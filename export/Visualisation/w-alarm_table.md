@@ -2,8 +2,8 @@
 title: "Trends and alarms: alarm_table"
 slug: w-alarm_table
 section: "Visualisation"
-order: 69
-sidebar_position: 69
+order: 71
+sidebar_position: 71
 image: img/gallery-alarms.webp
 image_alt: "The alarm_table widget on a screen"
 generator: tools/docs_export.py

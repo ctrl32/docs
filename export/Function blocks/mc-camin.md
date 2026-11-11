@@ -2,8 +2,8 @@
 title: "Motion, profiles and cams: MC_CamIn"
 slug: mc-camin
 section: "Function blocks"
-order: 121
-sidebar_position: 121
+order: 123
+sidebar_position: 123
 image: img/blk-mccami-ld.webp
 image_alt: "MC_CamIn on a rung of a ladder program"
 generator: tools/docs_export.py

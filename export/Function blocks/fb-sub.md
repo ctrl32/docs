@@ -2,8 +2,8 @@
 title: "Maths: SUB"
 slug: fb-sub
 section: "Function blocks"
-order: 157
-sidebar_position: 157
+order: 159
+sidebar_position: 159
 image: img/blk-sub-ld.webp
 image_alt: "SUB in the editor"
 generator: tools/docs_export.py

@@ -2,8 +2,8 @@
 title: "Filters: Difference"
 slug: vision-absdiff
 section: "Vision"
-order: 240
-sidebar_position: 240
+order: 242
+sidebar_position: 242
 image: img/vbc-absdiff.webp
 image_alt: "The Difference block on the Vision canvas"
 generator: tools/docs_export.py

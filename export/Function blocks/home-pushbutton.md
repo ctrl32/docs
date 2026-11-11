@@ -2,8 +2,8 @@
 title: "Home automation: PUSHBUTTON"
 slug: home-pushbutton
 section: "Function blocks"
-order: 190
-sidebar_position: 190
+order: 192
+sidebar_position: 192
 image: img/home-lights.webp
 image_alt: "PUSHBUTTON in the editor"
 generator: tools/docs_export.py

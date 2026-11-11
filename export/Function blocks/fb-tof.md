@@ -2,8 +2,8 @@
 title: "Timers: TOF"
 slug: fb-tof
 section: "Function blocks"
-order: 143
-sidebar_position: 143
+order: 145
+sidebar_position: 145
 image: img/blk-tof-ld.webp
 image_alt: "TOF in the editor"
 generator: tools/docs_export.py
